@@ -1,0 +1,105 @@
+{
+  "id": "quiz",
+  "title": "Merge Sort Check",
+  "description": "Merging runs, complexity, and stability.",
+  "lessonId": "02.2.1-merge-sort",
+  "graphIndex": "02.2.1",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Merging `[1, 4, 7]` and `[2, 3, 8]`, first output is:",
+      "options": [
+        {
+          "id": "a",
+          "text": "2"
+        },
+        {
+          "id": "b",
+          "text": "1"
+        },
+        {
+          "id": "c",
+          "text": "4"
+        },
+        {
+          "id": "d",
+          "text": "8"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`1 < 2` → take from the left run."
+    },
+    {
+      "id": "q2",
+      "prompt": "Merge sort time is typically:",
+      "options": [
+        {
+          "id": "a",
+          "text": "`O(n²)` average"
+        },
+        {
+          "id": "b",
+          "text": "`Θ(n log n)` in all cases"
+        },
+        {
+          "id": "c",
+          "text": "`O(n)` always"
+        },
+        {
+          "id": "d",
+          "text": "`O(log n)`"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`log n` levels × linear merge each level."
+    },
+    {
+      "id": "q3",
+      "prompt": "Typical auxiliary memory is:",
+      "options": [
+        {
+          "id": "a",
+          "text": "`O(1)`"
+        },
+        {
+          "id": "b",
+          "text": "`Θ(n)` for merge buffers"
+        },
+        {
+          "id": "c",
+          "text": "`O(n²)`"
+        },
+        {
+          "id": "d",
+          "text": "`O(log n)` only"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Merged output needs linear extra space."
+    },
+    {
+      "id": "q4",
+      "prompt": "Using `left[i] <= right[j]` on equal keys:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Breaks the sort"
+        },
+        {
+          "id": "b",
+          "text": "Helps keep merge sort stable"
+        },
+        {
+          "id": "c",
+          "text": "Forces unstable order"
+        },
+        {
+          "id": "d",
+          "text": "Removes buffer need"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Preferring the left run preserves equal-key order."
+    }
+  ]
+}

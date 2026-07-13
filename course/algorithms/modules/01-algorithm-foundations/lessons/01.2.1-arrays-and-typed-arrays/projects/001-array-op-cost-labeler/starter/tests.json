@@ -1,0 +1,46 @@
+{
+  "cases": [
+    {
+      "id": "index",
+      "name": "Index O(1)",
+      "stdin": "index\n",
+      "expectedStdout": "O(1)\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "push",
+      "name": "Push amortized O(1)",
+      "stdin": "push\n",
+      "expectedStdout": "amortized O(1)\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "shift",
+      "name": "Shift O(n)",
+      "stdin": "shift\n",
+      "expectedStdout": "O(n)\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "includes",
+      "name": "includes O(n)",
+      "stdin": "includes\n",
+      "expectedStdout": "O(n)\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "typed",
+      "name": "TypedArray use-case tag",
+      "stdin": "typed-fixed\n",
+      "expectedStdout": "typed-array\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "unknown",
+      "name": "Unknown op",
+      "stdin": "unknown\n",
+      "expectedStdout": "ERROR: unknown op\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

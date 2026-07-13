@@ -1,0 +1,57 @@
+{
+  "id": "quiz",
+  "title": "Async/Await Check",
+  "description": "Predict await resume order and try/catch around await.",
+  "lessonId": "03.2.2-async-await",
+  "graphIndex": "03.2.2",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What is the output order?\n\n```js\nasync function main() {\n  console.log(\"A\");\n  await null;\n  console.log(\"B\");\n}\nmain();\nconsole.log(\"C\");\n```",
+      "options": [
+        { "id": "a", "text": "`A`, `B`, `C`" },
+        { "id": "b", "text": "`A`, `C`, `B`" },
+        { "id": "c", "text": "`C`, `A`, `B`" },
+        { "id": "d", "text": "`A`, `B` only (`C` never runs)" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`main()` runs synchronously until `await`, printing `A`. Then `C` runs. `B` resumes later as a microtask."
+    },
+    {
+      "id": "q2",
+      "prompt": "What does an `async` function always return?",
+      "options": [
+        { "id": "a", "text": "A string" },
+        { "id": "b", "text": "A Promise" },
+        { "id": "c", "text": "`undefined` only" },
+        { "id": "d", "text": "A microtask queue handle" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "An `async` function always returns a Promise, even if you `return` a plain value."
+    },
+    {
+      "id": "q3",
+      "prompt": "How does `await` on a rejected Promise behave inside an `async` function?",
+      "options": [
+        { "id": "a", "text": "It returns `null` silently" },
+        { "id": "b", "text": "It throws; use `try/catch` around the `await`" },
+        { "id": "c", "text": "It converts the rejection into a timer task" },
+        { "id": "d", "text": "It pauses forever" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`await` on a rejection throws inside the async function. Catch it with `try/catch` (or handle the returned Promise)."
+    },
+    {
+      "id": "q4",
+      "prompt": "Code after `await` resumes as:",
+      "options": [
+        { "id": "a", "text": "A new OS thread" },
+        { "id": "b", "text": "Immediate sync work ahead of `console.log` in the caller" },
+        { "id": "c", "text": "A microtask continuation" },
+        { "id": "d", "text": "A `setTimeout(..., 0)` task only" }
+      ],
+      "correctOptionId": "c",
+      "explanation": "`await` pauses the async function and schedules the continuation as a microtask after the awaited Promise settles."
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "id": "found",
+      "name": "Target present",
+      "stdin": "1 3 5 7 9\n7\n",
+      "expectedStdout": "3\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "missing",
+      "name": "Target absent",
+      "stdin": "1 3 5 7 9\n6\n",
+      "expectedStdout": "-1\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "first",
+      "name": "First element",
+      "stdin": "2 4 6\n2\n",
+      "expectedStdout": "0\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "last",
+      "name": "Last element",
+      "stdin": "2 4 6\n6\n",
+      "expectedStdout": "2\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

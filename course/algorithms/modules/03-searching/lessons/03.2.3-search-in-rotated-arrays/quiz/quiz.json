@@ -1,0 +1,105 @@
+{
+  "id": "quiz",
+  "title": "Rotated Array Search Check",
+  "description": "Sorted-half decisions in rotated arrays.",
+  "lessonId": "03.2.3-search-in-rotated-arrays",
+  "graphIndex": "03.2.3",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "In a rotated sorted array with distinct values, relative to `mid`:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Both halves are always unsorted"
+        },
+        {
+          "id": "b",
+          "text": "At least one half is contiguous sorted"
+        },
+        {
+          "id": "c",
+          "text": "Binary search is impossible"
+        },
+        {
+          "id": "d",
+          "text": "You must sort again first"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Rotation preserves a sorted run on one side of mid — that is the key invariant."
+    },
+    {
+      "id": "q2",
+      "prompt": "If the left half `[lo..mid]` is sorted and the target is outside it, you search:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Left"
+        },
+        {
+          "id": "b",
+          "text": "Right"
+        },
+        {
+          "id": "c",
+          "text": "Both with nested loops"
+        },
+        {
+          "id": "d",
+          "text": "Nowhere — return `lo`"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "If the sorted half cannot hold the target, discard it and search the other half."
+    },
+    {
+      "id": "q3",
+      "prompt": "Target time for rotated search (distinct) is still:",
+      "options": [
+        {
+          "id": "a",
+          "text": "`O(n)`"
+        },
+        {
+          "id": "b",
+          "text": "`O(log n)`"
+        },
+        {
+          "id": "c",
+          "text": "`O(n log n)`"
+        },
+        {
+          "id": "d",
+          "text": "`O(n²)`"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Each step halves (or nearly halves) the interval → logarithmic."
+    },
+    {
+      "id": "q4",
+      "prompt": "For `[4,5,6,7,0,1,2]` and mid at `7`, the sorted left half is:",
+      "options": [
+        {
+          "id": "a",
+          "text": "`[4,5,6,7]`"
+        },
+        {
+          "id": "b",
+          "text": "`[7,0,1,2]`"
+        },
+        {
+          "id": "c",
+          "text": "`[0,1,2]` only as left"
+        },
+        {
+          "id": "d",
+          "text": "Neither side"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "`nums[lo] <= nums[mid]` means the left segment through mid is sorted."
+    }
+  ]
+}

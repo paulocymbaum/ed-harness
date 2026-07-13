@@ -1,0 +1,105 @@
+{
+  "id": "quiz",
+  "title": "Memory Constraints Check",
+  "description": "Buffers vs in-place guarantees when choosing a sort.",
+  "lessonId": "02.5.2-memory-constraints",
+  "graphIndex": "02.5.2",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Classic merge sort typically needs:",
+      "options": [
+        {
+          "id": "a",
+          "text": "`O(1)` extra array space"
+        },
+        {
+          "id": "b",
+          "text": "`Θ(n)` merge buffers"
+        },
+        {
+          "id": "c",
+          "text": "`O(n²)` buffers"
+        },
+        {
+          "id": "d",
+          "text": "No memory at all"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Merging into auxiliary storage costs linear space."
+    },
+    {
+      "id": "q2",
+      "prompt": "Under tight RAM with an `n log n` guarantee, prefer:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Merge sort buffers"
+        },
+        {
+          "id": "b",
+          "text": "Heap sort (in-place heap)"
+        },
+        {
+          "id": "c",
+          "text": "Creating many `slice` copies"
+        },
+        {
+          "id": "d",
+          "text": "Bubble without early exit only"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Heap sort is the usual in-place `n log n` pick."
+    },
+    {
+      "id": "q3",
+      "prompt": "In-place quicksort still uses:",
+      "options": [
+        {
+          "id": "a",
+          "text": "No stack ever"
+        },
+        {
+          "id": "b",
+          "text": "Call stack / explicit stack proportional to depth"
+        },
+        {
+          "id": "c",
+          "text": "`Θ(n)` mandatory buffers"
+        },
+        {
+          "id": "d",
+          "text": "Disk only"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Recursion depth is extra memory to count."
+    },
+    {
+      "id": "q4",
+      "prompt": "Memory pressure can matter more than CPU when:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Buffers do not fit"
+        },
+        {
+          "id": "b",
+          "text": "You have infinite RAM"
+        },
+        {
+          "id": "c",
+          "text": "`n = 2`"
+        },
+        {
+          "id": "d",
+          "text": "Keys are already sorted and unused"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Allocation failure / thrashing beats asymptotic time wins."
+    }
+  ]
+}

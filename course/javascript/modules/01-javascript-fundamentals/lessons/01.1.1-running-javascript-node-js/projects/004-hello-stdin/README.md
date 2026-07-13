@@ -4,12 +4,12 @@
 You are onboarding to a team that solves HackerRank-style problems in Node.js. Your first task is a tiny CLI that reads input from `stdin` and prints a greeting — the same I/O pattern used in most coding challenges.
 
 ## Goal
+Build a Node.js program that reads one line from `stdin` and prints a formatted greeting to `stdout`.
+
 ## Lesson concepts practiced
 - [ ] Input from HackerRank arrives as **strings** — even numbers.
 - [ ] Always **trim** user input before validating emptiness.
 - [ ] `rl.close()` ends the program cleanly after handling one line.
-
-Build a Node.js program that reads one line from `stdin` and prints a formatted greeting to `stdout`.
 
 ## Functional requirements
 - [ ] Read exactly one line from `stdin` (the user's name).

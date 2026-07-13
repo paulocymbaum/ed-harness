@@ -1,0 +1,105 @@
+{
+  "id": "quiz",
+  "title": "Counting Sort Check",
+  "description": "Ranges, count arrays, and when to use counting sort.",
+  "lessonId": "02.3.1-counting-sort",
+  "graphIndex": "02.3.1",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "For min=1 max=3, the count array length is:",
+      "options": [
+        {
+          "id": "a",
+          "text": "2"
+        },
+        {
+          "id": "b",
+          "text": "3"
+        },
+        {
+          "id": "c",
+          "text": "4"
+        },
+        {
+          "id": "d",
+          "text": "n"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`max - min + 1 = 3`."
+    },
+    {
+      "id": "q2",
+      "prompt": "Counting sort time is best described as:",
+      "options": [
+        {
+          "id": "a",
+          "text": "`O(n log n)` comparisons"
+        },
+        {
+          "id": "b",
+          "text": "`O(n + k)` for range size `k`"
+        },
+        {
+          "id": "c",
+          "text": "`O(n²)` always"
+        },
+        {
+          "id": "d",
+          "text": "`O(1)`"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Fill counts then emit — linear in `n` and `k`."
+    },
+    {
+      "id": "q3",
+      "prompt": "Counting sort is a poor fit when:",
+      "options": [
+        {
+          "id": "a",
+          "text": "`k` is tiny and keys are ints"
+        },
+        {
+          "id": "b",
+          "text": "`k` is huge compared with `n`"
+        },
+        {
+          "id": "c",
+          "text": "You need stable int sorting in a small range"
+        },
+        {
+          "id": "d",
+          "text": "You already know min and max"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Memory and time both grow with the value span."
+    },
+    {
+      "id": "q4",
+      "prompt": "Counting sort is:",
+      "options": [
+        {
+          "id": "a",
+          "text": "A comparison sort like quicksort"
+        },
+        {
+          "id": "b",
+          "text": "A non-comparison sort using tallies"
+        },
+        {
+          "id": "c",
+          "text": "Only for floating point"
+        },
+        {
+          "id": "d",
+          "text": "Always in-place with `O(1)` memory"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "It counts keys instead of comparing pairs."
+    }
+  ]
+}

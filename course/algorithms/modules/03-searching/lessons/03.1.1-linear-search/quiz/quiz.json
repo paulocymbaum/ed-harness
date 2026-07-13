@@ -1,0 +1,105 @@
+{
+  "id": "quiz",
+  "title": "Linear Search Check",
+  "description": "First-match scans, complexity, and missing targets.",
+  "lessonId": "03.1.1-linear-search",
+  "graphIndex": "03.1.1",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "For `arr = [4, 9, 2, 9]` and `target = 9`, classic first-match linear search returns:",
+      "options": [
+        {
+          "id": "a",
+          "text": "`1`"
+        },
+        {
+          "id": "b",
+          "text": "`3`"
+        },
+        {
+          "id": "c",
+          "text": "`[1, 3]`"
+        },
+        {
+          "id": "d",
+          "text": "`-1`"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "The scan returns the first matching index. Index `1` holds the first `9`."
+    },
+    {
+      "id": "q2",
+      "prompt": "Linear search requires the array to be sorted.",
+      "options": [
+        {
+          "id": "a",
+          "text": "True"
+        },
+        {
+          "id": "b",
+          "text": "False"
+        },
+        {
+          "id": "c",
+          "text": "Only for strings"
+        },
+        {
+          "id": "d",
+          "text": "Only when `n > 100`"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Linear search needs no sorted order — that is why it is the default when binary search is unavailable."
+    },
+    {
+      "id": "q3",
+      "prompt": "Worst-case time for linear search of length `n` is:",
+      "options": [
+        {
+          "id": "a",
+          "text": "`O(1)`"
+        },
+        {
+          "id": "b",
+          "text": "`O(log n)`"
+        },
+        {
+          "id": "c",
+          "text": "`O(n)`"
+        },
+        {
+          "id": "d",
+          "text": "`O(n²)`"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "Missing target or last element forces up to `n` comparisons → `O(n)`."
+    },
+    {
+      "id": "q4",
+      "prompt": "Returning early on the first match means the algorithm is no longer linear search.",
+      "options": [
+        {
+          "id": "a",
+          "text": "True — early exit makes it binary search"
+        },
+        {
+          "id": "b",
+          "text": "False — early exit is still linear search and is required for first index"
+        },
+        {
+          "id": "c",
+          "text": "True — it becomes `O(1)`"
+        },
+        {
+          "id": "d",
+          "text": "True — it becomes two pointers"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Early return is normal linear search for first-match. Worst case remains `O(n)`."
+    }
+  ]
+}

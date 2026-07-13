@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "id": "example",
+      "name": "3 1 2 → 2 swaps",
+      "stdin": "3\n3 1 2\n",
+      "expectedStdout": "2\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "sorted",
+      "name": "Already sorted → 0",
+      "stdin": "3\n1 2 3\n",
+      "expectedStdout": "0\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "reverse",
+      "name": "Reverse 4 → 3 swaps",
+      "stdin": "4\n4 3 2 1\n",
+      "expectedStdout": "3\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "pair",
+      "name": "Two elements",
+      "stdin": "2\n2 1\n",
+      "expectedStdout": "1\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

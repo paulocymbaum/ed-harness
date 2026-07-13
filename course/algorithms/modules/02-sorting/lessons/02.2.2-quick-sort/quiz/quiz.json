@@ -1,0 +1,105 @@
+{
+  "id": "quiz",
+  "title": "Quick Sort Check",
+  "description": "Partition, pivot risk, and complexity.",
+  "lessonId": "02.2.2-quick-sort",
+  "graphIndex": "02.2.2",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Lomuto on `[3, 1, 4, 2]` with pivot `2` places the pivot at index:",
+      "options": [
+        {
+          "id": "a",
+          "text": "0"
+        },
+        {
+          "id": "b",
+          "text": "1"
+        },
+        {
+          "id": "c",
+          "text": "2"
+        },
+        {
+          "id": "d",
+          "text": "3"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Only `1` is `< 2`, so pivot index is `1`."
+    },
+    {
+      "id": "q2",
+      "prompt": "Average-case quicksort time is:",
+      "options": [
+        {
+          "id": "a",
+          "text": "`O(n)`"
+        },
+        {
+          "id": "b",
+          "text": "`O(n log n)`"
+        },
+        {
+          "id": "c",
+          "text": "`O(n²)`"
+        },
+        {
+          "id": "d",
+          "text": "`O(log n)`"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Balanced partitions yield average `n log n`."
+    },
+    {
+      "id": "q3",
+      "prompt": "Worst case with a bad pivot is:",
+      "options": [
+        {
+          "id": "a",
+          "text": "`O(n log n)`"
+        },
+        {
+          "id": "b",
+          "text": "`O(n)`"
+        },
+        {
+          "id": "c",
+          "text": "`O(n²)`"
+        },
+        {
+          "id": "d",
+          "text": "`O(1)`"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "Degenerate splits → quadratic."
+    },
+    {
+      "id": "q4",
+      "prompt": "Classic in-place quicksort is:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Stable by default"
+        },
+        {
+          "id": "b",
+          "text": "Not stable — swaps reorder equals"
+        },
+        {
+          "id": "c",
+          "text": "Stable only for strings"
+        },
+        {
+          "id": "d",
+          "text": "Stable iff pivot is median"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Partition swaps freely across equal keys."
+    }
+  ]
+}

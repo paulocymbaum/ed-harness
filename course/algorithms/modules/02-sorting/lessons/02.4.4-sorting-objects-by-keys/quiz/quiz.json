@@ -1,0 +1,105 @@
+{
+  "id": "quiz",
+  "title": "Sorting Objects by Keys Check",
+  "description": "Property comparators and multi-key short-circuit.",
+  "lessonId": "02.4.4-sorting-objects-by-keys",
+  "graphIndex": "02.4.4",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Sort users by numeric `age` ascending with:",
+      "options": [
+        {
+          "id": "a",
+          "text": "`(u,v) => u.age + v.age`"
+        },
+        {
+          "id": "b",
+          "text": "`(u,v) => u.age - v.age`"
+        },
+        {
+          "id": "c",
+          "text": "No comparator"
+        },
+        {
+          "id": "d",
+          "text": "`(u,v) => u.age > v.age`"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Numeric subtract gives the compare sign."
+    },
+    {
+      "id": "q2",
+      "prompt": "`a - b || nameCompare` uses name when:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Ages differ"
+        },
+        {
+          "id": "b",
+          "text": "Age compare is `0` (tie)"
+        },
+        {
+          "id": "c",
+          "text": "Names are equal only"
+        },
+        {
+          "id": "d",
+          "text": "Always"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`0` is falsy → fall through to the next key."
+    },
+    {
+      "id": "q3",
+      "prompt": "Sorting an array of objects:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Deep-clones every object"
+        },
+        {
+          "id": "b",
+          "text": "Reorders references; objects are shared"
+        },
+        {
+          "id": "c",
+          "text": "Freezes properties"
+        },
+        {
+          "id": "d",
+          "text": "Removes missing keys"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Only the array order of refs changes."
+    },
+    {
+      "id": "q4",
+      "prompt": "String fields are often compared with:",
+      "options": [
+        {
+          "id": "a",
+          "text": "`a - b`"
+        },
+        {
+          "id": "b",
+          "text": "`localeCompare`"
+        },
+        {
+          "id": "c",
+          "text": "`Math.max`"
+        },
+        {
+          "id": "d",
+          "text": "`JSON.stringify` only"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`localeCompare` returns a proper compare sign."
+    }
+  ]
+}

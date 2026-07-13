@@ -1,0 +1,46 @@
+{
+  "cases": [
+    {
+      "id": "constant",
+      "name": "O(1) index-style",
+      "stdin": "constant\n",
+      "expectedStdout": "O(1)\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "linear",
+      "name": "O(n) single pass",
+      "stdin": "linear\n",
+      "expectedStdout": "O(n)\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "quadratic",
+      "name": "O(n^2) nested loops",
+      "stdin": "quadratic\n",
+      "expectedStdout": "O(n^2)\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "log",
+      "name": "O(log n) halving",
+      "stdin": "log\n",
+      "expectedStdout": "O(log n)\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "nlogn",
+      "name": "O(n log n) sort shape",
+      "stdin": "nlogn\n",
+      "expectedStdout": "O(n log n)\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "unknown",
+      "name": "Unknown snippet",
+      "stdin": "unknown\n",
+      "expectedStdout": "ERROR: unknown snippet\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

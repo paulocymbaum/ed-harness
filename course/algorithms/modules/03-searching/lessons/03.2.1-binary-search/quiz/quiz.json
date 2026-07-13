@@ -1,0 +1,105 @@
+{
+  "id": "quiz",
+  "title": "Binary Search Check",
+  "description": "Halving intervals on sorted arrays.",
+  "lessonId": "03.2.1-binary-search",
+  "graphIndex": "03.2.1",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Binary search requires the array to be:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Unsorted"
+        },
+        {
+          "id": "b",
+          "text": "Sorted (monotonic order)"
+        },
+        {
+          "id": "c",
+          "text": "All unique and random"
+        },
+        {
+          "id": "d",
+          "text": "Stored in a Map"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Halving relies on order: everything left of mid is ≤ (or ≥) mid's value."
+    },
+    {
+      "id": "q2",
+      "prompt": "Typical time for binary search on length `n` is:",
+      "options": [
+        {
+          "id": "a",
+          "text": "`O(n)`"
+        },
+        {
+          "id": "b",
+          "text": "`O(log n)`"
+        },
+        {
+          "id": "c",
+          "text": "`O(n²)`"
+        },
+        {
+          "id": "d",
+          "text": "`O(1)` always"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Each step halves the interval → logarithmic comparisons."
+    },
+    {
+      "id": "q3",
+      "prompt": "When `a[mid] < target` in ascending order you should:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Set `hi = mid - 1`"
+        },
+        {
+          "id": "b",
+          "text": "Set `lo = mid + 1`"
+        },
+        {
+          "id": "c",
+          "text": "Return `-1` immediately"
+        },
+        {
+          "id": "d",
+          "text": "Swap `lo` and `hi`"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Target must lie to the right of mid if it exists → raise `lo`."
+    },
+    {
+      "id": "q4",
+      "prompt": "If the loop ends with empty `[lo, hi]`, binary search should:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Return `0`"
+        },
+        {
+          "id": "b",
+          "text": "Return `mid`"
+        },
+        {
+          "id": "c",
+          "text": "Return `-1` (not found)"
+        },
+        {
+          "id": "d",
+          "text": "Sort and retry forever"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "Empty interval means the target cannot exist under the invariant."
+    }
+  ]
+}

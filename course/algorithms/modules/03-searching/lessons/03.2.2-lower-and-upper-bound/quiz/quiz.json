@@ -1,0 +1,105 @@
+{
+  "id": "quiz",
+  "title": "Lower and Upper Bound Check",
+  "description": "First ≥ / first > positions on sorted data.",
+  "lessonId": "03.2.2-lower-and-upper-bound",
+  "graphIndex": "03.2.2",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "For `[1, 2, 2, 2, 5]` the lower bound of `2` is:",
+      "options": [
+        {
+          "id": "a",
+          "text": "`0`"
+        },
+        {
+          "id": "b",
+          "text": "`1`"
+        },
+        {
+          "id": "c",
+          "text": "`3`"
+        },
+        {
+          "id": "d",
+          "text": "`4`"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "First index with value `>= 2` is index `1`."
+    },
+    {
+      "id": "q2",
+      "prompt": "Upper bound of `2` in that array is:",
+      "options": [
+        {
+          "id": "a",
+          "text": "`1`"
+        },
+        {
+          "id": "b",
+          "text": "`3`"
+        },
+        {
+          "id": "c",
+          "text": "`4`"
+        },
+        {
+          "id": "d",
+          "text": "`5`"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "First index with value `> 2` is index `4` (`5`)."
+    },
+    {
+      "id": "q3",
+      "prompt": "If every element is `< target`, lower bound returns:",
+      "options": [
+        {
+          "id": "a",
+          "text": "`-1`"
+        },
+        {
+          "id": "b",
+          "text": "`0`"
+        },
+        {
+          "id": "c",
+          "text": "`n` (insert at end)"
+        },
+        {
+          "id": "d",
+          "text": "`n-1`"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "No index satisfies `>= target`, so the insert position is `n`."
+    },
+    {
+      "id": "q4",
+      "prompt": "In the lower-bound loop, when `a[mid] < target` you:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Set `hi = mid`"
+        },
+        {
+          "id": "b",
+          "text": "Set `lo = mid + 1`"
+        },
+        {
+          "id": "c",
+          "text": "Return `mid`"
+        },
+        {
+          "id": "d",
+          "text": "Set `hi = mid - 1` and return"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Everything at `mid` and left is still too small → search the right half."
+    }
+  ]
+}

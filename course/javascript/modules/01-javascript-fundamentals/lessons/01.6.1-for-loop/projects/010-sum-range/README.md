@@ -4,12 +4,12 @@
 Analytics needs the sum of all integers from `start` to `end` inclusive. A `for` loop is the straightforward tool.
 
 ## Goal
+Read `start` and `end` from `stdin` and print the inclusive sum.
+
 ## Lesson concepts practiced
 - [ ] Off-by-one bugs are common: `i < n` vs `i <= n`.
 - [ ] Apply concepts from for Loop
 - [ ] Match acceptance criteria to lesson examples
-
-Read `start` and `end` from `stdin` and print the inclusive sum.
 
 ## Functional requirements
 - [ ] Read two integers `start` and `end` (may be negative; `start` may be greater than `end`).

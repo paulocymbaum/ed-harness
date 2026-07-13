@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-07-13T18:31:36.756Z",
+  "generatedAt": "2026-07-13T23:10:27.585Z",
   "courses": {
     "algorithms": {
-      "generatedAt": "2026-07-13T18:31:36.742Z",
+      "generatedAt": "2026-07-13T23:10:27.571Z",
       "courseSlug": "algorithms",
       "stats": {
         "totalLeaves": 82,
@@ -1114,7 +1114,7 @@
       }
     },
     "javascript": {
-      "generatedAt": "2026-07-13T18:31:36.756Z",
+      "generatedAt": "2026-07-13T23:10:27.585Z",
       "courseSlug": "javascript",
       "stats": {
         "totalLeaves": 57,

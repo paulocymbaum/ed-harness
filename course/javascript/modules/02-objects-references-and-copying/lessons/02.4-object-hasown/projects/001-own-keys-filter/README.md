@@ -6,12 +6,12 @@ When processing user records, you often need to serialize **only fields defined 
 This project trains `Object.hasOwn` to filter enumerable own keys safely.
 
 ## Goal
+Implement `ownKeys(obj)` that returns an array of **own enumerable string keys** sorted alphabetically, ignoring inherited properties.
+
 ## Lesson concepts practiced
 - [ ] const record = { id: 1 };
 - [ ] console.log(Object.hasOwn(record, "toString")); // false
 - [ ] console.log("toString" in record);               // true (from Object.prototype)
-
-Implement `ownKeys(obj)` that returns an array of **own enumerable string keys** sorted alphabetically, ignoring inherited properties.
 
 ## Functional requirements
 - [ ] Implement `ownKeys(obj)`.

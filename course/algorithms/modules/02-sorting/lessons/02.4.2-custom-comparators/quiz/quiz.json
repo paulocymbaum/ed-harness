@@ -1,0 +1,105 @@
+{
+  "id": "quiz",
+  "title": "Custom Comparators Check",
+  "description": "Compare contract, signs, and footguns.",
+  "lessonId": "02.4.2-custom-comparators",
+  "graphIndex": "02.4.2",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Ascending numeric compare `(3, 5)` should be:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Positive"
+        },
+        {
+          "id": "b",
+          "text": "Negative"
+        },
+        {
+          "id": "c",
+          "text": "NaN"
+        },
+        {
+          "id": "d",
+          "text": "true"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`3 - 5 < 0` → `3` before `5`."
+    },
+    {
+      "id": "q2",
+      "prompt": "Descending numbers use:",
+      "options": [
+        {
+          "id": "a",
+          "text": "`(a,b) => a - b`"
+        },
+        {
+          "id": "b",
+          "text": "`(a,b) => b - a`"
+        },
+        {
+          "id": "c",
+          "text": "`(a,b) => a > b`"
+        },
+        {
+          "id": "d",
+          "text": "`(a,b) => 0`"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Flip the subtraction for descending order."
+    },
+    {
+      "id": "q3",
+      "prompt": "Returning a boolean from a comparator is:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Required by the spec"
+        },
+        {
+          "id": "b",
+          "text": "A footgun — booleans coerce poorly"
+        },
+        {
+          "id": "c",
+          "text": "The only way to sort strings"
+        },
+        {
+          "id": "d",
+          "text": "Faster than subtracting"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`true`/`false` become `1`/`0`, breaking ordering."
+    },
+    {
+      "id": "q4",
+      "prompt": "`compare(a,a)` should be:",
+      "options": [
+        {
+          "id": "a",
+          "text": "`1`"
+        },
+        {
+          "id": "b",
+          "text": "`-1`"
+        },
+        {
+          "id": "c",
+          "text": "`0`"
+        },
+        {
+          "id": "d",
+          "text": "`NaN`"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "Equal elements must compare as zero."
+    }
+  ]
+}

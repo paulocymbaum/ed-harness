@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "id": "share",
+      "name": "Share c",
+      "stdin": "a b c\nx c y\n",
+      "expectedStdout": "true\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "none",
+      "name": "No overlap",
+      "stdin": "1 2\n3 4\n",
+      "expectedStdout": "false\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "empty",
+      "name": "Empty A",
+      "stdin": "\na\n",
+      "expectedStdout": "false\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "same",
+      "name": "Identical token",
+      "stdin": "foo\nfoo\n",
+      "expectedStdout": "true\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

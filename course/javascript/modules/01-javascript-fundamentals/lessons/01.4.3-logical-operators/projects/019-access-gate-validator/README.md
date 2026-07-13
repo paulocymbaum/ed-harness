@@ -4,12 +4,12 @@
 A venue scanner grants entry only when a visitor is an adult **and** presents ID. Both conditions must pass — a classic `&&` validation.
 
 ## Goal
+Read `age` and `hasId`, then print `ALLOWED` or `DENIED`.
+
 ## Lesson concepts practiced
 - [ ] `&&` needs every condition true; `||` needs at least one true.
 - [ ] Use `!` sparingly — prefer positive names like `isValid` over `!isInvalid`.
 - [ ] Short-circuit avoids errors (e.g. check length before accessing characters).
-
-Read `age` and `hasId`, then print `ALLOWED` or `DENIED`.
 
 ## Functional requirements
 - [ ] Line 1: `age` (non-negative integer).

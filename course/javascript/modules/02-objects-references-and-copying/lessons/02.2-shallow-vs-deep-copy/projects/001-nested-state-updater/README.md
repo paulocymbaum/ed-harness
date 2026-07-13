@@ -6,11 +6,11 @@ UI state in JavaScript is often nested: `{ items: [{ id, qty }] }`. A common bug
 This project trains **copy-on-write**: update nested data without mutating the input state.
 
 ## Goal
+Implement `incrementItemQty(state, itemId)` that returns a **new** state object with the matching item's `qty` incremented by 1, leaving `state` unchanged.
+
 ## Lesson concepts practiced
 - [ ] `copy` is a new top-level object; `copy.address` still references `user.address`.
 - [ ] To update nested data safely, copy every level you touch (copy-on-write).
-
-Implement `incrementItemQty(state, itemId)` that returns a **new** state object with the matching item's `qty` incremented by 1, leaving `state` unchanged.
 
 ## Functional requirements
 - [ ] Implement `incrementItemQty(state, itemId)` exported from `starter/index.js` (or defined there for the CLI).

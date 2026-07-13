@@ -1,0 +1,39 @@
+{
+  "cases": [
+    {
+      "id": "few",
+      "name": "Few inversions",
+      "stdin": "few-inversions\n",
+      "expectedStdout": "INSERTION\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "sorted",
+      "name": "Already sorted",
+      "stdin": "already-sorted\n",
+      "expectedStdout": "INSERTION\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "random",
+      "name": "Random",
+      "stdin": "random\n",
+      "expectedStdout": "MERGE\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "reversed",
+      "name": "Reversed",
+      "stdin": "reversed\n",
+      "expectedStdout": "MERGE\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "bad",
+      "name": "Unknown",
+      "stdin": "skew\n",
+      "expectedStdout": "ERROR: unknown disorder\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

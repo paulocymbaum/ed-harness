@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "id": "by-score",
+      "name": "Score then name",
+      "stdin": "score\n3\nbob:5\nalice:5\ncarol:1\n",
+      "expectedStdout": "carol alice bob\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "by-name",
+      "name": "Name ascending",
+      "stdin": "name\n3\nbob:5\nalice:5\ncarol:1\n",
+      "expectedStdout": "alice bob carol\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "bad-key",
+      "name": "Unknown key",
+      "stdin": "age\n1\nx:1\n",
+      "expectedStdout": "ERROR: unknown key\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "single",
+      "name": "Single row",
+      "stdin": "score\n1\nzed:9\n",
+      "expectedStdout": "zed\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

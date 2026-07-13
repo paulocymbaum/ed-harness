@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "id": "bs",
+      "name": "Binary search halts",
+      "stdin": "binary-search\n",
+      "expectedStdout": "HALTS\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "stuck",
+      "name": "Continue without progress",
+      "stdin": "continue-stuck\n",
+      "expectedStdout": "MAY-LOOP\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "collatz",
+      "name": "Collatz unproven for shipping",
+      "stdin": "collatz\n",
+      "expectedStdout": "UNPROVEN\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "unknown",
+      "name": "Unknown pattern",
+      "stdin": "unknown\n",
+      "expectedStdout": "ERROR: unknown pattern\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

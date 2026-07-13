@@ -1,0 +1,57 @@
+{
+  "id": "quiz",
+  "title": "Comparator Contracts Check",
+  "description": "Apply sort comparator return values and numeric pitfalls.",
+  "lessonId": "01.3.2-comparator-contracts",
+  "graphIndex": "01.3.2",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What is `[1, 10, 2].sort()` without a comparator?",
+      "options": [
+        { "id": "a", "text": "`[1, 2, 10]`" },
+        { "id": "b", "text": "`[1, 10, 2]` (string order)" },
+        { "id": "c", "text": "`[10, 2, 1]`" },
+        { "id": "d", "text": "Throws TypeError" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Default sort converts to strings (`\"10\"` before `\"2\"`), so you get `[1, 10, 2]`. Almost never what you want for numbers."
+    },
+    {
+      "id": "q2",
+      "prompt": "Numeric ascending comparator should return:",
+      "options": [
+        { "id": "a", "text": "`a > b` as a boolean" },
+        { "id": "b", "text": "`a - b` (`< 0`, `0`, or `> 0`)" },
+        { "id": "c", "text": "Always `true`" },
+        { "id": "d", "text": "The string form of `a`" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Return `< 0`, `0`, or `> 0`. `(a, b) => a - b` sorts numbers ascending. Returning booleans is not a valid comparator contract."
+    },
+    {
+      "id": "q3",
+      "prompt": "Comparator consistency requires:",
+      "options": [
+        { "id": "a", "text": "If `cmp(a,b) < 0` then `cmp(b,a) > 0`" },
+        { "id": "b", "text": "`cmp(a,b)` always equals `cmp(b,a)`" },
+        { "id": "c", "text": "Mutating `a` and `b` inside `cmp`" },
+        { "id": "d", "text": "Returning only positive numbers" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Consistency: if `cmp(a,b) < 0` then `cmp(b,a) > 0`. Also require `cmp(a,a) === 0` and transitivity."
+    },
+    {
+      "id": "q4",
+      "prompt": "Why return `0` for ties?",
+      "options": [
+        { "id": "a", "text": "So stable sorts can preserve input order for equal elements" },
+        { "id": "b", "text": "Because `0` means delete both elements" },
+        { "id": "c", "text": "So the engine runs in `O(1)`" },
+        { "id": "d", "text": "Ties are illegal in JavaScript" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Return `0` for ties so stable sorts can preserve input order (modern JS specifies stability)."
+    }
+  ]
+}

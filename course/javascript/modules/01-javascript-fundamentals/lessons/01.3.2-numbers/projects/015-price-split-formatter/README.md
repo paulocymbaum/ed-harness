@@ -4,12 +4,12 @@
 A bill-splitting tool reads a total charge and party size from `stdin`, then shows each person's share formatted as currency.
 
 ## Goal
+Parse two numeric lines and print `Share: $<amount>` with exactly two decimal places.
+
 ## Lesson concepts practiced
 - [ ] Always parse stdin with `Number()` (or `parseInt` / `parseFloat` when you need specific rules).
 - [ ] `NaN` poisons math — validate early with `Number.isFinite`.
 - [ ] `toFixed(n)` is for **display**, not precise financial math in production.
-
-Parse two numeric lines and print `Share: $<amount>` with exactly two decimal places.
 
 ## Functional requirements
 - [ ] Line 1: `total` (finite number, `> 0`).

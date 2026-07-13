@@ -1,0 +1,105 @@
+{
+  "id": "quiz",
+  "title": "Path Reconstruction Check",
+  "description": "Parent pointers and backtracking the route.",
+  "lessonId": "03.4.3-path-reconstruction",
+  "graphIndex": "03.4.3",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "With parents `1←0`, `2←1`, `3←2`, the reconstructed path `0` to `3` is:",
+      "options": [
+        {
+          "id": "a",
+          "text": "`3 2 1 0`"
+        },
+        {
+          "id": "b",
+          "text": "`0 1 2 3`"
+        },
+        {
+          "id": "c",
+          "text": "`0 3`"
+        },
+        {
+          "id": "d",
+          "text": "`1 2 3`"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Walk back to start then reverse to get the forward route."
+    },
+    {
+      "id": "q2",
+      "prompt": "You should assign `parent[v]` when:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Every time an edge into `v` is seen"
+        },
+        {
+          "id": "b",
+          "text": "On first discovery of `v`"
+        },
+        {
+          "id": "c",
+          "text": "Only after the search ends"
+        },
+        {
+          "id": "d",
+          "text": "Never — use random parents"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "First discovery (esp. in BFS) fixes the tree edge that defines the path."
+    },
+    {
+      "id": "q3",
+      "prompt": "If the goal has no parent and is not the start:",
+      "options": [
+        {
+          "id": "a",
+          "text": "The path is `[goal]`"
+        },
+        {
+          "id": "b",
+          "text": "The goal is unreachable from start under that search"
+        },
+        {
+          "id": "c",
+          "text": "Parents wrap around automatically"
+        },
+        {
+          "id": "d",
+          "text": "DFS must be rerun with BFS parents"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "No discovery means the search never reached the goal."
+    },
+    {
+      "id": "q4",
+      "prompt": "Why reverse after walking parents?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Parent links point toward the start, so the walk is backward"
+        },
+        {
+          "id": "b",
+          "text": "Arrays cannot store forwards"
+        },
+        {
+          "id": "c",
+          "text": "BFS forbids forward order"
+        },
+        {
+          "id": "d",
+          "text": "It randomizes the path"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Backtracking follows parent→…→start; reverse yields start→…→goal."
+    }
+  ]
+}

@@ -4,12 +4,12 @@
 A learning platform maps numeric scores to letter grades. Rules must be explicit — no off-by-one bugs at boundaries.
 
 ## Goal
+Read one score from `stdin` and print the letter grade using `if` / `else if` / `else`.
+
 ## Lesson concepts practiced
 - [ ] Conditions use booleans — comparisons, `&&`, `||`, or variables like `isValid`.
 - [ ] Order matters: check **most specific / highest** thresholds first when using `else if`.
 - [ ] Boundaries: `>= 90` includes 90; test edge values (89, 90, 100).
-
-Read one score from `stdin` and print the letter grade using `if` / `else if` / `else`.
 
 ## Functional requirements
 - [ ] Read one line `score` (0–100 integer).

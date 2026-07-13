@@ -1,0 +1,57 @@
+{
+  "id": "quiz",
+  "title": "Call Stack Check",
+  "description": "Trace push/pop of stack frames for synchronous calls.",
+  "lessonId": "03.1.3-call-stack",
+  "graphIndex": "03.1.3",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What prints, and in what order?\n\n```js\nfunction second() {\n  console.log(\"second\");\n}\nfunction first() {\n  console.log(\"first\");\n  second();\n  console.log(\"after second\");\n}\nconsole.log(\"start\");\nfirst();\nconsole.log(\"end\");\n```",
+      "options": [
+        { "id": "a", "text": "`start`, `first`, `second`, `after second`, `end`" },
+        { "id": "b", "text": "`start`, `first`, `after second`, `second`, `end`" },
+        { "id": "c", "text": "`first`, `second`, `start`, `end`, `after second`" },
+        { "id": "d", "text": "`start`, `end`, `first`, `second`, `after second`" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "`first` waits while `second` runs on top of the stack. `after second` prints only after `second` returns."
+    },
+    {
+      "id": "q2",
+      "prompt": "At the exact moment `\"second\"` prints in the first example, which frame is on top of the call stack?",
+      "options": [
+        { "id": "a", "text": "`first`" },
+        { "id": "b", "text": "`second`" },
+        { "id": "c", "text": "`console.log` only — no function frames" },
+        { "id": "d", "text": "`end`" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`second` is the currently executing frame. `first` is waiting underneath until `second` returns."
+    },
+    {
+      "id": "q3",
+      "prompt": "What happens when a function recursively calls itself with no exit condition?",
+      "options": [
+        { "id": "a", "text": "The event loop skips it and continues" },
+        { "id": "b", "text": "It becomes a microtask and waits" },
+        { "id": "c", "text": "The call stack grows until `RangeError: Maximum call stack size exceeded`" },
+        { "id": "d", "text": "Node automatically moves it to a worker thread" }
+      ],
+      "correctOptionId": "c",
+      "explanation": "Infinite recursion keeps pushing frames until the engine throws a maximum call stack size error."
+    },
+    {
+      "id": "q4",
+      "prompt": "Why can a `setTimeout` callback **not** jump onto the call stack while `first()` is still running?",
+      "options": [
+        { "id": "a", "text": "Timers are ignored until the process exits" },
+        { "id": "b", "text": "Current synchronous frames must finish (pop) before the event loop runs queued callbacks" },
+        { "id": "c", "text": "Because `setTimeout` only works in browsers" },
+        { "id": "d", "text": "Because Promise microtasks always cancel timers" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Scheduled callbacks wait until the current synchronous stack is clear. The event loop cannot interleave them mid-call-chain."
+    }
+  ]
+}

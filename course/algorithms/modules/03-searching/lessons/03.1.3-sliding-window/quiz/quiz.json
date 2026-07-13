@@ -1,0 +1,105 @@
+{
+  "id": "quiz",
+  "title": "Sliding Window Check",
+  "description": "Fixed windows, incremental updates, and max sums.",
+  "lessonId": "03.1.3-sliding-window",
+  "graphIndex": "03.1.3",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "For `[2, 1, 5, 1, 3, 2]` and `k = 3`, the max window sum is:",
+      "options": [
+        {
+          "id": "a",
+          "text": "`8`"
+        },
+        {
+          "id": "b",
+          "text": "`9`"
+        },
+        {
+          "id": "c",
+          "text": "`6`"
+        },
+        {
+          "id": "d",
+          "text": "`7`"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Windows sum to 8, 7, 9, 6 — maximum is 9 (`[5,1,3]`)."
+    },
+    {
+      "id": "q2",
+      "prompt": "Updating a fixed window by adding `arr[i]` and subtracting `arr[i-k]` keeps time at:",
+      "options": [
+        {
+          "id": "a",
+          "text": "`O(nk)`"
+        },
+        {
+          "id": "b",
+          "text": "`O(n)`"
+        },
+        {
+          "id": "c",
+          "text": "`O(k)` only forever"
+        },
+        {
+          "id": "d",
+          "text": "`O(n²)`"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Each element enters and leaves once → linear pass after the first window."
+    },
+    {
+      "id": "q3",
+      "prompt": "If `n < k` for a fixed window of size `k`:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Use window size `n` automatically"
+        },
+        {
+          "id": "b",
+          "text": "There is no valid window of size `k`"
+        },
+        {
+          "id": "c",
+          "text": "Pad with zeros silently"
+        },
+        {
+          "id": "d",
+          "text": "Binary search the array"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "A contiguous window of length `k` cannot exist when the array is shorter than `k`."
+    },
+    {
+      "id": "q4",
+      "prompt": "Sliding window applies only when the array is sorted.",
+      "options": [
+        {
+          "id": "a",
+          "text": "True"
+        },
+        {
+          "id": "b",
+          "text": "False — contiguous order matters, not sorted order"
+        },
+        {
+          "id": "c",
+          "text": "True for variable windows only"
+        },
+        {
+          "id": "d",
+          "text": "True for fixed windows only"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Windows track contiguous index ranges. Sortedness is a two-pointers concern, not a window requirement."
+    }
+  ]
+}

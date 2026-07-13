@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "id": "asc-lt",
+      "name": "asc 3 5",
+      "stdin": "asc 3 5\n",
+      "expectedStdout": "-1\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "asc-gt",
+      "name": "asc 5 3",
+      "stdin": "asc 5 3\n",
+      "expectedStdout": "1\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "asc-eq",
+      "name": "asc equal",
+      "stdin": "asc 4 4\n",
+      "expectedStdout": "0\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "desc",
+      "name": "desc 3 5",
+      "stdin": "desc 3 5\n",
+      "expectedStdout": "1\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

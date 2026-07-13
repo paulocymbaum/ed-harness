@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "id": "name-tiebreak",
+      "name": "Same math, Ann before Bob",
+      "stdin": "90 Ann\n90 Bob\n",
+      "expectedStdout": "-1\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "math",
+      "name": "Lower math after",
+      "stdin": "80 Ann\n90 Bob\n",
+      "expectedStdout": "1\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "equal",
+      "name": "Fully equal",
+      "stdin": "90 Ann\n90 Ann\n",
+      "expectedStdout": "0\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "higher",
+      "name": "Higher math first",
+      "stdin": "95 Z\n90 A\n",
+      "expectedStdout": "-1\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

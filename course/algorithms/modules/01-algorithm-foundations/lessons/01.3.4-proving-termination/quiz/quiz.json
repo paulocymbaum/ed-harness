@@ -1,0 +1,57 @@
+{
+  "id": "quiz",
+  "title": "Proving Termination Check",
+  "description": "Name progress measures and spot loops that may not halt.",
+  "lessonId": "01.3.4-proving-termination",
+  "graphIndex": "01.3.4",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Binary search terminates because each branch:",
+      "options": [
+        { "id": "a", "text": "Increases `hi - lo + 1`" },
+        { "id": "b", "text": "Strictly shrinks the integer window `hi - lo + 1`" },
+        { "id": "c", "text": "Uses floating-point division of `n`" },
+        { "id": "d", "text": "Relies on Collatz-like conjectures" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Progress measure: window size `hi - lo + 1`. Setting `lo = mid + 1` or `hi = mid - 1` strictly shrinks a non-negative integer window."
+    },
+    {
+      "id": "q2",
+      "prompt": "`while (i < arr.length) { if (rare) continue; i++; }` is dangerous because:",
+      "options": [
+        { "id": "a", "text": "`continue` is illegal in JavaScript" },
+        { "id": "b", "text": "Some paths may never move `i` — no guaranteed progress" },
+        { "id": "c", "text": "It always terminates in `O(1)`" },
+        { "id": "d", "text": "Arrays cannot be indexed" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Bad pattern — no guaranteed shrink. All branches must make progress, including `continue` paths."
+    },
+    {
+      "id": "q3",
+      "prompt": "Before shipping a loop, ask:",
+      "options": [
+        { "id": "a", "text": "Only whether the code compiles" },
+        { "id": "b", "text": "What decreases, that it is bounded, and that all branches progress" },
+        { "id": "c", "text": "Whether Collatz is proven" },
+        { "id": "d", "text": "Whether Big-O is `O(1)` only" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Checklist: what quantity decreases (or advances), is it bounded, and do all branches make progress?"
+    },
+    {
+      "id": "q4",
+      "prompt": "Why prefer integer progress measures over `x /= 2` floats near zero?",
+      "options": [
+        { "id": "a", "text": "Floats cannot appear in loops" },
+        { "id": "b", "text": "Floating-point “shrink” can misbehave near zero" },
+        { "id": "c", "text": "Integers always run slower" },
+        { "id": "d", "text": "Termination proofs forbid numbers" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Floating-point “shrink” (`x /= 2`) can misbehave near zero; prefer integer measures when possible."
+    }
+  ]
+}

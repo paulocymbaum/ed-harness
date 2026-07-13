@@ -1,0 +1,105 @@
+{
+  "id": "quiz",
+  "title": "DFS Check",
+  "description": "Deep exploration, visited sets, and order.",
+  "lessonId": "03.4.1-dfs",
+  "graphIndex": "03.4.1",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "DFS explores by:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Always expanding the shallowest frontier first"
+        },
+        {
+          "id": "b",
+          "text": "Going deep along a branch before backtracking"
+        },
+        {
+          "id": "c",
+          "text": "Sorting all nodes globally first"
+        },
+        {
+          "id": "d",
+          "text": "Only scanning arrays linearly"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Depth-first means plunge along one path, then backtrack."
+    },
+    {
+      "id": "q2",
+      "prompt": "Visited/seen markers are needed mainly to:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Sort the adjacency list"
+        },
+        {
+          "id": "b",
+          "text": "Avoid infinite recursion on cycles"
+        },
+        {
+          "id": "c",
+          "text": "Guarantee shortest paths"
+        },
+        {
+          "id": "d",
+          "text": "Convert DFS into binary search"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Without marking, cyclic edges re-enter the same nodes forever."
+    },
+    {
+      "id": "q3",
+      "prompt": "DFS visit order depends on:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Neighbor listing order"
+        },
+        {
+          "id": "b",
+          "text": "Only the number of nodes"
+        },
+        {
+          "id": "c",
+          "text": "Heap memory size only"
+        },
+        {
+          "id": "d",
+          "text": "Whether you use `Map` vs object for labels"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Which neighbor you try first changes the depth-first sequence."
+    },
+    {
+      "id": "q4",
+      "prompt": "DFS guarantees the shortest path in an unweighted graph.",
+      "options": [
+        {
+          "id": "a",
+          "text": "True"
+        },
+        {
+          "id": "b",
+          "text": "False — that is a BFS property"
+        },
+        {
+          "id": "c",
+          "text": "True only with recursion"
+        },
+        {
+          "id": "d",
+          "text": "True only on undirected graphs"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "DFS can find a path, but shortest hop count comes from BFS."
+    }
+  ]
+}

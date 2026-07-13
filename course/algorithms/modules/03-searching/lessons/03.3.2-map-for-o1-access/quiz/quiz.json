@@ -1,0 +1,105 @@
+{
+  "id": "quiz",
+  "title": "Map for O1 Access Check",
+  "description": "Map identity, get/has, and first-index tables.",
+  "lessonId": "03.3.2-map-for-o1-access",
+  "graphIndex": "03.3.2",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "In a Map, keys `1` and `\"1\"`:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Always collide like plain objects"
+        },
+        {
+          "id": "b",
+          "text": "Remain distinct entries"
+        },
+        {
+          "id": "c",
+          "text": "Throw on `set`"
+        },
+        {
+          "id": "d",
+          "text": "Convert to JSON automatically"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Map keeps number vs string identity — unlike object property keys."
+    },
+    {
+      "id": "q2",
+      "prompt": "After building a first-index Map in one pass, a lookup is typically:",
+      "options": [
+        {
+          "id": "a",
+          "text": "`O(n)`"
+        },
+        {
+          "id": "b",
+          "text": "Amortized `O(1)`"
+        },
+        {
+          "id": "c",
+          "text": "`O(n log n)`"
+        },
+        {
+          "id": "d",
+          "text": "`O(n²)`"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`Map.get` / `has` are amortized constant-time for these use cases."
+    },
+    {
+      "id": "q3",
+      "prompt": "When recording first indices, you should `set` only when:",
+      "options": [
+        {
+          "id": "a",
+          "text": "`!map.has(value)` so the earliest index stays"
+        },
+        {
+          "id": "b",
+          "text": "Always overwrite every time"
+        },
+        {
+          "id": "c",
+          "text": "The value is a string"
+        },
+        {
+          "id": "d",
+          "text": "The index is odd"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Skipping duplicates preserves the first occurrence index."
+    },
+    {
+      "id": "q4",
+      "prompt": "`map.get(missingKey)` returns:",
+      "options": [
+        {
+          "id": "a",
+          "text": "`-1`"
+        },
+        {
+          "id": "b",
+          "text": "`null`"
+        },
+        {
+          "id": "c",
+          "text": "`undefined`"
+        },
+        {
+          "id": "d",
+          "text": "`false`"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "Missing keys yield `undefined`; you map that to `-1` yourself if needed."
+    }
+  ]
+}

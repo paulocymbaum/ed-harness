@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "id": "basic",
+      "name": "Basic first/second stack",
+      "stdin": "basic\n",
+      "expectedStdout": "Stack: second first\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "nested",
+      "name": "Nested a/b stack",
+      "stdin": "nested\n",
+      "expectedStdout": "Stack: b a\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "overflow-note",
+      "name": "Overflow note without recursing",
+      "stdin": "overflow-note\n",
+      "expectedStdout": "ERROR: stack would overflow\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "unknown",
+      "name": "Unknown snippet",
+      "stdin": "unknown\n",
+      "expectedStdout": "ERROR: unknown snippet\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "id": "quiz",
+  "title": "Shell Sort Check",
+  "description": "Gaps, insertion-at-distance, and finishes.",
+  "lessonId": "02.2.4-shell-sort",
+  "graphIndex": "02.2.4",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "For `n = 8` with gaps `floor(n/2), floor(n/4), …`, the first gap is:",
+      "options": [
+        {
+          "id": "a",
+          "text": "8"
+        },
+        {
+          "id": "b",
+          "text": "4"
+        },
+        {
+          "id": "c",
+          "text": "2"
+        },
+        {
+          "id": "d",
+          "text": "1"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`floor(8/2) = 4`."
+    },
+    {
+      "id": "q2",
+      "prompt": "Shell sort’s inner step is essentially:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Merge of two runs"
+        },
+        {
+          "id": "b",
+          "text": "Insertion sort among elements gap apart"
+        },
+        {
+          "id": "c",
+          "text": "Heapify"
+        },
+        {
+          "id": "d",
+          "text": "Counting into buckets by value"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Each gap pass is gapped insertion sort."
+    },
+    {
+      "id": "q3",
+      "prompt": "A correct shell gap sequence must eventually include:",
+      "options": [
+        {
+          "id": "a",
+          "text": "`0`"
+        },
+        {
+          "id": "b",
+          "text": "`1`"
+        },
+        {
+          "id": "c",
+          "text": "`n`"
+        },
+        {
+          "id": "d",
+          "text": "`n²`"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Gap `1` is plain insertion and finishes the sort."
+    },
+    {
+      "id": "q4",
+      "prompt": "Shell sort stability is typically:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Stable for all gap sequences"
+        },
+        {
+          "id": "b",
+          "text": "Not stable — gapped swaps/shifts reorder equals"
+        },
+        {
+          "id": "c",
+          "text": "Stable only when gap is always 1"
+        },
+        {
+          "id": "d",
+          "text": "Undefined"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Distant moves break equal-key order."
+    }
+  ]
+}

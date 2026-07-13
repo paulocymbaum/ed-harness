@@ -1,0 +1,105 @@
+{
+  "id": "quiz",
+  "title": "Stability and Pitfalls Check",
+  "description": "Stable vs unstable sorts and common JS pitfalls.",
+  "lessonId": "02.4.3-stability-and-pitfalls",
+  "graphIndex": "02.4.3",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Stability means:",
+      "options": [
+        {
+          "id": "a",
+          "text": "The algorithm never crashes"
+        },
+        {
+          "id": "b",
+          "text": "Equal keys keep their original relative order"
+        },
+        {
+          "id": "c",
+          "text": "Runtime is always `O(n)`"
+        },
+        {
+          "id": "d",
+          "text": "No auxiliary memory is used"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Equal keys retain encounter order."
+    },
+    {
+      "id": "q2",
+      "prompt": "Which is typically unstable?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Merge sort with `<=`"
+        },
+        {
+          "id": "b",
+          "text": "Insertion sort with `>`"
+        },
+        {
+          "id": "c",
+          "text": "Heap sort"
+        },
+        {
+          "id": "d",
+          "text": "Bubble sort with strict `>`"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "Heap operations freely reorder equals."
+    },
+    {
+      "id": "q3",
+      "prompt": "Sorting by key B then stably by key A:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Wipes B order among equal A"
+        },
+        {
+          "id": "b",
+          "text": "Keeps B order among equal A when A-sort is stable"
+        },
+        {
+          "id": "c",
+          "text": "Requires heap sort"
+        },
+        {
+          "id": "d",
+          "text": "Is impossible in JS"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Stable primary sort preserves the earlier secondary order."
+    },
+    {
+      "id": "q4",
+      "prompt": "A common JS pitfall is:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Using `(a,b) => a - b` for numbers"
+        },
+        {
+          "id": "b",
+          "text": "Assuming default `.sort()` is numeric"
+        },
+        {
+          "id": "c",
+          "text": "Copying before sort when needed"
+        },
+        {
+          "id": "d",
+          "text": "Returning `0` for equal keys"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Default sort is lexicographic on strings."
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "id": "child1",
+      "name": "Children of 1",
+      "stdin": "child 1\n",
+      "expectedStdout": "3 4\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "child0",
+      "name": "Children of root",
+      "stdin": "child 0\n",
+      "expectedStdout": "1 2\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "parent4",
+      "name": "Parent of 4",
+      "stdin": "parent 4\n",
+      "expectedStdout": "1\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "parent0",
+      "name": "Parent of root",
+      "stdin": "parent 0\n",
+      "expectedStdout": "NONE\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

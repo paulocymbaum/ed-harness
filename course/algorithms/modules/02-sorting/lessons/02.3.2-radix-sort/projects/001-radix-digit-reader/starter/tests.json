@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "id": "ones",
+      "name": "Ones digit",
+      "stdin": "723 0\n",
+      "expectedStdout": "3\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "tens",
+      "name": "Tens digit",
+      "stdin": "723 1\n",
+      "expectedStdout": "2\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "hundreds",
+      "name": "Hundreds digit",
+      "stdin": "723 2\n",
+      "expectedStdout": "7\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "beyond",
+      "name": "Past MSD → 0",
+      "stdin": "723 3\n",
+      "expectedStdout": "0\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

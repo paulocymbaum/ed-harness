@@ -1,0 +1,57 @@
+{
+  "id": "quiz",
+  "title": "Promises Check",
+  "description": "Predict Promise settlement and .then/.catch timing.",
+  "lessonId": "03.2.1-promises",
+  "graphIndex": "03.2.1",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What does this print?\n\n```js\nconst p = new Promise((resolve) => {\n  resolve(42);\n});\np.then((value) => console.log(\"got\", value));\nconsole.log(\"after\");\n```",
+      "options": [
+        { "id": "a", "text": "`got 42` then `after`" },
+        { "id": "b", "text": "`after` then `got 42`" },
+        { "id": "c", "text": "Only `got 42`" },
+        { "id": "d", "text": "Only `after`" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`.then` reactions run as microtasks after the current synchronous code. `after` prints first."
+    },
+    {
+      "id": "q2",
+      "prompt": "Which Promise states are valid?",
+      "options": [
+        { "id": "a", "text": "pending, fulfilled, rejected" },
+        { "id": "b", "text": "open, closed, idle" },
+        { "id": "c", "text": "sync, async, queued" },
+        { "id": "d", "text": "resolved only — rejected is not a state" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "A Promise is pending until it becomes fulfilled or rejected."
+    },
+    {
+      "id": "q3",
+      "prompt": "How do you typically handle a rejected Promise in a chain?",
+      "options": [
+        { "id": "a", "text": "Only with `setTimeout`" },
+        { "id": "b", "text": "With `.catch` (or a rejection handler in `.then`)" },
+        { "id": "c", "text": "By calling `resolve` again" },
+        { "id": "d", "text": "Rejections cannot be handled in JavaScript" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`.catch` handles rejections in the Promise chain (and rejection handlers in `.then` can too)."
+    },
+    {
+      "id": "q4",
+      "prompt": "In `new Promise((resolve, reject) => { ... })`, when do `.then` callbacks run?",
+      "options": [
+        { "id": "a", "text": "Synchronously inside the executor, before it returns" },
+        { "id": "b", "text": "Later as microtasks after the Promise settles" },
+        { "id": "c", "text": "Only after a `setTimeout(..., 0)` wrapper" },
+        { "id": "d", "text": "On a separate OS thread" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`resolve`/`reject` settle the Promise; `.then` reactions are scheduled as microtasks afterward."
+    }
+  ]
+}

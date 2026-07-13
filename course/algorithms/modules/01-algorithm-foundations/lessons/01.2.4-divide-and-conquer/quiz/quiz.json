@@ -1,0 +1,57 @@
+{
+  "id": "quiz",
+  "title": "Divide and Conquer Check",
+  "description": "Identify divide, conquer, combine and cost patterns.",
+  "lessonId": "01.2.4-divide-and-conquer",
+  "graphIndex": "01.2.4",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "The three classic divide-and-conquer steps are:",
+      "options": [
+        { "id": "a", "text": "Hash, sort, print" },
+        { "id": "b", "text": "Divide, conquer, combine" },
+        { "id": "c", "text": "Push, pop, peek" },
+        { "id": "d", "text": "Warm up, time, compare" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Split the input (divide), solve pieces recursively (conquer), then merge partial answers (combine)."
+    },
+    {
+      "id": "q2",
+      "prompt": "If each recursion level does `O(n)` work and there are `O(log n)` levels from halving, total time is often:",
+      "options": [
+        { "id": "a", "text": "`O(n)`" },
+        { "id": "b", "text": "`O(n log n)`" },
+        { "id": "c", "text": "`O(n²)`" },
+        { "id": "d", "text": "`O(1)`" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "That pattern (Merge Sort story) is often `O(n log n)`: `O(n)` work per level × `O(log n)` levels."
+    },
+    {
+      "id": "q3",
+      "prompt": "Why can teaching code that `slice`s halves each call be costly?",
+      "options": [
+        { "id": "a", "text": "`slice` is illegal on arrays" },
+        { "id": "b", "text": "It allocates new arrays each call — extra copying cost" },
+        { "id": "c", "text": "It prevents the base case from running" },
+        { "id": "d", "text": "It forces `O(1)` space only" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`arr.slice` allocates new arrays each call. Production divide-and-conquer usually passes index ranges to avoid extra copying."
+    },
+    {
+      "id": "q4",
+      "prompt": "Binary search is divide-and-conquer with:",
+      "options": [
+        { "id": "a", "text": "A heavy merge of two sorted halves each step" },
+        { "id": "b", "text": "A cheap / no heavy combine — discard one half" },
+        { "id": "c", "text": "No base case required" },
+        { "id": "d", "text": "Always `O(n²)` combine" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Binary search is divide-and-conquer without a heavy combine: you keep one half. Combine cost matters — cheap vs merge of sorted halves."
+    }
+  ]
+}

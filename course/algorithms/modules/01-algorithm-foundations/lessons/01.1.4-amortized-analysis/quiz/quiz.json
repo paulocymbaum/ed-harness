@@ -1,0 +1,57 @@
+{
+  "id": "quiz",
+  "title": "Amortized Analysis Check",
+  "description": "Relate rare expensive growth to amortized cost per operation.",
+  "lessonId": "01.1.4-amortized-analysis",
+  "graphIndex": "01.1.4",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Across `n` pushes into a doubling dynamic array from empty, amortized cost per push is:",
+      "options": [
+        { "id": "a", "text": "`O(n)`" },
+        { "id": "b", "text": "`O(1)`" },
+        { "id": "c", "text": "`O(n²)`" },
+        { "id": "d", "text": "`O(log n)`" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Total over `n` pushes is still `O(n)`, so amortized per push is `O(1)`, even though rare resizes cost `O(current size)`."
+    },
+    {
+      "id": "q2",
+      "prompt": "Amortized `O(1)` for `push` means:",
+      "options": [
+        { "id": "a", "text": "Every single `push` is always `O(1)`" },
+        { "id": "b", "text": "Average cost per operation over a sequence; spikes can still happen" },
+        { "id": "c", "text": "Resizes never copy elements" },
+        { "id": "d", "text": "JavaScript arrays never grow" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Amortized `O(1)` ≠ every call is `O(1)` — spikes still exist. The average is over a sequence of operations."
+    },
+    {
+      "id": "q3",
+      "prompt": "How does amortized analysis differ from average-case over inputs?",
+      "options": [
+        { "id": "a", "text": "They are identical concepts" },
+        { "id": "b", "text": "Amortized averages over a sequence of operations, not an input distribution" },
+        { "id": "c", "text": "Amortized only applies to sorting" },
+        { "id": "d", "text": "Average-case forbids Big-O symbols" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Don’t confuse amortized with average-case over input distributions; here the “average” is over a sequence of operations."
+    },
+    {
+      "id": "q4",
+      "prompt": "When capacity is full, a doubling growth `push` may:",
+      "options": [
+        { "id": "a", "text": "Cost `O(n)` for that single call due to allocating and copying" },
+        { "id": "b", "text": "Be free forever after the first resize" },
+        { "id": "c", "text": "Always take `O(n²)` thereafter" },
+        { "id": "d", "text": "Shrink capacity by half" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "That single `push` can cost `O(n)` when it allocates a larger buffer and copies old elements, but it happens rarely."
+    }
+  ]
+}

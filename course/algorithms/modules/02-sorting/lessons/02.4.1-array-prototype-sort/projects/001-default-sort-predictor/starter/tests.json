@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "id": "example",
+      "name": "Classic surprise",
+      "stdin": "10 2 1\n",
+      "expectedStdout": "1 10 2\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "mix",
+      "name": "9 80 7",
+      "stdin": "9 80 7\n",
+      "expectedStdout": "7 80 9\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "ties",
+      "name": "All ones",
+      "stdin": "1 1 1\n",
+      "expectedStdout": "1 1 1\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "neg",
+      "name": "Negatives string order",
+      "stdin": "-1 -2 0\n",
+      "expectedStdout": "-1 -2 0\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

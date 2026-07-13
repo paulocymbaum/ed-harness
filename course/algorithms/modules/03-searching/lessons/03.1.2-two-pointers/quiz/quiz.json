@@ -1,0 +1,105 @@
+{
+  "id": "quiz",
+  "title": "Two Pointers Check",
+  "description": "Opposite-end movement and sorted pair sums.",
+  "lessonId": "03.1.2-two-pointers",
+  "graphIndex": "03.1.2",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "For sorted `[1, 2, 4, 7, 11]` and target `9`, after `1+11=12` you should:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Move `L` right"
+        },
+        {
+          "id": "b",
+          "text": "Move `R` left"
+        },
+        {
+          "id": "c",
+          "text": "Reset both to the middle"
+        },
+        {
+          "id": "d",
+          "text": "Sort again"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Sum too big → shrink the right end (`R--`) for a smaller partner."
+    },
+    {
+      "id": "q2",
+      "prompt": "Opposite-end pair sum on a sorted array typically runs in:",
+      "options": [
+        {
+          "id": "a",
+          "text": "`O(1)`"
+        },
+        {
+          "id": "b",
+          "text": "`O(log n)`"
+        },
+        {
+          "id": "c",
+          "text": "`O(n)`"
+        },
+        {
+          "id": "d",
+          "text": "`O(n²)`"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "Each step moves one pointer; at most `n` steps → `O(n)`."
+    },
+    {
+      "id": "q3",
+      "prompt": "Opposite-end pair tricks usually require the array to be:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Random"
+        },
+        {
+          "id": "b",
+          "text": "Sorted (or sorted first)"
+        },
+        {
+          "id": "c",
+          "text": "All unique and unsorted"
+        },
+        {
+          "id": "d",
+          "text": "A linked list only"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Ordering lets you discard one end safely when the sum is too big or too small."
+    },
+    {
+      "id": "q4",
+      "prompt": "When `L >= R` and no pair matched, the correct conclusion is:",
+      "options": [
+        {
+          "id": "a",
+          "text": "A pair exists but was skipped"
+        },
+        {
+          "id": "b",
+          "text": "No two distinct indices sum to the target"
+        },
+        {
+          "id": "c",
+          "text": "You must start over with nested loops"
+        },
+        {
+          "id": "d",
+          "text": "The array was not zero-indexed"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Pointers crossing means every useful opposite-end combination was considered."
+    }
+  ]
+}

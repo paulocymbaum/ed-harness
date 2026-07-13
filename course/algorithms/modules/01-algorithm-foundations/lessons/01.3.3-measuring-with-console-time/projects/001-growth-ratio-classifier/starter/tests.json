@@ -1,0 +1,39 @@
+{
+  "cases": [
+    {
+      "id": "lin-ok",
+      "name": "Linear ~2x",
+      "stdin": "linear 2.0\n",
+      "expectedStdout": "MATCH\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "lin-bad",
+      "name": "Linear but 4x",
+      "stdin": "linear 4.0\n",
+      "expectedStdout": "MISMATCH\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "quad-ok",
+      "name": "Quadratic ~4x",
+      "stdin": "quadratic 4.0\n",
+      "expectedStdout": "MATCH\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "quad-bad",
+      "name": "Quadratic but 2x",
+      "stdin": "quadratic 2.0\n",
+      "expectedStdout": "MISMATCH\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "unk",
+      "name": "Unknown class",
+      "stdin": "cubic 3\n",
+      "expectedStdout": "ERROR: unknown class\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

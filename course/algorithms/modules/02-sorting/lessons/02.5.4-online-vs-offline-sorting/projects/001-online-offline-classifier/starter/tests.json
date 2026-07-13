@@ -1,0 +1,39 @@
+{
+  "cases": [
+    {
+      "id": "batch",
+      "name": "Batch file",
+      "stdin": "batch-file\n",
+      "expectedStdout": "OFFLINE\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "nightly",
+      "name": "Nightly report",
+      "stdin": "nightly-report\n",
+      "expectedStdout": "OFFLINE\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "live",
+      "name": "Live leaderboard",
+      "stdin": "live-leaderboard\n",
+      "expectedStdout": "ONLINE\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "topk",
+      "name": "Stream top-k",
+      "stdin": "stream-top-k\n",
+      "expectedStdout": "ONLINE\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "bad",
+      "name": "Unknown",
+      "stdin": "rainbow\n",
+      "expectedStdout": "ERROR: unknown scenario\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "id": "classic",
+      "name": "1 10 2 numeric",
+      "stdin": "1 10 2\n",
+      "expectedStdout": "1 2 10\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "desc",
+      "name": "Reverse input",
+      "stdin": "5 4 3\n",
+      "expectedStdout": "3 4 5\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "neg",
+      "name": "Negatives",
+      "stdin": "-1 0 -2\n",
+      "expectedStdout": "-2 -1 0\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "ties",
+      "name": "Duplicates",
+      "stdin": "2 2 1\n",
+      "expectedStdout": "1 2 2\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

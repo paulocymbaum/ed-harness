@@ -1,0 +1,105 @@
+{
+  "id": "quiz",
+  "title": "Binary Search on Answer Check",
+  "description": "Monotonic predicates and answer-space search.",
+  "lessonId": "03.2.4-binary-search-on-answer",
+  "graphIndex": "03.2.4",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Binary search on answer requires which property?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The input array is unsorted and random"
+        },
+        {
+          "id": "b",
+          "text": "Feasibility is monotonic in the answer"
+        },
+        {
+          "id": "c",
+          "text": "Answers must be prime"
+        },
+        {
+          "id": "d",
+          "text": "You never need a predicate"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Once an answer works, larger (or smaller, depending on direction) answers must also work — otherwise halves are invalid."
+    },
+    {
+      "id": "q2",
+      "prompt": "When searching for the minimum feasible capacity and `feasible(mid)` is true, you typically:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Set `lo = mid + 1`"
+        },
+        {
+          "id": "b",
+          "text": "Set `hi = mid`"
+        },
+        {
+          "id": "c",
+          "text": "Return `mid - 1`"
+        },
+        {
+          "id": "d",
+          "text": "Double `mid`"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Mid works → try smaller capacities by moving `hi` down to `mid`."
+    },
+    {
+      "id": "q3",
+      "prompt": "A lower bound for shipping capacity is often:",
+      "options": [
+        {
+          "id": "a",
+          "text": "`0` always"
+        },
+        {
+          "id": "b",
+          "text": "The heaviest single package"
+        },
+        {
+          "id": "c",
+          "text": "The number of days only"
+        },
+        {
+          "id": "d",
+          "text": "Negative infinity"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Capacity must hold the largest item; smaller answers are immediately impossible."
+    },
+    {
+      "id": "q4",
+      "prompt": "The binary search moves the answer; the `feasible` function usually:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Is unnecessary"
+        },
+        {
+          "id": "b",
+          "text": "Simulates whether that candidate answer works"
+        },
+        {
+          "id": "c",
+          "text": "Sorts the answer space again"
+        },
+        {
+          "id": "d",
+          "text": "Converts the array to a Map"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Each mid is scored by a domain-specific predicate (often a greedy pack)."
+    }
+  ]
+}

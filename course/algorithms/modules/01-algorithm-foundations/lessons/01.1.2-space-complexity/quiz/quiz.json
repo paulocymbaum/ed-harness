@@ -1,0 +1,57 @@
+{
+  "id": "quiz",
+  "title": "Space Complexity Check",
+  "description": "Distinguish input vs auxiliary space and common allocation patterns.",
+  "lessonId": "01.1.2-space-complexity",
+  "graphIndex": "01.1.2",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Computing the max of an array with only a few scalar variables is typically:",
+      "options": [
+        { "id": "a", "text": "`O(n)` auxiliary space" },
+        { "id": "b", "text": "`O(1)` auxiliary space" },
+        { "id": "c", "text": "`O(n²)` auxiliary space" },
+        { "id": "d", "text": "Zero space because no new array is named" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Only a few scalars means `O(1)` auxiliary space. Input space that already holds the array is usually not counted as extra."
+    },
+    {
+      "id": "q2",
+      "prompt": "`arr.map((x) => x * 2)` typically uses:",
+      "options": [
+        { "id": "a", "text": "`O(1)` auxiliary space" },
+        { "id": "b", "text": "`O(log n)` auxiliary space" },
+        { "id": "c", "text": "`O(n)` auxiliary space" },
+        { "id": "d", "text": "The same space as in-place mutation" }
+      ],
+      "correctOptionId": "c",
+      "explanation": "`map` builds a new array of size `n`, so auxiliary space is `O(n)`. Methods like `slice`, `filter`, and spread also allocate."
+    },
+    {
+      "id": "q3",
+      "prompt": "A recursive sum that calls itself once per index for length `n` often costs:",
+      "options": [
+        { "id": "a", "text": "`O(1)` space because no new arrays are created" },
+        { "id": "b", "text": "`O(n)` space on the call stack" },
+        { "id": "c", "text": "`O(log n)` space from balanced recursion" },
+        { "id": "d", "text": "No stack frames in JavaScript" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Recursion uses the call stack. A chain of `n` recursive calls often costs `O(n)` space even with no explicit arrays."
+    },
+    {
+      "id": "q4",
+      "prompt": "Why is relying on tail-call optimization risky in JavaScript?",
+      "options": [
+        { "id": "a", "text": "Tail calls are illegal in the language" },
+        { "id": "b", "text": "Engines do not reliably optimize tail calls" },
+        { "id": "c", "text": "Tail recursion always uses `O(n²)` space" },
+        { "id": "d", "text": "Only `map` can be tail-call optimized" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Tail-call optimization is not something you should rely on in JavaScript engines. Prefer iterative forms when depth is linear in `n`."
+    }
+  ]
+}

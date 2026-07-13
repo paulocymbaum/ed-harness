@@ -1,0 +1,57 @@
+{
+  "id": "quiz",
+  "title": "Try/Catch Async Errors Check",
+  "description": "Handle Promise rejections with try/catch and toResult.",
+  "lessonId": "03.2.3-try-catch-error-handling",
+  "graphIndex": "03.2.3",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What prints?\n\n```js\nasync function run() {\n  try {\n    await Promise.reject(new Error(\"boom\"));\n  } catch (e) {\n    console.log(\"caught\", e.message);\n  }\n}\nrun();\n```",
+      "options": [
+        { "id": "a", "text": "Nothing — the process crashes" },
+        { "id": "b", "text": "`caught boom`" },
+        { "id": "c", "text": "`boom` without `caught`" },
+        { "id": "d", "text": "`undefined`" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`await` on a rejection throws inside the async function, so `try/catch` logs `caught boom`."
+    },
+    {
+      "id": "q2",
+      "prompt": "If an `async` function throws (or rejects), what happens to its returned Promise?",
+      "options": [
+        { "id": "a", "text": "It fulfills with `undefined`" },
+        { "id": "b", "text": "It stays pending forever" },
+        { "id": "c", "text": "It rejects" },
+        { "id": "d", "text": "It becomes a timer task" }
+      ],
+      "correctOptionId": "c",
+      "explanation": "Throwing or rejecting inside `async` rejects the Promise that the function returned."
+    },
+    {
+      "id": "q3",
+      "prompt": "What does a successful `toResult(promise)` typically return?",
+      "options": [
+        { "id": "a", "text": "`{ ok: true, value }`" },
+        { "id": "b", "text": "`{ ok: false, value }`" },
+        { "id": "c", "text": "Only the raw fulfilled value" },
+        { "id": "d", "text": "`null`" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "The `toResult` pattern normalizes success into `{ ok: true, value }` so callers can branch without `try/catch`."
+    },
+    {
+      "id": "q4",
+      "prompt": "Why use `toResult` instead of only relying on uncaught rejections?",
+      "options": [
+        { "id": "a", "text": "It makes Promises run on multiple threads" },
+        { "id": "b", "text": "Callers can branch on `{ ok, value }` vs `{ ok: false, error }` without crashing" },
+        { "id": "c", "text": "It disables the event loop" },
+        { "id": "d", "text": "It converts sync errors into `setTimeout` callbacks" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`toResult` turns fulfillment/rejection into a plain result object so callers can handle both paths explicitly."
+    }
+  ]
+}

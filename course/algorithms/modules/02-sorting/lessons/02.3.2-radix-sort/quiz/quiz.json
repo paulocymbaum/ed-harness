@@ -1,0 +1,105 @@
+{
+  "id": "quiz",
+  "title": "Radix Sort Check",
+  "description": "Digits, LSD passes, and stability needs.",
+  "lessonId": "02.3.2-radix-sort",
+  "graphIndex": "02.3.2",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "For `723` base 10, the ones digit (`p=0`) is:",
+      "options": [
+        {
+          "id": "a",
+          "text": "7"
+        },
+        {
+          "id": "b",
+          "text": "2"
+        },
+        {
+          "id": "c",
+          "text": "3"
+        },
+        {
+          "id": "d",
+          "text": "0"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "`723 % 10 = 3`."
+    },
+    {
+      "id": "q2",
+      "prompt": "LSD radix sorts by:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Most significant digit first only"
+        },
+        {
+          "id": "b",
+          "text": "Least significant digit first, then next places"
+        },
+        {
+          "id": "c",
+          "text": "Random digits"
+        },
+        {
+          "id": "d",
+          "text": "Comparing whole keys with `<`"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "LSD walks places from low to high."
+    },
+    {
+      "id": "q3",
+      "prompt": "Each digit pass should be:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Unstable"
+        },
+        {
+          "id": "b",
+          "text": "Stable so earlier digit order survives"
+        },
+        {
+          "id": "c",
+          "text": "Skipped when `n` is large"
+        },
+        {
+          "id": "d",
+          "text": "Done with quicksort only"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Later passes must preserve order within equal current digits."
+    },
+    {
+      "id": "q4",
+      "prompt": "Digit at place `p` base 10 is:",
+      "options": [
+        {
+          "id": "a",
+          "text": "`x % p`"
+        },
+        {
+          "id": "b",
+          "text": "`floor(x / 10^p) % 10`"
+        },
+        {
+          "id": "c",
+          "text": "`x + p`"
+        },
+        {
+          "id": "d",
+          "text": "`Math.max(x, p)`"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Shift out lower places, then mod base."
+    }
+  ]
+}
