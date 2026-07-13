@@ -1,7 +1,9 @@
 import type { Course, Lesson, Module, Project } from "../../domain/types/catalog";
+import type { MockTestModule } from "../../domain/types/mockTest";
 import type { Quiz } from "../../domain/types/quiz";
 import type { ReaderItem } from "../../domain/types/reader";
 import { sortByGraphIndex } from "./lessonDisplay";
+import { getMockTestById } from "./mockTestSelectors";
 
 export function getCourseById(courses: Course[], courseId: string): Course | null {
   return courses.find((c) => c.id === courseId) ?? null;
@@ -13,6 +15,13 @@ export function isHierarchyCourse(course: Course): boolean {
 
 export function getModuleById(course: Course, moduleId: string): Module | null {
   return course.modules?.find((m) => m.id === moduleId) ?? null;
+}
+
+export function getModuleOrMockTestById(
+  course: Course,
+  moduleId: string,
+): Module | MockTestModule | null {
+  return getModuleById(course, moduleId) ?? getMockTestById(course, moduleId);
 }
 
 export function getLessonById(course: Course, moduleId: string, lessonId: string): Lesson | null {

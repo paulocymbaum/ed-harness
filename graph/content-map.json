@@ -1,11 +1,20 @@
 {
-  "generatedAt": "2026-07-02T20:00:26.581Z",
+  "generatedAt": "2026-07-10T02:55:31.743Z",
   "courseSlug": "javascript",
-  "total": 57,
+  "total": 60,
   "exists": 33,
   "planned": 24,
-  "orphan": 0,
+  "orphan": 3,
   "entries": [
+    {
+      "graphIndex": "01.1",
+      "courseId": "javascript",
+      "moduleId": "01-javascript-fundamentals-mock",
+      "lessonId": "01.1-test-instructions",
+      "diskPath": "course/javascript/modules/01-javascript-fundamentals-mock/lessons/01.1-test-instructions",
+      "status": "orphan",
+      "reason": "no matching graph leaf"
+    },
     {
       "graphIndex": "01.1.1",
       "courseId": "javascript",
@@ -31,6 +40,15 @@
       "status": "exists"
     },
     {
+      "graphIndex": "01.2",
+      "courseId": "javascript",
+      "moduleId": "01-javascript-fundamentals-mock",
+      "lessonId": "01.2-multiple-choice",
+      "diskPath": "course/javascript/modules/01-javascript-fundamentals-mock/lessons/01.2-multiple-choice",
+      "status": "orphan",
+      "reason": "no matching graph leaf"
+    },
+    {
       "graphIndex": "01.2.1",
       "courseId": "javascript",
       "moduleId": "01-javascript-fundamentals",
@@ -45,6 +63,15 @@
       "lessonId": "01.2.2-assignment-and-reassignment",
       "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.2.2-assignment-and-reassignment",
       "status": "exists"
+    },
+    {
+      "graphIndex": "01.3",
+      "courseId": "javascript",
+      "moduleId": "01-javascript-fundamentals-mock",
+      "lessonId": "01.3-coding-challenge",
+      "diskPath": "course/javascript/modules/01-javascript-fundamentals-mock/lessons/01.3-coding-challenge",
+      "status": "orphan",
+      "reason": "no matching graph leaf"
     },
     {
       "graphIndex": "01.3.1",

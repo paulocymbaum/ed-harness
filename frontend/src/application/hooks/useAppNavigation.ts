@@ -4,6 +4,7 @@ import type { CourseTab, DrawerMode, DrawerTab } from "../../domain/types/naviga
 import type { ReaderItem, ReaderTab } from "../../domain/types/reader";
 import { criarEstrategiaHierarquia } from "../navigation/estrategiaHierarquia";
 import { criarEstrategiaLegacy } from "../navigation/estrategiaLegacy";
+import { useMockTestNavigation } from "./useMockTestNavigation";
 import { useCourseExperienceStore } from "../stores/legacy/courseExperienceStore";
 import { closeReaderBeforeNavigate } from "../usecases/navigateWithCleanup";
 
@@ -46,6 +47,7 @@ export function useAppNavigation() {
 
   const hierarquia = useMemo(() => criarEstrategiaHierarquia(deps), [deps]);
   const legacy = useMemo(() => criarEstrategiaLegacy(deps), [deps]);
+  const mockTest = useMockTestNavigation();
 
   const goCatalog = useCallback(() => {
     closeReaderBeforeNavigate();
@@ -80,6 +82,9 @@ export function useAppNavigation() {
     closeQuiz: hierarquia.closeQuiz,
     closeLegacyQuiz: legacy.closeQuiz,
     setReaderTab: legacy.setReaderTab,
+    goMockTest: mockTest.goMockTest,
+    goMockTestSection: mockTest.goMockTestSection,
+    goBackToMockTestOverview: mockTest.goBackToMockTestOverview,
     parseCourseTab,
     parseReaderTab,
     parseDrawerMode,

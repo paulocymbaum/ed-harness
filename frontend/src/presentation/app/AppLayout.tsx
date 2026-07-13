@@ -10,7 +10,7 @@ import { useTranslation } from "../../application/hooks/useTranslation";
 import {
   getCourseById,
   getLessonById,
-  getModuleById,
+  getModuleOrMockTestById,
   getProjectById,
   isHierarchyCourse,
 } from "../../application/selectors/catalogSelectors";
@@ -25,13 +25,15 @@ export function AppLayout() {
   const params = useParams();
   const [searchParams] = useSearchParams();
   const location = useLocation();
-  const { goCatalog, goCourse, goModule, goLesson, parseCourseTab, parseDrawerMode } =
+  const { goCatalog, goCourse, goModule, goLesson, goMockTest, parseCourseTab, parseDrawerMode } =
     useAppNavigation();
 
   const courseId = params.courseId;
   const moduleId = params.moduleId;
   const lessonId = params.lessonId;
+  const sectionId = params.sectionId;
   const isCourseRoute = location.pathname.startsWith("/course/");
+  const isMockTestRoute = location.pathname.includes("/mock-test");
 
   const course = useMemo(
     () => (courseId ? getCourseById(courses, courseId) : null),
@@ -39,7 +41,7 @@ export function AppLayout() {
   );
 
   const mod = useMemo(
-    () => (course && moduleId ? getModuleById(course, moduleId) : null),
+    () => (course && moduleId ? getModuleOrMockTestById(course, moduleId) : null),
     [course, moduleId],
   );
 
@@ -79,7 +81,20 @@ export function AppLayout() {
     ];
 
     if (mod) {
-      segments.push({ label: mod.title, onClick: () => goModule(course.id, mod.id) });
+      const onMockTest = isMockTestRoute;
+      segments.push({
+        label: mod.title,
+        onClick: onMockTest
+          ? () => goMockTest(course.id, mod.id)
+          : () => goModule(course.id, mod.id),
+      });
+    }
+
+    if (isMockTestRoute && sectionId && mod) {
+      const mockLesson = "lessons" in mod ? mod.lessons.find((l) => l.id === sectionId) : null;
+      if (mockLesson) {
+        segments.push({ label: mockLesson.title });
+      }
     }
 
     if (lesson && moduleId) {
@@ -120,6 +135,9 @@ export function AppLayout() {
     goCourse,
     goModule,
     goLesson,
+    goMockTest,
+    isMockTestRoute,
+    sectionId,
   ]);
 
   return (

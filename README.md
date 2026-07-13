@@ -40,7 +40,7 @@ flowchart TB
   Learner --> Skills
 ```
 
-**Content hierarchy:** `Course → Module → Lesson → (explanation, projects, quiz)` — see [`COURSE_STRUCTURE.md`](COURSE_STRUCTURE.md).
+**Content hierarchy:** `Course → Module → Lesson → (explanation, projects, quiz)` plus `Course → MockTestModule → sections` — see [`COURSE_STRUCTURE.md`](COURSE_STRUCTURE.md).
 
 ---
 

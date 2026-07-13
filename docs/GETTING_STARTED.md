@@ -72,15 +72,23 @@ Primary navigation uses the `hierarchy` structure:
 
 ```text
 /                                                          → Catalog
-/course/javascript                                         → Course overview
-/course/javascript/module/01-javascript-fundamentals       → Module
+/course/javascript                                         → Course overview (Modules + Mock tests)
+/course/javascript/module/01-javascript-fundamentals       → Study module
 /course/javascript/module/.../lesson/01.8.1-truthy-vs-falsy → Lesson
   ?drawer=quiz&quiz=<id>                                   → Quiz in side drawer
   ?drawer=project&project=<id>                             → Project in side drawer
   ?drawerTab=files|delivery                                → Project drawer tab
+/course/javascript/module/01-javascript-fundamentals-mock/mock-test
+                                                           → Mock test overview
+/course/javascript/module/...-mock/mock-test/section/01.2-multiple-choice
+                                                           → Mock test section (quiz)
 ```
 
-See [frontend/ARCHITECTURE-FRONT.md](../frontend/ARCHITECTURE-FRONT.md) for the full learner navigation journey.
+Mock tests live under the same course as study modules (`course/javascript/modules/*-mock/`). The catalog exposes them in a separate list on the course overview.
+
+They simulate the **section shape** of common HackerRank screenings (instructions → MCQ → stdin/stdout coding) in **practice mode** — shorter than many production tests, with visible test cases and a fixed pass percentage. See [create-mock-test reference § HackerRank alignment](../.cursor/skills/create-mock-test/reference.md#hackerrank-alignment) for official HackerRank doc links and what differs.
+
+See [frontend/ARCHITECTURE-FRONT.md](../frontend/ARCHITECTURE-FRONT.md) for the full learner navigation journey and [COURSE_STRUCTURE.md](../COURSE_STRUCTURE.md) for on-disk layout.
 
 ---
 

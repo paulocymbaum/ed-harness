@@ -11,6 +11,10 @@ const TEXT_EXTENSIONS = new Set([
   ".md", ".txt", ".js", ".mjs", ".cjs", ".ts", ".tsx", ".jsx", ".json", ".css", ".html", ".yml", ".yaml", ".input",
 ]);
 
+function isMockTestModuleFolder(name) {
+  return name.endsWith("-mock");
+}
+
 function isProbablyLegacyModuleFolder(name) {
   return /^\d{2}-/.test(name);
 }
@@ -222,6 +226,7 @@ async function loadLesson(lessonPath, courseSlug, moduleId, lessonDir) {
     markdown: readmeMarkdown,
     moduleId,
     ...(meta?.graphIndex ? { graphIndex: meta.graphIndex } : {}),
+    ...(meta?.mockTestSection ? { mockTestSection: meta.mockTestSection } : {}),
   };
 
   const projects = await loadProjectsFromRoot(path.join(lessonPath, "projects"), path.posix.join(basePosix, "projects"), {
@@ -279,13 +284,30 @@ async function loadHierarchyCourse(coursePath, courseSlug) {
   const moduleEntries = (await listDirSafe(modulesPath)).filter((e) => e.isDirectory() && isProbablyLegacyModuleFolder(e.name));
 
   const modules = [];
+  const mockTests = [];
   const lessons = [];
   const projects = [];
   const quizzes = [];
 
   for (const modEnt of moduleEntries.sort((a, b) => a.name.localeCompare(b.name))) {
     const mod = await loadHierarchyModule(path.join(modulesPath, modEnt.name), courseSlug, modEnt.name);
-    modules.push(mod);
+    if (isMockTestModuleFolder(modEnt.name)) {
+      const mockMeta = await readJsonSafe(path.join(modulesPath, modEnt.name, "mock-test.meta.json"));
+      mockTests.push({
+        ...mod,
+        mockTest: mockMeta ?? {
+          id: mod.id,
+          kind: "mock-test",
+          durationMinutes: 90,
+          passingScorePercent: 70,
+          sections: mod.lessons
+            .filter((l) => l.mockTestSection)
+            .map((l) => ({ lessonId: l.id, type: l.mockTestSection })),
+        },
+      });
+    } else {
+      modules.push(mod);
+    }
     lessons.push(...mod.lessons);
     projects.push(...mod.projects);
     quizzes.push(...mod.quizzes);
@@ -297,10 +319,12 @@ async function loadHierarchyCourse(coursePath, courseSlug) {
     readmePath: path.posix.join("course", courseSlug, "README.md"),
     readmeMarkdown,
     modules,
+    ...(mockTests.length ? { mockTests } : {}),
     lessons,
     projects,
     quizzes,
     structure: "hierarchy",
+    ...(meta?.kind ? { kind: meta.kind } : {}),
   };
 }
 
@@ -370,6 +394,8 @@ async function main() {
 
   console.log(`Wrote ${outPath}`);
   console.log(`Courses: ${courses.length}`);
+  console.log(`Modules: ${courses.reduce((sum, c) => sum + (c.modules?.length ?? 0), 0)}`);
+  console.log(`Mock tests: ${courses.reduce((sum, c) => sum + (c.mockTests?.length ?? 0), 0)}`);
   console.log(`Lessons: ${courses.reduce((sum, c) => sum + c.lessons.length, 0)}`);
   console.log(`Projects: ${courses.reduce((sum, c) => sum + c.projects.length, 0)}`);
   console.log(`Quizzes: ${courses.reduce((sum, c) => sum + c.quizzes.length, 0)}`);
