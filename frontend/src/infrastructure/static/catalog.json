@@ -5343,13 +5343,13 @@
           "title": "JavaScript Fundamentals — Mock Test",
           "graphIndex": "01",
           "readmePath": "course/javascript/modules/01-javascript-fundamentals-mock/README.md",
-          "readmeMarkdown": "# JavaScript Fundamentals — Mock Test\n\n## Overview\n\nSimulated HackerRank screening for **module 01 — JavaScript Fundamentals**: types, operators, control flow, truthiness, and functions.\n\n## Rules\n\n- **Duration:** 90 minutes\n- **Passing score:** 70%\n- **Sections:** instructions → multiple choice (8 questions) → coding challenge\n- Do not refresh the page during the timed session (progress is stored locally).\n\n## What to expect\n\n| Section | Content | Scored |\n|---------|---------|--------|\n| Instructions | Rules and section order | No |\n| Multiple choice | 8 conceptual questions | 1 pt each |\n| Coding challenge | Clamp utility (stdin/stdout) | Per test case |\n\n## How to take this test\n\n1. Read the instructions section.\n2. Complete all multiple-choice questions.\n3. Implement the coding challenge in the starter file and run test cases.\n\n## Source module\n\nAssesses topics from [`01-javascript-fundamentals`](../01-javascript-fundamentals/).\n",
+          "readmeMarkdown": "# JavaScript Fundamentals — Mock Test\n\n## Overview\n\nSimulated HackerRank screening for **module 01 — JavaScript Fundamentals**: types, operators, control flow, truthiness, and functions.\n\nThis is **practice mode**: same section shape as common HackerRank JS screenings (instructions → MCQ → stdin/stdout coding), but shorter and more transparent than many production tests (all test cases visible, fixed pass score, no section lock-in).\n\n## Rules\n\n- **Duration:** 90 minutes\n- **Passing score:** 70%\n- **Sections:** instructions → multiple choice (8 questions) → coding challenge\n- Do not refresh the page during the timed session (progress is stored locally).\n\n## What to expect\n\n| Section | Content | Scored |\n|---------|---------|--------|\n| Instructions | Rules and section order | No |\n| Multiple choice | 8 conceptual questions | 1 pt each |\n| Coding challenge | Clamp utility (stdin/stdout) | Per test case |\n\n## What to expect vs real HackerRank\n\n| This mock test | Typical HackerRank screening |\n|----------------|------------------------------|\n| 1 coding problem, 8 MCQs | Often 2–4 coding problems plus more MCQs; some tests add an analytical section first |\n| Fixed 70% pass | Often percentile-based scoring per company |\n| All test cases visible when you run | Sample + hidden test cases |\n| Practice timing (no enforced countdown) | Per-section timers; expired sections may lock |\n\nOfficial HackerRank references: [`.cursor/skills/create-mock-test/reference.md`](../../../../.cursor/skills/create-mock-test/reference.md#hackerrank-alignment).\n\n## How to take this test\n\n1. Read the instructions section.\n2. Complete all multiple-choice questions.\n3. Implement the coding challenge in the starter file and run test cases.\n\n## Source module\n\nAssesses topics from [`01-javascript-fundamentals`](../01-javascript-fundamentals/).\n",
           "lessons": [
             {
               "id": "01.1-test-instructions",
               "title": "Test Instructions",
               "path": "course/javascript/modules/01-javascript-fundamentals-mock/lessons/01.1-test-instructions/README.md",
-              "markdown": "# Test Instructions\n\nWelcome to the **JavaScript Fundamentals** mock test.\n\n## What is assessed\n\nThis screening covers module **01 — JavaScript Fundamentals**:\n\n- Primitive types, `typeof`, and truthiness\n- Variables (`let`, `const`), operators, and coercion\n- Control flow (`if`/`else`, logical operators)\n- Functions, parameters, and return values\n\n## Before you begin\n\n- You have **90 minutes** for all sections.\n- **Passing score:** 70%.\n- Multiple-choice answers are scored automatically (1 point each).\n- The coding challenge uses **stdin/stdout** — same pattern as HackerRank.\n- Use **Node.js only**; no external libraries.\n- Do not refresh the page during the timed session (progress is stored locally).\n\n## Section order\n\n1. **Multiple choice** — 8 questions on types, operators, control flow, and functions\n2. **Coding challenge** — implement a `clamp` utility that reads three numbers from stdin\n\nClick **Start** when you are ready.\n",
+              "markdown": "# Test Instructions\n\nWelcome to the **JavaScript Fundamentals** mock test.\n\n## What is assessed\n\nThis screening covers module **01 — JavaScript Fundamentals**:\n\n- Primitive types, `typeof`, and truthiness\n- Variables (`let`, `const`), operators, and coercion\n- Control flow (`if`/`else`, logical operators)\n- Functions, parameters, and return values\n\n## Before you begin\n\n- You have **90 minutes** for all sections.\n- **Passing score:** 70%.\n- Multiple-choice answers are scored automatically (1 point each; no negative marking).\n- The coding challenge uses **stdin/stdout** — same I/O pattern as HackerRank ([STDIN/STDOUT](https://candidatesupport.hackerrank.com/articles/8758620864-using-stdin-for-inputs-and-stdout-for-outputs)).\n- Use **Node.js only**; no external libraries.\n- Do not refresh the page during the timed session (progress is stored locally).\n\n## Practice mode vs real HackerRank\n\nThis simulator matches the **section order and skills** of common JS screenings but is friendlier than many production tests: one coding problem, visible test cases, and no section timer lock-in. See the module README for a full comparison.\n\n## Section order\n\n1. **Multiple choice** — 8 questions on types, operators, control flow, and functions\n2. **Coding challenge** — implement a `clamp` utility that reads three numbers from stdin\n\nClick **Start** when you are ready.\n",
               "moduleId": "01-javascript-fundamentals-mock",
               "graphIndex": "01.1",
               "mockTestSection": "instructions"
@@ -5829,7 +5829,7 @@
           "id": "01.1-test-instructions",
           "title": "Test Instructions",
           "path": "course/javascript/modules/01-javascript-fundamentals-mock/lessons/01.1-test-instructions/README.md",
-          "markdown": "# Test Instructions\n\nWelcome to the **JavaScript Fundamentals** mock test.\n\n## What is assessed\n\nThis screening covers module **01 — JavaScript Fundamentals**:\n\n- Primitive types, `typeof`, and truthiness\n- Variables (`let`, `const`), operators, and coercion\n- Control flow (`if`/`else`, logical operators)\n- Functions, parameters, and return values\n\n## Before you begin\n\n- You have **90 minutes** for all sections.\n- **Passing score:** 70%.\n- Multiple-choice answers are scored automatically (1 point each).\n- The coding challenge uses **stdin/stdout** — same pattern as HackerRank.\n- Use **Node.js only**; no external libraries.\n- Do not refresh the page during the timed session (progress is stored locally).\n\n## Section order\n\n1. **Multiple choice** — 8 questions on types, operators, control flow, and functions\n2. **Coding challenge** — implement a `clamp` utility that reads three numbers from stdin\n\nClick **Start** when you are ready.\n",
+          "markdown": "# Test Instructions\n\nWelcome to the **JavaScript Fundamentals** mock test.\n\n## What is assessed\n\nThis screening covers module **01 — JavaScript Fundamentals**:\n\n- Primitive types, `typeof`, and truthiness\n- Variables (`let`, `const`), operators, and coercion\n- Control flow (`if`/`else`, logical operators)\n- Functions, parameters, and return values\n\n## Before you begin\n\n- You have **90 minutes** for all sections.\n- **Passing score:** 70%.\n- Multiple-choice answers are scored automatically (1 point each; no negative marking).\n- The coding challenge uses **stdin/stdout** — same I/O pattern as HackerRank ([STDIN/STDOUT](https://candidatesupport.hackerrank.com/articles/8758620864-using-stdin-for-inputs-and-stdout-for-outputs)).\n- Use **Node.js only**; no external libraries.\n- Do not refresh the page during the timed session (progress is stored locally).\n\n## Practice mode vs real HackerRank\n\nThis simulator matches the **section order and skills** of common JS screenings but is friendlier than many production tests: one coding problem, visible test cases, and no section timer lock-in. See the module README for a full comparison.\n\n## Section order\n\n1. **Multiple choice** — 8 questions on types, operators, control flow, and functions\n2. **Coding challenge** — implement a `clamp` utility that reads three numbers from stdin\n\nClick **Start** when you are ready.\n",
           "moduleId": "01-javascript-fundamentals-mock",
           "graphIndex": "01.1",
           "mockTestSection": "instructions"
@@ -11221,78 +11221,6 @@
           ]
         }
       ],
-      "structure": "hierarchy"
-    },
-    {
-      "id": "testlang",
-      "title": "TestLang",
-      "readmePath": "course/testlang/README.md",
-      "readmeMarkdown": "# TestLang\n\n## Overview\n\n## Modules\n\n## How to study\n",
-      "modules": [
-        {
-          "id": "01-test-fundamentals",
-          "title": "Test Fundamentals",
-          "graphIndex": "01",
-          "readmePath": "course/testlang/modules/01-test-fundamentals/README.md",
-          "readmeMarkdown": "# Test Fundamentals\n\n> Graph index: `01`\n\n## Motivation\n\n## Lesson map\n\n## Checklist\n",
-          "lessons": [
-            {
-              "id": "01.1.1-running-code",
-              "title": "Running Code",
-              "path": "course/testlang/modules/01-test-fundamentals/lessons/01.1.1-running-code/README.md",
-              "markdown": "# Running Code\n\n> Graph index: `01.1.1`\n\n## Context\n\n## Predict first\n\n## Explanation\n\n## What to observe\n\n## Quick challenge\n",
-              "moduleId": "01-test-fundamentals",
-              "graphIndex": "01.1.1"
-            },
-            {
-              "id": "01.1.2-output-basics",
-              "title": "Output Basics",
-              "path": "course/testlang/modules/01-test-fundamentals/lessons/01.1.2-output-basics/README.md",
-              "markdown": "# Output Basics\n\n> Graph index: `01.1.2`\n\n## Context\n\n## Predict first\n\n## Explanation\n\n## What to observe\n\n## Quick challenge\n",
-              "moduleId": "01-test-fundamentals",
-              "graphIndex": "01.1.2"
-            },
-            {
-              "id": "01.2.1-let-and-const",
-              "title": "let and const",
-              "path": "course/testlang/modules/01-test-fundamentals/lessons/01.2.1-let-and-const/README.md",
-              "markdown": "# let and const\n\n> Graph index: `01.2.1`\n\n## Context\n\n## Predict first\n\n## Explanation\n\n## What to observe\n\n## Quick challenge\n",
-              "moduleId": "01-test-fundamentals",
-              "graphIndex": "01.2.1"
-            }
-          ],
-          "projects": [],
-          "quizzes": []
-        }
-      ],
-      "lessons": [
-        {
-          "id": "01.1.1-running-code",
-          "title": "Running Code",
-          "path": "course/testlang/modules/01-test-fundamentals/lessons/01.1.1-running-code/README.md",
-          "markdown": "# Running Code\n\n> Graph index: `01.1.1`\n\n## Context\n\n## Predict first\n\n## Explanation\n\n## What to observe\n\n## Quick challenge\n",
-          "moduleId": "01-test-fundamentals",
-          "graphIndex": "01.1.1"
-        },
-        {
-          "id": "01.1.2-output-basics",
-          "title": "Output Basics",
-          "path": "course/testlang/modules/01-test-fundamentals/lessons/01.1.2-output-basics/README.md",
-          "markdown": "# Output Basics\n\n> Graph index: `01.1.2`\n\n## Context\n\n## Predict first\n\n## Explanation\n\n## What to observe\n\n## Quick challenge\n",
-          "moduleId": "01-test-fundamentals",
-          "graphIndex": "01.1.2"
-        },
-        {
-          "id": "01.2.1-let-and-const",
-          "title": "let and const",
-          "path": "course/testlang/modules/01-test-fundamentals/lessons/01.2.1-let-and-const/README.md",
-          "markdown": "# let and const\n\n> Graph index: `01.2.1`\n\n## Context\n\n## Predict first\n\n## Explanation\n\n## What to observe\n\n## Quick challenge\n",
-          "moduleId": "01-test-fundamentals",
-          "graphIndex": "01.2.1"
-        }
-      ],
-      "projects": [],
-      "quizzes": [],
       "structure": "hierarchy"
     }
   ]

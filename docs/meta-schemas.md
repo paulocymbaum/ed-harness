@@ -13,16 +13,18 @@ Location: `course/<course-slug>/course.meta.json`
 ```json
 {
   "id": "javascript",
+  "title": "JavaScript",
   "graphRootLabel": "JavaScript",
-  "title": "JavaScript"
+  "graphSlug": "javascript"
 }
 ```
 
 | Field | Required | Description |
 |-------|----------|-------------|
 | `id` | yes | Kebab-case course slug (folder name) |
-| `graphRootLabel` | yes | Label of the graph root node |
 | `title` | yes | Human-readable course title |
+| `graphRootLabel` | yes | Label of the graph root node |
+| `graphSlug` | yes | Resolves `graph/courses/<graphSlug>.graph.txt` (convention: same as `id`) |
 | `kind` | no | Optional discriminator; study courses omit this |
 
 ---

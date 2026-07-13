@@ -87,7 +87,7 @@ node .cursor/tools/teacher/check-lessons.js
 ### B) `find-topics-graph`
 
 Use only when you need to:
-- Locate where a topic lives in `graph/course.graph.txt`
+- Locate where a topic lives in `graph/courses/<slug>.graph.txt` (use `--course`)
 - Find prerequisites/children to guide sequencing
 
 Typical commands:

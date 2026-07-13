@@ -112,7 +112,7 @@ Naming: module id **must** end with `-mock` → `01-javascript-fundamentals-mock
 ### Scope
 
 - Pull topics from the **parent study module** linked by `graphIndex` — do not invent out-of-graph content.
-- Use `find-topics-graph` / `graph/course.graph.txt` to confirm lesson coverage.
+- Use `find-topics-graph` / `graph/courses/<slug>.graph.txt` (with `--course`) to confirm lesson coverage.
 
 ### Section 1 — Instructions
 

@@ -12,7 +12,7 @@ import {
   isLeafNode,
   getLeafDescendants,
   getModuleIndex,
-  defaultCourseSlug,
+  resolveCourseMeta,
 } from "./graph-index.mjs";
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
@@ -28,7 +28,16 @@ function parseArgs(argv) {
     else if (arg === "--dry-run") args.dryRun = true;
     else if (arg === "--course") args.course = argv[++i];
     else if (arg === "--no-leaves") args.scaffoldLeaves = false;
-    else if (!arg.startsWith("-")) args.index = arg;
+    else if (!arg.startsWith("-")) {
+      // Allow: scaffold-from-graph.mjs <course> <index> OR just <index> with --course
+      if (!args.course && !args.index && /^\d/.test(arg) === false && !arg.includes(".")) {
+        args.course = arg;
+      } else if (!args.index) {
+        args.index = arg;
+      } else if (!args.course) {
+        args.course = arg;
+      }
+    }
   }
   return args;
 }
@@ -91,10 +100,12 @@ function courseReadmeSkeleton(title) {
 async function ensureCourse(graph, courseSlug, dryRun) {
   const coursePath = path.join(repoRoot, "course", courseSlug);
   const rootNode = graph.nodes.find((n) => n.id === graph.rootId);
+  const rootLabel = stripIndexPrefix(rootNode?.label ?? courseSlug) || courseSlug;
   const meta = {
     id: courseSlug,
-    graphRootLabel: rootNode?.label ?? "JavaScript",
-    title: stripIndexPrefix(rootNode?.label ?? "JavaScript") || "JavaScript",
+    title: rootLabel,
+    graphRootLabel: rootLabel,
+    graphSlug: courseSlug,
   };
 
   const result = { courseSlug, coursePath: path.relative(repoRoot, coursePath), created: [], skipped: [] };
@@ -120,7 +131,17 @@ async function ensureCourse(graph, courseSlug, dryRun) {
     writeFileExact("course.meta.json", coursePath, JSON.stringify(meta, null, 2));
     result.created.push("course.meta.json");
   } else {
-    result.skipped.push("course.meta.json");
+    const existing = resolveCourseMeta(repoRoot, courseSlug);
+    if (existing && !existing.graphSlug) {
+      writeFileExact(
+        "course.meta.json",
+        coursePath,
+        JSON.stringify({ ...existing, graphSlug: existing.graphSlug ?? courseSlug }, null, 2),
+      );
+      result.created.push("course.meta.json (graphSlug)");
+    } else {
+      result.skipped.push("course.meta.json");
+    }
   }
 
   return result;
@@ -282,29 +303,36 @@ async function scaffoldLesson(graph, lessonNode, courseSlug, moduleId, dryRun) {
 
 async function main() {
   const args = parseArgs(process.argv);
-  const graph = loadGraph({ repoRoot });
 
-  if (!args.module && !args.index) {
+  if (!args.course) {
     process.stderr.write(
-      'Usage: scaffold-from-graph.mjs "<graphIndex>" | --module "<NN>" [--dry-run] [--course <slug>] [--no-leaves]\n',
+      'Usage: scaffold-from-graph.mjs --course <slug> ("<graphIndex>" | --module "<NN>") [--dry-run] [--no-leaves]\n',
     );
     process.exit(2);
   }
 
-  const courseSlug = args.course || defaultCourseSlug(graph);
+  if (!args.module && !args.index) {
+    process.stderr.write(
+      'Usage: scaffold-from-graph.mjs --course <slug> ("<graphIndex>" | --module "<NN>") [--dry-run] [--no-leaves]\n',
+    );
+    process.exit(2);
+  }
+
+  const courseSlug = args.course;
+  const graph = loadGraph({ repoRoot, courseSlug });
   let output;
 
   if (args.module) {
     const moduleNode = findNodeByIndex(graph, args.module);
     if (!moduleNode) {
-      process.stderr.write(`NOT_FOUND: module index ${args.module}\n`);
+      process.stderr.write(`NOT_FOUND: module index ${args.module} in course ${courseSlug}\n`);
       process.exit(1);
     }
     output = await scaffoldModule(graph, moduleNode, courseSlug, args.dryRun, args.scaffoldLeaves);
   } else {
     const node = findNodeByIndex(graph, args.index);
     if (!node) {
-      process.stderr.write(`NOT_FOUND: index ${args.index}\n`);
+      process.stderr.write(`NOT_FOUND: index ${args.index} in course ${courseSlug}\n`);
       process.exit(1);
     }
 

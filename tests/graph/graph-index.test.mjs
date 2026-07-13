@@ -1,5 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { createRequire } from "node:module";
 
 const require = createRequire(import.meta.url);
@@ -10,8 +12,13 @@ const {
   slugFromLabel,
   isLeafNode,
   findNodeByIndex,
+  resolveGraphPaths,
+  loadGraph,
+  listCourseSlugs,
 } = require("../../scripts/graph/graph-index.js");
 const { parseMindmapText } = require("../../scripts/graph/parseMindmap.js");
+
+const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
 
 const MINI_GRAPH = `mindmap
   root((TestLang))
@@ -57,4 +64,22 @@ test("isLeafNode detects leaves", () => {
 test("findNodeByIndex returns null for invalid index", () => {
   const graph = loadMiniGraph();
   assert.equal(findNodeByIndex(graph, "99.9.9"), null);
+});
+
+test("resolveGraphPaths points at graph/courses/<slug>", () => {
+  const paths = resolveGraphPaths({ repoRoot, courseSlug: "javascript" });
+  assert.equal(paths.graphSlug, "javascript");
+  assert.ok(paths.txtPath.endsWith(path.join("graph", "courses", "javascript.graph.txt")));
+  assert.ok(paths.jsonPath.endsWith(path.join("graph", "courses", "javascript.graph.json")));
+});
+
+test("loadGraph loads javascript course graph", () => {
+  const graph = loadGraph({ repoRoot, courseSlug: "javascript" });
+  assert.ok(graph.rootId);
+  assert.ok(findNodeByIndex(graph, "01.2.1"));
+});
+
+test("listCourseSlugs includes javascript", () => {
+  const slugs = listCourseSlugs(repoRoot);
+  assert.ok(slugs.includes("javascript"));
 });

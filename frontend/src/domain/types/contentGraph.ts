@@ -31,3 +31,8 @@ export type ContentGraph = {
   stats: ContentGraphStats;
   root: ContentGraphNode;
 };
+
+export type ContentGraphsBundle = {
+  generatedAt: string;
+  courses: Record<string, ContentGraph>;
+};

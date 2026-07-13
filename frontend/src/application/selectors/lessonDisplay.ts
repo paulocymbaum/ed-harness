@@ -1,6 +1,6 @@
 import type { Lesson, Module } from "../../domain/types/catalog";
 
-/** Section labels from `graph/course.graph.json` (topic nodes, not leaf lessons). */
+/** Section labels from per-course `graph/courses/<slug>.graph.json` (topic nodes, not leaf lessons). */
 const SECTION_LABELS: Record<string, string> = {
   "01.1": "Getting Started",
   "01.2": "Variables",

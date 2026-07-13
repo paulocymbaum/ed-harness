@@ -14,23 +14,29 @@ function collectLeaves(node) {
   return (node.children || []).flatMap(collectLeaves);
 }
 
+function setupMiniGraph(tmpDir, graphSlug = "javascript") {
+  const coursesDir = path.join(tmpDir, "graph", "courses");
+  mkdirSync(coursesDir, { recursive: true });
+  const txtPath = path.join(coursesDir, `${graphSlug}.graph.txt`);
+  cpSync(path.join(repoRoot, "tests/fixtures/mini-graph.txt"), txtPath);
+  execFileSync("node", [
+    path.join(repoRoot, "scripts/graph/renderTxtToJson.js"),
+    txtPath,
+    path.join(coursesDir, `${graphSlug}.graph.json`),
+  ]);
+}
+
 test("generateContentGraph builds nested tree with exists and planned leaves", async () => {
   const tmpDir = makeTmpDir();
   try {
-    const graphDir = path.join(tmpDir, "graph");
-    mkdirSync(graphDir, { recursive: true });
-    cpSync(path.join(repoRoot, "tests/fixtures/mini-graph.txt"), path.join(graphDir, "course.graph.txt"));
-    execFileSync("node", [
-      path.join(repoRoot, "scripts/graph/renderTxtToJson.js"),
-      path.join(graphDir, "course.graph.txt"),
-      path.join(graphDir, "course.graph.json"),
-    ]);
-
+    setupMiniGraph(tmpDir, "javascript");
     cpSync(path.join(repoRoot, "tests/fixtures/mini-course"), path.join(tmpDir, "course"), {
       recursive: true,
     });
 
-    const graph = await generateContentGraph({ repoRoot: tmpDir, courseSlug: "javascript" });
+    const bundle = await generateContentGraph({ repoRoot: tmpDir });
+    assert.ok(bundle.courses.javascript);
+    const graph = bundle.courses.javascript;
 
     assert.equal(graph.root.kind, "root");
     assert.ok(graph.root.children.length >= 1);
@@ -39,9 +45,7 @@ test("generateContentGraph builds nested tree with exists and planned leaves", a
     const leaves = collectLeaves(graph.root);
     assert.ok(leaves.some((l) => l.graphIndex === "01.1.1" && l.status === "exists"));
     assert.ok(leaves.some((l) => l.graphIndex === "01.1.2" && l.status === "planned"));
-    assert.ok(
-      leaves.find((l) => l.graphIndex === "01.1.1")?.catalogRef?.lessonId,
-    );
+    assert.ok(leaves.find((l) => l.graphIndex === "01.1.1")?.catalogRef?.lessonId);
     assert.equal(graph.stats.exists, leaves.filter((l) => l.status === "exists").length);
     assert.equal(graph.stats.planned, leaves.filter((l) => l.status === "planned").length);
   } finally {

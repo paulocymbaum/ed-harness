@@ -56,7 +56,8 @@ describe("contentMapSkillPrompts", () => {
     expect(prompt).toContain("generate-lesson-teacher");
     expect(prompt).toContain("01.8.4");
     expect(prompt).toContain("Nullish Coalescing");
-    expect(prompt).toContain('scaffold-from-graph.mjs "01.8.4"');
+    expect(prompt).toContain('scaffold-from-graph.mjs --course javascript "01.8.4"');
+    expect(prompt).toContain("--course javascript");
     expect(prompt).not.toContain("catalogRef");
   });
 

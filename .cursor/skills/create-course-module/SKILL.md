@@ -2,8 +2,8 @@
 name: create-course-module
 description: >-
   Scaffolds a course module and its graph leaf lessons under course/<course>/modules/.
-  Uses scaffold-from-graph.mjs driven by graph/course.graph.txt. Use when creating
-  a new module or populating all lessons for a graph section (01–07).
+  Uses scaffold-from-graph.mjs driven by graph/courses/<slug>.graph.txt. Use when creating
+  a new module or populating all lessons for a graph section (01–07). Always pass --course.
 disable-model-invocation: true
 ---
 
@@ -14,14 +14,14 @@ disable-model-invocation: true
 1. **Find the module in the graph**:
 
 ```bash
-node .cursor/tools/graph/find-node-by-index.js "01"
+node .cursor/tools/graph/find-node-by-index.js --course javascript "01"
 ```
 
 2. **Scaffold module + all leaf lessons** (dry-run first):
 
 ```bash
-node scripts/graph/scaffold-from-graph.mjs --module "01" --dry-run
-node scripts/graph/scaffold-from-graph.mjs --module "01"
+node scripts/graph/scaffold-from-graph.mjs --course javascript --module "01" --dry-run
+node scripts/graph/scaffold-from-graph.mjs --course javascript --module "01"
 ```
 
 3. **Fill module README** at `course/javascript/modules/01-javascript-fundamentals/README.md`
@@ -37,18 +37,16 @@ cd frontend && npm run catalog:generate
 ## Workflow checklist
 
 ```
-- [ ] Graph index confirmed via find-topics-graph
-- [ ] scaffold-from-graph.mjs --module run
-- [ ] module.meta.json has correct graphIndex and graphNodeId
-- [ ] Module README has lesson map
-- [ ] validate-module.mjs passes
-- [ ] content-map regenerated
+- [ ] Graph index confirmed via find-topics-graph (--course)
+- [ ] Dry-run scaffold reviewed
+- [ ] Module + lessons created under the correct course folder
+- [ ] course.meta.json has graphSlug
+- [ ] Module README filled
+- [ ] validate-module + catalog:generate
 ```
 
-## Tools
+## Notes
 
-| Task | Command |
-|------|---------|
-| Scaffold module + leaves | `scaffold-from-graph.mjs --module "NN"` |
-| Manual module folder | `create-module-folder.js javascript NN "Title"` |
-| Check completeness | `check-lessons.js` |
+- `--course` selects **both** the graph source (`graph/courses/<slug>.graph.txt`) and the destination folder.
+- Do not scaffold one course's graph into another course folder.
+- Full hierarchy contract: [`COURSE_STRUCTURE.md`](../../../COURSE_STRUCTURE.md)

@@ -6,7 +6,7 @@ import { createRequire } from "node:module";
 import { execFileSync } from "node:child_process";
 
 const require = createRequire(import.meta.url);
-const { loadGraph, findNodeByIndex, isLeafNode } = require("./graph/graph-index.js");
+const { loadGraph, findNodeByIndex, isLeafNode, courseSlugFromPath } = require("./graph/graph-index.js");
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(scriptDir, "..");
@@ -182,14 +182,21 @@ async function checkDuplicateGraphIndexes(lessonPaths) {
   return findings;
 }
 
+function graphForLessonPath(lessonPath) {
+  const courseSlug = courseSlugFromPath(lessonPath, repoRoot);
+  if (!courseSlug) {
+    throw new Error(`Cannot derive course slug from path: ${lessonPath}`);
+  }
+  return loadGraph({ repoRoot, courseSlug });
+}
+
 async function main() {
   const args = parseArgs(process.argv);
-  const graph = loadGraph({ repoRoot });
   const findings = [];
 
   if (args.lesson) {
     const abs = path.isAbsolute(args.lesson) ? args.lesson : path.join(repoRoot, args.lesson);
-    findings.push(...(await validateLessonAtPath(abs, graph)));
+    findings.push(...(await validateLessonAtPath(abs, graphForLessonPath(abs))));
   } else {
     const lessonPaths = await listHierarchyLessons(args.course, args.module);
     if (lessonPaths.length === 0 && !args.all) {
@@ -198,7 +205,7 @@ async function main() {
     }
     findings.push(...(await checkDuplicateGraphIndexes(lessonPaths)));
     for (const lessonPath of lessonPaths) {
-      findings.push(...(await validateLessonAtPath(lessonPath, graph)));
+      findings.push(...(await validateLessonAtPath(lessonPath, graphForLessonPath(lessonPath))));
     }
   }
 

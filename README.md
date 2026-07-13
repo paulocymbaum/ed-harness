@@ -57,7 +57,7 @@ flowchart TB
 
 | Layer | Purpose |
 |-------|---------|
-| **Content** | [`graph/course.graph.txt`](graph/course.graph.txt) as source of truth; validators; `npm test` pipeline |
+| **Content** | [`graph/courses/<slug>.graph.txt`](graph/courses/javascript.graph.txt) per course; validators; `npm test` pipeline |
 | **PBL** | Project README contracts; AI correction via `review-course-project` (>80 = pass) |
 | **Cursor** | [Skills](.cursor/skills/) + [rules](.cursor/rules/) + Node scripts for tutor, reviewer, and author workflows |
 
@@ -169,4 +169,4 @@ hackerrank-study/
 
 ## License & contribution
 
-Private repository (`"private": true`). Extend content via [`graph/course.graph.txt`](graph/course.graph.txt) and authoring skills in [Getting Started](docs/GETTING_STARTED.md) — never invent topics outside their graph node.
+Private repository (`"private": true`). Extend content via [`graph/courses/<slug>.graph.txt`](graph/courses/javascript.graph.txt) and authoring skills in [Getting Started](docs/GETTING_STARTED.md) — never invent topics outside their graph node.

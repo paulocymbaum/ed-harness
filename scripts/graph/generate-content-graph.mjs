@@ -8,16 +8,16 @@ import {
   stripIndexPrefix,
   isLeafNode,
   getChildren,
-  defaultCourseSlug,
+  listCourseSlugs,
 } from "./graph-index.mjs";
-import { scanDiskLessons } from "./generate-content-map.mjs";
+import { scanCourseLessons } from "./generate-content-map.mjs";
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(scriptDir, "..", "..");
-const graphOutPath = path.join(repoRoot, "graph/content-graph.json");
-const frontendOutPath = path.join(
+const graphBundleOutPath = path.join(repoRoot, "graph/content-graphs.json");
+const frontendBundleOutPath = path.join(
   repoRoot,
-  "frontend/src/infrastructure/static/content-graph.json",
+  "frontend/src/infrastructure/static/content-graphs.json",
 );
 
 function classifyNodeKind(graph, nodeId, graphIndex) {
@@ -90,19 +90,13 @@ function countLeafStats(node) {
   return { totalLeaves, exists, planned, orphan };
 }
 
-export async function generateContentGraph(options = {}) {
-  const root = options.repoRoot ?? repoRoot;
-  const graph = loadGraph({
-    repoRoot: root,
-    jsonPath: path.join(root, "graph/course.graph.json"),
-    txtPath: path.join(root, "graph/course.graph.txt"),
-  });
-  const courseSlug = options.courseSlug ?? defaultCourseSlug(graph);
-  const { byGraphIndex } = await scanDiskLessons(root, { preferCourseId: courseSlug });
+export async function generateCourseContentGraph(root, courseSlug) {
+  const graph = loadGraph({ repoRoot: root, courseSlug });
+  const { byGraphIndex } = await scanCourseLessons(root, courseSlug);
 
   const rootRaw = (graph.nodes || []).find((n) => n.id === graph.rootId);
   if (!rootRaw) {
-    throw new Error("Graph root node not found");
+    throw new Error(`Graph root node not found for course ${courseSlug}`);
   }
 
   const treeRoot = buildTreeNode(graph, rootRaw, byGraphIndex);
@@ -116,21 +110,37 @@ export async function generateContentGraph(options = {}) {
   };
 }
 
-async function writeContentGraph(contentGraph, outPaths) {
-  const json = JSON.stringify(contentGraph, null, 2) + "\n";
-  for (const outPath of outPaths) {
-    await fs.mkdir(path.dirname(outPath), { recursive: true });
-    await fs.writeFile(outPath, json, "utf8");
-    process.stdout.write(`Wrote ${outPath}\n`);
+export async function generateContentGraph(options = {}) {
+  const root = options.repoRoot ?? repoRoot;
+  const courseSlugs = options.courseSlugs ?? listCourseSlugs(root);
+  const courses = {};
+
+  for (const courseSlug of courseSlugs) {
+    courses[courseSlug] = await generateCourseContentGraph(root, courseSlug);
   }
+
+  return {
+    generatedAt: new Date().toISOString(),
+    courses,
+  };
+}
+
+async function writeJson(outPath, data) {
+  await fs.mkdir(path.dirname(outPath), { recursive: true });
+  await fs.writeFile(outPath, JSON.stringify(data, null, 2) + "\n", "utf8");
+  process.stdout.write(`Wrote ${outPath}\n`);
 }
 
 async function main() {
-  const contentGraph = await generateContentGraph();
-  await writeContentGraph(contentGraph, [graphOutPath, frontendOutPath]);
-  process.stdout.write(
-    `exists: ${contentGraph.stats.exists}, planned: ${contentGraph.stats.planned}, orphan: ${contentGraph.stats.orphan}\n`,
-  );
+  const bundle = await generateContentGraph();
+  await writeJson(graphBundleOutPath, bundle);
+  await writeJson(frontendBundleOutPath, bundle);
+
+  for (const [slug, graph] of Object.entries(bundle.courses)) {
+    process.stdout.write(
+      `${slug}: exists=${graph.stats.exists}, planned=${graph.stats.planned}, orphan=${graph.stats.orphan}\n`,
+    );
+  }
 }
 
 const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);

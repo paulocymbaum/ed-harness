@@ -1,4 +1,5 @@
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { useCatalog } from "../../../application/hooks/useCatalog";
 import { useContentGraph } from "../../../application/hooks/useContentGraph";
 import { useContentGraphScores } from "../../../application/hooks/useContentGraphScores";
@@ -8,6 +9,7 @@ import {
   countEnrichedLessonStats,
   enrichContentGraphWithCatalog,
 } from "../../../application/selectors/contentGraphCatalog";
+import { isHierarchyCourse } from "../../../application/selectors/catalogSelectors";
 import type { ContentGraphNode } from "../../../domain/types/contentGraph";
 import { ErrorPanel, LoadingState } from "../../design-system";
 import { MindMapCanvas } from "./MindMapCanvas";
@@ -18,16 +20,44 @@ function coveragePercent(exists: number, totalLeaves: number): number {
 }
 
 export function ContentMapPanel() {
-  const { status, graph, error, reload } = useContentGraph();
   const { courses } = useCatalog();
   const { goLesson } = useAppNavigation();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const hierarchyCourses = useMemo(
+    () => courses.filter(isHierarchyCourse),
+    [courses],
+  );
+
+  const courseFromQuery = searchParams.get("course");
+  const selectedCourseId =
+    courseFromQuery && hierarchyCourses.some((c) => c.id === courseFromQuery)
+      ? courseFromQuery
+      : hierarchyCourses[0]?.id ?? null;
+
+  const { status, graph, error, reload, courseSlugs } = useContentGraph(selectedCourseId);
   const [collapsedIds, setCollapsedIds] = useState<Set<string>>(() => new Set());
 
+  useEffect(() => {
+    setCollapsedIds(new Set());
+  }, [selectedCourseId]);
+
+  const setSelectedCourse = useCallback(
+    (courseId: string) => {
+      setSearchParams((prev) => {
+        const next = new URLSearchParams(prev);
+        next.set("tab", "content-map");
+        next.set("course", courseId);
+        return next;
+      });
+    },
+    [setSearchParams],
+  );
+
   const enrichedRoot = useMemo(() => {
-    if (!graph?.root) return null;
-    const catalogIndex = buildCatalogLessonIndex(courses, graph.courseSlug);
+    if (!graph?.root || !selectedCourseId) return null;
+    const catalogIndex = buildCatalogLessonIndex(courses, selectedCourseId);
     return enrichContentGraphWithCatalog(graph.root, catalogIndex);
-  }, [graph?.root, graph?.courseSlug, courses]);
+  }, [graph?.root, selectedCourseId, courses]);
 
   const scores = useContentGraphScores(enrichedRoot, courses);
 
@@ -71,6 +101,19 @@ export function ContentMapPanel() {
     setCollapsedIds(new Set());
   }, []);
 
+  const selectableCourses = hierarchyCourses.filter(
+    (c) => courseSlugs.length === 0 || courseSlugs.includes(c.id),
+  );
+
+  if (!selectedCourseId) {
+    return (
+      <ErrorPanel
+        title="Content map unavailable"
+        message="No study courses with a content graph were found."
+      />
+    );
+  }
+
   if (status === "loading" || status === "idle") {
     return <LoadingState message="Loading content map…" />;
   }
@@ -94,7 +137,21 @@ export function ContentMapPanel() {
             {lessonStats.exists} exists · {lessonStats.planned} planned · {coverage}% coverage
           </p>
         </div>
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap items-center gap-2">
+          <label className="flex items-center gap-2 text-meta text-text1">
+            <span>Course</span>
+            <select
+              className="rounded-panel border border-border0 bg-surfaceControl px-3 py-2 text-meta font-medium text-text0"
+              value={selectedCourseId}
+              onChange={(e) => setSelectedCourse(e.target.value)}
+            >
+              {selectableCourses.map((course) => (
+                <option key={course.id} value={course.id}>
+                  {course.title || course.id}
+                </option>
+              ))}
+            </select>
+          </label>
           <button
             type="button"
             className="rounded-panel border border-border0 bg-surfaceControl px-3 py-2 text-meta font-medium text-text0 transition hover:bg-surfacePanel"

@@ -27,7 +27,7 @@ Mock tests belong **inside the parent course**, not as a separate catalog course
 
 ## Rules
 
-1. Always consult `graph/course.graph.txt` (via `find-topics-graph` skill) before creating **study** content.
+1. Always consult `graph/courses/<slug>.graph.txt` (via `find-topics-graph` with `--course`) before creating **study** content.
 2. Every study `*.meta.json` must include a valid `graphIndex` matching a node in the graph.
 3. Content scope is limited to the graph node — do not invent topics outside it.
 4. Lesson explanation lives in `lessons/<id>/README.md` (predict-first format).

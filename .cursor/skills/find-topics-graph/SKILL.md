@@ -1,6 +1,6 @@
 ---
 name: find-topics-graph
-description: Finds topics inside the Hackerrank Study course graph by rendering `graph/course.graph.txt` into JSON and traversing it with BFS/DFS. Use when the user asks to locate a topic, list prerequisites/children, search the mindmap for a label (e.g. "Closures", "Promises"), or resolve a node by hierarchical index (e.g. "01.2.1", "03.2.1").
+description: Finds topics inside a per-course Hackerrank Study graph under `graph/courses/<slug>.graph.txt` by rendering it into JSON and traversing with BFS/DFS. Use when the user asks to locate a topic, list prerequisites/children, search the mindmap for a label (e.g. "Closures", "Promises"), or resolve a node by hierarchical index (e.g. "01.2.1", "03.2.1"). Always pass `--course <slug>`.
 disable-model-invocation: true
 ---
 
@@ -8,23 +8,25 @@ disable-model-invocation: true
 
 ## What this skill is for
 
-Use this skill to **find topics (node labels)** in the course graph stored in `graph/course.graph.txt` (Mermaid `mindmap`) by:
+Use this skill to **find topics (node labels)** in a **course-specific** graph stored in `graph/courses/<slug>.graph.txt` (Mermaid `mindmap`) by:
 
 - Rendering it to JSON with the project script.
 - Traversing the graph with BFS and/or DFS to locate nodes and report paths/children.
+- Always scoping tools with `--course <slug>` (indexes are local to a course).
 
 ## Tools and paths (in this workspace)
 
 ### Render the TXT mindmap into JSON
 
 - **Renderer script**: `scripts/graph/renderTxtToJson.js`
-- **Input graph**: `graph/course.graph.txt`
-- **Typical output**: `graph/course.graph.json`
+- **Input graphs**: `graph/courses/<slug>.graph.txt`
+- **Typical output**: `graph/courses/<slug>.graph.json`
 
 Run:
 
 ```bash
-node scripts/graph/renderTxtToJson.js graph/course.graph.txt graph/course.graph.json
+node scripts/graph/renderTxtToJson.js graph/courses/javascript.graph.txt graph/courses/javascript.graph.json
+node scripts/graph/renderTxtToJson.js --all
 ```
 
 ### Topic-finding tools (runnable scenarios)
@@ -60,21 +62,21 @@ Label-based tools ignore numeric prefixes when matching text (e.g. `"Closures"` 
 - **BFS find** (prefer higher-level matches first):
 
 ```bash
-node .cursor/tools/graph/find-topic-bfs.js "Closures"
+node .cursor/tools/graph/find-topic-bfs.js --course javascript "Closures"
 ```
 
 - **DFS find** (good when you’re already exploring a branch):
 
 ```bash
-node .cursor/tools/graph/find-topic-dfs.js "Promises"
+node .cursor/tools/graph/find-topic-dfs.js --course javascript "Promises"
 ```
 
 - **Find by hierarchical index** (when you already know the module path):
 
 ```bash
-node .cursor/tools/graph/find-node-by-index.js "01"
-node .cursor/tools/graph/find-node-by-index.js "01.2.1"
-node .cursor/tools/graph/find-node-by-index.js "3.2.1"
+node .cursor/tools/graph/find-node-by-index.js --course javascript "01"
+node .cursor/tools/graph/find-node-by-index.js --course javascript "01.2.1"
+node .cursor/tools/graph/find-node-by-index.js --course javascript "3.2.1"
 ```
 
 The first segment accepts `1` or `01`; later segments are compared numerically (`3.2.1` = `03.2.1`).

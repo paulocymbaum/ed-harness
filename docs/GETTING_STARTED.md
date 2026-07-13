@@ -157,7 +157,7 @@ understand how to validate an empty string without using ==. Give me a hint, not
 
 ### `find-topics-graph` — Locate topics in the graph
 
-Searches [`graph/course.graph.txt`](../graph/course.graph.txt), shows prerequisites, children, and whether content already exists on disk.
+Searches [`graph/courses/<slug>.graph.txt`](../graph/courses/javascript.graph.txt) (pass `--course`), shows prerequisites, children, and whether content already exists on disk.
 
 **When to use:** "where do I learn X?", "what comes before Promises?", planning study order.
 

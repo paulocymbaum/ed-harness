@@ -91,7 +91,7 @@ frontend/src/
   infrastructure/
     repositories/
     static/catalog.json
-    static/content-graph.json
+    static/content-graphs.json
   presentation/
     app/                  # AppRouter, AppLayout
     features/             # catalog, course-experience, module-experience,

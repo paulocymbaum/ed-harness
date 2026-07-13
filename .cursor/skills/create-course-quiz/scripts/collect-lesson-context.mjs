@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url";
 import { createRequire } from "node:module";
 
 const require = createRequire(import.meta.url);
-const { loadGraph, findNodeByIndex } = require("../../../../scripts/graph/graph-index.js");
+const { loadGraph, findNodeByIndex, courseSlugFromPath } = require("../../../../scripts/graph/graph-index.js");
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(scriptDir, "..", "..", "..", "..");
@@ -78,12 +78,12 @@ async function resolveLessonPath(args) {
 }
 
 async function collectLessonContext(lessonPath) {
-  const graph = loadGraph({ repoRoot });
   const rel = path.relative(repoRoot, lessonPath);
   const parts = rel.split(path.sep);
-  const courseId = parts[1];
+  const courseId = parts[1] ?? courseSlugFromPath(lessonPath, repoRoot);
   const moduleId = parts[3];
   const lessonId = parts[5];
+  const graph = loadGraph({ repoRoot, courseSlug: courseId });
 
   const lessonMeta = JSON.parse(await readTextSafe(path.join(lessonPath, "lesson.meta.json")) || "{}");
   const moduleReadme = await readTextSafe(path.join(repoRoot, "course", courseId, "modules", moduleId, "README.md"));

@@ -47,8 +47,8 @@ const mockCourses: Course[] = [
     quizzes: [],
   },
   {
-    id: "testlang",
-    title: "Test",
+    id: "course-b",
+    title: "Course B",
     readmePath: "",
     readmeMarkdown: "",
     structure: "hierarchy",
@@ -79,12 +79,19 @@ const mockCourses: Course[] = [
 ];
 
 describe("buildCatalogLessonIndex", () => {
-  it("prefers the primary course slug when graphIndex collides", () => {
-    const index = buildCatalogLessonIndex(mockCourses, "javascript");
-    expect(index.get("01.2.1")).toEqual({
+  it("indexes only the requested course (no cross-course collision)", () => {
+    const jsIndex = buildCatalogLessonIndex(mockCourses, "javascript");
+    expect(jsIndex.get("01.2.1")).toEqual({
       courseId: "javascript",
       moduleId: "01-javascript-fundamentals",
       lessonId: "01.2.1-let-and-const",
+    });
+
+    const bIndex = buildCatalogLessonIndex(mockCourses, "course-b");
+    expect(bIndex.get("01.2.1")).toEqual({
+      courseId: "course-b",
+      moduleId: "01-test",
+      lessonId: "01.2.1-other",
     });
   });
 });

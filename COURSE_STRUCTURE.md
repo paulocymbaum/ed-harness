@@ -7,7 +7,7 @@ Course > Module > Lesson > (explanation, projects, quiz)
 Course > MockTestModule > Section-lessons > (instructions | quiz | coding)
 ```
 
-O grafo em `graph/course.graph.txt` é a fonte de verdade para **módulos de estudo**. Cada entidade de estudo no disco deve ter `graphIndex` em seu `*.meta.json`.
+O grafo em `graph/courses/<courseSlug>.graph.txt` é a fonte de verdade para **módulos de estudo** daquele curso. Cada entidade de estudo no disco deve ter `graphIndex` em seu `*.meta.json`, validado contra o grafo do próprio curso (`course.meta.json` → `graphSlug`).
 
 Schemas detalhados: [docs/meta-schemas.md](docs/meta-schemas.md)  
 Navegação no frontend: [frontend/ARCHITECTURE-FRONT.md](frontend/ARCHITECTURE-FRONT.md)  
@@ -299,8 +299,8 @@ course/  →  npm run catalog:generate  →  frontend/src/infrastructure/static/
 
 | Ação | Comando |
 |------|---------|
-| Scaffold do grafo | `node scripts/graph/scaffold-from-graph.mjs "01.8.1"` |
-| Scaffold módulo + folhas | `node scripts/graph/scaffold-from-graph.mjs --module "01"` |
+| Scaffold do grafo | `node scripts/graph/scaffold-from-graph.mjs --course javascript "01.8.1"` |
+| Scaffold módulo + folhas | `node scripts/graph/scaffold-from-graph.mjs --course javascript --module "01"` |
 | Scaffold simulado | skill `create-mock-test` |
 | Mapa grafo↔disco | `node scripts/graph/generate-content-map.mjs` |
 | Validar lesson | `node scripts/validate-lesson.mjs --lesson <path>` |
