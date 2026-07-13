@@ -1,0 +1,69 @@
+{
+  "id": "quiz",
+  "title": "Interview Preparation Kit Check",
+  "description": "Predict how the IPK organizes practice and which track a topic keyword should route to.",
+  "lessonId": "06.2.1-interview-preparation-kit",
+  "graphIndex": "06.2.1",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "How does the Interview Preparation Kit organize its problems?",
+      "options": [
+        { "id": "a", "text": "By difficulty level only" },
+        { "id": "b", "text": "By topic, so you can practice one recurring pattern at a time" },
+        { "id": "c", "text": "Randomly, to simulate a real OA" },
+        { "id": "d", "text": "By company that requested the problems" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "IPK groups problems by topic (Arrays, Strings, DP, ...) so each session reinforces one pattern."
+    },
+    {
+      "id": "q2",
+      "prompt": "What is the purpose of the `Warmup` set inside IPK?",
+      "options": [
+        { "id": "a", "text": "The hardest problems, reserved for experts" },
+        { "id": "b", "text": "The easiest entry problems, meant to build momentum" },
+        { "id": "c", "text": "A timed proctored certification" },
+        { "id": "d", "text": "A random mix of every topic" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Warmup problems are intentionally easy — they exist to build momentum, not to test depth."
+    },
+    {
+      "id": "q3",
+      "prompt": "If you're weak specifically on array manipulation, what's the most efficient next step?",
+      "options": [
+        { "id": "a", "text": "Work through the kit strictly top-to-bottom regardless of topic" },
+        { "id": "b", "text": "Route directly into the Arrays track" },
+        { "id": "c", "text": "Repeat the Warmup set until it feels easy" },
+        { "id": "d", "text": "Skip IPK entirely and take a certification instead" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "IPK's topic-first structure lets you target a known weak spot directly instead of grinding unrelated problems."
+    },
+    {
+      "id": "q4",
+      "prompt": "A topic keyword doesn't match `arrays`, `strings`, or `warmup`. What should a topic router do?",
+      "options": [
+        { "id": "a", "text": "Throw an error — only three topics are valid" },
+        { "id": "b", "text": "Route it into a general/mixed catch-all bucket" },
+        { "id": "c", "text": "Default to the Warmup track" },
+        { "id": "d", "text": "Ignore the input silently" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Unrecognized topics fall into a general/mixed bucket by design rather than failing outright."
+    },
+    {
+      "id": "q5",
+      "prompt": "Why does IPK organize practice by topic instead of by difficulty like score bands do?",
+      "options": [
+        { "id": "a", "text": "Topic and difficulty are the same thing on HackerRank" },
+        { "id": "b", "text": "Focused, pattern-based practice targets specific interview weaknesses better than a difficulty sort" },
+        { "id": "c", "text": "Difficulty sorting is not possible in IPK" },
+        { "id": "d", "text": "IPK doesn't allow you to see problem difficulty" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Interview prep benefits from reinforcing one recurring pattern at a time, which topic grouping enables and difficulty grouping doesn't."
+    }
+  ]
+}

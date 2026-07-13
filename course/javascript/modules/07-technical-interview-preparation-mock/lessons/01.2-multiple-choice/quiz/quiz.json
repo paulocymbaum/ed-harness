@@ -1,0 +1,105 @@
+{
+  "id": "quiz",
+  "title": "Technical Interview Preparation Multiple Choice",
+  "description": "CAP theorem, STAR method, clarifying questions, code quality, and iterative optimization from module 07.",
+  "lessonId": "01.2-multiple-choice",
+  "graphIndex": "01.2",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "A payments ledger must refuse or delay requests during a network partition rather than show two different balances to two users. Which CAP pair does this system land in, and what does it sacrifice?",
+      "options": [
+        { "id": "a", "text": "AP — it sacrifices Consistency to stay available" },
+        { "id": "b", "text": "CP — it sacrifices Availability to stay consistent" },
+        { "id": "c", "text": "CA — it sacrifices Partition tolerance because partitions never happen" },
+        { "id": "d", "text": "It sacrifices nothing, since CAP only applies to single-node databases" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Refusing/blocking requests during a partition to guarantee every visible balance is correct is CP: it keeps Consistency and Partition tolerance, sacrificing Availability."
+    },
+    {
+      "id": "q2",
+      "prompt": "An interviewer asks about a live sports score ticker that must never go down, even if some viewers briefly see a stale score. Which pair fits, and what is sacrificed?",
+      "options": [
+        { "id": "a", "text": "CP — it sacrifices Availability" },
+        { "id": "b", "text": "AP — it sacrifices Consistency" },
+        { "id": "c", "text": "CA — it sacrifices Partition tolerance" },
+        { "id": "d", "text": "Neither, because a score ticker is not a distributed system" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Prioritizing uptime over the freshest possible read is AP: it keeps Availability and Partition tolerance, sacrificing Consistency during a split."
+    },
+    {
+      "id": "q3",
+      "prompt": "Why is claiming a \"CA\" system usually a red flag in an interview answer?",
+      "options": [
+        { "id": "a", "text": "CA systems are always faster than CP or AP systems" },
+        { "id": "b", "text": "CA assumes the network never partitions, which real distributed systems cannot guarantee" },
+        { "id": "c", "text": "CA is only valid for read-heavy workloads" },
+        { "id": "d", "text": "CA is a deprecated term no longer used in system design" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "CA only exists in the theoretical case of no partitions. In practice, network partitions will happen, so claiming CA usually means the trade-off has not actually been planned for."
+    },
+    {
+      "id": "q4",
+      "prompt": "A behavioral answer says: \"Our deploy pipeline kept failing. I looked into it and eventually it got fixed.\" Which STAR letters are clearly missing or too vague?",
+      "options": [
+        { "id": "a", "text": "Situation only — Task, Action, and Result are all clear" },
+        { "id": "b", "text": "Task, Action, and Result — the concrete responsibility, specific steps, and measurable outcome are all missing" },
+        { "id": "c", "text": "Nothing is missing; this is already a complete STAR answer" },
+        { "id": "d", "text": "Result only — the rest of the answer is sufficiently detailed" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "The answer has a Situation (failing pipeline) but no clear Task (was it the candidate's responsibility?), a vague Action (\"looked into it\" is not specific), and no measurable Result."
+    },
+    {
+      "id": "q5",
+      "prompt": "In a STAR answer, why should the Action step use \"I\" instead of \"we\"?",
+      "options": [
+        { "id": "a", "text": "Interviewers penalize any mention of teammates" },
+        { "id": "b", "text": "It shows the interviewer the candidate's own specific contribution, not the team's" },
+        { "id": "c", "text": "\"We\" is grammatically incorrect in behavioral answers" },
+        { "id": "d", "text": "It has no effect — \"I\" and \"we\" are interchangeable in STAR answers" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "The interviewer is evaluating the candidate's individual contribution. \"We\" blurs who actually did what, while \"I\" makes the candidate's specific actions clear."
+    },
+    {
+      "id": "q6",
+      "prompt": "A prompt says \"write a function that returns the top K most frequent words.\" Which of these is the strongest clarifying question to ask before coding?",
+      "options": [
+        { "id": "a", "text": "\"So I need to find the top K most frequent words, right?\"" },
+        { "id": "b", "text": "\"For `[\\\"a\\\",\\\"b\\\",\\\"a\\\"]` with K=1, can you confirm the expected output is `[\\\"a\\\"]`?\"" },
+        { "id": "c", "text": "\"Can you tell me the answer to this problem?\"" },
+        { "id": "d", "text": "\"Is JavaScript an acceptable language to use?\"" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Confirming a concrete example narrows real ambiguity (ties, formatting) and exposes assumptions on both sides. Restating the prompt does not reduce ambiguity."
+    },
+    {
+      "id": "q7",
+      "prompt": "A reviewed function still has `console.log(\"debugging\", items)` and `// TODO: handle empty array` before merging, but passes the happy-path tests. Why flag these in code review?",
+      "options": [
+        { "id": "a", "text": "They don't matter, since the function is functionally correct" },
+        { "id": "b", "text": "They signal maintainability risk: leftover debug output and an acknowledged, unresolved gap" },
+        { "id": "c", "text": "Only syntax errors are worth flagging in code review" },
+        { "id": "d", "text": "`console.log` always crashes production code" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Code smells like leftover debug statements and unresolved TODOs are about maintainability risk, not whether the happy path currently works — they signal incomplete cleanup."
+    },
+    {
+      "id": "q8",
+      "prompt": "For \"find two numbers in an array that sum to a target,\" what is the typical narration arc interviewers expect, from first attempt to final answer?",
+      "options": [
+        { "id": "a", "text": "Silently write the optimal O(n) hash-map solution with no explanation" },
+        { "id": "b", "text": "Brute force nested loops (O(n²)) narrated first, then an improvement, then the optimal hash-map approach (O(n)), naming complexity at each step" },
+        { "id": "c", "text": "Ask the interviewer to solve it and then explain their solution back to them" },
+        { "id": "d", "text": "Jump straight to Big-O notation without writing any code" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Interviewers weight narration heavily: brute force -> better -> optimal, with the complexity said out loud at each step, often scores higher than a silent jump to the optimal solution."
+    }
+  ]
+}

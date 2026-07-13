@@ -1,0 +1,39 @@
+{
+  "cases": [
+    {
+      "id": "default-export-function",
+      "name": "export default function is default-export",
+      "stdin": "export default function main() {}\n",
+      "expectedStdout": "default-export\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "named-export-braces",
+      "name": "export { X } is named-export",
+      "stdin": "export { helper, util };\n",
+      "expectedStdout": "named-export\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "named-export-const",
+      "name": "export const X is named-export",
+      "stdin": "export const PI = 3.14;\n",
+      "expectedStdout": "named-export\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "default-import",
+      "name": "import X from ... (no braces) is default-import",
+      "stdin": "import config from \"./config.js\";\n",
+      "expectedStdout": "default-import\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "named-import",
+      "name": "import { X } from ... is named-import",
+      "stdin": "import { helper } from \"./utils.js\";\n",
+      "expectedStdout": "named-import\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

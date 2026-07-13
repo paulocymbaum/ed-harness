@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "id": "complete",
+      "name": "earned equals total is complete",
+      "stdin": "20\n20\n",
+      "expectedStdout": "complete 20/20\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "in-progress-mid",
+      "name": "earned below total is in-progress",
+      "stdin": "12\n20\n",
+      "expectedStdout": "in-progress 12/20\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "in-progress-zero",
+      "name": "zero earned is in-progress",
+      "stdin": "0\n15\n",
+      "expectedStdout": "in-progress 0/15\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "in-progress-one-away",
+      "name": "one solve away from completion is still in-progress",
+      "stdin": "19\n20\n",
+      "expectedStdout": "in-progress 19/20\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "id": "quiz",
+  "title": "ES6 Modules Check",
+  "description": "Classify export/import statements as default or named.",
+  "lessonId": "04.5-es6-modules",
+  "graphIndex": "04.5",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "`export default function main() {}` is which kind of export?",
+      "options": [
+        { "id": "a", "text": "Named export" },
+        { "id": "b", "text": "Default export" },
+        { "id": "c", "text": "Default import" },
+        { "id": "d", "text": "Not an export at all" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`export default` marks the module's single default export, whatever follows it (function, class, expression)."
+    },
+    {
+      "id": "q2",
+      "prompt": "`export { helper, util };` is which kind of export?",
+      "options": [
+        { "id": "a", "text": "Default export" },
+        { "id": "b", "text": "Named export" },
+        { "id": "c", "text": "Named import" },
+        { "id": "d", "text": "Syntax error" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Curly-brace `export { X }` declares one or more named exports — the importing side must use matching names in braces."
+    },
+    {
+      "id": "q3",
+      "prompt": "`export const PI = 3.14;` is which kind of export?",
+      "options": [
+        { "id": "a", "text": "Default export, because there's only one value" },
+        { "id": "b", "text": "Named export — same import style as `export { PI }`" },
+        { "id": "c", "text": "Neither — `const` cannot be exported" },
+        { "id": "d", "text": "Default import" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`export const X`, `export let X`, `export function X`, and `export { X }` are all named exports — a module can have many of these."
+    },
+    {
+      "id": "q4",
+      "prompt": "`import config from \"./config.js\";` (no curly braces) targets which kind of export?",
+      "options": [
+        { "id": "a", "text": "A named export called `config`" },
+        { "id": "b", "text": "The module's default export" },
+        { "id": "c", "text": "Every export in the module" },
+        { "id": "d", "text": "It always fails without braces" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "An import with no braces always targets the default export — the local name (`config`) can be anything, since there is only one default per module."
+    },
+    {
+      "id": "q5",
+      "prompt": "`import { helper } from \"./utils.js\";` (with curly braces) targets which kind of export?",
+      "options": [
+        { "id": "a", "text": "A named export called `helper`" },
+        { "id": "b", "text": "The default export, renamed to `helper`" },
+        { "id": "c", "text": "A CommonJS `require`" },
+        { "id": "d", "text": "Nothing — braces are only for destructuring objects" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Braces on import always target a named export — the name inside the braces must match the exported name exactly (unless aliased with `as`)."
+    },
+    {
+      "id": "q6",
+      "prompt": "Can a single module have both a default export and named exports?",
+      "options": [
+        { "id": "a", "text": "No, a module can only export one thing total" },
+        { "id": "b", "text": "Yes — one default export plus any number of named exports" },
+        { "id": "c", "text": "Yes, but only if they have the same name" },
+        { "id": "d", "text": "No, default and named exports must live in separate files" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "A module may have at most one default export, and separately, as many named exports as needed — they coexist in the same file."
+    }
+  ]
+}

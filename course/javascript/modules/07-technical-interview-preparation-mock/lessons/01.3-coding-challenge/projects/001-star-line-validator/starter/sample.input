@@ -1,0 +1,4 @@
+Deploy pipeline had a 30% failure rate
+I was asked to find the root cause
+I added logging and fixed a race condition
+Failure rate dropped to under 2%

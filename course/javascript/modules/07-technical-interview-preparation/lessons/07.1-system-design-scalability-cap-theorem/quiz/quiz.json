@@ -1,0 +1,81 @@
+{
+  "id": "quiz",
+  "title": "CAP Theorem Check",
+  "description": "Predict which guarantee a system sacrifices and classify CP/AP/CA scenarios.",
+  "lessonId": "07.1-system-design-scalability-cap-theorem",
+  "graphIndex": "07.1",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "According to the CAP theorem, what can a distributed system guarantee during a network partition?",
+      "options": [
+        { "id": "a", "text": "All three of Consistency, Availability, and Partition tolerance at once" },
+        { "id": "b", "text": "At most two of Consistency, Availability, and Partition tolerance" },
+        { "id": "c", "text": "Only Availability, never Consistency" },
+        { "id": "d", "text": "CAP only applies to single-node databases" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "CAP theorem: when a partition occurs, a system can only keep two of the three guarantees — typically Consistency+Partition tolerance (CP) or Availability+Partition tolerance (AP)."
+    },
+    {
+      "id": "q2",
+      "prompt": "A payments ledger rejects/blocks some requests during a network split so that no user ever sees a stale balance. Which guarantee is sacrificed?",
+      "options": [
+        { "id": "a", "text": "Consistency" },
+        { "id": "b", "text": "Availability" },
+        { "id": "c", "text": "Partition tolerance" },
+        { "id": "d", "text": "Nothing — it keeps all three" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "This is a CP system: it keeps Consistency and Partition tolerance, giving up Availability (some requests fail or time out) during a split."
+    },
+    {
+      "id": "q3",
+      "prompt": "A social media feed keeps responding during a network split, but some viewers may see slightly stale posts. Which pair does this describe?",
+      "options": [
+        { "id": "a", "text": "CP — favors consistency" },
+        { "id": "b", "text": "AP — favors availability" },
+        { "id": "c", "text": "CA — no partitions assumed" },
+        { "id": "d", "text": "None of the three; CAP does not apply to feeds" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Always responding (availability) while accepting possibly-stale reads (sacrificing consistency) during a partition is the AP trade-off."
+    },
+    {
+      "id": "q4",
+      "prompt": "Why is claiming a distributed system is \"CA\" usually a red flag in an interview answer?",
+      "options": [
+        { "id": "a", "text": "CA systems are always faster than CP or AP systems" },
+        { "id": "b", "text": "CA assumes network partitions never happen, which is unrealistic for real distributed systems" },
+        { "id": "c", "text": "CA is not a real combination described by CAP theorem" },
+        { "id": "d", "text": "CA only applies to NoSQL databases" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "In practice, partitions will happen. Claiming \"CA\" without justifying why partitions are impossible (e.g., a true single machine) signals the trade-off wasn't actually considered."
+    },
+    {
+      "id": "q5",
+      "prompt": "What is the more interview-effective move when discussing a CAP trade-off: naming the two guarantees you keep, or naming the one you sacrifice?",
+      "options": [
+        { "id": "a", "text": "Naming the two you keep — it sounds more positive" },
+        { "id": "b", "text": "Naming the one you sacrifice, with a reason tied to the business risk" },
+        { "id": "c", "text": "Neither matters — just say \"CAP theorem\" and move on" },
+        { "id": "d", "text": "Avoid naming any guarantee and only discuss latency" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Naming the sacrificed guarantee and justifying it (e.g., \"a stale balance is worse than a slow response here\") demonstrates you understand the real cost of the choice."
+    },
+    {
+      "id": "q6",
+      "prompt": "A live sports score ticker must never go down, even if some viewers briefly see an outdated score. Which guarantee is sacrificed?",
+      "options": [
+        { "id": "a", "text": "Availability" },
+        { "id": "b", "text": "Consistency" },
+        { "id": "c", "text": "Partition tolerance" },
+        { "id": "d", "text": "Scalability" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Staying up (availability) while tolerating stale scores (sacrificing consistency) during a partition is the AP trade-off — consistency is what's given up."
+    }
+  ]
+}

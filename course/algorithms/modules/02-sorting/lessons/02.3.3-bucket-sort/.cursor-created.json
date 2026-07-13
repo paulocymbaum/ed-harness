@@ -1,0 +1,9 @@
+{
+  "createdBy": "cursor-tool",
+  "tool": "scripts/graph/scaffold-from-graph.mjs",
+  "createdAt": "2026-07-13T18:14:42.252Z",
+  "kind": "lesson",
+  "lessonId": "02.3.3-bucket-sort",
+  "moduleId": "02-sorting",
+  "graphIndex": "02.3.3"
+}

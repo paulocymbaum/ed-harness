@@ -1,0 +1,39 @@
+{
+  "cases": [
+    {
+      "id": "var-declaration",
+      "name": "var declaration is a smell",
+      "stdin": "function total(items) {\nvar sum = 0;\nreturn sum;\n}\n",
+      "expectedStdout": "smell\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "console-log",
+      "name": "console.log is a smell",
+      "stdin": "function greet(name) {\nconsole.log(name);\nreturn name;\n}\n",
+      "expectedStdout": "smell\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "todo-comment",
+      "name": "TODO comment is a smell",
+      "stdin": "function add(a, b) {\n// TODO: validate inputs\nreturn a + b;\n}\n",
+      "expectedStdout": "smell\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "clean-code",
+      "name": "No flagged pattern is clean",
+      "stdin": "function add(a, b) {\nconst sum = a + b;\nreturn sum;\n}\n",
+      "expectedStdout": "clean\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "empty-input",
+      "name": "Empty stdin is clean",
+      "stdin": "",
+      "expectedStdout": "clean\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

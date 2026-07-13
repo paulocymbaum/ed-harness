@@ -1,0 +1,9 @@
+{
+  "createdBy": "cursor-tool",
+  "tool": "scripts/graph/scaffold-from-graph.mjs",
+  "createdAt": "2026-07-13T18:14:50.370Z",
+  "kind": "lesson",
+  "lessonId": "03.1.1-linear-search",
+  "moduleId": "03-searching",
+  "graphIndex": "03.1.1"
+}

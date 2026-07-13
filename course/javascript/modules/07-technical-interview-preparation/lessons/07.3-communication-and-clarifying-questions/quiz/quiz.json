@@ -1,0 +1,81 @@
+{
+  "id": "quiz",
+  "title": "Clarifying Questions Check",
+  "description": "Predict which clarifying questions actually reduce ambiguity before coding.",
+  "lessonId": "07.3-communication-and-clarifying-questions",
+  "graphIndex": "07.3",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Why do interviewers often leave coding prompts underspecified on purpose?",
+      "options": [
+        { "id": "a", "text": "To see whether the candidate asks questions that surface real ambiguities before coding" },
+        { "id": "b", "text": "Because writing a fully specified prompt is too much work" },
+        { "id": "c", "text": "Underspecified prompts are always a mistake and should be reported" },
+        { "id": "d", "text": "So candidates are forced to guess without asking anything" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Ambiguity is often intentional — it tests whether the candidate identifies and resolves unknowns (constraints, edge cases) before diving into code."
+    },
+    {
+      "id": "q2",
+      "prompt": "\"So I need to find the top K most frequent words, right?\" — what's the main problem with this as a clarifying question?",
+      "options": [
+        { "id": "a", "text": "It's too short" },
+        { "id": "b", "text": "It restates the prompt without reducing any real ambiguity" },
+        { "id": "c", "text": "It should not use the word \"words\"" },
+        { "id": "d", "text": "Nothing — this is a strong clarifying question" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Restating the prompt doesn't narrow any unknown (size, ties, case sensitivity) — a strong question targets a specific constraint or example."
+    },
+    {
+      "id": "q3",
+      "prompt": "Which of these is the strongest clarifying question for \"top K most frequent words\"?",
+      "options": [
+        { "id": "a", "text": "\"Is this a hard problem?\"" },
+        { "id": "b", "text": "\"If two words tie in frequency, does the order between them matter?\"" },
+        { "id": "c", "text": "\"Do I need to use JavaScript?\"" },
+        { "id": "d", "text": "\"Can you repeat the question?\"" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "This targets a concrete ambiguity (tie-breaking behavior) that changes the correct implementation — a real constraint, not a restatement."
+    },
+    {
+      "id": "q4",
+      "prompt": "Why is confirming a concrete example (\"for `[\"a\",\"b\",\"a\"]` with K=1, the answer is `[\"a\"]`, correct?\") often the highest-value question?",
+      "options": [
+        { "id": "a", "text": "It wastes time the interviewer would rather spend elsewhere" },
+        { "id": "b", "text": "It exposes mismatched assumptions on both sides before any code is written" },
+        { "id": "c", "text": "Examples are never useful in interviews" },
+        { "id": "d", "text": "It replaces the need for any other clarifying question" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "A concrete example forces both sides to agree on input/output shape and edge-case behavior immediately, catching misunderstandings early."
+    },
+    {
+      "id": "q5",
+      "prompt": "What should you do if you decide not to ask about every possible ambiguity before starting?",
+      "options": [
+        { "id": "a", "text": "Say nothing and hope the interviewer doesn't notice" },
+        { "id": "b", "text": "State your working assumption out loud (e.g., \"I'll assume case-insensitive unless told otherwise\")" },
+        { "id": "c", "text": "Always ask every possible question, no matter how many" },
+        { "id": "d", "text": "Refuse to start coding until every ambiguity is resolved" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Narrating an assumption is a form of communication that keeps momentum while still surfacing your reasoning to the interviewer."
+    },
+    {
+      "id": "q6",
+      "prompt": "Which pair of question types does the lesson identify as most likely to reduce real ambiguity?",
+      "options": [
+        { "id": "a", "text": "Questions about constraints and questions that propose a concrete example" },
+        { "id": "b", "text": "Questions about the interviewer's mood and the room temperature" },
+        { "id": "c", "text": "Questions that simply repeat the prompt word for word" },
+        { "id": "d", "text": "Questions about unrelated topics to build rapport" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Constraint questions (size, case, ties, format) and example-confirmation questions both target concrete unknowns rather than restating the prompt."
+    }
+  ]
+}

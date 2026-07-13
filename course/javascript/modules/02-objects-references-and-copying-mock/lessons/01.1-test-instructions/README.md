@@ -1,0 +1,32 @@
+# Test Instructions
+
+Welcome to the **Objects, References and Copying** mock test.
+
+## What is assessed
+
+This screening covers module **02 — Objects, References and Copying**:
+
+- Reference vs value semantics (primitives vs objects)
+- Shallow copy pitfalls (spread, `Object.assign`) with nested objects
+- Deep copy with `structuredClone` vs lossy `JSON.parse(JSON.stringify(...))`
+- `Object.hasOwn` vs the `in` operator (own vs inherited properties)
+
+## Before you begin
+
+- You have **90 minutes** for all sections.
+- **Passing score:** 70%.
+- Multiple-choice answers are scored automatically (1 point each; no negative marking).
+- The coding challenge uses **stdin/stdout** — same I/O pattern as HackerRank ([STDIN/STDOUT](https://candidatesupport.hackerrank.com/articles/8758620864-using-stdin-for-inputs-and-stdout-for-outputs)).
+- Use **Node.js only**; no external libraries.
+- Do not refresh the page during the timed session (progress is stored locally).
+
+## Practice mode vs real HackerRank
+
+This simulator matches the **section order and skills** of common JS screenings but is friendlier than many production tests: one coding problem, visible test cases, and no section timer lock-in. See the module README for a full comparison.
+
+## Section order
+
+1. **Multiple choice** — 7 questions on reference vs value, shallow/deep copy, and own vs inherited properties
+2. **Coding challenge** — implement a shallow merge guard that reads two JSON objects from stdin
+
+Click **Start** when you are ready.

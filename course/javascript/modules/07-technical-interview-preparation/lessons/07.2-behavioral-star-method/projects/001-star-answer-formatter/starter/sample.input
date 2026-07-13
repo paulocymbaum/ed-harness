@@ -1,0 +1,4 @@
+Pipeline kept failing
+Find and fix the root cause
+Added logging, found a race condition, rewrote the warm-up script
+Failure rate dropped from 30% to under 2%

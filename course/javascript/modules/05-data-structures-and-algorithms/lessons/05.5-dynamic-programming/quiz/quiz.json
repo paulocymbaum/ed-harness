@@ -1,0 +1,81 @@
+{
+  "id": "quiz",
+  "title": "Dynamic Programming Check",
+  "description": "Predict DP table values and identify overlapping subproblems vs. optimal substructure.",
+  "lessonId": "05.5-dynamic-programming",
+  "graphIndex": "05.5",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What two properties must a problem have for Dynamic Programming to apply?",
+      "options": [
+        { "id": "a", "text": "Sorted input and a single loop" },
+        { "id": "b", "text": "Overlapping subproblems and optimal substructure" },
+        { "id": "c", "text": "A graph structure and no cycles" },
+        { "id": "d", "text": "Constant time lookups and recursion" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "DP exploits overlapping subproblems (the same smaller problem recurs) combined with optimal substructure (the answer is built from smaller answers)."
+    },
+    {
+      "id": "q2",
+      "prompt": "Why is `waysNaive(n)` exponential time?",
+      "options": [
+        { "id": "a", "text": "Because it uses a `for` loop internally" },
+        { "id": "b", "text": "Because it recomputes the same subproblems (like `ways(3)`) many times across different recursive branches" },
+        { "id": "c", "text": "Because JavaScript recursion is always slow" },
+        { "id": "d", "text": "Because it uses an array instead of a table" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Without memoization or a table, each call branches into two more calls, and the same smaller subproblem gets solved repeatedly — this is the overlapping-subproblems cost."
+    },
+    {
+      "id": "q3",
+      "prompt": "In `waysDP`, what does `table[i] = table[i - 1] + table[i - 2]` represent?",
+      "options": [
+        { "id": "a", "text": "The number of ways to reach step `i`, built from the already-computed ways to reach `i-1` and `i-2`" },
+        { "id": "b", "text": "A random initialization value" },
+        { "id": "c", "text": "The total number of steps taken so far" },
+        { "id": "d", "text": "An error-checking formula" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "The last step taken to reach `i` was either a single step from `i-1` or a double step from `i-2` — summing those two already-solved subproblems gives `ways(i)`."
+    },
+    {
+      "id": "q4",
+      "prompt": "What is `waysDP(4)` given `table[0] = 1` and `table[1] = 1`?",
+      "options": [
+        { "id": "a", "text": "`4`" },
+        { "id": "b", "text": "`5`" },
+        { "id": "c", "text": "`6`" },
+        { "id": "d", "text": "`8`" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "table[2]=1+1=2, table[3]=2+1=3, table[4]=3+2=5. So `waysDP(4)` is `5`."
+    },
+    {
+      "id": "q5",
+      "prompt": "What is the time complexity of `waysDP(n)` compared to `waysNaive(n)`?",
+      "options": [
+        { "id": "a", "text": "`waysDP` is `O(n)`; `waysNaive` is `O(2^n)`" },
+        { "id": "b", "text": "Both are `O(n)`" },
+        { "id": "c", "text": "`waysDP` is `O(n^2)`; `waysNaive` is `O(n)`" },
+        { "id": "d", "text": "Both are `O(2^n)`" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "`waysDP` fills each subproblem once in a single pass (`O(n)`); `waysNaive` re-solves overlapping subproblems across an exponentially branching call tree (`O(2^n)`)."
+    },
+    {
+      "id": "q6",
+      "prompt": "Does DP change *what* is computed compared to the naive recursive formula, or *how* it is computed?",
+      "options": [
+        { "id": "a", "text": "It changes what is computed — DP uses a different recurrence" },
+        { "id": "b", "text": "It changes how it is computed — the same recurrence is filled bottom-up and reused instead of recomputed" },
+        { "id": "c", "text": "It changes neither; DP is purely a naming convention" },
+        { "id": "d", "text": "It replaces recursion with sorting" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "The recurrence `ways(i) = ways(i-1) + ways(i-2)` is identical in both versions; DP only changes the computation strategy from repeated recursive calls to a single bottom-up table fill."
+    }
+  ]
+}

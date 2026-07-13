@@ -1,0 +1,39 @@
+{
+  "cases": [
+    {
+      "id": "inc-twice",
+      "name": "Start at 5, inc twice, get",
+      "stdin": "5\ninc\ninc\nget\n",
+      "expectedStdout": "7\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "dec-below-zero",
+      "name": "Start at 0, dec once, get",
+      "stdin": "0\ndec\nget\n",
+      "expectedStdout": "-1\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "inc-dec-cancel",
+      "name": "inc then dec cancels out, two gets",
+      "stdin": "10\ninc\ndec\nget\nget\n",
+      "expectedStdout": "10\n10\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "get-before-and-after",
+      "name": "get before and after inc",
+      "stdin": "3\nget\ninc\nget\n",
+      "expectedStdout": "3\n4\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "only-inc-no-get",
+      "name": "Only inc commands, no get produces no output",
+      "stdin": "1\ninc\ninc\n",
+      "expectedStdout": "",
+      "expectedExitCode": 0
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "id": "quiz",
+  "title": "Data Structures and Algorithms Multiple Choice",
+  "description": "Big-O complexity, two pointers/sliding window, BFS/DFS, cycle detection, and dynamic programming from module 05.",
+  "lessonId": "01.2-multiple-choice",
+  "graphIndex": "01.2",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What is the time complexity of this function?\n\n```js\nfunction hasDuplicatePair(arr) {\n  for (let i = 0; i < arr.length; i++) {\n    for (let j = i + 1; j < arr.length; j++) {\n      if (arr[i] === arr[j]) return true;\n    }\n  }\n  return false;\n}\n```",
+      "options": [
+        { "id": "a", "text": "O(n)" },
+        { "id": "b", "text": "O(n²)" },
+        { "id": "c", "text": "O(log n)" },
+        { "id": "d", "text": "O(1)" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "A loop nested inside another loop over the same input does roughly n * n work, which is O(n²) — work quadruples when n doubles."
+    },
+    {
+      "id": "q2",
+      "prompt": "Binary search halves the remaining range on every iteration. What is its time complexity?",
+      "options": [
+        { "id": "a", "text": "O(n)" },
+        { "id": "b", "text": "O(n²)" },
+        { "id": "c", "text": "O(log n)" },
+        { "id": "d", "text": "O(1)" }
+      ],
+      "correctOptionId": "c",
+      "explanation": "Halving the search range each step means the number of steps grows by only one when n doubles — that is the definition of O(log n)."
+    },
+    {
+      "id": "q3",
+      "prompt": "For `twoSum(sortedArr, target)` using the two-pointer technique on a SORTED array, what do you do when `sortedArr[left] + sortedArr[right] < target`?",
+      "options": [
+        { "id": "a", "text": "Move `left` one step to the right to increase the sum" },
+        { "id": "b", "text": "Move `right` one step to the left to decrease the sum" },
+        { "id": "c", "text": "Restart both pointers from the ends" },
+        { "id": "d", "text": "Swap `left` and `right`" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "When the current sum is too small, the only way to increase it (on a sorted array) is to move the left pointer right, since every value from that point on is greater or equal."
+    },
+    {
+      "id": "q4",
+      "prompt": "Why does the two-pointer / sliding window technique reduce a nested-loop O(n²) solution to O(n)?",
+      "options": [
+        { "id": "a", "text": "Each pointer moves in only one direction and makes at most n moves total, so no pair or window is re-examined from scratch" },
+        { "id": "b", "text": "It sorts the array first, which is always free" },
+        { "id": "c", "text": "It uses recursion instead of loops, which is inherently faster" },
+        { "id": "d", "text": "It only works on arrays with fewer than 100 elements" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Because each pointer only advances (never backtracks), the total work across the whole pass is bounded by n moves per pointer, giving O(n) instead of checking every pair."
+    },
+    {
+      "id": "q5",
+      "prompt": "What is the key structural difference between the BFS and DFS implementations below?\n\n```js\n// BFS: const node = queue.shift();\n// DFS: const node = stack.pop();\n```",
+      "options": [
+        { "id": "a", "text": "BFS uses a FIFO queue (`shift`); DFS uses a LIFO stack (`pop`) — everything else is the same" },
+        { "id": "b", "text": "BFS uses recursion; DFS never uses recursion" },
+        { "id": "c", "text": "DFS always runs faster than BFS on the same graph" },
+        { "id": "d", "text": "BFS cannot be used on graphs with cycles" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "The only structural difference is FIFO (`queue.shift()`) for BFS versus LIFO (`stack.pop()`) for DFS. Both mark visited nodes and run in O(V + E)."
+    },
+    {
+      "id": "q6",
+      "prompt": "In an unweighted graph, which traversal is guaranteed to find the shortest path (fewest edges) from a start node?",
+      "options": [
+        { "id": "a", "text": "BFS, because it explores level by level" },
+        { "id": "b", "text": "DFS, because it explores as deep as possible first" },
+        { "id": "c", "text": "Neither — both find arbitrary paths" },
+        { "id": "d", "text": "Only Dijkstra's algorithm can do this" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "BFS visits all direct neighbors before any of their neighbors (level by level), which is exactly why it finds the shortest path in an unweighted graph."
+    },
+    {
+      "id": "q7",
+      "prompt": "Floyd's tortoise and hare algorithm detects a cycle in a linked list using two pointers moving at different speeds. What is its space complexity, and why is that an advantage over a hash-set approach?",
+      "options": [
+        { "id": "a", "text": "O(1) extra space, because it only tracks two pointers instead of storing every visited node" },
+        { "id": "b", "text": "O(n) extra space, same as the hash-set approach" },
+        { "id": "c", "text": "O(log n) extra space, because it halves the list each step" },
+        { "id": "d", "text": "O(n²) extra space, because it compares every pair of nodes" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Floyd's algorithm trades the hash-set's O(n) memory for two pointers (`slow`/`fast`), achieving O(1) extra space while still running in O(n) time."
+    },
+    {
+      "id": "q8",
+      "prompt": "What two properties must a problem have for dynamic programming to help?",
+      "options": [
+        { "id": "a", "text": "Overlapping subproblems and optimal substructure" },
+        { "id": "b", "text": "A sorted input and a single loop" },
+        { "id": "c", "text": "A graph structure and a queue" },
+        { "id": "d", "text": "Recursion and no base case" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "DP applies when the same smaller subproblem recurs (overlapping subproblems) and the best overall answer is built from the best answers to smaller pieces (optimal substructure)."
+    }
+  ]
+}

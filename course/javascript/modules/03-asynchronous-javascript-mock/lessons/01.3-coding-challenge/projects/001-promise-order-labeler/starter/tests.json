@@ -1,0 +1,46 @@
+{
+  "cases": [
+    {
+      "id": "example",
+      "name": "Mixed sync/micro/macro regrouping",
+      "stdin": "sync micro sync macro\n",
+      "expectedStdout": "sync\nsync\nmicro\nmacro\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "all-sync",
+      "name": "All sync tokens",
+      "stdin": "sync sync sync\n",
+      "expectedStdout": "sync\nsync\nsync\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "reversed-order",
+      "name": "Written in reverse scheduling order",
+      "stdin": "macro micro sync\n",
+      "expectedStdout": "sync\nmicro\nmacro\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "multiple-per-kind",
+      "name": "Multiple tokens per kind keep FIFO order",
+      "stdin": "sync macro micro macro sync micro\n",
+      "expectedStdout": "sync\nsync\nmicro\nmicro\nmacro\nmacro\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "single-token",
+      "name": "Single microtask token",
+      "stdin": "micro\n",
+      "expectedStdout": "micro\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "invalid-token",
+      "name": "Unrecognized token",
+      "stdin": "sync foo macro\n",
+      "expectedStdout": "ERROR: invalid token\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

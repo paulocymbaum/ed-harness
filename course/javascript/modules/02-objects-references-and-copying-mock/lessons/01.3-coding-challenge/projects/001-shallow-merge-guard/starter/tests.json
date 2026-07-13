@@ -1,0 +1,53 @@
+{
+  "cases": [
+    {
+      "id": "example",
+      "name": "Merge overwrite and new key",
+      "stdin": "{\"a\":1,\"b\":2}\n{\"b\":3,\"c\":4}\n",
+      "expectedStdout": "{\"a\":1,\"b\":3,\"c\":4}\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "empty-b",
+      "name": "Empty patch object",
+      "stdin": "{\"x\":1,\"y\":2}\n{}\n",
+      "expectedStdout": "{\"x\":1,\"y\":2}\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "empty-a",
+      "name": "Empty base object",
+      "stdin": "{}\n{\"z\":9}\n",
+      "expectedStdout": "{\"z\":9}\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "full-overwrite",
+      "name": "Patch overwrites and extends",
+      "stdin": "{\"a\":1}\n{\"a\":2,\"b\":3}\n",
+      "expectedStdout": "{\"a\":2,\"b\":3}\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "invalid-json-a",
+      "name": "Invalid JSON in first line",
+      "stdin": "{a:1}\n{}\n",
+      "expectedStdout": "ERROR: invalid json\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "invalid-json-b",
+      "name": "Invalid JSON in second line",
+      "stdin": "{\"a\":1}\n{b:2}\n",
+      "expectedStdout": "ERROR: invalid json\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "nested-object",
+      "name": "Nested value passes through unchanged",
+      "stdin": "{\"a\":{\"x\":1}}\n{\"b\":2}\n",
+      "expectedStdout": "{\"a\":{\"x\":1},\"b\":2}\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

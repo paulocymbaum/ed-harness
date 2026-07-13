@@ -1,0 +1,46 @@
+{
+  "cases": [
+    {
+      "id": "example",
+      "name": "Example from README",
+      "stdin": "Deploy pipeline had a 30% failure rate\nI was asked to find the root cause\nI added logging and fixed a race condition\nFailure rate dropped to under 2%\n",
+      "expectedStdout": "valid\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "empty-line",
+      "name": "One STAR slot is empty",
+      "stdin": "Situation is clear\n\nAction taken here\nResult achieved\n",
+      "expectedStdout": "invalid\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "short-line",
+      "name": "One STAR slot is too short",
+      "stdin": "Situation is clear\nHi\nAction taken here\nResult achieved\n",
+      "expectedStdout": "invalid\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "whitespace-only-line",
+      "name": "One STAR slot is whitespace only",
+      "stdin": "Situation is clear\n   \nAction taken here\nResult achieved\n",
+      "expectedStdout": "invalid\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "trimmed-too-short",
+      "name": "Line trims below the minimum length",
+      "stdin": "Situation is clear\n ab \nAction taken here\nResult achieved\n",
+      "expectedStdout": "invalid\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "boundary-length-three",
+      "name": "All lines exactly three characters",
+      "stdin": "Cat\nDog\nOwl\nFox\n",
+      "expectedStdout": "valid\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

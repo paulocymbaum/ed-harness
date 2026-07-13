@@ -1,0 +1,81 @@
+{
+  "id": "quiz",
+  "title": "Prototype Chain Check",
+  "description": "Predict own vs inherited property lookups via Object.create, Object.assign, in, and Object.hasOwn.",
+  "lessonId": "04.4-prototype-chain",
+  "graphIndex": "04.4",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "```js\nconst parent = { greet() { return \"hi\"; } };\nconst child = Object.create(parent);\nconsole.log(Object.hasOwn(child, \"greet\"));\n```\nWhat prints?",
+      "options": [
+        { "id": "a", "text": "`true`" },
+        { "id": "b", "text": "`false`" },
+        { "id": "c", "text": "`undefined`" },
+        { "id": "d", "text": "Throws an error" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`greet` lives on `parent`, not directly on `child`. `Object.hasOwn` only reports own properties, so it returns `false`."
+    },
+    {
+      "id": "q2",
+      "prompt": "Using the same `child`, what does `\"greet\" in child` print?",
+      "options": [
+        { "id": "a", "text": "`true`" },
+        { "id": "b", "text": "`false`" },
+        { "id": "c", "text": "`\"function\"`" },
+        { "id": "d", "text": "Throws an error" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "The `in` operator checks the entire prototype chain, so it finds `greet` on `parent` and reports `true`."
+    },
+    {
+      "id": "q3",
+      "prompt": "```js\nconst child = Object.create({ a: 1 });\nObject.assign(child, { b: 2 });\nconsole.log(Object.hasOwn(child, \"b\"));\n```\nWhat prints?",
+      "options": [
+        { "id": "a", "text": "`false` — assign never creates own properties" },
+        { "id": "b", "text": "`true` — assign copies properties directly onto the target" },
+        { "id": "c", "text": "`undefined`" },
+        { "id": "d", "text": "Throws a `TypeError`" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`Object.assign(target, source)` copies `source`'s properties as own properties onto `target`. `b` becomes an own property of `child`."
+    },
+    {
+      "id": "q4",
+      "prompt": "For the same `child` (prototype has `a`, own property `b`), what does `Object.hasOwn(child, \"a\")` print?",
+      "options": [
+        { "id": "a", "text": "`true`" },
+        { "id": "b", "text": "`false`" },
+        { "id": "c", "text": "`\"inherited\"`" },
+        { "id": "d", "text": "Throws an error" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`a` is only reachable through the prototype (`{ a: 1 }`), not copied onto `child` — so it is not an own property."
+    },
+    {
+      "id": "q5",
+      "prompt": "What does `\"c\" in child` print when `child` has no `c` on itself or on its prototype?",
+      "options": [
+        { "id": "a", "text": "`true`" },
+        { "id": "b", "text": "`false`" },
+        { "id": "c", "text": "`undefined`" },
+        { "id": "d", "text": "Throws a `ReferenceError`" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "If a key is not found anywhere in the prototype chain (own or inherited), `in` reports `false`."
+    },
+    {
+      "id": "q6",
+      "prompt": "Which pair of checks correctly distinguishes \"own\" from \"inherited\" for a given key on an object?",
+      "options": [
+        { "id": "a", "text": "`typeof obj[key]` alone" },
+        { "id": "b", "text": "`Object.hasOwn(obj, key)` for own, and `key in obj` (when hasOwn is false) for inherited" },
+        { "id": "c", "text": "`obj[key] !== undefined`" },
+        { "id": "d", "text": "`Array.isArray(obj[key])`" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Check `Object.hasOwn` first for own properties; if that is false but `key in obj` is true, the property is inherited from the prototype chain."
+    }
+  ]
+}

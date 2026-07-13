@@ -1,0 +1,69 @@
+{
+  "id": "quiz",
+  "title": "Problem-Solving Score Check",
+  "description": "Predict how a raw Problem-Solving Score reads as a band and what the score actually tracks.",
+  "lessonId": "06.1.1-problem-solving-score",
+  "graphIndex": "06.1.1",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What increases a profile's Problem-Solving Score?",
+      "options": [
+        { "id": "a", "text": "Any submission attempt, pass or fail" },
+        { "id": "b", "text": "Only submissions that pass the challenge's test cases" },
+        { "id": "c", "text": "Time spent logged into the platform" },
+        { "id": "d", "text": "Number of certifications taken" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Score only grows from challenges that actually pass their test cases — failed attempts don't contribute."
+    },
+    {
+      "id": "q2",
+      "prompt": "A profile has a high Problem-Solving score and a zero SQL score. What does that mean?",
+      "options": [
+        { "id": "a", "text": "The profile data is broken" },
+        { "id": "b", "text": "Score is domain-scoped — strength in one domain says nothing about another" },
+        { "id": "c", "text": "SQL challenges don't award score" },
+        { "id": "d", "text": "The SQL score will automatically rise to match" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Score accumulates per domain independently; a high score in one domain has no bearing on any other domain."
+    },
+    {
+      "id": "q3",
+      "prompt": "Using bands beginner (<40), intermediate (40-69), advanced (>=70), what band is a score of exactly 40?",
+      "options": [
+        { "id": "a", "text": "beginner" },
+        { "id": "b", "text": "intermediate" },
+        { "id": "c", "text": "advanced" },
+        { "id": "d", "text": "Undefined — 40 is a boundary with no band" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "40 is the first value in the intermediate band, since beginner only covers values strictly below 40."
+    },
+    {
+      "id": "q4",
+      "prompt": "Which practice pattern tends to raise a domain score faster overall?",
+      "options": [
+        { "id": "a", "text": "Solving one very Hard challenge and stopping" },
+        { "id": "b", "text": "Consistent practice across many challenges of varying difficulty" },
+        { "id": "c", "text": "Re-submitting the same passed challenge repeatedly" },
+        { "id": "d", "text": "Reading challenge statements without submitting" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Steady, broad practice compounds score gains faster than chasing a single high-difficulty win."
+    },
+    {
+      "id": "q5",
+      "prompt": "Why use score bands (beginner/intermediate/advanced) instead of the raw number?",
+      "options": [
+        { "id": "a", "text": "Bands are an official HackerRank feature that replaces the score" },
+        { "id": "b", "text": "Bands make a large range of raw numbers easier to triage at a glance" },
+        { "id": "c", "text": "Raw scores are not visible on profiles" },
+        { "id": "d", "text": "Bands are required to unlock certifications" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Bands are a practical heuristic for quick triage, not an official HackerRank tiering system."
+    }
+  ]
+}

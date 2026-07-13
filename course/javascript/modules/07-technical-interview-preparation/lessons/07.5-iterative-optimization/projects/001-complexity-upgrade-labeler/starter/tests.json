@@ -1,0 +1,25 @@
+{
+  "cases": [
+    {
+      "id": "brute-tag",
+      "name": "brute maps to O(n^2)",
+      "stdin": "brute\n",
+      "expectedStdout": "O(n^2)\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "better-tag",
+      "name": "better maps to O(n log n)",
+      "stdin": "better\n",
+      "expectedStdout": "O(n log n)\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "optimal-tag",
+      "name": "optimal maps to O(n)",
+      "stdin": "optimal\n",
+      "expectedStdout": "O(n)\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

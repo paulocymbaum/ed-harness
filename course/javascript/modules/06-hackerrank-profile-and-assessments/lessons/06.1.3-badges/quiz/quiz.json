@@ -1,0 +1,69 @@
+{
+  "id": "quiz",
+  "title": "Badges Check",
+  "description": "Predict how earned/total progress maps to a badge tier's status.",
+  "lessonId": "06.1.3-badges",
+  "graphIndex": "06.1.3",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What does a HackerRank skill badge track?",
+      "options": [
+        { "id": "a", "text": "A single timed, proctored attempt" },
+        { "id": "b", "text": "Cumulative solved-challenge count in a practice track" },
+        { "id": "c", "text": "Global contest rank" },
+        { "id": "d", "text": "Number of certifications passed" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Badges accumulate progress from solved challenges in a domain track over time, not from one attempt."
+    },
+    {
+      "id": "q2",
+      "prompt": "A badge tier shows earned = 19, total = 20. What is its status?",
+      "options": [
+        { "id": "a", "text": "complete" },
+        { "id": "b", "text": "in-progress" },
+        { "id": "c", "text": "failed" },
+        { "id": "d", "text": "not-verified" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Status is only complete when earned equals total exactly; 19/20 is still in-progress."
+    },
+    {
+      "id": "q3",
+      "prompt": "What happens once earned reaches total for a badge tier?",
+      "options": [
+        { "id": "a", "text": "The badge is complete and progress resets toward the next tier" },
+        { "id": "b", "text": "The badge disappears from the profile" },
+        { "id": "c", "text": "The total count doubles automatically" },
+        { "id": "d", "text": "You must retake a proctored test to keep it" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Completing a tier resets the progress counters toward the next, higher tier of the same badge."
+    },
+    {
+      "id": "q4",
+      "prompt": "Unlike certifications, badges have no...",
+      "options": [
+        { "id": "a", "text": "visible progress indicator" },
+        { "id": "b", "text": "failure state" },
+        { "id": "c", "text": "tier levels" },
+        { "id": "d", "text": "connection to solved challenges" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Badges only track progress toward completion; there is no fail outcome the way a certification attempt has one."
+    },
+    {
+      "id": "q5",
+      "prompt": "A badge progress fraction should always be printed as:",
+      "options": [
+        { "id": "a", "text": "total/earned" },
+        { "id": "b", "text": "earned/total" },
+        { "id": "c", "text": "a percentage" },
+        { "id": "d", "text": "earned only" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "The convention is earned first, then total, separated by a slash, regardless of completion status."
+    }
+  ]
+}

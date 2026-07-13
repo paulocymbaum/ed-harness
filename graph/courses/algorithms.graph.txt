@@ -1,0 +1,110 @@
+mindmap
+  root((Algorithms))
+    01 Algorithm Foundations
+      01.1 Complexity Thinking
+        01.1.1 Time Complexity Big-O
+        01.1.2 Space Complexity
+        01.1.3 Best Average Worst Case
+        01.1.4 Amortized Analysis
+      01.2 Problem Patterns in JS
+        01.2.1 Arrays and Typed Arrays
+        01.2.2 Map and Set as Tooling
+        01.2.3 Recursion vs Iteration
+        01.2.4 Divide and Conquer
+      01.3 Correctness Habits
+        01.3.1 Invariants and Edge Cases
+        01.3.2 Comparator Contracts
+        01.3.3 Measuring with console.time
+        01.3.4 Proving Termination
+    02 Sorting
+      02.1 Elementary Sorts
+        02.1.1 Bubble Sort
+        02.1.2 Selection Sort
+        02.1.3 Insertion Sort
+      02.2 Efficient Comparison Sorts
+        02.2.1 Merge Sort
+        02.2.2 Quick Sort
+        02.2.3 Heap Sort
+        02.2.4 Shell Sort
+      02.3 Non-Comparison Sorts
+        02.3.1 Counting Sort
+        02.3.2 Radix Sort
+        02.3.3 Bucket Sort
+      02.4 JS Runtime Sorting
+        02.4.1 Array.prototype.sort
+        02.4.2 Custom Comparators
+        02.4.3 Stability and Pitfalls
+        02.4.4 Sorting Objects by Keys
+      02.5 Choosing a Sort
+        02.5.1 Nearly Sorted Data
+        02.5.2 Memory Constraints
+        02.5.3 Sort by Multiple Keys
+        02.5.4 Online vs Offline Sorting
+    03 Searching
+      03.1 Linear Techniques
+        03.1.1 Linear Search
+        03.1.2 Two Pointers
+        03.1.3 Sliding Window
+        03.1.4 Prefix Sums
+      03.2 Logarithmic Search
+        03.2.1 Binary Search
+        03.2.2 Lower and Upper Bound
+        03.2.3 Search in Rotated Arrays
+        03.2.4 Binary Search on Answer
+      03.3 Hash-Based Lookup
+        03.3.1 Object Key Lookup Limits
+        03.3.2 Map for O1 Access
+        03.3.3 Set for Membership
+        03.3.4 Frequency Maps
+      03.4 Graph and Tree Search
+        03.4.1 DFS
+        03.4.2 BFS
+        03.4.3 Path Reconstruction
+        03.4.4 Backtracking Search
+    04 Saving Data
+      04.1 In-Memory Stores
+        04.1.1 Arrays as Ordered Stores
+        04.1.2 Objects Maps and Sets
+        04.1.3 Stack and Queue Patterns
+        04.1.4 Priority Queue Patterns
+      04.2 Serialization
+        04.2.1 JSON.stringify and parse
+        04.2.2 structuredClone
+        04.2.3 Custom Encoders
+        04.2.4 Versioned Schemas
+      04.3 Persistence Patterns
+        04.3.1 Snapshot and Restore
+        04.3.2 Append-Only Logs
+        04.3.3 Node File IO Basics
+        04.3.4 Atomic Write and Replace
+      04.4 Safe Mutation
+        04.4.1 Immutable Updates
+        04.4.2 Copy-on-Write
+        04.4.3 Idempotent Writes
+        04.4.4 Conflict Detection
+    05 Caching
+      05.1 Memoization
+        05.1.1 Pure Function Cache
+        05.1.2 Key Design for Arguments
+        05.1.3 Recursive Memoization
+        05.1.4 Bounded Memo Tables
+      05.2 Cache Policies
+        05.2.1 LRU Cache
+        05.2.2 LFU Cache
+        05.2.3 TTL Expiration
+        05.2.4 FIFO and Random Eviction
+      05.3 Cache Architecture
+        05.3.1 Read-Through Write-Through
+        05.3.2 Cache Aside
+        05.3.3 Write-Back
+        05.3.4 Invalidation Strategies
+      05.4 Practical JS Caching
+        05.4.1 Closure-Based Caches
+        05.4.2 Map-Backed LRU
+        05.4.3 Async Result Caching
+        05.4.4 WeakMap Object Caches
+    06 Applied Pipelines
+      06.1 Sort then Search Workflows
+      06.2 Cache-Aware Persistence
+      06.3 Deduplicating Expensive Work
+      06.4 Interview Tradeoff Narratives

@@ -1,0 +1,9 @@
+{
+  "createdBy": "cursor-tool",
+  "tool": "scripts/graph/scaffold-from-graph.mjs",
+  "createdAt": "2026-07-13T17:45:18.092Z",
+  "kind": "lesson",
+  "lessonId": "05.2-two-pointers-and-sliding-window",
+  "moduleId": "05-data-structures-and-algorithms",
+  "graphIndex": "05.2"
+}

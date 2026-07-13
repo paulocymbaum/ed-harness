@@ -1,0 +1,9 @@
+{
+  "createdBy": "cursor-tool",
+  "tool": "scripts/graph/scaffold-from-graph.mjs",
+  "createdAt": "2026-07-13T17:45:20.244Z",
+  "kind": "lesson",
+  "lessonId": "05.5-dynamic-programming",
+  "moduleId": "05-data-structures-and-algorithms",
+  "graphIndex": "05.5"
+}

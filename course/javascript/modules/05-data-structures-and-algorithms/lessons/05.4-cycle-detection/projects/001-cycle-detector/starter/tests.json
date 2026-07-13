@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "id": "clean-end",
+      "name": "chain that ends cleanly at -1 is acyclic",
+      "stdin": "1 2 -1\n",
+      "expectedStdout": "acyclic\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "loop-back",
+      "name": "chain that loops back to an earlier node has a cycle",
+      "stdin": "1 2 3 1\n",
+      "expectedStdout": "cycle\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "self-loop",
+      "name": "single node that points to itself has a cycle",
+      "stdin": "0\n",
+      "expectedStdout": "cycle\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "immediate-end",
+      "name": "chain of length one that ends immediately is acyclic",
+      "stdin": "-1\n",
+      "expectedStdout": "acyclic\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

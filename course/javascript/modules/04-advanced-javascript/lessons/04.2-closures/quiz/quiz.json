@@ -1,0 +1,81 @@
+{
+  "id": "quiz",
+  "title": "Closures Check",
+  "description": "Predict how closures capture and mutate private state across factory calls.",
+  "lessonId": "04.2-closures",
+  "graphIndex": "04.2",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What is a closure?",
+      "options": [
+        { "id": "a", "text": "A function bundled with references to variables from its creation scope" },
+        { "id": "b", "text": "A copy of all global variables made at function definition time" },
+        { "id": "c", "text": "A special syntax for defining classes" },
+        { "id": "d", "text": "A way to prevent a function from being called twice" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "A closure is a function paired with references to the variables from the scope where it was created, even after that scope has returned."
+    },
+    {
+      "id": "q2",
+      "prompt": "```js\nfunction createCounter(start) {\n  let count = start;\n  return { inc() { count += 1; }, get() { return count; } };\n}\nconst c = createCounter(5);\nc.inc();\nc.inc();\nconsole.log(c.get());\n```\nWhat does this print?",
+      "options": [
+        { "id": "a", "text": "`5`" },
+        { "id": "b", "text": "`6`" },
+        { "id": "c", "text": "`7`" },
+        { "id": "d", "text": "`undefined`" }
+      ],
+      "correctOptionId": "c",
+      "explanation": "`count` starts at 5 and each `inc()` call mutates the same closed-over variable, ending at 7."
+    },
+    {
+      "id": "q3",
+      "prompt": "```js\nconst a = createCounter(0);\nconst b = createCounter(100);\na.inc();\nconsole.log(b.get());\n```\nWhat does `b.get()` print?",
+      "options": [
+        { "id": "a", "text": "`0`" },
+        { "id": "b", "text": "`1`" },
+        { "id": "c", "text": "`100`" },
+        { "id": "d", "text": "`101`" }
+      ],
+      "correctOptionId": "c",
+      "explanation": "Each call to the factory function creates a fresh, independent closure. Mutating `a`'s `count` never affects `b`'s `count`."
+    },
+    {
+      "id": "q4",
+      "prompt": "Why can't outside code read `count` directly in the counter example?",
+      "options": [
+        { "id": "a", "text": "Because `count` is declared with `let` inside the factory and never exposed on the returned object" },
+        { "id": "b", "text": "Because JavaScript objects cannot have numeric properties" },
+        { "id": "c", "text": "Because `const` variables are always private" },
+        { "id": "d", "text": "It actually can be read directly; closures don't provide privacy" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "`count` only exists inside the factory's scope. The only access paths are the methods (`inc`, `dec`, `get`) that the factory chooses to return."
+    },
+    {
+      "id": "q5",
+      "prompt": "Does a closure capture a snapshot (value) or a live reference to its outer variable?",
+      "options": [
+        { "id": "a", "text": "A snapshot taken at the moment the closure is created" },
+        { "id": "b", "text": "A live reference — later mutations to the variable are visible inside the closure" },
+        { "id": "c", "text": "Neither — closures cannot access outer variables at all" },
+        { "id": "d", "text": "It depends on whether the variable is a primitive or an object" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Closures capture variables by reference. If the outer variable changes after the closure is created, the closure sees the updated value."
+    },
+    {
+      "id": "q6",
+      "prompt": "```js\nfunction createToggle(initial) {\n  let on = initial;\n  return () => { on = !on; return on; };\n}\nconst t = createToggle(false);\nt();\nconsole.log(t());\n```\nWhat does the second call print?",
+      "options": [
+        { "id": "a", "text": "`false`" },
+        { "id": "b", "text": "`true`" },
+        { "id": "c", "text": "`undefined`" },
+        { "id": "d", "text": "Throws an error" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "First call flips `on` from `false` to `true` (returns `true`, discarded). Second call flips it back to `false` and returns `false`."
+    }
+  ]
+}

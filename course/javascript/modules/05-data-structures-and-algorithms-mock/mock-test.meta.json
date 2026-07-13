@@ -1,0 +1,11 @@
+{
+  "id": "05-data-structures-and-algorithms-mock",
+  "kind": "mock-test",
+  "durationMinutes": 90,
+  "passingScorePercent": 70,
+  "sections": [
+    { "lessonId": "01.1-test-instructions", "type": "instructions" },
+    { "lessonId": "01.2-multiple-choice", "type": "quiz" },
+    { "lessonId": "01.3-coding-challenge", "type": "coding" }
+  ]
+}

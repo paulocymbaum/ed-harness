@@ -1,0 +1,9 @@
+{
+  "createdBy": "cursor-tool",
+  "tool": "scripts/graph/scaffold-from-graph.mjs",
+  "createdAt": "2026-07-13T18:14:26.368Z",
+  "kind": "lesson",
+  "lessonId": "01.1.3-best-average-worst-case",
+  "moduleId": "01-algorithm-foundations",
+  "graphIndex": "01.1.3"
+}

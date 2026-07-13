@@ -1,0 +1,25 @@
+{
+  "cases": [
+    {
+      "id": "cp-sacrifices-availability",
+      "name": "CP sacrifices availability",
+      "stdin": "CP\n",
+      "expectedStdout": "availability\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "ap-sacrifices-consistency",
+      "name": "AP sacrifices consistency",
+      "stdin": "AP\n",
+      "expectedStdout": "consistency\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "ca-sacrifices-partition-tolerance",
+      "name": "CA sacrifices partition tolerance",
+      "stdin": "CA\n",
+      "expectedStdout": "partition-tolerance\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

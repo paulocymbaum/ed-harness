@@ -1,0 +1,46 @@
+{
+  "cases": [
+    {
+      "id": "score-0",
+      "name": "score 0 is beginner",
+      "stdin": "0\n",
+      "expectedStdout": "beginner\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "score-39",
+      "name": "score 39 is beginner",
+      "stdin": "39\n",
+      "expectedStdout": "beginner\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "score-40",
+      "name": "score 40 is intermediate",
+      "stdin": "40\n",
+      "expectedStdout": "intermediate\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "score-69",
+      "name": "score 69 is intermediate",
+      "stdin": "69\n",
+      "expectedStdout": "intermediate\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "score-70",
+      "name": "score 70 is advanced",
+      "stdin": "70\n",
+      "expectedStdout": "advanced\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "score-100",
+      "name": "score 100 is advanced",
+      "stdin": "100\n",
+      "expectedStdout": "advanced\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

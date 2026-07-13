@@ -1,0 +1,69 @@
+{
+  "id": "quiz",
+  "title": "Test Case Handling Check",
+  "description": "Predict which edge-case categories a given set of flags exercises.",
+  "lessonId": "06.2.4-test-case-handling",
+  "graphIndex": "06.2.4",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "How does HackerRank typically grade a submission?",
+      "options": [
+        { "id": "a", "text": "Pass/fail as a single whole" },
+        { "id": "b", "text": "Per test case, awarding partial credit" },
+        { "id": "c", "text": "Only on code style" },
+        { "id": "d", "text": "By comparing runtime against other submitters" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Grading is per test case — a submission can pass some hidden cases and fail others, earning partial credit."
+    },
+    {
+      "id": "q2",
+      "prompt": "Why do hidden test cases often target inputs like zero or a single element?",
+      "options": [
+        { "id": "a", "text": "To slow down the judge on purpose" },
+        { "id": "b", "text": "Because general-case logic quietly breaks on these boundary inputs" },
+        { "id": "c", "text": "Because they're easier to write than normal cases" },
+        { "id": "d", "text": "They're only used in certification tests, never regular problems" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Boundary inputs like zero, negative, empty, or single-element frequently expose assumptions baked into general-case code."
+    },
+    {
+      "id": "q3",
+      "prompt": "Why can a truthy check like `if (value)` silently break on a numeric edge case?",
+      "options": [
+        { "id": "a", "text": "Because `0` is falsy, so a valid zero value gets treated as absent" },
+        { "id": "b", "text": "Because truthy checks always throw on numbers" },
+        { "id": "c", "text": "Because negative numbers are always truthy" },
+        { "id": "d", "text": "Truthy checks never cause issues with numbers" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "`0` is falsy in JavaScript, so code guarding on truthiness can wrongly treat a legitimate zero as missing data."
+    },
+    {
+      "id": "q4",
+      "prompt": "Given the input line `neg empty zero`, sorted alphabetically, what should be printed?",
+      "options": [
+        { "id": "a", "text": "neg empty zero" },
+        { "id": "b", "text": "empty neg zero" },
+        { "id": "c", "text": "zero neg empty" },
+        { "id": "d", "text": "none" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Alphabetical order of {empty, neg, zero} is empty, neg, zero — regardless of the order tokens arrived in."
+    },
+    {
+      "id": "q5",
+      "prompt": "If none of the four known flags (`empty`, `zero`, `neg`, `single`) appear in the input, what should be printed?",
+      "options": [
+        { "id": "a", "text": "An empty line" },
+        { "id": "b", "text": "none" },
+        { "id": "c", "text": "all" },
+        { "id": "d", "text": "An error" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "The literal word `none` is the defined output when no recognized edge-case category is present."
+    }
+  ]
+}

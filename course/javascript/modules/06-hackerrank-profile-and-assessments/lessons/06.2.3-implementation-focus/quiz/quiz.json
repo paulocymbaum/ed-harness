@@ -1,0 +1,69 @@
+{
+  "id": "quiz",
+  "title": "Implementation Focus Check",
+  "description": "Predict what an implementation checklist's done/todo counts actually tell you.",
+  "lessonId": "06.2.3-implementation-focus",
+  "graphIndex": "06.2.3",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What usually causes lost points on an \"Implementation\"-tagged problem?",
+      "options": [
+        { "id": "a", "text": "Choosing an algorithm with the wrong time complexity" },
+        { "id": "b", "text": "Missing one of the spec's rules, not picking a bad algorithm" },
+        { "id": "c", "text": "Using too many helper functions" },
+        { "id": "d", "text": "Submitting too early in the OA window" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Implementation problems are about completeness — most lost points come from an unhandled rule in the statement."
+    },
+    {
+      "id": "q2",
+      "prompt": "In a checklist line like `[x] parse input`, what does the `[x]` marker mean?",
+      "options": [
+        { "id": "a", "text": "The rule is still open (todo)" },
+        { "id": "b", "text": "The rule has been marked done" },
+        { "id": "c", "text": "The rule was skipped intentionally" },
+        { "id": "d", "text": "The rule caused a runtime error" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`[x]` at the start of a line marks that requirement as completed; `[ ]` marks it as still open."
+    },
+    {
+      "id": "q3",
+      "prompt": "A checklist shows `done=5 todo=0` but a hidden test still fails. What does that most likely mean?",
+      "options": [
+        { "id": "a", "text": "The checklist counts are wrong" },
+        { "id": "b", "text": "A \"done\" item was marked complete but implemented incorrectly" },
+        { "id": "c", "text": "Hidden tests never relate to the spec" },
+        { "id": "d", "text": "The checklist format itself caused the failure" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "\"Done\" tracks completeness of coverage, not correctness — a covered rule can still be implemented wrong."
+    },
+    {
+      "id": "q4",
+      "prompt": "Why does a checklist mindset fit implementation problems specifically?",
+      "options": [
+        { "id": "a", "text": "Because these problems need a clever algorithm above all" },
+        { "id": "b", "text": "Because success depends on covering every stated rule, which a checklist tracks well" },
+        { "id": "c", "text": "Because HackerRank requires a literal checklist in the submission" },
+        { "id": "d", "text": "Because checklists are faster to type than code" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Implementation problems reward completeness over cleverness, which is exactly what a rule-by-rule checklist verifies."
+    },
+    {
+      "id": "q5",
+      "prompt": "Which line(s) count as free-form notes rather than checklist items, for counting purposes?",
+      "options": [
+        { "id": "a", "text": "Any line not starting with `[x]` or `[ ]`" },
+        { "id": "b", "text": "Lines starting with `[x]`" },
+        { "id": "c", "text": "Lines starting with `[ ]`" },
+        { "id": "d", "text": "All lines are checklist items regardless of format" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Only lines that start with the exact `[x]` or `[ ]` markers are counted; everything else is ignored as non-checklist content."
+    }
+  ]
+}

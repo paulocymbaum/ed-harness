@@ -1,13 +1,1125 @@
 {
-  "generatedAt": "2026-07-13T17:06:00.211Z",
+  "generatedAt": "2026-07-13T18:31:36.756Z",
   "courses": {
+    "algorithms": {
+      "generatedAt": "2026-07-13T18:31:36.742Z",
+      "courseSlug": "algorithms",
+      "stats": {
+        "totalLeaves": 82,
+        "exists": 46,
+        "planned": 36,
+        "orphan": 0
+      },
+      "root": {
+        "id": "n_b45804aebd",
+        "graphIndex": null,
+        "label": "Algorithms",
+        "kind": "root",
+        "children": [
+          {
+            "id": "n_31db527848",
+            "graphIndex": "01",
+            "label": "Algorithm Foundations",
+            "kind": "module",
+            "children": [
+              {
+                "id": "n_4f8a0563fe",
+                "graphIndex": "01.1",
+                "label": "Complexity Thinking",
+                "kind": "section",
+                "children": [
+                  {
+                    "id": "n_2631bea6bc",
+                    "graphIndex": "01.1.1",
+                    "label": "Time Complexity Big-O",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "algorithms",
+                      "moduleId": "01-algorithm-foundations",
+                      "lessonId": "01.1.1-time-complexity-big-o"
+                    }
+                  },
+                  {
+                    "id": "n_92d759dda7",
+                    "graphIndex": "01.1.2",
+                    "label": "Space Complexity",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "algorithms",
+                      "moduleId": "01-algorithm-foundations",
+                      "lessonId": "01.1.2-space-complexity"
+                    }
+                  },
+                  {
+                    "id": "n_c57389b39c",
+                    "graphIndex": "01.1.3",
+                    "label": "Best Average Worst Case",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "algorithms",
+                      "moduleId": "01-algorithm-foundations",
+                      "lessonId": "01.1.3-best-average-worst-case"
+                    }
+                  },
+                  {
+                    "id": "n_4c38b0ab37",
+                    "graphIndex": "01.1.4",
+                    "label": "Amortized Analysis",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "algorithms",
+                      "moduleId": "01-algorithm-foundations",
+                      "lessonId": "01.1.4-amortized-analysis"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "n_fe72219422",
+                "graphIndex": "01.2",
+                "label": "Problem Patterns in JS",
+                "kind": "section",
+                "children": [
+                  {
+                    "id": "n_64b92b39cb",
+                    "graphIndex": "01.2.1",
+                    "label": "Arrays and Typed Arrays",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "algorithms",
+                      "moduleId": "01-algorithm-foundations",
+                      "lessonId": "01.2.1-arrays-and-typed-arrays"
+                    }
+                  },
+                  {
+                    "id": "n_3b39e0b6cd",
+                    "graphIndex": "01.2.2",
+                    "label": "Map and Set as Tooling",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "algorithms",
+                      "moduleId": "01-algorithm-foundations",
+                      "lessonId": "01.2.2-map-and-set-as-tooling"
+                    }
+                  },
+                  {
+                    "id": "n_80b1d3c263",
+                    "graphIndex": "01.2.3",
+                    "label": "Recursion vs Iteration",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "algorithms",
+                      "moduleId": "01-algorithm-foundations",
+                      "lessonId": "01.2.3-recursion-vs-iteration"
+                    }
+                  },
+                  {
+                    "id": "n_2e9a88d247",
+                    "graphIndex": "01.2.4",
+                    "label": "Divide and Conquer",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "algorithms",
+                      "moduleId": "01-algorithm-foundations",
+                      "lessonId": "01.2.4-divide-and-conquer"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "n_2849dd51be",
+                "graphIndex": "01.3",
+                "label": "Correctness Habits",
+                "kind": "section",
+                "children": [
+                  {
+                    "id": "n_2d1aed0ddf",
+                    "graphIndex": "01.3.1",
+                    "label": "Invariants and Edge Cases",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "algorithms",
+                      "moduleId": "01-algorithm-foundations",
+                      "lessonId": "01.3.1-invariants-and-edge-cases"
+                    }
+                  },
+                  {
+                    "id": "n_e18c7dd50a",
+                    "graphIndex": "01.3.2",
+                    "label": "Comparator Contracts",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "algorithms",
+                      "moduleId": "01-algorithm-foundations",
+                      "lessonId": "01.3.2-comparator-contracts"
+                    }
+                  },
+                  {
+                    "id": "n_20af94c3ef",
+                    "graphIndex": "01.3.3",
+                    "label": "Measuring with console.time",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "algorithms",
+                      "moduleId": "01-algorithm-foundations",
+                      "lessonId": "01.3.3-measuring-with-console-time"
+                    }
+                  },
+                  {
+                    "id": "n_41a3991b85",
+                    "graphIndex": "01.3.4",
+                    "label": "Proving Termination",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "algorithms",
+                      "moduleId": "01-algorithm-foundations",
+                      "lessonId": "01.3.4-proving-termination"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "n_1e3798353e",
+            "graphIndex": "02",
+            "label": "Sorting",
+            "kind": "module",
+            "children": [
+              {
+                "id": "n_4ddf4587b9",
+                "graphIndex": "02.1",
+                "label": "Elementary Sorts",
+                "kind": "section",
+                "children": [
+                  {
+                    "id": "n_cd2309e4fd",
+                    "graphIndex": "02.1.1",
+                    "label": "Bubble Sort",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "algorithms",
+                      "moduleId": "02-sorting",
+                      "lessonId": "02.1.1-bubble-sort"
+                    }
+                  },
+                  {
+                    "id": "n_288ead4cbd",
+                    "graphIndex": "02.1.2",
+                    "label": "Selection Sort",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "algorithms",
+                      "moduleId": "02-sorting",
+                      "lessonId": "02.1.2-selection-sort"
+                    }
+                  },
+                  {
+                    "id": "n_437aa7c30a",
+                    "graphIndex": "02.1.3",
+                    "label": "Insertion Sort",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "algorithms",
+                      "moduleId": "02-sorting",
+                      "lessonId": "02.1.3-insertion-sort"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "n_00b6fddf17",
+                "graphIndex": "02.2",
+                "label": "Efficient Comparison Sorts",
+                "kind": "section",
+                "children": [
+                  {
+                    "id": "n_1e5762fad6",
+                    "graphIndex": "02.2.1",
+                    "label": "Merge Sort",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "algorithms",
+                      "moduleId": "02-sorting",
+                      "lessonId": "02.2.1-merge-sort"
+                    }
+                  },
+                  {
+                    "id": "n_99f6292534",
+                    "graphIndex": "02.2.2",
+                    "label": "Quick Sort",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "algorithms",
+                      "moduleId": "02-sorting",
+                      "lessonId": "02.2.2-quick-sort"
+                    }
+                  },
+                  {
+                    "id": "n_e43239f06c",
+                    "graphIndex": "02.2.3",
+                    "label": "Heap Sort",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "algorithms",
+                      "moduleId": "02-sorting",
+                      "lessonId": "02.2.3-heap-sort"
+                    }
+                  },
+                  {
+                    "id": "n_f2d84f0c80",
+                    "graphIndex": "02.2.4",
+                    "label": "Shell Sort",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "algorithms",
+                      "moduleId": "02-sorting",
+                      "lessonId": "02.2.4-shell-sort"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "n_9437ba96c7",
+                "graphIndex": "02.3",
+                "label": "Non-Comparison Sorts",
+                "kind": "section",
+                "children": [
+                  {
+                    "id": "n_23e035d371",
+                    "graphIndex": "02.3.1",
+                    "label": "Counting Sort",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "algorithms",
+                      "moduleId": "02-sorting",
+                      "lessonId": "02.3.1-counting-sort"
+                    }
+                  },
+                  {
+                    "id": "n_a60b75399a",
+                    "graphIndex": "02.3.2",
+                    "label": "Radix Sort",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "algorithms",
+                      "moduleId": "02-sorting",
+                      "lessonId": "02.3.2-radix-sort"
+                    }
+                  },
+                  {
+                    "id": "n_f363c50044",
+                    "graphIndex": "02.3.3",
+                    "label": "Bucket Sort",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "algorithms",
+                      "moduleId": "02-sorting",
+                      "lessonId": "02.3.3-bucket-sort"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "n_f5c8649d76",
+                "graphIndex": "02.4",
+                "label": "JS Runtime Sorting",
+                "kind": "section",
+                "children": [
+                  {
+                    "id": "n_df84860486",
+                    "graphIndex": "02.4.1",
+                    "label": "Array.prototype.sort",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "algorithms",
+                      "moduleId": "02-sorting",
+                      "lessonId": "02.4.1-array-prototype-sort"
+                    }
+                  },
+                  {
+                    "id": "n_6551b6dd92",
+                    "graphIndex": "02.4.2",
+                    "label": "Custom Comparators",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "algorithms",
+                      "moduleId": "02-sorting",
+                      "lessonId": "02.4.2-custom-comparators"
+                    }
+                  },
+                  {
+                    "id": "n_09a13219b2",
+                    "graphIndex": "02.4.3",
+                    "label": "Stability and Pitfalls",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "algorithms",
+                      "moduleId": "02-sorting",
+                      "lessonId": "02.4.3-stability-and-pitfalls"
+                    }
+                  },
+                  {
+                    "id": "n_a4e60757cf",
+                    "graphIndex": "02.4.4",
+                    "label": "Sorting Objects by Keys",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "algorithms",
+                      "moduleId": "02-sorting",
+                      "lessonId": "02.4.4-sorting-objects-by-keys"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "n_e095023142",
+                "graphIndex": "02.5",
+                "label": "Choosing a Sort",
+                "kind": "section",
+                "children": [
+                  {
+                    "id": "n_62ce9e30b6",
+                    "graphIndex": "02.5.1",
+                    "label": "Nearly Sorted Data",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "algorithms",
+                      "moduleId": "02-sorting",
+                      "lessonId": "02.5.1-nearly-sorted-data"
+                    }
+                  },
+                  {
+                    "id": "n_8f52b6ba69",
+                    "graphIndex": "02.5.2",
+                    "label": "Memory Constraints",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "algorithms",
+                      "moduleId": "02-sorting",
+                      "lessonId": "02.5.2-memory-constraints"
+                    }
+                  },
+                  {
+                    "id": "n_d1aa9999bf",
+                    "graphIndex": "02.5.3",
+                    "label": "Sort by Multiple Keys",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "algorithms",
+                      "moduleId": "02-sorting",
+                      "lessonId": "02.5.3-sort-by-multiple-keys"
+                    }
+                  },
+                  {
+                    "id": "n_96d4ece1f9",
+                    "graphIndex": "02.5.4",
+                    "label": "Online vs Offline Sorting",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "algorithms",
+                      "moduleId": "02-sorting",
+                      "lessonId": "02.5.4-online-vs-offline-sorting"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "n_3c22d969e0",
+            "graphIndex": "03",
+            "label": "Searching",
+            "kind": "module",
+            "children": [
+              {
+                "id": "n_50662026e8",
+                "graphIndex": "03.1",
+                "label": "Linear Techniques",
+                "kind": "section",
+                "children": [
+                  {
+                    "id": "n_a2e797bec6",
+                    "graphIndex": "03.1.1",
+                    "label": "Linear Search",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "algorithms",
+                      "moduleId": "03-searching",
+                      "lessonId": "03.1.1-linear-search"
+                    }
+                  },
+                  {
+                    "id": "n_f21a5ec6e1",
+                    "graphIndex": "03.1.2",
+                    "label": "Two Pointers",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "algorithms",
+                      "moduleId": "03-searching",
+                      "lessonId": "03.1.2-two-pointers"
+                    }
+                  },
+                  {
+                    "id": "n_d8fed77d65",
+                    "graphIndex": "03.1.3",
+                    "label": "Sliding Window",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "algorithms",
+                      "moduleId": "03-searching",
+                      "lessonId": "03.1.3-sliding-window"
+                    }
+                  },
+                  {
+                    "id": "n_df669ac19a",
+                    "graphIndex": "03.1.4",
+                    "label": "Prefix Sums",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "algorithms",
+                      "moduleId": "03-searching",
+                      "lessonId": "03.1.4-prefix-sums"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "n_27e277e639",
+                "graphIndex": "03.2",
+                "label": "Logarithmic Search",
+                "kind": "section",
+                "children": [
+                  {
+                    "id": "n_989df90876",
+                    "graphIndex": "03.2.1",
+                    "label": "Binary Search",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "algorithms",
+                      "moduleId": "03-searching",
+                      "lessonId": "03.2.1-binary-search"
+                    }
+                  },
+                  {
+                    "id": "n_a55dc89ab5",
+                    "graphIndex": "03.2.2",
+                    "label": "Lower and Upper Bound",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "algorithms",
+                      "moduleId": "03-searching",
+                      "lessonId": "03.2.2-lower-and-upper-bound"
+                    }
+                  },
+                  {
+                    "id": "n_2b07e6e93d",
+                    "graphIndex": "03.2.3",
+                    "label": "Search in Rotated Arrays",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "algorithms",
+                      "moduleId": "03-searching",
+                      "lessonId": "03.2.3-search-in-rotated-arrays"
+                    }
+                  },
+                  {
+                    "id": "n_bbaf0be71e",
+                    "graphIndex": "03.2.4",
+                    "label": "Binary Search on Answer",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "algorithms",
+                      "moduleId": "03-searching",
+                      "lessonId": "03.2.4-binary-search-on-answer"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "n_87a3661d64",
+                "graphIndex": "03.3",
+                "label": "Hash-Based Lookup",
+                "kind": "section",
+                "children": [
+                  {
+                    "id": "n_e8adfbfdba",
+                    "graphIndex": "03.3.1",
+                    "label": "Object Key Lookup Limits",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "algorithms",
+                      "moduleId": "03-searching",
+                      "lessonId": "03.3.1-object-key-lookup-limits"
+                    }
+                  },
+                  {
+                    "id": "n_02f25598bd",
+                    "graphIndex": "03.3.2",
+                    "label": "Map for O1 Access",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "algorithms",
+                      "moduleId": "03-searching",
+                      "lessonId": "03.3.2-map-for-o1-access"
+                    }
+                  },
+                  {
+                    "id": "n_9e59d13bb6",
+                    "graphIndex": "03.3.3",
+                    "label": "Set for Membership",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "algorithms",
+                      "moduleId": "03-searching",
+                      "lessonId": "03.3.3-set-for-membership"
+                    }
+                  },
+                  {
+                    "id": "n_8adff3f037",
+                    "graphIndex": "03.3.4",
+                    "label": "Frequency Maps",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "algorithms",
+                      "moduleId": "03-searching",
+                      "lessonId": "03.3.4-frequency-maps"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "n_61844287c5",
+                "graphIndex": "03.4",
+                "label": "Graph and Tree Search",
+                "kind": "section",
+                "children": [
+                  {
+                    "id": "n_36ea9021e9",
+                    "graphIndex": "03.4.1",
+                    "label": "DFS",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "algorithms",
+                      "moduleId": "03-searching",
+                      "lessonId": "03.4.1-dfs"
+                    }
+                  },
+                  {
+                    "id": "n_deaa378efb",
+                    "graphIndex": "03.4.2",
+                    "label": "BFS",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "algorithms",
+                      "moduleId": "03-searching",
+                      "lessonId": "03.4.2-bfs"
+                    }
+                  },
+                  {
+                    "id": "n_cebc841ebc",
+                    "graphIndex": "03.4.3",
+                    "label": "Path Reconstruction",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "algorithms",
+                      "moduleId": "03-searching",
+                      "lessonId": "03.4.3-path-reconstruction"
+                    }
+                  },
+                  {
+                    "id": "n_1e459ae5bb",
+                    "graphIndex": "03.4.4",
+                    "label": "Backtracking Search",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "algorithms",
+                      "moduleId": "03-searching",
+                      "lessonId": "03.4.4-backtracking-search"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "n_171e76fc8e",
+            "graphIndex": "04",
+            "label": "Saving Data",
+            "kind": "module",
+            "children": [
+              {
+                "id": "n_b30aa56eaa",
+                "graphIndex": "04.1",
+                "label": "In-Memory Stores",
+                "kind": "section",
+                "children": [
+                  {
+                    "id": "n_0fa18d1da5",
+                    "graphIndex": "04.1.1",
+                    "label": "Arrays as Ordered Stores",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "planned"
+                  },
+                  {
+                    "id": "n_c529dad1dc",
+                    "graphIndex": "04.1.2",
+                    "label": "Objects Maps and Sets",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "planned"
+                  },
+                  {
+                    "id": "n_8d256ebc60",
+                    "graphIndex": "04.1.3",
+                    "label": "Stack and Queue Patterns",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "planned"
+                  },
+                  {
+                    "id": "n_581537571a",
+                    "graphIndex": "04.1.4",
+                    "label": "Priority Queue Patterns",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "planned"
+                  }
+                ]
+              },
+              {
+                "id": "n_5121f0d384",
+                "graphIndex": "04.2",
+                "label": "Serialization",
+                "kind": "section",
+                "children": [
+                  {
+                    "id": "n_87b76f1945",
+                    "graphIndex": "04.2.1",
+                    "label": "JSON.stringify and parse",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "planned"
+                  },
+                  {
+                    "id": "n_6d91dd0978",
+                    "graphIndex": "04.2.2",
+                    "label": "structuredClone",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "planned"
+                  },
+                  {
+                    "id": "n_0f74556179",
+                    "graphIndex": "04.2.3",
+                    "label": "Custom Encoders",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "planned"
+                  },
+                  {
+                    "id": "n_dcaf415ceb",
+                    "graphIndex": "04.2.4",
+                    "label": "Versioned Schemas",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "planned"
+                  }
+                ]
+              },
+              {
+                "id": "n_fb6ef9fba8",
+                "graphIndex": "04.3",
+                "label": "Persistence Patterns",
+                "kind": "section",
+                "children": [
+                  {
+                    "id": "n_068c9020a1",
+                    "graphIndex": "04.3.1",
+                    "label": "Snapshot and Restore",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "planned"
+                  },
+                  {
+                    "id": "n_95a088f96a",
+                    "graphIndex": "04.3.2",
+                    "label": "Append-Only Logs",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "planned"
+                  },
+                  {
+                    "id": "n_0c3b4b756e",
+                    "graphIndex": "04.3.3",
+                    "label": "Node File IO Basics",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "planned"
+                  },
+                  {
+                    "id": "n_f5351adfc6",
+                    "graphIndex": "04.3.4",
+                    "label": "Atomic Write and Replace",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "planned"
+                  }
+                ]
+              },
+              {
+                "id": "n_aaf0ee2888",
+                "graphIndex": "04.4",
+                "label": "Safe Mutation",
+                "kind": "section",
+                "children": [
+                  {
+                    "id": "n_0c0f1b23ad",
+                    "graphIndex": "04.4.1",
+                    "label": "Immutable Updates",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "planned"
+                  },
+                  {
+                    "id": "n_f8f8e23ba0",
+                    "graphIndex": "04.4.2",
+                    "label": "Copy-on-Write",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "planned"
+                  },
+                  {
+                    "id": "n_55287fdced",
+                    "graphIndex": "04.4.3",
+                    "label": "Idempotent Writes",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "planned"
+                  },
+                  {
+                    "id": "n_71e149d007",
+                    "graphIndex": "04.4.4",
+                    "label": "Conflict Detection",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "planned"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "n_f3afb7d1a3",
+            "graphIndex": "05",
+            "label": "Caching",
+            "kind": "module",
+            "children": [
+              {
+                "id": "n_e5f54c1320",
+                "graphIndex": "05.1",
+                "label": "Memoization",
+                "kind": "section",
+                "children": [
+                  {
+                    "id": "n_fb1d7906a6",
+                    "graphIndex": "05.1.1",
+                    "label": "Pure Function Cache",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "planned"
+                  },
+                  {
+                    "id": "n_27ee51f032",
+                    "graphIndex": "05.1.2",
+                    "label": "Key Design for Arguments",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "planned"
+                  },
+                  {
+                    "id": "n_6528bc0261",
+                    "graphIndex": "05.1.3",
+                    "label": "Recursive Memoization",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "planned"
+                  },
+                  {
+                    "id": "n_128251863f",
+                    "graphIndex": "05.1.4",
+                    "label": "Bounded Memo Tables",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "planned"
+                  }
+                ]
+              },
+              {
+                "id": "n_ed3db9808b",
+                "graphIndex": "05.2",
+                "label": "Cache Policies",
+                "kind": "section",
+                "children": [
+                  {
+                    "id": "n_3dc0e54eb6",
+                    "graphIndex": "05.2.1",
+                    "label": "LRU Cache",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "planned"
+                  },
+                  {
+                    "id": "n_d984c01c33",
+                    "graphIndex": "05.2.2",
+                    "label": "LFU Cache",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "planned"
+                  },
+                  {
+                    "id": "n_60255c0522",
+                    "graphIndex": "05.2.3",
+                    "label": "TTL Expiration",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "planned"
+                  },
+                  {
+                    "id": "n_9ea667abaa",
+                    "graphIndex": "05.2.4",
+                    "label": "FIFO and Random Eviction",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "planned"
+                  }
+                ]
+              },
+              {
+                "id": "n_84e72744ff",
+                "graphIndex": "05.3",
+                "label": "Cache Architecture",
+                "kind": "section",
+                "children": [
+                  {
+                    "id": "n_30ff67bb81",
+                    "graphIndex": "05.3.1",
+                    "label": "Read-Through Write-Through",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "planned"
+                  },
+                  {
+                    "id": "n_506f57a10f",
+                    "graphIndex": "05.3.2",
+                    "label": "Cache Aside",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "planned"
+                  },
+                  {
+                    "id": "n_b9065def76",
+                    "graphIndex": "05.3.3",
+                    "label": "Write-Back",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "planned"
+                  },
+                  {
+                    "id": "n_a0f45b6c27",
+                    "graphIndex": "05.3.4",
+                    "label": "Invalidation Strategies",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "planned"
+                  }
+                ]
+              },
+              {
+                "id": "n_8e1dac1f28",
+                "graphIndex": "05.4",
+                "label": "Practical JS Caching",
+                "kind": "section",
+                "children": [
+                  {
+                    "id": "n_7c7a4e8d80",
+                    "graphIndex": "05.4.1",
+                    "label": "Closure-Based Caches",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "planned"
+                  },
+                  {
+                    "id": "n_2545e1d291",
+                    "graphIndex": "05.4.2",
+                    "label": "Map-Backed LRU",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "planned"
+                  },
+                  {
+                    "id": "n_5dc7c49ae7",
+                    "graphIndex": "05.4.3",
+                    "label": "Async Result Caching",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "planned"
+                  },
+                  {
+                    "id": "n_6c4aee8ad6",
+                    "graphIndex": "05.4.4",
+                    "label": "WeakMap Object Caches",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "planned"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "n_e4add468a8",
+            "graphIndex": "06",
+            "label": "Applied Pipelines",
+            "kind": "module",
+            "children": [
+              {
+                "id": "n_e252abd24c",
+                "graphIndex": "06.1",
+                "label": "Sort then Search Workflows",
+                "kind": "lesson",
+                "children": [],
+                "status": "planned"
+              },
+              {
+                "id": "n_94afeda1e9",
+                "graphIndex": "06.2",
+                "label": "Cache-Aware Persistence",
+                "kind": "lesson",
+                "children": [],
+                "status": "planned"
+              },
+              {
+                "id": "n_c2930ac57a",
+                "graphIndex": "06.3",
+                "label": "Deduplicating Expensive Work",
+                "kind": "lesson",
+                "children": [],
+                "status": "planned"
+              },
+              {
+                "id": "n_93c4fdbc6b",
+                "graphIndex": "06.4",
+                "label": "Interview Tradeoff Narratives",
+                "kind": "lesson",
+                "children": [],
+                "status": "planned"
+              }
+            ]
+          }
+        ]
+      }
+    },
     "javascript": {
-      "generatedAt": "2026-07-13T17:06:00.211Z",
+      "generatedAt": "2026-07-13T18:31:36.756Z",
       "courseSlug": "javascript",
       "stats": {
         "totalLeaves": 57,
-        "exists": 33,
-        "planned": 24,
+        "exists": 57,
+        "planned": 0,
         "orphan": 0
       },
       "root": {
@@ -363,7 +1475,12 @@
                     "label": "typeof and Array.isArray",
                     "kind": "lesson",
                     "children": [],
-                    "status": "planned"
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "javascript",
+                      "moduleId": "01-javascript-fundamentals",
+                      "lessonId": "01.8.4-typeof-and-array-isarray"
+                    }
                   },
                   {
                     "id": "n_554dd07466",
@@ -569,7 +1686,12 @@
                 "label": "Hoisting and TDZ",
                 "kind": "lesson",
                 "children": [],
-                "status": "planned"
+                "status": "exists",
+                "catalogRef": {
+                  "courseId": "javascript",
+                  "moduleId": "04-advanced-javascript",
+                  "lessonId": "04.1-hoisting-and-tdz"
+                }
               },
               {
                 "id": "n_5db89c4cb7",
@@ -577,7 +1699,12 @@
                 "label": "Closures",
                 "kind": "lesson",
                 "children": [],
-                "status": "planned"
+                "status": "exists",
+                "catalogRef": {
+                  "courseId": "javascript",
+                  "moduleId": "04-advanced-javascript",
+                  "lessonId": "04.2-closures"
+                }
               },
               {
                 "id": "n_185304f1d3",
@@ -585,7 +1712,12 @@
                 "label": "Higher-Order Functions",
                 "kind": "lesson",
                 "children": [],
-                "status": "planned"
+                "status": "exists",
+                "catalogRef": {
+                  "courseId": "javascript",
+                  "moduleId": "04-advanced-javascript",
+                  "lessonId": "04.3-higher-order-functions"
+                }
               },
               {
                 "id": "n_5b95ee0597",
@@ -593,7 +1725,12 @@
                 "label": "Prototype Chain",
                 "kind": "lesson",
                 "children": [],
-                "status": "planned"
+                "status": "exists",
+                "catalogRef": {
+                  "courseId": "javascript",
+                  "moduleId": "04-advanced-javascript",
+                  "lessonId": "04.4-prototype-chain"
+                }
               },
               {
                 "id": "n_8f59e360e7",
@@ -601,7 +1738,12 @@
                 "label": "ES6 Modules",
                 "kind": "lesson",
                 "children": [],
-                "status": "planned"
+                "status": "exists",
+                "catalogRef": {
+                  "courseId": "javascript",
+                  "moduleId": "04-advanced-javascript",
+                  "lessonId": "04.5-es6-modules"
+                }
               }
             ]
           },
@@ -617,7 +1759,12 @@
                 "label": "Big-O Complexity",
                 "kind": "lesson",
                 "children": [],
-                "status": "planned"
+                "status": "exists",
+                "catalogRef": {
+                  "courseId": "javascript",
+                  "moduleId": "05-data-structures-and-algorithms",
+                  "lessonId": "05.1-big-o-complexity"
+                }
               },
               {
                 "id": "n_9011eabc43",
@@ -625,7 +1772,12 @@
                 "label": "Two Pointers and Sliding Window",
                 "kind": "lesson",
                 "children": [],
-                "status": "planned"
+                "status": "exists",
+                "catalogRef": {
+                  "courseId": "javascript",
+                  "moduleId": "05-data-structures-and-algorithms",
+                  "lessonId": "05.2-two-pointers-and-sliding-window"
+                }
               },
               {
                 "id": "n_bad8748d1a",
@@ -633,7 +1785,12 @@
                 "label": "BFS and DFS",
                 "kind": "lesson",
                 "children": [],
-                "status": "planned"
+                "status": "exists",
+                "catalogRef": {
+                  "courseId": "javascript",
+                  "moduleId": "05-data-structures-and-algorithms",
+                  "lessonId": "05.3-bfs-and-dfs"
+                }
               },
               {
                 "id": "n_840c63f382",
@@ -641,7 +1798,12 @@
                 "label": "Cycle Detection",
                 "kind": "lesson",
                 "children": [],
-                "status": "planned"
+                "status": "exists",
+                "catalogRef": {
+                  "courseId": "javascript",
+                  "moduleId": "05-data-structures-and-algorithms",
+                  "lessonId": "05.4-cycle-detection"
+                }
               },
               {
                 "id": "n_e406820748",
@@ -649,7 +1811,12 @@
                 "label": "Dynamic Programming",
                 "kind": "lesson",
                 "children": [],
-                "status": "planned"
+                "status": "exists",
+                "catalogRef": {
+                  "courseId": "javascript",
+                  "moduleId": "05-data-structures-and-algorithms",
+                  "lessonId": "05.5-dynamic-programming"
+                }
               }
             ]
           },
@@ -671,7 +1838,12 @@
                     "label": "Problem-Solving Score",
                     "kind": "lesson",
                     "children": [],
-                    "status": "planned"
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "javascript",
+                      "moduleId": "06-hackerrank-profile-and-assessments",
+                      "lessonId": "06.1.1-problem-solving-score"
+                    }
                   },
                   {
                     "id": "n_3dfc3adaae",
@@ -679,7 +1851,12 @@
                     "label": "Certifications",
                     "kind": "lesson",
                     "children": [],
-                    "status": "planned"
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "javascript",
+                      "moduleId": "06-hackerrank-profile-and-assessments",
+                      "lessonId": "06.1.2-certifications"
+                    }
                   },
                   {
                     "id": "n_7270a1fbcb",
@@ -687,7 +1864,12 @@
                     "label": "Badges",
                     "kind": "lesson",
                     "children": [],
-                    "status": "planned"
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "javascript",
+                      "moduleId": "06-hackerrank-profile-and-assessments",
+                      "lessonId": "06.1.3-badges"
+                    }
                   },
                   {
                     "id": "n_1b1dfb5f24",
@@ -695,7 +1877,12 @@
                     "label": "Global Ranking",
                     "kind": "lesson",
                     "children": [],
-                    "status": "planned"
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "javascript",
+                      "moduleId": "06-hackerrank-profile-and-assessments",
+                      "lessonId": "06.1.4-global-ranking"
+                    }
                   }
                 ]
               },
@@ -711,7 +1898,12 @@
                     "label": "Interview Preparation Kit",
                     "kind": "lesson",
                     "children": [],
-                    "status": "planned"
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "javascript",
+                      "moduleId": "06-hackerrank-profile-and-assessments",
+                      "lessonId": "06.2.1-interview-preparation-kit"
+                    }
                   },
                   {
                     "id": "n_cbbc5d5f27",
@@ -719,7 +1911,12 @@
                     "label": "Online Assessments (OA)",
                     "kind": "lesson",
                     "children": [],
-                    "status": "planned"
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "javascript",
+                      "moduleId": "06-hackerrank-profile-and-assessments",
+                      "lessonId": "06.2.2-online-assessments-oa"
+                    }
                   },
                   {
                     "id": "n_3fe5214384",
@@ -727,7 +1924,12 @@
                     "label": "Implementation Focus",
                     "kind": "lesson",
                     "children": [],
-                    "status": "planned"
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "javascript",
+                      "moduleId": "06-hackerrank-profile-and-assessments",
+                      "lessonId": "06.2.3-implementation-focus"
+                    }
                   },
                   {
                     "id": "n_a53e3b4c84",
@@ -735,7 +1937,12 @@
                     "label": "Test Case Handling",
                     "kind": "lesson",
                     "children": [],
-                    "status": "planned"
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "javascript",
+                      "moduleId": "06-hackerrank-profile-and-assessments",
+                      "lessonId": "06.2.4-test-case-handling"
+                    }
                   }
                 ]
               }
@@ -753,7 +1960,12 @@
                 "label": "System Design (Scalability, CAP Theorem)",
                 "kind": "lesson",
                 "children": [],
-                "status": "planned"
+                "status": "exists",
+                "catalogRef": {
+                  "courseId": "javascript",
+                  "moduleId": "07-technical-interview-preparation",
+                  "lessonId": "07.1-system-design-scalability-cap-theorem"
+                }
               },
               {
                 "id": "n_1f96df4ba7",
@@ -761,7 +1973,12 @@
                 "label": "Behavioral (STAR Method)",
                 "kind": "lesson",
                 "children": [],
-                "status": "planned"
+                "status": "exists",
+                "catalogRef": {
+                  "courseId": "javascript",
+                  "moduleId": "07-technical-interview-preparation",
+                  "lessonId": "07.2-behavioral-star-method"
+                }
               },
               {
                 "id": "n_e6cfdfa3e5",
@@ -769,7 +1986,12 @@
                 "label": "Communication and Clarifying Questions",
                 "kind": "lesson",
                 "children": [],
-                "status": "planned"
+                "status": "exists",
+                "catalogRef": {
+                  "courseId": "javascript",
+                  "moduleId": "07-technical-interview-preparation",
+                  "lessonId": "07.3-communication-and-clarifying-questions"
+                }
               },
               {
                 "id": "n_d9916f7481",
@@ -777,7 +1999,12 @@
                 "label": "Code Quality and Maintainability",
                 "kind": "lesson",
                 "children": [],
-                "status": "planned"
+                "status": "exists",
+                "catalogRef": {
+                  "courseId": "javascript",
+                  "moduleId": "07-technical-interview-preparation",
+                  "lessonId": "07.4-code-quality-and-maintainability"
+                }
               },
               {
                 "id": "n_e7cdd0f8f1",
@@ -785,7 +2012,12 @@
                 "label": "Iterative Optimization",
                 "kind": "lesson",
                 "children": [],
-                "status": "planned"
+                "status": "exists",
+                "catalogRef": {
+                  "courseId": "javascript",
+                  "moduleId": "07-technical-interview-preparation",
+                  "lessonId": "07.5-iterative-optimization"
+                }
               }
             ]
           }
