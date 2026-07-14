@@ -27,10 +27,14 @@ export async function loadProjectDeliveries(
   projectId: string,
   rootPath: string,
   lessonId?: string,
+  options?: { quiet?: boolean },
 ): Promise<void> {
   if (!repository) return;
 
-  useProjectDeliveryStore.getState().setLoading(courseId, projectId, true, lessonId);
+  const quiet = options?.quiet === true;
+  if (!quiet) {
+    useProjectDeliveryStore.getState().setLoading(courseId, projectId, true, lessonId);
+  }
   useProjectDeliveryStore.getState().setError(courseId, projectId, null, lessonId);
 
   try {
@@ -47,7 +51,9 @@ export async function loadProjectDeliveries(
       lessonId,
     );
   } finally {
-    useProjectDeliveryStore.getState().setLoading(courseId, projectId, false, lessonId);
+    if (!quiet) {
+      useProjectDeliveryStore.getState().setLoading(courseId, projectId, false, lessonId);
+    }
   }
 }
 

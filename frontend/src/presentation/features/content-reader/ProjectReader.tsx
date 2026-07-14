@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import type { Project } from "../../../domain/types/catalog";
 import type { DrawerTab } from "../../../domain/types/navigation";
 import type { ReaderEntry, ReaderTab } from "../../../domain/types/reader";
+import { useProjectDeliveryLiveSync } from "../../../application/hooks/useProjectDeliveryLiveSync";
 import { useTranslation } from "../../../application/hooks/useTranslation";
 import { useProjectProgressStore } from "../../../application/stores/projectProgressStore";
 import { ReadmePanel } from "../../shared/ReadmePanel";
@@ -63,6 +64,13 @@ export function ProjectReader(props: {
   const setSelectedFilePath = onOverlaySelectFile ?? setInternalSelectedFile;
 
   const getProjectStatus = useProjectProgressStore((s) => s.getStatus);
+
+  useProjectDeliveryLiveSync({
+    courseId,
+    projectId: project.id,
+    rootPath: project.rootPath,
+    lessonId: project.lessonId,
+  });
 
   const explanationMarkdown = getExplanationMarkdown(project, entries, cwd);
   const hasContext = Boolean(explanationMarkdown.trim());

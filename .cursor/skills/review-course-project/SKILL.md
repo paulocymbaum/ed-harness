@@ -119,4 +119,5 @@ Examples in [reference.md](reference.md). The save script **rejects** comments t
 ## Frontend
 
 After saving, the student sees **score** and **comment** on each reviewed delivery in the **Delivery** tab.  
-Passing score updates the project badge to **Done** after reload or re-opening the tab.
+The study app auto-refreshes when `project-delivery.json` changes (Vite watches the file and quietly reloads).  
+Passing score updates the project badge to **Done** without a manual reload while the project view is open.
