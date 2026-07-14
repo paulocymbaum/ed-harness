@@ -19,7 +19,7 @@ export function CatalogTabBar(props: {
   ];
 
   return (
-    <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+    <div className="flex shrink-0 flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
       <Tabs
         items={tabItems}
         value={props.value}
@@ -27,7 +27,9 @@ export function CatalogTabBar(props: {
         listClassName="max-w-full"
       />
       {props.trailing ? (
-        <div className="flex flex-wrap items-center gap-3 sm:justify-end">{props.trailing}</div>
+        <div className="flex min-w-0 flex-wrap items-center gap-3 lg:justify-end">
+          {props.trailing}
+        </div>
       ) : null}
     </div>
   );

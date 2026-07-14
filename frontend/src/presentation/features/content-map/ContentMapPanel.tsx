@@ -129,19 +129,19 @@ export function ContentMapPanel() {
   }
 
   return (
-    <section className="grid gap-4">
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <div>
+    <section className="flex h-full min-h-[20rem] flex-col gap-3">
+      <div className="flex shrink-0 flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div className="min-w-0">
           <h2 className="m-0 text-body font-semibold text-text0">Content Map</h2>
           <p className="m-0 mt-1 text-meta text-text1">
             {lessonStats.exists} exists · {lessonStats.planned} planned · {coverage}% coverage
           </p>
         </div>
         <div className="flex flex-wrap items-center gap-2">
-          <label className="flex items-center gap-2 text-meta text-text1">
-            <span>Course</span>
+          <label className="flex min-w-0 items-center gap-2 text-meta text-text1">
+            <span className="shrink-0">Course</span>
             <select
-              className="rounded-panel border border-border0 bg-surfaceControl px-3 py-2 text-meta font-medium text-text0"
+              className="max-w-full rounded-panel border border-border0 bg-surfaceControl px-3 py-2 text-meta font-medium text-text0"
               value={selectedCourseId}
               onChange={(e) => setSelectedCourse(e.target.value)}
             >
@@ -169,16 +169,18 @@ export function ContentMapPanel() {
         </div>
       </div>
 
-      <MindMapCanvas
-        root={enrichedRoot}
-        courseSlug={graph.courseSlug}
-        collapsedIds={collapsedIds}
-        scores={scores}
-        onToggleCollapse={toggleCollapse}
-        onOpenLesson={(catalogRef) =>
-          goLesson(catalogRef.courseId, catalogRef.moduleId, catalogRef.lessonId)
-        }
-      />
+      <div className="min-h-0 flex-1">
+        <MindMapCanvas
+          root={enrichedRoot}
+          courseSlug={graph.courseSlug}
+          collapsedIds={collapsedIds}
+          scores={scores}
+          onToggleCollapse={toggleCollapse}
+          onOpenLesson={(catalogRef) =>
+            goLesson(catalogRef.courseId, catalogRef.moduleId, catalogRef.lessonId)
+          }
+        />
+      </div>
     </section>
   );
 }

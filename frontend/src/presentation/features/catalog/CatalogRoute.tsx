@@ -53,8 +53,16 @@ export function CatalogRoute() {
     );
   }
 
+  const isContentMap = tab === "content-map";
+
   return (
-    <section className="grid gap-4">
+    <section
+      className={
+        isContentMap
+          ? "flex min-h-[min(36rem,calc(100dvh-11rem))] flex-1 flex-col gap-4"
+          : "grid gap-4"
+      }
+    >
       <CatalogTabBar
         value={tab}
         onValueChange={setTab}
@@ -75,10 +83,12 @@ export function CatalogRoute() {
           </>
         }
       />
-      {tab === "courses" ? (
-        <CatalogCoursesPanel courses={courses} onOpenCourse={goCourse} />
+      {isContentMap ? (
+        <div className="min-h-0 flex-1">
+          <ContentMapPanel />
+        </div>
       ) : (
-        <ContentMapPanel />
+        <CatalogCoursesPanel courses={courses} onOpenCourse={goCourse} />
       )}
     </section>
   );
