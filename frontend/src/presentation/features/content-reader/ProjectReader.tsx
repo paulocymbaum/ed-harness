@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import type { Project } from "../../../domain/types/catalog";
 import type { DrawerTab } from "../../../domain/types/navigation";
 import type { ReaderEntry, ReaderTab } from "../../../domain/types/reader";
@@ -63,26 +63,10 @@ export function ProjectReader(props: {
   const setSelectedFilePath = onOverlaySelectFile ?? setInternalSelectedFile;
 
   const getProjectStatus = useProjectProgressStore((s) => s.getStatus);
-  const markProjectDoing = useProjectProgressStore((s) => s.markProjectDoing);
 
   const explanationMarkdown = getExplanationMarkdown(project, entries, cwd);
   const hasContext = Boolean(explanationMarkdown.trim());
   const activeDrawerTab = resolveDrawerTab(drawerTab, embedded, hasContext);
-
-  useEffect(() => {
-    const onDelivery =
-      layout === "drawer" ? activeDrawerTab === "delivery" : overlayTab === "delivery";
-    if (!onDelivery) return;
-    markProjectDoing(courseId, project.id, project.lessonId);
-  }, [
-    layout,
-    activeDrawerTab,
-    overlayTab,
-    courseId,
-    project.id,
-    project.lessonId,
-    markProjectDoing,
-  ]);
 
   const showContextOverlay = overlayTab === "context" || overlayTab === "explanation";
 

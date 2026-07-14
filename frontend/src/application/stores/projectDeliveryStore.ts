@@ -8,6 +8,7 @@ import {
 } from "../../domain/types/projectDelivery";
 import { projectProgressKey } from "../../domain/types/quizScore";
 import { persistProjectDelivery } from "../usecases/projectDeliveries";
+import { useProjectProgressStore } from "./projectProgressStore";
 
 type ProjectDeliveryMeta = {
   loading: boolean;
@@ -72,9 +73,11 @@ export const useProjectDeliveryStore = create<ProjectDeliveryState>()(
 
       setDraft: (courseId, projectId, content, lessonId) => {
         const key = projectProgressKey(courseId, projectId, lessonId);
+        let nextContent = "";
         set((state) => {
           const current = state.draftByKey[key] ?? "";
           const next = typeof content === "function" ? content(current) : content;
+          nextContent = next;
           return {
             draftByKey: {
               ...state.draftByKey,
@@ -82,6 +85,10 @@ export const useProjectDeliveryStore = create<ProjectDeliveryState>()(
             },
           };
         });
+        // Pending → doing only after the learner actually writes in the delivery field.
+        if (nextContent.trim().length > 0) {
+          useProjectProgressStore.getState().markProjectDoing(courseId, projectId, lessonId);
+        }
       },
 
       setLoading: (courseId, projectId, loading, lessonId) => {

@@ -1,6 +1,7 @@
 import type { CourseScoreRepository } from "../../domain/repositories/quizScoreRepository";
 import type { QuizAttempt } from "../../domain/types/quiz";
 import type { CourseScoreFile, ProjectStatus } from "../../domain/types/quizScore";
+import { useCourseScoreHistoryStore } from "../stores/courseScoreHistoryStore";
 import { useProjectProgressStore } from "../stores/projectProgressStore";
 import { useQuizProgressStore } from "../stores/quizProgressStore";
 
@@ -11,6 +12,7 @@ export function setCourseScoreRepository(next: CourseScoreRepository): void {
 }
 
 export function hydrateCourseScoresFromFile(courseId: string, file: CourseScoreFile): void {
+  useCourseScoreHistoryStore.getState().setFile(courseId, file);
   useQuizProgressStore.getState().hydrateCourseScores(courseId, file);
   useProjectProgressStore.getState().hydrateCourseScores(courseId, file);
 }

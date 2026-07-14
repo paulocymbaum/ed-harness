@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { BookOpenText } from "lucide-react";
 import { useSearchParams } from "react-router-dom";
 import { useCatalog } from "../../../application/hooks/useCatalog";
 import { useCatalogPoints } from "../../../application/hooks/useCatalogPoints";
@@ -6,8 +7,9 @@ import { useAppNavigation } from "../../../application/hooks/useAppNavigation";
 import { useTranslation } from "../../../application/hooks/useTranslation";
 import { loadAllCourseScores } from "../../../application/usecases/loadAllCourseScores";
 import { migrateProgressKeysFromCatalog } from "../../../application/usecases/migrateProgressKeys";
-import { ErrorPanel, LoadingState } from "../../design-system";
+import { ErrorPanel, Icon, LoadingState } from "../../design-system";
 import { ContentMapPanel } from "../content-map/ContentMapPanel";
+import { CatalogScoreSummary } from "../course-experience/components/CourseScoreSummary";
 import { CatalogCoursesPanel } from "./CatalogCoursesPanel";
 import { CatalogTabBar, parseCatalogTab } from "./CatalogTabBar";
 
@@ -53,13 +55,28 @@ export function CatalogRoute() {
 
   return (
     <section className="grid gap-4">
-      <CatalogTabBar value={tab} onValueChange={setTab} />
+      <CatalogTabBar
+        value={tab}
+        onValueChange={setTab}
+        trailing={
+          <>
+            <CatalogScoreSummary
+              totalPoints={catalogPoints.totalPoints}
+              totalMax={catalogPoints.totalMax}
+              quizPoints={catalogPoints.quizPoints}
+              quizMax={catalogPoints.quizMax}
+              projectPoints={catalogPoints.projectPoints}
+              projectMax={catalogPoints.projectMax}
+            />
+            <div className="flex items-center gap-2 text-meta text-text1">
+              <Icon icon={BookOpenText} />
+              <span>{courses.length}</span>
+            </div>
+          </>
+        }
+      />
       {tab === "courses" ? (
-        <CatalogCoursesPanel
-          courses={courses}
-          catalogPoints={catalogPoints}
-          onOpenCourse={goCourse}
-        />
+        <CatalogCoursesPanel courses={courses} onOpenCourse={goCourse} />
       ) : (
         <ContentMapPanel />
       )}
