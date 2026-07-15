@@ -1,9 +1,9 @@
 import type { Course } from "../../domain/types/catalog";
 import type { ContentGraphNode } from "../../domain/types/contentGraph";
-import { quizProgressKey } from "../../domain/types/quiz";
+import { lookupQuizProgressEntry } from "../../domain/types/quiz";
 import {
   computeCoursePoints,
-  projectProgressKey,
+  lookupProjectProgressEntry,
   withCourseMaxPointsFromItems,
   type ProjectStatus,
 } from "../../domain/types/quizScore";
@@ -42,15 +42,23 @@ function computeLessonNodeScore(input: {
 
   const quizBestScores = quizzes.map(
     (quiz) =>
-      input.progress.quizByKey[
-        quizProgressKey(input.course.id, quiz.id, input.lessonId)
-      ]?.bestScore ?? 0,
+      lookupQuizProgressEntry(
+        input.progress.quizByKey,
+        input.course.id,
+        quiz.id,
+        input.lessonId,
+        input.moduleId,
+      )?.bestScore ?? 0,
   );
   const projectStatuses = projects.map(
     (project) =>
-      input.progress.projectByKey[
-        projectProgressKey(input.course.id, project.id, input.lessonId)
-      ]?.status ?? "pending",
+      lookupProjectProgressEntry(
+        input.progress.projectByKey,
+        input.course.id,
+        project.id,
+        input.lessonId,
+        input.moduleId,
+      )?.status ?? "pending",
   );
 
   const points = withCourseMaxPointsFromItems(

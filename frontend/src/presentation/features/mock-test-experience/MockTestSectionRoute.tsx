@@ -27,6 +27,7 @@ export function MockTestSectionRoute() {
   useQuizSessionFromUrl({
     quizId: quiz?.id ?? null,
     lessonId: sectionId,
+    moduleId,
     enabled: Boolean(quiz && course),
   });
 

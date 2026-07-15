@@ -23,6 +23,7 @@ export function ModuleLayoutRoute() {
 
   useQuizSessionFromUrl({
     quizId: activeQuizId,
+    moduleId,
     enabled: Boolean(activeQuizId && course && !isMockTestRoute),
   });
 

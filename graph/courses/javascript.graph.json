@@ -110,6 +110,14 @@
       "label": "01.7.2 Parameters and Return Values"
     },
     {
+      "id": "n_f6c271d4f8",
+      "label": "01.7.3 Arrow Functions and Callbacks"
+    },
+    {
+      "id": "n_b886afdd5a",
+      "label": "01.7.4 Throwing Errors and Sync try/catch"
+    },
+    {
       "id": "n_5b1cae029b",
       "label": "01.8 Truthiness and Coercion"
     },
@@ -134,6 +142,26 @@
       "label": "01.8.5 null, undefined, == null, ?., ??"
     },
     {
+      "id": "n_265ba70e06",
+      "label": "01.9 Arrays"
+    },
+    {
+      "id": "n_301aea8a06",
+      "label": "01.9.1 Array Literals Indexing and length"
+    },
+    {
+      "id": "n_923a30769a",
+      "label": "01.9.2 Mutating Array Methods"
+    },
+    {
+      "id": "n_6148117519",
+      "label": "01.9.3 Non-mutating Array Methods"
+    },
+    {
+      "id": "n_89e5c8c4b4",
+      "label": "01.9.4 Iterating Arrays for and for-of"
+    },
+    {
       "id": "n_f1251f77cc",
       "label": "02 Objects"
     },
@@ -152,6 +180,10 @@
     {
       "id": "n_1c0b6b4518",
       "label": "02.1.3 Object Destructuring"
+    },
+    {
+      "id": "n_faedd6a151",
+      "label": "02.1.4 Rest and Spread for Objects and Arrays"
     },
     {
       "id": "n_6f9a3dded1",
@@ -214,12 +246,12 @@
       "label": "03.1.1 Single-Threaded Execution"
     },
     {
-      "id": "n_1b9aa7c0e4",
-      "label": "03.1.2 Event Loop"
+      "id": "n_4d9b35e932",
+      "label": "03.1.2 Call Stack"
     },
     {
-      "id": "n_eea8eab80f",
-      "label": "03.1.3 Call Stack"
+      "id": "n_5ea411af07",
+      "label": "03.1.3 Event Loop"
     },
     {
       "id": "n_60e382f139",
@@ -238,8 +270,8 @@
       "label": "03.2.2 Async/Await"
     },
     {
-      "id": "n_ad7f63b66c",
-      "label": "03.2.3 Try/Catch Error Handling"
+      "id": "n_60feae7b95",
+      "label": "03.2.3 Async Errors and try/catch"
     },
     {
       "id": "n_d1b97b3fb8",
@@ -464,6 +496,14 @@
       "to": "n_ca15a4738a"
     },
     {
+      "from": "n_acabb80b6b",
+      "to": "n_f6c271d4f8"
+    },
+    {
+      "from": "n_acabb80b6b",
+      "to": "n_b886afdd5a"
+    },
+    {
       "from": "n_0b51eea265",
       "to": "n_5b1cae029b"
     },
@@ -488,6 +528,26 @@
       "to": "n_554dd07466"
     },
     {
+      "from": "n_0b51eea265",
+      "to": "n_265ba70e06"
+    },
+    {
+      "from": "n_265ba70e06",
+      "to": "n_301aea8a06"
+    },
+    {
+      "from": "n_265ba70e06",
+      "to": "n_923a30769a"
+    },
+    {
+      "from": "n_265ba70e06",
+      "to": "n_6148117519"
+    },
+    {
+      "from": "n_265ba70e06",
+      "to": "n_89e5c8c4b4"
+    },
+    {
       "from": "n_87c0f70ade",
       "to": "n_f1251f77cc"
     },
@@ -506,6 +566,10 @@
     {
       "from": "n_c2b342f569",
       "to": "n_1c0b6b4518"
+    },
+    {
+      "from": "n_c2b342f569",
+      "to": "n_faedd6a151"
     },
     {
       "from": "n_f1251f77cc",
@@ -569,11 +633,11 @@
     },
     {
       "from": "n_e6dfcb0d68",
-      "to": "n_1b9aa7c0e4"
+      "to": "n_4d9b35e932"
     },
     {
       "from": "n_e6dfcb0d68",
-      "to": "n_eea8eab80f"
+      "to": "n_5ea411af07"
     },
     {
       "from": "n_e6dfcb0d68",
@@ -593,7 +657,7 @@
     },
     {
       "from": "n_f43751029b",
-      "to": "n_ad7f63b66c"
+      "to": "n_60feae7b95"
     },
     {
       "from": "n_87c0f70ade",

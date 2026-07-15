@@ -1,9 +1,9 @@
 # Event Loop
 
-> Graph index: `03.1.2`
+> Graph index: `03.1.3`
 
 <!-- cursor:teacher:add-explanation (deterministic) -->
-<!-- marker:03-asynchronous-javascript/03.1.2-event-loop:README.md -->
+<!-- marker:03-asynchronous-javascript/03.1.3-event-loop:README.md -->
 
 ## Context
 

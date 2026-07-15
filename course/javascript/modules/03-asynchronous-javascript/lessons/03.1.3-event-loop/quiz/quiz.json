@@ -2,8 +2,8 @@
   "id": "quiz",
   "title": "Event Loop Check",
   "description": "Order sync, microtasks, and tasks with the event loop model.",
-  "lessonId": "03.1.2-event-loop",
-  "graphIndex": "03.1.2",
+  "lessonId": "03.1.3-event-loop",
+  "graphIndex": "03.1.3",
   "questions": [
     {
       "id": "q1",

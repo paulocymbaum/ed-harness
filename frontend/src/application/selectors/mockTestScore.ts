@@ -1,7 +1,7 @@
 import { computeProgressPercent } from "../../domain/scoreProgress";
 import type { ProjectDeliveryEntry } from "../../domain/types/projectDelivery";
-import { quizProgressKey } from "../../domain/types/quiz";
-import { projectProgressKey } from "../../domain/types/quizScore";
+import { lookupQuizProgressEntry } from "../../domain/types/quiz";
+import { lookupProjectProgressEntry } from "../../domain/types/quizScore";
 import type { MockTestModule } from "../../domain/types/mockTest";
 import { getMockTestProject, getMockTestQuiz } from "./mockTestSelectors";
 
@@ -29,9 +29,14 @@ export function computeMockTestFinalScore(input: {
   if (quizSection) {
     const quiz = getMockTestQuiz(input.mockTest, quizSection.lessonId);
     if (quiz) {
-      const progress = input.quizByKey[
-        quizProgressKey(input.courseId, quiz.id, quizSection.lessonId)
-      ];
+      // module-scoped only — never the shared 01.2-multiple-choice legacy key
+      const progress = lookupQuizProgressEntry(
+        input.quizByKey,
+        input.courseId,
+        quiz.id,
+        quizSection.lessonId,
+        input.mockTest.id,
+      );
       const bestScore = progress?.bestScore ?? 0;
       const bestTotal = progress?.bestTotal ?? quiz.questions.length;
       if (bestTotal > 0 && bestScore > 0) {
@@ -44,9 +49,13 @@ export function computeMockTestFinalScore(input: {
     const project = getMockTestProject(input.mockTest, codingSection.lessonId);
     if (project) {
       const deliveries =
-        input.deliveriesByKey[
-          projectProgressKey(input.courseId, project.id, codingSection.lessonId)
-        ] ?? [];
+        lookupProjectProgressEntry(
+          input.deliveriesByKey,
+          input.courseId,
+          project.id,
+          codingSection.lessonId,
+          input.mockTest.id,
+        ) ?? [];
       const lastReview = deliveries[deliveries.length - 1]?.review;
       if (lastReview) {
         codingPercent = Math.min(100, Math.max(0, Math.round(lastReview.score)));

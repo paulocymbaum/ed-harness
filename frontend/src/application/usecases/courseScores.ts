@@ -31,11 +31,12 @@ export async function persistQuizScore(
   quizId: string,
   attempt: QuizAttempt,
   lessonId?: string,
+  moduleId?: string,
 ): Promise<void> {
   if (!repository) return;
 
   try {
-    const file = await repository.recordQuizAttempt(courseId, quizId, attempt, lessonId);
+    const file = await repository.recordQuizAttempt(courseId, quizId, attempt, lessonId, moduleId);
     hydrateCourseScoresFromFile(courseId, file);
   } catch {
     // Dev server may be unavailable; localStorage progress still works.
@@ -47,11 +48,12 @@ export async function persistProjectStatus(
   projectId: string,
   status: ProjectStatus,
   lessonId?: string,
+  moduleId?: string,
 ): Promise<void> {
   if (!repository) return;
 
   try {
-    const file = await repository.setProjectStatus(courseId, projectId, status, lessonId);
+    const file = await repository.setProjectStatus(courseId, projectId, status, lessonId, moduleId);
     hydrateCourseScoresFromFile(courseId, file);
   } catch {
     // Dev server may be unavailable; localStorage progress still works.

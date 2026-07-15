@@ -1,9 +1,9 @@
 import { useMemo } from "react";
 import type { Course } from "../../domain/types/catalog";
-import { quizProgressKey } from "../../domain/types/quiz";
+import { lookupQuizProgressEntry } from "../../domain/types/quiz";
 import {
   computeCoursePoints,
-  projectProgressKey,
+  lookupProjectProgressEntry,
   withCourseMaxPointsFromItems,
   type CoursePointsWithMax,
 } from "../../domain/types/quizScore";
@@ -24,12 +24,23 @@ export function useCoursePoints(courseId: string, course: Course): CoursePointsW
 
     const quizBestScores = quizzes.map(
       (quiz) =>
-        quizByKey[quizProgressKey(courseId, quiz.id, quiz.lessonId)]?.bestScore ?? 0,
+        lookupQuizProgressEntry(
+          quizByKey,
+          courseId,
+          quiz.id,
+          quiz.lessonId,
+          quiz.moduleId,
+        )?.bestScore ?? 0,
     );
     const projectStatuses = projects.map(
       (project) =>
-        projectByKey[projectProgressKey(courseId, project.id, project.lessonId)]?.status ??
-        "pending",
+        lookupProjectProgressEntry(
+          projectByKey,
+          courseId,
+          project.id,
+          project.lessonId,
+          project.moduleId,
+        )?.status ?? "pending",
     );
     return withCourseMaxPointsFromItems(
       quizzes,

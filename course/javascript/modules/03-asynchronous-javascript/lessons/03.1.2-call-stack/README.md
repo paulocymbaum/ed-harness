@@ -1,8 +1,8 @@
 # Call Stack
 
-> Graph index: `03.1.3`
+> Graph index: `03.1.2`
 <!-- cursor:teacher:add-explanation (deterministic) -->
-<!-- marker:javascript/03-asynchronous-javascript/03.1.3-call-stack:README.md -->
+<!-- marker:javascript/03-asynchronous-javascript/03.1.2-call-stack:README.md -->
 
 ## Context
 

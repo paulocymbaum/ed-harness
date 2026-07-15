@@ -59,6 +59,7 @@ export function LegacyCourseRoute(props: { courseId: string; course: Course }) {
   useQuizSessionFromUrl({
     quizId: activeQuizId,
     lessonId: activeQuizId ? getQuizById(course, activeQuizId)?.lessonId : undefined,
+    moduleId: activeQuizId ? getQuizById(course, activeQuizId)?.moduleId : undefined,
     enabled: tab === "quiz" && Boolean(activeQuizId),
     resetWhenDisabled: true,
   });
@@ -107,7 +108,7 @@ export function LegacyCourseRoute(props: { courseId: string; course: Course }) {
             quizzes={course.quizzes}
             getProgress={(quizId) => {
               const quiz = getQuizById(course, quizId);
-              return getProgress(courseId, quizId, quiz?.lessonId);
+              return getProgress(courseId, quizId, quiz?.lessonId, quiz?.moduleId);
             }}
             onStart={(quiz) => openQuiz(courseId, quiz.id)}
           />

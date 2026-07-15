@@ -3,7 +3,7 @@
   "tool": "scripts/graph/scaffold-from-graph.mjs",
   "createdAt": "2026-06-09T01:10:37.045Z",
   "kind": "lesson",
-  "lessonId": "03.1.2-event-loop",
+  "lessonId": "03.1.3-event-loop",
   "moduleId": "03-asynchronous-javascript",
-  "graphIndex": "03.1.2"
+  "graphIndex": "03.1.3"
 }

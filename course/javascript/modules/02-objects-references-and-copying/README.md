@@ -10,7 +10,7 @@ Without these skills you’ll struggle with APIs, state updates, and “why did 
 
 Learn literals, property access (`.` vs `[]`), computed keys / shorthand, and object destructuring before worrying about shared references.
 
-**Planned leaves:** `02.1.1` Object Literals and Property Access · `02.1.2` Computed Keys and Shorthand · `02.1.3` Object Destructuring
+**Planned leaves:** `02.1.1` Object Literals and Property Access · `02.1.2` Computed Keys and Shorthand · `02.1.3` Object Destructuring · `02.1.4` Rest and Spread for Objects and Arrays
 
 ### Beginner checklist
 - [ ] I can create an object literal and read/update properties.

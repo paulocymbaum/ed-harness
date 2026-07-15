@@ -8,12 +8,18 @@ import { resolveQuizProgressKey } from "../usecases/migrateProgressKeys";
 
 type QuizProgressState = {
   byKey: Record<string, QuizProgress>;
-  getProgress: (courseId: string, quizId: string, lessonId?: string) => QuizProgress | null;
+  getProgress: (
+    courseId: string,
+    quizId: string,
+    lessonId?: string,
+    moduleId?: string,
+  ) => QuizProgress | null;
   recordAttempt: (
     courseId: string,
     quizId: string,
     attempt: QuizAttempt,
     lessonId?: string,
+    moduleId?: string,
   ) => void;
   hydrateCourseScores: (courseId: string, file: CourseScoreFile) => void;
 };
@@ -22,12 +28,12 @@ export const useQuizProgressStore = create<QuizProgressState>()(
   persist(
     (set, get) => ({
       byKey: {},
-      getProgress: (courseId, quizId, lessonId) => {
-        const key = resolveQuizProgressKey(courseId, quizId, lessonId, get().byKey);
+      getProgress: (courseId, quizId, lessonId, moduleId) => {
+        const key = resolveQuizProgressKey(courseId, quizId, lessonId, get().byKey, moduleId);
         return get().byKey[key] ?? null;
       },
-      recordAttempt: (courseId, quizId, attempt, lessonId) => {
-        const key = quizProgressKey(courseId, quizId, lessonId);
+      recordAttempt: (courseId, quizId, attempt, lessonId, moduleId) => {
+        const key = quizProgressKey(courseId, quizId, lessonId, moduleId);
         set((state) => {
           const prev = state.byKey[key];
           return {

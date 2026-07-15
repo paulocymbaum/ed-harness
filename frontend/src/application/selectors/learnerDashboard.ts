@@ -1,6 +1,6 @@
 import type { Course } from "../../domain/types/catalog";
 import type { ProjectProgress, ProjectStatus } from "../../domain/types/quizScore";
-import { projectProgressKey } from "../../domain/types/quizScore";
+import { lookupProjectProgressEntry } from "../../domain/types/quizScore";
 import { getAllProjectsForCourse } from "./catalogSelectors";
 
 export type PendingProjectRow = {
@@ -31,8 +31,13 @@ export function listPendingProjects(
   for (const course of courses) {
     const projects = getAllProjectsForCourse(course);
     projects.forEach((project, catalogIndex) => {
-      const key = projectProgressKey(course.id, project.id, project.lessonId);
-      const progress = projectByKey[key];
+      const progress = lookupProjectProgressEntry(
+        projectByKey,
+        course.id,
+        project.id,
+        project.lessonId,
+        project.moduleId,
+      );
       const status = progress?.status ?? "pending";
       if (status === "done") return;
 

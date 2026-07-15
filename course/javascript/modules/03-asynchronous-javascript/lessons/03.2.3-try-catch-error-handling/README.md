@@ -1,4 +1,4 @@
-# Try/Catch Error Handling
+# Async Errors and try/catch
 
 > Graph index: `03.2.3`
 
@@ -7,7 +7,7 @@
 
 ## Context
 
-Async errors propagate as **Promise rejections**. `try/catch` around `await` catches rejections in `async` functions. For APIs that return Promises, you can normalize outcomes into a result object instead of throwing.
+Async errors propagate as **Promise rejections**. Sync `throw` / `try/catch` (taught in fundamentals) still matter; here the focus is catching rejections with `await` and normalizing Promise outcomes.
 
 ## Predict first
 

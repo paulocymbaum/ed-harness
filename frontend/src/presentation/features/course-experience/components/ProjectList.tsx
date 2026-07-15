@@ -35,7 +35,12 @@ export function ProjectList(props: {
         <ol className="m-0 grid gap-3 pl-0">
           {props.projects.map((project) => {
             const status = getStatus(props.courseId, project.id, project.lessonId);
-            const progress = getProgress(props.courseId, project.id, project.lessonId);
+            const progress = getProgress(
+              props.courseId,
+              project.id,
+              project.lessonId,
+              project.moduleId,
+            );
             const deliveries = getDeliveries(props.courseId, project.id, project.lessonId);
             const lastSubmissionPercent = deliveries[deliveries.length - 1]?.review?.score;
             return (

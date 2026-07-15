@@ -19117,7 +19117,7 @@
           "title": "Objects",
           "graphIndex": "02",
           "readmePath": "course/javascript/modules/02-objects-references-and-copying/README.md",
-          "readmeMarkdown": "# Objects\n<!-- cursor:teacher:add-explanation (deterministic) -->\n<!-- marker:02-objects-references-and-copying:README.md -->\n\nThis module is a **4-tier track** for working with JavaScript objects: create and read them, transform them with static methods, understand reference semantics, then serialize safely with JSON and reason about ownership.\n\nWithout these skills you’ll struggle with APIs, state updates, and “why did the original change?” bugs.\n\n## Tier 1 — Creating and reading objects (`02.1`)\n\nLearn literals, property access (`.` vs `[]`), computed keys / shorthand, and object destructuring before worrying about shared references.\n\n**Planned leaves:** `02.1.1` Object Literals and Property Access · `02.1.2` Computed Keys and Shorthand · `02.1.3` Object Destructuring\n\n### Beginner checklist\n- [ ] I can create an object literal and read/update properties.\n- [ ] I know when bracket notation is required.\n- [ ] I can destructure fields with defaults and rest.\n\n## Tier 2 — Object static methods (`02.2`)\n\nTurn objects into lists of keys/values/entries, rebuild with `fromEntries`, and merge with `Object.assign` (and compare to `{ ... }`).\n\n**Planned leaves:** `02.2.1` Object.keys values and entries · `02.2.2` Object.fromEntries · `02.2.3` Object.assign and Merging\n\n### Intermediate checklist\n- [ ] I can iterate own enumerable keys with `Object.keys` / `entries`.\n- [ ] I can round-trip pairs with `Object.fromEntries`.\n- [ ] I can merge defaults without inventing a deep-merge by accident.\n\n## Tier 3 — References and copying (`02.3`)\n\nPrimitives behave like values; objects alias by reference. Shallow copy, nested traps, and `structuredClone` for deep snapshots.\n\n**Lessons:** [`02.3.1` Reference vs Value](lessons/02.3.1-reference-vs-value/) · [`02.3.2` Shallow vs Deep Copy](lessons/02.3.2-shallow-vs-deep-copy/) · [`02.3.3` structuredClone](lessons/02.3.3-structuredclone/)\n\n### Predict-first snippet\nWhat prints?\n\n```js\nconst a = { n: 10 };\nconst b = a;\nb.n = 20;\nconsole.log(a.n, b.n);\n```\n\n### Key terms\n- **Mutation**: changing an existing object/array (`obj.x = ...`, `arr.push(...)`).\n- **Alias**: two variables pointing to the same object.\n- **Shallow copy**: new top-level container; nested objects still shared.\n\n### References checklist\n- [ ] I can tell if a value is primitive vs object.\n- [ ] I can predict when two variables alias the same object.\n- [ ] I know what shallow copy guarantees (and what it doesn’t).\n- [ ] I know when to use `structuredClone` vs shallow copy.\n\n## Tier 4 — JSON and ownership (`02.4`)\n\nSerialize with `JSON.stringify` / `parse`, learn common pitfall cases (Date, `undefined`, cycles, BigInt), and distinguish own vs inherited properties with `Object.hasOwn`.\n\n**Planned:** `02.4.1` JSON.stringify and parse · `02.4.2` Common JSON Cases and Pitfalls  \n**Exists:** [`02.4.3` Object.hasOwn](lessons/02.4.3-object-hasown/)\n\n### Predict-first snippet\nWhat happens?\n\n```js\nconst x = { when: new Date(), n: 1 };\nconst y = JSON.parse(JSON.stringify(x));\nconsole.log(typeof y.when, y.when);\n```\n\n### Ownership checklist\n- [ ] I can explain why JSON cloning is lossy vs `structuredClone`.\n- [ ] I can use `Object.hasOwn` instead of `in` when I only want own keys.\n- [ ] I can justify a copying/serialization strategy based on data shape.\n\n## Common pitfalls (quick list)\n- Thinking `const` prevents mutation.\n- Using `Array.prototype.sort()` on a shared array (it mutates).\n- Copying only the top-level object and then mutating nested fields.\n- Using JSON cloning without realizing it changes types.\n- Treating inherited prototype keys as “your” data (`in` vs `Object.hasOwn`).\n",
+          "readmeMarkdown": "# Objects\n<!-- cursor:teacher:add-explanation (deterministic) -->\n<!-- marker:02-objects-references-and-copying:README.md -->\n\nThis module is a **4-tier track** for working with JavaScript objects: create and read them, transform them with static methods, understand reference semantics, then serialize safely with JSON and reason about ownership.\n\nWithout these skills you’ll struggle with APIs, state updates, and “why did the original change?” bugs.\n\n## Tier 1 — Creating and reading objects (`02.1`)\n\nLearn literals, property access (`.` vs `[]`), computed keys / shorthand, and object destructuring before worrying about shared references.\n\n**Planned leaves:** `02.1.1` Object Literals and Property Access · `02.1.2` Computed Keys and Shorthand · `02.1.3` Object Destructuring · `02.1.4` Rest and Spread for Objects and Arrays\n\n### Beginner checklist\n- [ ] I can create an object literal and read/update properties.\n- [ ] I know when bracket notation is required.\n- [ ] I can destructure fields with defaults and rest.\n\n## Tier 2 — Object static methods (`02.2`)\n\nTurn objects into lists of keys/values/entries, rebuild with `fromEntries`, and merge with `Object.assign` (and compare to `{ ... }`).\n\n**Planned leaves:** `02.2.1` Object.keys values and entries · `02.2.2` Object.fromEntries · `02.2.3` Object.assign and Merging\n\n### Intermediate checklist\n- [ ] I can iterate own enumerable keys with `Object.keys` / `entries`.\n- [ ] I can round-trip pairs with `Object.fromEntries`.\n- [ ] I can merge defaults without inventing a deep-merge by accident.\n\n## Tier 3 — References and copying (`02.3`)\n\nPrimitives behave like values; objects alias by reference. Shallow copy, nested traps, and `structuredClone` for deep snapshots.\n\n**Lessons:** [`02.3.1` Reference vs Value](lessons/02.3.1-reference-vs-value/) · [`02.3.2` Shallow vs Deep Copy](lessons/02.3.2-shallow-vs-deep-copy/) · [`02.3.3` structuredClone](lessons/02.3.3-structuredclone/)\n\n### Predict-first snippet\nWhat prints?\n\n```js\nconst a = { n: 10 };\nconst b = a;\nb.n = 20;\nconsole.log(a.n, b.n);\n```\n\n### Key terms\n- **Mutation**: changing an existing object/array (`obj.x = ...`, `arr.push(...)`).\n- **Alias**: two variables pointing to the same object.\n- **Shallow copy**: new top-level container; nested objects still shared.\n\n### References checklist\n- [ ] I can tell if a value is primitive vs object.\n- [ ] I can predict when two variables alias the same object.\n- [ ] I know what shallow copy guarantees (and what it doesn’t).\n- [ ] I know when to use `structuredClone` vs shallow copy.\n\n## Tier 4 — JSON and ownership (`02.4`)\n\nSerialize with `JSON.stringify` / `parse`, learn common pitfall cases (Date, `undefined`, cycles, BigInt), and distinguish own vs inherited properties with `Object.hasOwn`.\n\n**Planned:** `02.4.1` JSON.stringify and parse · `02.4.2` Common JSON Cases and Pitfalls  \n**Exists:** [`02.4.3` Object.hasOwn](lessons/02.4.3-object-hasown/)\n\n### Predict-first snippet\nWhat happens?\n\n```js\nconst x = { when: new Date(), n: 1 };\nconst y = JSON.parse(JSON.stringify(x));\nconsole.log(typeof y.when, y.when);\n```\n\n### Ownership checklist\n- [ ] I can explain why JSON cloning is lossy vs `structuredClone`.\n- [ ] I can use `Object.hasOwn` instead of `in` when I only want own keys.\n- [ ] I can justify a copying/serialization strategy based on data shape.\n\n## Common pitfalls (quick list)\n- Thinking `const` prevents mutation.\n- Using `Array.prototype.sort()` on a shared array (it mutates).\n- Copying only the top-level object and then mutating nested fields.\n- Using JSON cloning without realizing it changes types.\n- Treating inherited prototype keys as “your” data (`in` vs `Object.hasOwn`).\n",
           "lessons": [
             {
               "id": "02.3.1-reference-vs-value",
@@ -20002,18 +20002,18 @@
               "graphIndex": "03.1.1"
             },
             {
-              "id": "03.1.2-event-loop",
-              "title": "Event Loop",
-              "path": "course/javascript/modules/03-asynchronous-javascript/lessons/03.1.2-event-loop/README.md",
-              "markdown": "# Event Loop\n\n> Graph index: `03.1.2`\n\n<!-- cursor:teacher:add-explanation (deterministic) -->\n<!-- marker:03-asynchronous-javascript/03.1.2-event-loop:README.md -->\n\n## Context\n\nThe **event loop** coordinates synchronous code, **microtasks** (Promise reactions), and **tasks** (timers, I/O callbacks). One useful mental model:\n\n1. Run all synchronous code on the call stack.\n2. Drain the microtask queue completely.\n3. Run one task from the task queue.\n4. Repeat.\n\n## Predict first\n\nWhat prints, and in what order?\n\n```js\nconsole.log(\"start\");\n\nPromise.resolve().then(() => console.log(\"micro\"));\nsetTimeout(() => console.log(\"timer\"), 0);\n\nconsole.log(\"end\");\n```\n\n## Explanation\n\nPromise `.then` callbacks are **microtasks**. `setTimeout` schedules a **task**. After sync code finishes (`start`, `end`), microtasks run before the next task.\n\n```js\nconsole.log(\"A\");\nPromise.resolve().then(() => console.log(\"B\"));\nsetTimeout(() => console.log(\"C\"), 0);\nconsole.log(\"D\");\n```\n\nExpected order: `A`, `D`, `B`, `C`.\n\n## What to observe\n\n- Microtasks (Promise reactions) run before timers with `0` delay.\n- Label each log as **sync**, **microtask**, or **task** when predicting order.\n- `async/await` resumes via microtasks — covered in later lessons.\n\n## Quick challenge\n\nFor the first example, list each `console.log` and classify it as sync, microtask, or task. Write the final order without running the code.\n",
+              "id": "03.1.2-call-stack",
+              "title": "Call Stack",
+              "path": "course/javascript/modules/03-asynchronous-javascript/lessons/03.1.2-call-stack/README.md",
+              "markdown": "# Call Stack\n\n> Graph index: `03.1.2`\n<!-- cursor:teacher:add-explanation (deterministic) -->\n<!-- marker:javascript/03-asynchronous-javascript/03.1.2-call-stack:README.md -->\n\n## Context\n\nThe **call stack** is where JavaScript runs synchronous function calls. Each time a function is invoked, a new **stack frame** is pushed; when the function returns, that frame is popped. Only the frame on top can execute — this is why one thread handles one synchronous call chain at a time.\n\n## Predict first\n\nWhat prints, and in what order?\n\n```js\nfunction second() {\n  console.log(\"second\");\n}\n\nfunction first() {\n  console.log(\"first\");\n  second();\n  console.log(\"after second\");\n}\n\nconsole.log(\"start\");\nfirst();\nconsole.log(\"end\");\n```\n\n## Explanation\n\nCalling `first()` pushes a frame for `first`. Inside it, `second()` pushes another frame on top. `second` finishes and pops before `after second` runs. Then `first` returns, and finally `end` prints.\n\n```js\nfunction a() {\n  console.log(\"a\");\n  b();\n  console.log(\"a done\");\n}\n\nfunction b() {\n  console.log(\"b\");\n}\n\na();\n```\n\nStack at the moment `\"b\"` prints: `a` (waiting below) → `b` (running on top).\n\nInfinite recursion fills the stack until the engine throws:\n\n```js\nfunction recurse() {\n  recurse();\n}\n\nrecurse(); // RangeError: Maximum call stack size exceeded\n```\n\nScheduled callbacks (`setTimeout`, Promise reactions) do **not** jump onto the stack immediately. The current synchronous work must finish (frames pop) before the event loop can run queued callbacks — linking the call stack to async behavior from earlier lessons.\n\n## What to observe\n\n- Calls **push** frames; returns **pop** them (last in, first out).\n- Inner functions must complete before the line after the call in the outer function runs.\n- Long-running or infinitely recursive synchronous code keeps the stack busy — nothing else on that thread runs until it finishes or overflows.\n\n## Quick challenge\n\nFor the first example, list the call stack top-to-bottom at the exact moment `\"second\"` prints. Which frames are still waiting underneath?\n",
               "moduleId": "03-asynchronous-javascript",
               "graphIndex": "03.1.2"
             },
             {
-              "id": "03.1.3-call-stack",
-              "title": "Call Stack",
-              "path": "course/javascript/modules/03-asynchronous-javascript/lessons/03.1.3-call-stack/README.md",
-              "markdown": "# Call Stack\n\n> Graph index: `03.1.3`\n<!-- cursor:teacher:add-explanation (deterministic) -->\n<!-- marker:javascript/03-asynchronous-javascript/03.1.3-call-stack:README.md -->\n\n## Context\n\nThe **call stack** is where JavaScript runs synchronous function calls. Each time a function is invoked, a new **stack frame** is pushed; when the function returns, that frame is popped. Only the frame on top can execute — this is why one thread handles one synchronous call chain at a time.\n\n## Predict first\n\nWhat prints, and in what order?\n\n```js\nfunction second() {\n  console.log(\"second\");\n}\n\nfunction first() {\n  console.log(\"first\");\n  second();\n  console.log(\"after second\");\n}\n\nconsole.log(\"start\");\nfirst();\nconsole.log(\"end\");\n```\n\n## Explanation\n\nCalling `first()` pushes a frame for `first`. Inside it, `second()` pushes another frame on top. `second` finishes and pops before `after second` runs. Then `first` returns, and finally `end` prints.\n\n```js\nfunction a() {\n  console.log(\"a\");\n  b();\n  console.log(\"a done\");\n}\n\nfunction b() {\n  console.log(\"b\");\n}\n\na();\n```\n\nStack at the moment `\"b\"` prints: `a` (waiting below) → `b` (running on top).\n\nInfinite recursion fills the stack until the engine throws:\n\n```js\nfunction recurse() {\n  recurse();\n}\n\nrecurse(); // RangeError: Maximum call stack size exceeded\n```\n\nScheduled callbacks (`setTimeout`, Promise reactions) do **not** jump onto the stack immediately. The current synchronous work must finish (frames pop) before the event loop can run queued callbacks — linking the call stack to async behavior from earlier lessons.\n\n## What to observe\n\n- Calls **push** frames; returns **pop** them (last in, first out).\n- Inner functions must complete before the line after the call in the outer function runs.\n- Long-running or infinitely recursive synchronous code keeps the stack busy — nothing else on that thread runs until it finishes or overflows.\n\n## Quick challenge\n\nFor the first example, list the call stack top-to-bottom at the exact moment `\"second\"` prints. Which frames are still waiting underneath?\n",
+              "id": "03.1.3-event-loop",
+              "title": "Event Loop",
+              "path": "course/javascript/modules/03-asynchronous-javascript/lessons/03.1.3-event-loop/README.md",
+              "markdown": "# Event Loop\n\n> Graph index: `03.1.3`\n\n<!-- cursor:teacher:add-explanation (deterministic) -->\n<!-- marker:03-asynchronous-javascript/03.1.3-event-loop:README.md -->\n\n## Context\n\nThe **event loop** coordinates synchronous code, **microtasks** (Promise reactions), and **tasks** (timers, I/O callbacks). One useful mental model:\n\n1. Run all synchronous code on the call stack.\n2. Drain the microtask queue completely.\n3. Run one task from the task queue.\n4. Repeat.\n\n## Predict first\n\nWhat prints, and in what order?\n\n```js\nconsole.log(\"start\");\n\nPromise.resolve().then(() => console.log(\"micro\"));\nsetTimeout(() => console.log(\"timer\"), 0);\n\nconsole.log(\"end\");\n```\n\n## Explanation\n\nPromise `.then` callbacks are **microtasks**. `setTimeout` schedules a **task**. After sync code finishes (`start`, `end`), microtasks run before the next task.\n\n```js\nconsole.log(\"A\");\nPromise.resolve().then(() => console.log(\"B\"));\nsetTimeout(() => console.log(\"C\"), 0);\nconsole.log(\"D\");\n```\n\nExpected order: `A`, `D`, `B`, `C`.\n\n## What to observe\n\n- Microtasks (Promise reactions) run before timers with `0` delay.\n- Label each log as **sync**, **microtask**, or **task** when predicting order.\n- `async/await` resumes via microtasks — covered in later lessons.\n\n## Quick challenge\n\nFor the first example, list each `console.log` and classify it as sync, microtask, or task. Write the final order without running the code.\n",
               "moduleId": "03-asynchronous-javascript",
               "graphIndex": "03.1.3"
             },
@@ -20043,9 +20043,9 @@
             },
             {
               "id": "03.2.3-try-catch-error-handling",
-              "title": "Try/Catch Error Handling",
+              "title": "Async Errors and try/catch",
               "path": "course/javascript/modules/03-asynchronous-javascript/lessons/03.2.3-try-catch-error-handling/README.md",
-              "markdown": "# Try/Catch Error Handling\n\n> Graph index: `03.2.3`\n\n<!-- cursor:teacher:add-explanation (deterministic) -->\n<!-- marker:03-asynchronous-javascript/03.2.3-try-catch-error-handling:README.md -->\n\n## Context\n\nAsync errors propagate as **Promise rejections**. `try/catch` around `await` catches rejections in `async` functions. For APIs that return Promises, you can normalize outcomes into a result object instead of throwing.\n\n## Predict first\n\nWhat prints?\n\n```js\nasync function run() {\n  try {\n    await Promise.reject(new Error(\"boom\"));\n  } catch (e) {\n    console.log(\"caught\", e.message);\n  }\n}\n\nrun();\n```\n\n## Explanation\n\nRejecting inside an async function rejects its returned Promise:\n\n```js\nasync function fail() {\n  throw new Error(\"oops\");\n}\n\nfail().catch((e) => console.log(e.message));\n```\n\nThe `toResult` pattern wraps a Promise into a success/error object:\n\n```js\nasync function toResult(promise) {\n  try {\n    const value = await promise;\n    return { ok: true, value };\n  } catch (error) {\n    return { ok: false, error };\n  }\n}\n```\n\n## What to observe\n\n- Throwing or rejecting inside `async` rejects the returned Promise.\n- `try/catch` around `await` catches rejections without crashing the caller.\n- `toResult` lets callers branch on `{ ok, value }` vs `{ ok: false, error }` without `try/catch`.\n\n## Quick challenge\n\nImplement `toResult(promise)` that returns `{ ok: true, value }` on fulfillment or `{ ok: false, error }` on rejection.\n",
+              "markdown": "# Async Errors and try/catch\n\n> Graph index: `03.2.3`\n\n<!-- cursor:teacher:add-explanation (deterministic) -->\n<!-- marker:03-asynchronous-javascript/03.2.3-try-catch-error-handling:README.md -->\n\n## Context\n\nAsync errors propagate as **Promise rejections**. Sync `throw` / `try/catch` (taught in fundamentals) still matter; here the focus is catching rejections with `await` and normalizing Promise outcomes.\n\n## Predict first\n\nWhat prints?\n\n```js\nasync function run() {\n  try {\n    await Promise.reject(new Error(\"boom\"));\n  } catch (e) {\n    console.log(\"caught\", e.message);\n  }\n}\n\nrun();\n```\n\n## Explanation\n\nRejecting inside an async function rejects its returned Promise:\n\n```js\nasync function fail() {\n  throw new Error(\"oops\");\n}\n\nfail().catch((e) => console.log(e.message));\n```\n\nThe `toResult` pattern wraps a Promise into a success/error object:\n\n```js\nasync function toResult(promise) {\n  try {\n    const value = await promise;\n    return { ok: true, value };\n  } catch (error) {\n    return { ok: false, error };\n  }\n}\n```\n\n## What to observe\n\n- Throwing or rejecting inside `async` rejects the returned Promise.\n- `try/catch` around `await` catches rejections without crashing the caller.\n- `toResult` lets callers branch on `{ ok, value }` vs `{ ok: false, error }` without `try/catch`.\n\n## Quick challenge\n\nImplement `toResult(promise)` that returns `{ ok: true, value }` on fulfillment or `{ ok: false, error }` on rejection.\n",
               "moduleId": "03-asynchronous-javascript",
               "graphIndex": "03.2.3"
             }
@@ -20102,60 +20102,10 @@
               "graphIndex": "03.1.1"
             },
             {
-              "id": "001-output-order-predictor",
-              "title": "001. Output Order Predictor",
-              "rootPath": "course/javascript/modules/03-asynchronous-javascript/lessons/03.1.2-event-loop/projects/001-output-order-predictor",
-              "readmePath": "course/javascript/modules/03-asynchronous-javascript/lessons/03.1.2-event-loop/projects/001-output-order-predictor/README.md",
-              "readmeMarkdown": "# Output Order Predictor\n\n## Problem context\nTeams keep getting mystery output orders when mixing sync code, timers, and promises. You need a harness that **runs** small demos and reports the observed order.\n\n## Goal\nImplement four demo runners that schedule real sync / microtask / task work through a harness, then print each snippet's observed order and per-label classification.\n\n## Lesson concepts practiced\n- [ ] Run sync code before microtasks and tasks\n- [ ] Promise `.then` callbacks are microtasks\n- [ ] `setTimeout(..., 0)` schedules a task that runs after microtasks drain\n\n## Functional requirements\n- [ ] Use the provided `createHarness()` (do not replace order with hardcoded answer strings)\n- [ ] Implement four runners that use only `log`, `scheduleMicro`, and `scheduleTask` from the harness:\n  - [ ] `basic`: sync `A`, micro `micro`, task `timer`, sync `B` → order `A B micro timer`\n  - [ ] `asyncAwait`: sync `A`, micro `B` (scheduled at await-equivalent), sync `C` → order `A C B`\n  - [ ] `chainedMicrotasks`: micro `m1` then micro `m2` from inside `m1`, task `t1` → order `m1 m2 t1`\n  - [ ] `trick`: sync `start`/`end`, micro `micro`, task `timer` → order `start end micro timer`\n- [ ] After all runners finish, print for each snippet:\n  - [ ] `=== <name> ===`\n  - [ ] `order: <labels>`\n  - [ ] one indented line per label: `  <label>:<sync|microtask|task>`\n  - [ ] `explanation: <one short sentence using call stack / microtask / task>`\n\n## Non-functional requirements\n- [ ] Do not use `eval`\n- [ ] Classifications must come from the harness phase when `log` was called\n\n## Constraints\n- [ ] Node.js only\n- [ ] No external libraries\n\n## Acceptance criteria\n- [ ] `basic` order is `A B micro timer` with correct classifications\n- [ ] `chained-microtasks` order is `m1 m2 t1`\n- [ ] `trick` order is `start end micro timer`\n- [ ] All four snippets print when `main()` runs\n- [ ] Order lines are derived from observed harness logs\n\n## Example data\n\nSnippet `basic` output (excerpt):\n\n```\n=== basic ===\norder: A B micro timer\n  A:sync\n  B:sync\n  micro:microtask\n  timer:task\nexplanation: Sync runs first; the Promise microtask drains before the timer task.\n```\n\n## Suggested plan (no solution)\n1. Read how `createHarness` tags sync vs microtask vs task.\n2. Implement each runner with `log` / `scheduleMicro` / `scheduleTask`.\n3. Format with `formatSnippet` and print all four.\n\n## Deliverables\n- [ ] Code in `starter/` (`index.js` scaffold + `tests.json` validation cases + `sample.input` example stdin)\n- [ ] (Optional) reference in `solution/`\n\n## Extensions (optional)\n- [ ] Add a fifth runner with nested timers after microtasks.\n",
-              "entries": [
-                {
-                  "path": "",
-                  "kind": "dir",
-                  "readmeMarkdown": "# Output Order Predictor\n\n## Problem context\nTeams keep getting mystery output orders when mixing sync code, timers, and promises. You need a harness that **runs** small demos and reports the observed order.\n\n## Goal\nImplement four demo runners that schedule real sync / microtask / task work through a harness, then print each snippet's observed order and per-label classification.\n\n## Lesson concepts practiced\n- [ ] Run sync code before microtasks and tasks\n- [ ] Promise `.then` callbacks are microtasks\n- [ ] `setTimeout(..., 0)` schedules a task that runs after microtasks drain\n\n## Functional requirements\n- [ ] Use the provided `createHarness()` (do not replace order with hardcoded answer strings)\n- [ ] Implement four runners that use only `log`, `scheduleMicro`, and `scheduleTask` from the harness:\n  - [ ] `basic`: sync `A`, micro `micro`, task `timer`, sync `B` → order `A B micro timer`\n  - [ ] `asyncAwait`: sync `A`, micro `B` (scheduled at await-equivalent), sync `C` → order `A C B`\n  - [ ] `chainedMicrotasks`: micro `m1` then micro `m2` from inside `m1`, task `t1` → order `m1 m2 t1`\n  - [ ] `trick`: sync `start`/`end`, micro `micro`, task `timer` → order `start end micro timer`\n- [ ] After all runners finish, print for each snippet:\n  - [ ] `=== <name> ===`\n  - [ ] `order: <labels>`\n  - [ ] one indented line per label: `  <label>:<sync|microtask|task>`\n  - [ ] `explanation: <one short sentence using call stack / microtask / task>`\n\n## Non-functional requirements\n- [ ] Do not use `eval`\n- [ ] Classifications must come from the harness phase when `log` was called\n\n## Constraints\n- [ ] Node.js only\n- [ ] No external libraries\n\n## Acceptance criteria\n- [ ] `basic` order is `A B micro timer` with correct classifications\n- [ ] `chained-microtasks` order is `m1 m2 t1`\n- [ ] `trick` order is `start end micro timer`\n- [ ] All four snippets print when `main()` runs\n- [ ] Order lines are derived from observed harness logs\n\n## Example data\n\nSnippet `basic` output (excerpt):\n\n```\n=== basic ===\norder: A B micro timer\n  A:sync\n  B:sync\n  micro:microtask\n  timer:task\nexplanation: Sync runs first; the Promise microtask drains before the timer task.\n```\n\n## Suggested plan (no solution)\n1. Read how `createHarness` tags sync vs microtask vs task.\n2. Implement each runner with `log` / `scheduleMicro` / `scheduleTask`.\n3. Format with `formatSnippet` and print all four.\n\n## Deliverables\n- [ ] Code in `starter/` (`index.js` scaffold + `tests.json` validation cases + `sample.input` example stdin)\n- [ ] (Optional) reference in `solution/`\n\n## Extensions (optional)\n- [ ] Add a fifth runner with nested timers after microtasks.\n"
-                },
-                {
-                  "path": "solution",
-                  "kind": "dir"
-                },
-                {
-                  "path": "starter",
-                  "kind": "dir"
-                },
-                {
-                  "path": "README.md",
-                  "kind": "file",
-                  "content": "# Output Order Predictor\n\n## Problem context\nTeams keep getting mystery output orders when mixing sync code, timers, and promises. You need a harness that **runs** small demos and reports the observed order.\n\n## Goal\nImplement four demo runners that schedule real sync / microtask / task work through a harness, then print each snippet's observed order and per-label classification.\n\n## Lesson concepts practiced\n- [ ] Run sync code before microtasks and tasks\n- [ ] Promise `.then` callbacks are microtasks\n- [ ] `setTimeout(..., 0)` schedules a task that runs after microtasks drain\n\n## Functional requirements\n- [ ] Use the provided `createHarness()` (do not replace order with hardcoded answer strings)\n- [ ] Implement four runners that use only `log`, `scheduleMicro`, and `scheduleTask` from the harness:\n  - [ ] `basic`: sync `A`, micro `micro`, task `timer`, sync `B` → order `A B micro timer`\n  - [ ] `asyncAwait`: sync `A`, micro `B` (scheduled at await-equivalent), sync `C` → order `A C B`\n  - [ ] `chainedMicrotasks`: micro `m1` then micro `m2` from inside `m1`, task `t1` → order `m1 m2 t1`\n  - [ ] `trick`: sync `start`/`end`, micro `micro`, task `timer` → order `start end micro timer`\n- [ ] After all runners finish, print for each snippet:\n  - [ ] `=== <name> ===`\n  - [ ] `order: <labels>`\n  - [ ] one indented line per label: `  <label>:<sync|microtask|task>`\n  - [ ] `explanation: <one short sentence using call stack / microtask / task>`\n\n## Non-functional requirements\n- [ ] Do not use `eval`\n- [ ] Classifications must come from the harness phase when `log` was called\n\n## Constraints\n- [ ] Node.js only\n- [ ] No external libraries\n\n## Acceptance criteria\n- [ ] `basic` order is `A B micro timer` with correct classifications\n- [ ] `chained-microtasks` order is `m1 m2 t1`\n- [ ] `trick` order is `start end micro timer`\n- [ ] All four snippets print when `main()` runs\n- [ ] Order lines are derived from observed harness logs\n\n## Example data\n\nSnippet `basic` output (excerpt):\n\n```\n=== basic ===\norder: A B micro timer\n  A:sync\n  B:sync\n  micro:microtask\n  timer:task\nexplanation: Sync runs first; the Promise microtask drains before the timer task.\n```\n\n## Suggested plan (no solution)\n1. Read how `createHarness` tags sync vs microtask vs task.\n2. Implement each runner with `log` / `scheduleMicro` / `scheduleTask`.\n3. Format with `formatSnippet` and print all four.\n\n## Deliverables\n- [ ] Code in `starter/` (`index.js` scaffold + `tests.json` validation cases + `sample.input` example stdin)\n- [ ] (Optional) reference in `solution/`\n\n## Extensions (optional)\n- [ ] Add a fifth runner with nested timers after microtasks.\n"
-                },
-                {
-                  "path": "solution/index.js",
-                  "kind": "file",
-                  "content": "/**\n * Output Order Predictor — reference solution\n */\n\nfunction createHarness() {\n  let phase = \"sync\";\n  const order = [];\n  const classifications = [];\n\n  function log(label) {\n    order.push(label);\n    classifications.push(`${label}:${phase}`);\n  }\n\n  function scheduleMicro(fn) {\n    Promise.resolve().then(() => {\n      phase = \"microtask\";\n      fn();\n    });\n  }\n\n  function scheduleTask(fn) {\n    setTimeout(() => {\n      phase = \"task\";\n      fn();\n    }, 0);\n  }\n\n  function run(setup) {\n    return new Promise((resolve) => {\n      phase = \"sync\";\n      order.length = 0;\n      classifications.length = 0;\n\n      let finished = false;\n      const done = () => {\n        if (finished) return;\n        finished = true;\n        resolve({\n          order: order.slice(),\n          classifications: classifications.slice(),\n        });\n      };\n\n      setup({ log, scheduleMicro, scheduleTask, done });\n    });\n  }\n\n  return { run };\n}\n\nfunction formatSnippet(name, observed, explanation) {\n  return [\n    `=== ${name} ===`,\n    `order: ${observed.order.join(\" \")}`,\n    ...observed.classifications.map((c) => `  ${c}`),\n    `explanation: ${explanation}`,\n  ].join(\"\\n\");\n}\n\nfunction runBasic({ log, scheduleMicro, scheduleTask, done }) {\n  log(\"A\");\n  scheduleMicro(() => log(\"micro\"));\n  scheduleTask(() => {\n    log(\"timer\");\n    done();\n  });\n  log(\"B\");\n}\n\nfunction runAsyncAwait({ log, scheduleMicro, scheduleTask, done }) {\n  log(\"A\");\n  scheduleMicro(() => log(\"B\"));\n  log(\"C\");\n  scheduleTask(() => done());\n}\n\nfunction runChainedMicrotasks({ log, scheduleMicro, scheduleTask, done }) {\n  scheduleMicro(() => {\n    log(\"m1\");\n    scheduleMicro(() => log(\"m2\"));\n  });\n  scheduleTask(() => {\n    log(\"t1\");\n    done();\n  });\n}\n\nfunction runTrick({ log, scheduleMicro, scheduleTask, done }) {\n  log(\"start\");\n  scheduleMicro(() => log(\"micro\"));\n  scheduleTask(() => {\n    log(\"timer\");\n    done();\n  });\n  log(\"end\");\n}\n\nasync function main() {\n  const demos = [\n    {\n      name: \"basic\",\n      runner: runBasic,\n      explanation:\n        \"Sync logs run on the call stack first. Promise reactions are microtasks and drain before the setTimeout task runs.\",\n    },\n    {\n      name: \"async-await\",\n      runner: runAsyncAwait,\n      explanation:\n        \"main() runs until await, which schedules the rest as a microtask. C prints before B resumes.\",\n    },\n    {\n      name: \"chained-microtasks\",\n      runner: runChainedMicrotasks,\n      explanation:\n        \"Microtasks m1 and m2 drain completely before task t1 from setTimeout.\",\n    },\n    {\n      name: \"trick\",\n      runner: runTrick,\n      explanation:\n        \"Microtasks always run before the next task, so micro prints before timer even with setTimeout(0).\",\n    },\n  ];\n\n  for (const demo of demos) {\n    const harness = createHarness();\n    const observed = await harness.run(demo.runner);\n    process.stdout.write(formatSnippet(demo.name, observed, demo.explanation) + \"\\n\\n\");\n  }\n}\n\nmain();\n"
-                },
-                {
-                  "path": "starter/index.js",
-                  "kind": "file",
-                  "content": "/**\n * Output Order Predictor\n *\n * Entrypoint: node starter/index.js\n * Implement the behavior described in ../README.md\n */\n\n/**\n * Harness: log() records labels tagged by the current phase.\n * scheduleMicro / scheduleTask flip the phase when their callbacks run.\n */\nfunction createHarness() {\n  let phase = \"sync\";\n  const order = [];\n  const classifications = [];\n\n  function log(label) {\n    order.push(label);\n    classifications.push(`${label}:${phase}`);\n  }\n\n  function scheduleMicro(fn) {\n    Promise.resolve().then(() => {\n      phase = \"microtask\";\n      fn();\n    });\n  }\n\n  function scheduleTask(fn) {\n    setTimeout(() => {\n      phase = \"task\";\n      fn();\n    }, 0);\n  }\n\n  function run(setup) {\n    return new Promise((resolve) => {\n      phase = \"sync\";\n      order.length = 0;\n      classifications.length = 0;\n\n      let finished = false;\n      const done = () => {\n        if (finished) return;\n        finished = true;\n        resolve({\n          order: order.slice(),\n          classifications: classifications.slice(),\n        });\n      };\n\n      setup({ log, scheduleMicro, scheduleTask, done });\n    });\n  }\n\n  return { run };\n}\n\nfunction formatSnippet(name, observed, explanation) {\n  return [\n    `=== ${name} ===`,\n    `order: ${observed.order.join(\" \")}`,\n    ...observed.classifications.map((c) => `  ${c}`),\n    `explanation: ${explanation}`,\n  ].join(\"\\n\");\n}\n\n/** @param {{ log: Function, scheduleMicro: Function, scheduleTask: Function, done: Function }} h */\nfunction runBasic(h) {\n  // TODO: A (sync), micro (microtask), timer (task + done()), B (sync)\n  throw new Error(\"Not implemented\");\n}\n\n/** @param {{ log: Function, scheduleMicro: Function, scheduleTask: Function, done: Function }} h */\nfunction runAsyncAwait(h) {\n  // TODO: A (sync), scheduleMicro for B, C (sync), and finish after B\n  // Hint: scheduleTask(done) is wrong here — finish from the microtask after logging B,\n  // or schedule a zero timer only to call done after micros drain.\n  throw new Error(\"Not implemented\");\n}\n\n/** @param {{ log: Function, scheduleMicro: Function, scheduleTask: Function, done: Function }} h */\nfunction runChainedMicrotasks(h) {\n  // TODO: m1 schedules m2; t1 is a task that calls done()\n  throw new Error(\"Not implemented\");\n}\n\n/** @param {{ log: Function, scheduleMicro: Function, scheduleTask: Function, done: Function }} h */\nfunction runTrick(h) {\n  // TODO: start, micro, timer(+done), end\n  throw new Error(\"Not implemented\");\n}\n\nasync function main() {\n  const demos = [\n    {\n      name: \"basic\",\n      runner: runBasic,\n      explanation:\n        \"Sync logs run on the call stack first. Promise reactions are microtasks and drain before the setTimeout task runs.\",\n    },\n    {\n      name: \"async-await\",\n      runner: runAsyncAwait,\n      explanation:\n        \"main() runs until await, which schedules the rest as a microtask. C prints before B resumes.\",\n    },\n    {\n      name: \"chained-microtasks\",\n      runner: runChainedMicrotasks,\n      explanation:\n        \"Microtasks m1 and m2 drain completely before task t1 from setTimeout.\",\n    },\n    {\n      name: \"trick\",\n      runner: runTrick,\n      explanation:\n        \"Microtasks always run before the next task, so micro prints before timer even with setTimeout(0).\",\n    },\n  ];\n\n  for (const demo of demos) {\n    const harness = createHarness();\n    const observed = await harness.run(demo.runner);\n    process.stdout.write(formatSnippet(demo.name, observed, demo.explanation) + \"\\n\\n\");\n  }\n}\n\nmain();\n"
-                },
-                {
-                  "path": "starter/sample.input",
-                  "kind": "file",
-                  "content": "(no stdin — main prints hardcoded snippet analyses)\n"
-                },
-                {
-                  "path": "starter/tests.json",
-                  "kind": "file",
-                  "content": "{\n  \"cases\": [\n    {\n      \"id\": \"all-snippets\",\n      \"name\": \"All snippet analyses\",\n      \"stdin\": \"\",\n      \"expectedStdout\": \"=== basic ===\\norder: A B micro timer\\n  A:sync\\n  B:sync\\n  micro:microtask\\n  timer:task\\nexplanation: Sync logs run on the call stack first. Promise reactions are microtasks and drain before the setTimeout task runs.\\n\\n=== async-await ===\\norder: A C B\\n  A:sync\\n  C:sync\\n  B:microtask\\nexplanation: main() runs until await, which schedules the rest as a microtask. C prints before B resumes.\\n\\n=== chained-microtasks ===\\norder: m1 m2 t1\\n  m1:microtask\\n  m2:microtask\\n  t1:task\\nexplanation: Microtasks m1 and m2 drain completely before task t1 from setTimeout.\\n\\n=== trick ===\\norder: start end micro timer\\n  start:sync\\n  end:sync\\n  micro:microtask\\n  timer:task\\nexplanation: Microtasks always run before the next task, so micro prints before timer even with setTimeout(0).\\n\\n\",\n      \"expectedExitCode\": 0\n    }\n  ]\n}\n"
-                }
-              ],
-              "moduleId": "03-asynchronous-javascript",
-              "lessonId": "03.1.2-event-loop",
-              "graphIndex": "03.1.2"
-            },
-            {
               "id": "001-stack-trace-reporter",
               "title": "001. Stack Trace Reporter",
-              "rootPath": "course/javascript/modules/03-asynchronous-javascript/lessons/03.1.3-call-stack/projects/001-stack-trace-reporter",
-              "readmePath": "course/javascript/modules/03-asynchronous-javascript/lessons/03.1.3-call-stack/projects/001-stack-trace-reporter/README.md",
+              "rootPath": "course/javascript/modules/03-asynchronous-javascript/lessons/03.1.2-call-stack/projects/001-stack-trace-reporter",
+              "readmePath": "course/javascript/modules/03-asynchronous-javascript/lessons/03.1.2-call-stack/projects/001-stack-trace-reporter/README.md",
               "readmeMarkdown": "# Stack Trace Reporter\n\n## Problem context\nDebugging sync bugs means knowing what is on the **call stack** when a line runs. You need a tiny simulator that walks function graphs (no `eval`) and reports frames top→bottom at a labeled log moment.\n\n## Goal\nImplement `stackAtProbe(snippet)`: push/pop frames on `call`, and when a `log` label matches `snippet.probe`, capture the current stack (top → bottom). Read a snippet id from stdin and print `Stack: …` or an error.\n\n## Lesson concepts practiced\n- [ ] Calls **push** frames; returns **pop** them (last in, first out)\n- [ ] Inner functions must complete before the line after the call in the outer function runs\n- [ ] Unbounded synchronous recursion keeps growing the stack until it would overflow\n\n## Functional requirements\n- [ ] Snippets `basic`, `nested`, and `overflow-note` are provided as data graphs (scaffold)\n- [ ] Implement `stackAtProbe(snippet)`:\n  - [ ] Maintain a stack array of function names\n  - [ ] On `{ type: \"call\", target }`: if depth would exceed `MAX_DEPTH`, treat as overflow; else push `target`, run `snippet.functions[target]`, then pop\n  - [ ] On `{ type: \"log\", label }`: if `label === snippet.probe`, capture frames **top → bottom** (newest name first)\n  - [ ] Start by executing `snippet.entry`\n- [ ] CLI: read one snippet id; print:\n  - [ ] `Stack: <frames>` (space-separated) when a probe capture exists\n  - [ ] `ERROR: stack would overflow` for unbounded recursion (overflow-note)\n  - [ ] `ERROR: unknown snippet` for unknown ids\n- [ ] Do not hardcode answer strings like `\"second first\"` — derive them from the simulator\n\n## Non-functional requirements\n- [ ] Do not use real infinite recursion or `eval`\n- [ ] Cap depth with `MAX_DEPTH` (scaffold constant)\n- [ ] Clear errors for unknown ids / overflow\n\n## Constraints\n- [ ] Node.js only\n- [ ] No external libraries\n\n## Acceptance criteria\n- [ ] Input `basic` → `Stack: second first`\n- [ ] Input `nested` → `Stack: b a`\n- [ ] Input `overflow-note` → `ERROR: stack would overflow`\n- [ ] Input `unknown` → `ERROR: unknown snippet`\n- [ ] Stack lines come from push/pop simulation, not a lookup table of answers\n\n## Example data\n\nInput:\n- `basic`\n\nOutput:\n- `Stack: second first`\n\n## Suggested plan (no solution)\n1. Walk `entry` ops with a recursive `exec(ops)` helper and a `stack` array.\n2. On `call`, push/pop around running the target body; abort if `stack.length >= MAX_DEPTH`.\n3. On matching `log`, save `[...stack].reverse()` (or push to front — top first).\n4. Wire stdin id → snippet → print `Stack:` / overflow / unknown.\n\n## Deliverables\n- [ ] Code in `starter/` (`index.js` scaffold + `tests.json` validation cases + `sample.input` example stdin)\n- [ ] (Optional) reference in `solution/`\n\n## Extensions (optional)\n- [ ] Add a fourth snippet with three nested frames and report the stack at the innermost log.\n",
               "entries": [
                 {
@@ -20198,7 +20148,57 @@
                 }
               ],
               "moduleId": "03-asynchronous-javascript",
-              "lessonId": "03.1.3-call-stack",
+              "lessonId": "03.1.2-call-stack",
+              "graphIndex": "03.1.2"
+            },
+            {
+              "id": "001-output-order-predictor",
+              "title": "001. Output Order Predictor",
+              "rootPath": "course/javascript/modules/03-asynchronous-javascript/lessons/03.1.3-event-loop/projects/001-output-order-predictor",
+              "readmePath": "course/javascript/modules/03-asynchronous-javascript/lessons/03.1.3-event-loop/projects/001-output-order-predictor/README.md",
+              "readmeMarkdown": "# Output Order Predictor\n\n## Problem context\nTeams keep getting mystery output orders when mixing sync code, timers, and promises. You need a harness that **runs** small demos and reports the observed order.\n\n## Goal\nImplement four demo runners that schedule real sync / microtask / task work through a harness, then print each snippet's observed order and per-label classification.\n\n## Lesson concepts practiced\n- [ ] Run sync code before microtasks and tasks\n- [ ] Promise `.then` callbacks are microtasks\n- [ ] `setTimeout(..., 0)` schedules a task that runs after microtasks drain\n\n## Functional requirements\n- [ ] Use the provided `createHarness()` (do not replace order with hardcoded answer strings)\n- [ ] Implement four runners that use only `log`, `scheduleMicro`, and `scheduleTask` from the harness:\n  - [ ] `basic`: sync `A`, micro `micro`, task `timer`, sync `B` → order `A B micro timer`\n  - [ ] `asyncAwait`: sync `A`, micro `B` (scheduled at await-equivalent), sync `C` → order `A C B`\n  - [ ] `chainedMicrotasks`: micro `m1` then micro `m2` from inside `m1`, task `t1` → order `m1 m2 t1`\n  - [ ] `trick`: sync `start`/`end`, micro `micro`, task `timer` → order `start end micro timer`\n- [ ] After all runners finish, print for each snippet:\n  - [ ] `=== <name> ===`\n  - [ ] `order: <labels>`\n  - [ ] one indented line per label: `  <label>:<sync|microtask|task>`\n  - [ ] `explanation: <one short sentence using call stack / microtask / task>`\n\n## Non-functional requirements\n- [ ] Do not use `eval`\n- [ ] Classifications must come from the harness phase when `log` was called\n\n## Constraints\n- [ ] Node.js only\n- [ ] No external libraries\n\n## Acceptance criteria\n- [ ] `basic` order is `A B micro timer` with correct classifications\n- [ ] `chained-microtasks` order is `m1 m2 t1`\n- [ ] `trick` order is `start end micro timer`\n- [ ] All four snippets print when `main()` runs\n- [ ] Order lines are derived from observed harness logs\n\n## Example data\n\nSnippet `basic` output (excerpt):\n\n```\n=== basic ===\norder: A B micro timer\n  A:sync\n  B:sync\n  micro:microtask\n  timer:task\nexplanation: Sync runs first; the Promise microtask drains before the timer task.\n```\n\n## Suggested plan (no solution)\n1. Read how `createHarness` tags sync vs microtask vs task.\n2. Implement each runner with `log` / `scheduleMicro` / `scheduleTask`.\n3. Format with `formatSnippet` and print all four.\n\n## Deliverables\n- [ ] Code in `starter/` (`index.js` scaffold + `tests.json` validation cases + `sample.input` example stdin)\n- [ ] (Optional) reference in `solution/`\n\n## Extensions (optional)\n- [ ] Add a fifth runner with nested timers after microtasks.\n",
+              "entries": [
+                {
+                  "path": "",
+                  "kind": "dir",
+                  "readmeMarkdown": "# Output Order Predictor\n\n## Problem context\nTeams keep getting mystery output orders when mixing sync code, timers, and promises. You need a harness that **runs** small demos and reports the observed order.\n\n## Goal\nImplement four demo runners that schedule real sync / microtask / task work through a harness, then print each snippet's observed order and per-label classification.\n\n## Lesson concepts practiced\n- [ ] Run sync code before microtasks and tasks\n- [ ] Promise `.then` callbacks are microtasks\n- [ ] `setTimeout(..., 0)` schedules a task that runs after microtasks drain\n\n## Functional requirements\n- [ ] Use the provided `createHarness()` (do not replace order with hardcoded answer strings)\n- [ ] Implement four runners that use only `log`, `scheduleMicro`, and `scheduleTask` from the harness:\n  - [ ] `basic`: sync `A`, micro `micro`, task `timer`, sync `B` → order `A B micro timer`\n  - [ ] `asyncAwait`: sync `A`, micro `B` (scheduled at await-equivalent), sync `C` → order `A C B`\n  - [ ] `chainedMicrotasks`: micro `m1` then micro `m2` from inside `m1`, task `t1` → order `m1 m2 t1`\n  - [ ] `trick`: sync `start`/`end`, micro `micro`, task `timer` → order `start end micro timer`\n- [ ] After all runners finish, print for each snippet:\n  - [ ] `=== <name> ===`\n  - [ ] `order: <labels>`\n  - [ ] one indented line per label: `  <label>:<sync|microtask|task>`\n  - [ ] `explanation: <one short sentence using call stack / microtask / task>`\n\n## Non-functional requirements\n- [ ] Do not use `eval`\n- [ ] Classifications must come from the harness phase when `log` was called\n\n## Constraints\n- [ ] Node.js only\n- [ ] No external libraries\n\n## Acceptance criteria\n- [ ] `basic` order is `A B micro timer` with correct classifications\n- [ ] `chained-microtasks` order is `m1 m2 t1`\n- [ ] `trick` order is `start end micro timer`\n- [ ] All four snippets print when `main()` runs\n- [ ] Order lines are derived from observed harness logs\n\n## Example data\n\nSnippet `basic` output (excerpt):\n\n```\n=== basic ===\norder: A B micro timer\n  A:sync\n  B:sync\n  micro:microtask\n  timer:task\nexplanation: Sync runs first; the Promise microtask drains before the timer task.\n```\n\n## Suggested plan (no solution)\n1. Read how `createHarness` tags sync vs microtask vs task.\n2. Implement each runner with `log` / `scheduleMicro` / `scheduleTask`.\n3. Format with `formatSnippet` and print all four.\n\n## Deliverables\n- [ ] Code in `starter/` (`index.js` scaffold + `tests.json` validation cases + `sample.input` example stdin)\n- [ ] (Optional) reference in `solution/`\n\n## Extensions (optional)\n- [ ] Add a fifth runner with nested timers after microtasks.\n"
+                },
+                {
+                  "path": "solution",
+                  "kind": "dir"
+                },
+                {
+                  "path": "starter",
+                  "kind": "dir"
+                },
+                {
+                  "path": "README.md",
+                  "kind": "file",
+                  "content": "# Output Order Predictor\n\n## Problem context\nTeams keep getting mystery output orders when mixing sync code, timers, and promises. You need a harness that **runs** small demos and reports the observed order.\n\n## Goal\nImplement four demo runners that schedule real sync / microtask / task work through a harness, then print each snippet's observed order and per-label classification.\n\n## Lesson concepts practiced\n- [ ] Run sync code before microtasks and tasks\n- [ ] Promise `.then` callbacks are microtasks\n- [ ] `setTimeout(..., 0)` schedules a task that runs after microtasks drain\n\n## Functional requirements\n- [ ] Use the provided `createHarness()` (do not replace order with hardcoded answer strings)\n- [ ] Implement four runners that use only `log`, `scheduleMicro`, and `scheduleTask` from the harness:\n  - [ ] `basic`: sync `A`, micro `micro`, task `timer`, sync `B` → order `A B micro timer`\n  - [ ] `asyncAwait`: sync `A`, micro `B` (scheduled at await-equivalent), sync `C` → order `A C B`\n  - [ ] `chainedMicrotasks`: micro `m1` then micro `m2` from inside `m1`, task `t1` → order `m1 m2 t1`\n  - [ ] `trick`: sync `start`/`end`, micro `micro`, task `timer` → order `start end micro timer`\n- [ ] After all runners finish, print for each snippet:\n  - [ ] `=== <name> ===`\n  - [ ] `order: <labels>`\n  - [ ] one indented line per label: `  <label>:<sync|microtask|task>`\n  - [ ] `explanation: <one short sentence using call stack / microtask / task>`\n\n## Non-functional requirements\n- [ ] Do not use `eval`\n- [ ] Classifications must come from the harness phase when `log` was called\n\n## Constraints\n- [ ] Node.js only\n- [ ] No external libraries\n\n## Acceptance criteria\n- [ ] `basic` order is `A B micro timer` with correct classifications\n- [ ] `chained-microtasks` order is `m1 m2 t1`\n- [ ] `trick` order is `start end micro timer`\n- [ ] All four snippets print when `main()` runs\n- [ ] Order lines are derived from observed harness logs\n\n## Example data\n\nSnippet `basic` output (excerpt):\n\n```\n=== basic ===\norder: A B micro timer\n  A:sync\n  B:sync\n  micro:microtask\n  timer:task\nexplanation: Sync runs first; the Promise microtask drains before the timer task.\n```\n\n## Suggested plan (no solution)\n1. Read how `createHarness` tags sync vs microtask vs task.\n2. Implement each runner with `log` / `scheduleMicro` / `scheduleTask`.\n3. Format with `formatSnippet` and print all four.\n\n## Deliverables\n- [ ] Code in `starter/` (`index.js` scaffold + `tests.json` validation cases + `sample.input` example stdin)\n- [ ] (Optional) reference in `solution/`\n\n## Extensions (optional)\n- [ ] Add a fifth runner with nested timers after microtasks.\n"
+                },
+                {
+                  "path": "solution/index.js",
+                  "kind": "file",
+                  "content": "/**\n * Output Order Predictor — reference solution\n */\n\nfunction createHarness() {\n  let phase = \"sync\";\n  const order = [];\n  const classifications = [];\n\n  function log(label) {\n    order.push(label);\n    classifications.push(`${label}:${phase}`);\n  }\n\n  function scheduleMicro(fn) {\n    Promise.resolve().then(() => {\n      phase = \"microtask\";\n      fn();\n    });\n  }\n\n  function scheduleTask(fn) {\n    setTimeout(() => {\n      phase = \"task\";\n      fn();\n    }, 0);\n  }\n\n  function run(setup) {\n    return new Promise((resolve) => {\n      phase = \"sync\";\n      order.length = 0;\n      classifications.length = 0;\n\n      let finished = false;\n      const done = () => {\n        if (finished) return;\n        finished = true;\n        resolve({\n          order: order.slice(),\n          classifications: classifications.slice(),\n        });\n      };\n\n      setup({ log, scheduleMicro, scheduleTask, done });\n    });\n  }\n\n  return { run };\n}\n\nfunction formatSnippet(name, observed, explanation) {\n  return [\n    `=== ${name} ===`,\n    `order: ${observed.order.join(\" \")}`,\n    ...observed.classifications.map((c) => `  ${c}`),\n    `explanation: ${explanation}`,\n  ].join(\"\\n\");\n}\n\nfunction runBasic({ log, scheduleMicro, scheduleTask, done }) {\n  log(\"A\");\n  scheduleMicro(() => log(\"micro\"));\n  scheduleTask(() => {\n    log(\"timer\");\n    done();\n  });\n  log(\"B\");\n}\n\nfunction runAsyncAwait({ log, scheduleMicro, scheduleTask, done }) {\n  log(\"A\");\n  scheduleMicro(() => log(\"B\"));\n  log(\"C\");\n  scheduleTask(() => done());\n}\n\nfunction runChainedMicrotasks({ log, scheduleMicro, scheduleTask, done }) {\n  scheduleMicro(() => {\n    log(\"m1\");\n    scheduleMicro(() => log(\"m2\"));\n  });\n  scheduleTask(() => {\n    log(\"t1\");\n    done();\n  });\n}\n\nfunction runTrick({ log, scheduleMicro, scheduleTask, done }) {\n  log(\"start\");\n  scheduleMicro(() => log(\"micro\"));\n  scheduleTask(() => {\n    log(\"timer\");\n    done();\n  });\n  log(\"end\");\n}\n\nasync function main() {\n  const demos = [\n    {\n      name: \"basic\",\n      runner: runBasic,\n      explanation:\n        \"Sync logs run on the call stack first. Promise reactions are microtasks and drain before the setTimeout task runs.\",\n    },\n    {\n      name: \"async-await\",\n      runner: runAsyncAwait,\n      explanation:\n        \"main() runs until await, which schedules the rest as a microtask. C prints before B resumes.\",\n    },\n    {\n      name: \"chained-microtasks\",\n      runner: runChainedMicrotasks,\n      explanation:\n        \"Microtasks m1 and m2 drain completely before task t1 from setTimeout.\",\n    },\n    {\n      name: \"trick\",\n      runner: runTrick,\n      explanation:\n        \"Microtasks always run before the next task, so micro prints before timer even with setTimeout(0).\",\n    },\n  ];\n\n  for (const demo of demos) {\n    const harness = createHarness();\n    const observed = await harness.run(demo.runner);\n    process.stdout.write(formatSnippet(demo.name, observed, demo.explanation) + \"\\n\\n\");\n  }\n}\n\nmain();\n"
+                },
+                {
+                  "path": "starter/index.js",
+                  "kind": "file",
+                  "content": "/**\n * Output Order Predictor\n *\n * Entrypoint: node starter/index.js\n * Implement the behavior described in ../README.md\n */\n\n/**\n * Harness: log() records labels tagged by the current phase.\n * scheduleMicro / scheduleTask flip the phase when their callbacks run.\n */\nfunction createHarness() {\n  let phase = \"sync\";\n  const order = [];\n  const classifications = [];\n\n  function log(label) {\n    order.push(label);\n    classifications.push(`${label}:${phase}`);\n  }\n\n  function scheduleMicro(fn) {\n    Promise.resolve().then(() => {\n      phase = \"microtask\";\n      fn();\n    });\n  }\n\n  function scheduleTask(fn) {\n    setTimeout(() => {\n      phase = \"task\";\n      fn();\n    }, 0);\n  }\n\n  function run(setup) {\n    return new Promise((resolve) => {\n      phase = \"sync\";\n      order.length = 0;\n      classifications.length = 0;\n\n      let finished = false;\n      const done = () => {\n        if (finished) return;\n        finished = true;\n        resolve({\n          order: order.slice(),\n          classifications: classifications.slice(),\n        });\n      };\n\n      setup({ log, scheduleMicro, scheduleTask, done });\n    });\n  }\n\n  return { run };\n}\n\nfunction formatSnippet(name, observed, explanation) {\n  return [\n    `=== ${name} ===`,\n    `order: ${observed.order.join(\" \")}`,\n    ...observed.classifications.map((c) => `  ${c}`),\n    `explanation: ${explanation}`,\n  ].join(\"\\n\");\n}\n\n/** @param {{ log: Function, scheduleMicro: Function, scheduleTask: Function, done: Function }} h */\nfunction runBasic(h) {\n  // TODO: A (sync), micro (microtask), timer (task + done()), B (sync)\n  throw new Error(\"Not implemented\");\n}\n\n/** @param {{ log: Function, scheduleMicro: Function, scheduleTask: Function, done: Function }} h */\nfunction runAsyncAwait(h) {\n  // TODO: A (sync), scheduleMicro for B, C (sync), and finish after B\n  // Hint: scheduleTask(done) is wrong here — finish from the microtask after logging B,\n  // or schedule a zero timer only to call done after micros drain.\n  throw new Error(\"Not implemented\");\n}\n\n/** @param {{ log: Function, scheduleMicro: Function, scheduleTask: Function, done: Function }} h */\nfunction runChainedMicrotasks(h) {\n  // TODO: m1 schedules m2; t1 is a task that calls done()\n  throw new Error(\"Not implemented\");\n}\n\n/** @param {{ log: Function, scheduleMicro: Function, scheduleTask: Function, done: Function }} h */\nfunction runTrick(h) {\n  // TODO: start, micro, timer(+done), end\n  throw new Error(\"Not implemented\");\n}\n\nasync function main() {\n  const demos = [\n    {\n      name: \"basic\",\n      runner: runBasic,\n      explanation:\n        \"Sync logs run on the call stack first. Promise reactions are microtasks and drain before the setTimeout task runs.\",\n    },\n    {\n      name: \"async-await\",\n      runner: runAsyncAwait,\n      explanation:\n        \"main() runs until await, which schedules the rest as a microtask. C prints before B resumes.\",\n    },\n    {\n      name: \"chained-microtasks\",\n      runner: runChainedMicrotasks,\n      explanation:\n        \"Microtasks m1 and m2 drain completely before task t1 from setTimeout.\",\n    },\n    {\n      name: \"trick\",\n      runner: runTrick,\n      explanation:\n        \"Microtasks always run before the next task, so micro prints before timer even with setTimeout(0).\",\n    },\n  ];\n\n  for (const demo of demos) {\n    const harness = createHarness();\n    const observed = await harness.run(demo.runner);\n    process.stdout.write(formatSnippet(demo.name, observed, demo.explanation) + \"\\n\\n\");\n  }\n}\n\nmain();\n"
+                },
+                {
+                  "path": "starter/sample.input",
+                  "kind": "file",
+                  "content": "(no stdin — main prints hardcoded snippet analyses)\n"
+                },
+                {
+                  "path": "starter/tests.json",
+                  "kind": "file",
+                  "content": "{\n  \"cases\": [\n    {\n      \"id\": \"all-snippets\",\n      \"name\": \"All snippet analyses\",\n      \"stdin\": \"\",\n      \"expectedStdout\": \"=== basic ===\\norder: A B micro timer\\n  A:sync\\n  B:sync\\n  micro:microtask\\n  timer:task\\nexplanation: Sync logs run on the call stack first. Promise reactions are microtasks and drain before the setTimeout task runs.\\n\\n=== async-await ===\\norder: A C B\\n  A:sync\\n  C:sync\\n  B:microtask\\nexplanation: main() runs until await, which schedules the rest as a microtask. C prints before B resumes.\\n\\n=== chained-microtasks ===\\norder: m1 m2 t1\\n  m1:microtask\\n  m2:microtask\\n  t1:task\\nexplanation: Microtasks m1 and m2 drain completely before task t1 from setTimeout.\\n\\n=== trick ===\\norder: start end micro timer\\n  start:sync\\n  end:sync\\n  micro:microtask\\n  timer:task\\nexplanation: Microtasks always run before the next task, so micro prints before timer even with setTimeout(0).\\n\\n\",\n      \"expectedExitCode\": 0\n    }\n  ]\n}\n"
+                }
+              ],
+              "moduleId": "03-asynchronous-javascript",
+              "lessonId": "03.1.3-event-loop",
               "graphIndex": "03.1.3"
             },
             {
@@ -20512,116 +20512,9 @@
             },
             {
               "id": "quiz",
-              "title": "Event Loop Check",
-              "description": "Order sync, microtasks, and tasks with the event loop model.",
-              "path": "course/javascript/modules/03-asynchronous-javascript/lessons/03.1.2-event-loop/quiz/quiz.json",
-              "questions": [
-                {
-                  "id": "q1",
-                  "prompt": "What prints, and in what order?\n\n```js\nconsole.log(\"start\");\nPromise.resolve().then(() => console.log(\"micro\"));\nsetTimeout(() => console.log(\"timer\"), 0);\nconsole.log(\"end\");\n```",
-                  "options": [
-                    {
-                      "id": "a",
-                      "text": "`start`, `micro`, `end`, `timer`"
-                    },
-                    {
-                      "id": "b",
-                      "text": "`start`, `end`, `timer`, `micro`"
-                    },
-                    {
-                      "id": "c",
-                      "text": "`start`, `end`, `micro`, `timer`"
-                    },
-                    {
-                      "id": "d",
-                      "text": "`start`, `timer`, `end`, `micro`"
-                    }
-                  ],
-                  "correctOptionId": "c",
-                  "explanation": "Sync first (`start`, `end`), then drain microtasks (`micro`), then run the timer task (`timer`)."
-                },
-                {
-                  "id": "q2",
-                  "prompt": "In the event-loop mental model, what happens immediately after synchronous code empties the call stack?",
-                  "options": [
-                    {
-                      "id": "a",
-                      "text": "Run one timer task, then drain microtasks"
-                    },
-                    {
-                      "id": "b",
-                      "text": "Drain the microtask queue completely"
-                    },
-                    {
-                      "id": "c",
-                      "text": "Block until the next network packet arrives"
-                    },
-                    {
-                      "id": "d",
-                      "text": "Clear all queued timers"
-                    }
-                  ],
-                  "correctOptionId": "b",
-                  "explanation": "After sync work, the engine drains microtasks completely before taking the next task from the task queue."
-                },
-                {
-                  "id": "q3",
-                  "prompt": "How should you classify `Promise.resolve().then(() => console.log(\"B\"))`?",
-                  "options": [
-                    {
-                      "id": "a",
-                      "text": "Sync"
-                    },
-                    {
-                      "id": "b",
-                      "text": "Microtask"
-                    },
-                    {
-                      "id": "c",
-                      "text": "Task (macrotask)"
-                    },
-                    {
-                      "id": "d",
-                      "text": "Parallel thread work"
-                    }
-                  ],
-                  "correctOptionId": "b",
-                  "explanation": "Promise reactions (`.then` callbacks) are microtasks, not timer tasks."
-                },
-                {
-                  "id": "q4",
-                  "prompt": "Expected order for:\n\n```js\nconsole.log(\"A\");\nPromise.resolve().then(() => console.log(\"B\"));\nsetTimeout(() => console.log(\"C\"), 0);\nconsole.log(\"D\");\n```",
-                  "options": [
-                    {
-                      "id": "a",
-                      "text": "`A`, `B`, `D`, `C`"
-                    },
-                    {
-                      "id": "b",
-                      "text": "`A`, `D`, `B`, `C`"
-                    },
-                    {
-                      "id": "c",
-                      "text": "`A`, `D`, `C`, `B`"
-                    },
-                    {
-                      "id": "d",
-                      "text": "`A`, `B`, `C`, `D`"
-                    }
-                  ],
-                  "correctOptionId": "b",
-                  "explanation": "`A` and `D` are sync. `B` is a microtask and runs before the `setTimeout` task `C`."
-                }
-              ],
-              "lessonId": "03.1.2-event-loop",
-              "graphIndex": "03.1.2",
-              "moduleId": "03-asynchronous-javascript"
-            },
-            {
-              "id": "quiz",
               "title": "Call Stack Check",
               "description": "Trace push/pop of stack frames for synchronous calls.",
-              "path": "course/javascript/modules/03-asynchronous-javascript/lessons/03.1.3-call-stack/quiz/quiz.json",
+              "path": "course/javascript/modules/03-asynchronous-javascript/lessons/03.1.2-call-stack/quiz/quiz.json",
               "questions": [
                 {
                   "id": "q1",
@@ -20720,7 +20613,114 @@
                   "explanation": "Scheduled callbacks wait until the current synchronous stack is clear. The event loop cannot interleave them mid-call-chain."
                 }
               ],
-              "lessonId": "03.1.3-call-stack",
+              "lessonId": "03.1.2-call-stack",
+              "graphIndex": "03.1.2",
+              "moduleId": "03-asynchronous-javascript"
+            },
+            {
+              "id": "quiz",
+              "title": "Event Loop Check",
+              "description": "Order sync, microtasks, and tasks with the event loop model.",
+              "path": "course/javascript/modules/03-asynchronous-javascript/lessons/03.1.3-event-loop/quiz/quiz.json",
+              "questions": [
+                {
+                  "id": "q1",
+                  "prompt": "What prints, and in what order?\n\n```js\nconsole.log(\"start\");\nPromise.resolve().then(() => console.log(\"micro\"));\nsetTimeout(() => console.log(\"timer\"), 0);\nconsole.log(\"end\");\n```",
+                  "options": [
+                    {
+                      "id": "a",
+                      "text": "`start`, `micro`, `end`, `timer`"
+                    },
+                    {
+                      "id": "b",
+                      "text": "`start`, `end`, `timer`, `micro`"
+                    },
+                    {
+                      "id": "c",
+                      "text": "`start`, `end`, `micro`, `timer`"
+                    },
+                    {
+                      "id": "d",
+                      "text": "`start`, `timer`, `end`, `micro`"
+                    }
+                  ],
+                  "correctOptionId": "c",
+                  "explanation": "Sync first (`start`, `end`), then drain microtasks (`micro`), then run the timer task (`timer`)."
+                },
+                {
+                  "id": "q2",
+                  "prompt": "In the event-loop mental model, what happens immediately after synchronous code empties the call stack?",
+                  "options": [
+                    {
+                      "id": "a",
+                      "text": "Run one timer task, then drain microtasks"
+                    },
+                    {
+                      "id": "b",
+                      "text": "Drain the microtask queue completely"
+                    },
+                    {
+                      "id": "c",
+                      "text": "Block until the next network packet arrives"
+                    },
+                    {
+                      "id": "d",
+                      "text": "Clear all queued timers"
+                    }
+                  ],
+                  "correctOptionId": "b",
+                  "explanation": "After sync work, the engine drains microtasks completely before taking the next task from the task queue."
+                },
+                {
+                  "id": "q3",
+                  "prompt": "How should you classify `Promise.resolve().then(() => console.log(\"B\"))`?",
+                  "options": [
+                    {
+                      "id": "a",
+                      "text": "Sync"
+                    },
+                    {
+                      "id": "b",
+                      "text": "Microtask"
+                    },
+                    {
+                      "id": "c",
+                      "text": "Task (macrotask)"
+                    },
+                    {
+                      "id": "d",
+                      "text": "Parallel thread work"
+                    }
+                  ],
+                  "correctOptionId": "b",
+                  "explanation": "Promise reactions (`.then` callbacks) are microtasks, not timer tasks."
+                },
+                {
+                  "id": "q4",
+                  "prompt": "Expected order for:\n\n```js\nconsole.log(\"A\");\nPromise.resolve().then(() => console.log(\"B\"));\nsetTimeout(() => console.log(\"C\"), 0);\nconsole.log(\"D\");\n```",
+                  "options": [
+                    {
+                      "id": "a",
+                      "text": "`A`, `B`, `D`, `C`"
+                    },
+                    {
+                      "id": "b",
+                      "text": "`A`, `D`, `B`, `C`"
+                    },
+                    {
+                      "id": "c",
+                      "text": "`A`, `D`, `C`, `B`"
+                    },
+                    {
+                      "id": "d",
+                      "text": "`A`, `B`, `C`, `D`"
+                    }
+                  ],
+                  "correctOptionId": "b",
+                  "explanation": "`A` and `D` are sync. `B` is a microtask and runs before the `setTimeout` task `C`."
+                }
+              ],
+              "lessonId": "03.1.3-event-loop",
               "graphIndex": "03.1.3",
               "moduleId": "03-asynchronous-javascript"
             },
@@ -28284,18 +28284,18 @@
           "graphIndex": "03.1.1"
         },
         {
-          "id": "03.1.2-event-loop",
-          "title": "Event Loop",
-          "path": "course/javascript/modules/03-asynchronous-javascript/lessons/03.1.2-event-loop/README.md",
-          "markdown": "# Event Loop\n\n> Graph index: `03.1.2`\n\n<!-- cursor:teacher:add-explanation (deterministic) -->\n<!-- marker:03-asynchronous-javascript/03.1.2-event-loop:README.md -->\n\n## Context\n\nThe **event loop** coordinates synchronous code, **microtasks** (Promise reactions), and **tasks** (timers, I/O callbacks). One useful mental model:\n\n1. Run all synchronous code on the call stack.\n2. Drain the microtask queue completely.\n3. Run one task from the task queue.\n4. Repeat.\n\n## Predict first\n\nWhat prints, and in what order?\n\n```js\nconsole.log(\"start\");\n\nPromise.resolve().then(() => console.log(\"micro\"));\nsetTimeout(() => console.log(\"timer\"), 0);\n\nconsole.log(\"end\");\n```\n\n## Explanation\n\nPromise `.then` callbacks are **microtasks**. `setTimeout` schedules a **task**. After sync code finishes (`start`, `end`), microtasks run before the next task.\n\n```js\nconsole.log(\"A\");\nPromise.resolve().then(() => console.log(\"B\"));\nsetTimeout(() => console.log(\"C\"), 0);\nconsole.log(\"D\");\n```\n\nExpected order: `A`, `D`, `B`, `C`.\n\n## What to observe\n\n- Microtasks (Promise reactions) run before timers with `0` delay.\n- Label each log as **sync**, **microtask**, or **task** when predicting order.\n- `async/await` resumes via microtasks — covered in later lessons.\n\n## Quick challenge\n\nFor the first example, list each `console.log` and classify it as sync, microtask, or task. Write the final order without running the code.\n",
+          "id": "03.1.2-call-stack",
+          "title": "Call Stack",
+          "path": "course/javascript/modules/03-asynchronous-javascript/lessons/03.1.2-call-stack/README.md",
+          "markdown": "# Call Stack\n\n> Graph index: `03.1.2`\n<!-- cursor:teacher:add-explanation (deterministic) -->\n<!-- marker:javascript/03-asynchronous-javascript/03.1.2-call-stack:README.md -->\n\n## Context\n\nThe **call stack** is where JavaScript runs synchronous function calls. Each time a function is invoked, a new **stack frame** is pushed; when the function returns, that frame is popped. Only the frame on top can execute — this is why one thread handles one synchronous call chain at a time.\n\n## Predict first\n\nWhat prints, and in what order?\n\n```js\nfunction second() {\n  console.log(\"second\");\n}\n\nfunction first() {\n  console.log(\"first\");\n  second();\n  console.log(\"after second\");\n}\n\nconsole.log(\"start\");\nfirst();\nconsole.log(\"end\");\n```\n\n## Explanation\n\nCalling `first()` pushes a frame for `first`. Inside it, `second()` pushes another frame on top. `second` finishes and pops before `after second` runs. Then `first` returns, and finally `end` prints.\n\n```js\nfunction a() {\n  console.log(\"a\");\n  b();\n  console.log(\"a done\");\n}\n\nfunction b() {\n  console.log(\"b\");\n}\n\na();\n```\n\nStack at the moment `\"b\"` prints: `a` (waiting below) → `b` (running on top).\n\nInfinite recursion fills the stack until the engine throws:\n\n```js\nfunction recurse() {\n  recurse();\n}\n\nrecurse(); // RangeError: Maximum call stack size exceeded\n```\n\nScheduled callbacks (`setTimeout`, Promise reactions) do **not** jump onto the stack immediately. The current synchronous work must finish (frames pop) before the event loop can run queued callbacks — linking the call stack to async behavior from earlier lessons.\n\n## What to observe\n\n- Calls **push** frames; returns **pop** them (last in, first out).\n- Inner functions must complete before the line after the call in the outer function runs.\n- Long-running or infinitely recursive synchronous code keeps the stack busy — nothing else on that thread runs until it finishes or overflows.\n\n## Quick challenge\n\nFor the first example, list the call stack top-to-bottom at the exact moment `\"second\"` prints. Which frames are still waiting underneath?\n",
           "moduleId": "03-asynchronous-javascript",
           "graphIndex": "03.1.2"
         },
         {
-          "id": "03.1.3-call-stack",
-          "title": "Call Stack",
-          "path": "course/javascript/modules/03-asynchronous-javascript/lessons/03.1.3-call-stack/README.md",
-          "markdown": "# Call Stack\n\n> Graph index: `03.1.3`\n<!-- cursor:teacher:add-explanation (deterministic) -->\n<!-- marker:javascript/03-asynchronous-javascript/03.1.3-call-stack:README.md -->\n\n## Context\n\nThe **call stack** is where JavaScript runs synchronous function calls. Each time a function is invoked, a new **stack frame** is pushed; when the function returns, that frame is popped. Only the frame on top can execute — this is why one thread handles one synchronous call chain at a time.\n\n## Predict first\n\nWhat prints, and in what order?\n\n```js\nfunction second() {\n  console.log(\"second\");\n}\n\nfunction first() {\n  console.log(\"first\");\n  second();\n  console.log(\"after second\");\n}\n\nconsole.log(\"start\");\nfirst();\nconsole.log(\"end\");\n```\n\n## Explanation\n\nCalling `first()` pushes a frame for `first`. Inside it, `second()` pushes another frame on top. `second` finishes and pops before `after second` runs. Then `first` returns, and finally `end` prints.\n\n```js\nfunction a() {\n  console.log(\"a\");\n  b();\n  console.log(\"a done\");\n}\n\nfunction b() {\n  console.log(\"b\");\n}\n\na();\n```\n\nStack at the moment `\"b\"` prints: `a` (waiting below) → `b` (running on top).\n\nInfinite recursion fills the stack until the engine throws:\n\n```js\nfunction recurse() {\n  recurse();\n}\n\nrecurse(); // RangeError: Maximum call stack size exceeded\n```\n\nScheduled callbacks (`setTimeout`, Promise reactions) do **not** jump onto the stack immediately. The current synchronous work must finish (frames pop) before the event loop can run queued callbacks — linking the call stack to async behavior from earlier lessons.\n\n## What to observe\n\n- Calls **push** frames; returns **pop** them (last in, first out).\n- Inner functions must complete before the line after the call in the outer function runs.\n- Long-running or infinitely recursive synchronous code keeps the stack busy — nothing else on that thread runs until it finishes or overflows.\n\n## Quick challenge\n\nFor the first example, list the call stack top-to-bottom at the exact moment `\"second\"` prints. Which frames are still waiting underneath?\n",
+          "id": "03.1.3-event-loop",
+          "title": "Event Loop",
+          "path": "course/javascript/modules/03-asynchronous-javascript/lessons/03.1.3-event-loop/README.md",
+          "markdown": "# Event Loop\n\n> Graph index: `03.1.3`\n\n<!-- cursor:teacher:add-explanation (deterministic) -->\n<!-- marker:03-asynchronous-javascript/03.1.3-event-loop:README.md -->\n\n## Context\n\nThe **event loop** coordinates synchronous code, **microtasks** (Promise reactions), and **tasks** (timers, I/O callbacks). One useful mental model:\n\n1. Run all synchronous code on the call stack.\n2. Drain the microtask queue completely.\n3. Run one task from the task queue.\n4. Repeat.\n\n## Predict first\n\nWhat prints, and in what order?\n\n```js\nconsole.log(\"start\");\n\nPromise.resolve().then(() => console.log(\"micro\"));\nsetTimeout(() => console.log(\"timer\"), 0);\n\nconsole.log(\"end\");\n```\n\n## Explanation\n\nPromise `.then` callbacks are **microtasks**. `setTimeout` schedules a **task**. After sync code finishes (`start`, `end`), microtasks run before the next task.\n\n```js\nconsole.log(\"A\");\nPromise.resolve().then(() => console.log(\"B\"));\nsetTimeout(() => console.log(\"C\"), 0);\nconsole.log(\"D\");\n```\n\nExpected order: `A`, `D`, `B`, `C`.\n\n## What to observe\n\n- Microtasks (Promise reactions) run before timers with `0` delay.\n- Label each log as **sync**, **microtask**, or **task** when predicting order.\n- `async/await` resumes via microtasks — covered in later lessons.\n\n## Quick challenge\n\nFor the first example, list each `console.log` and classify it as sync, microtask, or task. Write the final order without running the code.\n",
           "moduleId": "03-asynchronous-javascript",
           "graphIndex": "03.1.3"
         },
@@ -28325,9 +28325,9 @@
         },
         {
           "id": "03.2.3-try-catch-error-handling",
-          "title": "Try/Catch Error Handling",
+          "title": "Async Errors and try/catch",
           "path": "course/javascript/modules/03-asynchronous-javascript/lessons/03.2.3-try-catch-error-handling/README.md",
-          "markdown": "# Try/Catch Error Handling\n\n> Graph index: `03.2.3`\n\n<!-- cursor:teacher:add-explanation (deterministic) -->\n<!-- marker:03-asynchronous-javascript/03.2.3-try-catch-error-handling:README.md -->\n\n## Context\n\nAsync errors propagate as **Promise rejections**. `try/catch` around `await` catches rejections in `async` functions. For APIs that return Promises, you can normalize outcomes into a result object instead of throwing.\n\n## Predict first\n\nWhat prints?\n\n```js\nasync function run() {\n  try {\n    await Promise.reject(new Error(\"boom\"));\n  } catch (e) {\n    console.log(\"caught\", e.message);\n  }\n}\n\nrun();\n```\n\n## Explanation\n\nRejecting inside an async function rejects its returned Promise:\n\n```js\nasync function fail() {\n  throw new Error(\"oops\");\n}\n\nfail().catch((e) => console.log(e.message));\n```\n\nThe `toResult` pattern wraps a Promise into a success/error object:\n\n```js\nasync function toResult(promise) {\n  try {\n    const value = await promise;\n    return { ok: true, value };\n  } catch (error) {\n    return { ok: false, error };\n  }\n}\n```\n\n## What to observe\n\n- Throwing or rejecting inside `async` rejects the returned Promise.\n- `try/catch` around `await` catches rejections without crashing the caller.\n- `toResult` lets callers branch on `{ ok, value }` vs `{ ok: false, error }` without `try/catch`.\n\n## Quick challenge\n\nImplement `toResult(promise)` that returns `{ ok: true, value }` on fulfillment or `{ ok: false, error }` on rejection.\n",
+          "markdown": "# Async Errors and try/catch\n\n> Graph index: `03.2.3`\n\n<!-- cursor:teacher:add-explanation (deterministic) -->\n<!-- marker:03-asynchronous-javascript/03.2.3-try-catch-error-handling:README.md -->\n\n## Context\n\nAsync errors propagate as **Promise rejections**. Sync `throw` / `try/catch` (taught in fundamentals) still matter; here the focus is catching rejections with `await` and normalizing Promise outcomes.\n\n## Predict first\n\nWhat prints?\n\n```js\nasync function run() {\n  try {\n    await Promise.reject(new Error(\"boom\"));\n  } catch (e) {\n    console.log(\"caught\", e.message);\n  }\n}\n\nrun();\n```\n\n## Explanation\n\nRejecting inside an async function rejects its returned Promise:\n\n```js\nasync function fail() {\n  throw new Error(\"oops\");\n}\n\nfail().catch((e) => console.log(e.message));\n```\n\nThe `toResult` pattern wraps a Promise into a success/error object:\n\n```js\nasync function toResult(promise) {\n  try {\n    const value = await promise;\n    return { ok: true, value };\n  } catch (error) {\n    return { ok: false, error };\n  }\n}\n```\n\n## What to observe\n\n- Throwing or rejecting inside `async` rejects the returned Promise.\n- `try/catch` around `await` catches rejections without crashing the caller.\n- `toResult` lets callers branch on `{ ok, value }` vs `{ ok: false, error }` without `try/catch`.\n\n## Quick challenge\n\nImplement `toResult(promise)` that returns `{ ok: true, value }` on fulfillment or `{ ok: false, error }` on rejection.\n",
           "moduleId": "03-asynchronous-javascript",
           "graphIndex": "03.2.3"
         },
@@ -29990,60 +29990,10 @@
           "graphIndex": "03.1.1"
         },
         {
-          "id": "001-output-order-predictor",
-          "title": "001. Output Order Predictor",
-          "rootPath": "course/javascript/modules/03-asynchronous-javascript/lessons/03.1.2-event-loop/projects/001-output-order-predictor",
-          "readmePath": "course/javascript/modules/03-asynchronous-javascript/lessons/03.1.2-event-loop/projects/001-output-order-predictor/README.md",
-          "readmeMarkdown": "# Output Order Predictor\n\n## Problem context\nTeams keep getting mystery output orders when mixing sync code, timers, and promises. You need a harness that **runs** small demos and reports the observed order.\n\n## Goal\nImplement four demo runners that schedule real sync / microtask / task work through a harness, then print each snippet's observed order and per-label classification.\n\n## Lesson concepts practiced\n- [ ] Run sync code before microtasks and tasks\n- [ ] Promise `.then` callbacks are microtasks\n- [ ] `setTimeout(..., 0)` schedules a task that runs after microtasks drain\n\n## Functional requirements\n- [ ] Use the provided `createHarness()` (do not replace order with hardcoded answer strings)\n- [ ] Implement four runners that use only `log`, `scheduleMicro`, and `scheduleTask` from the harness:\n  - [ ] `basic`: sync `A`, micro `micro`, task `timer`, sync `B` → order `A B micro timer`\n  - [ ] `asyncAwait`: sync `A`, micro `B` (scheduled at await-equivalent), sync `C` → order `A C B`\n  - [ ] `chainedMicrotasks`: micro `m1` then micro `m2` from inside `m1`, task `t1` → order `m1 m2 t1`\n  - [ ] `trick`: sync `start`/`end`, micro `micro`, task `timer` → order `start end micro timer`\n- [ ] After all runners finish, print for each snippet:\n  - [ ] `=== <name> ===`\n  - [ ] `order: <labels>`\n  - [ ] one indented line per label: `  <label>:<sync|microtask|task>`\n  - [ ] `explanation: <one short sentence using call stack / microtask / task>`\n\n## Non-functional requirements\n- [ ] Do not use `eval`\n- [ ] Classifications must come from the harness phase when `log` was called\n\n## Constraints\n- [ ] Node.js only\n- [ ] No external libraries\n\n## Acceptance criteria\n- [ ] `basic` order is `A B micro timer` with correct classifications\n- [ ] `chained-microtasks` order is `m1 m2 t1`\n- [ ] `trick` order is `start end micro timer`\n- [ ] All four snippets print when `main()` runs\n- [ ] Order lines are derived from observed harness logs\n\n## Example data\n\nSnippet `basic` output (excerpt):\n\n```\n=== basic ===\norder: A B micro timer\n  A:sync\n  B:sync\n  micro:microtask\n  timer:task\nexplanation: Sync runs first; the Promise microtask drains before the timer task.\n```\n\n## Suggested plan (no solution)\n1. Read how `createHarness` tags sync vs microtask vs task.\n2. Implement each runner with `log` / `scheduleMicro` / `scheduleTask`.\n3. Format with `formatSnippet` and print all four.\n\n## Deliverables\n- [ ] Code in `starter/` (`index.js` scaffold + `tests.json` validation cases + `sample.input` example stdin)\n- [ ] (Optional) reference in `solution/`\n\n## Extensions (optional)\n- [ ] Add a fifth runner with nested timers after microtasks.\n",
-          "entries": [
-            {
-              "path": "",
-              "kind": "dir",
-              "readmeMarkdown": "# Output Order Predictor\n\n## Problem context\nTeams keep getting mystery output orders when mixing sync code, timers, and promises. You need a harness that **runs** small demos and reports the observed order.\n\n## Goal\nImplement four demo runners that schedule real sync / microtask / task work through a harness, then print each snippet's observed order and per-label classification.\n\n## Lesson concepts practiced\n- [ ] Run sync code before microtasks and tasks\n- [ ] Promise `.then` callbacks are microtasks\n- [ ] `setTimeout(..., 0)` schedules a task that runs after microtasks drain\n\n## Functional requirements\n- [ ] Use the provided `createHarness()` (do not replace order with hardcoded answer strings)\n- [ ] Implement four runners that use only `log`, `scheduleMicro`, and `scheduleTask` from the harness:\n  - [ ] `basic`: sync `A`, micro `micro`, task `timer`, sync `B` → order `A B micro timer`\n  - [ ] `asyncAwait`: sync `A`, micro `B` (scheduled at await-equivalent), sync `C` → order `A C B`\n  - [ ] `chainedMicrotasks`: micro `m1` then micro `m2` from inside `m1`, task `t1` → order `m1 m2 t1`\n  - [ ] `trick`: sync `start`/`end`, micro `micro`, task `timer` → order `start end micro timer`\n- [ ] After all runners finish, print for each snippet:\n  - [ ] `=== <name> ===`\n  - [ ] `order: <labels>`\n  - [ ] one indented line per label: `  <label>:<sync|microtask|task>`\n  - [ ] `explanation: <one short sentence using call stack / microtask / task>`\n\n## Non-functional requirements\n- [ ] Do not use `eval`\n- [ ] Classifications must come from the harness phase when `log` was called\n\n## Constraints\n- [ ] Node.js only\n- [ ] No external libraries\n\n## Acceptance criteria\n- [ ] `basic` order is `A B micro timer` with correct classifications\n- [ ] `chained-microtasks` order is `m1 m2 t1`\n- [ ] `trick` order is `start end micro timer`\n- [ ] All four snippets print when `main()` runs\n- [ ] Order lines are derived from observed harness logs\n\n## Example data\n\nSnippet `basic` output (excerpt):\n\n```\n=== basic ===\norder: A B micro timer\n  A:sync\n  B:sync\n  micro:microtask\n  timer:task\nexplanation: Sync runs first; the Promise microtask drains before the timer task.\n```\n\n## Suggested plan (no solution)\n1. Read how `createHarness` tags sync vs microtask vs task.\n2. Implement each runner with `log` / `scheduleMicro` / `scheduleTask`.\n3. Format with `formatSnippet` and print all four.\n\n## Deliverables\n- [ ] Code in `starter/` (`index.js` scaffold + `tests.json` validation cases + `sample.input` example stdin)\n- [ ] (Optional) reference in `solution/`\n\n## Extensions (optional)\n- [ ] Add a fifth runner with nested timers after microtasks.\n"
-            },
-            {
-              "path": "solution",
-              "kind": "dir"
-            },
-            {
-              "path": "starter",
-              "kind": "dir"
-            },
-            {
-              "path": "README.md",
-              "kind": "file",
-              "content": "# Output Order Predictor\n\n## Problem context\nTeams keep getting mystery output orders when mixing sync code, timers, and promises. You need a harness that **runs** small demos and reports the observed order.\n\n## Goal\nImplement four demo runners that schedule real sync / microtask / task work through a harness, then print each snippet's observed order and per-label classification.\n\n## Lesson concepts practiced\n- [ ] Run sync code before microtasks and tasks\n- [ ] Promise `.then` callbacks are microtasks\n- [ ] `setTimeout(..., 0)` schedules a task that runs after microtasks drain\n\n## Functional requirements\n- [ ] Use the provided `createHarness()` (do not replace order with hardcoded answer strings)\n- [ ] Implement four runners that use only `log`, `scheduleMicro`, and `scheduleTask` from the harness:\n  - [ ] `basic`: sync `A`, micro `micro`, task `timer`, sync `B` → order `A B micro timer`\n  - [ ] `asyncAwait`: sync `A`, micro `B` (scheduled at await-equivalent), sync `C` → order `A C B`\n  - [ ] `chainedMicrotasks`: micro `m1` then micro `m2` from inside `m1`, task `t1` → order `m1 m2 t1`\n  - [ ] `trick`: sync `start`/`end`, micro `micro`, task `timer` → order `start end micro timer`\n- [ ] After all runners finish, print for each snippet:\n  - [ ] `=== <name> ===`\n  - [ ] `order: <labels>`\n  - [ ] one indented line per label: `  <label>:<sync|microtask|task>`\n  - [ ] `explanation: <one short sentence using call stack / microtask / task>`\n\n## Non-functional requirements\n- [ ] Do not use `eval`\n- [ ] Classifications must come from the harness phase when `log` was called\n\n## Constraints\n- [ ] Node.js only\n- [ ] No external libraries\n\n## Acceptance criteria\n- [ ] `basic` order is `A B micro timer` with correct classifications\n- [ ] `chained-microtasks` order is `m1 m2 t1`\n- [ ] `trick` order is `start end micro timer`\n- [ ] All four snippets print when `main()` runs\n- [ ] Order lines are derived from observed harness logs\n\n## Example data\n\nSnippet `basic` output (excerpt):\n\n```\n=== basic ===\norder: A B micro timer\n  A:sync\n  B:sync\n  micro:microtask\n  timer:task\nexplanation: Sync runs first; the Promise microtask drains before the timer task.\n```\n\n## Suggested plan (no solution)\n1. Read how `createHarness` tags sync vs microtask vs task.\n2. Implement each runner with `log` / `scheduleMicro` / `scheduleTask`.\n3. Format with `formatSnippet` and print all four.\n\n## Deliverables\n- [ ] Code in `starter/` (`index.js` scaffold + `tests.json` validation cases + `sample.input` example stdin)\n- [ ] (Optional) reference in `solution/`\n\n## Extensions (optional)\n- [ ] Add a fifth runner with nested timers after microtasks.\n"
-            },
-            {
-              "path": "solution/index.js",
-              "kind": "file",
-              "content": "/**\n * Output Order Predictor — reference solution\n */\n\nfunction createHarness() {\n  let phase = \"sync\";\n  const order = [];\n  const classifications = [];\n\n  function log(label) {\n    order.push(label);\n    classifications.push(`${label}:${phase}`);\n  }\n\n  function scheduleMicro(fn) {\n    Promise.resolve().then(() => {\n      phase = \"microtask\";\n      fn();\n    });\n  }\n\n  function scheduleTask(fn) {\n    setTimeout(() => {\n      phase = \"task\";\n      fn();\n    }, 0);\n  }\n\n  function run(setup) {\n    return new Promise((resolve) => {\n      phase = \"sync\";\n      order.length = 0;\n      classifications.length = 0;\n\n      let finished = false;\n      const done = () => {\n        if (finished) return;\n        finished = true;\n        resolve({\n          order: order.slice(),\n          classifications: classifications.slice(),\n        });\n      };\n\n      setup({ log, scheduleMicro, scheduleTask, done });\n    });\n  }\n\n  return { run };\n}\n\nfunction formatSnippet(name, observed, explanation) {\n  return [\n    `=== ${name} ===`,\n    `order: ${observed.order.join(\" \")}`,\n    ...observed.classifications.map((c) => `  ${c}`),\n    `explanation: ${explanation}`,\n  ].join(\"\\n\");\n}\n\nfunction runBasic({ log, scheduleMicro, scheduleTask, done }) {\n  log(\"A\");\n  scheduleMicro(() => log(\"micro\"));\n  scheduleTask(() => {\n    log(\"timer\");\n    done();\n  });\n  log(\"B\");\n}\n\nfunction runAsyncAwait({ log, scheduleMicro, scheduleTask, done }) {\n  log(\"A\");\n  scheduleMicro(() => log(\"B\"));\n  log(\"C\");\n  scheduleTask(() => done());\n}\n\nfunction runChainedMicrotasks({ log, scheduleMicro, scheduleTask, done }) {\n  scheduleMicro(() => {\n    log(\"m1\");\n    scheduleMicro(() => log(\"m2\"));\n  });\n  scheduleTask(() => {\n    log(\"t1\");\n    done();\n  });\n}\n\nfunction runTrick({ log, scheduleMicro, scheduleTask, done }) {\n  log(\"start\");\n  scheduleMicro(() => log(\"micro\"));\n  scheduleTask(() => {\n    log(\"timer\");\n    done();\n  });\n  log(\"end\");\n}\n\nasync function main() {\n  const demos = [\n    {\n      name: \"basic\",\n      runner: runBasic,\n      explanation:\n        \"Sync logs run on the call stack first. Promise reactions are microtasks and drain before the setTimeout task runs.\",\n    },\n    {\n      name: \"async-await\",\n      runner: runAsyncAwait,\n      explanation:\n        \"main() runs until await, which schedules the rest as a microtask. C prints before B resumes.\",\n    },\n    {\n      name: \"chained-microtasks\",\n      runner: runChainedMicrotasks,\n      explanation:\n        \"Microtasks m1 and m2 drain completely before task t1 from setTimeout.\",\n    },\n    {\n      name: \"trick\",\n      runner: runTrick,\n      explanation:\n        \"Microtasks always run before the next task, so micro prints before timer even with setTimeout(0).\",\n    },\n  ];\n\n  for (const demo of demos) {\n    const harness = createHarness();\n    const observed = await harness.run(demo.runner);\n    process.stdout.write(formatSnippet(demo.name, observed, demo.explanation) + \"\\n\\n\");\n  }\n}\n\nmain();\n"
-            },
-            {
-              "path": "starter/index.js",
-              "kind": "file",
-              "content": "/**\n * Output Order Predictor\n *\n * Entrypoint: node starter/index.js\n * Implement the behavior described in ../README.md\n */\n\n/**\n * Harness: log() records labels tagged by the current phase.\n * scheduleMicro / scheduleTask flip the phase when their callbacks run.\n */\nfunction createHarness() {\n  let phase = \"sync\";\n  const order = [];\n  const classifications = [];\n\n  function log(label) {\n    order.push(label);\n    classifications.push(`${label}:${phase}`);\n  }\n\n  function scheduleMicro(fn) {\n    Promise.resolve().then(() => {\n      phase = \"microtask\";\n      fn();\n    });\n  }\n\n  function scheduleTask(fn) {\n    setTimeout(() => {\n      phase = \"task\";\n      fn();\n    }, 0);\n  }\n\n  function run(setup) {\n    return new Promise((resolve) => {\n      phase = \"sync\";\n      order.length = 0;\n      classifications.length = 0;\n\n      let finished = false;\n      const done = () => {\n        if (finished) return;\n        finished = true;\n        resolve({\n          order: order.slice(),\n          classifications: classifications.slice(),\n        });\n      };\n\n      setup({ log, scheduleMicro, scheduleTask, done });\n    });\n  }\n\n  return { run };\n}\n\nfunction formatSnippet(name, observed, explanation) {\n  return [\n    `=== ${name} ===`,\n    `order: ${observed.order.join(\" \")}`,\n    ...observed.classifications.map((c) => `  ${c}`),\n    `explanation: ${explanation}`,\n  ].join(\"\\n\");\n}\n\n/** @param {{ log: Function, scheduleMicro: Function, scheduleTask: Function, done: Function }} h */\nfunction runBasic(h) {\n  // TODO: A (sync), micro (microtask), timer (task + done()), B (sync)\n  throw new Error(\"Not implemented\");\n}\n\n/** @param {{ log: Function, scheduleMicro: Function, scheduleTask: Function, done: Function }} h */\nfunction runAsyncAwait(h) {\n  // TODO: A (sync), scheduleMicro for B, C (sync), and finish after B\n  // Hint: scheduleTask(done) is wrong here — finish from the microtask after logging B,\n  // or schedule a zero timer only to call done after micros drain.\n  throw new Error(\"Not implemented\");\n}\n\n/** @param {{ log: Function, scheduleMicro: Function, scheduleTask: Function, done: Function }} h */\nfunction runChainedMicrotasks(h) {\n  // TODO: m1 schedules m2; t1 is a task that calls done()\n  throw new Error(\"Not implemented\");\n}\n\n/** @param {{ log: Function, scheduleMicro: Function, scheduleTask: Function, done: Function }} h */\nfunction runTrick(h) {\n  // TODO: start, micro, timer(+done), end\n  throw new Error(\"Not implemented\");\n}\n\nasync function main() {\n  const demos = [\n    {\n      name: \"basic\",\n      runner: runBasic,\n      explanation:\n        \"Sync logs run on the call stack first. Promise reactions are microtasks and drain before the setTimeout task runs.\",\n    },\n    {\n      name: \"async-await\",\n      runner: runAsyncAwait,\n      explanation:\n        \"main() runs until await, which schedules the rest as a microtask. C prints before B resumes.\",\n    },\n    {\n      name: \"chained-microtasks\",\n      runner: runChainedMicrotasks,\n      explanation:\n        \"Microtasks m1 and m2 drain completely before task t1 from setTimeout.\",\n    },\n    {\n      name: \"trick\",\n      runner: runTrick,\n      explanation:\n        \"Microtasks always run before the next task, so micro prints before timer even with setTimeout(0).\",\n    },\n  ];\n\n  for (const demo of demos) {\n    const harness = createHarness();\n    const observed = await harness.run(demo.runner);\n    process.stdout.write(formatSnippet(demo.name, observed, demo.explanation) + \"\\n\\n\");\n  }\n}\n\nmain();\n"
-            },
-            {
-              "path": "starter/sample.input",
-              "kind": "file",
-              "content": "(no stdin — main prints hardcoded snippet analyses)\n"
-            },
-            {
-              "path": "starter/tests.json",
-              "kind": "file",
-              "content": "{\n  \"cases\": [\n    {\n      \"id\": \"all-snippets\",\n      \"name\": \"All snippet analyses\",\n      \"stdin\": \"\",\n      \"expectedStdout\": \"=== basic ===\\norder: A B micro timer\\n  A:sync\\n  B:sync\\n  micro:microtask\\n  timer:task\\nexplanation: Sync logs run on the call stack first. Promise reactions are microtasks and drain before the setTimeout task runs.\\n\\n=== async-await ===\\norder: A C B\\n  A:sync\\n  C:sync\\n  B:microtask\\nexplanation: main() runs until await, which schedules the rest as a microtask. C prints before B resumes.\\n\\n=== chained-microtasks ===\\norder: m1 m2 t1\\n  m1:microtask\\n  m2:microtask\\n  t1:task\\nexplanation: Microtasks m1 and m2 drain completely before task t1 from setTimeout.\\n\\n=== trick ===\\norder: start end micro timer\\n  start:sync\\n  end:sync\\n  micro:microtask\\n  timer:task\\nexplanation: Microtasks always run before the next task, so micro prints before timer even with setTimeout(0).\\n\\n\",\n      \"expectedExitCode\": 0\n    }\n  ]\n}\n"
-            }
-          ],
-          "moduleId": "03-asynchronous-javascript",
-          "lessonId": "03.1.2-event-loop",
-          "graphIndex": "03.1.2"
-        },
-        {
           "id": "001-stack-trace-reporter",
           "title": "001. Stack Trace Reporter",
-          "rootPath": "course/javascript/modules/03-asynchronous-javascript/lessons/03.1.3-call-stack/projects/001-stack-trace-reporter",
-          "readmePath": "course/javascript/modules/03-asynchronous-javascript/lessons/03.1.3-call-stack/projects/001-stack-trace-reporter/README.md",
+          "rootPath": "course/javascript/modules/03-asynchronous-javascript/lessons/03.1.2-call-stack/projects/001-stack-trace-reporter",
+          "readmePath": "course/javascript/modules/03-asynchronous-javascript/lessons/03.1.2-call-stack/projects/001-stack-trace-reporter/README.md",
           "readmeMarkdown": "# Stack Trace Reporter\n\n## Problem context\nDebugging sync bugs means knowing what is on the **call stack** when a line runs. You need a tiny simulator that walks function graphs (no `eval`) and reports frames top→bottom at a labeled log moment.\n\n## Goal\nImplement `stackAtProbe(snippet)`: push/pop frames on `call`, and when a `log` label matches `snippet.probe`, capture the current stack (top → bottom). Read a snippet id from stdin and print `Stack: …` or an error.\n\n## Lesson concepts practiced\n- [ ] Calls **push** frames; returns **pop** them (last in, first out)\n- [ ] Inner functions must complete before the line after the call in the outer function runs\n- [ ] Unbounded synchronous recursion keeps growing the stack until it would overflow\n\n## Functional requirements\n- [ ] Snippets `basic`, `nested`, and `overflow-note` are provided as data graphs (scaffold)\n- [ ] Implement `stackAtProbe(snippet)`:\n  - [ ] Maintain a stack array of function names\n  - [ ] On `{ type: \"call\", target }`: if depth would exceed `MAX_DEPTH`, treat as overflow; else push `target`, run `snippet.functions[target]`, then pop\n  - [ ] On `{ type: \"log\", label }`: if `label === snippet.probe`, capture frames **top → bottom** (newest name first)\n  - [ ] Start by executing `snippet.entry`\n- [ ] CLI: read one snippet id; print:\n  - [ ] `Stack: <frames>` (space-separated) when a probe capture exists\n  - [ ] `ERROR: stack would overflow` for unbounded recursion (overflow-note)\n  - [ ] `ERROR: unknown snippet` for unknown ids\n- [ ] Do not hardcode answer strings like `\"second first\"` — derive them from the simulator\n\n## Non-functional requirements\n- [ ] Do not use real infinite recursion or `eval`\n- [ ] Cap depth with `MAX_DEPTH` (scaffold constant)\n- [ ] Clear errors for unknown ids / overflow\n\n## Constraints\n- [ ] Node.js only\n- [ ] No external libraries\n\n## Acceptance criteria\n- [ ] Input `basic` → `Stack: second first`\n- [ ] Input `nested` → `Stack: b a`\n- [ ] Input `overflow-note` → `ERROR: stack would overflow`\n- [ ] Input `unknown` → `ERROR: unknown snippet`\n- [ ] Stack lines come from push/pop simulation, not a lookup table of answers\n\n## Example data\n\nInput:\n- `basic`\n\nOutput:\n- `Stack: second first`\n\n## Suggested plan (no solution)\n1. Walk `entry` ops with a recursive `exec(ops)` helper and a `stack` array.\n2. On `call`, push/pop around running the target body; abort if `stack.length >= MAX_DEPTH`.\n3. On matching `log`, save `[...stack].reverse()` (or push to front — top first).\n4. Wire stdin id → snippet → print `Stack:` / overflow / unknown.\n\n## Deliverables\n- [ ] Code in `starter/` (`index.js` scaffold + `tests.json` validation cases + `sample.input` example stdin)\n- [ ] (Optional) reference in `solution/`\n\n## Extensions (optional)\n- [ ] Add a fourth snippet with three nested frames and report the stack at the innermost log.\n",
           "entries": [
             {
@@ -30086,7 +30036,57 @@
             }
           ],
           "moduleId": "03-asynchronous-javascript",
-          "lessonId": "03.1.3-call-stack",
+          "lessonId": "03.1.2-call-stack",
+          "graphIndex": "03.1.2"
+        },
+        {
+          "id": "001-output-order-predictor",
+          "title": "001. Output Order Predictor",
+          "rootPath": "course/javascript/modules/03-asynchronous-javascript/lessons/03.1.3-event-loop/projects/001-output-order-predictor",
+          "readmePath": "course/javascript/modules/03-asynchronous-javascript/lessons/03.1.3-event-loop/projects/001-output-order-predictor/README.md",
+          "readmeMarkdown": "# Output Order Predictor\n\n## Problem context\nTeams keep getting mystery output orders when mixing sync code, timers, and promises. You need a harness that **runs** small demos and reports the observed order.\n\n## Goal\nImplement four demo runners that schedule real sync / microtask / task work through a harness, then print each snippet's observed order and per-label classification.\n\n## Lesson concepts practiced\n- [ ] Run sync code before microtasks and tasks\n- [ ] Promise `.then` callbacks are microtasks\n- [ ] `setTimeout(..., 0)` schedules a task that runs after microtasks drain\n\n## Functional requirements\n- [ ] Use the provided `createHarness()` (do not replace order with hardcoded answer strings)\n- [ ] Implement four runners that use only `log`, `scheduleMicro`, and `scheduleTask` from the harness:\n  - [ ] `basic`: sync `A`, micro `micro`, task `timer`, sync `B` → order `A B micro timer`\n  - [ ] `asyncAwait`: sync `A`, micro `B` (scheduled at await-equivalent), sync `C` → order `A C B`\n  - [ ] `chainedMicrotasks`: micro `m1` then micro `m2` from inside `m1`, task `t1` → order `m1 m2 t1`\n  - [ ] `trick`: sync `start`/`end`, micro `micro`, task `timer` → order `start end micro timer`\n- [ ] After all runners finish, print for each snippet:\n  - [ ] `=== <name> ===`\n  - [ ] `order: <labels>`\n  - [ ] one indented line per label: `  <label>:<sync|microtask|task>`\n  - [ ] `explanation: <one short sentence using call stack / microtask / task>`\n\n## Non-functional requirements\n- [ ] Do not use `eval`\n- [ ] Classifications must come from the harness phase when `log` was called\n\n## Constraints\n- [ ] Node.js only\n- [ ] No external libraries\n\n## Acceptance criteria\n- [ ] `basic` order is `A B micro timer` with correct classifications\n- [ ] `chained-microtasks` order is `m1 m2 t1`\n- [ ] `trick` order is `start end micro timer`\n- [ ] All four snippets print when `main()` runs\n- [ ] Order lines are derived from observed harness logs\n\n## Example data\n\nSnippet `basic` output (excerpt):\n\n```\n=== basic ===\norder: A B micro timer\n  A:sync\n  B:sync\n  micro:microtask\n  timer:task\nexplanation: Sync runs first; the Promise microtask drains before the timer task.\n```\n\n## Suggested plan (no solution)\n1. Read how `createHarness` tags sync vs microtask vs task.\n2. Implement each runner with `log` / `scheduleMicro` / `scheduleTask`.\n3. Format with `formatSnippet` and print all four.\n\n## Deliverables\n- [ ] Code in `starter/` (`index.js` scaffold + `tests.json` validation cases + `sample.input` example stdin)\n- [ ] (Optional) reference in `solution/`\n\n## Extensions (optional)\n- [ ] Add a fifth runner with nested timers after microtasks.\n",
+          "entries": [
+            {
+              "path": "",
+              "kind": "dir",
+              "readmeMarkdown": "# Output Order Predictor\n\n## Problem context\nTeams keep getting mystery output orders when mixing sync code, timers, and promises. You need a harness that **runs** small demos and reports the observed order.\n\n## Goal\nImplement four demo runners that schedule real sync / microtask / task work through a harness, then print each snippet's observed order and per-label classification.\n\n## Lesson concepts practiced\n- [ ] Run sync code before microtasks and tasks\n- [ ] Promise `.then` callbacks are microtasks\n- [ ] `setTimeout(..., 0)` schedules a task that runs after microtasks drain\n\n## Functional requirements\n- [ ] Use the provided `createHarness()` (do not replace order with hardcoded answer strings)\n- [ ] Implement four runners that use only `log`, `scheduleMicro`, and `scheduleTask` from the harness:\n  - [ ] `basic`: sync `A`, micro `micro`, task `timer`, sync `B` → order `A B micro timer`\n  - [ ] `asyncAwait`: sync `A`, micro `B` (scheduled at await-equivalent), sync `C` → order `A C B`\n  - [ ] `chainedMicrotasks`: micro `m1` then micro `m2` from inside `m1`, task `t1` → order `m1 m2 t1`\n  - [ ] `trick`: sync `start`/`end`, micro `micro`, task `timer` → order `start end micro timer`\n- [ ] After all runners finish, print for each snippet:\n  - [ ] `=== <name> ===`\n  - [ ] `order: <labels>`\n  - [ ] one indented line per label: `  <label>:<sync|microtask|task>`\n  - [ ] `explanation: <one short sentence using call stack / microtask / task>`\n\n## Non-functional requirements\n- [ ] Do not use `eval`\n- [ ] Classifications must come from the harness phase when `log` was called\n\n## Constraints\n- [ ] Node.js only\n- [ ] No external libraries\n\n## Acceptance criteria\n- [ ] `basic` order is `A B micro timer` with correct classifications\n- [ ] `chained-microtasks` order is `m1 m2 t1`\n- [ ] `trick` order is `start end micro timer`\n- [ ] All four snippets print when `main()` runs\n- [ ] Order lines are derived from observed harness logs\n\n## Example data\n\nSnippet `basic` output (excerpt):\n\n```\n=== basic ===\norder: A B micro timer\n  A:sync\n  B:sync\n  micro:microtask\n  timer:task\nexplanation: Sync runs first; the Promise microtask drains before the timer task.\n```\n\n## Suggested plan (no solution)\n1. Read how `createHarness` tags sync vs microtask vs task.\n2. Implement each runner with `log` / `scheduleMicro` / `scheduleTask`.\n3. Format with `formatSnippet` and print all four.\n\n## Deliverables\n- [ ] Code in `starter/` (`index.js` scaffold + `tests.json` validation cases + `sample.input` example stdin)\n- [ ] (Optional) reference in `solution/`\n\n## Extensions (optional)\n- [ ] Add a fifth runner with nested timers after microtasks.\n"
+            },
+            {
+              "path": "solution",
+              "kind": "dir"
+            },
+            {
+              "path": "starter",
+              "kind": "dir"
+            },
+            {
+              "path": "README.md",
+              "kind": "file",
+              "content": "# Output Order Predictor\n\n## Problem context\nTeams keep getting mystery output orders when mixing sync code, timers, and promises. You need a harness that **runs** small demos and reports the observed order.\n\n## Goal\nImplement four demo runners that schedule real sync / microtask / task work through a harness, then print each snippet's observed order and per-label classification.\n\n## Lesson concepts practiced\n- [ ] Run sync code before microtasks and tasks\n- [ ] Promise `.then` callbacks are microtasks\n- [ ] `setTimeout(..., 0)` schedules a task that runs after microtasks drain\n\n## Functional requirements\n- [ ] Use the provided `createHarness()` (do not replace order with hardcoded answer strings)\n- [ ] Implement four runners that use only `log`, `scheduleMicro`, and `scheduleTask` from the harness:\n  - [ ] `basic`: sync `A`, micro `micro`, task `timer`, sync `B` → order `A B micro timer`\n  - [ ] `asyncAwait`: sync `A`, micro `B` (scheduled at await-equivalent), sync `C` → order `A C B`\n  - [ ] `chainedMicrotasks`: micro `m1` then micro `m2` from inside `m1`, task `t1` → order `m1 m2 t1`\n  - [ ] `trick`: sync `start`/`end`, micro `micro`, task `timer` → order `start end micro timer`\n- [ ] After all runners finish, print for each snippet:\n  - [ ] `=== <name> ===`\n  - [ ] `order: <labels>`\n  - [ ] one indented line per label: `  <label>:<sync|microtask|task>`\n  - [ ] `explanation: <one short sentence using call stack / microtask / task>`\n\n## Non-functional requirements\n- [ ] Do not use `eval`\n- [ ] Classifications must come from the harness phase when `log` was called\n\n## Constraints\n- [ ] Node.js only\n- [ ] No external libraries\n\n## Acceptance criteria\n- [ ] `basic` order is `A B micro timer` with correct classifications\n- [ ] `chained-microtasks` order is `m1 m2 t1`\n- [ ] `trick` order is `start end micro timer`\n- [ ] All four snippets print when `main()` runs\n- [ ] Order lines are derived from observed harness logs\n\n## Example data\n\nSnippet `basic` output (excerpt):\n\n```\n=== basic ===\norder: A B micro timer\n  A:sync\n  B:sync\n  micro:microtask\n  timer:task\nexplanation: Sync runs first; the Promise microtask drains before the timer task.\n```\n\n## Suggested plan (no solution)\n1. Read how `createHarness` tags sync vs microtask vs task.\n2. Implement each runner with `log` / `scheduleMicro` / `scheduleTask`.\n3. Format with `formatSnippet` and print all four.\n\n## Deliverables\n- [ ] Code in `starter/` (`index.js` scaffold + `tests.json` validation cases + `sample.input` example stdin)\n- [ ] (Optional) reference in `solution/`\n\n## Extensions (optional)\n- [ ] Add a fifth runner with nested timers after microtasks.\n"
+            },
+            {
+              "path": "solution/index.js",
+              "kind": "file",
+              "content": "/**\n * Output Order Predictor — reference solution\n */\n\nfunction createHarness() {\n  let phase = \"sync\";\n  const order = [];\n  const classifications = [];\n\n  function log(label) {\n    order.push(label);\n    classifications.push(`${label}:${phase}`);\n  }\n\n  function scheduleMicro(fn) {\n    Promise.resolve().then(() => {\n      phase = \"microtask\";\n      fn();\n    });\n  }\n\n  function scheduleTask(fn) {\n    setTimeout(() => {\n      phase = \"task\";\n      fn();\n    }, 0);\n  }\n\n  function run(setup) {\n    return new Promise((resolve) => {\n      phase = \"sync\";\n      order.length = 0;\n      classifications.length = 0;\n\n      let finished = false;\n      const done = () => {\n        if (finished) return;\n        finished = true;\n        resolve({\n          order: order.slice(),\n          classifications: classifications.slice(),\n        });\n      };\n\n      setup({ log, scheduleMicro, scheduleTask, done });\n    });\n  }\n\n  return { run };\n}\n\nfunction formatSnippet(name, observed, explanation) {\n  return [\n    `=== ${name} ===`,\n    `order: ${observed.order.join(\" \")}`,\n    ...observed.classifications.map((c) => `  ${c}`),\n    `explanation: ${explanation}`,\n  ].join(\"\\n\");\n}\n\nfunction runBasic({ log, scheduleMicro, scheduleTask, done }) {\n  log(\"A\");\n  scheduleMicro(() => log(\"micro\"));\n  scheduleTask(() => {\n    log(\"timer\");\n    done();\n  });\n  log(\"B\");\n}\n\nfunction runAsyncAwait({ log, scheduleMicro, scheduleTask, done }) {\n  log(\"A\");\n  scheduleMicro(() => log(\"B\"));\n  log(\"C\");\n  scheduleTask(() => done());\n}\n\nfunction runChainedMicrotasks({ log, scheduleMicro, scheduleTask, done }) {\n  scheduleMicro(() => {\n    log(\"m1\");\n    scheduleMicro(() => log(\"m2\"));\n  });\n  scheduleTask(() => {\n    log(\"t1\");\n    done();\n  });\n}\n\nfunction runTrick({ log, scheduleMicro, scheduleTask, done }) {\n  log(\"start\");\n  scheduleMicro(() => log(\"micro\"));\n  scheduleTask(() => {\n    log(\"timer\");\n    done();\n  });\n  log(\"end\");\n}\n\nasync function main() {\n  const demos = [\n    {\n      name: \"basic\",\n      runner: runBasic,\n      explanation:\n        \"Sync logs run on the call stack first. Promise reactions are microtasks and drain before the setTimeout task runs.\",\n    },\n    {\n      name: \"async-await\",\n      runner: runAsyncAwait,\n      explanation:\n        \"main() runs until await, which schedules the rest as a microtask. C prints before B resumes.\",\n    },\n    {\n      name: \"chained-microtasks\",\n      runner: runChainedMicrotasks,\n      explanation:\n        \"Microtasks m1 and m2 drain completely before task t1 from setTimeout.\",\n    },\n    {\n      name: \"trick\",\n      runner: runTrick,\n      explanation:\n        \"Microtasks always run before the next task, so micro prints before timer even with setTimeout(0).\",\n    },\n  ];\n\n  for (const demo of demos) {\n    const harness = createHarness();\n    const observed = await harness.run(demo.runner);\n    process.stdout.write(formatSnippet(demo.name, observed, demo.explanation) + \"\\n\\n\");\n  }\n}\n\nmain();\n"
+            },
+            {
+              "path": "starter/index.js",
+              "kind": "file",
+              "content": "/**\n * Output Order Predictor\n *\n * Entrypoint: node starter/index.js\n * Implement the behavior described in ../README.md\n */\n\n/**\n * Harness: log() records labels tagged by the current phase.\n * scheduleMicro / scheduleTask flip the phase when their callbacks run.\n */\nfunction createHarness() {\n  let phase = \"sync\";\n  const order = [];\n  const classifications = [];\n\n  function log(label) {\n    order.push(label);\n    classifications.push(`${label}:${phase}`);\n  }\n\n  function scheduleMicro(fn) {\n    Promise.resolve().then(() => {\n      phase = \"microtask\";\n      fn();\n    });\n  }\n\n  function scheduleTask(fn) {\n    setTimeout(() => {\n      phase = \"task\";\n      fn();\n    }, 0);\n  }\n\n  function run(setup) {\n    return new Promise((resolve) => {\n      phase = \"sync\";\n      order.length = 0;\n      classifications.length = 0;\n\n      let finished = false;\n      const done = () => {\n        if (finished) return;\n        finished = true;\n        resolve({\n          order: order.slice(),\n          classifications: classifications.slice(),\n        });\n      };\n\n      setup({ log, scheduleMicro, scheduleTask, done });\n    });\n  }\n\n  return { run };\n}\n\nfunction formatSnippet(name, observed, explanation) {\n  return [\n    `=== ${name} ===`,\n    `order: ${observed.order.join(\" \")}`,\n    ...observed.classifications.map((c) => `  ${c}`),\n    `explanation: ${explanation}`,\n  ].join(\"\\n\");\n}\n\n/** @param {{ log: Function, scheduleMicro: Function, scheduleTask: Function, done: Function }} h */\nfunction runBasic(h) {\n  // TODO: A (sync), micro (microtask), timer (task + done()), B (sync)\n  throw new Error(\"Not implemented\");\n}\n\n/** @param {{ log: Function, scheduleMicro: Function, scheduleTask: Function, done: Function }} h */\nfunction runAsyncAwait(h) {\n  // TODO: A (sync), scheduleMicro for B, C (sync), and finish after B\n  // Hint: scheduleTask(done) is wrong here — finish from the microtask after logging B,\n  // or schedule a zero timer only to call done after micros drain.\n  throw new Error(\"Not implemented\");\n}\n\n/** @param {{ log: Function, scheduleMicro: Function, scheduleTask: Function, done: Function }} h */\nfunction runChainedMicrotasks(h) {\n  // TODO: m1 schedules m2; t1 is a task that calls done()\n  throw new Error(\"Not implemented\");\n}\n\n/** @param {{ log: Function, scheduleMicro: Function, scheduleTask: Function, done: Function }} h */\nfunction runTrick(h) {\n  // TODO: start, micro, timer(+done), end\n  throw new Error(\"Not implemented\");\n}\n\nasync function main() {\n  const demos = [\n    {\n      name: \"basic\",\n      runner: runBasic,\n      explanation:\n        \"Sync logs run on the call stack first. Promise reactions are microtasks and drain before the setTimeout task runs.\",\n    },\n    {\n      name: \"async-await\",\n      runner: runAsyncAwait,\n      explanation:\n        \"main() runs until await, which schedules the rest as a microtask. C prints before B resumes.\",\n    },\n    {\n      name: \"chained-microtasks\",\n      runner: runChainedMicrotasks,\n      explanation:\n        \"Microtasks m1 and m2 drain completely before task t1 from setTimeout.\",\n    },\n    {\n      name: \"trick\",\n      runner: runTrick,\n      explanation:\n        \"Microtasks always run before the next task, so micro prints before timer even with setTimeout(0).\",\n    },\n  ];\n\n  for (const demo of demos) {\n    const harness = createHarness();\n    const observed = await harness.run(demo.runner);\n    process.stdout.write(formatSnippet(demo.name, observed, demo.explanation) + \"\\n\\n\");\n  }\n}\n\nmain();\n"
+            },
+            {
+              "path": "starter/sample.input",
+              "kind": "file",
+              "content": "(no stdin — main prints hardcoded snippet analyses)\n"
+            },
+            {
+              "path": "starter/tests.json",
+              "kind": "file",
+              "content": "{\n  \"cases\": [\n    {\n      \"id\": \"all-snippets\",\n      \"name\": \"All snippet analyses\",\n      \"stdin\": \"\",\n      \"expectedStdout\": \"=== basic ===\\norder: A B micro timer\\n  A:sync\\n  B:sync\\n  micro:microtask\\n  timer:task\\nexplanation: Sync logs run on the call stack first. Promise reactions are microtasks and drain before the setTimeout task runs.\\n\\n=== async-await ===\\norder: A C B\\n  A:sync\\n  C:sync\\n  B:microtask\\nexplanation: main() runs until await, which schedules the rest as a microtask. C prints before B resumes.\\n\\n=== chained-microtasks ===\\norder: m1 m2 t1\\n  m1:microtask\\n  m2:microtask\\n  t1:task\\nexplanation: Microtasks m1 and m2 drain completely before task t1 from setTimeout.\\n\\n=== trick ===\\norder: start end micro timer\\n  start:sync\\n  end:sync\\n  micro:microtask\\n  timer:task\\nexplanation: Microtasks always run before the next task, so micro prints before timer even with setTimeout(0).\\n\\n\",\n      \"expectedExitCode\": 0\n    }\n  ]\n}\n"
+            }
+          ],
+          "moduleId": "03-asynchronous-javascript",
+          "lessonId": "03.1.3-event-loop",
           "graphIndex": "03.1.3"
         },
         {
@@ -35816,116 +35816,9 @@
         },
         {
           "id": "quiz",
-          "title": "Event Loop Check",
-          "description": "Order sync, microtasks, and tasks with the event loop model.",
-          "path": "course/javascript/modules/03-asynchronous-javascript/lessons/03.1.2-event-loop/quiz/quiz.json",
-          "questions": [
-            {
-              "id": "q1",
-              "prompt": "What prints, and in what order?\n\n```js\nconsole.log(\"start\");\nPromise.resolve().then(() => console.log(\"micro\"));\nsetTimeout(() => console.log(\"timer\"), 0);\nconsole.log(\"end\");\n```",
-              "options": [
-                {
-                  "id": "a",
-                  "text": "`start`, `micro`, `end`, `timer`"
-                },
-                {
-                  "id": "b",
-                  "text": "`start`, `end`, `timer`, `micro`"
-                },
-                {
-                  "id": "c",
-                  "text": "`start`, `end`, `micro`, `timer`"
-                },
-                {
-                  "id": "d",
-                  "text": "`start`, `timer`, `end`, `micro`"
-                }
-              ],
-              "correctOptionId": "c",
-              "explanation": "Sync first (`start`, `end`), then drain microtasks (`micro`), then run the timer task (`timer`)."
-            },
-            {
-              "id": "q2",
-              "prompt": "In the event-loop mental model, what happens immediately after synchronous code empties the call stack?",
-              "options": [
-                {
-                  "id": "a",
-                  "text": "Run one timer task, then drain microtasks"
-                },
-                {
-                  "id": "b",
-                  "text": "Drain the microtask queue completely"
-                },
-                {
-                  "id": "c",
-                  "text": "Block until the next network packet arrives"
-                },
-                {
-                  "id": "d",
-                  "text": "Clear all queued timers"
-                }
-              ],
-              "correctOptionId": "b",
-              "explanation": "After sync work, the engine drains microtasks completely before taking the next task from the task queue."
-            },
-            {
-              "id": "q3",
-              "prompt": "How should you classify `Promise.resolve().then(() => console.log(\"B\"))`?",
-              "options": [
-                {
-                  "id": "a",
-                  "text": "Sync"
-                },
-                {
-                  "id": "b",
-                  "text": "Microtask"
-                },
-                {
-                  "id": "c",
-                  "text": "Task (macrotask)"
-                },
-                {
-                  "id": "d",
-                  "text": "Parallel thread work"
-                }
-              ],
-              "correctOptionId": "b",
-              "explanation": "Promise reactions (`.then` callbacks) are microtasks, not timer tasks."
-            },
-            {
-              "id": "q4",
-              "prompt": "Expected order for:\n\n```js\nconsole.log(\"A\");\nPromise.resolve().then(() => console.log(\"B\"));\nsetTimeout(() => console.log(\"C\"), 0);\nconsole.log(\"D\");\n```",
-              "options": [
-                {
-                  "id": "a",
-                  "text": "`A`, `B`, `D`, `C`"
-                },
-                {
-                  "id": "b",
-                  "text": "`A`, `D`, `B`, `C`"
-                },
-                {
-                  "id": "c",
-                  "text": "`A`, `D`, `C`, `B`"
-                },
-                {
-                  "id": "d",
-                  "text": "`A`, `B`, `C`, `D`"
-                }
-              ],
-              "correctOptionId": "b",
-              "explanation": "`A` and `D` are sync. `B` is a microtask and runs before the `setTimeout` task `C`."
-            }
-          ],
-          "lessonId": "03.1.2-event-loop",
-          "graphIndex": "03.1.2",
-          "moduleId": "03-asynchronous-javascript"
-        },
-        {
-          "id": "quiz",
           "title": "Call Stack Check",
           "description": "Trace push/pop of stack frames for synchronous calls.",
-          "path": "course/javascript/modules/03-asynchronous-javascript/lessons/03.1.3-call-stack/quiz/quiz.json",
+          "path": "course/javascript/modules/03-asynchronous-javascript/lessons/03.1.2-call-stack/quiz/quiz.json",
           "questions": [
             {
               "id": "q1",
@@ -36024,7 +35917,114 @@
               "explanation": "Scheduled callbacks wait until the current synchronous stack is clear. The event loop cannot interleave them mid-call-chain."
             }
           ],
-          "lessonId": "03.1.3-call-stack",
+          "lessonId": "03.1.2-call-stack",
+          "graphIndex": "03.1.2",
+          "moduleId": "03-asynchronous-javascript"
+        },
+        {
+          "id": "quiz",
+          "title": "Event Loop Check",
+          "description": "Order sync, microtasks, and tasks with the event loop model.",
+          "path": "course/javascript/modules/03-asynchronous-javascript/lessons/03.1.3-event-loop/quiz/quiz.json",
+          "questions": [
+            {
+              "id": "q1",
+              "prompt": "What prints, and in what order?\n\n```js\nconsole.log(\"start\");\nPromise.resolve().then(() => console.log(\"micro\"));\nsetTimeout(() => console.log(\"timer\"), 0);\nconsole.log(\"end\");\n```",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "`start`, `micro`, `end`, `timer`"
+                },
+                {
+                  "id": "b",
+                  "text": "`start`, `end`, `timer`, `micro`"
+                },
+                {
+                  "id": "c",
+                  "text": "`start`, `end`, `micro`, `timer`"
+                },
+                {
+                  "id": "d",
+                  "text": "`start`, `timer`, `end`, `micro`"
+                }
+              ],
+              "correctOptionId": "c",
+              "explanation": "Sync first (`start`, `end`), then drain microtasks (`micro`), then run the timer task (`timer`)."
+            },
+            {
+              "id": "q2",
+              "prompt": "In the event-loop mental model, what happens immediately after synchronous code empties the call stack?",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Run one timer task, then drain microtasks"
+                },
+                {
+                  "id": "b",
+                  "text": "Drain the microtask queue completely"
+                },
+                {
+                  "id": "c",
+                  "text": "Block until the next network packet arrives"
+                },
+                {
+                  "id": "d",
+                  "text": "Clear all queued timers"
+                }
+              ],
+              "correctOptionId": "b",
+              "explanation": "After sync work, the engine drains microtasks completely before taking the next task from the task queue."
+            },
+            {
+              "id": "q3",
+              "prompt": "How should you classify `Promise.resolve().then(() => console.log(\"B\"))`?",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Sync"
+                },
+                {
+                  "id": "b",
+                  "text": "Microtask"
+                },
+                {
+                  "id": "c",
+                  "text": "Task (macrotask)"
+                },
+                {
+                  "id": "d",
+                  "text": "Parallel thread work"
+                }
+              ],
+              "correctOptionId": "b",
+              "explanation": "Promise reactions (`.then` callbacks) are microtasks, not timer tasks."
+            },
+            {
+              "id": "q4",
+              "prompt": "Expected order for:\n\n```js\nconsole.log(\"A\");\nPromise.resolve().then(() => console.log(\"B\"));\nsetTimeout(() => console.log(\"C\"), 0);\nconsole.log(\"D\");\n```",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "`A`, `B`, `D`, `C`"
+                },
+                {
+                  "id": "b",
+                  "text": "`A`, `D`, `B`, `C`"
+                },
+                {
+                  "id": "c",
+                  "text": "`A`, `D`, `C`, `B`"
+                },
+                {
+                  "id": "d",
+                  "text": "`A`, `B`, `C`, `D`"
+                }
+              ],
+              "correctOptionId": "b",
+              "explanation": "`A` and `D` are sync. `B` is a microtask and runs before the `setTimeout` task `C`."
+            }
+          ],
+          "lessonId": "03.1.3-event-loop",
           "graphIndex": "03.1.3",
           "moduleId": "03-asynchronous-javascript"
         },

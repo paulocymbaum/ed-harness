@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-07-15T03:19:34.562Z",
+  "generatedAt": "2026-07-15T03:27:54.602Z",
   "courses": {
     "algorithms": {
-      "generatedAt": "2026-07-15T03:19:34.550Z",
+      "generatedAt": "2026-07-15T03:27:54.589Z",
       "courseSlug": "algorithms",
       "stats": {
         "totalLeaves": 82,
@@ -1114,12 +1114,12 @@
       }
     },
     "javascript": {
-      "generatedAt": "2026-07-15T03:19:34.562Z",
+      "generatedAt": "2026-07-15T03:27:54.602Z",
       "courseSlug": "javascript",
       "stats": {
-        "totalLeaves": 65,
+        "totalLeaves": 72,
         "exists": 57,
-        "planned": 8,
+        "planned": 15,
         "orphan": 0
       },
       "root": {
@@ -1421,6 +1421,22 @@
                       "moduleId": "01-javascript-fundamentals",
                       "lessonId": "01.7.2-parameters-and-return-values"
                     }
+                  },
+                  {
+                    "id": "n_f6c271d4f8",
+                    "graphIndex": "01.7.3",
+                    "label": "Arrow Functions and Callbacks",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "planned"
+                  },
+                  {
+                    "id": "n_b886afdd5a",
+                    "graphIndex": "01.7.4",
+                    "label": "Throwing Errors and Sync try/catch",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "planned"
                   }
                 ]
               },
@@ -1496,6 +1512,46 @@
                     }
                   }
                 ]
+              },
+              {
+                "id": "n_265ba70e06",
+                "graphIndex": "01.9",
+                "label": "Arrays",
+                "kind": "section",
+                "children": [
+                  {
+                    "id": "n_301aea8a06",
+                    "graphIndex": "01.9.1",
+                    "label": "Array Literals Indexing and length",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "planned"
+                  },
+                  {
+                    "id": "n_923a30769a",
+                    "graphIndex": "01.9.2",
+                    "label": "Mutating Array Methods",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "planned"
+                  },
+                  {
+                    "id": "n_6148117519",
+                    "graphIndex": "01.9.3",
+                    "label": "Non-mutating Array Methods",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "planned"
+                  },
+                  {
+                    "id": "n_89e5c8c4b4",
+                    "graphIndex": "01.9.4",
+                    "label": "Iterating Arrays for and for-of",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "planned"
+                  }
+                ]
               }
             ]
           },
@@ -1531,6 +1587,14 @@
                     "id": "n_1c0b6b4518",
                     "graphIndex": "02.1.3",
                     "label": "Object Destructuring",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "planned"
+                  },
+                  {
+                    "id": "n_faedd6a151",
+                    "graphIndex": "02.1.4",
+                    "label": "Rest and Spread for Objects and Arrays",
                     "kind": "lesson",
                     "children": [],
                     "status": "planned"
@@ -1681,21 +1745,8 @@
                     }
                   },
                   {
-                    "id": "n_1b9aa7c0e4",
+                    "id": "n_4d9b35e932",
                     "graphIndex": "03.1.2",
-                    "label": "Event Loop",
-                    "kind": "lesson",
-                    "children": [],
-                    "status": "exists",
-                    "catalogRef": {
-                      "courseId": "javascript",
-                      "moduleId": "03-asynchronous-javascript",
-                      "lessonId": "03.1.2-event-loop"
-                    }
-                  },
-                  {
-                    "id": "n_eea8eab80f",
-                    "graphIndex": "03.1.3",
                     "label": "Call Stack",
                     "kind": "lesson",
                     "children": [],
@@ -1703,7 +1754,20 @@
                     "catalogRef": {
                       "courseId": "javascript",
                       "moduleId": "03-asynchronous-javascript",
-                      "lessonId": "03.1.3-call-stack"
+                      "lessonId": "03.1.2-call-stack"
+                    }
+                  },
+                  {
+                    "id": "n_5ea411af07",
+                    "graphIndex": "03.1.3",
+                    "label": "Event Loop",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "javascript",
+                      "moduleId": "03-asynchronous-javascript",
+                      "lessonId": "03.1.3-event-loop"
                     }
                   },
                   {
@@ -1754,9 +1818,9 @@
                     }
                   },
                   {
-                    "id": "n_ad7f63b66c",
+                    "id": "n_60feae7b95",
                     "graphIndex": "03.2.3",
-                    "label": "Try/Catch Error Handling",
+                    "label": "Async Errors and try/catch",
                     "kind": "lesson",
                     "children": [],
                     "status": "exists",
