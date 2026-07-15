@@ -22,8 +22,8 @@ export const httpCourseScoreRepository: CourseScoreRepository = {
     }
   },
 
-  async recordQuizAttempt(courseId, quizId, attempt, lessonId) {
-    const storageKey = scoreStorageKeyForQuiz(quizId, lessonId);
+  async recordQuizAttempt(courseId, quizId, attempt, lessonId, moduleId) {
+    const storageKey = scoreStorageKeyForQuiz(quizId, lessonId, moduleId);
     const res = await fetch(`${API_PREFIX}${encodeURIComponent(courseId)}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -39,8 +39,8 @@ export const httpCourseScoreRepository: CourseScoreRepository = {
     return parseCourseScoreResponse(await res.json(), courseId);
   },
 
-  async setProjectStatus(courseId, projectId, status, lessonId) {
-    const storageKey = scoreStorageKeyForProject(projectId, lessonId);
+  async setProjectStatus(courseId, projectId, status, lessonId, moduleId) {
+    const storageKey = scoreStorageKeyForProject(projectId, lessonId, moduleId);
     const res = await fetch(`${API_PREFIX}${encodeURIComponent(courseId)}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },

@@ -1,0 +1,57 @@
+{
+  "id": "quiz",
+  "title": "Callback and Microtask Queues Check",
+  "description": "Compare Promise microtasks vs setTimeout tasks.",
+  "lessonId": "03.1.4-callback-and-microtask-queues",
+  "graphIndex": "03.1.4",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "In this snippet, what prints first after sync logs — `micro` or `timer`?\n\n```js\nconsole.log(\"start\");\nPromise.resolve().then(() => console.log(\"micro\"));\nsetTimeout(() => console.log(\"timer\"), 0);\nconsole.log(\"end\");\n```",
+      "options": [
+        { "id": "a", "text": "`timer`" },
+        { "id": "b", "text": "`micro`" },
+        { "id": "c", "text": "They print simultaneously" },
+        { "id": "d", "text": "Neither — both are skipped" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "After sync (`start`, `end`), the microtask queue drains before the next timer task."
+    },
+    {
+      "id": "q2",
+      "prompt": "For chained microtasks:\n\n```js\nPromise.resolve()\n  .then(() => console.log(\"m1\"))\n  .then(() => console.log(\"m2\"));\nsetTimeout(() => console.log(\"t1\"), 0);\n```\n\nWhat is the order?",
+      "options": [
+        { "id": "a", "text": "`t1`, `m1`, `m2`" },
+        { "id": "b", "text": "`m1`, `t1`, `m2`" },
+        { "id": "c", "text": "`m1`, `m2`, `t1`" },
+        { "id": "d", "text": "`m2`, `m1`, `t1`" }
+      ],
+      "correctOptionId": "c",
+      "explanation": "The microtask queue is drained completely — so both `m1` and `m2` run before task `t1`."
+    },
+    {
+      "id": "q3",
+      "prompt": "What does `setTimeout(fn, 0)` mean in practice?",
+      "options": [
+        { "id": "a", "text": "Run `fn` immediately, ahead of microtasks" },
+        { "id": "b", "text": "Schedule `fn` as a task after current sync work and after microtasks drain" },
+        { "id": "c", "text": "Run `fn` on a background thread for 0 ms" },
+        { "id": "d", "text": "Convert `fn` into a Promise reaction" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Delay `0` still queues a macrotask. It runs after the current sync pass and after the microtask queue is empty."
+    },
+    {
+      "id": "q4",
+      "prompt": "Promise `.then` callbacks are queued as:",
+      "options": [
+        { "id": "a", "text": "Tasks (macrotasks)" },
+        { "id": "b", "text": "Microtasks" },
+        { "id": "c", "text": "Synchronous stack frames only" },
+        { "id": "d", "text": "Idle callbacks with lower priority than timers" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Promise reactions are microtasks. That is why they usually run before `setTimeout(..., 0)` callbacks."
+    }
+  ]
+}

@@ -67,6 +67,7 @@ export function PomodoroHeaderControl() {
         <button
           id={triggerId}
           type="button"
+          data-tour="pomodoro"
           aria-expanded={isOpen}
           aria-controls={panelId}
           aria-label={t("pomodoro.ariaLabel")}

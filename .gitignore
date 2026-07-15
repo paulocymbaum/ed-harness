@@ -63,3 +63,9 @@ course/*/quiz/score.json
 
 docs/5W1H-REPORT.md
 
+###############################################################################
+# Local promo landing (not versioned)
+###############################################################################
+landing_page/
+
+workspace.code-workspace

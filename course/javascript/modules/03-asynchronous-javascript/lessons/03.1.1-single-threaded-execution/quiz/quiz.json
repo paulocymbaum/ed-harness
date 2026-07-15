@@ -1,0 +1,57 @@
+{
+  "id": "quiz",
+  "title": "Single-Threaded Execution Check",
+  "description": "Predict sync vs scheduled setTimeout order on one thread.",
+  "lessonId": "03.1.1-single-threaded-execution",
+  "graphIndex": "03.1.1",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What prints, and in what order?\n\n```js\nconsole.log(\"A\");\nsetTimeout(() => console.log(\"B\"), 0);\nconsole.log(\"C\");\n```",
+      "options": [
+        { "id": "a", "text": "`A`, `B`, `C`" },
+        { "id": "b", "text": "`A`, `C`, `B`" },
+        { "id": "c", "text": "`B`, `A`, `C`" },
+        { "id": "d", "text": "`A` and `C` only (B never runs)" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Synchronous logs run to completion first (`A`, then `C`). `setTimeout` only schedules `B` for later, even with delay `0`."
+    },
+    {
+      "id": "q2",
+      "prompt": "What does `setTimeout(fn, 0)` do on the current synchronous pass?",
+      "options": [
+        { "id": "a", "text": "Runs `fn` immediately before the next line" },
+        { "id": "b", "text": "Pauses the thread for 0 ms then runs `fn`" },
+        { "id": "c", "text": "Schedules `fn` for later; sync code keeps running" },
+        { "id": "d", "text": "Cancels all other timers and runs `fn`" }
+      ],
+      "correctOptionId": "c",
+      "explanation": "`setTimeout` schedules a callback. It does not pause the current line or jump ahead of remaining sync work."
+    },
+    {
+      "id": "q3",
+      "prompt": "In this nested timer example, why must `4` print before `2`?\n\n```js\nconsole.log(1);\nsetTimeout(() => {\n  console.log(2);\n  setTimeout(() => console.log(3), 0);\n}, 0);\nconsole.log(4);\n```",
+      "options": [
+        { "id": "a", "text": "Because `4` is scheduled as a microtask" },
+        { "id": "b", "text": "Because sync code finishes before any timer callback runs" },
+        { "id": "c", "text": "Because nested timers run before outer timers" },
+        { "id": "d", "text": "Because `console.log(4)` has higher priority than timers" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`1` and `4` are synchronous. The outer timer callback (which prints `2`) cannot run until the call stack is clear of that sync pass."
+    },
+    {
+      "id": "q4",
+      "prompt": "When is the inner `setTimeout` that prints `3` scheduled in the nested example?",
+      "options": [
+        { "id": "a", "text": "At the same time as the outer timer is registered" },
+        { "id": "b", "text": "Only after the outer timer callback starts running" },
+        { "id": "c", "text": "Before `console.log(1)`" },
+        { "id": "d", "text": "Never — nested timers are illegal" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "The inner timer is registered inside the outer callback, so it cannot be scheduled until that callback runs after sync work finishes."
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "id": "rotated",
+      "name": "Target in right wing",
+      "stdin": "4 5 6 7 0 1 2\n0\n",
+      "expectedStdout": "4\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "left",
+      "name": "Target in left wing",
+      "stdin": "4 5 6 7 0 1 2\n5\n",
+      "expectedStdout": "1\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "missing",
+      "name": "Absent",
+      "stdin": "4 5 6 7 0 1 2\n3\n",
+      "expectedStdout": "-1\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "unrotated",
+      "name": "No rotation",
+      "stdin": "1 2 3 4\n3\n",
+      "expectedStdout": "2\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

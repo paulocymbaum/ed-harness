@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "id": "n8",
+      "name": "n=8 copies 1+2+4",
+      "stdin": "8\n",
+      "expectedStdout": "copies=7 amortized=O(1)\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "n4",
+      "name": "n=4 copies 1+2",
+      "stdin": "4\n",
+      "expectedStdout": "copies=3 amortized=O(1)\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "n2",
+      "name": "n=2 one copy",
+      "stdin": "2\n",
+      "expectedStdout": "copies=1 amortized=O(1)\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "bad",
+      "name": "Non power of two",
+      "stdin": "3\n",
+      "expectedStdout": "ERROR: need power of two\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

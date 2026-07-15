@@ -6,7 +6,7 @@ export function applyLocaleToDocument(locale: AppLocale): void {
 
 export function readPersistedLocale(): AppLocale | null {
   try {
-    const raw = localStorage.getItem("hackerrank-study-locale");
+    const raw = localStorage.getItem("ed-harness-locale");
     if (!raw) return null;
     const parsed = JSON.parse(raw) as { state?: { locale?: unknown } };
     const locale = parsed?.state?.locale;

@@ -1,0 +1,39 @@
+{
+  "cases": [
+    {
+      "id": "zero-neg",
+      "name": "zero and neg tokens sorted alphabetically",
+      "stdin": "zero neg\n",
+      "expectedStdout": "neg zero\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "single-only",
+      "name": "single token alone",
+      "stdin": "single\n",
+      "expectedStdout": "single\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "none-recognized",
+      "name": "no recognized tokens prints none",
+      "stdin": "foo bar\n",
+      "expectedStdout": "none\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "three-tokens",
+      "name": "three tokens sorted alphabetically",
+      "stdin": "neg empty zero\n",
+      "expectedStdout": "empty neg zero\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "duplicate-tokens",
+      "name": "duplicate tokens collapse to one",
+      "stdin": "zero zero\n",
+      "expectedStdout": "zero\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

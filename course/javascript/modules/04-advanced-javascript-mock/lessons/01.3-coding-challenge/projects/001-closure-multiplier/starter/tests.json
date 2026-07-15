@@ -1,0 +1,39 @@
+{
+  "cases": [
+    {
+      "id": "example",
+      "name": "Base 2, mul 3, get",
+      "stdin": "2\nmul 3\nget\n",
+      "expectedStdout": "6\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "no-mul-default-factor",
+      "name": "Base 5, no mul, get returns base times default factor 1",
+      "stdin": "5\nget\n",
+      "expectedStdout": "5\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "multiple-muls",
+      "name": "Base 3, two muls, two gets",
+      "stdin": "3\nmul 2\nmul 4\nget\nget\n",
+      "expectedStdout": "24\n24\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "negative-multiplier",
+      "name": "Negative base times negative mul",
+      "stdin": "-2\nmul -1\nget\n",
+      "expectedStdout": "2\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "zero-multiplier",
+      "name": "mul 0 zeroes the factor",
+      "stdin": "10\nmul 0\nget\n",
+      "expectedStdout": "0\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

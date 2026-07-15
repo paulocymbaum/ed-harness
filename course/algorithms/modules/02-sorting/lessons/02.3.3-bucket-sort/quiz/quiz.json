@@ -1,0 +1,105 @@
+{
+  "id": "quiz",
+  "title": "Bucket Sort Check",
+  "description": "Scatter, distributions, and concatenation.",
+  "lessonId": "02.3.3-bucket-sort",
+  "graphIndex": "02.3.3",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "For `x=0.42` and 4 buckets on `[0,1)`, index `floor(0.42*4)` is:",
+      "options": [
+        {
+          "id": "a",
+          "text": "0"
+        },
+        {
+          "id": "b",
+          "text": "1"
+        },
+        {
+          "id": "c",
+          "text": "2"
+        },
+        {
+          "id": "d",
+          "text": "3"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`floor(1.68) = 1`."
+    },
+    {
+      "id": "q2",
+      "prompt": "Bucket sort expects near-linear time when:",
+      "options": [
+        {
+          "id": "a",
+          "text": "All keys collide in one bucket"
+        },
+        {
+          "id": "b",
+          "text": "Keys spread evenly across buckets"
+        },
+        {
+          "id": "c",
+          "text": "You never sort buckets"
+        },
+        {
+          "id": "d",
+          "text": "`n = 1` always"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Even scatter keeps each bucket small."
+    },
+    {
+      "id": "q3",
+      "prompt": "After filling buckets you typically:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Throw them away"
+        },
+        {
+          "id": "b",
+          "text": "Sort each bucket then concatenate"
+        },
+        {
+          "id": "c",
+          "text": "Only heapify the first bucket"
+        },
+        {
+          "id": "d",
+          "text": "Binary-search the input again"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Scatter → sort buckets → concat."
+    },
+    {
+      "id": "q4",
+      "prompt": "A safe bucket index must land in:",
+      "options": [
+        {
+          "id": "a",
+          "text": "`0..bucketCount-1`"
+        },
+        {
+          "id": "b",
+          "text": "Negative indices only"
+        },
+        {
+          "id": "c",
+          "text": "`n..2n`"
+        },
+        {
+          "id": "d",
+          "text": "Any float"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Out-of-range indices crash or silently mis-bin."
+    }
+  ]
+}

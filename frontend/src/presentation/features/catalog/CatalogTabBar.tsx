@@ -1,4 +1,5 @@
 import { BookOpenText, Map } from "lucide-react";
+import type { ReactNode } from "react";
 import { Icon, Tabs } from "../../design-system";
 
 export type CatalogTab = "courses" | "content-map";
@@ -10,6 +11,7 @@ export function parseCatalogTab(raw: string | null): CatalogTab {
 export function CatalogTabBar(props: {
   value: CatalogTab;
   onValueChange: (tab: CatalogTab) => void;
+  trailing?: ReactNode;
 }) {
   const tabItems = [
     { value: "courses" as const, label: "Courses", icon: <Icon icon={BookOpenText} /> },
@@ -17,11 +19,21 @@ export function CatalogTabBar(props: {
   ];
 
   return (
-    <Tabs
-      items={tabItems}
-      value={props.value}
-      onValueChange={(value) => props.onValueChange(value as CatalogTab)}
-      listClassName="max-w-full"
-    />
+    <div
+      className="flex shrink-0 flex-col gap-3 lg:flex-row lg:items-center lg:justify-between"
+      data-tour="catalog-tabs"
+    >
+      <Tabs
+        items={tabItems}
+        value={props.value}
+        onValueChange={(value) => props.onValueChange(value as CatalogTab)}
+        listClassName="max-w-full"
+      />
+      {props.trailing ? (
+        <div className="flex min-w-0 flex-wrap items-center gap-3 lg:justify-end">
+          {props.trailing}
+        </div>
+      ) : null}
+    </div>
   );
 }

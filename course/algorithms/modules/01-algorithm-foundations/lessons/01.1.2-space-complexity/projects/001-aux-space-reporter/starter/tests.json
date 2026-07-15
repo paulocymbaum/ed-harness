@@ -1,0 +1,39 @@
+{
+  "cases": [
+    {
+      "id": "max",
+      "name": "Scalar max O(1)",
+      "stdin": "max-scalars\n",
+      "expectedStdout": "O(1)\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "map",
+      "name": "map allocates O(n)",
+      "stdin": "map-double\n",
+      "expectedStdout": "O(n)\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "inplace",
+      "name": "In-place O(1)",
+      "stdin": "in-place\n",
+      "expectedStdout": "O(1)\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "rec",
+      "name": "Recursive sum stack O(n)",
+      "stdin": "recursive-sum\n",
+      "expectedStdout": "O(n)\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "unknown",
+      "name": "Unknown pattern",
+      "stdin": "unknown\n",
+      "expectedStdout": "ERROR: unknown pattern\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

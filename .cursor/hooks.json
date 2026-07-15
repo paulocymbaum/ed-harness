@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "hooks": {
+    "sessionStart": [
+      {
+        "command": "node .cursor/hooks/inject-user-language.js"
+      }
+    ],
+    "postToolUse": [
+      {
+        "command": "node .cursor/hooks/inject-user-language.js",
+        "matcher": "Write|Shell"
+      }
+    ],
+    "afterFileEdit": [
+      {
+        "command": "node .cursor/hooks/inject-user-language.js",
+        "matcher": "Write|TabWrite"
+      }
+    ]
+  }
+}

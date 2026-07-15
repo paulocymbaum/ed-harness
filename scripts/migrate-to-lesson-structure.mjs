@@ -76,7 +76,7 @@ async function copyDir(src, dest, dryRun) {
 }
 
 async function migrateModule(moduleId, args) {
-  const graph = loadGraph({ repoRoot });
+  const graph = loadGraph({ repoRoot, courseSlug: COURSE_SLUG });
   const legacyPath = path.join(courseDir, moduleId);
   const moduleNode = findNodeByIndex(graph, moduleId.match(/^(\d{2})/)?.[1]);
   const targetModuleId = moduleNode ? slugFromLabel(moduleNode.label) : moduleId;
@@ -90,10 +90,21 @@ async function migrateModule(moduleId, args) {
   }
 
   if (!args.dryRun) {
-    execFileSync("node", [path.join(repoRoot, "scripts/graph/scaffold-from-graph.mjs"), "--module", moduleId.match(/^(\d{2})/)?.[1], "--no-leaves"], {
-      cwd: repoRoot,
-      stdio: "inherit",
-    });
+    execFileSync(
+      "node",
+      [
+        path.join(repoRoot, "scripts/graph/scaffold-from-graph.mjs"),
+        "--course",
+        COURSE_SLUG,
+        "--module",
+        moduleId.match(/^(\d{2})/)?.[1],
+        "--no-leaves",
+      ],
+      {
+        cwd: repoRoot,
+        stdio: "inherit",
+      },
+    );
   } else {
     actions.push({ action: "scaffold-module", module: targetModuleId });
   }
@@ -115,10 +126,19 @@ async function migrateModule(moduleId, args) {
       }
       const graphIndex = lessonId.match(/^(\d+(?:\.\d+)*)/)?.[1];
       if (!args.dryRun) {
-        execFileSync("node", [path.join(repoRoot, "scripts/graph/scaffold-from-graph.mjs"), graphIndex], {
-          cwd: repoRoot,
-          stdio: "pipe",
-        });
+        execFileSync(
+          "node",
+          [
+            path.join(repoRoot, "scripts/graph/scaffold-from-graph.mjs"),
+            "--course",
+            COURSE_SLUG,
+            graphIndex,
+          ],
+          {
+            cwd: repoRoot,
+            stdio: "pipe",
+          },
+        );
       }
       const lessonPath = path.join(targetModulePath, "lessons", lessonId);
       actions.push(await copyFile(path.join(examplesDir, file), path.join(lessonPath, "README.md"), args.dryRun));
@@ -138,10 +158,19 @@ async function migrateModule(moduleId, args) {
     const projectName = path.basename(rel);
     const lessonPath = path.join(targetModulePath, "lessons", lessonId, "projects", projectName);
     if (!args.dryRun) {
-      execFileSync("node", [path.join(repoRoot, "scripts/graph/scaffold-from-graph.mjs"), lessonId.match(/^(\d+(?:\.\d+)*)/)?.[1]], {
-        cwd: repoRoot,
-        stdio: "pipe",
-      });
+      execFileSync(
+        "node",
+        [
+          path.join(repoRoot, "scripts/graph/scaffold-from-graph.mjs"),
+          "--course",
+          COURSE_SLUG,
+          lessonId.match(/^(\d+(?:\.\d+)*)/)?.[1],
+        ],
+        {
+          cwd: repoRoot,
+          stdio: "pipe",
+        },
+      );
     }
     actions.push(...(await copyDir(srcProject, lessonPath, args.dryRun)));
   }

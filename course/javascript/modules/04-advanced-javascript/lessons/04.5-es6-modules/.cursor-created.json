@@ -1,0 +1,9 @@
+{
+  "createdBy": "cursor-tool",
+  "tool": "scripts/graph/scaffold-from-graph.mjs",
+  "createdAt": "2026-07-13T17:23:00.894Z",
+  "kind": "lesson",
+  "lessonId": "04.5-es6-modules",
+  "moduleId": "04-advanced-javascript",
+  "graphIndex": "04.5"
+}

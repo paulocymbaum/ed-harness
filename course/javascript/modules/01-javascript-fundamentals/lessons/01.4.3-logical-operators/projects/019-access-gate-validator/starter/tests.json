@@ -20,6 +20,41 @@
       "stdin": "17\ntrue\n",
       "expectedStdout": "DENIED\n",
       "expectedExitCode": 0
+    },
+    {
+      "id": "invalid-has-id",
+      "name": "Invalid hasId value",
+      "stdin": "25\nyes\n",
+      "expectedStdout": "ERROR: invalid input\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "allowed-exactly-18",
+      "name": "Allowed at age 18",
+      "stdin": "18\ntrue\n",
+      "expectedStdout": "ALLOWED\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "invalid-age-non-numeric",
+      "name": "Invalid non-numeric age",
+      "stdin": "abc\ntrue\n",
+      "expectedStdout": "ERROR: invalid input\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "invalid-age-negative",
+      "name": "Invalid negative age",
+      "stdin": "-5\ntrue\n",
+      "expectedStdout": "ERROR: invalid input\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "invalid-age-non-integer",
+      "name": "Invalid non-integer age",
+      "stdin": "17.5\ntrue\n",
+      "expectedStdout": "ERROR: invalid input\n",
+      "expectedExitCode": 0
     }
   ]
 }

@@ -9,6 +9,7 @@ import { useQuizProgressStore } from "./quizProgressStore";
 type QuizSessionState = {
   quizId: string | null;
   lessonId: string | null;
+  moduleId: string | null;
   sessionKey: string | null;
   perguntasEmbaralhadas: QuizQuestion[] | null;
   currentIndex: number;
@@ -17,7 +18,12 @@ type QuizSessionState = {
   isComplete: boolean;
   lastAttempt: QuizAttempt | null;
   lastQuizPointsDelta: number;
-  start: (quizId: string, lessonId?: string, perguntas?: QuizQuestion[]) => void;
+  start: (
+    quizId: string,
+    lessonId?: string,
+    perguntas?: QuizQuestion[],
+    moduleId?: string,
+  ) => void;
   garantirPerguntasEmbaralhadas: (perguntas: QuizQuestion[]) => void;
   reset: () => void;
   selectAnswer: (questionId: string, optionId: string) => void;
@@ -30,6 +36,7 @@ type QuizSessionState = {
 const initialSession = {
   quizId: null as string | null,
   lessonId: null as string | null,
+  moduleId: null as string | null,
   sessionKey: null as string | null,
   perguntasEmbaralhadas: null as QuizQuestion[] | null,
   currentIndex: 0,
@@ -42,11 +49,12 @@ const initialSession = {
 
 export const useQuizSessionStore = create<QuizSessionState>((set, get) => ({
   ...initialSession,
-  start: (quizId, lessonId, perguntas) => {
-    const sessionKey = quizSessionKey(quizId, lessonId);
+  start: (quizId, lessonId, perguntas, moduleId) => {
+    const sessionKey = quizSessionKey(quizId, lessonId, moduleId);
     set({
       quizId,
       lessonId: lessonId ?? null,
+      moduleId: moduleId ?? null,
       sessionKey,
       perguntasEmbaralhadas: perguntas ? embaralharPerguntasQuiz(perguntas) : null,
       currentIndex: 0,
@@ -80,12 +88,14 @@ export const useQuizSessionStore = create<QuizSessionState>((set, get) => ({
     })),
   finish: (quiz, courseId) => {
     const lessonId = quiz.lessonId ?? get().lessonId ?? undefined;
+    const moduleId = quiz.moduleId;
     const perguntas = get().perguntasEmbaralhadas ?? quiz.questions;
     const attempt = scoreQuiz(perguntas, get().answers);
     const prevBest =
-      useQuizProgressStore.getState().getProgress(courseId, quiz.id, lessonId)?.bestScore ?? 0;
-    useQuizProgressStore.getState().recordAttempt(courseId, quiz.id, attempt, lessonId);
-    void persistQuizScore(courseId, quiz.id, attempt, lessonId);
+      useQuizProgressStore.getState().getProgress(courseId, quiz.id, lessonId, moduleId)
+        ?.bestScore ?? 0;
+    useQuizProgressStore.getState().recordAttempt(courseId, quiz.id, attempt, lessonId, moduleId);
+    void persistQuizScore(courseId, quiz.id, attempt, lessonId, moduleId);
     const lastQuizPointsDelta = Math.max(0, attempt.score - prevBest);
     set({ isComplete: true, lastAttempt: attempt, lastQuizPointsDelta });
     return attempt;

@@ -1,0 +1,105 @@
+{
+  "id": "quiz",
+  "title": "BFS Check",
+  "description": "Queues, levels, and shortest hops.",
+  "lessonId": "03.4.2-bfs",
+  "graphIndex": "03.4.2",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "BFS expands using a:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Stack only"
+        },
+        {
+          "id": "b",
+          "text": "Queue (FIFO)"
+        },
+        {
+          "id": "c",
+          "text": "Binary heap of random ids"
+        },
+        {
+          "id": "d",
+          "text": "Sorted set of edge weights only"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "FIFO order yields level-by-level expansion."
+    },
+    {
+      "id": "q2",
+      "prompt": "On an unweighted graph, BFS first reach of a node is:",
+      "options": [
+        {
+          "id": "a",
+          "text": "An arbitrary long path"
+        },
+        {
+          "id": "b",
+          "text": "A shortest hop path"
+        },
+        {
+          "id": "c",
+          "text": "Always a DFS tree edge"
+        },
+        {
+          "id": "d",
+          "text": "Impossible to define"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Layers grow by +1 hop — first touch is minimal distance."
+    },
+    {
+      "id": "q3",
+      "prompt": "Marking visited when enqueuing prevents:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Using a queue"
+        },
+        {
+          "id": "b",
+          "text": "The same node being queued many times"
+        },
+        {
+          "id": "c",
+          "text": "Neighbor iteration"
+        },
+        {
+          "id": "d",
+          "text": "Integer node ids"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Without early marks, multiple parents can enqueue the same child repeatedly."
+    },
+    {
+      "id": "q4",
+      "prompt": "BFS and DFS always produce the same visit order.",
+      "options": [
+        {
+          "id": "a",
+          "text": "True"
+        },
+        {
+          "id": "b",
+          "text": "False"
+        },
+        {
+          "id": "c",
+          "text": "True on DAGs only"
+        },
+        {
+          "id": "d",
+          "text": "True on complete graphs only"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Deep vs wide strategies reorder visits whenever branching exists."
+    }
+  ]
+}

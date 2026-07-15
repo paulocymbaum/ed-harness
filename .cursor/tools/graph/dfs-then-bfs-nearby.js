@@ -1,33 +1,32 @@
 const { dfs } = require("../../../scripts/graph/utils/dfs");
 const { bfs } = require("../../../scripts/graph/utils/bfs");
-const { loadGraph, labelsMatch } = require("./_loadGraph");
+const { loadCourseGraph, labelsMatch, parseCourseArg, positionalArgs } = require("./_loadGraph");
 
 function buildParents(graph) {
-  const parents = new Map(); // child -> parent
+  const parents = new Map();
   for (const e of graph.edges || []) parents.set(e.to, e.from);
   return parents;
 }
 
 function usage() {
   return [
-    "Usage: node .cursor/tools/graph/dfs-then-bfs-nearby.js <targetLabel> [radiusDepth=1]",
-    'Example: node .cursor/tools/graph/dfs-then-bfs-nearby.js "Promises" 1',
+    "Usage: node .cursor/tools/graph/dfs-then-bfs-nearby.js --course <slug> <targetLabel> [radiusDepth=1]",
+    'Example: node .cursor/tools/graph/dfs-then-bfs-nearby.js --course javascript "Promises" 1',
   ].join("\n");
 }
 
 function main() {
-  const targetRaw = process.argv[2];
-  const radiusDepth = Number(process.argv[3] ?? "1");
+  const [targetRaw, radiusRaw] = positionalArgs();
+  const radiusDepth = Number(radiusRaw ?? "1");
 
-  if (!targetRaw) {
+  if (!targetRaw || !parseCourseArg()) {
     process.stderr.write(`${usage()}\n`);
     process.exit(2);
   }
 
-  const graph = loadGraph();
+  const { graph, courseSlug } = loadCourseGraph();
   const parents = buildParents(graph);
 
-  // DFS to get us to the right branch (candidate topic).
   let found = null;
   dfs(graph, graph.rootId, {
     visit: (node) => {
@@ -36,12 +35,11 @@ function main() {
   });
 
   if (!found) {
-    process.stdout.write(`NOT_FOUND: ${targetRaw}\n`);
+    process.stdout.write(`NOT_FOUND: ${targetRaw} (course=${courseSlug})\n`);
     process.exitCode = 1;
     return;
   }
 
-  // Then BFS locally from the parent (siblings / nearby).
   const anchorId = parents.get(found.id) || found.id;
   const nearby = [];
 
@@ -52,12 +50,17 @@ function main() {
 
   process.stdout.write(
     JSON.stringify(
-      { target: found, anchorId, radiusDepth, nearby: nearby.map((n) => ({ id: n.id, label: n.label })) },
+      {
+        courseSlug,
+        target: found,
+        anchorId,
+        radiusDepth,
+        nearby: nearby.map((n) => ({ id: n.id, label: n.label })),
+      },
       null,
-      2
-    ) + "\n"
+      2,
+    ) + "\n",
   );
 }
 
 if (require.main === module) main();
-

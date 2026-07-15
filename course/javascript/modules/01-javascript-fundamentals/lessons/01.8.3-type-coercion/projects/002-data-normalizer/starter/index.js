@@ -2,28 +2,25 @@
  * Coercion Predictor
  *
  * Entrypoint: node starter/index.js
+ * Implement the behavior described in ../README.md
  */
 
 const readline = require("readline");
 
-const RULES = new Map([
-  ['""|==|0', "empty string coerces to 0 with =="],
-  ["[]|==|0", "array coerces to 0 with =="],
-  ["null|==|undefined", "null and undefined are equal with =="],
-  ["null|===|undefined", "null and undefined are different types with ==="],
-]);
+function parseValue(line) {
+  const trimmed = line.trim();
+  if (trimmed === "undefined") return undefined;
+  return JSON.parse(trimmed);
+}
 
 function ruleFor(a, op, b) {
-  const key = JSON.stringify(a) + "|" + op + "|" + JSON.stringify(b);
-  if (RULES.has(key)) return RULES.get(key);
-  if (op === "===") return "no coercion with ===";
-  return "== may coerce types before comparing";
+  // TODO: return the documented rule string for known pairs / operators
+  throw new Error("Not implemented");
 }
 
 function compare(a, op, b) {
-  if (op === "==") return a == b;
-  if (op === "===") return a === b;
-  return null;
+  // TODO: evaluate == or ===; return boolean
+  throw new Error("Not implemented");
 }
 
 async function main() {
@@ -32,9 +29,9 @@ async function main() {
   for await (const line of rl) {
     lines.push(line);
     if (lines.length < 3) continue;
-    const a = JSON.parse(lines[0]);
+    const a = parseValue(lines[0]);
     const op = lines[1].trim();
-    const b = JSON.parse(lines[2]);
+    const b = parseValue(lines[2]);
     if (op !== "==" && op !== "===") {
       process.stdout.write("ERROR: invalid operator\n");
       rl.close();

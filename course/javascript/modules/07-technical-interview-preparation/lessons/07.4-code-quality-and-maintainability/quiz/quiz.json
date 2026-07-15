@@ -1,0 +1,81 @@
+{
+  "id": "quiz",
+  "title": "Code Quality Check",
+  "description": "Predict which patterns count as code smells and why they matter for maintainability.",
+  "lessonId": "07.4-code-quality-and-maintainability",
+  "graphIndex": "07.4",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "A function works correctly on the happy path but still has a leftover `console.log(\"debugging\", items)` call. Is this a code smell worth flagging?",
+      "options": [
+        { "id": "a", "text": "No — if the logic is correct, nothing else matters" },
+        { "id": "b", "text": "Yes — debug output left in shipped code pollutes logs and signals the code wasn't cleaned up" },
+        { "id": "c", "text": "No — console.log is always required for production debugging" },
+        { "id": "d", "text": "Only if the function also throws an error" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Code smells are about maintainability risk, not just correctness on the happy path. Leftover debug logging is a classic sign of incomplete cleanup."
+    },
+    {
+      "id": "q2",
+      "prompt": "Why is `var` considered a smell in modern JavaScript, even in code that currently works?",
+      "options": [
+        { "id": "a", "text": "`var` is slower than `let`/`const` at runtime" },
+        { "id": "b", "text": "`var` is function-scoped and hoisted, which can leak variables and enable rebinding bugs that `let`/`const` prevent" },
+        { "id": "c", "text": "`var` was removed from the language and no longer works" },
+        { "id": "d", "text": "`var` cannot hold numbers" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`var`'s function scoping and hoisting create surprises that `let`/`const` avoid via block scoping and the temporal dead zone."
+    },
+    {
+      "id": "q3",
+      "prompt": "What does a `// TODO: handle empty array` comment signal to a code reviewer?",
+      "options": [
+        { "id": "a", "text": "The author already handled every edge case perfectly" },
+        { "id": "b", "text": "The author is aware of a known gap that was left unresolved before this code was submitted" },
+        { "id": "c", "text": "TODOs are purely decorative and carry no information" },
+        { "id": "d", "text": "The function will throw an error immediately" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "A TODO comment documents a known, acknowledged gap — useful for tracking, but a smell if it's left in code being reviewed as \"done.\""
+    },
+    {
+      "id": "q4",
+      "prompt": "When flagging a code smell in review, what should accompany the flag?",
+      "options": [
+        { "id": "a", "text": "Nothing — just say \"this is bad\" and move on" },
+        { "id": "b", "text": "A one-sentence reason for what could go wrong later, not just a style preference" },
+        { "id": "c", "text": "A demand to rewrite the entire file from scratch" },
+        { "id": "d", "text": "A link to an unrelated style guide with no explanation" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Naming the concrete risk (e.g., \"empty array silently returns 0, which might be wrong\") is more persuasive and educational than a bare style objection."
+    },
+    {
+      "id": "q5",
+      "prompt": "A snippet has correct logic but includes `var`, a leftover `console.log`, and an unresolved `TODO`. How many maintainability smells does this contain?",
+      "options": [
+        { "id": "a", "text": "Zero — correct logic means no smells" },
+        { "id": "b", "text": "One — only the most severe issue counts" },
+        { "id": "c", "text": "Three — `var`, `console.log`, and `TODO` are each independent smells" },
+        { "id": "d", "text": "It's impossible to have more than one smell in the same function" }
+      ],
+      "correctOptionId": "c",
+      "explanation": "Each pattern is an independent maintainability risk; a snippet can have multiple smells simultaneously even if it runs correctly."
+    },
+    {
+      "id": "q6",
+      "prompt": "Which statement best captures the difference between a \"bug\" and a \"code smell\"?",
+      "options": [
+        { "id": "a", "text": "A bug means the code produces a wrong result now; a smell is a maintainability risk that may not affect correctness today" },
+        { "id": "b", "text": "They mean exactly the same thing" },
+        { "id": "c", "text": "A smell always means the tests will fail" },
+        { "id": "d", "text": "A bug is always caused by a code smell" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Code smells (leftover logs, TODOs, var) don't necessarily break the happy path — that's exactly why they're easy to miss and worth flagging anyway."
+    }
+  ]
+}

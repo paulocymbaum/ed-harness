@@ -15,6 +15,13 @@
       "expectedExitCode": 0
     },
     {
+      "id": "chain",
+      "name": "Chain snippet",
+      "stdin": "chain\n",
+      "expectedStdout": "Sync order: start middle end\n",
+      "expectedExitCode": 0
+    },
+    {
       "id": "unknown",
       "name": "Unknown snippet",
       "stdin": "unknown\n",

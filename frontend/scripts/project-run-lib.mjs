@@ -25,7 +25,7 @@ async function prepareRunnableScript({ projectDir, code }) {
   const usesDraft = typeof code === "string" && code.trim();
 
   if (usesDraft) {
-    const tempPath = path.join(os.tmpdir(), `hackerrank-study-run-${randomUUID()}.js`);
+    const tempPath = path.join(os.tmpdir(), `ed-harness-run-${randomUUID()}.js`);
     await fs.writeFile(tempPath, code, "utf8");
     return {
       scriptPath: path.resolve(tempPath),

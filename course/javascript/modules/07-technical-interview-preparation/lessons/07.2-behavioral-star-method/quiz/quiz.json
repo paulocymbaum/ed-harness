@@ -1,0 +1,81 @@
+{
+  "id": "quiz",
+  "title": "STAR Method Check",
+  "description": "Predict what a complete STAR answer needs and spot missing parts.",
+  "lessonId": "07.2-behavioral-star-method",
+  "graphIndex": "07.2",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What do the four letters in STAR stand for?",
+      "options": [
+        { "id": "a", "text": "Situation, Task, Action, Result" },
+        { "id": "b", "text": "Story, Time, Answer, Recap" },
+        { "id": "c", "text": "Setup, Test, Analyze, Report" },
+        { "id": "d", "text": "Situation, Team, Approach, Review" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "STAR = Situation (context), Task (your responsibility), Action (what you did), Result (the outcome)."
+    },
+    {
+      "id": "q2",
+      "prompt": "\"Our deploy pipeline kept failing. I looked into it and eventually it got fixed.\" Which STAR part is weakest in this answer?",
+      "options": [
+        { "id": "a", "text": "Situation — it lacks any context" },
+        { "id": "b", "text": "Action and Result — both are vague, with no specific steps or measurable outcome" },
+        { "id": "c", "text": "Nothing is missing; this is a complete STAR answer" },
+        { "id": "d", "text": "Task — the pipeline itself is the task" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "\"I looked into it\" doesn't say what was actually done (Action), and \"eventually it got fixed\" gives no measurable outcome (Result)."
+    },
+    {
+      "id": "q3",
+      "prompt": "Why should the Action step use \"I\" instead of \"we\"?",
+      "options": [
+        { "id": "a", "text": "Because teamwork should never be mentioned in interviews" },
+        { "id": "b", "text": "Because the interviewer wants to know your specific, individual contribution" },
+        { "id": "c", "text": "Because \"we\" is grammatically incorrect in behavioral answers" },
+        { "id": "d", "text": "It doesn't matter which pronoun is used" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "The interviewer is evaluating your individual impact. \"We\" can hide whether you personally did anything, so Action should be specific to your actions."
+    },
+    {
+      "id": "q4",
+      "prompt": "Which of these is the strongest Result statement?",
+      "options": [
+        { "id": "a", "text": "\"It worked out fine in the end.\"" },
+        { "id": "b", "text": "\"The failure rate dropped from 30% to under 2%, and releases returned to a daily cadence.\"" },
+        { "id": "c", "text": "\"Everyone was happy with the fix.\"" },
+        { "id": "d", "text": "\"I think it helped a lot.\"" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "A strong Result gives a measurable before/after (percentages, counts, cadence) rather than a vague feeling."
+    },
+    {
+      "id": "q5",
+      "prompt": "What role does the Task step play in a STAR answer?",
+      "options": [
+        { "id": "a", "text": "It restates the Situation in different words" },
+        { "id": "b", "text": "It clarifies what your specific responsibility or goal was in that situation" },
+        { "id": "c", "text": "It is optional and can always be skipped" },
+        { "id": "d", "text": "It describes the final measurable outcome" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Task answers \"what was I responsible for / trying to achieve\" — distinct from the context (Situation) and the steps taken (Action)."
+    },
+    {
+      "id": "q6",
+      "prompt": "A candidate says: \"There was a bug. I fixed it. Great.\" What is the biggest structural problem with this as a STAR answer?",
+      "options": [
+        { "id": "a", "text": "It is too long" },
+        { "id": "b", "text": "Every part (S, T, A, R) is too vague to show real context, responsibility, concrete steps, or measurable outcome" },
+        { "id": "c", "text": "It uses \"I\" too many times" },
+        { "id": "d", "text": "Nothing is wrong with it" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Each STAR letter needs enough concrete detail to answer its specific question; this answer is too compressed to show any of the four parts clearly."
+    }
+  ]
+}

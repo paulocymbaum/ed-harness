@@ -1,8 +1,11 @@
+import type { MockTestModule } from "./mockTest";
 import type { Quiz } from "./quiz";
 
 export type Catalog = {
   courses: Course[];
 };
+
+export type CourseKind = "course" | "mock-tests";
 
 export type Course = {
   id: string;
@@ -11,11 +14,14 @@ export type Course = {
   readmeMarkdown: string;
   /** Present for hierarchy courses (course/<slug>/modules/) */
   modules?: Module[];
+  /** Timed HackerRank-style tests (modules ending with `-mock`) */
+  mockTests?: MockTestModule[];
   lessons: Lesson[];
   projects: Project[];
   quizzes: Quiz[];
   /** `hierarchy` | `legacy` — omitted on older catalog entries */
   structure?: "hierarchy" | "legacy";
+  kind?: CourseKind;
 };
 
 export type Module = {
@@ -29,6 +35,8 @@ export type Module = {
   quizzes: Quiz[];
 };
 
+export type MockTestSectionKind = "instructions" | "quiz" | "coding";
+
 export type Lesson = {
   id: string;
   title: string;
@@ -36,6 +44,8 @@ export type Lesson = {
   markdown: string;
   moduleId?: string;
   graphIndex?: string;
+  /** Present on mock-test section lessons */
+  mockTestSection?: MockTestSectionKind;
 };
 
 export type ProjectEntry = {

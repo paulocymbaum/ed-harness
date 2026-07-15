@@ -4,7 +4,7 @@ import {
   mergeScoreFileIntoQuizProgress,
   type CourseScoreFile,
 } from "./quizScore";
-import { quizProgressKey } from "./quiz";
+import { lookupQuizProgressEntry, quizProgressKey } from "./quiz";
 
 describe("mergeScoreFileIntoQuizProgress", () => {
   const courseId = "javascript";
@@ -85,6 +85,85 @@ describe("mergeScoreFileIntoQuizProgress", () => {
     });
 
     expect(merged[key]?.bestScore).toBe(4);
+  });
+
+  it("reads study progress from hydrated `_` keys via lookup", () => {
+    const file: CourseScoreFile = {
+      ...baseFile,
+      quizzes: {
+        "01.1.1-running-javascript-node-js/quiz": {
+          quizId: "01.1.1-running-javascript-node-js/quiz",
+          bestScore: 4,
+          bestTotal: 5,
+          attempts: [{ score: 4, total: 5, completedAt: "2026-06-10T12:00:00.000Z" }],
+        },
+      },
+    };
+
+    const merged = mergeScoreFileIntoQuizProgress(courseId, file, {});
+    const progress = lookupQuizProgressEntry(
+      merged,
+      courseId,
+      "quiz",
+      "01.1.1-running-javascript-node-js",
+      "01-javascript-fundamentals",
+    );
+    expect(progress?.bestScore).toBe(4);
+  });
+
+  it("hydrates module-scoped mock quiz keys without colliding", () => {
+    const file: CourseScoreFile = {
+      ...baseFile,
+      quizzes: {
+        "01-javascript-fundamentals-mock/01.2-multiple-choice/quiz": {
+          quizId: "01-javascript-fundamentals-mock/01.2-multiple-choice/quiz",
+          bestScore: 8,
+          bestTotal: 8,
+          attempts: [{ score: 8, total: 8, completedAt: "2026-06-10T12:00:00.000Z" }],
+        },
+        "02-objects-references-and-copying-mock/01.2-multiple-choice/quiz": {
+          quizId: "02-objects-references-and-copying-mock/01.2-multiple-choice/quiz",
+          bestScore: 3,
+          bestTotal: 7,
+          attempts: [{ score: 3, total: 7, completedAt: "2026-06-10T12:00:00.000Z" }],
+        },
+      },
+    };
+
+    const merged = mergeScoreFileIntoQuizProgress(courseId, file, {});
+    const fundamentals = quizProgressKey(
+      courseId,
+      "quiz",
+      "01.2-multiple-choice",
+      "01-javascript-fundamentals-mock",
+    );
+    const objects = quizProgressKey(
+      courseId,
+      "quiz",
+      "01.2-multiple-choice",
+      "02-objects-references-and-copying-mock",
+    );
+
+    expect(merged[fundamentals]?.bestScore).toBe(8);
+    expect(merged[objects]?.bestScore).toBe(3);
+    expect(
+      lookupQuizProgressEntry(
+        merged,
+        courseId,
+        "quiz",
+        "01.2-multiple-choice",
+        "02-objects-references-and-copying-mock",
+      )?.bestScore,
+    ).toBe(3);
+    expect(
+      lookupQuizProgressEntry(
+        merged,
+        courseId,
+        "quiz",
+        "01.2-multiple-choice",
+        "03-asynchronous-javascript-mock",
+      ),
+    ).toBeUndefined();
   });
 });
 

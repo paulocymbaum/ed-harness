@@ -4,12 +4,12 @@
 API rate limiters and UI sliders need a `clamp` helper that forces a value into `[min, max]` without printing inside the function.
 
 ## Goal
+Implement `clamp(value, min, max)` with early returns, read three numbers from `stdin`, and print the clamped result.
+
 ## Lesson concepts practiced
 - [ ] Parameter count and order matter — document what each parameter means.
 - [ ] Use early `return` for invalid input instead of deep nesting.
 - [ ] Prefer returning values over printing inside helpers.
-
-Implement `clamp(value, min, max)` with early returns, read three numbers from `stdin`, and print the clamped result.
 
 ## Functional requirements
 - [ ] Implement `function clamp(value, min, max)` that **returns** a number (no `console.log` inside).

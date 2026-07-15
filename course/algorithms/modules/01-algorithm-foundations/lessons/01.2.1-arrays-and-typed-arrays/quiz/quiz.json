@@ -1,0 +1,57 @@
+{
+  "id": "quiz",
+  "title": "Arrays and Typed Arrays Check",
+  "description": "Recall array op costs and when TypedArray fits.",
+  "lessonId": "01.2.1-arrays-and-typed-arrays",
+  "graphIndex": "01.2.1",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "`arr.shift()` / `arr.unshift()` at the front are typically:",
+      "options": [
+        { "id": "a", "text": "Amortized `O(1)`" },
+        { "id": "b", "text": "`O(n)` because they reindex" },
+        { "id": "c", "text": "`O(log n)`" },
+        { "id": "d", "text": "`O(1)` like index access" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`shift` / `unshift` at the front are `O(n)` because they reindex. Prefer end operations or a better queue structure."
+    },
+    {
+      "id": "q2",
+      "prompt": "Expected cost of reading `arr[i]` on a dense array is:",
+      "options": [
+        { "id": "a", "text": "`O(n)`" },
+        { "id": "b", "text": "`O(1)`" },
+        { "id": "c", "text": "`O(n²)`" },
+        { "id": "d", "text": "`O(log n)`" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Read/write `arr[i]` is expected `O(1)` random access by index."
+    },
+    {
+      "id": "q3",
+      "prompt": "When should you prefer a `TypedArray` like `Uint8Array`?",
+      "options": [
+        { "id": "a", "text": "For mixed objects and everyday algorithm practice" },
+        { "id": "b", "text": "For fixed-width numeric buffers and binary / WASM data" },
+        { "id": "c", "text": "Whenever you need `push` and `pop`" },
+        { "id": "d", "text": "To avoid Big-O analysis" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Use `TypedArray` for fixed numeric width, views over `ArrayBuffer`, and binary / Web API / buffer work. Prefer plain `Array` for mixed values."
+    },
+    {
+      "id": "q4",
+      "prompt": "Spreading a typed array into a normal array (`[...typed]`) typically:",
+      "options": [
+        { "id": "a", "text": "Shares the same buffer with `O(1)` cost" },
+        { "id": "b", "text": "Copies — `O(n)` time and space" },
+        { "id": "c", "text": "Is forbidden by the language" },
+        { "id": "d", "text": "Changes the typed array’s fixed length" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Spreading a typed array into a normal array copies — `O(n)` time and space."
+    }
+  ]
+}

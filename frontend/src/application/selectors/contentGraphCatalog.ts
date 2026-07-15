@@ -3,26 +3,23 @@ import type { ContentGraphCatalogRef, ContentGraphNode } from "../../domain/type
 import { getLessonDisplayIndex } from "./lessonDisplay";
 import { isHierarchyCourse } from "./catalogSelectors";
 
+/** Index lessons for one course only. Keys are graphIndex (local to that course). */
 export function buildCatalogLessonIndex(
   courses: Course[],
-  preferCourseId?: string,
+  courseId: string,
 ): Map<string, ContentGraphCatalogRef> {
   const index = new Map<string, ContentGraphCatalogRef>();
 
   for (const course of courses) {
-    if (!isHierarchyCourse(course)) continue;
+    if (!isHierarchyCourse(course) || course.id !== courseId) continue;
     for (const mod of course.modules ?? []) {
       for (const lesson of mod.lessons) {
         const graphIndex = getLessonDisplayIndex(lesson);
-        const entry: ContentGraphCatalogRef = {
+        index.set(graphIndex, {
           courseId: course.id,
           moduleId: mod.id,
           lessonId: lesson.id,
-        };
-        const existing = index.get(graphIndex);
-        if (!existing || course.id === preferCourseId) {
-          index.set(graphIndex, entry);
-        }
+        });
       }
     }
   }

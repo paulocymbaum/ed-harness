@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "id": "n8",
+      "name": "n=8 three halvings",
+      "stdin": "8\n",
+      "expectedStdout": "levels=3\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "n16",
+      "name": "n=16 four halvings",
+      "stdin": "16\n",
+      "expectedStdout": "levels=4\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "n2",
+      "name": "n=2 one halving",
+      "stdin": "2\n",
+      "expectedStdout": "levels=1\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "bad",
+      "name": "Not power of two",
+      "stdin": "6\n",
+      "expectedStdout": "ERROR: need power of two\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

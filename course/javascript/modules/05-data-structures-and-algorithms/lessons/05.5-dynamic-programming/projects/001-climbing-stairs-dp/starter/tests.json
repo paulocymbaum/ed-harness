@@ -1,0 +1,39 @@
+{
+  "cases": [
+    {
+      "id": "n-zero",
+      "name": "n=0 has exactly one way (take no steps)",
+      "stdin": "0\n",
+      "expectedStdout": "1\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "n-one",
+      "name": "n=1 has exactly one way",
+      "stdin": "1\n",
+      "expectedStdout": "1\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "n-two",
+      "name": "n=2 has two ways (1+1 or 2)",
+      "stdin": "2\n",
+      "expectedStdout": "2\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "n-five",
+      "name": "n=5 has eight ways",
+      "stdin": "5\n",
+      "expectedStdout": "8\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "n-ten",
+      "name": "n=10 has eighty-nine ways",
+      "stdin": "10\n",
+      "expectedStdout": "89\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

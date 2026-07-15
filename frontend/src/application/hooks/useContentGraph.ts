@@ -4,31 +4,49 @@ import { staticContentGraphRepository } from "../../infrastructure/repositories/
 
 type Status = "idle" | "loading" | "ready" | "error";
 
-export function useContentGraph() {
+export function useContentGraph(courseId: string | null) {
   const [status, setStatus] = useState<Status>("idle");
   const [graph, setGraph] = useState<ContentGraph | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [courseSlugs, setCourseSlugs] = useState<string[]>([]);
 
-  const load = useCallback(async (force = false) => {
-    if (!force && (status === "loading" || status === "ready")) return;
+  const reload = useCallback(async () => {
+    if (!courseId) {
+      setGraph(null);
+      setError(null);
+      setStatus("ready");
+      return;
+    }
 
     setStatus("loading");
     setError(null);
     try {
-      const data = await staticContentGraphRepository.getContentGraph();
+      const [slugs, data] = await Promise.all([
+        staticContentGraphRepository.listCourseSlugs(),
+        staticContentGraphRepository.getContentGraph(courseId),
+      ]);
+      setCourseSlugs(slugs);
+      if (!data) {
+        setGraph(null);
+        setError(`No content graph for course "${courseId}"`);
+        setStatus("error");
+        return;
+      }
       setGraph(data);
       setStatus("ready");
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err));
       setStatus("error");
     }
-  }, [status]);
-
-  const reload = useCallback(() => load(true), [load]);
+  }, [courseId]);
 
   useEffect(() => {
-    void load();
-  }, [load]);
+    void staticContentGraphRepository.listCourseSlugs().then(setCourseSlugs);
+  }, []);
 
-  return { status, graph, error, reload };
+  useEffect(() => {
+    void reload();
+  }, [reload]);
+
+  return { status, graph, error, reload, courseSlugs };
 }

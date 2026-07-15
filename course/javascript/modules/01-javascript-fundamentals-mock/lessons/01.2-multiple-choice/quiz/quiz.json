@@ -1,0 +1,105 @@
+{
+  "id": "quiz",
+  "title": "Fundamentals Multiple Choice",
+  "description": "Types, operators, control flow, functions, and truthiness from module 01.",
+  "lessonId": "01.2-multiple-choice",
+  "graphIndex": "01.2",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What is the type of `typeof null` in JavaScript?",
+      "options": [
+        { "id": "a", "text": "`\"object\"`" },
+        { "id": "b", "text": "`\"null\"`" },
+        { "id": "c", "text": "`\"undefined\"`" },
+        { "id": "d", "text": "`\"number\"`" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "`typeof null` returns `\"object\"` — a long-standing language quirk. Use `value === null` for null checks."
+    },
+    {
+      "id": "q2",
+      "prompt": "What does `\"5\" + 2` evaluate to?",
+      "options": [
+        { "id": "a", "text": "`7`" },
+        { "id": "b", "text": "`\"52\"`" },
+        { "id": "c", "text": "`NaN`" },
+        { "id": "d", "text": "`\"7\"`" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "The `+` operator coerces the number to a string when one operand is a string, producing concatenation."
+    },
+    {
+      "id": "q3",
+      "prompt": "Which keyword declares a block-scoped variable that can be reassigned?",
+      "options": [
+        { "id": "a", "text": "`var`" },
+        { "id": "b", "text": "`let`" },
+        { "id": "c", "text": "`const`" },
+        { "id": "d", "text": "`static`" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`let` is block-scoped and reassignable. `const` is block-scoped but cannot be reassigned. `var` is function-scoped."
+    },
+    {
+      "id": "q4",
+      "prompt": "What prints when `x` is `0`?\n\n```js\nif (x) {\n  console.log(\"truthy\");\n} else {\n  console.log(\"falsy\");\n}\n```",
+      "options": [
+        { "id": "a", "text": "`truthy`" },
+        { "id": "b", "text": "`falsy`" },
+        { "id": "c", "text": "Nothing" },
+        { "id": "d", "text": "Throws an error" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`0` is falsy, so the `else` branch runs. Valid data like `0` can still be falsy — do not confuse falsy with invalid."
+    },
+    {
+      "id": "q5",
+      "prompt": "What is the result of `null == undefined`?",
+      "options": [
+        { "id": "a", "text": "`true`" },
+        { "id": "b", "text": "`false`" },
+        { "id": "c", "text": "`TypeError`" },
+        { "id": "d", "text": "`null`" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Loose equality (`==`) treats `null` and `undefined` as equal. Strict equality (`===`) would be `false`."
+    },
+    {
+      "id": "q6",
+      "prompt": "What is printed for `score = 89`?\n\n```js\nif (score >= 90) {\n  console.log(\"A\");\n} else if (score >= 80) {\n  console.log(\"B\");\n} else {\n  console.log(\"F\");\n}\n```",
+      "options": [
+        { "id": "a", "text": "`A`" },
+        { "id": "b", "text": "`B`" },
+        { "id": "c", "text": "`F`" },
+        { "id": "d", "text": "`A` and `B`" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "The first matching branch wins. `89 >= 90` is false, but `89 >= 80` is true, so `B` prints."
+    },
+    {
+      "id": "q7",
+      "prompt": "What is printed?\n\n```js\nconsole.log(true && false);\nconsole.log(true || false);\nconsole.log(!false);\n```",
+      "options": [
+        { "id": "a", "text": "`false`, `true`, `true`" },
+        { "id": "b", "text": "`true`, `true`, `false`" },
+        { "id": "c", "text": "`false`, `false`, `true`" },
+        { "id": "d", "text": "`false`, `true`, `false`" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "`&&` needs all operands true; `||` needs one true; `!` negates the boolean."
+    },
+    {
+      "id": "q8",
+      "prompt": "Which statement about function declarations is correct?",
+      "options": [
+        { "id": "a", "text": "A function can `return` a value to the caller without printing inside the function" },
+        { "id": "b", "text": "Functions must always use `console.log` to produce output" },
+        { "id": "c", "text": "Parameters are optional and JavaScript ignores extra arguments silently with no effect" },
+        { "id": "d", "text": "A `return` statement is required even when the function returns `undefined`" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Separate computation (`return`) from I/O (`console.log`). Callers decide how to display the returned value."
+    }
+  ]
+}

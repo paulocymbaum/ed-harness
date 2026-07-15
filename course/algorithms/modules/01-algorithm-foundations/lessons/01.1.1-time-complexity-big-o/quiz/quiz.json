@@ -1,0 +1,57 @@
+{
+  "id": "quiz",
+  "title": "Time Complexity Big-O Check",
+  "description": "Classify growth rates and dominant terms from the lesson.",
+  "lessonId": "01.1.1-time-complexity-big-o",
+  "graphIndex": "01.1.1",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Nested loops `for i in 0..n` and `for j in 0..n` with a tiny body are typically:",
+      "options": [
+        { "id": "a", "text": "`O(n)`" },
+        { "id": "b", "text": "`O(n²)`" },
+        { "id": "c", "text": "`O(log n)`" },
+        { "id": "d", "text": "`O(1)`" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Nested loops over `n` × `n` → `O(n²)`, even if the body is tiny. Big-O tracks growth of work with `n`."
+    },
+    {
+      "id": "q2",
+      "prompt": "Two sequential full passes over an array of length `n` are still classified as:",
+      "options": [
+        { "id": "a", "text": "`O(n²)` because there are two loops" },
+        { "id": "b", "text": "`O(2n)` which is a different class from `O(n)`" },
+        { "id": "c", "text": "`O(n)` — constants are dropped" },
+        { "id": "d", "text": "`O(1)` because each pass is separate" }
+      ],
+      "correctOptionId": "c",
+      "explanation": "Big-O ignores constants and lower-order terms: `2n` is still `O(n)`. Focus on the dominant term."
+    },
+    {
+      "id": "q3",
+      "prompt": "Halving the search space each step (binary search style) is typically:",
+      "options": [
+        { "id": "a", "text": "`O(n)`" },
+        { "id": "b", "text": "`O(n²)`" },
+        { "id": "c", "text": "`O(log n)`" },
+        { "id": "d", "text": "`O(n log n)`" }
+      ],
+      "correctOptionId": "c",
+      "explanation": "Halving `n` each step (binary search style) → `O(log n)`."
+    },
+    {
+      "id": "q4",
+      "prompt": "What does Big-O primarily describe?",
+      "options": [
+        { "id": "a", "text": "Absolute milliseconds on your laptop" },
+        { "id": "b", "text": "How runtime grows as input size `n` grows" },
+        { "id": "c", "text": "How much RAM the OS reserves at startup" },
+        { "id": "d", "text": "The number of comments in the function" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Big-O describes how runtime grows as input size `n` grows. It is about growth, not absolute milliseconds on your laptop."
+    }
+  ]
+}

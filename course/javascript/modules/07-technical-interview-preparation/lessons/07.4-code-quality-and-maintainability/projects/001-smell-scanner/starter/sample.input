@@ -1,0 +1,6 @@
+function total(items) {
+var sum = 0;
+console.log("debugging", items);
+// TODO: handle empty array
+return sum;
+}

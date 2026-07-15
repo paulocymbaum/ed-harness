@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "id": "mid",
+      "name": "Middle range",
+      "stdin": "2 4 1 3\n1 3\n",
+      "expectedStdout": "8\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "full",
+      "name": "Full array",
+      "stdin": "2 4 1 3\n0 3\n",
+      "expectedStdout": "10\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "one",
+      "name": "Single element",
+      "stdin": "2 4 1 3\n2 2\n",
+      "expectedStdout": "1\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "front",
+      "name": "Prefix start",
+      "stdin": "5 5 5\n0 1\n",
+      "expectedStdout": "10\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

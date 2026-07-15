@@ -2,14 +2,17 @@
  * Optional Field Describer
  *
  * Entrypoint: node starter/index.js
+ * Implement the behavior described in ../README.md
  */
 
 const readline = require("readline");
 
 function describeField(value) {
-  if (value === undefined) return "not provided";
-  if (value === null) return "explicitly empty";
-  return "has value: " + String(value);
+  // TODO:
+  // undefined → "not provided"
+  // null → "explicitly empty"
+  // else → "has value: " + String(value)
+  throw new Error("Not implemented");
 }
 
 function parseLine(line) {

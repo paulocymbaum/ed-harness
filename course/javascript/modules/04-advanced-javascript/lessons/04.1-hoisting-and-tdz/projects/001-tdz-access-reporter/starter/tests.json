@@ -1,0 +1,46 @@
+{
+  "cases": [
+    {
+      "id": "var-early",
+      "name": "var read before declaration is undefined",
+      "stdin": "var\nearly\n",
+      "expectedStdout": "undefined\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "let-early",
+      "name": "let read before declaration throws ReferenceError",
+      "stdin": "let\nearly\n",
+      "expectedStdout": "ReferenceError\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "const-early",
+      "name": "const read before declaration throws ReferenceError",
+      "stdin": "const\nearly\n",
+      "expectedStdout": "ReferenceError\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "var-after",
+      "name": "var read after declaration is ok",
+      "stdin": "var\nafter\n",
+      "expectedStdout": "ok\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "let-after",
+      "name": "let read after declaration is ok",
+      "stdin": "let\nafter\n",
+      "expectedStdout": "ok\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "const-after",
+      "name": "const read after declaration is ok",
+      "stdin": "const\nafter\n",
+      "expectedStdout": "ok\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

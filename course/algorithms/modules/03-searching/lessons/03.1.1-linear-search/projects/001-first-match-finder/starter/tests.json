@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "id": "first-dup",
+      "name": "First of duplicates",
+      "stdin": "4 9 2 9\n9\n",
+      "expectedStdout": "1\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "missing",
+      "name": "Missing target",
+      "stdin": "1 2 3\n9\n",
+      "expectedStdout": "-1\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "first",
+      "name": "Target at front",
+      "stdin": "7 1 2\n7\n",
+      "expectedStdout": "0\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "last",
+      "name": "Target at end",
+      "stdin": "1 2 8\n8\n",
+      "expectedStdout": "2\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

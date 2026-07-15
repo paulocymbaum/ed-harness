@@ -1,0 +1,39 @@
+{
+  "cases": [
+    {
+      "id": "arrays",
+      "name": "arrays keyword routes to Arrays track",
+      "stdin": "arrays\n",
+      "expectedStdout": "Arrays: traversal and manipulation\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "strings",
+      "name": "strings keyword routes to Strings track",
+      "stdin": "strings\n",
+      "expectedStdout": "Strings: parsing and building\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "warmup",
+      "name": "warmup keyword routes to Warmup track",
+      "stdin": "warmup\n",
+      "expectedStdout": "Warmup: build momentum first\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "other",
+      "name": "explicit other keyword falls into general track",
+      "stdin": "other\n",
+      "expectedStdout": "General: mixed topic practice\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "unrecognized",
+      "name": "unrecognized keyword falls into general track",
+      "stdin": "dp\n",
+      "expectedStdout": "General: mixed topic practice\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

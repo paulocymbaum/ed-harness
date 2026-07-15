@@ -1,0 +1,105 @@
+{
+  "id": "quiz",
+  "title": "Heap Sort Check",
+  "description": "Heap indices, complexity, and tradeoffs.",
+  "lessonId": "02.2.3-heap-sort",
+  "graphIndex": "02.2.3",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "In a 0-based heap, children of index `1` are:",
+      "options": [
+        {
+          "id": "a",
+          "text": "2 and 3"
+        },
+        {
+          "id": "b",
+          "text": "3 and 4"
+        },
+        {
+          "id": "c",
+          "text": "1 and 2"
+        },
+        {
+          "id": "d",
+          "text": "0 and 2"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`2*1+1=3`, `2*1+2=4`."
+    },
+    {
+      "id": "q2",
+      "prompt": "Heap sort time guarantee is:",
+      "options": [
+        {
+          "id": "a",
+          "text": "`O(n)`"
+        },
+        {
+          "id": "b",
+          "text": "`O(n log n)`"
+        },
+        {
+          "id": "c",
+          "text": "`O(n²)` worst"
+        },
+        {
+          "id": "d",
+          "text": "`O(log n)`"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Build + n extract-max steps → `n log n`."
+    },
+    {
+      "id": "q3",
+      "prompt": "Compared with merge sort, heap sort typically uses:",
+      "options": [
+        {
+          "id": "a",
+          "text": "More `Θ(n)` auxiliary array space"
+        },
+        {
+          "id": "b",
+          "text": "`O(1)` extra array space (in-place heap)"
+        },
+        {
+          "id": "c",
+          "text": "No comparisons"
+        },
+        {
+          "id": "d",
+          "text": "Only `O(1)` time"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Heap sort is valued for in-place `n log n` sorting."
+    },
+    {
+      "id": "q4",
+      "prompt": "Heap sort stability is:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Stable"
+        },
+        {
+          "id": "b",
+          "text": "Not stable"
+        },
+        {
+          "id": "c",
+          "text": "Stable only for max-heaps"
+        },
+        {
+          "id": "d",
+          "text": "Stable only for min-heaps"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Heap operations reorder equal keys freely."
+    }
+  ]
+}

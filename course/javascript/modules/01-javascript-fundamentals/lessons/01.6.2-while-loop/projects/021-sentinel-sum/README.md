@@ -4,12 +4,12 @@
 A telemetry collector reads numeric samples until it receives a sentinel value `0`. The running total must use a `while` loop because the count is not known upfront.
 
 ## Goal
+Read integers one per line until `0`, sum all prior values, and print the total.
+
 ## Lesson concepts practiced
 - [ ] If the condition starts false, the body never runs (
 - [ ] Apply concepts from while Loop
 - [ ] Match acceptance criteria to lesson examples
-
-Read integers one per line until `0`, sum all prior values, and print the total.
 
 ## Functional requirements
 - [ ] Read lines until a line parses to integer `0`.

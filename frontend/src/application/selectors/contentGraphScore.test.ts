@@ -70,8 +70,8 @@ const sectionNode: ContentGraphNode = {
 describe("buildContentGraphScores", () => {
   it("computes lesson score from progress stores snapshot", () => {
     const scores = buildContentGraphScores(sectionNode, [mockCourse], {
-      quizByKey: { "javascript:quiz:01.1.1-lesson:quiz-1": { bestScore: 1 } },
-      projectByKey: { "javascript:project:01.1.1-lesson:001-project": { status: "done" } },
+      quizByKey: { "javascript:quiz:_:01.1.1-lesson:quiz-1": { bestScore: 1 } },
+      projectByKey: { "javascript:project:_:01.1.1-lesson:001-project": { status: "done" } },
     });
 
     const lessonScore = scores.get("lesson-1");

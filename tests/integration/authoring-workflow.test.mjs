@@ -17,7 +17,11 @@ test("authoring workflow: scaffold → explain → project → content-map", asy
     rmSync(lessonPath, { recursive: true, force: true });
   }
 
-  execFileSync("node", [path.join(repoRoot, "scripts/graph/scaffold-from-graph.mjs"), "01.8.4"], { cwd: repoRoot });
+  execFileSync(
+    "node",
+    [path.join(repoRoot, "scripts/graph/scaffold-from-graph.mjs"), "--course", "javascript", "01.8.4"],
+    { cwd: repoRoot },
+  );
   assert.ok(existsSync(metaPath));
 
   execFileSync("node", [
@@ -39,7 +43,9 @@ test("authoring workflow: scaffold → explain → project → content-map", asy
   assert.ok(existsSync(path.join(lessonPath, "projects/001-type-inspector/README.md")));
 
   const map = await generateContentMap({ repoRoot });
-  assert.ok(map.entries.some((e) => e.graphIndex === "01.8.4" && e.status === "exists"));
+  assert.ok(
+    map.courses.javascript.entries.some((e) => e.graphIndex === "01.8.4" && e.status === "exists"),
+  );
 
   rmSync(lessonPath, { recursive: true, force: true });
 });

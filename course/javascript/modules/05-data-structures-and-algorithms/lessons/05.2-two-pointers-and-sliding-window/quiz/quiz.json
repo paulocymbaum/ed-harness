@@ -1,0 +1,81 @@
+{
+  "id": "quiz",
+  "title": "Two Pointers and Sliding Window Check",
+  "description": "Predict pointer movement and complexity for two-pointer and sliding-window patterns.",
+  "lessonId": "05.2-two-pointers-and-sliding-window",
+  "graphIndex": "05.2",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "In the two-pointer `twoSum` on a sorted array, if `sortedArr[left] + sortedArr[right] < target`, what should happen next?",
+      "options": [
+        { "id": "a", "text": "Move `left` one step right (increase the sum)" },
+        { "id": "b", "text": "Move `right` one step left (decrease the sum)" },
+        { "id": "c", "text": "Move both pointers to the middle" },
+        { "id": "d", "text": "Restart from the beginning" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "If the sum is too small, you need a bigger value; moving `left` right on a sorted array increases the sum."
+    },
+    {
+      "id": "q2",
+      "prompt": "Why does the sorted two-pointer approach run in `O(n)` instead of `O(n^2)`?",
+      "options": [
+        { "id": "a", "text": "Because it uses recursion instead of loops" },
+        { "id": "b", "text": "Because each pointer moves at most `n` times total, instead of re-checking every pair" },
+        { "id": "c", "text": "Because it sorts the array first, which is free" },
+        { "id": "d", "text": "Because JavaScript arrays are hash maps internally" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Each pointer only moves forward (or backward) and never revisits a position, bounding total pointer movement to `O(n)` instead of checking all `n^2` pairs."
+    },
+    {
+      "id": "q3",
+      "prompt": "In the sliding window for longest unique substring, when do you shrink the window from the left?",
+      "options": [
+        { "id": "a", "text": "Every single iteration, regardless of content" },
+        { "id": "b", "text": "When the character at `right` is already in the current window" },
+        { "id": "c", "text": "Only when the window reaches the end of the string" },
+        { "id": "d", "text": "Never — the window only grows" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "The window shrinks from the left only when a duplicate character is found, removing characters until the duplicate is gone."
+    },
+    {
+      "id": "q4",
+      "prompt": "Why is it safe to shrink the sliding window from the left without missing a better answer?",
+      "options": [
+        { "id": "a", "text": "Because the window is always sorted" },
+        { "id": "b", "text": "Because any smaller window contained in the current one was already considered as `best` was updated" },
+        { "id": "c", "text": "Because JavaScript strings are immutable" },
+        { "id": "d", "text": "It is not safe — this is a bug in the pattern" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "As `right` advances, `best` is updated on every valid window, so shrinking from the left never discards an answer better than what has already been recorded."
+    },
+    {
+      "id": "q5",
+      "prompt": "Two pointers moving from each end toward the middle is most directly applicable when the array is:",
+      "options": [
+        { "id": "a", "text": "Unsorted and contains duplicates" },
+        { "id": "b", "text": "Sorted, so comparing the sum to the target tells you which pointer to move" },
+        { "id": "c", "text": "A linked list, not an array" },
+        { "id": "d", "text": "Guaranteed to have no valid answer" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "The sorted order is what makes the pointer decision (move left vs. move right) correct — without it, moving a pointer could skip the answer."
+    },
+    {
+      "id": "q6",
+      "prompt": "What is the overall time complexity of the sliding window `longestUnique` function?",
+      "options": [
+        { "id": "a", "text": "`O(n^2)`, because of the inner `while`" },
+        { "id": "b", "text": "`O(n)`, because `left` and `right` together make at most `2n` moves" },
+        { "id": "c", "text": "`O(log n)`" },
+        { "id": "d", "text": "`O(1)`" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Even though there's a nested `while`, `left` can only advance up to `n` times total across the whole run, so the combined work is still `O(n)`."
+    }
+  ]
+}

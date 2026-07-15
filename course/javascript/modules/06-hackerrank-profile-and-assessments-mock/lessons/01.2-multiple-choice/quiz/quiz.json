@@ -1,0 +1,105 @@
+{
+  "id": "quiz",
+  "title": "HackerRank Profile and Assessments Multiple Choice",
+  "description": "Problem-Solving Score, certifications, badges, rank, IPK, OA pacing, and edge-case handling from module 06.",
+  "lessonId": "01.2-multiple-choice",
+  "graphIndex": "01.2",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "A profile's Problem-Solving Score grows to 82. What does that number tell you about the same profile's SQL score?",
+      "options": [
+        { "id": "a", "text": "SQL score must also be high, since HackerRank scores are shared across domains" },
+        { "id": "b", "text": "Nothing — each domain (Problem Solving, SQL, JavaScript, ...) accumulates its own score separately" },
+        { "id": "c", "text": "SQL score is automatically set to zero once another domain passes 80" },
+        { "id": "d", "text": "The two scores are always within 10 points of each other" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Score accumulates per domain, not as one global number — a strong Problem Solving score says nothing about SQL or any other domain."
+    },
+    {
+      "id": "q2",
+      "prompt": "A candidate fails a Skill Certification attempt on their first try, then passes on the second attempt. What shows on the public profile?",
+      "options": [
+        { "id": "a", "text": "Two badges — one for each attempt" },
+        { "id": "b", "text": "No badge, because the first attempt failed" },
+        { "id": "c", "text": "One badge, from the passed attempt only" },
+        { "id": "d", "text": "A partial-credit badge reflecting the average of both attempts" }
+      ],
+      "correctOptionId": "c",
+      "explanation": "Certifications are pass/fail as a whole. Only a passed attempt produces a visible certificate badge; a failed attempt simply doesn't add one."
+    },
+    {
+      "id": "q3",
+      "prompt": "A skill badge shows progress `19/20` for its current tier. What is true about this badge right now?",
+      "options": [
+        { "id": "a", "text": "It is `complete`, since 19 is close enough to 20" },
+        { "id": "b", "text": "It is `in-progress`, because `earned` (19) has not reached `total` (20) yet" },
+        { "id": "c", "text": "It has `failed`, like a certification attempt would" },
+        { "id": "d", "text": "It resets to `0/20` because it is so close to completion" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "A badge tier is `complete` only when `earned` equals `total`. Any value strictly less than `total`, even `19/20`, is still `in-progress` — there is no failure state for badges."
+    },
+    {
+      "id": "q4",
+      "prompt": "Two profiles show global ranks `100` and `101`. Using the tiers `rank <= 100 -> top-100`, `rank <= 1000 -> top-1000`, else `open`, which tiers do they land in?",
+      "options": [
+        { "id": "a", "text": "Both `top-100`, since 100 and 101 are nearly identical" },
+        { "id": "b", "text": "Rank `100` is `top-100`; rank `101` is `top-1000`" },
+        { "id": "c", "text": "Both `top-1000`, because the boundary is exclusive" },
+        { "id": "d", "text": "Rank `100` is `top-1000`; rank `101` is `open`" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "The `top-100` boundary is inclusive at `100`, so rank `100` still qualifies; rank `101` falls just past it into `top-1000`."
+    },
+    {
+      "id": "q5",
+      "prompt": "You know you are weak on array manipulation but strong on strings. What is the most efficient way to use the Interview Preparation Kit (IPK)?",
+      "options": [
+        { "id": "a", "text": "Work through the kit strictly top-to-bottom regardless of topic" },
+        { "id": "b", "text": "Only solve `Warmup` problems, since they build momentum for everything else" },
+        { "id": "c", "text": "Route directly into the `Arrays` topic track to target the known weak spot" },
+        { "id": "d", "text": "Skip IPK entirely and rely on random practice challenges instead" }
+      ],
+      "correctOptionId": "c",
+      "explanation": "IPK is organized topic-first specifically so you can route into the track that targets a known gap, instead of grinding topics you're already strong in."
+    },
+    {
+      "id": "q6",
+      "prompt": "You are 16 minutes from the end of a 90-minute Online Assessment (OA) with two unstarted questions. Using thresholds `< 15 min -> rush`, `< 45 min -> pace`, `>= 45 min -> plan`, what mode applies, and what does it suggest?",
+      "options": [
+        { "id": "a", "text": "`plan` mode — there's still plenty of time to read every question fully first" },
+        { "id": "b", "text": "`pace` mode — keep moving steadily rather than starting a risky new approach" },
+        { "id": "c", "text": "`rush` mode — abandon the current question immediately" },
+        { "id": "d", "text": "The mode does not matter since OAs allow pausing the timer" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "16 minutes is still `>= 15`, so it's `pace`, not `rush`. That suggests staying steady rather than gambling on a fresh approach this late, while OAs are typically single-window and non-pausable."
+    },
+    {
+      "id": "q7",
+      "prompt": "An Implementation-tagged problem states five separate rules. A candidate's solution passes the general case but loses points on hidden tests. What is the most likely cause, based on why Implementation problems lose points?",
+      "options": [
+        { "id": "a", "text": "The candidate picked an algorithm with the wrong time complexity" },
+        { "id": "b", "text": "The candidate missed one of the spec's explicit rules, not the overall algorithm idea" },
+        { "id": "c", "text": "Implementation problems cannot be scored with hidden test cases" },
+        { "id": "d", "text": "The language runtime silently changed the expected output format" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Most points lost on Implementation problems come from missing a rule the spec explicitly lists, not from choosing the wrong algorithm — a checklist mindset catches this before submitting."
+    },
+    {
+      "id": "q8",
+      "prompt": "Before submitting a solution, which four edge-case categories should a quick pre-submission checklist cover?",
+      "options": [
+        { "id": "a", "text": "Fast, slow, cached, uncached" },
+        { "id": "b", "text": "Empty, zero, negative, single-element input" },
+        { "id": "c", "text": "First run, second run, retry, timeout" },
+        { "id": "d", "text": "Uppercase, lowercase, mixed case, empty string only" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "HackerRank grades per test case, and hidden cases usually probe empty input, a zero value, a negative value, or a single-element input where general-case logic quietly breaks."
+    }
+  ]
+}

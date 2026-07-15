@@ -1,0 +1,39 @@
+{
+  "cases": [
+    {
+      "id": "merge",
+      "name": "Merge stable",
+      "stdin": "merge\n",
+      "expectedStdout": "STABLE\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "quick",
+      "name": "Quick unstable",
+      "stdin": "quick\n",
+      "expectedStdout": "UNSTABLE\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "insertion",
+      "name": "Insertion stable",
+      "stdin": "insertion\n",
+      "expectedStdout": "STABLE\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "heap",
+      "name": "Heap unstable",
+      "stdin": "heap\n",
+      "expectedStdout": "UNSTABLE\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "unknown",
+      "name": "Unknown id",
+      "stdin": "bogosort\n",
+      "expectedStdout": "ERROR: unknown algorithm\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

@@ -2,7 +2,7 @@ import type { TranslationDictionary } from "./en";
 import { en } from "./en";
 
 export const pt: TranslationDictionary = {
-  "app.title": "Hackerrank Study",
+  "app.title": "EdHarness",
 
   "nav.catalog": "Catálogo",
   "nav.skipToContent": "Ir para o conteúdo",
@@ -61,6 +61,25 @@ export const pt: TranslationDictionary = {
   "catalog.quizzes": "{count} quizzes",
   "catalog.overallProgress": "Progresso geral do catálogo",
 
+  "dashboard.streak": "Sequência",
+  "dashboard.streakDay": "{count} dia",
+  "dashboard.streakDays": "{count} dias",
+  "dashboard.streakHint": "Estude todos os dias para aumentar sua sequência.",
+  "dashboard.streakEmpty.title": "Nenhuma sequência ainda",
+  "dashboard.streakEmpty.description": "Conclua um quiz ou trabalhe em um projeto hoje para começar.",
+  "dashboard.activity": "Atividade",
+  "dashboard.averagePerWeek": "{avg} pts / semana em média",
+  "dashboard.weekPoints": "{points} pts",
+  "dashboard.activityEmpty.title": "Nenhuma atividade recente",
+  "dashboard.activityEmpty.description": "Ganhe pontos de quiz ou projeto nesta semana para preencher o medidor.",
+  "dashboard.pendingProjects": "Projetos pendentes recentes",
+  "dashboard.pendingEmpty.title": "Nenhum projeto pendente",
+  "dashboard.pendingEmpty.description": "Você está em dia — abra um curso quando quiser o próximo.",
+  "dashboard.projectDoing": "Em andamento",
+  "dashboard.projectPending": "Pendente",
+  "dashboard.openProject": "Abrir projeto",
+  "dashboard.ariaLabel": "Painel do aprendiz",
+
   "course.backToCatalog": "Voltar ao catálogo",
   "course.back": "Voltar",
   "course.loading": "Carregando curso…",
@@ -74,6 +93,27 @@ export const pt: TranslationDictionary = {
   "course.moduleLessons": "{lessons} lições · {projects} projetos",
   "course.lessonQuizSuffix": " · {count} quizzes",
   "course.moduleQuizSuffix": " · {count} quiz do módulo",
+  "course.modulesHeading": "Módulos",
+  "course.mockTestsHeading": "Simulados",
+  "course.mockTestMeta": "{minutes} min · aprovação {percent}% · {sections} seções",
+  "course.emptyContent": "Nenhum módulo ou simulado neste curso ainda.",
+
+  "mockTest.loading": "Carregando simulado…",
+  "mockTest.notFound": "Simulado não encontrado",
+  "mockTest.sectionNotFound": "Seção não encontrada",
+  "mockTest.subtitle": "Avaliação cronometrada estilo HackerRank",
+  "mockTest.duration": "{minutes} minutos",
+  "mockTest.passingScore": "Aprovação: {percent}%",
+  "mockTest.sections": "Seções",
+  "mockTest.sectionsNav": "Seções do teste",
+  "mockTest.start": "Iniciar teste",
+  "mockTest.section.instructions": "Instruções",
+  "mockTest.section.quiz": "Múltipla escolha",
+  "mockTest.section.coding": "Desafio de código",
+  "mockTest.finalScore": "Nota final",
+  "mockTest.finalScorePassed": "Aprovado ({percent}%+)",
+  "mockTest.finalScoreBelowPass": "Abaixo da nota ({percent}%)",
+  "mockTest.finalScoreAria": "Nota final do simulado: {percent}%",
 
   "module.loading": "Carregando módulo…",
   "module.contextMeta": "Contexto do módulo",
@@ -212,6 +252,28 @@ export const pt: TranslationDictionary = {
   "error.quizNotFound": "Quiz não encontrado.",
   "error.projectNotFound": "Projeto não encontrado.",
   "error.loadCatalogDetailed": "Falha ao carregar o catálogo do curso.",
+
+  "tour.progress": "Passo {current} de {total}",
+  "tour.next": "Próximo",
+  "tour.back": "Voltar",
+  "tour.skip": "Pular tour",
+  "tour.done": "Começar a estudar",
+  "tour.welcome.title": "Esta é a UI real de estudo",
+  "tour.welcome.body":
+    "Você está no próprio EdHarness — catálogo, progresso e lições rodam localmente neste app.",
+  "tour.locale.title": "Idioma de estudo",
+  "tour.locale.body":
+    "Troque o idioma da interface a qualquer momento. Chegando da landing, o idioma escolhido já é aplicado.",
+  "tour.pomodoro.title": "Timer de foco",
+  "tour.pomodoro.body": "Inicie um Pomodoro quando quiser foco estruturado enquanto estuda.",
+  "tour.theme.title": "Claro ou escuro",
+  "tour.theme.body": "Escolher um tema confortável ajuda em sessões longas.",
+  "tour.tabs.title": "Cursos e mapa de conteúdo",
+  "tour.tabs.body": "Navegue pela lista de cursos ou abra o mapa em grafo do currículo.",
+  "tour.dashboard.title": "Painel do aprendiz",
+  "tour.dashboard.body": "Sequência e atividade semanal ficam visíveis para a prática diária crescer.",
+  "tour.courses.title": "Abra um curso",
+  "tour.courses.body": "Escolha um card para entrar em módulos, lições, quizzes e projetos.",
 };
 
 export const ptWithFallback: TranslationDictionary = { ...en, ...pt };

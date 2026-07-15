@@ -4,7 +4,7 @@ export function Container(props: { children: ReactNode; className?: string }) {
   return (
     <div
       className={[
-        "mx-auto w-full max-w-[1024px] px-4 sm:px-6 lg:px-8",
+        "mx-auto w-full max-w-[1280px] 2xl:max-w-[1536px] px-4 sm:px-6 lg:px-8",
         props.className,
       ]
         .filter(Boolean)

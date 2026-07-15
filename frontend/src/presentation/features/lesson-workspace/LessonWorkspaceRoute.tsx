@@ -30,6 +30,7 @@ export function LessonWorkspaceRoute() {
   useQuizSessionFromUrl({
     quizId: activeQuizId,
     lessonId,
+    moduleId,
     enabled: drawerMode === "quiz" && Boolean(activeQuizId),
   });
 

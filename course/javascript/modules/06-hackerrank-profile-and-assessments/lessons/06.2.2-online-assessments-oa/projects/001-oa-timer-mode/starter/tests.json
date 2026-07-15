@@ -1,0 +1,46 @@
+{
+  "cases": [
+    {
+      "id": "minutes-5",
+      "name": "5 minutes remaining is rush",
+      "stdin": "5\n",
+      "expectedStdout": "rush\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "minutes-14",
+      "name": "14 minutes remaining is rush",
+      "stdin": "14\n",
+      "expectedStdout": "rush\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "minutes-15",
+      "name": "15 minutes remaining is pace",
+      "stdin": "15\n",
+      "expectedStdout": "pace\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "minutes-44",
+      "name": "44 minutes remaining is pace",
+      "stdin": "44\n",
+      "expectedStdout": "pace\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "minutes-45",
+      "name": "45 minutes remaining is plan",
+      "stdin": "45\n",
+      "expectedStdout": "plan\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "minutes-80",
+      "name": "80 minutes remaining is plan",
+      "stdin": "80\n",
+      "expectedStdout": "plan\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

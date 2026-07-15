@@ -1,0 +1,69 @@
+{
+  "id": "quiz",
+  "title": "Certifications Check",
+  "description": "Predict how a certification attempt outcome maps to what shows up on a profile.",
+  "lessonId": "06.1.2-certifications",
+  "graphIndex": "06.1.2",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "How is a HackerRank Skill Certification attempt graded?",
+      "options": [
+        { "id": "a", "text": "As a percentage score shown publicly on the profile" },
+        { "id": "b", "text": "As a binary pass/fail outcome for the whole attempt" },
+        { "id": "c", "text": "By peer review after submission" },
+        { "id": "d", "text": "By the number of certifications already earned" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "A certification attempt has one outcome: pass or fail as a whole, based on a minimum threshold."
+    },
+    {
+      "id": "q2",
+      "prompt": "What does the public profile show after a failed certification attempt?",
+      "options": [
+        { "id": "a", "text": "A partial-credit badge" },
+        { "id": "b", "text": "Nothing new — only passed attempts become visible badges" },
+        { "id": "c", "text": "A red \"failed\" badge" },
+        { "id": "d", "text": "The exact score obtained" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Failed attempts aren't displayed publicly; only a passed attempt produces a certificate badge."
+    },
+    {
+      "id": "q3",
+      "prompt": "Why is a certification considered a stronger signal than a self-reported skill?",
+      "options": [
+        { "id": "a", "text": "It's timed and proctored, making it harder to fake" },
+        { "id": "b", "text": "It contributes directly to the Problem-Solving Score" },
+        { "id": "c", "text": "It's automatically renewed every year" },
+        { "id": "d", "text": "It replaces the need for practice challenges" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "The timed, proctored conditions make a passed certification a verified claim rather than a self-reported one."
+    },
+    {
+      "id": "q4",
+      "prompt": "A candidate re-attempts a certification after failing once, and passes the second time. What shows on the profile?",
+      "options": [
+        { "id": "a", "text": "Two badges, one marked failed and one passed" },
+        { "id": "b", "text": "One badge, from the passed attempt" },
+        { "id": "c", "text": "No badge, because one attempt failed" },
+        { "id": "d", "text": "A badge only after a third attempt" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Only the passed outcome produces a badge; the earlier failed attempt leaves no public trace."
+    },
+    {
+      "id": "q5",
+      "prompt": "Does passing a JavaScript certification change a profile's SQL score?",
+      "options": [
+        { "id": "a", "text": "Yes, certifications add points to every related domain score" },
+        { "id": "b", "text": "No, certifications and domain practice scores are independent" },
+        { "id": "c", "text": "Only if the SQL score is already above intermediate" },
+        { "id": "d", "text": "Yes, but only for Advanced-level certifications" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Certifications are a separate signal from domain practice scores — passing one doesn't move the other."
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "id": "example",
+      "name": "Full array min at 3",
+      "stdin": "0\n4\n4 2 5 1\n",
+      "expectedStdout": "3\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "suffix",
+      "name": "Suffix from 1",
+      "stdin": "1\n4\n1 4 2 5\n",
+      "expectedStdout": "2\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "ties",
+      "name": "Leftmost among values",
+      "stdin": "0\n3\n2 2 1\n",
+      "expectedStdout": "2\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "last",
+      "name": "Start at last index",
+      "stdin": "2\n3\n9 8 7\n",
+      "expectedStdout": "2\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

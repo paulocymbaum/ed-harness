@@ -1,0 +1,9 @@
+{
+  "createdBy": "cursor-tool",
+  "tool": "scripts/graph/scaffold-from-graph.mjs",
+  "createdAt": "2026-07-13T17:22:58.006Z",
+  "kind": "lesson",
+  "lessonId": "04.1-hoisting-and-tdz",
+  "moduleId": "04-advanced-javascript",
+  "graphIndex": "04.1"
+}

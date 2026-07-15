@@ -1,5 +1,5 @@
 ---
-description: Course > Module > Lesson hierarchy contract for Hackerrank Study content authoring
+description: Course > Module > Lesson hierarchy contract for EdHarness content authoring
 globs:
   - course/**
   - graph/**
@@ -14,26 +14,45 @@ globs:
 
 ```
 Course > Module > Lesson > (explanation, projects, quiz)
+Course > MockTestModule (-mock) > Section-lessons > (instructions | quiz | coding)
 ```
 
 - **Course** — one folder per graph root (`course/javascript/`)
-- **Module** — graph section `01`–`07` (`modules/01-javascript-fundamentals/`)
-- **Lesson** — graph leaf node (`lessons/01.8.1-truthy-vs-falsy/`)
+- **Study module** — graph section `01`–`07` (`modules/01-javascript-fundamentals/`)
+- **Study lesson** — graph leaf node (`lessons/01.8.1-truthy-vs-falsy/`)
+- **Mock test module** — sibling folder ending in `-mock` (`modules/01-javascript-fundamentals-mock/`)
+- **Mock section lesson** — fixed trio: `01.1-test-instructions`, `01.2-multiple-choice`, `01.3-coding-challenge`
+
+Mock tests belong **inside the parent course**, not as a separate catalog course. The generator splits them into `course.mockTests[]` vs `course.modules[]`.
 
 ## Rules
 
-1. Always consult `graph/course.graph.txt` (via `find-topics-graph` skill) before creating content.
-2. Every `*.meta.json` must include a valid `graphIndex` matching a node in the graph.
+1. Always consult `graph/courses/<slug>.graph.txt` (via `find-topics-graph` with `--course`) before creating **study** content.
+2. Every study `*.meta.json` must include a valid `graphIndex` matching a node in the graph.
 3. Content scope is limited to the graph node — do not invent topics outside it.
 4. Lesson explanation lives in `lessons/<id>/README.md` (predict-first format).
-5. Projects and quizzes belong to the lesson, not the module.
-6. Use `scaffold-from-graph.mjs` to create folders deterministically.
-7. Never write content without `.cursor-created.json` marker in the target folder.
+5. Projects and quizzes belong to the lesson, not the module (except optional module-level `quiz/`).
+6. Mock test modules require `mock-test.meta.json` and `mockTestSection` on each section lesson.
+7. Mock test module ids **must** end with `-mock`.
+8. Use `scaffold-from-graph.mjs` to create study folders deterministically; use `create-mock-test` skill for simulados.
+9. Never write content without `.cursor-created.json` marker in the target folder.
 
 ## Authoring workflow
+
+### Study content
 
 1. Find topic in graph (`find-node-by-index.js` or BFS)
 2. Scaffold (`scaffold-from-graph.mjs`)
 3. Write explanation (`add-explanation.js`)
 4. Add projects (`add-project-idea.js`) and quiz (`create-course-quiz` skill)
 5. Validate (`validate-lesson.mjs`) and regenerate catalog (`catalog:generate`)
+
+### Mock tests
+
+1. Scaffold under `course/<course>/modules/<NN>-<topic>-mock/` (`create-mock-test` skill)
+2. Fill instructions, `quiz/quiz.json`, and coding `projects/…/starter/tests.json`
+3. Validate quiz + project; regenerate catalog (`catalog:generate`)
+
+HackerRank alignment (shape vs intentional differences): [`.cursor/skills/create-mock-test/reference.md`](../../.cursor/skills/create-mock-test/reference.md#hackerrank-alignment)
+
+Full contract: [`COURSE_STRUCTURE.md`](../../COURSE_STRUCTURE.md)

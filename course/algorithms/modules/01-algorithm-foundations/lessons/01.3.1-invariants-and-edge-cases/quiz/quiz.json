@@ -1,0 +1,57 @@
+{
+  "id": "quiz",
+  "title": "Invariants and Edge Cases Check",
+  "description": "Spot empty-input bugs and invariant thinking.",
+  "lessonId": "01.3.1-invariants-and-edge-cases",
+  "graphIndex": "01.3.1",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What’s wrong with `let m = arr[0]` max on some inputs?",
+      "options": [
+        { "id": "a", "text": "It is always `O(n²)`" },
+        { "id": "b", "text": "Empty array makes `arr[0]` undefined and the loop may not run" },
+        { "id": "c", "text": "It cannot handle positive numbers" },
+        { "id": "d", "text": "Comparators are required for max" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Empty input is the common silent bug: `arr[0]` is `undefined`; loops may not run. Guard empty before assuming a first element."
+    },
+    {
+      "id": "q2",
+      "prompt": "A loop invariant should be:",
+      "options": [
+        { "id": "a", "text": "True only before the first iteration" },
+        { "id": "b", "text": "A fact that stays true as the loop runs (checkable after iterations)" },
+        { "id": "c", "text": "Identical to the function’s return type" },
+        { "id": "d", "text": "Optional documentation with no relation to correctness" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Invariants are facts that stay true as the loop runs. An invariant should be checkable after every iteration — good for debugging."
+    },
+    {
+      "id": "q3",
+      "prompt": "Which edge cases should you list before coding?",
+      "options": [
+        { "id": "a", "text": "Only the happy path with many distinct values" },
+        { "id": "b", "text": "Empty, single element, duplicates, all equal, sorted / reverse sorted" },
+        { "id": "c", "text": "Only floating-point NaN" },
+        { "id": "d", "text": "Only network timeouts" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "List empty, single element, duplicates, all equal, and sorted / reverse sorted — they break naive assumptions."
+    },
+    {
+      "id": "q4",
+      "prompt": "Why are duplicates not “noise”?",
+      "options": [
+        { "id": "a", "text": "They change binary-search bounds and sort stability concerns" },
+        { "id": "b", "text": "They make all algorithms `O(1)`" },
+        { "id": "c", "text": "JavaScript forbids duplicate array values" },
+        { "id": "d", "text": "They only affect console.log formatting" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Duplicates are not noise; they change binary-search bounds and sort stability."
+    }
+  ]
+}

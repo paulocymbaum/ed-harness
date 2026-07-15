@@ -1,6 +1,7 @@
 import type { CourseScoreRepository } from "../../domain/repositories/quizScoreRepository";
 import type { QuizAttempt } from "../../domain/types/quiz";
 import type { CourseScoreFile, ProjectStatus } from "../../domain/types/quizScore";
+import { useCourseScoreHistoryStore } from "../stores/courseScoreHistoryStore";
 import { useProjectProgressStore } from "../stores/projectProgressStore";
 import { useQuizProgressStore } from "../stores/quizProgressStore";
 
@@ -11,6 +12,7 @@ export function setCourseScoreRepository(next: CourseScoreRepository): void {
 }
 
 export function hydrateCourseScoresFromFile(courseId: string, file: CourseScoreFile): void {
+  useCourseScoreHistoryStore.getState().setFile(courseId, file);
   useQuizProgressStore.getState().hydrateCourseScores(courseId, file);
   useProjectProgressStore.getState().hydrateCourseScores(courseId, file);
 }
@@ -29,11 +31,12 @@ export async function persistQuizScore(
   quizId: string,
   attempt: QuizAttempt,
   lessonId?: string,
+  moduleId?: string,
 ): Promise<void> {
   if (!repository) return;
 
   try {
-    const file = await repository.recordQuizAttempt(courseId, quizId, attempt, lessonId);
+    const file = await repository.recordQuizAttempt(courseId, quizId, attempt, lessonId, moduleId);
     hydrateCourseScoresFromFile(courseId, file);
   } catch {
     // Dev server may be unavailable; localStorage progress still works.
@@ -45,11 +48,12 @@ export async function persistProjectStatus(
   projectId: string,
   status: ProjectStatus,
   lessonId?: string,
+  moduleId?: string,
 ): Promise<void> {
   if (!repository) return;
 
   try {
-    const file = await repository.setProjectStatus(courseId, projectId, status, lessonId);
+    const file = await repository.setProjectStatus(courseId, projectId, status, lessonId, moduleId);
     hydrateCourseScoresFromFile(courseId, file);
   } catch {
     // Dev server may be unavailable; localStorage progress still works.

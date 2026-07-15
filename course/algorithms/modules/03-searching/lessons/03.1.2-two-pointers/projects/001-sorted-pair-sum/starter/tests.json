@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "id": "found",
+      "name": "Pair exists",
+      "stdin": "1 2 4 7 11\n9\n",
+      "expectedStdout": "YES\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "missing",
+      "name": "No pair",
+      "stdin": "1 2 3 4\n10\n",
+      "expectedStdout": "NO\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "edges",
+      "name": "Ends form pair",
+      "stdin": "1 5 8\n9\n",
+      "expectedStdout": "YES\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "same-val",
+      "name": "Need two positions",
+      "stdin": "2 2 2\n4\n",
+      "expectedStdout": "YES\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

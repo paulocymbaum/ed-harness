@@ -1,0 +1,105 @@
+{
+  "id": "quiz",
+  "title": "Nearly Sorted Data Check",
+  "description": "When insertion wins and what nearly sorted means.",
+  "lessonId": "02.5.1-nearly-sorted-data",
+  "graphIndex": "02.5.1",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Few inversions usually favor:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Insertion sort"
+        },
+        {
+          "id": "b",
+          "text": "Bogosort"
+        },
+        {
+          "id": "c",
+          "text": "Always heapsort"
+        },
+        {
+          "id": "d",
+          "text": "Counting sort only"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Insertion is nearly linear when almost ordered."
+    },
+    {
+      "id": "q2",
+      "prompt": "Merge sort on nearly sorted data still typically:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Drops to `O(1)`"
+        },
+        {
+          "id": "b",
+          "text": "Pays full `Θ(n log n)` merge work"
+        },
+        {
+          "id": "c",
+          "text": "Skips all merges"
+        },
+        {
+          "id": "d",
+          "text": "Becomes unstable always"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Classic merge does not early-out for near-sortedness."
+    },
+    {
+      "id": "q3",
+      "prompt": "Hybrid library sorts often:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Ban insertion entirely"
+        },
+        {
+          "id": "b",
+          "text": "Switch to insertion on small/nearly ordered runs"
+        },
+        {
+          "id": "c",
+          "text": "Use only bubble sort"
+        },
+        {
+          "id": "d",
+          "text": "Require unsorted input"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "TimSort-like strategies exploit natural runs."
+    },
+    {
+      "id": "q4",
+      "prompt": "Nearly sorted refers mainly to:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Pretty formatting"
+        },
+        {
+          "id": "b",
+          "text": "Few inversions / elements near final positions"
+        },
+        {
+          "id": "c",
+          "text": "Using `var`"
+        },
+        {
+          "id": "d",
+          "text": "Having `O(n²)` labels"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Inversion structure drives insertion’s cost."
+    }
+  ]
+}

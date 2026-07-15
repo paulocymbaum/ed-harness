@@ -1,0 +1,46 @@
+{
+  "cases": [
+    {
+      "id": "question-and-example",
+      "name": "Has a question mark and the word example",
+      "stdin": "What's the max input size?\nCan you confirm an example output?\n",
+      "expectedStdout": "ready\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "question-and-constraint",
+      "name": "Has a question mark and the word constraint",
+      "stdin": "Is there a constraint on memory usage?\n",
+      "expectedStdout": "ready\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "no-question-no-keyword",
+      "name": "No question mark and no keyword",
+      "stdin": "I think this is a hard problem\nLet's just start coding\n",
+      "expectedStdout": "ask-more\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "keyword-without-question-mark",
+      "name": "Has keyword but missing question mark",
+      "stdin": "Is this a constraint on memory too\nok\n",
+      "expectedStdout": "ask-more\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "question-without-keyword",
+      "name": "Has question marks but no constraint/example keyword",
+      "stdin": "Should I handle duplicates?\nWhat about negative numbers?\n",
+      "expectedStdout": "ask-more\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "empty-input",
+      "name": "Empty stdin is never ready",
+      "stdin": "",
+      "expectedStdout": "ask-more\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

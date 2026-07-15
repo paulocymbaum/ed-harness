@@ -1,0 +1,105 @@
+{
+  "id": "quiz",
+  "title": "Set for Membership Check",
+  "description": "Presence tests, uniqueness, and vs includes.",
+  "lessonId": "03.3.3-set-for-membership",
+  "graphIndex": "03.3.3",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "`new Set([1, 2, 2, 3]).size` is:",
+      "options": [
+        {
+          "id": "a",
+          "text": "`4`"
+        },
+        {
+          "id": "b",
+          "text": "`3`"
+        },
+        {
+          "id": "c",
+          "text": "`2`"
+        },
+        {
+          "id": "d",
+          "text": "`0`"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Duplicates collapse — unique values are `1`, `2`, `3`."
+    },
+    {
+      "id": "q2",
+      "prompt": "Prefer Set over Map when:",
+      "options": [
+        {
+          "id": "a",
+          "text": "You need key/value payloads"
+        },
+        {
+          "id": "b",
+          "text": "You only need presence / uniqueness"
+        },
+        {
+          "id": "c",
+          "text": "Keys must be stringified"
+        },
+        {
+          "id": "d",
+          "text": "You need O(n) includes forever"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Set is the membership-focused structure; Map pairs keys with values."
+    },
+    {
+      "id": "q3",
+      "prompt": "After building a Set from an array, `has` is typically:",
+      "options": [
+        {
+          "id": "a",
+          "text": "`O(n)` like `includes`"
+        },
+        {
+          "id": "b",
+          "text": "Amortized `O(1)`"
+        },
+        {
+          "id": "c",
+          "text": "`O(n log n)`"
+        },
+        {
+          "id": "d",
+          "text": "`O(n²)`"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "That is why Sets beat repeated `array.includes` for many queries."
+    },
+    {
+      "id": "q4",
+      "prompt": "Inserting an existing value into a Set:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Increases `.size` by 1"
+        },
+        {
+          "id": "b",
+          "text": "Leaves `.size` unchanged"
+        },
+        {
+          "id": "c",
+          "text": "Throws"
+        },
+        {
+          "id": "d",
+          "text": "Converts the Set into an array"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Uniqueness: duplicate `add` is a no-op for size."
+    }
+  ]
+}

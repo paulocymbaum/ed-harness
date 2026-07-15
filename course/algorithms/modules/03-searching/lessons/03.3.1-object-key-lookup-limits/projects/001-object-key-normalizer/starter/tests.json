@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "id": "num",
+      "name": "Number key",
+      "stdin": "number 1\n",
+      "expectedStdout": "string:1\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "str",
+      "name": "String key",
+      "stdin": "string 1\n",
+      "expectedStdout": "string:1\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "bool",
+      "name": "Boolean key",
+      "stdin": "boolean true\n",
+      "expectedStdout": "string:true\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "object",
+      "name": "Object key",
+      "stdin": "object\n",
+      "expectedStdout": "string:[object Object]\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

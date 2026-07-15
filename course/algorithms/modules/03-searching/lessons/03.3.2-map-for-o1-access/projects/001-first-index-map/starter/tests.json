@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "id": "multi",
+      "name": "Several queries",
+      "stdin": "4 9 2 9\n9\n2\n8\n",
+      "expectedStdout": "1\n2\n-1\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "first",
+      "name": "First element query",
+      "stdin": "7 1 2\n7\n",
+      "expectedStdout": "0\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "dup-first",
+      "name": "Duplicate keeps first",
+      "stdin": "5 5 5\n5\n",
+      "expectedStdout": "0\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "all-miss",
+      "name": "All missing",
+      "stdin": "1 2\n9\n8\n",
+      "expectedStdout": "-1\n-1\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

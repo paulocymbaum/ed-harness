@@ -5,6 +5,7 @@ import { usePomodoroTimer } from "../../../application/hooks/usePomodoroTimer";
 import { useLocaleStore } from "../../../application/stores/localeStore";
 import { useThemeStore, applyThemeToDocument } from "../../../application/stores/themeStore";
 import { applyLocaleToDocument } from "../../../infrastructure/i18n/applyLocaleToDocument";
+import { syncLocaleToCursorConfig } from "../../../infrastructure/i18n/syncLocaleToCursorConfig";
 import { AppTopBar } from "./AppTopBar";
 import { Container } from "./Container";
 
@@ -27,10 +28,11 @@ export function AppShell(props: {
 
   useEffect(() => {
     applyLocaleToDocument(locale);
+    void syncLocaleToCursorConfig(locale);
   }, [locale]);
 
   return (
-    <div className="min-h-dvh text-text0" data-theme={theme}>
+    <div className="flex h-dvh flex-col overflow-hidden text-text0" data-theme={theme}>
       <AppTopBar />
       <a
         href="#main-content"
@@ -38,9 +40,9 @@ export function AppShell(props: {
       >
         {t("nav.skipToContent")}
       </a>
-      <div className="py-6 sm:py-10">
-        <Container>
-          <header className="mb-5 flex flex-col gap-3 sm:mb-6 sm:flex-row sm:items-end sm:justify-between">
+      <div className="flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-y-contain py-6 sm:py-10">
+        <Container className="flex min-h-full flex-col">
+          <header className="mb-5 flex shrink-0 flex-col gap-3 sm:mb-6 sm:flex-row sm:items-end sm:justify-between">
             <div className="min-w-0">
               <h1 className="text-title font-semibold tracking-[-0.01em]">{props.title}</h1>
               {props.breadcrumb ? <div className="mt-2">{props.breadcrumb}</div> : null}
@@ -49,7 +51,9 @@ export function AppShell(props: {
             {props.right ? <div className="shrink-0">{props.right}</div> : null}
           </header>
 
-          <main id="main-content">{props.children}</main>
+          <main id="main-content" className="flex min-h-0 flex-1 flex-col">
+            {props.children}
+          </main>
         </Container>
       </div>
     </div>

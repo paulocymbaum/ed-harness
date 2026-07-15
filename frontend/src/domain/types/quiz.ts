@@ -51,6 +51,55 @@ export function scoreQuiz(questions: QuizQuestion[], answers: QuizAnswerMap): Qu
   };
 }
 
-export function quizProgressKey(courseId: string, quizId: string, lessonId?: string): string {
+export function quizProgressKey(
+  courseId: string,
+  quizId: string,
+  lessonId?: string,
+  moduleId?: string,
+): string {
+  return `${courseId}:quiz:${moduleId ?? "_"}:${lessonId ?? "_"}:${quizId}`;
+}
+
+/** Pre-moduleId key format (shared across mocks with the same lessonId). */
+export function legacyQuizProgressKeyWithLesson(
+  courseId: string,
+  quizId: string,
+  lessonId?: string,
+): string {
   return `${courseId}:quiz:${lessonId ?? "_"}:${quizId}`;
+}
+
+export function legacyQuizProgressKey(courseId: string, quizId: string): string {
+  return `${courseId}:${quizId}`;
+}
+
+/**
+ * Resolve quiz progress across key formats.
+ * Mock modules (`*-mock`) only match the module-scoped key — never shared
+ * lesson-only / `_` keys (all mocks reuse `01.2-multiple-choice`).
+ */
+export function lookupQuizProgressEntry<T>(
+  byKey: Record<string, T | undefined>,
+  courseId: string,
+  quizId: string,
+  lessonId?: string,
+  moduleId?: string,
+): T | undefined {
+  const scoped = quizProgressKey(courseId, quizId, lessonId, moduleId);
+  if (moduleId?.endsWith("-mock")) {
+    return byKey[scoped];
+  }
+
+  const candidates = [
+    scoped,
+    quizProgressKey(courseId, quizId, lessonId),
+    legacyQuizProgressKeyWithLesson(courseId, quizId, lessonId),
+    legacyQuizProgressKey(courseId, quizId),
+  ];
+
+  for (const key of candidates) {
+    const hit = byKey[key];
+    if (hit !== undefined) return hit;
+  }
+  return undefined;
 }

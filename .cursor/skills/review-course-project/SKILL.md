@@ -78,7 +78,7 @@ Examples in [reference.md](reference.md). The save script **rejects** comments t
 
 ### Comment must NOT mention
 
-- The Hackerrank Study frontend, Delivery tab, or how to use the study UI
+- The EdHarness frontend, Delivery tab, or how to use the study UI
 - `project-delivery.json`, review workflow, or Cursor skills (except as invisible plumbing — never in student-facing comment text)
 - Missing “delivery history”, placeholder delivery text as a **workflow** issue
 - Repo layout, catalog generation, or any architecture outside the PBL exercise itself
@@ -119,4 +119,5 @@ Examples in [reference.md](reference.md). The save script **rejects** comments t
 ## Frontend
 
 After saving, the student sees **score** and **comment** on each reviewed delivery in the **Delivery** tab.  
-Passing score updates the project badge to **Done** after reload or re-opening the tab.
+The study app auto-refreshes when `project-delivery.json` changes (Vite watches the file and quietly reloads).  
+Passing score updates the project badge to **Done** without a manual reload while the project view is open.

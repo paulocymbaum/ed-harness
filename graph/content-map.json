@@ -1,490 +1,1333 @@
 {
-  "generatedAt": "2026-07-02T20:00:26.581Z",
-  "courseSlug": "javascript",
-  "total": 57,
-  "exists": 33,
-  "planned": 24,
-  "orphan": 0,
-  "entries": [
-    {
-      "graphIndex": "01.1.1",
-      "courseId": "javascript",
-      "moduleId": "01-javascript-fundamentals",
-      "lessonId": "01.1.1-running-javascript-node-js",
-      "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.1.1-running-javascript-node-js",
-      "status": "exists"
+  "generatedAt": "2026-07-15T03:27:54.428Z",
+  "courses": {
+    "algorithms": {
+      "courseSlug": "algorithms",
+      "total": 82,
+      "exists": 46,
+      "planned": 36,
+      "orphan": 0,
+      "entries": [
+        {
+          "graphIndex": "01.1.1",
+          "courseId": "algorithms",
+          "moduleId": "01-algorithm-foundations",
+          "lessonId": "01.1.1-time-complexity-big-o",
+          "diskPath": "course/algorithms/modules/01-algorithm-foundations/lessons/01.1.1-time-complexity-big-o",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "01.1.2",
+          "courseId": "algorithms",
+          "moduleId": "01-algorithm-foundations",
+          "lessonId": "01.1.2-space-complexity",
+          "diskPath": "course/algorithms/modules/01-algorithm-foundations/lessons/01.1.2-space-complexity",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "01.1.3",
+          "courseId": "algorithms",
+          "moduleId": "01-algorithm-foundations",
+          "lessonId": "01.1.3-best-average-worst-case",
+          "diskPath": "course/algorithms/modules/01-algorithm-foundations/lessons/01.1.3-best-average-worst-case",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "01.1.4",
+          "courseId": "algorithms",
+          "moduleId": "01-algorithm-foundations",
+          "lessonId": "01.1.4-amortized-analysis",
+          "diskPath": "course/algorithms/modules/01-algorithm-foundations/lessons/01.1.4-amortized-analysis",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "01.2.1",
+          "courseId": "algorithms",
+          "moduleId": "01-algorithm-foundations",
+          "lessonId": "01.2.1-arrays-and-typed-arrays",
+          "diskPath": "course/algorithms/modules/01-algorithm-foundations/lessons/01.2.1-arrays-and-typed-arrays",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "01.2.2",
+          "courseId": "algorithms",
+          "moduleId": "01-algorithm-foundations",
+          "lessonId": "01.2.2-map-and-set-as-tooling",
+          "diskPath": "course/algorithms/modules/01-algorithm-foundations/lessons/01.2.2-map-and-set-as-tooling",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "01.2.3",
+          "courseId": "algorithms",
+          "moduleId": "01-algorithm-foundations",
+          "lessonId": "01.2.3-recursion-vs-iteration",
+          "diskPath": "course/algorithms/modules/01-algorithm-foundations/lessons/01.2.3-recursion-vs-iteration",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "01.2.4",
+          "courseId": "algorithms",
+          "moduleId": "01-algorithm-foundations",
+          "lessonId": "01.2.4-divide-and-conquer",
+          "diskPath": "course/algorithms/modules/01-algorithm-foundations/lessons/01.2.4-divide-and-conquer",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "01.3.1",
+          "courseId": "algorithms",
+          "moduleId": "01-algorithm-foundations",
+          "lessonId": "01.3.1-invariants-and-edge-cases",
+          "diskPath": "course/algorithms/modules/01-algorithm-foundations/lessons/01.3.1-invariants-and-edge-cases",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "01.3.2",
+          "courseId": "algorithms",
+          "moduleId": "01-algorithm-foundations",
+          "lessonId": "01.3.2-comparator-contracts",
+          "diskPath": "course/algorithms/modules/01-algorithm-foundations/lessons/01.3.2-comparator-contracts",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "01.3.3",
+          "courseId": "algorithms",
+          "moduleId": "01-algorithm-foundations",
+          "lessonId": "01.3.3-measuring-with-console-time",
+          "diskPath": "course/algorithms/modules/01-algorithm-foundations/lessons/01.3.3-measuring-with-console-time",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "01.3.4",
+          "courseId": "algorithms",
+          "moduleId": "01-algorithm-foundations",
+          "lessonId": "01.3.4-proving-termination",
+          "diskPath": "course/algorithms/modules/01-algorithm-foundations/lessons/01.3.4-proving-termination",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "02.1.1",
+          "courseId": "algorithms",
+          "moduleId": "02-sorting",
+          "lessonId": "02.1.1-bubble-sort",
+          "diskPath": "course/algorithms/modules/02-sorting/lessons/02.1.1-bubble-sort",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "02.1.2",
+          "courseId": "algorithms",
+          "moduleId": "02-sorting",
+          "lessonId": "02.1.2-selection-sort",
+          "diskPath": "course/algorithms/modules/02-sorting/lessons/02.1.2-selection-sort",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "02.1.3",
+          "courseId": "algorithms",
+          "moduleId": "02-sorting",
+          "lessonId": "02.1.3-insertion-sort",
+          "diskPath": "course/algorithms/modules/02-sorting/lessons/02.1.3-insertion-sort",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "02.2.1",
+          "courseId": "algorithms",
+          "moduleId": "02-sorting",
+          "lessonId": "02.2.1-merge-sort",
+          "diskPath": "course/algorithms/modules/02-sorting/lessons/02.2.1-merge-sort",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "02.2.2",
+          "courseId": "algorithms",
+          "moduleId": "02-sorting",
+          "lessonId": "02.2.2-quick-sort",
+          "diskPath": "course/algorithms/modules/02-sorting/lessons/02.2.2-quick-sort",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "02.2.3",
+          "courseId": "algorithms",
+          "moduleId": "02-sorting",
+          "lessonId": "02.2.3-heap-sort",
+          "diskPath": "course/algorithms/modules/02-sorting/lessons/02.2.3-heap-sort",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "02.2.4",
+          "courseId": "algorithms",
+          "moduleId": "02-sorting",
+          "lessonId": "02.2.4-shell-sort",
+          "diskPath": "course/algorithms/modules/02-sorting/lessons/02.2.4-shell-sort",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "02.3.1",
+          "courseId": "algorithms",
+          "moduleId": "02-sorting",
+          "lessonId": "02.3.1-counting-sort",
+          "diskPath": "course/algorithms/modules/02-sorting/lessons/02.3.1-counting-sort",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "02.3.2",
+          "courseId": "algorithms",
+          "moduleId": "02-sorting",
+          "lessonId": "02.3.2-radix-sort",
+          "diskPath": "course/algorithms/modules/02-sorting/lessons/02.3.2-radix-sort",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "02.3.3",
+          "courseId": "algorithms",
+          "moduleId": "02-sorting",
+          "lessonId": "02.3.3-bucket-sort",
+          "diskPath": "course/algorithms/modules/02-sorting/lessons/02.3.3-bucket-sort",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "02.4.1",
+          "courseId": "algorithms",
+          "moduleId": "02-sorting",
+          "lessonId": "02.4.1-array-prototype-sort",
+          "diskPath": "course/algorithms/modules/02-sorting/lessons/02.4.1-array-prototype-sort",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "02.4.2",
+          "courseId": "algorithms",
+          "moduleId": "02-sorting",
+          "lessonId": "02.4.2-custom-comparators",
+          "diskPath": "course/algorithms/modules/02-sorting/lessons/02.4.2-custom-comparators",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "02.4.3",
+          "courseId": "algorithms",
+          "moduleId": "02-sorting",
+          "lessonId": "02.4.3-stability-and-pitfalls",
+          "diskPath": "course/algorithms/modules/02-sorting/lessons/02.4.3-stability-and-pitfalls",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "02.4.4",
+          "courseId": "algorithms",
+          "moduleId": "02-sorting",
+          "lessonId": "02.4.4-sorting-objects-by-keys",
+          "diskPath": "course/algorithms/modules/02-sorting/lessons/02.4.4-sorting-objects-by-keys",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "02.5.1",
+          "courseId": "algorithms",
+          "moduleId": "02-sorting",
+          "lessonId": "02.5.1-nearly-sorted-data",
+          "diskPath": "course/algorithms/modules/02-sorting/lessons/02.5.1-nearly-sorted-data",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "02.5.2",
+          "courseId": "algorithms",
+          "moduleId": "02-sorting",
+          "lessonId": "02.5.2-memory-constraints",
+          "diskPath": "course/algorithms/modules/02-sorting/lessons/02.5.2-memory-constraints",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "02.5.3",
+          "courseId": "algorithms",
+          "moduleId": "02-sorting",
+          "lessonId": "02.5.3-sort-by-multiple-keys",
+          "diskPath": "course/algorithms/modules/02-sorting/lessons/02.5.3-sort-by-multiple-keys",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "02.5.4",
+          "courseId": "algorithms",
+          "moduleId": "02-sorting",
+          "lessonId": "02.5.4-online-vs-offline-sorting",
+          "diskPath": "course/algorithms/modules/02-sorting/lessons/02.5.4-online-vs-offline-sorting",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "03.1.1",
+          "courseId": "algorithms",
+          "moduleId": "03-searching",
+          "lessonId": "03.1.1-linear-search",
+          "diskPath": "course/algorithms/modules/03-searching/lessons/03.1.1-linear-search",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "03.1.2",
+          "courseId": "algorithms",
+          "moduleId": "03-searching",
+          "lessonId": "03.1.2-two-pointers",
+          "diskPath": "course/algorithms/modules/03-searching/lessons/03.1.2-two-pointers",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "03.1.3",
+          "courseId": "algorithms",
+          "moduleId": "03-searching",
+          "lessonId": "03.1.3-sliding-window",
+          "diskPath": "course/algorithms/modules/03-searching/lessons/03.1.3-sliding-window",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "03.1.4",
+          "courseId": "algorithms",
+          "moduleId": "03-searching",
+          "lessonId": "03.1.4-prefix-sums",
+          "diskPath": "course/algorithms/modules/03-searching/lessons/03.1.4-prefix-sums",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "03.2.1",
+          "courseId": "algorithms",
+          "moduleId": "03-searching",
+          "lessonId": "03.2.1-binary-search",
+          "diskPath": "course/algorithms/modules/03-searching/lessons/03.2.1-binary-search",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "03.2.2",
+          "courseId": "algorithms",
+          "moduleId": "03-searching",
+          "lessonId": "03.2.2-lower-and-upper-bound",
+          "diskPath": "course/algorithms/modules/03-searching/lessons/03.2.2-lower-and-upper-bound",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "03.2.3",
+          "courseId": "algorithms",
+          "moduleId": "03-searching",
+          "lessonId": "03.2.3-search-in-rotated-arrays",
+          "diskPath": "course/algorithms/modules/03-searching/lessons/03.2.3-search-in-rotated-arrays",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "03.2.4",
+          "courseId": "algorithms",
+          "moduleId": "03-searching",
+          "lessonId": "03.2.4-binary-search-on-answer",
+          "diskPath": "course/algorithms/modules/03-searching/lessons/03.2.4-binary-search-on-answer",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "03.3.1",
+          "courseId": "algorithms",
+          "moduleId": "03-searching",
+          "lessonId": "03.3.1-object-key-lookup-limits",
+          "diskPath": "course/algorithms/modules/03-searching/lessons/03.3.1-object-key-lookup-limits",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "03.3.2",
+          "courseId": "algorithms",
+          "moduleId": "03-searching",
+          "lessonId": "03.3.2-map-for-o1-access",
+          "diskPath": "course/algorithms/modules/03-searching/lessons/03.3.2-map-for-o1-access",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "03.3.3",
+          "courseId": "algorithms",
+          "moduleId": "03-searching",
+          "lessonId": "03.3.3-set-for-membership",
+          "diskPath": "course/algorithms/modules/03-searching/lessons/03.3.3-set-for-membership",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "03.3.4",
+          "courseId": "algorithms",
+          "moduleId": "03-searching",
+          "lessonId": "03.3.4-frequency-maps",
+          "diskPath": "course/algorithms/modules/03-searching/lessons/03.3.4-frequency-maps",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "03.4.1",
+          "courseId": "algorithms",
+          "moduleId": "03-searching",
+          "lessonId": "03.4.1-dfs",
+          "diskPath": "course/algorithms/modules/03-searching/lessons/03.4.1-dfs",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "03.4.2",
+          "courseId": "algorithms",
+          "moduleId": "03-searching",
+          "lessonId": "03.4.2-bfs",
+          "diskPath": "course/algorithms/modules/03-searching/lessons/03.4.2-bfs",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "03.4.3",
+          "courseId": "algorithms",
+          "moduleId": "03-searching",
+          "lessonId": "03.4.3-path-reconstruction",
+          "diskPath": "course/algorithms/modules/03-searching/lessons/03.4.3-path-reconstruction",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "03.4.4",
+          "courseId": "algorithms",
+          "moduleId": "03-searching",
+          "lessonId": "03.4.4-backtracking-search",
+          "diskPath": "course/algorithms/modules/03-searching/lessons/03.4.4-backtracking-search",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "04.1.1",
+          "courseId": "algorithms",
+          "moduleId": null,
+          "lessonId": null,
+          "diskPath": null,
+          "status": "planned",
+          "title": "04.1.1 Arrays as Ordered Stores"
+        },
+        {
+          "graphIndex": "04.1.2",
+          "courseId": "algorithms",
+          "moduleId": null,
+          "lessonId": null,
+          "diskPath": null,
+          "status": "planned",
+          "title": "04.1.2 Objects Maps and Sets"
+        },
+        {
+          "graphIndex": "04.1.3",
+          "courseId": "algorithms",
+          "moduleId": null,
+          "lessonId": null,
+          "diskPath": null,
+          "status": "planned",
+          "title": "04.1.3 Stack and Queue Patterns"
+        },
+        {
+          "graphIndex": "04.1.4",
+          "courseId": "algorithms",
+          "moduleId": null,
+          "lessonId": null,
+          "diskPath": null,
+          "status": "planned",
+          "title": "04.1.4 Priority Queue Patterns"
+        },
+        {
+          "graphIndex": "04.2.1",
+          "courseId": "algorithms",
+          "moduleId": null,
+          "lessonId": null,
+          "diskPath": null,
+          "status": "planned",
+          "title": "04.2.1 JSON.stringify and parse"
+        },
+        {
+          "graphIndex": "04.2.2",
+          "courseId": "algorithms",
+          "moduleId": null,
+          "lessonId": null,
+          "diskPath": null,
+          "status": "planned",
+          "title": "04.2.2 structuredClone"
+        },
+        {
+          "graphIndex": "04.2.3",
+          "courseId": "algorithms",
+          "moduleId": null,
+          "lessonId": null,
+          "diskPath": null,
+          "status": "planned",
+          "title": "04.2.3 Custom Encoders"
+        },
+        {
+          "graphIndex": "04.2.4",
+          "courseId": "algorithms",
+          "moduleId": null,
+          "lessonId": null,
+          "diskPath": null,
+          "status": "planned",
+          "title": "04.2.4 Versioned Schemas"
+        },
+        {
+          "graphIndex": "04.3.1",
+          "courseId": "algorithms",
+          "moduleId": null,
+          "lessonId": null,
+          "diskPath": null,
+          "status": "planned",
+          "title": "04.3.1 Snapshot and Restore"
+        },
+        {
+          "graphIndex": "04.3.2",
+          "courseId": "algorithms",
+          "moduleId": null,
+          "lessonId": null,
+          "diskPath": null,
+          "status": "planned",
+          "title": "04.3.2 Append-Only Logs"
+        },
+        {
+          "graphIndex": "04.3.3",
+          "courseId": "algorithms",
+          "moduleId": null,
+          "lessonId": null,
+          "diskPath": null,
+          "status": "planned",
+          "title": "04.3.3 Node File IO Basics"
+        },
+        {
+          "graphIndex": "04.3.4",
+          "courseId": "algorithms",
+          "moduleId": null,
+          "lessonId": null,
+          "diskPath": null,
+          "status": "planned",
+          "title": "04.3.4 Atomic Write and Replace"
+        },
+        {
+          "graphIndex": "04.4.1",
+          "courseId": "algorithms",
+          "moduleId": null,
+          "lessonId": null,
+          "diskPath": null,
+          "status": "planned",
+          "title": "04.4.1 Immutable Updates"
+        },
+        {
+          "graphIndex": "04.4.2",
+          "courseId": "algorithms",
+          "moduleId": null,
+          "lessonId": null,
+          "diskPath": null,
+          "status": "planned",
+          "title": "04.4.2 Copy-on-Write"
+        },
+        {
+          "graphIndex": "04.4.3",
+          "courseId": "algorithms",
+          "moduleId": null,
+          "lessonId": null,
+          "diskPath": null,
+          "status": "planned",
+          "title": "04.4.3 Idempotent Writes"
+        },
+        {
+          "graphIndex": "04.4.4",
+          "courseId": "algorithms",
+          "moduleId": null,
+          "lessonId": null,
+          "diskPath": null,
+          "status": "planned",
+          "title": "04.4.4 Conflict Detection"
+        },
+        {
+          "graphIndex": "05.1.1",
+          "courseId": "algorithms",
+          "moduleId": null,
+          "lessonId": null,
+          "diskPath": null,
+          "status": "planned",
+          "title": "05.1.1 Pure Function Cache"
+        },
+        {
+          "graphIndex": "05.1.2",
+          "courseId": "algorithms",
+          "moduleId": null,
+          "lessonId": null,
+          "diskPath": null,
+          "status": "planned",
+          "title": "05.1.2 Key Design for Arguments"
+        },
+        {
+          "graphIndex": "05.1.3",
+          "courseId": "algorithms",
+          "moduleId": null,
+          "lessonId": null,
+          "diskPath": null,
+          "status": "planned",
+          "title": "05.1.3 Recursive Memoization"
+        },
+        {
+          "graphIndex": "05.1.4",
+          "courseId": "algorithms",
+          "moduleId": null,
+          "lessonId": null,
+          "diskPath": null,
+          "status": "planned",
+          "title": "05.1.4 Bounded Memo Tables"
+        },
+        {
+          "graphIndex": "05.2.1",
+          "courseId": "algorithms",
+          "moduleId": null,
+          "lessonId": null,
+          "diskPath": null,
+          "status": "planned",
+          "title": "05.2.1 LRU Cache"
+        },
+        {
+          "graphIndex": "05.2.2",
+          "courseId": "algorithms",
+          "moduleId": null,
+          "lessonId": null,
+          "diskPath": null,
+          "status": "planned",
+          "title": "05.2.2 LFU Cache"
+        },
+        {
+          "graphIndex": "05.2.3",
+          "courseId": "algorithms",
+          "moduleId": null,
+          "lessonId": null,
+          "diskPath": null,
+          "status": "planned",
+          "title": "05.2.3 TTL Expiration"
+        },
+        {
+          "graphIndex": "05.2.4",
+          "courseId": "algorithms",
+          "moduleId": null,
+          "lessonId": null,
+          "diskPath": null,
+          "status": "planned",
+          "title": "05.2.4 FIFO and Random Eviction"
+        },
+        {
+          "graphIndex": "05.3.1",
+          "courseId": "algorithms",
+          "moduleId": null,
+          "lessonId": null,
+          "diskPath": null,
+          "status": "planned",
+          "title": "05.3.1 Read-Through Write-Through"
+        },
+        {
+          "graphIndex": "05.3.2",
+          "courseId": "algorithms",
+          "moduleId": null,
+          "lessonId": null,
+          "diskPath": null,
+          "status": "planned",
+          "title": "05.3.2 Cache Aside"
+        },
+        {
+          "graphIndex": "05.3.3",
+          "courseId": "algorithms",
+          "moduleId": null,
+          "lessonId": null,
+          "diskPath": null,
+          "status": "planned",
+          "title": "05.3.3 Write-Back"
+        },
+        {
+          "graphIndex": "05.3.4",
+          "courseId": "algorithms",
+          "moduleId": null,
+          "lessonId": null,
+          "diskPath": null,
+          "status": "planned",
+          "title": "05.3.4 Invalidation Strategies"
+        },
+        {
+          "graphIndex": "05.4.1",
+          "courseId": "algorithms",
+          "moduleId": null,
+          "lessonId": null,
+          "diskPath": null,
+          "status": "planned",
+          "title": "05.4.1 Closure-Based Caches"
+        },
+        {
+          "graphIndex": "05.4.2",
+          "courseId": "algorithms",
+          "moduleId": null,
+          "lessonId": null,
+          "diskPath": null,
+          "status": "planned",
+          "title": "05.4.2 Map-Backed LRU"
+        },
+        {
+          "graphIndex": "05.4.3",
+          "courseId": "algorithms",
+          "moduleId": null,
+          "lessonId": null,
+          "diskPath": null,
+          "status": "planned",
+          "title": "05.4.3 Async Result Caching"
+        },
+        {
+          "graphIndex": "05.4.4",
+          "courseId": "algorithms",
+          "moduleId": null,
+          "lessonId": null,
+          "diskPath": null,
+          "status": "planned",
+          "title": "05.4.4 WeakMap Object Caches"
+        },
+        {
+          "graphIndex": "06.1",
+          "courseId": "algorithms",
+          "moduleId": null,
+          "lessonId": null,
+          "diskPath": null,
+          "status": "planned",
+          "title": "06.1 Sort then Search Workflows"
+        },
+        {
+          "graphIndex": "06.2",
+          "courseId": "algorithms",
+          "moduleId": null,
+          "lessonId": null,
+          "diskPath": null,
+          "status": "planned",
+          "title": "06.2 Cache-Aware Persistence"
+        },
+        {
+          "graphIndex": "06.3",
+          "courseId": "algorithms",
+          "moduleId": null,
+          "lessonId": null,
+          "diskPath": null,
+          "status": "planned",
+          "title": "06.3 Deduplicating Expensive Work"
+        },
+        {
+          "graphIndex": "06.4",
+          "courseId": "algorithms",
+          "moduleId": null,
+          "lessonId": null,
+          "diskPath": null,
+          "status": "planned",
+          "title": "06.4 Interview Tradeoff Narratives"
+        }
+      ]
     },
-    {
-      "graphIndex": "01.1.2",
-      "courseId": "javascript",
-      "moduleId": "01-javascript-fundamentals",
-      "lessonId": "01.1.2-console-log-and-output",
-      "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.1.2-console-log-and-output",
-      "status": "exists"
-    },
-    {
-      "graphIndex": "01.1.3",
-      "courseId": "javascript",
-      "moduleId": "01-javascript-fundamentals",
-      "lessonId": "01.1.3-comments",
-      "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.1.3-comments",
-      "status": "exists"
-    },
-    {
-      "graphIndex": "01.2.1",
-      "courseId": "javascript",
-      "moduleId": "01-javascript-fundamentals",
-      "lessonId": "01.2.1-let-and-const",
-      "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.2.1-let-and-const",
-      "status": "exists"
-    },
-    {
-      "graphIndex": "01.2.2",
-      "courseId": "javascript",
-      "moduleId": "01-javascript-fundamentals",
-      "lessonId": "01.2.2-assignment-and-reassignment",
-      "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.2.2-assignment-and-reassignment",
-      "status": "exists"
-    },
-    {
-      "graphIndex": "01.3.1",
-      "courseId": "javascript",
-      "moduleId": "01-javascript-fundamentals",
-      "lessonId": "01.3.1-strings",
-      "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.3.1-strings",
-      "status": "exists"
-    },
-    {
-      "graphIndex": "01.3.2",
-      "courseId": "javascript",
-      "moduleId": "01-javascript-fundamentals",
-      "lessonId": "01.3.2-numbers",
-      "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.3.2-numbers",
-      "status": "exists"
-    },
-    {
-      "graphIndex": "01.3.3",
-      "courseId": "javascript",
-      "moduleId": "01-javascript-fundamentals",
-      "lessonId": "01.3.3-booleans",
-      "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.3.3-booleans",
-      "status": "exists"
-    },
-    {
-      "graphIndex": "01.3.4",
-      "courseId": "javascript",
-      "moduleId": "01-javascript-fundamentals",
-      "lessonId": "01.3.4-undefined-and-null",
-      "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.3.4-undefined-and-null",
-      "status": "exists"
-    },
-    {
-      "graphIndex": "01.4.1",
-      "courseId": "javascript",
-      "moduleId": "01-javascript-fundamentals",
-      "lessonId": "01.4.1-arithmetic-operators",
-      "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.4.1-arithmetic-operators",
-      "status": "exists"
-    },
-    {
-      "graphIndex": "01.4.2",
-      "courseId": "javascript",
-      "moduleId": "01-javascript-fundamentals",
-      "lessonId": "01.4.2-comparison-operators",
-      "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.4.2-comparison-operators",
-      "status": "exists"
-    },
-    {
-      "graphIndex": "01.4.3",
-      "courseId": "javascript",
-      "moduleId": "01-javascript-fundamentals",
-      "lessonId": "01.4.3-logical-operators",
-      "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.4.3-logical-operators",
-      "status": "exists"
-    },
-    {
-      "graphIndex": "01.5.1",
-      "courseId": "javascript",
-      "moduleId": "01-javascript-fundamentals",
-      "lessonId": "01.5.1-if-and-else",
-      "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.5.1-if-and-else",
-      "status": "exists"
-    },
-    {
-      "graphIndex": "01.5.2",
-      "courseId": "javascript",
-      "moduleId": "01-javascript-fundamentals",
-      "lessonId": "01.5.2-switch",
-      "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.5.2-switch",
-      "status": "exists"
-    },
-    {
-      "graphIndex": "01.6.1",
-      "courseId": "javascript",
-      "moduleId": "01-javascript-fundamentals",
-      "lessonId": "01.6.1-for-loop",
-      "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.6.1-for-loop",
-      "status": "exists"
-    },
-    {
-      "graphIndex": "01.6.2",
-      "courseId": "javascript",
-      "moduleId": "01-javascript-fundamentals",
-      "lessonId": "01.6.2-while-loop",
-      "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.6.2-while-loop",
-      "status": "exists"
-    },
-    {
-      "graphIndex": "01.7.1",
-      "courseId": "javascript",
-      "moduleId": "01-javascript-fundamentals",
-      "lessonId": "01.7.1-function-declaration",
-      "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.7.1-function-declaration",
-      "status": "exists"
-    },
-    {
-      "graphIndex": "01.7.2",
-      "courseId": "javascript",
-      "moduleId": "01-javascript-fundamentals",
-      "lessonId": "01.7.2-parameters-and-return-values",
-      "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.7.2-parameters-and-return-values",
-      "status": "exists"
-    },
-    {
-      "graphIndex": "01.8.1",
-      "courseId": "javascript",
-      "moduleId": "01-javascript-fundamentals",
-      "lessonId": "01.8.1-truthy-vs-falsy",
-      "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.8.1-truthy-vs-falsy",
-      "status": "exists"
-    },
-    {
-      "graphIndex": "01.8.2",
-      "courseId": "javascript",
-      "moduleId": "01-javascript-fundamentals",
-      "lessonId": "01.8.2-strict-equality",
-      "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.8.2-strict-equality",
-      "status": "exists"
-    },
-    {
-      "graphIndex": "01.8.3",
-      "courseId": "javascript",
-      "moduleId": "01-javascript-fundamentals",
-      "lessonId": "01.8.3-type-coercion",
-      "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.8.3-type-coercion",
-      "status": "exists"
-    },
-    {
-      "graphIndex": "01.8.4",
-      "courseId": "javascript",
-      "moduleId": null,
-      "lessonId": null,
-      "diskPath": null,
-      "status": "planned",
-      "title": "01.8.4 typeof and Array.isArray"
-    },
-    {
-      "graphIndex": "01.8.5",
-      "courseId": "javascript",
-      "moduleId": "01-javascript-fundamentals",
-      "lessonId": "01.8.5-null-undefined-null",
-      "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.8.5-null-undefined-null",
-      "status": "exists"
-    },
-    {
-      "graphIndex": "02.1",
-      "courseId": "javascript",
-      "moduleId": "02-objects-references-and-copying",
-      "lessonId": "02.1-reference-vs-value",
-      "diskPath": "course/javascript/modules/02-objects-references-and-copying/lessons/02.1-reference-vs-value",
-      "status": "exists"
-    },
-    {
-      "graphIndex": "02.2",
-      "courseId": "javascript",
-      "moduleId": "02-objects-references-and-copying",
-      "lessonId": "02.2-shallow-vs-deep-copy",
-      "diskPath": "course/javascript/modules/02-objects-references-and-copying/lessons/02.2-shallow-vs-deep-copy",
-      "status": "exists"
-    },
-    {
-      "graphIndex": "02.3",
-      "courseId": "javascript",
-      "moduleId": "02-objects-references-and-copying",
-      "lessonId": "02.3-structuredclone",
-      "diskPath": "course/javascript/modules/02-objects-references-and-copying/lessons/02.3-structuredclone",
-      "status": "exists"
-    },
-    {
-      "graphIndex": "02.4",
-      "courseId": "javascript",
-      "moduleId": "02-objects-references-and-copying",
-      "lessonId": "02.4-object-hasown",
-      "diskPath": "course/javascript/modules/02-objects-references-and-copying/lessons/02.4-object-hasown",
-      "status": "exists"
-    },
-    {
-      "graphIndex": "03.1.1",
-      "courseId": "javascript",
-      "moduleId": "03-asynchronous-javascript",
-      "lessonId": "03.1.1-single-threaded-execution",
-      "diskPath": "course/javascript/modules/03-asynchronous-javascript/lessons/03.1.1-single-threaded-execution",
-      "status": "exists"
-    },
-    {
-      "graphIndex": "03.1.2",
-      "courseId": "javascript",
-      "moduleId": "03-asynchronous-javascript",
-      "lessonId": "03.1.2-event-loop",
-      "diskPath": "course/javascript/modules/03-asynchronous-javascript/lessons/03.1.2-event-loop",
-      "status": "exists"
-    },
-    {
-      "graphIndex": "03.1.3",
-      "courseId": "javascript",
-      "moduleId": "03-asynchronous-javascript",
-      "lessonId": "03.1.3-call-stack",
-      "diskPath": "course/javascript/modules/03-asynchronous-javascript/lessons/03.1.3-call-stack",
-      "status": "exists"
-    },
-    {
-      "graphIndex": "03.1.4",
-      "courseId": "javascript",
-      "moduleId": "03-asynchronous-javascript",
-      "lessonId": "03.1.4-callback-and-microtask-queues",
-      "diskPath": "course/javascript/modules/03-asynchronous-javascript/lessons/03.1.4-callback-and-microtask-queues",
-      "status": "exists"
-    },
-    {
-      "graphIndex": "03.2.1",
-      "courseId": "javascript",
-      "moduleId": "03-asynchronous-javascript",
-      "lessonId": "03.2.1-promises",
-      "diskPath": "course/javascript/modules/03-asynchronous-javascript/lessons/03.2.1-promises",
-      "status": "exists"
-    },
-    {
-      "graphIndex": "03.2.2",
-      "courseId": "javascript",
-      "moduleId": "03-asynchronous-javascript",
-      "lessonId": "03.2.2-async-await",
-      "diskPath": "course/javascript/modules/03-asynchronous-javascript/lessons/03.2.2-async-await",
-      "status": "exists"
-    },
-    {
-      "graphIndex": "03.2.3",
-      "courseId": "javascript",
-      "moduleId": "03-asynchronous-javascript",
-      "lessonId": "03.2.3-try-catch-error-handling",
-      "diskPath": "course/javascript/modules/03-asynchronous-javascript/lessons/03.2.3-try-catch-error-handling",
-      "status": "exists"
-    },
-    {
-      "graphIndex": "04.1",
-      "courseId": "javascript",
-      "moduleId": null,
-      "lessonId": null,
-      "diskPath": null,
-      "status": "planned",
-      "title": "04.1 Hoisting and TDZ"
-    },
-    {
-      "graphIndex": "04.2",
-      "courseId": "javascript",
-      "moduleId": null,
-      "lessonId": null,
-      "diskPath": null,
-      "status": "planned",
-      "title": "04.2 Closures"
-    },
-    {
-      "graphIndex": "04.3",
-      "courseId": "javascript",
-      "moduleId": null,
-      "lessonId": null,
-      "diskPath": null,
-      "status": "planned",
-      "title": "04.3 Higher-Order Functions"
-    },
-    {
-      "graphIndex": "04.4",
-      "courseId": "javascript",
-      "moduleId": null,
-      "lessonId": null,
-      "diskPath": null,
-      "status": "planned",
-      "title": "04.4 Prototype Chain"
-    },
-    {
-      "graphIndex": "04.5",
-      "courseId": "javascript",
-      "moduleId": null,
-      "lessonId": null,
-      "diskPath": null,
-      "status": "planned",
-      "title": "04.5 ES6 Modules"
-    },
-    {
-      "graphIndex": "05.1",
-      "courseId": "javascript",
-      "moduleId": null,
-      "lessonId": null,
-      "diskPath": null,
-      "status": "planned",
-      "title": "05.1 Big-O Complexity"
-    },
-    {
-      "graphIndex": "05.2",
-      "courseId": "javascript",
-      "moduleId": null,
-      "lessonId": null,
-      "diskPath": null,
-      "status": "planned",
-      "title": "05.2 Two Pointers and Sliding Window"
-    },
-    {
-      "graphIndex": "05.3",
-      "courseId": "javascript",
-      "moduleId": null,
-      "lessonId": null,
-      "diskPath": null,
-      "status": "planned",
-      "title": "05.3 BFS and DFS"
-    },
-    {
-      "graphIndex": "05.4",
-      "courseId": "javascript",
-      "moduleId": null,
-      "lessonId": null,
-      "diskPath": null,
-      "status": "planned",
-      "title": "05.4 Cycle Detection"
-    },
-    {
-      "graphIndex": "05.5",
-      "courseId": "javascript",
-      "moduleId": null,
-      "lessonId": null,
-      "diskPath": null,
-      "status": "planned",
-      "title": "05.5 Dynamic Programming"
-    },
-    {
-      "graphIndex": "06.1.1",
-      "courseId": "javascript",
-      "moduleId": null,
-      "lessonId": null,
-      "diskPath": null,
-      "status": "planned",
-      "title": "06.1.1 Problem-Solving Score"
-    },
-    {
-      "graphIndex": "06.1.2",
-      "courseId": "javascript",
-      "moduleId": null,
-      "lessonId": null,
-      "diskPath": null,
-      "status": "planned",
-      "title": "06.1.2 Certifications"
-    },
-    {
-      "graphIndex": "06.1.3",
-      "courseId": "javascript",
-      "moduleId": null,
-      "lessonId": null,
-      "diskPath": null,
-      "status": "planned",
-      "title": "06.1.3 Badges"
-    },
-    {
-      "graphIndex": "06.1.4",
-      "courseId": "javascript",
-      "moduleId": null,
-      "lessonId": null,
-      "diskPath": null,
-      "status": "planned",
-      "title": "06.1.4 Global Ranking"
-    },
-    {
-      "graphIndex": "06.2.1",
-      "courseId": "javascript",
-      "moduleId": null,
-      "lessonId": null,
-      "diskPath": null,
-      "status": "planned",
-      "title": "06.2.1 Interview Preparation Kit"
-    },
-    {
-      "graphIndex": "06.2.2",
-      "courseId": "javascript",
-      "moduleId": null,
-      "lessonId": null,
-      "diskPath": null,
-      "status": "planned",
-      "title": "06.2.2 Online Assessments (OA)"
-    },
-    {
-      "graphIndex": "06.2.3",
-      "courseId": "javascript",
-      "moduleId": null,
-      "lessonId": null,
-      "diskPath": null,
-      "status": "planned",
-      "title": "06.2.3 Implementation Focus"
-    },
-    {
-      "graphIndex": "06.2.4",
-      "courseId": "javascript",
-      "moduleId": null,
-      "lessonId": null,
-      "diskPath": null,
-      "status": "planned",
-      "title": "06.2.4 Test Case Handling"
-    },
-    {
-      "graphIndex": "07.1",
-      "courseId": "javascript",
-      "moduleId": null,
-      "lessonId": null,
-      "diskPath": null,
-      "status": "planned",
-      "title": "07.1 System Design (Scalability, CAP Theorem)"
-    },
-    {
-      "graphIndex": "07.2",
-      "courseId": "javascript",
-      "moduleId": null,
-      "lessonId": null,
-      "diskPath": null,
-      "status": "planned",
-      "title": "07.2 Behavioral (STAR Method)"
-    },
-    {
-      "graphIndex": "07.3",
-      "courseId": "javascript",
-      "moduleId": null,
-      "lessonId": null,
-      "diskPath": null,
-      "status": "planned",
-      "title": "07.3 Communication and Clarifying Questions"
-    },
-    {
-      "graphIndex": "07.4",
-      "courseId": "javascript",
-      "moduleId": null,
-      "lessonId": null,
-      "diskPath": null,
-      "status": "planned",
-      "title": "07.4 Code Quality and Maintainability"
-    },
-    {
-      "graphIndex": "07.5",
-      "courseId": "javascript",
-      "moduleId": null,
-      "lessonId": null,
-      "diskPath": null,
-      "status": "planned",
-      "title": "07.5 Iterative Optimization"
+    "javascript": {
+      "courseSlug": "javascript",
+      "total": 75,
+      "exists": 57,
+      "planned": 15,
+      "orphan": 3,
+      "entries": [
+        {
+          "graphIndex": "01.1",
+          "courseId": "javascript",
+          "moduleId": "07-technical-interview-preparation-mock",
+          "lessonId": "01.1-test-instructions",
+          "diskPath": "course/javascript/modules/07-technical-interview-preparation-mock/lessons/01.1-test-instructions",
+          "status": "orphan",
+          "reason": "no matching graph leaf"
+        },
+        {
+          "graphIndex": "01.1.1",
+          "courseId": "javascript",
+          "moduleId": "01-javascript-fundamentals",
+          "lessonId": "01.1.1-running-javascript-node-js",
+          "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.1.1-running-javascript-node-js",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "01.1.2",
+          "courseId": "javascript",
+          "moduleId": "01-javascript-fundamentals",
+          "lessonId": "01.1.2-console-log-and-output",
+          "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.1.2-console-log-and-output",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "01.1.3",
+          "courseId": "javascript",
+          "moduleId": "01-javascript-fundamentals",
+          "lessonId": "01.1.3-comments",
+          "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.1.3-comments",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "01.2",
+          "courseId": "javascript",
+          "moduleId": "07-technical-interview-preparation-mock",
+          "lessonId": "01.2-multiple-choice",
+          "diskPath": "course/javascript/modules/07-technical-interview-preparation-mock/lessons/01.2-multiple-choice",
+          "status": "orphan",
+          "reason": "no matching graph leaf"
+        },
+        {
+          "graphIndex": "01.2.1",
+          "courseId": "javascript",
+          "moduleId": "01-javascript-fundamentals",
+          "lessonId": "01.2.1-let-and-const",
+          "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.2.1-let-and-const",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "01.2.2",
+          "courseId": "javascript",
+          "moduleId": "01-javascript-fundamentals",
+          "lessonId": "01.2.2-assignment-and-reassignment",
+          "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.2.2-assignment-and-reassignment",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "01.3",
+          "courseId": "javascript",
+          "moduleId": "07-technical-interview-preparation-mock",
+          "lessonId": "01.3-coding-challenge",
+          "diskPath": "course/javascript/modules/07-technical-interview-preparation-mock/lessons/01.3-coding-challenge",
+          "status": "orphan",
+          "reason": "no matching graph leaf"
+        },
+        {
+          "graphIndex": "01.3.1",
+          "courseId": "javascript",
+          "moduleId": "01-javascript-fundamentals",
+          "lessonId": "01.3.1-strings",
+          "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.3.1-strings",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "01.3.2",
+          "courseId": "javascript",
+          "moduleId": "01-javascript-fundamentals",
+          "lessonId": "01.3.2-numbers",
+          "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.3.2-numbers",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "01.3.3",
+          "courseId": "javascript",
+          "moduleId": "01-javascript-fundamentals",
+          "lessonId": "01.3.3-booleans",
+          "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.3.3-booleans",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "01.3.4",
+          "courseId": "javascript",
+          "moduleId": "01-javascript-fundamentals",
+          "lessonId": "01.3.4-undefined-and-null",
+          "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.3.4-undefined-and-null",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "01.4.1",
+          "courseId": "javascript",
+          "moduleId": "01-javascript-fundamentals",
+          "lessonId": "01.4.1-arithmetic-operators",
+          "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.4.1-arithmetic-operators",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "01.4.2",
+          "courseId": "javascript",
+          "moduleId": "01-javascript-fundamentals",
+          "lessonId": "01.4.2-comparison-operators",
+          "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.4.2-comparison-operators",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "01.4.3",
+          "courseId": "javascript",
+          "moduleId": "01-javascript-fundamentals",
+          "lessonId": "01.4.3-logical-operators",
+          "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.4.3-logical-operators",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "01.5.1",
+          "courseId": "javascript",
+          "moduleId": "01-javascript-fundamentals",
+          "lessonId": "01.5.1-if-and-else",
+          "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.5.1-if-and-else",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "01.5.2",
+          "courseId": "javascript",
+          "moduleId": "01-javascript-fundamentals",
+          "lessonId": "01.5.2-switch",
+          "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.5.2-switch",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "01.6.1",
+          "courseId": "javascript",
+          "moduleId": "01-javascript-fundamentals",
+          "lessonId": "01.6.1-for-loop",
+          "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.6.1-for-loop",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "01.6.2",
+          "courseId": "javascript",
+          "moduleId": "01-javascript-fundamentals",
+          "lessonId": "01.6.2-while-loop",
+          "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.6.2-while-loop",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "01.7.1",
+          "courseId": "javascript",
+          "moduleId": "01-javascript-fundamentals",
+          "lessonId": "01.7.1-function-declaration",
+          "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.7.1-function-declaration",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "01.7.2",
+          "courseId": "javascript",
+          "moduleId": "01-javascript-fundamentals",
+          "lessonId": "01.7.2-parameters-and-return-values",
+          "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.7.2-parameters-and-return-values",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "01.7.3",
+          "courseId": "javascript",
+          "moduleId": null,
+          "lessonId": null,
+          "diskPath": null,
+          "status": "planned",
+          "title": "01.7.3 Arrow Functions and Callbacks"
+        },
+        {
+          "graphIndex": "01.7.4",
+          "courseId": "javascript",
+          "moduleId": null,
+          "lessonId": null,
+          "diskPath": null,
+          "status": "planned",
+          "title": "01.7.4 Throwing Errors and Sync try/catch"
+        },
+        {
+          "graphIndex": "01.8.1",
+          "courseId": "javascript",
+          "moduleId": "01-javascript-fundamentals",
+          "lessonId": "01.8.1-truthy-vs-falsy",
+          "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.8.1-truthy-vs-falsy",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "01.8.2",
+          "courseId": "javascript",
+          "moduleId": "01-javascript-fundamentals",
+          "lessonId": "01.8.2-strict-equality",
+          "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.8.2-strict-equality",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "01.8.3",
+          "courseId": "javascript",
+          "moduleId": "01-javascript-fundamentals",
+          "lessonId": "01.8.3-type-coercion",
+          "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.8.3-type-coercion",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "01.8.4",
+          "courseId": "javascript",
+          "moduleId": "01-javascript-fundamentals",
+          "lessonId": "01.8.4-typeof-and-array-isarray",
+          "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.8.4-typeof-and-array-isarray",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "01.8.5",
+          "courseId": "javascript",
+          "moduleId": "01-javascript-fundamentals",
+          "lessonId": "01.8.5-null-undefined-null",
+          "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.8.5-null-undefined-null",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "01.9.1",
+          "courseId": "javascript",
+          "moduleId": null,
+          "lessonId": null,
+          "diskPath": null,
+          "status": "planned",
+          "title": "01.9.1 Array Literals Indexing and length"
+        },
+        {
+          "graphIndex": "01.9.2",
+          "courseId": "javascript",
+          "moduleId": null,
+          "lessonId": null,
+          "diskPath": null,
+          "status": "planned",
+          "title": "01.9.2 Mutating Array Methods"
+        },
+        {
+          "graphIndex": "01.9.3",
+          "courseId": "javascript",
+          "moduleId": null,
+          "lessonId": null,
+          "diskPath": null,
+          "status": "planned",
+          "title": "01.9.3 Non-mutating Array Methods"
+        },
+        {
+          "graphIndex": "01.9.4",
+          "courseId": "javascript",
+          "moduleId": null,
+          "lessonId": null,
+          "diskPath": null,
+          "status": "planned",
+          "title": "01.9.4 Iterating Arrays for and for-of"
+        },
+        {
+          "graphIndex": "02.1.1",
+          "courseId": "javascript",
+          "moduleId": null,
+          "lessonId": null,
+          "diskPath": null,
+          "status": "planned",
+          "title": "02.1.1 Object Literals and Property Access"
+        },
+        {
+          "graphIndex": "02.1.2",
+          "courseId": "javascript",
+          "moduleId": null,
+          "lessonId": null,
+          "diskPath": null,
+          "status": "planned",
+          "title": "02.1.2 Computed Keys and Shorthand"
+        },
+        {
+          "graphIndex": "02.1.3",
+          "courseId": "javascript",
+          "moduleId": null,
+          "lessonId": null,
+          "diskPath": null,
+          "status": "planned",
+          "title": "02.1.3 Object Destructuring"
+        },
+        {
+          "graphIndex": "02.1.4",
+          "courseId": "javascript",
+          "moduleId": null,
+          "lessonId": null,
+          "diskPath": null,
+          "status": "planned",
+          "title": "02.1.4 Rest and Spread for Objects and Arrays"
+        },
+        {
+          "graphIndex": "02.2.1",
+          "courseId": "javascript",
+          "moduleId": null,
+          "lessonId": null,
+          "diskPath": null,
+          "status": "planned",
+          "title": "02.2.1 Object.keys values and entries"
+        },
+        {
+          "graphIndex": "02.2.2",
+          "courseId": "javascript",
+          "moduleId": null,
+          "lessonId": null,
+          "diskPath": null,
+          "status": "planned",
+          "title": "02.2.2 Object.fromEntries"
+        },
+        {
+          "graphIndex": "02.2.3",
+          "courseId": "javascript",
+          "moduleId": null,
+          "lessonId": null,
+          "diskPath": null,
+          "status": "planned",
+          "title": "02.2.3 Object.assign and Merging"
+        },
+        {
+          "graphIndex": "02.3.1",
+          "courseId": "javascript",
+          "moduleId": "02-objects-references-and-copying",
+          "lessonId": "02.3.1-reference-vs-value",
+          "diskPath": "course/javascript/modules/02-objects-references-and-copying/lessons/02.3.1-reference-vs-value",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "02.3.2",
+          "courseId": "javascript",
+          "moduleId": "02-objects-references-and-copying",
+          "lessonId": "02.3.2-shallow-vs-deep-copy",
+          "diskPath": "course/javascript/modules/02-objects-references-and-copying/lessons/02.3.2-shallow-vs-deep-copy",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "02.3.3",
+          "courseId": "javascript",
+          "moduleId": "02-objects-references-and-copying",
+          "lessonId": "02.3.3-structuredclone",
+          "diskPath": "course/javascript/modules/02-objects-references-and-copying/lessons/02.3.3-structuredclone",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "02.4.1",
+          "courseId": "javascript",
+          "moduleId": null,
+          "lessonId": null,
+          "diskPath": null,
+          "status": "planned",
+          "title": "02.4.1 JSON.stringify and parse"
+        },
+        {
+          "graphIndex": "02.4.2",
+          "courseId": "javascript",
+          "moduleId": null,
+          "lessonId": null,
+          "diskPath": null,
+          "status": "planned",
+          "title": "02.4.2 Common JSON Cases and Pitfalls"
+        },
+        {
+          "graphIndex": "02.4.3",
+          "courseId": "javascript",
+          "moduleId": "02-objects-references-and-copying",
+          "lessonId": "02.4.3-object-hasown",
+          "diskPath": "course/javascript/modules/02-objects-references-and-copying/lessons/02.4.3-object-hasown",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "03.1.1",
+          "courseId": "javascript",
+          "moduleId": "03-asynchronous-javascript",
+          "lessonId": "03.1.1-single-threaded-execution",
+          "diskPath": "course/javascript/modules/03-asynchronous-javascript/lessons/03.1.1-single-threaded-execution",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "03.1.2",
+          "courseId": "javascript",
+          "moduleId": "03-asynchronous-javascript",
+          "lessonId": "03.1.2-call-stack",
+          "diskPath": "course/javascript/modules/03-asynchronous-javascript/lessons/03.1.2-call-stack",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "03.1.3",
+          "courseId": "javascript",
+          "moduleId": "03-asynchronous-javascript",
+          "lessonId": "03.1.3-event-loop",
+          "diskPath": "course/javascript/modules/03-asynchronous-javascript/lessons/03.1.3-event-loop",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "03.1.4",
+          "courseId": "javascript",
+          "moduleId": "03-asynchronous-javascript",
+          "lessonId": "03.1.4-callback-and-microtask-queues",
+          "diskPath": "course/javascript/modules/03-asynchronous-javascript/lessons/03.1.4-callback-and-microtask-queues",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "03.2.1",
+          "courseId": "javascript",
+          "moduleId": "03-asynchronous-javascript",
+          "lessonId": "03.2.1-promises",
+          "diskPath": "course/javascript/modules/03-asynchronous-javascript/lessons/03.2.1-promises",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "03.2.2",
+          "courseId": "javascript",
+          "moduleId": "03-asynchronous-javascript",
+          "lessonId": "03.2.2-async-await",
+          "diskPath": "course/javascript/modules/03-asynchronous-javascript/lessons/03.2.2-async-await",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "03.2.3",
+          "courseId": "javascript",
+          "moduleId": "03-asynchronous-javascript",
+          "lessonId": "03.2.3-try-catch-error-handling",
+          "diskPath": "course/javascript/modules/03-asynchronous-javascript/lessons/03.2.3-try-catch-error-handling",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "04.1",
+          "courseId": "javascript",
+          "moduleId": "04-advanced-javascript",
+          "lessonId": "04.1-hoisting-and-tdz",
+          "diskPath": "course/javascript/modules/04-advanced-javascript/lessons/04.1-hoisting-and-tdz",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "04.2",
+          "courseId": "javascript",
+          "moduleId": "04-advanced-javascript",
+          "lessonId": "04.2-closures",
+          "diskPath": "course/javascript/modules/04-advanced-javascript/lessons/04.2-closures",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "04.3",
+          "courseId": "javascript",
+          "moduleId": "04-advanced-javascript",
+          "lessonId": "04.3-higher-order-functions",
+          "diskPath": "course/javascript/modules/04-advanced-javascript/lessons/04.3-higher-order-functions",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "04.4",
+          "courseId": "javascript",
+          "moduleId": "04-advanced-javascript",
+          "lessonId": "04.4-prototype-chain",
+          "diskPath": "course/javascript/modules/04-advanced-javascript/lessons/04.4-prototype-chain",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "04.5",
+          "courseId": "javascript",
+          "moduleId": "04-advanced-javascript",
+          "lessonId": "04.5-es6-modules",
+          "diskPath": "course/javascript/modules/04-advanced-javascript/lessons/04.5-es6-modules",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "05.1",
+          "courseId": "javascript",
+          "moduleId": "05-data-structures-and-algorithms",
+          "lessonId": "05.1-big-o-complexity",
+          "diskPath": "course/javascript/modules/05-data-structures-and-algorithms/lessons/05.1-big-o-complexity",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "05.2",
+          "courseId": "javascript",
+          "moduleId": "05-data-structures-and-algorithms",
+          "lessonId": "05.2-two-pointers-and-sliding-window",
+          "diskPath": "course/javascript/modules/05-data-structures-and-algorithms/lessons/05.2-two-pointers-and-sliding-window",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "05.3",
+          "courseId": "javascript",
+          "moduleId": "05-data-structures-and-algorithms",
+          "lessonId": "05.3-bfs-and-dfs",
+          "diskPath": "course/javascript/modules/05-data-structures-and-algorithms/lessons/05.3-bfs-and-dfs",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "05.4",
+          "courseId": "javascript",
+          "moduleId": "05-data-structures-and-algorithms",
+          "lessonId": "05.4-cycle-detection",
+          "diskPath": "course/javascript/modules/05-data-structures-and-algorithms/lessons/05.4-cycle-detection",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "05.5",
+          "courseId": "javascript",
+          "moduleId": "05-data-structures-and-algorithms",
+          "lessonId": "05.5-dynamic-programming",
+          "diskPath": "course/javascript/modules/05-data-structures-and-algorithms/lessons/05.5-dynamic-programming",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "06.1.1",
+          "courseId": "javascript",
+          "moduleId": "06-hackerrank-profile-and-assessments",
+          "lessonId": "06.1.1-problem-solving-score",
+          "diskPath": "course/javascript/modules/06-hackerrank-profile-and-assessments/lessons/06.1.1-problem-solving-score",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "06.1.2",
+          "courseId": "javascript",
+          "moduleId": "06-hackerrank-profile-and-assessments",
+          "lessonId": "06.1.2-certifications",
+          "diskPath": "course/javascript/modules/06-hackerrank-profile-and-assessments/lessons/06.1.2-certifications",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "06.1.3",
+          "courseId": "javascript",
+          "moduleId": "06-hackerrank-profile-and-assessments",
+          "lessonId": "06.1.3-badges",
+          "diskPath": "course/javascript/modules/06-hackerrank-profile-and-assessments/lessons/06.1.3-badges",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "06.1.4",
+          "courseId": "javascript",
+          "moduleId": "06-hackerrank-profile-and-assessments",
+          "lessonId": "06.1.4-global-ranking",
+          "diskPath": "course/javascript/modules/06-hackerrank-profile-and-assessments/lessons/06.1.4-global-ranking",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "06.2.1",
+          "courseId": "javascript",
+          "moduleId": "06-hackerrank-profile-and-assessments",
+          "lessonId": "06.2.1-interview-preparation-kit",
+          "diskPath": "course/javascript/modules/06-hackerrank-profile-and-assessments/lessons/06.2.1-interview-preparation-kit",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "06.2.2",
+          "courseId": "javascript",
+          "moduleId": "06-hackerrank-profile-and-assessments",
+          "lessonId": "06.2.2-online-assessments-oa",
+          "diskPath": "course/javascript/modules/06-hackerrank-profile-and-assessments/lessons/06.2.2-online-assessments-oa",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "06.2.3",
+          "courseId": "javascript",
+          "moduleId": "06-hackerrank-profile-and-assessments",
+          "lessonId": "06.2.3-implementation-focus",
+          "diskPath": "course/javascript/modules/06-hackerrank-profile-and-assessments/lessons/06.2.3-implementation-focus",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "06.2.4",
+          "courseId": "javascript",
+          "moduleId": "06-hackerrank-profile-and-assessments",
+          "lessonId": "06.2.4-test-case-handling",
+          "diskPath": "course/javascript/modules/06-hackerrank-profile-and-assessments/lessons/06.2.4-test-case-handling",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "07.1",
+          "courseId": "javascript",
+          "moduleId": "07-technical-interview-preparation",
+          "lessonId": "07.1-system-design-scalability-cap-theorem",
+          "diskPath": "course/javascript/modules/07-technical-interview-preparation/lessons/07.1-system-design-scalability-cap-theorem",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "07.2",
+          "courseId": "javascript",
+          "moduleId": "07-technical-interview-preparation",
+          "lessonId": "07.2-behavioral-star-method",
+          "diskPath": "course/javascript/modules/07-technical-interview-preparation/lessons/07.2-behavioral-star-method",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "07.3",
+          "courseId": "javascript",
+          "moduleId": "07-technical-interview-preparation",
+          "lessonId": "07.3-communication-and-clarifying-questions",
+          "diskPath": "course/javascript/modules/07-technical-interview-preparation/lessons/07.3-communication-and-clarifying-questions",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "07.4",
+          "courseId": "javascript",
+          "moduleId": "07-technical-interview-preparation",
+          "lessonId": "07.4-code-quality-and-maintainability",
+          "diskPath": "course/javascript/modules/07-technical-interview-preparation/lessons/07.4-code-quality-and-maintainability",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "07.5",
+          "courseId": "javascript",
+          "moduleId": "07-technical-interview-preparation",
+          "lessonId": "07.5-iterative-optimization",
+          "diskPath": "course/javascript/modules/07-technical-interview-preparation/lessons/07.5-iterative-optimization",
+          "status": "exists"
+        }
+      ]
     }
-  ]
+  }
 }

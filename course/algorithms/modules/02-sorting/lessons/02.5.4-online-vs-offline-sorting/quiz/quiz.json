@@ -1,0 +1,105 @@
+{
+  "id": "quiz",
+  "title": "Online vs Offline Sorting Check",
+  "description": "Batch vs incremental ordering needs.",
+  "lessonId": "02.5.4-online-vs-offline-sorting",
+  "graphIndex": "02.5.4",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Offline sorting means:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Sorting without a computer"
+        },
+        {
+          "id": "b",
+          "text": "Having the full collection before producing order"
+        },
+        {
+          "id": "c",
+          "text": "Only sorting odds"
+        },
+        {
+          "id": "d",
+          "text": "Never using memory"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Batch algorithms see all inputs first."
+    },
+    {
+      "id": "q2",
+      "prompt": "A live leaderboard updating as scores arrive is:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Offline only"
+        },
+        {
+          "id": "b",
+          "text": "An online / incremental ordering need"
+        },
+        {
+          "id": "c",
+          "text": "Impossible"
+        },
+        {
+          "id": "d",
+          "text": "Always `O(1)`"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Order must refresh as items stream in."
+    },
+    {
+      "id": "q3",
+      "prompt": "Top-k in a stream often uses:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Full offline sort of the infinite stream"
+        },
+        {
+          "id": "b",
+          "text": "A heap (or similar) of size k"
+        },
+        {
+          "id": "c",
+          "text": "Bubble sort only"
+        },
+        {
+          "id": "d",
+          "text": "No data structure"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Bounded heap tracks the best k cheaply."
+    },
+    {
+      "id": "q4",
+      "prompt": "Re-sorting the entire array after every insert is:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Ideal online design always"
+        },
+        {
+          "id": "b",
+          "text": "Usually wasteful vs intentional insert/heap structures"
+        },
+        {
+          "id": "c",
+          "text": "Required by JS"
+        },
+        {
+          "id": "d",
+          "text": "Offline by definition"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Full re-sort each time repeats work; prefer incremental structures."
+    }
+  ]
+}

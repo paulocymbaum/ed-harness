@@ -1,0 +1,46 @@
+{
+  "cases": [
+    {
+      "id": "example",
+      "name": "Example from README",
+      "stdin": "10 1 1 1\n",
+      "expectedStdout": "ready 70\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "all-zero",
+      "name": "No signals present",
+      "stdin": "0 0 0 0\n",
+      "expectedStdout": "not-ready 0\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "just-below-threshold",
+      "name": "Score one point below threshold",
+      "stdin": "9 1 1 1\n",
+      "expectedStdout": "not-ready 69\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "full-hours-no-flags",
+      "name": "Max hours, no flags",
+      "stdin": "40 0 0 0\n",
+      "expectedStdout": "not-ready 40\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "max-score",
+      "name": "All signals maxed",
+      "stdin": "40 1 1 1\n",
+      "expectedStdout": "ready 100\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "capped-above-100",
+      "name": "Raw sum above 100 is capped",
+      "stdin": "50 1 1 1\n",
+      "expectedStdout": "ready 100\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

@@ -6,7 +6,7 @@ import { createRequire } from "node:module";
 import { validateLessonAtPath } from "./validate-lesson.mjs";
 
 const require = createRequire(import.meta.url);
-const { loadGraph, findNodeByIndex } = require("./graph/graph-index.js");
+const { loadGraph, findNodeByIndex, courseSlugFromPath } = require("./graph/graph-index.js");
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(scriptDir, "..");
@@ -95,9 +95,16 @@ async function listModules(courseFilter, moduleFilter) {
   return modules;
 }
 
+function graphForModulePath(modulePath) {
+  const courseSlug = courseSlugFromPath(modulePath, repoRoot);
+  if (!courseSlug) {
+    throw new Error(`Cannot derive course slug from path: ${modulePath}`);
+  }
+  return loadGraph({ repoRoot, courseSlug });
+}
+
 async function main() {
   const args = parseArgs(process.argv);
-  const graph = loadGraph({ repoRoot });
   let findings = [];
 
   const modules = await listModules(args.course, args.module);
@@ -107,7 +114,7 @@ async function main() {
   }
 
   for (const modulePath of modules) {
-    findings.push(...(await validateModuleAtPath(modulePath, graph)));
+    findings.push(...(await validateModuleAtPath(modulePath, graphForModulePath(modulePath))));
   }
 
   for (const item of findings) {

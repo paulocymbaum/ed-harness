@@ -1,0 +1,39 @@
+{
+  "cases": [
+    {
+      "id": "upper-basic",
+      "name": "upper operation uppercases each line",
+      "stdin": "upper\nabc\ndef\n",
+      "expectedStdout": "ABC\nDEF\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "upper-already-upper",
+      "name": "upper on already-uppercase text",
+      "stdin": "upper\nAlready Upper\n",
+      "expectedStdout": "ALREADY UPPER\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "nonempty-basic",
+      "name": "nonempty drops blank lines",
+      "stdin": "nonempty\na\n\nb\n",
+      "expectedStdout": "a\nb\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "nonempty-all-blank",
+      "name": "nonempty with only blank lines produces no output",
+      "stdin": "nonempty\n\n\n",
+      "expectedStdout": "",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "nonempty-preserves-order",
+      "name": "nonempty preserves original line order",
+      "stdin": "nonempty\nfirst\n\nsecond\n\nthird\n",
+      "expectedStdout": "first\nsecond\nthird\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

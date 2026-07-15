@@ -42,8 +42,8 @@ export function MindMapCanvas(props: {
   });
 
   return (
-    <div className="relative">
-      <div className="pointer-events-none absolute right-3 top-3 z-10">
+    <div className="relative h-full min-h-[16rem]">
+      <div className="pointer-events-none absolute right-2 top-2 z-10 sm:right-3 sm:top-3">
         <Button
           variant="secondary"
           size="md"
@@ -53,13 +53,13 @@ export function MindMapCanvas(props: {
           aria-label="Center view on root node"
         >
           <Icon icon={Crosshair} />
-          Center view
+          <span className="hidden sm:inline">Center view</span>
         </Button>
       </div>
 
       <div
         ref={viewportRef}
-        className="h-[min(70vh,720px)] min-h-[420px] cursor-grab overflow-hidden rounded-panel border border-border0 bg-surfacePanel/40 active:cursor-grabbing"
+        className="h-full min-h-[16rem] touch-none overscroll-none cursor-grab overflow-hidden rounded-panel border border-border0 bg-surfacePanel/40 active:cursor-grabbing"
         data-mindmap-viewport
         aria-label="Content map canvas. Scroll to zoom. Drag the background to pan. Double-click a node to focus it."
       >

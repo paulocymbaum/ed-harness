@@ -1,0 +1,105 @@
+{
+  "id": "quiz",
+  "title": "Sort by Multiple Keys Check",
+  "description": "Primary/secondary order and || short-circuit.",
+  "lessonId": "02.5.3-sort-by-multiple-keys",
+  "graphIndex": "02.5.3",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Multi-key compare checks secondary keys when:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Always first"
+        },
+        {
+          "id": "b",
+          "text": "Primary keys compare equal"
+        },
+        {
+          "id": "c",
+          "text": "Never"
+        },
+        {
+          "id": "d",
+          "text": "Only if unstable"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Secondary is the tie-breaker."
+    },
+    {
+      "id": "q2",
+      "prompt": "`b.math - a.math || nameCompare` sorts math:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Ascending"
+        },
+        {
+          "id": "b",
+          "text": "Descending"
+        },
+        {
+          "id": "c",
+          "text": "Randomly"
+        },
+        {
+          "id": "d",
+          "text": "As strings only"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Flipped subtraction → higher math first."
+    },
+    {
+      "id": "q3",
+      "prompt": "Successive sorts must run:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Primary first if unstable is OK"
+        },
+        {
+          "id": "b",
+          "text": "Last key first, then earlier keys, with stability"
+        },
+        {
+          "id": "c",
+          "text": "Only once ever"
+        },
+        {
+          "id": "d",
+          "text": "Without comparators"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Stable sorts from weakest to strongest key."
+    },
+    {
+      "id": "q4",
+      "prompt": "If all keys tie, comparator should return:",
+      "options": [
+        {
+          "id": "a",
+          "text": "`1`"
+        },
+        {
+          "id": "b",
+          "text": "`-1`"
+        },
+        {
+          "id": "c",
+          "text": "`0`"
+        },
+        {
+          "id": "d",
+          "text": "`true`"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "Equal records compare as zero."
+    }
+  ]
+}

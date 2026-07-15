@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "id": "c32",
+      "name": "C(3,2)",
+      "stdin": "3 2\n",
+      "expectedStdout": "3\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "c53",
+      "name": "C(5,3)",
+      "stdin": "5 3\n",
+      "expectedStdout": "10\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "c40",
+      "name": "C(4,0)",
+      "stdin": "4 0\n",
+      "expectedStdout": "1\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "c41",
+      "name": "C(4,1)",
+      "stdin": "4 1\n",
+      "expectedStdout": "4\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

@@ -1,24 +1,25 @@
 const { bfs } = require("../../../scripts/graph/utils/bfs");
 const {
-  loadGraph,
+  loadCourseGraph,
   extractIndexPath,
   normalizeIndexPath,
   indexPathsEqual,
+  parseCourseArg,
+  positionalArgs,
 } = require("./_loadGraph");
 
 function usage() {
   return [
-    "Usage: node .cursor/tools/graph/find-node-by-index.js <indexPath>",
+    "Usage: node .cursor/tools/graph/find-node-by-index.js --course <slug> <indexPath>",
     "Examples:",
-    '  node .cursor/tools/graph/find-node-by-index.js "01"',
-    '  node .cursor/tools/graph/find-node-by-index.js "01.2.1"',
-    '  node .cursor/tools/graph/find-node-by-index.js "3.2.1"',
+    '  node .cursor/tools/graph/find-node-by-index.js --course javascript "01"',
+    '  node .cursor/tools/graph/find-node-by-index.js --course javascript "01.2.1"',
   ].join("\n");
 }
 
 function main() {
-  const indexRaw = process.argv[2];
-  if (!indexRaw) {
+  const [indexRaw] = positionalArgs();
+  if (!indexRaw || !parseCourseArg()) {
     process.stderr.write(`${usage()}\n`);
     process.exit(2);
   }
@@ -29,7 +30,7 @@ function main() {
     process.exit(2);
   }
 
-  const graph = loadGraph();
+  const { graph, courseSlug } = loadCourseGraph();
   let found = null;
 
   bfs(graph, graph.rootId, {
@@ -41,7 +42,7 @@ function main() {
   });
 
   if (!found) {
-    process.stdout.write(`NOT_FOUND: ${targetIndex}\n`);
+    process.stdout.write(`NOT_FOUND: ${targetIndex} (course=${courseSlug})\n`);
     process.exitCode = 1;
     return;
   }
@@ -49,12 +50,13 @@ function main() {
   process.stdout.write(
     JSON.stringify(
       {
+        courseSlug,
         index: targetIndex,
         node: found,
       },
       null,
-      2
-    ) + "\n"
+      2,
+    ) + "\n",
   );
 }
 

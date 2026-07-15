@@ -1,0 +1,90 @@
+---
+description: HackerRank-style mock test structure when authoring files under course/**/*-mock/
+globs: course/**/*-mock/**
+alwaysApply: false
+---
+
+# Mock test (HackerRank screening) structure
+
+A mock test is a **module inside a course** whose id ends with `-mock`. It simulates a HackerRank screening: timed, three fixed sections, scored quiz + coding.
+
+**HackerRank alignment:** matches common screening **shape** (instructions → MCQ → stdin/stdout coding) and **grading style** (exact stdout per test case). It is **not** a full platform clone — see [`.cursor/skills/create-mock-test/reference.md`](../../.cursor/skills/create-mock-test/reference.md#hackerrank-alignment) for what aligns, what differs, and official HackerRank doc links.
+
+## Activity counts (fixed)
+
+| Section | Count | Scored activities | Content |
+|---------|-------|-------------------|---------|
+| 1. Instructions | **1** section | **0** | `README.md` only — rules, duration, constraints |
+| 2. Multiple choice | **1** quiz | **4–10** questions | `quiz/quiz.json` (one file) |
+| 3. Coding challenge | **1** project | **≥1** `tests.json` case with `expectedStdout` and/or `expectedExitCode` | `projects/001-<slug>/starter/` |
+
+**Totals per mock test:** exactly **3 sections**, **1 quiz**, **1 coding project**, **0** extra section types.
+
+Do not add a fourth section, reorder sections, or split coding into multiple projects without updating `mock-test.meta.json` and frontend.
+
+## Folder layout
+
+```text
+course/<course>/modules/<NN>-<topic>-mock/
+  module.meta.json
+  mock-test.meta.json          # duration, passingScorePercent, sections[]
+  README.md
+  lessons/
+    01.1-test-instructions/    # mockTestSection: instructions
+    01.2-multiple-choice/      # mockTestSection: quiz → quiz/quiz.json
+    01.3-coding-challenge/     # mockTestSection: coding → projects/001-<slug>/
+```
+
+Module id **must** end with `-mock`. Catalog emits these as `course.mockTests[]` (separate from `course.modules[]`).
+
+## Scope
+
+- **Topic boundary:** assess the **parent study module** linked by `graphIndex` in `module.meta.json` (e.g. `01` → JavaScript Fundamentals). Pull questions and coding tasks from that module's lessons — do not invent topics outside the graph.
+- **Instructions section:** state what is assessed, time limit, pass threshold, section order, Node.js-only constraint.
+- **Quiz section:** conceptual knowledge — types, operators, control flow, APIs covered in the source module. Use `create-course-quiz` schema.
+- **Coding section:** one stdin/stdout problem scoped to module fundamentals. Every **functional requirement** in the project README must map to a scored `tests.json` case.
+- **Out of scope for `tests.json`:** naming conventions, immutability, or other rules not verifiable via stdin/stdout — document in README only.
+
+## Evaluation
+
+### Metadata (`mock-test.meta.json`)
+
+```json
+{
+  "durationMinutes": 90,
+  "passingScorePercent": 70,
+  "sections": [
+    { "lessonId": "01.1-test-instructions", "type": "instructions" },
+    { "lessonId": "01.2-multiple-choice", "type": "quiz" },
+    { "lessonId": "01.3-coding-challenge", "type": "coding" }
+  ]
+}
+```
+
+- `durationMinutes` — timed session length shown in UI (HackerRank duration is recruiter-configured; often 30–90+ min).
+- `passingScorePercent` — pass threshold shown in UI (e.g. 70%). Real HackerRank often uses percentile benchmarks, not a fixed % — [benchmarking](https://www.hackerrank.com/writing/how-hackerrank-benchmarks-passing-scores-for-senior-engineer-data-structures-tests).
+- `sections[]` — must match lesson folder ids and each lesson's `mockTestSection`.
+
+### Per-section scoring
+
+| Section | How it is evaluated |
+|---------|---------------------|
+| Instructions | Not scored — orientation only |
+| Quiz | Each question: select option → **Check answer** → correct/incorrect + explanation. One point per question (equal weight). HackerRank may use multi-select and negative marking — [MCQ scoring](https://support.hackerrank.com/articles/2513748038-multiple-choice-questions). |
+| Coding | **Run answer** executes all `tests.json` cases. Cases with `expectedStdout` or `expectedExitCode` → **Pass/Fail**. Cases without those fields → smoke **Ran** only (not scored). HackerRank also uses hidden cases and separate Run vs Submit — [during-test FAQ](https://candidatesupport.hackerrank.com/articles/2859650598-frequently-asked-questions-during-the-test). |
+
+### Coding `tests.json` contract
+
+- `stdin` piped to `process.stdin`; compare `expectedStdout` with `trimEnd`.
+- Include an `example` case matching the README I/O plus edge cases (zeros, negatives, bounds) as separate cases.
+- At least one scored case required so Run answer shows Pass/Fail.
+
+## Authoring checklist
+
+1. Scaffold with `create-mock-test` skill; add `.cursor-created.json` to every new folder.
+2. Module README: overview, duration, passing score, section order, no-refresh note.
+3. Validate: `validate-quiz.mjs` + `validate-project.mjs`.
+4. Regenerate: `cd frontend && npm run catalog:generate`.
+5. Spot-check: `/course/<courseId>/module/<moduleId>/mock-test`.
+
+Full reference: [`COURSE_STRUCTURE.md`](../../COURSE_STRUCTURE.md), [`.cursor/skills/create-mock-test/SKILL.md`](../skills/create-mock-test/SKILL.md), [HackerRank alignment](../skills/create-mock-test/reference.md#hackerrank-alignment).

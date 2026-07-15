@@ -4,28 +4,125 @@ const path = require("path");
 const { parseMindmapText } = require("./parseMindmap");
 const { bfs } = require("./utils/bfs");
 
-function loadGraph(options = {}) {
-  const {
-    txtPath = path.resolve(process.cwd(), "graph/course.graph.txt"),
-    jsonPath = path.resolve(process.cwd(), "graph/course.graph.json"),
-    preferJson = true,
-    repoRoot = process.cwd(),
-  } = options;
+function resolveCourseMeta(repoRoot, courseSlug) {
+  const metaPath = path.join(repoRoot, "course", courseSlug, "course.meta.json");
+  if (!fs.existsSync(metaPath)) return null;
+  try {
+    return JSON.parse(fs.readFileSync(metaPath, "utf8"));
+  } catch {
+    return null;
+  }
+}
 
-  const resolvedTxt = path.isAbsolute(txtPath) ? txtPath : path.resolve(repoRoot, txtPath);
-  const resolvedJson = path.isAbsolute(jsonPath) ? jsonPath : path.resolve(repoRoot, jsonPath);
+function resolveGraphSlug(repoRoot, options = {}) {
+  if (options.graphSlug) return options.graphSlug;
+  if (options.courseSlug) {
+    const meta = resolveCourseMeta(repoRoot, options.courseSlug);
+    if (meta?.graphSlug) return meta.graphSlug;
+    return options.courseSlug;
+  }
+  return null;
+}
 
-  if (preferJson && fs.existsSync(resolvedJson)) {
-    return JSON.parse(fs.readFileSync(resolvedJson, "utf8"));
+function resolveGraphPaths(options = {}) {
+  const repoRoot = options.repoRoot ?? process.cwd();
+  const graphSlug = resolveGraphSlug(repoRoot, options);
+
+  if (!graphSlug) {
+    throw new Error(
+      "resolveGraphPaths requires courseSlug or graphSlug (e.g. { courseSlug: \"javascript\" })",
+    );
   }
 
-  const txt = fs.readFileSync(resolvedTxt, "utf8");
+  return {
+    graphSlug,
+    courseSlug: options.courseSlug ?? graphSlug,
+    txtPath: path.join(repoRoot, "graph", "courses", `${graphSlug}.graph.txt`),
+    jsonPath: path.join(repoRoot, "graph", "courses", `${graphSlug}.graph.json`),
+  };
+}
+
+function loadGraphFromPaths(txtPath, jsonPath, preferJson = true) {
+  if (preferJson && fs.existsSync(jsonPath)) {
+    return JSON.parse(fs.readFileSync(jsonPath, "utf8"));
+  }
+
+  if (!fs.existsSync(txtPath)) {
+    throw new Error(`Graph source not found: ${txtPath}`);
+  }
+
+  const txt = fs.readFileSync(txtPath, "utf8");
   const graph = parseMindmapText(txt);
 
-  fs.mkdirSync(path.dirname(resolvedJson), { recursive: true });
-  fs.writeFileSync(resolvedJson, JSON.stringify(graph, null, 2), "utf8");
+  fs.mkdirSync(path.dirname(jsonPath), { recursive: true });
+  fs.writeFileSync(jsonPath, JSON.stringify(graph, null, 2), "utf8");
 
   return graph;
+}
+
+function loadGraph(options = {}) {
+  const repoRoot = options.repoRoot ?? process.cwd();
+  const preferJson = options.preferJson !== false;
+
+  if (options.txtPath || options.jsonPath) {
+    if (!options.txtPath || !options.jsonPath) {
+      throw new Error("loadGraph with explicit paths requires both txtPath and jsonPath");
+    }
+    const txtPath = path.isAbsolute(options.txtPath)
+      ? options.txtPath
+      : path.resolve(repoRoot, options.txtPath);
+    const jsonPath = path.isAbsolute(options.jsonPath)
+      ? options.jsonPath
+      : path.resolve(repoRoot, options.jsonPath);
+    return loadGraphFromPaths(txtPath, jsonPath, preferJson);
+  }
+
+  if (!options.courseSlug && !options.graphSlug) {
+    throw new Error('loadGraph requires courseSlug or graphSlug (e.g. { courseSlug: "javascript" })');
+  }
+
+  const resolved = resolveGraphPaths({
+    repoRoot,
+    courseSlug: options.courseSlug,
+    graphSlug: options.graphSlug,
+  });
+
+  return loadGraphFromPaths(resolved.txtPath, resolved.jsonPath, preferJson);
+}
+
+function listCourseSlugs(repoRoot) {
+  const courseDir = path.join(repoRoot, "course");
+  if (!fs.existsSync(courseDir)) return [];
+
+  return fs
+    .readdirSync(courseDir, { withFileTypes: true })
+    .filter((ent) => ent.isDirectory())
+    .map((ent) => ent.name)
+    .filter((slug) => {
+      const modulesPath = path.join(courseDir, slug, "modules");
+      const meta = resolveCourseMeta(repoRoot, slug);
+      return fs.existsSync(modulesPath) && meta && meta.graphSlug;
+    })
+    .sort();
+}
+
+function loadAllGraphs(repoRoot, options = {}) {
+  const slugs = options.courseSlugs ?? listCourseSlugs(repoRoot);
+  const out = new Map();
+  for (const courseSlug of slugs) {
+    out.set(courseSlug, loadGraph({ repoRoot, courseSlug, preferJson: options.preferJson }));
+  }
+  return out;
+}
+
+function courseSlugFromPath(absOrRelPath, repoRoot = process.cwd()) {
+  const normalized = path.resolve(repoRoot, absOrRelPath).replace(/\\/g, "/");
+  const marker = "/course/";
+  const idx = normalized.indexOf(marker);
+  if (idx === -1) return null;
+  const rest = normalized.slice(idx + marker.length);
+  const slug = rest.split("/").filter(Boolean)[0];
+  return slug || null;
 }
 
 function normalize(s) {
@@ -173,13 +270,15 @@ function courseSlugFromRootLabel(label) {
   return kebabCase(stripIndexPrefix(label) || label);
 }
 
-function defaultCourseSlug(graph) {
-  const root = (graph.nodes || []).find((n) => n.id === graph.rootId);
-  return root ? courseSlugFromRootLabel(root.label) : "javascript";
-}
-
 module.exports = {
   loadGraph,
+  loadGraphFromPaths,
+  resolveCourseMeta,
+  resolveGraphSlug,
+  resolveGraphPaths,
+  listCourseSlugs,
+  loadAllGraphs,
+  courseSlugFromPath,
   normalize,
   extractIndexPath,
   stripIndexPrefix,
@@ -198,5 +297,4 @@ module.exports = {
   getModuleNodeForIndex,
   getLeafDescendants,
   courseSlugFromRootLabel,
-  defaultCourseSlug,
 };

@@ -1,0 +1,81 @@
+{
+  "id": "quiz",
+  "title": "Big-O Complexity Check",
+  "description": "Predict the time complexity of common loop shapes.",
+  "lessonId": "05.1-big-o-complexity",
+  "graphIndex": "05.1",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What is the time complexity of a single loop that iterates over every element of an array once?",
+      "options": [
+        { "id": "a", "text": "`O(1)`" },
+        { "id": "b", "text": "`O(n)`" },
+        { "id": "c", "text": "`O(n^2)`" },
+        { "id": "d", "text": "`O(log n)`" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "One pass over `n` elements means the work grows linearly with `n` — that's `O(n)`."
+    },
+    {
+      "id": "q2",
+      "prompt": "A function has a loop inside another loop, both running over the same array. What is its complexity?",
+      "options": [
+        { "id": "a", "text": "`O(n)`" },
+        { "id": "b", "text": "`O(log n)`" },
+        { "id": "c", "text": "`O(n^2)`" },
+        { "id": "d", "text": "`O(1)`" }
+      ],
+      "correctOptionId": "c",
+      "explanation": "Nested loops over the same input multiply: `n` iterations of the outer loop, each running `n` iterations of the inner loop, gives `O(n^2)`."
+    },
+    {
+      "id": "q3",
+      "prompt": "Binary search on a sorted array halves the remaining range on every step. What is its complexity?",
+      "options": [
+        { "id": "a", "text": "`O(n)`" },
+        { "id": "b", "text": "`O(n^2)`" },
+        { "id": "c", "text": "`O(log n)`" },
+        { "id": "d", "text": "`O(1)`" }
+      ],
+      "correctOptionId": "c",
+      "explanation": "Halving the search range each step means the number of steps grows with `log n`, not `n`."
+    },
+    {
+      "id": "q4",
+      "prompt": "A function returns `arr[0]` with no loop and no recursion. What is its complexity?",
+      "options": [
+        { "id": "a", "text": "`O(1)`" },
+        { "id": "b", "text": "`O(n)`" },
+        { "id": "c", "text": "`O(log n)`" },
+        { "id": "d", "text": "It depends on `arr.length`" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "No loop and a fixed number of operations means the work does not grow with input size — that's `O(1)`, constant time."
+    },
+    {
+      "id": "q5",
+      "prompt": "A function does `3n + 100` operations for an input of size `n`. What is its Big-O complexity?",
+      "options": [
+        { "id": "a", "text": "`O(3n)`" },
+        { "id": "b", "text": "`O(n + 100)`" },
+        { "id": "c", "text": "`O(n)`" },
+        { "id": "d", "text": "`O(100)`" }
+      ],
+      "correctOptionId": "c",
+      "explanation": "Big-O drops constant factors and lower-order terms; `3n + 100` still grows linearly, so it is classified as `O(n)`."
+    },
+    {
+      "id": "q6",
+      "prompt": "As `n` doubles, which complexity class sees its operation count roughly quadruple?",
+      "options": [
+        { "id": "a", "text": "`O(1)`" },
+        { "id": "b", "text": "`O(log n)`" },
+        { "id": "c", "text": "`O(n)`" },
+        { "id": "d", "text": "`O(n^2)`" }
+      ],
+      "correctOptionId": "d",
+      "explanation": "For `O(n^2)`, doubling `n` means `(2n)^2 = 4n^2` — roughly four times the work, unlike `O(n)` which only doubles."
+    }
+  ]
+}

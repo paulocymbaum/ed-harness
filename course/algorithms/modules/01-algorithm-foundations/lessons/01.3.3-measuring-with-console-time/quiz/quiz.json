@@ -1,0 +1,57 @@
+{
+  "id": "quiz",
+  "title": "Measuring with console.time Check",
+  "description": "Use timing habits that support Big-O intuitions.",
+  "lessonId": "01.3.3-measuring-with-console-time",
+  "graphIndex": "01.3.3",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "`console.time` / `console.timeEnd` measure:",
+      "options": [
+        { "id": "a", "text": "Asymptotic Big-O class directly" },
+        { "id": "b", "text": "Elapsed time for this machine, this input, this run" },
+        { "id": "c", "text": "Only memory allocations" },
+        { "id": "d", "text": "Permanent language-level complexity proofs" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Big-O predicts growth; `console.time` measures this machine, this input, this run. Treat microbenchmarks with skepticism."
+    },
+    {
+      "id": "q2",
+      "prompt": "A good timing habit is to:",
+      "options": [
+        { "id": "a", "text": "Time only `n = 1` for less noise" },
+        { "id": "b", "text": "Warm up once, use large enough `n`, and compare ratios as `n` grows" },
+        { "id": "c", "text": "Always open DevTools while measuring for accuracy" },
+        { "id": "d", "text": "Trust a single run as definitive proof" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Warm up (JIT / caches), use large enough `n`, same environment, and compare ratios as `n` grows — one run is an anecdote."
+    },
+    {
+      "id": "q3",
+      "prompt": "If doubling `n` roughly doubles time, that pattern matches:",
+      "options": [
+        { "id": "a", "text": "`O(n²)` growth" },
+        { "id": "b", "text": "`O(n)` growth" },
+        { "id": "c", "text": "`O(1)` growth" },
+        { "id": "d", "text": "`O(2^n)` growth" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Compare ratios as `n` grows — does doubling `n` roughly double time? That matches `O(n)`."
+    },
+    {
+      "id": "q4",
+      "prompt": "For finer control in Node than `console.time`, the lesson points to:",
+      "options": [
+        { "id": "a", "text": "`Date.now` only inside `eval`" },
+        { "id": "b", "text": "`performance.now()` from `node:perf_hooks`" },
+        { "id": "c", "text": "`setTimeout` as a high-resolution clock" },
+        { "id": "d", "text": "Counting `console.log` lines" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "For finer control in Node, `performance.now()` from `node:perf_hooks` avoids `console` formatting overhead."
+    }
+  ]
+}

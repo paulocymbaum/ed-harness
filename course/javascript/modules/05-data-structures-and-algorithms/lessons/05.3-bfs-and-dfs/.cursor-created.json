@@ -1,0 +1,9 @@
+{
+  "createdBy": "cursor-tool",
+  "tool": "scripts/graph/scaffold-from-graph.mjs",
+  "createdAt": "2026-07-13T17:45:18.817Z",
+  "kind": "lesson",
+  "lessonId": "05.3-bfs-and-dfs",
+  "moduleId": "05-data-structures-and-algorithms",
+  "graphIndex": "05.3"
+}

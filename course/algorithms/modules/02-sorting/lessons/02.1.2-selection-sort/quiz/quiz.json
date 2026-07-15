@@ -1,0 +1,105 @@
+{
+  "id": "quiz",
+  "title": "Selection Sort Check",
+  "description": "Min selection, complexity, and stability.",
+  "lessonId": "02.1.2-selection-sort",
+  "graphIndex": "02.1.2",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "For `[4, 2, 5, 1]`, the minimum of the full array is at index:",
+      "options": [
+        {
+          "id": "a",
+          "text": "0"
+        },
+        {
+          "id": "b",
+          "text": "1"
+        },
+        {
+          "id": "c",
+          "text": "2"
+        },
+        {
+          "id": "d",
+          "text": "3"
+        }
+      ],
+      "correctOptionId": "d",
+      "explanation": "Value `1` sits at index `3`."
+    },
+    {
+      "id": "q2",
+      "prompt": "Selection sort comparison work is typically:",
+      "options": [
+        {
+          "id": "a",
+          "text": "`O(n)` on sorted data"
+        },
+        {
+          "id": "b",
+          "text": "`Θ(n²)` regardless of order"
+        },
+        {
+          "id": "c",
+          "text": "`O(log n)`"
+        },
+        {
+          "id": "d",
+          "text": "`O(n log n)` always"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Every pass scans the suffix; no cheap early exit."
+    },
+    {
+      "id": "q3",
+      "prompt": "Compared with bubble sort, selection usually does:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Many more swaps"
+        },
+        {
+          "id": "b",
+          "text": "At most one swap per pass"
+        },
+        {
+          "id": "c",
+          "text": "Zero comparisons"
+        },
+        {
+          "id": "d",
+          "text": "Guaranteed stable swaps"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Select a min and swap once into place — few writes."
+    },
+    {
+      "id": "q4",
+      "prompt": "Classic in-place selection sort is:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Always stable"
+        },
+        {
+          "id": "b",
+          "text": "Typically unstable due to long-range swaps"
+        },
+        {
+          "id": "c",
+          "text": "Stable only in reverse order"
+        },
+        {
+          "id": "d",
+          "text": "Undefined for duplicates"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Swapping distant elements can reorder equal keys."
+    }
+  ]
+}

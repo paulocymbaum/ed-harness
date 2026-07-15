@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "id": "branching-graph",
+      "name": "branching graph visits both branches before reconverging",
+      "stdin": "[[1, 2], [3], [3], []]\n0\n",
+      "expectedStdout": "0 1 2 3\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "graph-with-cycle",
+      "name": "graph with a cycle still terminates and visits each node once",
+      "stdin": "[[1], [2], [0]]\n0\n",
+      "expectedStdout": "0 1 2\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "linear-chain",
+      "name": "linear chain graph visits nodes in chain order",
+      "stdin": "[[1], [2], [3], []]\n0\n",
+      "expectedStdout": "0 1 2 3\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "isolated-node",
+      "name": "single isolated node visits only itself",
+      "stdin": "[[], [2], []]\n0\n",
+      "expectedStdout": "0\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

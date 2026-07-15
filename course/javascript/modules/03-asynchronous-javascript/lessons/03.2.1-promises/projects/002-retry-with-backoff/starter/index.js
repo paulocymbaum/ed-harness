@@ -2,6 +2,7 @@
  * Promise Chain Builder
  *
  * Entrypoint: node starter/index.js
+ * Implement the behavior described in ../README.md
  */
 
 const readline = require("readline");
@@ -17,19 +18,15 @@ function fakeRead(path, callback) {
 }
 
 function readAsPromise(path) {
-  return new Promise((resolve, reject) => {
-    fakeRead(path, (err, data) => {
-      if (err) reject(err);
-      else resolve(data);
-    });
-  });
+  // TODO: wrap fakeRead in `new Promise`
+  throw new Error("Not implemented");
 }
 
 function runPipeline(path) {
-  return readAsPromise(path)
-    .then((data) => data + " -> parsed")
-    .then((data) => data + " -> done")
-    .catch((err) => "ERROR: " + err.message);
+  // TODO: readAsPromise(path).then(...).then(...).catch(...)
+  // Success shape: "<data> -> parsed -> done"
+  // Failure shape: "ERROR: " + message
+  throw new Error("Not implemented");
 }
 
 async function main() {

@@ -1,0 +1,57 @@
+{
+  "id": "quiz",
+  "title": "Map and Set Tooling Check",
+  "description": "Choose Map/Set for lookups and avoid object-key traps.",
+  "lessonId": "01.2.2-map-and-set-as-tooling",
+  "graphIndex": "01.2.2",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "After `obj[1] = \"a\"; obj[\"1\"] = \"b\";`, what is `obj[1]`?",
+      "options": [
+        { "id": "a", "text": "`\"a\"`" },
+        { "id": "b", "text": "`\"b\"`" },
+        { "id": "c", "text": "`undefined`" },
+        { "id": "d", "text": "`1`" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Object keys are coerced to string, so `1` and `\"1\"` collide. The later write wins — `obj[1]` is `\"b\"`."
+    },
+    {
+      "id": "q2",
+      "prompt": "`Map` with `map.set(1, \"a\"); map.set(\"1\", \"b\")` keeps how many entries?",
+      "options": [
+        { "id": "a", "text": "1 — numbers coerce like objects" },
+        { "id": "b", "text": "2 — keys stay distinct" },
+        { "id": "c", "text": "0 — Map rejects numbers" },
+        { "id": "d", "text": "3 — duplicates are always stored" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`Map` keeps arbitrary keys distinct. Number `1` and string `\"1\"` are different keys, so size is 2."
+    },
+    {
+      "id": "q3",
+      "prompt": "Building a `Set` from array A then checking membership for each element of B turns nested `includes` scans into roughly:",
+      "options": [
+        { "id": "a", "text": "`O(n · m)` still" },
+        { "id": "b", "text": "`O(n + m)`" },
+        { "id": "c", "text": "`O(1)` total regardless of sizes" },
+        { "id": "d", "text": "`O(n² + m²)`" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Converting an array to a `Set` for repeated checks turns O(n·m) nested scans into O(n + m)."
+    },
+    {
+      "id": "q4",
+      "prompt": "Using a plain object as `seen[idObject] = true` when `idObject` is an object is risky because:",
+      "options": [
+        { "id": "a", "text": "Objects cannot be stored anywhere" },
+        { "id": "b", "text": "The key becomes `\"[object Object]\"` and different objects collide" },
+        { "id": "c", "text": "`Map` forbids object keys" },
+        { "id": "d", "text": "It always throws TypeError" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Object keys coerce: `seen[idObject]` becomes `seen[\"[object Object]\"]`. Use `Map` for non-string keys."
+    }
+  ]
+}

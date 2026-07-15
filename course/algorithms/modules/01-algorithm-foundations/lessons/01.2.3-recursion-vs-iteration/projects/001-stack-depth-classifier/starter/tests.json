@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "id": "iter",
+      "name": "Iterative factorial safe",
+      "stdin": "iter-factorial\n",
+      "expectedStdout": "SAFE\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "rec",
+      "name": "Deep recursive factorial risk",
+      "stdin": "rec-factorial-deep\n",
+      "expectedStdout": "OVERFLOW-RISK\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "tree",
+      "name": "Tree walk natural recursion",
+      "stdin": "tree-walk\n",
+      "expectedStdout": "NATURAL-REC\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "unknown",
+      "name": "Unknown approach",
+      "stdin": "unknown\n",
+      "expectedStdout": "ERROR: unknown approach\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

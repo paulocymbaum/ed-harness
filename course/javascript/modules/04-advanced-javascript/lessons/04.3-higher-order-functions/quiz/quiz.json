@@ -1,0 +1,81 @@
+{
+  "id": "quiz",
+  "title": "Higher-Order Functions Check",
+  "description": "Predict the output length and content of map/filter pipelines.",
+  "lessonId": "04.3-higher-order-functions",
+  "graphIndex": "04.3",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What is a higher-order function?",
+      "options": [
+        { "id": "a", "text": "A function that takes a function as an argument, returns a function, or both" },
+        { "id": "b", "text": "Any function declared with `function` instead of an arrow" },
+        { "id": "c", "text": "A function that always returns a number" },
+        { "id": "d", "text": "A function that cannot be reassigned" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Higher-order functions operate on other functions — by accepting them as arguments and/or returning them."
+    },
+    {
+      "id": "q2",
+      "prompt": "```js\nconsole.log([1, 2, 3].map((n) => n * 2));\n```\nWhat prints?",
+      "options": [
+        { "id": "a", "text": "`[1, 2, 3]`" },
+        { "id": "b", "text": "`[2, 4, 6]`" },
+        { "id": "c", "text": "`6`" },
+        { "id": "d", "text": "`[2, 4]`" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`map` returns a new array with each element transformed by the callback, keeping the same length as the input."
+    },
+    {
+      "id": "q3",
+      "prompt": "```js\nconsole.log([\"a\", \"\", \"b\", \"\"].filter((s) => s !== \"\"));\n```\nWhat is the length of the printed array?",
+      "options": [
+        { "id": "a", "text": "4" },
+        { "id": "b", "text": "3" },
+        { "id": "c", "text": "2" },
+        { "id": "d", "text": "0" }
+      ],
+      "correctOptionId": "c",
+      "explanation": "`filter` keeps only elements where the predicate is truthy. Only `\"a\"` and `\"b\"` pass, so the result has length 2."
+    },
+    {
+      "id": "q4",
+      "prompt": "After `const result = [1, 2, 3].map((n) => n * 2);`, what is the original array?",
+      "options": [
+        { "id": "a", "text": "`[2, 4, 6]` — map mutates the original" },
+        { "id": "b", "text": "`[1, 2, 3]` — unchanged" },
+        { "id": "c", "text": "`[]` — map empties the original" },
+        { "id": "d", "text": "`undefined`" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`map` never mutates the array it is called on — it always returns a brand-new array."
+    },
+    {
+      "id": "q5",
+      "prompt": "Can the result of `filter` be shorter than the input array?",
+      "options": [
+        { "id": "a", "text": "No, `filter` always returns the same length as the input" },
+        { "id": "b", "text": "Yes, only elements where the predicate returns truthy are kept" },
+        { "id": "c", "text": "No, `filter` throws if any element is removed" },
+        { "id": "d", "text": "Only if the input array is empty" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Unlike `map`, `filter` can shrink the array — every element that fails the predicate is dropped from the result."
+    },
+    {
+      "id": "q6",
+      "prompt": "```js\nfunction pipeline(...steps) {\n  return (input) => steps.reduce((v, step) => step(v), input);\n}\nconst shout = pipeline((s) => s.trim(), (s) => s.toUpperCase());\nconsole.log(shout(\"  hi  \"));\n```\nWhat prints?",
+      "options": [
+        { "id": "a", "text": "`\"  hi  \"`" },
+        { "id": "b", "text": "`\"hi\"`" },
+        { "id": "c", "text": "`\"HI\"`" },
+        { "id": "d", "text": "`undefined`" }
+      ],
+      "correctOptionId": "c",
+      "explanation": "`pipeline` composes the steps in order: trim first (\"hi\"), then uppercase (\"HI\"). `pipeline` itself is higher-order — it takes functions and returns one."
+    }
+  ]
+}

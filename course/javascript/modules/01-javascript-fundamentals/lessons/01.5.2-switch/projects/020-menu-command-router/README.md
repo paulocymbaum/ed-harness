@@ -4,12 +4,12 @@
 A text-based admin console routes user commands to actions. A `switch` keeps each command branch explicit and easy to extend.
 
 ## Goal
+Read one command string and print the matching action message using `switch`.
+
 ## Lesson concepts practiced
 - [ ] Always `break` unless fall-through is intentional (rare).
 - [ ] `default` catches unmatched values — good for invalid menu input.
 - [ ] Cases must be constants (`"A"`, `1`, `true`) — not ranges.
-
-Read one command string and print the matching action message using `switch`.
 
 ## Functional requirements
 - [ ] Read one trimmed line `cmd`.

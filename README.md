@@ -1,8 +1,10 @@
-# Hackerrank Study
+# EdHarness
 
-**Educational harness & interactive UI for self-directed coding mastery through Project-Based Learning.**
+**Open-source educational harness & interactive UI for self-directed coding mastery through Project-Based Learning — with AI that helps humans learn.**
 
-A local, repo-native EdTech system — not a hosted course platform. It pairs a **validated content pipeline** with a **React learning UI** and a **Cursor Agent harness** for tutoring, project correction, and curriculum authoring. Built for junior developers on a self-learning journey and as a portfolio piece demonstrating frontend engineering, UX, instructional design, automation, and AI orchestration as first-class concerns.
+A local, repo-native EdTech system — not a hosted course platform. It pairs a **validated content pipeline** with a **React learning UI** and a **Cursor Agent harness** for tutoring, project correction, and curriculum authoring.
+
+**Why this exists:** models are trained on human knowledge at scale; staying relevant means **reskilling** continuously. This project flips the usual story — instead of only extracting value *from* learners, it uses AI as a **response that puts the human back at the center**: Socratic tutoring, rubric-based project correction, and multi-language study support so newcomers, hobbyists, and professionals migrating into tech can practice, prove understanding, and grow in an AI-driven landscape.
 
 ---
 
@@ -10,9 +12,10 @@ A local, repo-native EdTech system — not a hosted course platform. It pairs a 
 
 | Audience | What you find here |
 |----------|-------------------|
-| **Junior learners** | Graph-driven path, predict-first lessons, quizzes, CLI projects with AI correction, Socratic tutor, points & Pomodoro |
-| **Recruiters & tech leaders** | Clean architecture, measurable progress artifacts, extensible harness, EdTech product thinking |
-| **Content authors** | Graph-aligned scaffolding, validators, authoring skills — [Getting Started →](docs/GETTING_STARTED.md) |
+| **New developers & hobbyists** | Graph-driven path, predict-first lessons, quizzes, CLI projects with AI correction, Socratic tutor, points & Pomodoro |
+| **Professionals reskilling / migrating into tech** | Structured practice, measurable progress, mentor-style AI review without spoiling the struggle of learning |
+| **Content authors & contributors** | Graph-aligned scaffolding, validators, authoring skills — [Getting Started →](docs/GETTING_STARTED.md) |
+| **Recruiters & tech leaders** | Clean architecture, progress artifacts, extensible open harness, EdTech product thinking |
 
 Two complementary systems:
 
@@ -40,7 +43,7 @@ flowchart TB
   Learner --> Skills
 ```
 
-**Content hierarchy:** `Course → Module → Lesson → (explanation, projects, quiz)` — see [`COURSE_STRUCTURE.md`](COURSE_STRUCTURE.md).
+**Content hierarchy:** `Course → Module → Lesson → (explanation, projects, quiz)` plus `Course → MockTestModule → sections` — see [`COURSE_STRUCTURE.md`](COURSE_STRUCTURE.md).
 
 ---
 
@@ -50,14 +53,14 @@ flowchart TB
 
 - **Content-on-disk** — curriculum as Markdown, JSON, and Node.js starters; no production backend or database
 - **Static catalog** — `catalog:generate` syncs `course/` into JSON consumed by the UI
-- **Dev-time persistence** — Vite plugins write quiz scores and project deliveries back to the filesystem
+- **Dev-time persistence** — Vite plugins write quiz scores, project deliveries, and the UI locale (→ `.cursor/language.json`) back to the filesystem
 - **Frontend layers** — `domain → application → presentation → infrastructure`; URL-driven navigation; injectable repositories ([`ARCHITECTURE.md`](frontend/ARCHITECTURE.md))
 
 ### Harness layers
 
 | Layer | Purpose |
 |-------|---------|
-| **Content** | [`graph/course.graph.txt`](graph/course.graph.txt) as source of truth; validators; `npm test` pipeline |
+| **Content** | [`graph/courses/<slug>.graph.txt`](graph/courses/javascript.graph.txt) per course; validators; `npm test` pipeline |
 | **PBL** | Project README contracts; AI correction via `review-course-project` (>80 = pass) |
 | **Cursor** | [Skills](.cursor/skills/) + [rules](.cursor/rules/) + Node scripts for tutor, reviewer, and author workflows |
 
@@ -76,11 +79,94 @@ flowchart TB
 |------|------------|
 | **Frontend** | Feature modules, clean architecture, substitutible data layer (static catalog today, API-ready) |
 | **UX** | Hierarchy navigation, progressive disclosure via drawers, deep-linkable URLs ([`ARCHITECTURE-FRONT.md`](frontend/ARCHITECTURE-FRONT.md)) |
-| **Design** | Token-driven glass UI, WCAG-conscious contrast, semantic quiz feedback, i18n-ready ([`DESIGN.md`](frontend/DESIGN.md)) |
+| **Design** | Token-driven glass UI, WCAG-conscious contrast, semantic quiz feedback, multi-language UI ([`DESIGN.md`](frontend/DESIGN.md)) |
 | **Instructional design** | Prerequisite graph, predict-first lessons, spaced retrieval quizzes, rubric-based PBL (not answer-key matching) |
 | **Automation** | Deterministic graph scaffolding, schema validation, integration tests for the authoring pipeline |
 
 **Current scope:** JavaScript course (fundamentals → objects → async). The graph and harness extend to additional course roots.
+
+---
+
+## Languages (UI + Cursor)
+
+The study app and the Cursor agent share one language preference so tutoring and authoring follow the locale you pick in the UI.
+
+| Locale | Language |
+|--------|----------|
+| `en` | English |
+| `pt` | Portuguese |
+| `es` | Spanish |
+| `zh` | Chinese |
+
+**In the app:** use the language control in the top bar. The choice is stored in browser state (`ed-harness-locale`) and applied to chrome, labels, and document `lang`.
+
+**Bridge to Cursor (dev server):** when Vite is running, changing (or loading) the locale POSTs to `/api/locale`, which writes [`.cursor/language.json`](.cursor/language.json). That file is the source of truth for agent prompts.
+
+```mermaid
+flowchart LR
+  picker["UI language picker"] --> store["Zustand locale"]
+  store --> api["Vite /api/locale"]
+  api --> file[".cursor/language.json"]
+  file --> tool["get-user-language.js"]
+  file --> hook["sessionStart / postToolUse hooks"]
+  tool --> agent["Tutor and author skills"]
+  hook --> agent
+```
+
+| Piece | Path | Role |
+|-------|------|------|
+| UI picker | [`LanguageSelector`](frontend/src/presentation/features/shell/LanguageSelector.tsx) | Learner selects `en` / `pt` / `es` / `zh` |
+| Sync plugin | [`vite-locale-sync-plugin.mjs`](frontend/scripts/vite-locale-sync-plugin.mjs) | Persists selection to `.cursor/language.json` |
+| Tool | [`.cursor/tools/get-user-language.js`](.cursor/tools/get-user-language.js) | Resolves preference (`language.json` → env → `en`); `--prompt` / `--set` |
+| Hooks | [`.cursor/hooks.json`](.cursor/hooks.json) | Injects `CURSOR_RESPONSE_LANGUAGE` and response-language context into agent sessions |
+
+**Resolution order for the agent:** `.cursor/language.json` (platform sync) → `CURSOR_RESPONSE_LANGUAGE` / `ED_HARNESS_LANGUAGE` → `en`.
+
+**Typical flow:** `npm run dev` → pick a language in the UI → start a **new** Cursor chat (or wait for the hook refresh after the file changes) so the tutor answers in that language. Manual override without the UI:
+
+```bash
+node .cursor/tools/get-user-language.js --set en
+node .cursor/tools/get-user-language.js --prompt
+```
+
+By default, the preference drives **UI chrome** and **agent chat**. To translate **course content on disk** into the current preferred language, copy the prompt below into a Cursor agent chat.
+
+### Copy-paste prompt: translate course to current language
+
+Set the language in the app (or via `--set`), then paste:
+
+```text
+Translate the full course into my current preferred language.
+
+1) Resolve the target language with the project script (do not guess):
+   node .cursor/tools/get-user-language.js --json
+   node .cursor/tools/get-user-language.js --prompt
+   Use the returned `language` / `label` as the only target locale for this job.
+
+2) Scope — translate all learner-facing prose under course/ for every course present (e.g. course/javascript/, course/algorithms/), including:
+   - module and lesson README.md
+   - projects/**/README.md and other learner-facing Markdown
+   - quiz/quiz.json fields shown to learners (question text, options, explanations)
+   - human-readable titles/descriptions in *.meta.json when present
+   Do this systematically module-by-module so nothing learner-facing is left in the source language.
+
+3) Do NOT translate or rename:
+   - code, identifiers, CLI commands, file paths, folder names, graphIndex values
+   - test fixtures (starter/tests.json expected I/O, sample.input) unless the prompt text itself is learner-facing UI copy
+   - graph/courses/*.graph.txt node labels (keep graph as authored)
+   - package.json, scripts, or harness/tooling files
+
+4) Quality rules:
+   - Keep predict-first lesson structure, headings hierarchy, Mermaid/ASCII diagrams (translate labels inside diagrams)
+   - Preserve Markdown/JSON validity; do not change quiz option ids or scoring shape
+   - Prefer natural phrasing in the target language; keep technical terms that are conventionally left in English in that locale
+   - After each module (or lesson batch), briefly list what changed; continue until the whole course tree is done
+   - If a file is already in the target language, skip it
+
+5) When finished, summarize: target language, courses touched, counts of README / quiz / meta files updated, and any files skipped with reason.
+```
+
+After a large translation pass, regenerate the catalog if the UI lists titles from generated JSON: `npm run catalog:generate`.
 
 ---
 
@@ -141,14 +227,18 @@ From the repo root: `npm run dev` and `npm run catalog:generate` delegate to `fr
 ## Repository map
 
 ```text
-hackerrank-study/
+ed-harness/
 ├── course/                 # Lessons, PBL projects, quizzes
 │   └── javascript/         # Main course (fundamentals → async)
 ├── graph/                  # Topic taxonomy (source of truth)
 ├── frontend/               # Interactive UI (Vite + React)
+├── landing_page/           # Open-source promo landing (open index.html)
 ├── scripts/ + tests/       # Harness: validation, graph sync, integration tests
 └── .cursor/
+    ├── language.json       # UI↔agent language preference (synced via /api/locale)
+    ├── hooks/              # sessionStart injects response language into Cursor
     ├── skills/             # AI tutor, reviewer, and author playbooks
+    ├── tools/              # Graph, teacher, and get-user-language helpers
     └── rules/              # Agent guardrails (course hierarchy)
 ```
 
@@ -160,13 +250,18 @@ hackerrank-study/
 |-----|----------|
 | [**Getting Started**](docs/GETTING_STARTED.md) | Setup, workflow, routes, Cursor skills, commands |
 | [COURSE_STRUCTURE.md](COURSE_STRUCTURE.md) | Content hierarchy and metadata contract |
+| [landing_page/LANDINGPAGE_STYLE.md](landing_page/LANDINGPAGE_STYLE.md) | Open-source landing: brand, visual system, UX journey |
+| [landing_page/LANDINGPAGE_WIREFRAME.md](landing_page/LANDINGPAGE_WIREFRAME.md) | Landing ASCII wireframes and per-section design notes |
+| [landing_page/index.html](landing_page/index.html) | Open in a browser to preview the landing page |
 | [frontend/ARCHITECTURE-FRONT.md](frontend/ARCHITECTURE-FRONT.md) | Learner navigation journey |
 | [frontend/ARCHITECTURE.md](frontend/ARCHITECTURE.md) | Routes, layers, score persistence |
-| [frontend/DESIGN.md](frontend/DESIGN.md) | Design tokens, glass UI, quiz feedback |
+| [frontend/DESIGN.md](frontend/DESIGN.md) | In-app design tokens, glass UI, quiz feedback |
 | [docs/meta-schemas.md](docs/meta-schemas.md) | `*.meta.json` schemas |
 
 ---
 
 ## License & contribution
 
-Private repository (`"private": true`). Extend content via [`graph/course.graph.txt`](graph/course.graph.txt) and authoring skills in [Getting Started](docs/GETTING_STARTED.md) — never invent topics outside their graph node.
+This is an **open-source** project: fork it, learn with it, improve the curriculum, and share workflows that help others reskill with AI as a learning partner.
+
+Contributions are welcome — lessons, quizzes, PBL projects, translations, UI fixes, and harness improvements. Extend content via [`graph/courses/<slug>.graph.txt`](graph/courses/javascript.graph.txt) and the authoring skills in [Getting Started](docs/GETTING_STARTED.md); never invent topics outside their graph node. Open an issue or pull request when you have something to add.

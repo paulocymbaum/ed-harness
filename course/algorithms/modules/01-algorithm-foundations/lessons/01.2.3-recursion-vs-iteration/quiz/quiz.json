@@ -1,0 +1,57 @@
+{
+  "id": "quiz",
+  "title": "Recursion vs Iteration Check",
+  "description": "Compare stack cost and when to prefer loops.",
+  "lessonId": "01.2.3-recursion-vs-iteration",
+  "graphIndex": "01.2.3",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Calling a naive recursive factorial with `n = 100_000` in JavaScript typically:",
+      "options": [
+        { "id": "a", "text": "Always returns instantly with TCO" },
+        { "id": "b", "text": "Risks `RangeError: Maximum call stack size exceeded`" },
+        { "id": "c", "text": "Uses `O(1)` stack frames" },
+        { "id": "d", "text": "Is converted to a `for` loop automatically" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Deep recursion stores unfinished work on the call stack and can throw `RangeError: Maximum call stack size exceeded`."
+    },
+    {
+      "id": "q2",
+      "prompt": "JS engines and tail-call optimization:",
+      "options": [
+        { "id": "a", "text": "Reliably optimize all tail calls" },
+        { "id": "b", "text": "Do not reliably optimize tail calls — prefer iteration for deep linear depth" },
+        { "id": "c", "text": "Ban recursion entirely" },
+        { "id": "d", "text": "Only optimize recursive tree walks" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "JS engines do not reliably optimize tail calls — write iterative code if depth is linear in `n`."
+    },
+    {
+      "id": "q3",
+      "prompt": "When does recursion often shine?",
+      "options": [
+        { "id": "a", "text": "When depth can be huge (`n` ~ 10⁵+)" },
+        { "id": "b", "text": "When structure is hierarchical (e.g. tree walks)" },
+        { "id": "c", "text": "Only when you must avoid any stack" },
+        { "id": "d", "text": "Never — iteration is always clearer" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Recursion often matches hierarchical structure (trees, divide-and-conquer). Prefer iteration when depth can be huge."
+    },
+    {
+      "id": "q4",
+      "prompt": "An iterative tree walk with an explicit `stack = []` compared to recursion:",
+      "options": [
+        { "id": "a", "text": "Uses a completely different asymptotic space idea" },
+        { "id": "b", "text": "Uses the same space idea, stored in a different place" },
+        { "id": "c", "text": "Always uses `O(1)` space" },
+        { "id": "d", "text": "Cannot visit the same nodes" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "A tree walk’s iterative version needs an explicit stack — same space idea, different place. Convert by identifying state each frame holds."
+    }
+  ]
+}

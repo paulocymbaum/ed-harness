@@ -1,0 +1,81 @@
+{
+  "id": "quiz",
+  "title": "BFS and DFS Check",
+  "description": "Predict traversal order and the queue-vs-stack difference between BFS and DFS.",
+  "lessonId": "05.3-bfs-and-dfs",
+  "graphIndex": "05.3",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Which data structure does BFS use to decide which node to visit next?",
+      "options": [
+        { "id": "a", "text": "A stack (LIFO)" },
+        { "id": "b", "text": "A queue (FIFO)" },
+        { "id": "c", "text": "A sorted array" },
+        { "id": "d", "text": "A hash map" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "BFS uses a queue: nodes are dequeued in the same order they were enqueued (FIFO), which produces level-by-level order."
+    },
+    {
+      "id": "q2",
+      "prompt": "For adjacency list `[[1, 2], [3], [3], []]` starting at node `0`, what is the BFS visit order?",
+      "options": [
+        { "id": "a", "text": "`0, 1, 2, 3`" },
+        { "id": "b", "text": "`0, 1, 3, 2`" },
+        { "id": "c", "text": "`0, 2, 1, 3`" },
+        { "id": "d", "text": "`0, 3, 1, 2`" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "BFS visits `0` first, enqueues `1` and `2` (its direct neighbors), then dequeues `1`, enqueues `3`, then dequeues `2` (already visited `3` is skipped), then dequeues `3` — giving `0, 1, 2, 3`."
+    },
+    {
+      "id": "q3",
+      "prompt": "Why is BFS guaranteed to find the shortest path in an unweighted graph?",
+      "options": [
+        { "id": "a", "text": "It visits nodes in alphabetical order" },
+        { "id": "b", "text": "It visits all nodes at distance `k` before any node at distance `k+1`" },
+        { "id": "c", "text": "It uses recursion, which is always optimal" },
+        { "id": "d", "text": "It sorts edges by weight first" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "BFS explores level by level (by number of edges from the start), so the first time it reaches a node is guaranteed to be via the fewest edges."
+    },
+    {
+      "id": "q4",
+      "prompt": "What is the key structural difference between the BFS and DFS implementations shown in the lesson?",
+      "options": [
+        { "id": "a", "text": "BFS uses `queue.shift()` (FIFO); DFS uses `stack.pop()` (LIFO) — everything else is the same" },
+        { "id": "b", "text": "DFS does not need a `visited` set" },
+        { "id": "c", "text": "BFS only works on trees, not graphs" },
+        { "id": "d", "text": "DFS always runs faster than BFS" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Both implementations are structurally identical except for one operation: dequeue (FIFO) for BFS vs. pop (LIFO) for DFS."
+    },
+    {
+      "id": "q5",
+      "prompt": "Why do both BFS and DFS mark a node as visited before or when adding it to the queue/stack?",
+      "options": [
+        { "id": "a", "text": "To make the output alphabetically sorted" },
+        { "id": "b", "text": "To avoid revisiting nodes and looping forever on a graph with cycles" },
+        { "id": "c", "text": "It is optional and only affects performance slightly" },
+        { "id": "d", "text": "To reduce memory usage of the adjacency list" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Without tracking visited nodes, a graph with a cycle would cause the traversal to revisit the same nodes forever."
+    },
+    {
+      "id": "q6",
+      "prompt": "What is the time complexity of both BFS and DFS on a graph with `V` vertices and `E` edges?",
+      "options": [
+        { "id": "a", "text": "`O(V^2)`" },
+        { "id": "b", "text": "`O(V + E)`" },
+        { "id": "c", "text": "`O(log V)`" },
+        { "id": "d", "text": "`O(E^2)`" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Every vertex is visited once and every edge is examined once, giving `O(V + E)` for both traversals."
+    }
+  ]
+}

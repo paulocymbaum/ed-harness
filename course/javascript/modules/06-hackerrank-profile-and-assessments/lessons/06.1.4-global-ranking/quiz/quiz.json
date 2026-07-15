@@ -1,0 +1,69 @@
+{
+  "id": "quiz",
+  "title": "Global Ranking Check",
+  "description": "Predict how a numeric rank maps to a tier, and what drives rank in the first place.",
+  "lessonId": "06.1.4-global-ranking",
+  "graphIndex": "06.1.4",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What primarily drives a HackerRank global rank number?",
+      "options": [
+        { "id": "a", "text": "Untimed practice volume" },
+        { "id": "b", "text": "Rated contest performance" },
+        { "id": "c", "text": "Number of certifications" },
+        { "id": "d", "text": "Number of badges earned" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Rank is computed mostly from rated contest performance, not from untimed practice activity."
+    },
+    {
+      "id": "q2",
+      "prompt": "Which rank is the stronger signal: #57 or #15234?",
+      "options": [
+        { "id": "a", "text": "#15234, because higher numbers mean more points" },
+        { "id": "b", "text": "#57, because a smaller rank number is better" },
+        { "id": "c", "text": "They're equivalent signals" },
+        { "id": "d", "text": "Neither — rank has no meaningful ordering" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Rank works opposite to score: a lower number means a stronger relative standing."
+    },
+    {
+      "id": "q3",
+      "prompt": "Using top-100 (<=100), top-1000 (<=1000), open (else), what tier is rank exactly 1000?",
+      "options": [
+        { "id": "a", "text": "top-100" },
+        { "id": "b", "text": "top-1000" },
+        { "id": "c", "text": "open" },
+        { "id": "d", "text": "Undefined boundary case" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "1000 is inclusive in the top-1000 band since it satisfies rank <= 1000 while being greater than 100."
+    },
+    {
+      "id": "q4",
+      "prompt": "Why might a profile with lots of practice challenges solved have no meaningful contest rank?",
+      "options": [
+        { "id": "a", "text": "Practice challenges don't feed into the rated contest rank" },
+        { "id": "b", "text": "Rank is disabled for profiles with a high score" },
+        { "id": "c", "text": "Only certified users get ranked" },
+        { "id": "d", "text": "Practice and rank use the same formula, so this can't happen" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Rank is tied to rated contest participation, so untimed practice alone doesn't necessarily produce a meaningful rank."
+    },
+    {
+      "id": "q5",
+      "prompt": "Most active users fall into the `open` tier. What does that imply?",
+      "options": [
+        { "id": "a", "text": "They are not practicing enough" },
+        { "id": "b", "text": "Landing in `open` is expected and not, by itself, a weak signal" },
+        { "id": "c", "text": "Their score must be below 40" },
+        { "id": "d", "text": "They have failed a certification" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "The top tiers are narrow bands by design — most users, including strong ones, fall into the broad open range."
+    }
+  ]
+}

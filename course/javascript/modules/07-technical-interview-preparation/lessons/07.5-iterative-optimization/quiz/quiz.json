@@ -1,0 +1,81 @@
+{
+  "id": "quiz",
+  "title": "Iterative Optimization Check",
+  "description": "Predict the complexity tag for brute force, better, and optimal narration steps.",
+  "lessonId": "07.5-iterative-optimization",
+  "graphIndex": "07.5",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "For \"find two numbers in an array that sum to a target,\" what is the complexity of the brute-force nested-loop approach?",
+      "options": [
+        { "id": "a", "text": "O(n)" },
+        { "id": "b", "text": "O(n log n)" },
+        { "id": "c", "text": "O(n^2)" },
+        { "id": "d", "text": "O(1)" }
+      ],
+      "correctOptionId": "c",
+      "explanation": "Checking every pair with nested loops examines roughly n^2 pairs — the classic brute-force complexity."
+    },
+    {
+      "id": "q2",
+      "prompt": "Sorting the array first, then using two pointers moving inward, lands at which complexity for the two-sum problem?",
+      "options": [
+        { "id": "a", "text": "O(n^2)" },
+        { "id": "b", "text": "O(n log n)" },
+        { "id": "c", "text": "O(n)" },
+        { "id": "d", "text": "O(log n)" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "The two-pointer scan itself is O(n), but the initial sort costs O(n log n), which dominates the overall complexity."
+    },
+    {
+      "id": "q3",
+      "prompt": "Using a hash map to record numbers seen so far and checking `target - number` in one pass reaches which complexity?",
+      "options": [
+        { "id": "a", "text": "O(n^2)" },
+        { "id": "b", "text": "O(n log n)" },
+        { "id": "c", "text": "O(n)" },
+        { "id": "d", "text": "O(1)" }
+      ],
+      "correctOptionId": "c",
+      "explanation": "A single pass with constant-time hash map lookups gives O(n) — the optimal approach for two-sum."
+    },
+    {
+      "id": "q4",
+      "prompt": "Why do interviewers often weight narrating the brute force → better → optimal journey, rather than just seeing the final optimal code?",
+      "options": [
+        { "id": "a", "text": "Narration is required by law in technical interviews" },
+        { "id": "b", "text": "It demonstrates the ability to reason about trade-offs and complexity incrementally, not just recall a memorized solution" },
+        { "id": "c", "text": "Brute force is always the correct final answer" },
+        { "id": "d", "text": "Narration replaces the need to write any code at all" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Talking through the improvement steps and their complexity shows genuine problem-solving, which can score higher than silently writing optimal code."
+    },
+    {
+      "id": "q5",
+      "prompt": "What resource is typically traded for time when moving from an O(n^2) brute-force approach to an O(n) hash-map approach?",
+      "options": [
+        { "id": "a", "text": "Readability" },
+        { "id": "b", "text": "Space (extra memory for the hash map)" },
+        { "id": "c", "text": "Network bandwidth" },
+        { "id": "d", "text": "Nothing is traded — it's strictly better in every dimension" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "The hash map approach uses extra memory to store seen values, trading space for the faster O(n) time complexity."
+    },
+    {
+      "id": "q6",
+      "prompt": "For \"check if a string has any repeated characters,\" what data structure typically gets you from a brute-force O(n^2) comparison to an optimal approach?",
+      "options": [
+        { "id": "a", "text": "A linked list" },
+        { "id": "b", "text": "A set (or equivalent hash-based structure) to track seen characters" },
+        { "id": "c", "text": "A sorted array with binary search" },
+        { "id": "d", "text": "A stack" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Tracking seen characters in a set lets you detect a repeat in a single O(n) pass, replacing the pairwise O(n^2) comparison."
+    }
+  ]
+}

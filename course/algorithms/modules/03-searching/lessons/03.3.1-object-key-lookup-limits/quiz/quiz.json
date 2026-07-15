@@ -1,0 +1,105 @@
+{
+  "id": "quiz",
+  "title": "Object Key Lookup Limits Check",
+  "description": "String coercion and object-as-map pitfalls.",
+  "lessonId": "03.3.1-object-key-lookup-limits",
+  "graphIndex": "03.3.1",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "After `o[1]=\"a\"; o[\"1\"]=\"b\"`, `o[1]` is:",
+      "options": [
+        {
+          "id": "a",
+          "text": "`\"a\"`"
+        },
+        {
+          "id": "b",
+          "text": "`\"b\"`"
+        },
+        {
+          "id": "c",
+          "text": "`undefined`"
+        },
+        {
+          "id": "d",
+          "text": "`1`"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`1` and `\"1\"` are the same object key — the later write wins."
+    },
+    {
+      "id": "q2",
+      "prompt": "Two different object literals used as keys on a plain object:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Stay distinct forever"
+        },
+        {
+          "id": "b",
+          "text": "Both stringify to `[object Object]` and collide"
+        },
+        {
+          "id": "c",
+          "text": "Throw TypeError"
+        },
+        {
+          "id": "d",
+          "text": "Become Map entries automatically"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Object keys coerce via `ToString`, so distinct objects collide."
+    },
+    {
+      "id": "q3",
+      "prompt": "Plain objects are a poor choice when keys must preserve:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only ASCII letters"
+        },
+        {
+          "id": "b",
+          "text": "Object identity or number-vs-string identity"
+        },
+        {
+          "id": "c",
+          "text": "String length under 3"
+        },
+        {
+          "id": "d",
+          "text": "Positive integers exclusively in theory but never in practice"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Coercion destroys object identity and merges `1` with `\"1\"`."
+    },
+    {
+      "id": "q4",
+      "prompt": "Which structure should you prefer for arbitrary key types?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Plain `{}` always"
+        },
+        {
+          "id": "b",
+          "text": "`Map`"
+        },
+        {
+          "id": "c",
+          "text": "`JSON.stringify` as a key factory only"
+        },
+        {
+          "id": "d",
+          "text": "`Set` of indexes into `Object.keys`"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`Map` keeps key identity without string coercion — the next lesson topic."
+    }
+  ]
+}

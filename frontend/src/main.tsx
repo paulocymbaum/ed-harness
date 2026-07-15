@@ -6,14 +6,28 @@ import { bootstrapProjectDeliveryPersistence } from "./infrastructure/bootstrap/
 import { bootstrapProjectRun } from "./infrastructure/bootstrap/projectRunBootstrap";
 import { applyLocaleToDocument, readPersistedLocale } from "./infrastructure/i18n/applyLocaleToDocument";
 import { readPersistedTheme, applyThemeToDocument } from "./application/stores/themeStore";
+import { isAppLocale } from "./domain/types/locale";
 import "./presentation/design-system/index.css";
 
 bootstrapQuizScorePersistence();
 bootstrapProjectDeliveryPersistence();
 bootstrapProjectRun();
 
-const initialLocale = readPersistedLocale();
-if (initialLocale) applyLocaleToDocument(initialLocale);
+const urlLang = new URLSearchParams(window.location.search).get("lang");
+if (isAppLocale(urlLang)) {
+  try {
+    localStorage.setItem(
+      "ed-harness-locale",
+      JSON.stringify({ state: { locale: urlLang }, version: 0 }),
+    );
+  } catch {
+    /* ignore */
+  }
+  applyLocaleToDocument(urlLang);
+} else {
+  const initialLocale = readPersistedLocale();
+  if (initialLocale) applyLocaleToDocument(initialLocale);
+}
 
 const initialTheme = readPersistedTheme();
 if (initialTheme) applyThemeToDocument(initialTheme);

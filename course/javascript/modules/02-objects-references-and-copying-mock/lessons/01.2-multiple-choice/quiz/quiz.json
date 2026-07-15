@@ -1,0 +1,93 @@
+{
+  "id": "quiz",
+  "title": "Objects, References and Copying Multiple Choice",
+  "description": "Reference vs value, shallow/deep copy, structuredClone, and Object.hasOwn from module 02.",
+  "lessonId": "01.2-multiple-choice",
+  "graphIndex": "01.2",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What is printed?\n\n```js\nconst a = { count: 1 };\nconst b = a;\nb.count = 2;\nconsole.log(a.count);\n```",
+      "options": [
+        { "id": "a", "text": "`1`" },
+        { "id": "b", "text": "`2`" },
+        { "id": "c", "text": "`undefined`" },
+        { "id": "d", "text": "Throws an error" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`b = a` copies the reference, not the object. Both variables point to the same object in memory, so mutating through `b` is visible through `a`."
+    },
+    {
+      "id": "q2",
+      "prompt": "What is printed?\n\n```js\nconst original = { profile: { age: 30 } };\nconst copy = { ...original };\ncopy.profile.age = 99;\nconsole.log(original.profile.age);\n```",
+      "options": [
+        { "id": "a", "text": "`30`" },
+        { "id": "b", "text": "`99`" },
+        { "id": "c", "text": "`undefined`" },
+        { "id": "d", "text": "`NaN`" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "The spread operator only shallow-copies top-level keys. `copy.profile` still references the same nested object as `original.profile`, so mutating it affects both."
+    },
+    {
+      "id": "q3",
+      "prompt": "Which built-in creates a true **deep clone** and preserves types like `Date`, unlike `JSON.parse(JSON.stringify(value))`?",
+      "options": [
+        { "id": "a", "text": "`Object.assign({}, value)`" },
+        { "id": "b", "text": "`{ ...value }`" },
+        { "id": "c", "text": "`structuredClone(value)`" },
+        { "id": "d", "text": "`Array.from(value)`" }
+      ],
+      "correctOptionId": "c",
+      "explanation": "`structuredClone` recursively clones nested structures and preserves types such as `Date`, `Map`, and `Set`. `JSON.parse(JSON.stringify(...))` loses `Date` (converts to string) and drops `undefined`/functions. `Object.assign` and spread are only shallow."
+    },
+    {
+      "id": "q4",
+      "prompt": "What happens to a `Date` value after `JSON.parse(JSON.stringify({ when: new Date() }))`?",
+      "options": [
+        { "id": "a", "text": "It stays a `Date` instance" },
+        { "id": "b", "text": "It becomes a string" },
+        { "id": "c", "text": "It becomes `undefined`" },
+        { "id": "d", "text": "It throws a `TypeError`" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`JSON.stringify` serializes `Date` objects via `toISOString()`, producing a string. Parsing that JSON back does not restore the `Date` type — this is a common lossy deep-copy pitfall."
+    },
+    {
+      "id": "q5",
+      "prompt": "Given `const user = Object.create({ role: \"guest\" }); user.name = \"Ana\";`, what does `Object.hasOwn(user, \"role\")` return?",
+      "options": [
+        { "id": "a", "text": "`true`" },
+        { "id": "b", "text": "`false`" },
+        { "id": "c", "text": "`undefined`" },
+        { "id": "d", "text": "Throws a `ReferenceError`" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`role` lives on the prototype passed to `Object.create`, not as an own property of `user`. `Object.hasOwn` checks only own enumerable-or-not properties, so it returns `false` even though `\"role\" in user` would return `true`."
+    },
+    {
+      "id": "q6",
+      "prompt": "What is printed?\n\n```js\nconst config = { retries: 3 };\nconfig.retries = 5;\nconsole.log(config.retries);\n```",
+      "options": [
+        { "id": "a", "text": "`3`" },
+        { "id": "b", "text": "`5`" },
+        { "id": "c", "text": "Throws a `TypeError` because `config` is `const`" },
+        { "id": "d", "text": "`undefined`" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`const` prevents reassigning the `config` binding itself, not mutation of the object it points to. Mutating a property is allowed."
+    },
+    {
+      "id": "q7",
+      "prompt": "What is printed?\n\n```js\nconst nums = [3, 1, 2];\nconst sorted = nums.sort();\nconsole.log(nums === sorted, nums[0]);\n```",
+      "options": [
+        { "id": "a", "text": "`true`, `1`" },
+        { "id": "b", "text": "`false`, `3`" },
+        { "id": "c", "text": "`true`, `3`" },
+        { "id": "d", "text": "`false`, `1`" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "`Array.prototype.sort` mutates the original array in place and returns the same reference, so `nums === sorted` is `true` and `nums` itself is now sorted, starting with `1`."
+    }
+  ]
+}

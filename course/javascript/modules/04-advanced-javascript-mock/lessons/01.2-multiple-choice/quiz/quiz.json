@@ -1,0 +1,105 @@
+{
+  "id": "quiz",
+  "title": "Advanced JavaScript Multiple Choice",
+  "description": "Hoisting/TDZ, closures, higher-order functions, the prototype chain, and ES modules from module 04.",
+  "lessonId": "01.2-multiple-choice",
+  "graphIndex": "01.2",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What happens here?\n\n```js\nconsole.log(typeof x);\nvar x = 5;\n```",
+      "options": [
+        { "id": "a", "text": "Prints `\"undefined\"`" },
+        { "id": "b", "text": "Throws a `ReferenceError`" },
+        { "id": "c", "text": "Prints `\"number\"`" },
+        { "id": "d", "text": "Prints `5`" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "`var` declarations are hoisted and auto-initialized to `undefined`, so reading `x` before its assignment is legal and prints `\"undefined\"`."
+    },
+    {
+      "id": "q2",
+      "prompt": "What happens here?\n\n```js\nconsole.log(y);\nlet y = 10;\n```",
+      "options": [
+        { "id": "a", "text": "Prints `undefined`" },
+        { "id": "b", "text": "Throws `ReferenceError: Cannot access 'y' before initialization`" },
+        { "id": "c", "text": "Prints `10`" },
+        { "id": "d", "text": "Prints `null`" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`let`/`const` are hoisted but stay uninitialized in the Temporal Dead Zone until their declaration line runs — reading early throws."
+    },
+    {
+      "id": "q3",
+      "prompt": "What does `counter.get()` return?\n\n```js\nfunction createCounter(start) {\n  let count = start;\n  return {\n    inc() { count += 1; },\n    get() { return count; },\n  };\n}\n\nconst counter = createCounter(10);\ncounter.inc();\ncounter.inc();\n```",
+      "options": [
+        { "id": "a", "text": "`10`" },
+        { "id": "b", "text": "`12`" },
+        { "id": "c", "text": "`undefined`" },
+        { "id": "d", "text": "`NaN`" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`count` is captured by reference inside the closure, so each `inc()` call mutates the same private variable that `get()` later reads."
+    },
+    {
+      "id": "q4",
+      "prompt": "```js\nconst a = createCounter(0);\nconst b = createCounter(100);\na.inc();\nconsole.log(a.get(), b.get());\n```\n\nWhat prints?",
+      "options": [
+        { "id": "a", "text": "`1 101`" },
+        { "id": "b", "text": "`1 100`" },
+        { "id": "c", "text": "`101 101`" },
+        { "id": "d", "text": "`0 100`" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Each call to the factory function creates a fresh, independent closure. Mutating `a`'s private `count` never affects `b`'s."
+    },
+    {
+      "id": "q5",
+      "prompt": "```js\nconsole.log([1, 2, 3].map((n) => n * 2));\n```\n\nWhat is true about the result?",
+      "options": [
+        { "id": "a", "text": "It is a new array `[2, 4, 6]`; the original array is unchanged" },
+        { "id": "b", "text": "It mutates `[1, 2, 3]` in place and returns the same array" },
+        { "id": "c", "text": "It returns `undefined` because `map` has no return value" },
+        { "id": "d", "text": "It returns a shorter array than the input" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "`map` always returns a new array with the same length as the input, one output per input element, and never mutates the original."
+    },
+    {
+      "id": "q6",
+      "prompt": "```js\nconst words = [\"\", \"hi\", \"\", \"bye\"];\nconst result = words.filter((w) => w.length > 0);\n```\n\nWhat is `result`?",
+      "options": [
+        { "id": "a", "text": "`[\"hi\", \"bye\"]`" },
+        { "id": "b", "text": "`[\"\", \"\", \"hi\", \"bye\"]`" },
+        { "id": "c", "text": "`[true, true, false, true]`" },
+        { "id": "d", "text": "`[\"\", \"\"]`" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "`filter` keeps only the elements where the callback returns a truthy value, producing a new (possibly shorter) array — here the two non-empty strings."
+    },
+    {
+      "id": "q7",
+      "prompt": "```js\nconst parent = { greet() { return \"hi\"; } };\nconst child = Object.create(parent);\n```\n\nWhich statement is correct?",
+      "options": [
+        { "id": "a", "text": "`Object.hasOwn(child, \"greet\")` is `false`, but `\"greet\" in child` is `true`" },
+        { "id": "b", "text": "Both `Object.hasOwn(child, \"greet\")` and `\"greet\" in child` are `false`" },
+        { "id": "c", "text": "`Object.create` copies `greet` onto `child` as an own property" },
+        { "id": "d", "text": "Calling `child.greet()` throws because `child` has no own `greet`" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "`Object.create(proto)` links `child`'s prototype to `parent` without copying properties. `hasOwn` only checks own properties; `in` checks the whole prototype chain."
+    },
+    {
+      "id": "q8",
+      "prompt": "```js\n// widget.js\nexport default class Widget {}\nexport const version = \"1.0\";\n```\n\nWhich import correctly gets both?",
+      "options": [
+        { "id": "a", "text": "`import Widget, { version } from \"./widget.js\";`" },
+        { "id": "b", "text": "`import { Widget, version } from \"./widget.js\";`" },
+        { "id": "c", "text": "`import { default as Widget, default as version } from \"./widget.js\";`" },
+        { "id": "d", "text": "`import Widget, version from \"./widget.js\";`" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "A default import has no braces and comes first; named imports use braces. A module can mix one default export with any number of named exports."
+    }
+  ]
+}

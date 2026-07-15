@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "id": "example",
+      "name": "1..3 → 3",
+      "stdin": "1 3\n",
+      "expectedStdout": "3\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "single",
+      "name": "0..0 → 1",
+      "stdin": "0 0\n",
+      "expectedStdout": "1\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "neg",
+      "name": "-2..2 → 5",
+      "stdin": "-2 2\n",
+      "expectedStdout": "5\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "huge",
+      "name": "Too large range",
+      "stdin": "0 1000001\n",
+      "expectedStdout": "TOO_LARGE\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

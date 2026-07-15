@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "id": "letters",
+      "name": "Letter counts",
+      "stdin": "a b a a\na\nb\nc\n",
+      "expectedStdout": "3\n1\n0\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "nums",
+      "name": "Numeric tokens",
+      "stdin": "1 1 2\n1\n2\n3\n",
+      "expectedStdout": "2\n1\n0\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "single",
+      "name": "One token",
+      "stdin": "z\nz\n",
+      "expectedStdout": "1\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "all-zero",
+      "name": "No overlap",
+      "stdin": "x y\nz\n",
+      "expectedStdout": "0\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

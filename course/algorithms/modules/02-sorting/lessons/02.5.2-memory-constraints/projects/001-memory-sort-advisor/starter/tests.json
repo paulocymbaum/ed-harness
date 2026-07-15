@@ -1,0 +1,39 @@
+{
+  "cases": [
+    {
+      "id": "plenty",
+      "name": "Plenty RAM",
+      "stdin": "plenty-ram\n",
+      "expectedStdout": "MERGE\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "stable",
+      "name": "Need stable",
+      "stdin": "need-stable\n",
+      "expectedStdout": "MERGE\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "tight",
+      "name": "Tight RAM",
+      "stdin": "tight-ram\n",
+      "expectedStdout": "HEAP\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "inplace",
+      "name": "In-place nlogn",
+      "stdin": "in-place-nlogn\n",
+      "expectedStdout": "HEAP\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "bad",
+      "name": "Unknown",
+      "stdin": "gpu\n",
+      "expectedStdout": "ERROR: unknown policy\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

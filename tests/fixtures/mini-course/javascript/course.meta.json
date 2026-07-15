@@ -1,5 +1,6 @@
 {
   "id": "javascript",
+  "title": "TestLang",
   "graphRootLabel": "TestLang",
-  "title": "TestLang"
+  "graphSlug": "javascript"
 }

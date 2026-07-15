@@ -1,0 +1,9 @@
+{
+  "createdBy": "cursor-tool",
+  "tool": "scripts/graph/scaffold-from-graph.mjs",
+  "createdAt": "2026-07-13T17:45:31.543Z",
+  "kind": "lesson",
+  "lessonId": "07.5-iterative-optimization",
+  "moduleId": "07-technical-interview-preparation",
+  "graphIndex": "07.5"
+}

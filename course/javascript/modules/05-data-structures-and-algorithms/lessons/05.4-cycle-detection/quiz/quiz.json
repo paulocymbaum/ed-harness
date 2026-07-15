@@ -1,0 +1,81 @@
+{
+  "id": "quiz",
+  "title": "Cycle Detection Check",
+  "description": "Predict Floyd's tortoise-and-hare behavior on next-pointer chains.",
+  "lessonId": "05.4-cycle-detection",
+  "graphIndex": "05.4",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "In Floyd's algorithm, how many steps does the `fast` pointer take for every one step of `slow`?",
+      "options": [
+        { "id": "a", "text": "The same one step" },
+        { "id": "b", "text": "Two steps" },
+        { "id": "c", "text": "Three steps" },
+        { "id": "d", "text": "It depends on the list length" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`fast` always moves two steps (`next[next[fast]]`) while `slow` moves one step (`next[slow]`) — the differing speed is what causes them to meet inside a cycle."
+    },
+    {
+      "id": "q2",
+      "prompt": "For `next = [1, 2, 3, 1]` starting at index `0` (chain `0 -> 1 -> 2 -> 3 -> 1 -> ...`), does `hasCycle` return `true` or `false`?",
+      "options": [
+        { "id": "a", "text": "`true` — `slow` and `fast` eventually land on the same index" },
+        { "id": "b", "text": "`false` — `fast` reaches `-1` first" },
+        { "id": "c", "text": "It throws an error" },
+        { "id": "d", "text": "It runs forever without returning" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "The chain loops back to index `1`, so it has a cycle. Because `fast` never reaches `-1` (it just keeps looping), `slow` and `fast` are guaranteed to meet."
+    },
+    {
+      "id": "q3",
+      "prompt": "For `next = [1, 2, -1]` starting at index `0` (chain `0 -> 1 -> 2 -> end`), what happens?",
+      "options": [
+        { "id": "a", "text": "`hasCycle` returns `true`" },
+        { "id": "b", "text": "`hasCycle` returns `false` because `fast` reaches `-1`" },
+        { "id": "c", "text": "It throws because `fast` goes out of bounds" },
+        { "id": "d", "text": "`slow` and `fast` meet at index `2`" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "The chain ends cleanly (no cycle). Since the loop condition checks `fast !== -1 && next[fast] !== -1`, it stops before dereferencing an invalid index, and returns `false`."
+    },
+    {
+      "id": "q4",
+      "prompt": "Compared to the hash-set approach, what does Floyd's tortoise-and-hare trade away to save memory?",
+      "options": [
+        { "id": "a", "text": "It becomes `O(n^2)` time" },
+        { "id": "b", "text": "It uses two pointers instead of a `Set`, still `O(n)` time but `O(1)` extra space" },
+        { "id": "c", "text": "It only works on arrays, not linked lists" },
+        { "id": "d", "text": "It cannot detect cycles at all, only measure length" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Floyd's algorithm keeps the same `O(n)` time complexity as the hash-set version but uses `O(1)` extra space instead of `O(n)` for a `Set`."
+    },
+    {
+      "id": "q5",
+      "prompt": "For `next = [2, 2, 2]` starting at index `0`, is there a cycle?",
+      "options": [
+        { "id": "a", "text": "No — the chain ends at `-1`" },
+        { "id": "b", "text": "Yes — node `2` points to itself, forming a self-loop" },
+        { "id": "c", "text": "It depends on the starting index" },
+        { "id": "d", "text": "Cycles require at least 4 nodes" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`0 -> 2 -> 2 -> 2 -> ...` — node `2`'s `next` points to itself, which is a valid (and detectable) cycle even though it involves just one node looping."
+    },
+    {
+      "id": "q6",
+      "prompt": "Does a 'cycle' in this context require looping back to the very first node visited?",
+      "options": [
+        { "id": "a", "text": "Yes, only a loop back to the start counts" },
+        { "id": "b", "text": "No — any node's `next` chain revisiting an earlier node counts as a cycle" },
+        { "id": "c", "text": "Yes, but only for arrays of even length" },
+        { "id": "d", "text": "No — a cycle must visit every node in the list" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "A cycle exists whenever the chain of `next` pointers revisits any node already seen, not necessarily the very first one — as in `0 -> 1 -> 2 -> 1 -> ...`."
+    }
+  ]
+}

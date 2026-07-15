@@ -1,22 +1,22 @@
 const { bfs } = require("../../../scripts/graph/utils/bfs");
 const { dfs } = require("../../../scripts/graph/utils/dfs");
-const { loadGraph, labelsMatch } = require("./_loadGraph");
+const { loadCourseGraph, labelsMatch, parseCourseArg, positionalArgs } = require("./_loadGraph");
 
 function usage() {
   return [
-    "Usage: node .cursor/tools/graph/bfs-then-dfs-list-subtree.js <sectionLabel>",
-    'Example: node .cursor/tools/graph/bfs-then-dfs-list-subtree.js "Asynchronous JavaScript"',
+    "Usage: node .cursor/tools/graph/bfs-then-dfs-list-subtree.js --course <slug> <sectionLabel>",
+    'Example: node .cursor/tools/graph/bfs-then-dfs-list-subtree.js --course javascript "Asynchronous JavaScript"',
   ].join("\n");
 }
 
 function main() {
-  const sectionRaw = process.argv[2];
-  if (!sectionRaw) {
+  const [sectionRaw] = positionalArgs();
+  if (!sectionRaw || !parseCourseArg()) {
     process.stderr.write(`${usage()}\n`);
     process.exit(2);
   }
 
-  const graph = loadGraph();
+  const { graph, courseSlug } = loadCourseGraph();
 
   let sectionNode = null;
   bfs(graph, graph.rootId, {
@@ -26,7 +26,7 @@ function main() {
   });
 
   if (!sectionNode) {
-    process.stdout.write(`SECTION_NOT_FOUND: ${sectionRaw}\n`);
+    process.stdout.write(`SECTION_NOT_FOUND: ${sectionRaw} (course=${courseSlug})\n`);
     process.exitCode = 1;
     return;
   }
@@ -37,13 +37,8 @@ function main() {
   });
 
   process.stdout.write(
-    JSON.stringify(
-      { section: sectionNode, subtreeLabels: labels },
-      null,
-      2
-    ) + "\n"
+    JSON.stringify({ courseSlug, section: sectionNode, subtreeLabels: labels }, null, 2) + "\n",
   );
 }
 
 if (require.main === module) main();
-

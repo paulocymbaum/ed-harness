@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "id": "single-loop",
+      "name": "single-loop maps to O(n)",
+      "stdin": "single-loop\n",
+      "expectedStdout": "O(n)\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "nested-loop",
+      "name": "nested-loop maps to O(n^2)",
+      "stdin": "nested-loop\n",
+      "expectedStdout": "O(n^2)\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "binary-search",
+      "name": "binary-search maps to O(log n)",
+      "stdin": "binary-search\n",
+      "expectedStdout": "O(log n)\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "constant",
+      "name": "constant maps to O(1)",
+      "stdin": "constant\n",
+      "expectedStdout": "O(1)\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

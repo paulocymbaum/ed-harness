@@ -1,0 +1,46 @@
+{
+  "cases": [
+    {
+      "id": "rank-1",
+      "name": "rank 1 is top-100",
+      "stdin": "1\n",
+      "expectedStdout": "top-100\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "rank-100",
+      "name": "rank 100 is top-100",
+      "stdin": "100\n",
+      "expectedStdout": "top-100\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "rank-101",
+      "name": "rank 101 is top-1000",
+      "stdin": "101\n",
+      "expectedStdout": "top-1000\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "rank-1000",
+      "name": "rank 1000 is top-1000",
+      "stdin": "1000\n",
+      "expectedStdout": "top-1000\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "rank-1001",
+      "name": "rank 1001 is open",
+      "stdin": "1001\n",
+      "expectedStdout": "open\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "rank-15234",
+      "name": "large rank is open",
+      "stdin": "15234\n",
+      "expectedStdout": "open\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 import type { Module } from "../../../../domain/types/catalog";
-import { quizProgressKey } from "../../../../domain/types/quiz";
-import { projectProgressKey } from "../../../../domain/types/quizScore";
+import { lookupQuizProgressEntry } from "../../../../domain/types/quiz";
+import { lookupProjectProgressEntry } from "../../../../domain/types/quizScore";
 import { useProjectProgressStore } from "../../../../application/stores/projectProgressStore";
 import { useQuizProgressStore } from "../../../../application/stores/quizProgressStore";
 import { ProgressBar } from "../../../design-system";
@@ -10,11 +10,24 @@ export function ModuleScoreSummary(props: { courseId: string; module: Module }) 
   const projectByKey = useProjectProgressStore((s) => s.byKey);
 
   const quizItems = props.module.quizzes.map((quiz) =>
-    Boolean(quizByKey[quizProgressKey(props.courseId, quiz.id, quiz.lessonId)]?.bestScore),
+    Boolean(
+      lookupQuizProgressEntry(
+        quizByKey,
+        props.courseId,
+        quiz.id,
+        quiz.lessonId,
+        quiz.moduleId,
+      )?.bestScore,
+    ),
   );
   const projectItems = props.module.projects.map((project) => {
-    const status = projectByKey[projectProgressKey(props.courseId, project.id, project.lessonId)]
-      ?.status;
+    const status = lookupProjectProgressEntry(
+      projectByKey,
+      props.courseId,
+      project.id,
+      project.lessonId,
+      project.moduleId,
+    )?.status;
     return status === "done";
   });
 

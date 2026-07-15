@@ -1,7 +1,8 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import type { Project } from "../../../domain/types/catalog";
 import type { DrawerTab } from "../../../domain/types/navigation";
 import type { ReaderEntry, ReaderTab } from "../../../domain/types/reader";
+import { useProjectDeliveryLiveSync } from "../../../application/hooks/useProjectDeliveryLiveSync";
 import { useTranslation } from "../../../application/hooks/useTranslation";
 import { useProjectProgressStore } from "../../../application/stores/projectProgressStore";
 import { ReadmePanel } from "../../shared/ReadmePanel";
@@ -63,26 +64,17 @@ export function ProjectReader(props: {
   const setSelectedFilePath = onOverlaySelectFile ?? setInternalSelectedFile;
 
   const getProjectStatus = useProjectProgressStore((s) => s.getStatus);
-  const markProjectDoing = useProjectProgressStore((s) => s.markProjectDoing);
+
+  useProjectDeliveryLiveSync({
+    courseId,
+    projectId: project.id,
+    rootPath: project.rootPath,
+    lessonId: project.lessonId,
+  });
 
   const explanationMarkdown = getExplanationMarkdown(project, entries, cwd);
   const hasContext = Boolean(explanationMarkdown.trim());
   const activeDrawerTab = resolveDrawerTab(drawerTab, embedded, hasContext);
-
-  useEffect(() => {
-    const onDelivery =
-      layout === "drawer" ? activeDrawerTab === "delivery" : overlayTab === "delivery";
-    if (!onDelivery) return;
-    markProjectDoing(courseId, project.id, project.lessonId);
-  }, [
-    layout,
-    activeDrawerTab,
-    overlayTab,
-    courseId,
-    project.id,
-    project.lessonId,
-    markProjectDoing,
-  ]);
 
   const showContextOverlay = overlayTab === "context" || overlayTab === "explanation";
 

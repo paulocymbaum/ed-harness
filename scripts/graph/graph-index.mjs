@@ -5,6 +5,13 @@ const graphIndex = require("./graph-index.js");
 
 export const {
   loadGraph,
+  loadGraphFromPaths,
+  resolveCourseMeta,
+  resolveGraphSlug,
+  resolveGraphPaths,
+  listCourseSlugs,
+  loadAllGraphs,
+  courseSlugFromPath,
   normalize,
   extractIndexPath,
   stripIndexPrefix,
@@ -23,5 +30,4 @@ export const {
   getModuleNodeForIndex,
   getLeafDescendants,
   courseSlugFromRootLabel,
-  defaultCourseSlug,
 } = graphIndex;

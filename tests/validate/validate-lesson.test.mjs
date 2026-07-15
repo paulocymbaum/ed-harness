@@ -35,7 +35,7 @@ test("missing lesson.meta.json fails", async () => {
     const lessonPath = path.join(tmpDir, "lesson");
     mkdirSync(lessonPath, { recursive: true });
     cpSync(path.join(repoRoot, "tests/fixtures/mini-course/javascript/modules/01-test-fundamentals/lessons/01.1.1-running-code/README.md"), path.join(lessonPath, "README.md"));
-    const graph = loadGraph({ repoRoot });
+    const graph = loadGraph({ repoRoot, courseSlug: "javascript" });
     const findings = await validateLessonAtPath(lessonPath, graph, { skipNested: true });
     assert.ok(findings.some((f) => f.message.includes("lesson.meta.json")));
   } finally {

@@ -1,0 +1,105 @@
+{
+  "id": "quiz",
+  "title": "Frequency Maps Check",
+  "description": "Counting, missing keys, and query use.",
+  "lessonId": "03.3.4-frequency-maps",
+  "graphIndex": "03.3.4",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "For `['a','b','a','a']`, frequency of `'a'` is:",
+      "options": [
+        {
+          "id": "a",
+          "text": "`1`"
+        },
+        {
+          "id": "b",
+          "text": "`2`"
+        },
+        {
+          "id": "c",
+          "text": "`3`"
+        },
+        {
+          "id": "d",
+          "text": "`4`"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "Three `'a'` sightings → count 3."
+    },
+    {
+      "id": "q2",
+      "prompt": "When incrementing, a safe Map pattern is:",
+      "options": [
+        {
+          "id": "a",
+          "text": "`freq.set(x, freq.get(x) + 1)` without a default"
+        },
+        {
+          "id": "b",
+          "text": "`freq.set(x, (freq.get(x) ?? 0) + 1)`"
+        },
+        {
+          "id": "c",
+          "text": "`freq[x]++` on a Map instance"
+        },
+        {
+          "id": "d",
+          "text": "`freq.add(x)`"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`get` may be `undefined`; coalesce to `0` before adding."
+    },
+    {
+      "id": "q3",
+      "prompt": "A missing key in a frequency map used for counts should usually behave as:",
+      "options": [
+        {
+          "id": "a",
+          "text": "`0`"
+        },
+        {
+          "id": "b",
+          "text": "`-1`"
+        },
+        {
+          "id": "c",
+          "text": "`Infinity`"
+        },
+        {
+          "id": "d",
+          "text": "`null`"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Absence means seen zero times for tally arithmetic."
+    },
+    {
+      "id": "q4",
+      "prompt": "Building frequencies for `n` items is typically:",
+      "options": [
+        {
+          "id": "a",
+          "text": "`O(1)`"
+        },
+        {
+          "id": "b",
+          "text": "`O(n)`"
+        },
+        {
+          "id": "c",
+          "text": "`O(n²)` required"
+        },
+        {
+          "id": "d",
+          "text": "`O(n!)`"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "One pass increments → linear in input size."
+    }
+  ]
+}

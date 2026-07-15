@@ -10,6 +10,9 @@ import {
 } from "./project-delivery-lib.mjs";
 import { isValidCourseId, isValidProjectRootPath } from "./api-validation.mjs";
 
+/** Custom Vite HMR event — browser reloads Delivery tab after CLI/API writes. */
+export const PROJECT_DELIVERY_UPDATED_EVENT = "project-delivery:updated";
+
 /**
  * Dev-only Vite plugin: persists project deliveries to
  * course/<courseId>/projects/.../<projectId>/project-delivery.json
@@ -18,6 +21,45 @@ export function projectDeliveryPlugin(repoRoot) {
   return {
     name: "project-delivery",
     configureServer(server) {
+      const watchedPaths = new Set();
+      let lastBroadcast = { key: "", at: 0 };
+
+      function normalizeRootPath(rootPath) {
+        return String(rootPath).replace(/\\/g, "/").replace(/\/+$/, "");
+      }
+
+      function watchDeliveryFile(rootPath) {
+        const deliveryPath = resolveDeliveryPath(repoRoot, rootPath);
+        if (watchedPaths.has(deliveryPath)) return;
+        watchedPaths.add(deliveryPath);
+        // Watch the file and its parent so creates and CLI overwrites both notify.
+        server.watcher.add(deliveryPath);
+        server.watcher.add(path.dirname(deliveryPath));
+      }
+
+      function broadcastDeliveryUpdated(rootPath) {
+        const normalized = normalizeRootPath(rootPath);
+        const now = Date.now();
+        if (lastBroadcast.key === normalized && now - lastBroadcast.at < 100) return;
+        lastBroadcast = { key: normalized, at: now };
+        server.ws.send({
+          type: "custom",
+          event: PROJECT_DELIVERY_UPDATED_EVENT,
+          data: { rootPath: normalized },
+        });
+      }
+
+      const onWatchedFile = (filePath) => {
+        const abs = path.resolve(filePath);
+        if (path.basename(abs) !== PROJECT_DELIVERY_FILENAME) return;
+        const rootPath = path.relative(repoRoot, path.dirname(abs));
+        if (!rootPath || rootPath.startsWith("..") || path.isAbsolute(rootPath)) return;
+        broadcastDeliveryUpdated(rootPath);
+      };
+
+      server.watcher.on("change", onWatchedFile);
+      server.watcher.on("add", onWatchedFile);
+
       server.middlewares.use(async (req, res, next) => {
         const url = req.url ?? "";
         if (!url.startsWith("/api/project-deliveries")) return next();
@@ -34,6 +76,8 @@ export function projectDeliveryPlugin(repoRoot) {
               res.end("Invalid query parameters");
               return;
             }
+
+            watchDeliveryFile(rootPath);
 
             const file = await readDeliveryFile(repoRoot, rootPath, courseId, projectId);
             if (!file) {
@@ -85,6 +129,9 @@ export function projectDeliveryPlugin(repoRoot) {
               }
               nextFile = await appendDelivery(repoRoot, rootPath, courseId, projectId, content);
             }
+
+            watchDeliveryFile(rootPath);
+            broadcastDeliveryUpdated(rootPath);
 
             res.setHeader("Content-Type", "application/json");
             res.end(JSON.stringify(nextFile));

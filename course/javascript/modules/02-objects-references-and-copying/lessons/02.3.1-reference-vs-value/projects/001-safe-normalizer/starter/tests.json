@@ -1,0 +1,46 @@
+{
+  "cases": [
+    {
+      "id": "happy-path",
+      "name": "Normalize without mutating input",
+      "stdin": "{\"userId\":\"42\",\"tags\":[\"  A \",null,\"\",\"B\"],\"profile\":{\"name\":\" Ana \",\"age\":\"20\"},\"meta\":{\"receivedAt\":\"2020-01-01T00:00:00.000Z\",\"source\":\"api\"}}\n",
+      "expectedStdout": "{\"userId\":42,\"tags\":[\"a\",\"b\"],\"profile\":{\"name\":\"Ana\",\"age\":20},\"meta\":{\"receivedAt\":\"2020-01-01T00:00:00.000Z\",\"source\":\"api\"}}\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "null-age",
+      "name": "Null age and empty tags",
+      "stdin": "{\"userId\":1,\"tags\":[],\"profile\":{\"name\":\"Bob\",\"age\":null},\"meta\":{\"receivedAt\":\"t\",\"source\":\"cli\"}}\n",
+      "expectedStdout": "{\"userId\":1,\"tags\":[],\"profile\":{\"name\":\"Bob\",\"age\":null},\"meta\":{\"receivedAt\":\"t\",\"source\":\"cli\"}}\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "missing-input",
+      "name": "Empty stdin",
+      "stdin": "",
+      "expectedStdout": "ERROR: missing input\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "invalid-json",
+      "name": "Invalid JSON",
+      "stdin": "not-json\n",
+      "expectedStdout": "ERROR: invalid JSON\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "name-required",
+      "name": "Blank profile.name",
+      "stdin": "{\"userId\":1,\"tags\":[],\"profile\":{\"name\":\"  \"},\"meta\":{\"receivedAt\":\"t\",\"source\":\"cli\"}}\n",
+      "expectedStdout": "ERROR: profile.name is required\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "bad-source",
+      "name": "Invalid meta.source",
+      "stdin": "{\"userId\":1,\"tags\":[],\"profile\":{\"name\":\"A\"},\"meta\":{\"receivedAt\":\"t\",\"source\":\"web\"}}\n",
+      "expectedStdout": "ERROR: meta.source must be one of: cli, api, file\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

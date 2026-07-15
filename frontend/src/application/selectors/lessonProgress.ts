@@ -32,7 +32,12 @@ export function buildLessonActivityItems(input: {
   const items: LessonActivityItem[] = [];
 
   for (const quiz of input.quizzes) {
-    const progress = quizStore.getProgress(input.courseId, quiz.id, input.lessonId);
+    const progress = quizStore.getProgress(
+      input.courseId,
+      quiz.id,
+      input.lessonId,
+      quiz.moduleId,
+    );
     const score = progress?.bestScore ?? 0;
     const total = progress?.bestTotal ?? quiz.questions.length;
     const pct = total > 0 ? Math.round((score / total) * 100) : 0;
@@ -52,7 +57,12 @@ export function buildLessonActivityItems(input: {
   }
 
   for (const project of input.projects) {
-    const status = projectStore.getStatus(input.courseId, project.id, input.lessonId);
+    const status = projectStore.getStatus(
+      input.courseId,
+      project.id,
+      input.lessonId,
+      project.moduleId,
+    );
     const deliveries = deliveryStore.getDeliveries(
       input.courseId,
       project.id,

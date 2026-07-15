@@ -1,10 +1,10 @@
 import { useMemo } from "react";
 import type { Course } from "../../domain/types/catalog";
-import { quizProgressKey } from "../../domain/types/quiz";
+import { lookupQuizProgressEntry } from "../../domain/types/quiz";
 import {
   computeCoursePoints,
+  lookupProjectProgressEntry,
   PROJECT_POINTS_WEIGHT,
-  projectProgressKey,
 } from "../../domain/types/quizScore";
 import {
   getAllProjectsForCourse,
@@ -29,12 +29,23 @@ export function useCatalogPoints(courses: Course[]) {
 
       const quizBestScores = quizzes.map(
         (quiz) =>
-          quizByKey[quizProgressKey(course.id, quiz.id, quiz.lessonId)]?.bestScore ?? 0,
+          lookupQuizProgressEntry(
+            quizByKey,
+            course.id,
+            quiz.id,
+            quiz.lessonId,
+            quiz.moduleId,
+          )?.bestScore ?? 0,
       );
       const projectStatuses = projects.map(
         (project) =>
-          projectByKey[projectProgressKey(course.id, project.id, project.lessonId)]?.status ??
-          "pending",
+          lookupProjectProgressEntry(
+            projectByKey,
+            course.id,
+            project.id,
+            project.lessonId,
+            project.moduleId,
+          )?.status ?? "pending",
       );
       const points = computeCoursePoints({ quizBestScores, projectStatuses });
       quizPoints += points.quizPoints;

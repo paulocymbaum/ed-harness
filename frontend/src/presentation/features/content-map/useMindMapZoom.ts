@@ -27,10 +27,16 @@ function isNodeTarget(target: EventTarget | null): boolean {
 
 const FIT_WIDTH_MARGIN = 0.92;
 const FIT_MAX_SCALE = 1;
-const ROOT_VIEWPORT_MARGIN_X = 48;
 const FOCUS_MAX_SCALE = 1.05;
 const FOCUS_FILL_FACTOR = 0.35;
-const FOCUS_PADDING = 128;
+
+function rootMarginX(viewportWidth: number): number {
+  return Math.min(48, Math.max(12, viewportWidth * 0.08));
+}
+
+function focusPadding(viewportWidth: number, viewportHeight: number): number {
+  return Math.min(128, Math.max(24, Math.min(viewportWidth, viewportHeight) * 0.12));
+}
 
 function computeDefaultScale(viewportWidth: number, contentWidth: number): number {
   return Math.min(FIT_MAX_SCALE, (viewportWidth * FIT_WIDTH_MARGIN) / contentWidth);
@@ -45,9 +51,10 @@ function computeRootHomeTransform(
   const viewportHeight = viewport.clientHeight;
   const scale = computeDefaultScale(viewportWidth, contentWidth);
   const anchorY = rootRect.y + rootRect.height / 2;
+  const marginX = rootMarginX(viewportWidth);
 
   return zoomIdentity
-    .translate(ROOT_VIEWPORT_MARGIN_X - rootRect.x * scale, viewportHeight / 2 - anchorY * scale)
+    .translate(marginX - rootRect.x * scale, viewportHeight / 2 - anchorY * scale)
     .scale(scale);
 }
 
@@ -58,9 +65,10 @@ function computeFocusTransform(
 ): ZoomTransform {
   const viewportWidth = viewport.clientWidth;
   const viewportHeight = viewport.clientHeight;
+  const padding = focusPadding(viewportWidth, viewportHeight);
   const fillScale = Math.min(
-    (viewportWidth - FOCUS_PADDING * 2) / rect.width,
-    (viewportHeight - FOCUS_PADDING * 2) / rect.height,
+    (viewportWidth - padding * 2) / rect.width,
+    (viewportHeight - padding * 2) / rect.height,
   );
   const scale = Math.min(
     FOCUS_MAX_SCALE,

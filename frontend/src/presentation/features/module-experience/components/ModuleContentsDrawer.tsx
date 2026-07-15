@@ -32,7 +32,7 @@ export function ModuleContentsDrawer() {
 
       {mobileOpen ? (
         <div
-          className="fixed inset-0 z-40 bg-black/30 lg:hidden"
+          className="fixed inset-x-0 bottom-0 top-12 z-[60] bg-black/30 lg:hidden"
           onClick={() => setMobileOpen(false)}
           aria-hidden
         />
@@ -43,7 +43,7 @@ export function ModuleContentsDrawer() {
           "flex min-h-0 w-full shrink-0 flex-col overflow-hidden border-border0 bg-surfacePanel",
           "lg:relative lg:z-auto lg:w-80 lg:self-stretch lg:rounded-l-panel lg:border lg:border-r-0",
           mobileOpen
-            ? "fixed inset-y-0 left-0 z-50 max-w-[min(100vw-1rem,20rem)] rounded-panel border shadow-glass2 lg:static lg:shadow-none"
+            ? "fixed bottom-0 left-0 top-12 z-[70] max-w-[min(100vw-1rem,20rem)] rounded-panel border shadow-glass2 lg:static lg:inset-auto lg:shadow-none"
             : "hidden lg:flex",
         )}
       >

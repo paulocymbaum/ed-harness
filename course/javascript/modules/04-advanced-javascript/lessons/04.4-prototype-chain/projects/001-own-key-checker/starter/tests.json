@@ -1,0 +1,39 @@
+{
+  "cases": [
+    {
+      "id": "own-key",
+      "name": "Key defined directly on child is own",
+      "stdin": "{\"a\":1}\n{\"b\":2}\nb\n",
+      "expectedStdout": "own\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "inherited-key",
+      "name": "Key found only on prototype is inherited",
+      "stdin": "{\"a\":1}\n{\"b\":2}\na\n",
+      "expectedStdout": "inherited\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "missing-key",
+      "name": "Key not found anywhere is missing",
+      "stdin": "{\"a\":1}\n{\"b\":2}\nc\n",
+      "expectedStdout": "missing\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "empty-parent-own",
+      "name": "Own key with empty parent",
+      "stdin": "{}\n{\"x\":1}\nx\n",
+      "expectedStdout": "own\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "inherited-shadowing-builtin-name",
+      "name": "Key shadowing a builtin name still inherited correctly",
+      "stdin": "{\"toString\":\"custom\"}\n{}\ntoString\n",
+      "expectedStdout": "inherited\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

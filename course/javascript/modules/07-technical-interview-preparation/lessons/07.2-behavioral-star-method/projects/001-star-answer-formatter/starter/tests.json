@@ -1,0 +1,25 @@
+{
+  "cases": [
+    {
+      "id": "pipeline-story",
+      "name": "Four-line pipeline story labeled in order",
+      "stdin": "Pipeline kept failing\nFind and fix the root cause\nAdded logging, found a race condition, rewrote the warm-up script\nFailure rate dropped from 30% to under 2%\n",
+      "expectedStdout": "Situation: Pipeline kept failing\nTask: Find and fix the root cause\nAction: Added logging, found a race condition, rewrote the warm-up script\nResult: Failure rate dropped from 30% to under 2%\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "bug-hotfix-story",
+      "name": "Four-line bug hotfix story labeled in order",
+      "stdin": "There was a bug in production\nI owned that code, so I was asked to fix it\nRead the logs, found a missing null check, added it, shipped a hotfix\nCrash reports stopped completely\n",
+      "expectedStdout": "Situation: There was a bug in production\nTask: I owned that code, so I was asked to fix it\nAction: Read the logs, found a missing null check, added it, shipped a hotfix\nResult: Crash reports stopped completely\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "short-lines-story",
+      "name": "Short one-word lines still get labeled",
+      "stdin": "Outage\nRespond\nRestarted service\nResolved\n",
+      "expectedStdout": "Situation: Outage\nTask: Respond\nAction: Restarted service\nResult: Resolved\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

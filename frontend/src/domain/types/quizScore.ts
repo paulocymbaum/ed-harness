@@ -102,21 +102,72 @@ export function isValidCourseScoreFile(value: unknown): value is CourseScoreFile
   return normalizeCourseScoreFile(value) !== null;
 }
 
-export function scoreStorageKeyForQuiz(quizId: string, lessonId?: string): string {
-  return lessonId ? `${lessonId}/${quizId}` : quizId;
+export function scoreStorageKeyForQuiz(
+  quizId: string,
+  lessonId?: string,
+  moduleId?: string,
+): string {
+  if (moduleId && lessonId) return `${moduleId}/${lessonId}/${quizId}`;
+  if (lessonId) return `${lessonId}/${quizId}`;
+  return quizId;
 }
 
-export function scoreStorageKeyForProject(projectId: string, lessonId?: string): string {
-  return lessonId ? `${lessonId}/${projectId}` : projectId;
+export function scoreStorageKeyForProject(
+  projectId: string,
+  lessonId?: string,
+  moduleId?: string,
+): string {
+  if (moduleId && lessonId) return `${moduleId}/${lessonId}/${projectId}`;
+  if (lessonId) return `${lessonId}/${projectId}`;
+  return projectId;
 }
 
-export function projectProgressKey(courseId: string, projectId: string, lessonId?: string): string {
+export function projectProgressKey(
+  courseId: string,
+  projectId: string,
+  lessonId?: string,
+  moduleId?: string,
+): string {
+  return `${courseId}:project:${moduleId ?? "_"}:${lessonId ?? "_"}:${projectId}`;
+}
+
+/** Pre-moduleId key format. */
+export function legacyProjectProgressKeyWithLesson(
+  courseId: string,
+  projectId: string,
+  lessonId?: string,
+): string {
   return `${courseId}:project:${lessonId ?? "_"}:${projectId}`;
 }
 
 /** Legacy key format before hierarchy migration */
 export function legacyProjectProgressKey(courseId: string, projectId: string): string {
   return `${courseId}:${projectId}`;
+}
+
+export function lookupProjectProgressEntry<T>(
+  byKey: Record<string, T | undefined>,
+  courseId: string,
+  projectId: string,
+  lessonId?: string,
+  moduleId?: string,
+): T | undefined {
+  const candidates = [
+    projectProgressKey(courseId, projectId, lessonId, moduleId),
+    // Deliveries still write `_` module slot; project ids are unique across mocks.
+    projectProgressKey(courseId, projectId, lessonId),
+  ];
+
+  if (!moduleId?.endsWith("-mock")) {
+    candidates.push(legacyProjectProgressKeyWithLesson(courseId, projectId, lessonId));
+    candidates.push(legacyProjectProgressKey(courseId, projectId));
+  }
+
+  for (const key of candidates) {
+    const hit = byKey[key];
+    if (hit !== undefined) return hit;
+  }
+  return undefined;
 }
 
 export function legacyQuizProgressKey(courseId: string, quizId: string): string {
@@ -179,10 +230,21 @@ export function mergeScoreFileIntoQuizProgress(
   const next = { ...byKey };
 
   for (const entry of Object.values(file.quizzes)) {
-    const slash = entry.quizId.indexOf("/");
-    const lessonId = slash > 0 ? entry.quizId.slice(0, slash) : undefined;
-    const quizId = slash > 0 ? entry.quizId.slice(slash + 1) : entry.quizId;
-    const key = quizProgressKey(courseId, quizId, lessonId);
+    const parts = entry.quizId.split("/");
+    let moduleId: string | undefined;
+    let lessonId: string | undefined;
+    let quizId: string;
+    if (parts.length >= 3) {
+      moduleId = parts[0];
+      lessonId = parts[1];
+      quizId = parts.slice(2).join("/");
+    } else if (parts.length === 2) {
+      lessonId = parts[0];
+      quizId = parts[1];
+    } else {
+      quizId = entry.quizId;
+    }
+    const key = quizProgressKey(courseId, quizId, lessonId, moduleId);
     const prev = next[key];
     const lastAttempt = entry.attempts[entry.attempts.length - 1];
 
@@ -218,10 +280,21 @@ export function mergeScoreFileIntoProjectProgress(
   const next = { ...byKey };
 
   for (const entry of Object.values(file.projects)) {
-    const slash = entry.projectId.indexOf("/");
-    const lessonId = slash > 0 ? entry.projectId.slice(0, slash) : undefined;
-    const projectId = slash > 0 ? entry.projectId.slice(slash + 1) : entry.projectId;
-    const key = projectProgressKey(courseId, projectId, lessonId);
+    const parts = entry.projectId.split("/");
+    let moduleId: string | undefined;
+    let lessonId: string | undefined;
+    let projectId: string;
+    if (parts.length >= 3) {
+      moduleId = parts[0];
+      lessonId = parts[1];
+      projectId = parts.slice(2).join("/");
+    } else if (parts.length === 2) {
+      lessonId = parts[0];
+      projectId = parts[1];
+    } else {
+      projectId = entry.projectId;
+    }
+    const key = projectProgressKey(courseId, projectId, lessonId, moduleId);
     const prev = next[key];
     if (!prev || entry.updatedAt >= (prev.updatedAt ?? "")) {
       next[key] = {

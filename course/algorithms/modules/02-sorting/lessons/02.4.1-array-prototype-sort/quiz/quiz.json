@@ -1,0 +1,105 @@
+{
+  "id": "quiz",
+  "title": "Array.prototype.sort Check",
+  "description": "Default lexicographic sort and mutation.",
+  "lessonId": "02.4.1-array-prototype-sort",
+  "graphIndex": "02.4.1",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Without a comparator, `[10, 2, 1].sort()` becomes:",
+      "options": [
+        {
+          "id": "a",
+          "text": "`[1, 2, 10]`"
+        },
+        {
+          "id": "b",
+          "text": "`[1, 10, 2]`"
+        },
+        {
+          "id": "c",
+          "text": "`[10, 2, 1]`"
+        },
+        {
+          "id": "d",
+          "text": "`[2, 1, 10]`"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "String order: `\"1\"`, `\"10\"`, `\"2\"`."
+    },
+    {
+      "id": "q2",
+      "prompt": "`Array.prototype.sort` by default:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Always sorts numbers ascending"
+        },
+        {
+          "id": "b",
+          "text": "Converts elements to strings and sorts lexicographically"
+        },
+        {
+          "id": "c",
+          "text": "Never mutates the array"
+        },
+        {
+          "id": "d",
+          "text": "Requires a compare function"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Default compare is string-based."
+    },
+    {
+      "id": "q3",
+      "prompt": "Calling `arr.sort(...)` typically:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Returns a new array only"
+        },
+        {
+          "id": "b",
+          "text": "Mutates `arr` in place and returns it"
+        },
+        {
+          "id": "c",
+          "text": "Freezes `arr`"
+        },
+        {
+          "id": "d",
+          "text": "Deletes duplicates"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Sort is in-place; shared refs see the change."
+    },
+    {
+      "id": "q4",
+      "prompt": "Numeric ascending sort should use:",
+      "options": [
+        {
+          "id": "a",
+          "text": "No comparator"
+        },
+        {
+          "id": "b",
+          "text": "`(a, b) => a - b`"
+        },
+        {
+          "id": "c",
+          "text": "`(a, b) => a + b`"
+        },
+        {
+          "id": "d",
+          "text": "`(a, b) => String(a)`"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Subtracting yields the signed compare contract."
+    }
+  ]
+}

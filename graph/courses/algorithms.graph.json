@@ -1,0 +1,875 @@
+{
+  "rootId": "n_b45804aebd",
+  "nodes": [
+    {
+      "id": "n_b45804aebd",
+      "label": "Algorithms"
+    },
+    {
+      "id": "n_31db527848",
+      "label": "01 Algorithm Foundations"
+    },
+    {
+      "id": "n_4f8a0563fe",
+      "label": "01.1 Complexity Thinking"
+    },
+    {
+      "id": "n_2631bea6bc",
+      "label": "01.1.1 Time Complexity Big-O"
+    },
+    {
+      "id": "n_92d759dda7",
+      "label": "01.1.2 Space Complexity"
+    },
+    {
+      "id": "n_c57389b39c",
+      "label": "01.1.3 Best Average Worst Case"
+    },
+    {
+      "id": "n_4c38b0ab37",
+      "label": "01.1.4 Amortized Analysis"
+    },
+    {
+      "id": "n_fe72219422",
+      "label": "01.2 Problem Patterns in JS"
+    },
+    {
+      "id": "n_64b92b39cb",
+      "label": "01.2.1 Arrays and Typed Arrays"
+    },
+    {
+      "id": "n_3b39e0b6cd",
+      "label": "01.2.2 Map and Set as Tooling"
+    },
+    {
+      "id": "n_80b1d3c263",
+      "label": "01.2.3 Recursion vs Iteration"
+    },
+    {
+      "id": "n_2e9a88d247",
+      "label": "01.2.4 Divide and Conquer"
+    },
+    {
+      "id": "n_2849dd51be",
+      "label": "01.3 Correctness Habits"
+    },
+    {
+      "id": "n_2d1aed0ddf",
+      "label": "01.3.1 Invariants and Edge Cases"
+    },
+    {
+      "id": "n_e18c7dd50a",
+      "label": "01.3.2 Comparator Contracts"
+    },
+    {
+      "id": "n_20af94c3ef",
+      "label": "01.3.3 Measuring with console.time"
+    },
+    {
+      "id": "n_41a3991b85",
+      "label": "01.3.4 Proving Termination"
+    },
+    {
+      "id": "n_1e3798353e",
+      "label": "02 Sorting"
+    },
+    {
+      "id": "n_4ddf4587b9",
+      "label": "02.1 Elementary Sorts"
+    },
+    {
+      "id": "n_cd2309e4fd",
+      "label": "02.1.1 Bubble Sort"
+    },
+    {
+      "id": "n_288ead4cbd",
+      "label": "02.1.2 Selection Sort"
+    },
+    {
+      "id": "n_437aa7c30a",
+      "label": "02.1.3 Insertion Sort"
+    },
+    {
+      "id": "n_00b6fddf17",
+      "label": "02.2 Efficient Comparison Sorts"
+    },
+    {
+      "id": "n_1e5762fad6",
+      "label": "02.2.1 Merge Sort"
+    },
+    {
+      "id": "n_99f6292534",
+      "label": "02.2.2 Quick Sort"
+    },
+    {
+      "id": "n_e43239f06c",
+      "label": "02.2.3 Heap Sort"
+    },
+    {
+      "id": "n_f2d84f0c80",
+      "label": "02.2.4 Shell Sort"
+    },
+    {
+      "id": "n_9437ba96c7",
+      "label": "02.3 Non-Comparison Sorts"
+    },
+    {
+      "id": "n_23e035d371",
+      "label": "02.3.1 Counting Sort"
+    },
+    {
+      "id": "n_a60b75399a",
+      "label": "02.3.2 Radix Sort"
+    },
+    {
+      "id": "n_f363c50044",
+      "label": "02.3.3 Bucket Sort"
+    },
+    {
+      "id": "n_f5c8649d76",
+      "label": "02.4 JS Runtime Sorting"
+    },
+    {
+      "id": "n_df84860486",
+      "label": "02.4.1 Array.prototype.sort"
+    },
+    {
+      "id": "n_6551b6dd92",
+      "label": "02.4.2 Custom Comparators"
+    },
+    {
+      "id": "n_09a13219b2",
+      "label": "02.4.3 Stability and Pitfalls"
+    },
+    {
+      "id": "n_a4e60757cf",
+      "label": "02.4.4 Sorting Objects by Keys"
+    },
+    {
+      "id": "n_e095023142",
+      "label": "02.5 Choosing a Sort"
+    },
+    {
+      "id": "n_62ce9e30b6",
+      "label": "02.5.1 Nearly Sorted Data"
+    },
+    {
+      "id": "n_8f52b6ba69",
+      "label": "02.5.2 Memory Constraints"
+    },
+    {
+      "id": "n_d1aa9999bf",
+      "label": "02.5.3 Sort by Multiple Keys"
+    },
+    {
+      "id": "n_96d4ece1f9",
+      "label": "02.5.4 Online vs Offline Sorting"
+    },
+    {
+      "id": "n_3c22d969e0",
+      "label": "03 Searching"
+    },
+    {
+      "id": "n_50662026e8",
+      "label": "03.1 Linear Techniques"
+    },
+    {
+      "id": "n_a2e797bec6",
+      "label": "03.1.1 Linear Search"
+    },
+    {
+      "id": "n_f21a5ec6e1",
+      "label": "03.1.2 Two Pointers"
+    },
+    {
+      "id": "n_d8fed77d65",
+      "label": "03.1.3 Sliding Window"
+    },
+    {
+      "id": "n_df669ac19a",
+      "label": "03.1.4 Prefix Sums"
+    },
+    {
+      "id": "n_27e277e639",
+      "label": "03.2 Logarithmic Search"
+    },
+    {
+      "id": "n_989df90876",
+      "label": "03.2.1 Binary Search"
+    },
+    {
+      "id": "n_a55dc89ab5",
+      "label": "03.2.2 Lower and Upper Bound"
+    },
+    {
+      "id": "n_2b07e6e93d",
+      "label": "03.2.3 Search in Rotated Arrays"
+    },
+    {
+      "id": "n_bbaf0be71e",
+      "label": "03.2.4 Binary Search on Answer"
+    },
+    {
+      "id": "n_87a3661d64",
+      "label": "03.3 Hash-Based Lookup"
+    },
+    {
+      "id": "n_e8adfbfdba",
+      "label": "03.3.1 Object Key Lookup Limits"
+    },
+    {
+      "id": "n_02f25598bd",
+      "label": "03.3.2 Map for O1 Access"
+    },
+    {
+      "id": "n_9e59d13bb6",
+      "label": "03.3.3 Set for Membership"
+    },
+    {
+      "id": "n_8adff3f037",
+      "label": "03.3.4 Frequency Maps"
+    },
+    {
+      "id": "n_61844287c5",
+      "label": "03.4 Graph and Tree Search"
+    },
+    {
+      "id": "n_36ea9021e9",
+      "label": "03.4.1 DFS"
+    },
+    {
+      "id": "n_deaa378efb",
+      "label": "03.4.2 BFS"
+    },
+    {
+      "id": "n_cebc841ebc",
+      "label": "03.4.3 Path Reconstruction"
+    },
+    {
+      "id": "n_1e459ae5bb",
+      "label": "03.4.4 Backtracking Search"
+    },
+    {
+      "id": "n_171e76fc8e",
+      "label": "04 Saving Data"
+    },
+    {
+      "id": "n_b30aa56eaa",
+      "label": "04.1 In-Memory Stores"
+    },
+    {
+      "id": "n_0fa18d1da5",
+      "label": "04.1.1 Arrays as Ordered Stores"
+    },
+    {
+      "id": "n_c529dad1dc",
+      "label": "04.1.2 Objects Maps and Sets"
+    },
+    {
+      "id": "n_8d256ebc60",
+      "label": "04.1.3 Stack and Queue Patterns"
+    },
+    {
+      "id": "n_581537571a",
+      "label": "04.1.4 Priority Queue Patterns"
+    },
+    {
+      "id": "n_5121f0d384",
+      "label": "04.2 Serialization"
+    },
+    {
+      "id": "n_87b76f1945",
+      "label": "04.2.1 JSON.stringify and parse"
+    },
+    {
+      "id": "n_6d91dd0978",
+      "label": "04.2.2 structuredClone"
+    },
+    {
+      "id": "n_0f74556179",
+      "label": "04.2.3 Custom Encoders"
+    },
+    {
+      "id": "n_dcaf415ceb",
+      "label": "04.2.4 Versioned Schemas"
+    },
+    {
+      "id": "n_fb6ef9fba8",
+      "label": "04.3 Persistence Patterns"
+    },
+    {
+      "id": "n_068c9020a1",
+      "label": "04.3.1 Snapshot and Restore"
+    },
+    {
+      "id": "n_95a088f96a",
+      "label": "04.3.2 Append-Only Logs"
+    },
+    {
+      "id": "n_0c3b4b756e",
+      "label": "04.3.3 Node File IO Basics"
+    },
+    {
+      "id": "n_f5351adfc6",
+      "label": "04.3.4 Atomic Write and Replace"
+    },
+    {
+      "id": "n_aaf0ee2888",
+      "label": "04.4 Safe Mutation"
+    },
+    {
+      "id": "n_0c0f1b23ad",
+      "label": "04.4.1 Immutable Updates"
+    },
+    {
+      "id": "n_f8f8e23ba0",
+      "label": "04.4.2 Copy-on-Write"
+    },
+    {
+      "id": "n_55287fdced",
+      "label": "04.4.3 Idempotent Writes"
+    },
+    {
+      "id": "n_71e149d007",
+      "label": "04.4.4 Conflict Detection"
+    },
+    {
+      "id": "n_f3afb7d1a3",
+      "label": "05 Caching"
+    },
+    {
+      "id": "n_e5f54c1320",
+      "label": "05.1 Memoization"
+    },
+    {
+      "id": "n_fb1d7906a6",
+      "label": "05.1.1 Pure Function Cache"
+    },
+    {
+      "id": "n_27ee51f032",
+      "label": "05.1.2 Key Design for Arguments"
+    },
+    {
+      "id": "n_6528bc0261",
+      "label": "05.1.3 Recursive Memoization"
+    },
+    {
+      "id": "n_128251863f",
+      "label": "05.1.4 Bounded Memo Tables"
+    },
+    {
+      "id": "n_ed3db9808b",
+      "label": "05.2 Cache Policies"
+    },
+    {
+      "id": "n_3dc0e54eb6",
+      "label": "05.2.1 LRU Cache"
+    },
+    {
+      "id": "n_d984c01c33",
+      "label": "05.2.2 LFU Cache"
+    },
+    {
+      "id": "n_60255c0522",
+      "label": "05.2.3 TTL Expiration"
+    },
+    {
+      "id": "n_9ea667abaa",
+      "label": "05.2.4 FIFO and Random Eviction"
+    },
+    {
+      "id": "n_84e72744ff",
+      "label": "05.3 Cache Architecture"
+    },
+    {
+      "id": "n_30ff67bb81",
+      "label": "05.3.1 Read-Through Write-Through"
+    },
+    {
+      "id": "n_506f57a10f",
+      "label": "05.3.2 Cache Aside"
+    },
+    {
+      "id": "n_b9065def76",
+      "label": "05.3.3 Write-Back"
+    },
+    {
+      "id": "n_a0f45b6c27",
+      "label": "05.3.4 Invalidation Strategies"
+    },
+    {
+      "id": "n_8e1dac1f28",
+      "label": "05.4 Practical JS Caching"
+    },
+    {
+      "id": "n_7c7a4e8d80",
+      "label": "05.4.1 Closure-Based Caches"
+    },
+    {
+      "id": "n_2545e1d291",
+      "label": "05.4.2 Map-Backed LRU"
+    },
+    {
+      "id": "n_5dc7c49ae7",
+      "label": "05.4.3 Async Result Caching"
+    },
+    {
+      "id": "n_6c4aee8ad6",
+      "label": "05.4.4 WeakMap Object Caches"
+    },
+    {
+      "id": "n_e4add468a8",
+      "label": "06 Applied Pipelines"
+    },
+    {
+      "id": "n_e252abd24c",
+      "label": "06.1 Sort then Search Workflows"
+    },
+    {
+      "id": "n_94afeda1e9",
+      "label": "06.2 Cache-Aware Persistence"
+    },
+    {
+      "id": "n_c2930ac57a",
+      "label": "06.3 Deduplicating Expensive Work"
+    },
+    {
+      "id": "n_93c4fdbc6b",
+      "label": "06.4 Interview Tradeoff Narratives"
+    }
+  ],
+  "edges": [
+    {
+      "from": "n_b45804aebd",
+      "to": "n_31db527848"
+    },
+    {
+      "from": "n_31db527848",
+      "to": "n_4f8a0563fe"
+    },
+    {
+      "from": "n_4f8a0563fe",
+      "to": "n_2631bea6bc"
+    },
+    {
+      "from": "n_4f8a0563fe",
+      "to": "n_92d759dda7"
+    },
+    {
+      "from": "n_4f8a0563fe",
+      "to": "n_c57389b39c"
+    },
+    {
+      "from": "n_4f8a0563fe",
+      "to": "n_4c38b0ab37"
+    },
+    {
+      "from": "n_31db527848",
+      "to": "n_fe72219422"
+    },
+    {
+      "from": "n_fe72219422",
+      "to": "n_64b92b39cb"
+    },
+    {
+      "from": "n_fe72219422",
+      "to": "n_3b39e0b6cd"
+    },
+    {
+      "from": "n_fe72219422",
+      "to": "n_80b1d3c263"
+    },
+    {
+      "from": "n_fe72219422",
+      "to": "n_2e9a88d247"
+    },
+    {
+      "from": "n_31db527848",
+      "to": "n_2849dd51be"
+    },
+    {
+      "from": "n_2849dd51be",
+      "to": "n_2d1aed0ddf"
+    },
+    {
+      "from": "n_2849dd51be",
+      "to": "n_e18c7dd50a"
+    },
+    {
+      "from": "n_2849dd51be",
+      "to": "n_20af94c3ef"
+    },
+    {
+      "from": "n_2849dd51be",
+      "to": "n_41a3991b85"
+    },
+    {
+      "from": "n_b45804aebd",
+      "to": "n_1e3798353e"
+    },
+    {
+      "from": "n_1e3798353e",
+      "to": "n_4ddf4587b9"
+    },
+    {
+      "from": "n_4ddf4587b9",
+      "to": "n_cd2309e4fd"
+    },
+    {
+      "from": "n_4ddf4587b9",
+      "to": "n_288ead4cbd"
+    },
+    {
+      "from": "n_4ddf4587b9",
+      "to": "n_437aa7c30a"
+    },
+    {
+      "from": "n_1e3798353e",
+      "to": "n_00b6fddf17"
+    },
+    {
+      "from": "n_00b6fddf17",
+      "to": "n_1e5762fad6"
+    },
+    {
+      "from": "n_00b6fddf17",
+      "to": "n_99f6292534"
+    },
+    {
+      "from": "n_00b6fddf17",
+      "to": "n_e43239f06c"
+    },
+    {
+      "from": "n_00b6fddf17",
+      "to": "n_f2d84f0c80"
+    },
+    {
+      "from": "n_1e3798353e",
+      "to": "n_9437ba96c7"
+    },
+    {
+      "from": "n_9437ba96c7",
+      "to": "n_23e035d371"
+    },
+    {
+      "from": "n_9437ba96c7",
+      "to": "n_a60b75399a"
+    },
+    {
+      "from": "n_9437ba96c7",
+      "to": "n_f363c50044"
+    },
+    {
+      "from": "n_1e3798353e",
+      "to": "n_f5c8649d76"
+    },
+    {
+      "from": "n_f5c8649d76",
+      "to": "n_df84860486"
+    },
+    {
+      "from": "n_f5c8649d76",
+      "to": "n_6551b6dd92"
+    },
+    {
+      "from": "n_f5c8649d76",
+      "to": "n_09a13219b2"
+    },
+    {
+      "from": "n_f5c8649d76",
+      "to": "n_a4e60757cf"
+    },
+    {
+      "from": "n_1e3798353e",
+      "to": "n_e095023142"
+    },
+    {
+      "from": "n_e095023142",
+      "to": "n_62ce9e30b6"
+    },
+    {
+      "from": "n_e095023142",
+      "to": "n_8f52b6ba69"
+    },
+    {
+      "from": "n_e095023142",
+      "to": "n_d1aa9999bf"
+    },
+    {
+      "from": "n_e095023142",
+      "to": "n_96d4ece1f9"
+    },
+    {
+      "from": "n_b45804aebd",
+      "to": "n_3c22d969e0"
+    },
+    {
+      "from": "n_3c22d969e0",
+      "to": "n_50662026e8"
+    },
+    {
+      "from": "n_50662026e8",
+      "to": "n_a2e797bec6"
+    },
+    {
+      "from": "n_50662026e8",
+      "to": "n_f21a5ec6e1"
+    },
+    {
+      "from": "n_50662026e8",
+      "to": "n_d8fed77d65"
+    },
+    {
+      "from": "n_50662026e8",
+      "to": "n_df669ac19a"
+    },
+    {
+      "from": "n_3c22d969e0",
+      "to": "n_27e277e639"
+    },
+    {
+      "from": "n_27e277e639",
+      "to": "n_989df90876"
+    },
+    {
+      "from": "n_27e277e639",
+      "to": "n_a55dc89ab5"
+    },
+    {
+      "from": "n_27e277e639",
+      "to": "n_2b07e6e93d"
+    },
+    {
+      "from": "n_27e277e639",
+      "to": "n_bbaf0be71e"
+    },
+    {
+      "from": "n_3c22d969e0",
+      "to": "n_87a3661d64"
+    },
+    {
+      "from": "n_87a3661d64",
+      "to": "n_e8adfbfdba"
+    },
+    {
+      "from": "n_87a3661d64",
+      "to": "n_02f25598bd"
+    },
+    {
+      "from": "n_87a3661d64",
+      "to": "n_9e59d13bb6"
+    },
+    {
+      "from": "n_87a3661d64",
+      "to": "n_8adff3f037"
+    },
+    {
+      "from": "n_3c22d969e0",
+      "to": "n_61844287c5"
+    },
+    {
+      "from": "n_61844287c5",
+      "to": "n_36ea9021e9"
+    },
+    {
+      "from": "n_61844287c5",
+      "to": "n_deaa378efb"
+    },
+    {
+      "from": "n_61844287c5",
+      "to": "n_cebc841ebc"
+    },
+    {
+      "from": "n_61844287c5",
+      "to": "n_1e459ae5bb"
+    },
+    {
+      "from": "n_b45804aebd",
+      "to": "n_171e76fc8e"
+    },
+    {
+      "from": "n_171e76fc8e",
+      "to": "n_b30aa56eaa"
+    },
+    {
+      "from": "n_b30aa56eaa",
+      "to": "n_0fa18d1da5"
+    },
+    {
+      "from": "n_b30aa56eaa",
+      "to": "n_c529dad1dc"
+    },
+    {
+      "from": "n_b30aa56eaa",
+      "to": "n_8d256ebc60"
+    },
+    {
+      "from": "n_b30aa56eaa",
+      "to": "n_581537571a"
+    },
+    {
+      "from": "n_171e76fc8e",
+      "to": "n_5121f0d384"
+    },
+    {
+      "from": "n_5121f0d384",
+      "to": "n_87b76f1945"
+    },
+    {
+      "from": "n_5121f0d384",
+      "to": "n_6d91dd0978"
+    },
+    {
+      "from": "n_5121f0d384",
+      "to": "n_0f74556179"
+    },
+    {
+      "from": "n_5121f0d384",
+      "to": "n_dcaf415ceb"
+    },
+    {
+      "from": "n_171e76fc8e",
+      "to": "n_fb6ef9fba8"
+    },
+    {
+      "from": "n_fb6ef9fba8",
+      "to": "n_068c9020a1"
+    },
+    {
+      "from": "n_fb6ef9fba8",
+      "to": "n_95a088f96a"
+    },
+    {
+      "from": "n_fb6ef9fba8",
+      "to": "n_0c3b4b756e"
+    },
+    {
+      "from": "n_fb6ef9fba8",
+      "to": "n_f5351adfc6"
+    },
+    {
+      "from": "n_171e76fc8e",
+      "to": "n_aaf0ee2888"
+    },
+    {
+      "from": "n_aaf0ee2888",
+      "to": "n_0c0f1b23ad"
+    },
+    {
+      "from": "n_aaf0ee2888",
+      "to": "n_f8f8e23ba0"
+    },
+    {
+      "from": "n_aaf0ee2888",
+      "to": "n_55287fdced"
+    },
+    {
+      "from": "n_aaf0ee2888",
+      "to": "n_71e149d007"
+    },
+    {
+      "from": "n_b45804aebd",
+      "to": "n_f3afb7d1a3"
+    },
+    {
+      "from": "n_f3afb7d1a3",
+      "to": "n_e5f54c1320"
+    },
+    {
+      "from": "n_e5f54c1320",
+      "to": "n_fb1d7906a6"
+    },
+    {
+      "from": "n_e5f54c1320",
+      "to": "n_27ee51f032"
+    },
+    {
+      "from": "n_e5f54c1320",
+      "to": "n_6528bc0261"
+    },
+    {
+      "from": "n_e5f54c1320",
+      "to": "n_128251863f"
+    },
+    {
+      "from": "n_f3afb7d1a3",
+      "to": "n_ed3db9808b"
+    },
+    {
+      "from": "n_ed3db9808b",
+      "to": "n_3dc0e54eb6"
+    },
+    {
+      "from": "n_ed3db9808b",
+      "to": "n_d984c01c33"
+    },
+    {
+      "from": "n_ed3db9808b",
+      "to": "n_60255c0522"
+    },
+    {
+      "from": "n_ed3db9808b",
+      "to": "n_9ea667abaa"
+    },
+    {
+      "from": "n_f3afb7d1a3",
+      "to": "n_84e72744ff"
+    },
+    {
+      "from": "n_84e72744ff",
+      "to": "n_30ff67bb81"
+    },
+    {
+      "from": "n_84e72744ff",
+      "to": "n_506f57a10f"
+    },
+    {
+      "from": "n_84e72744ff",
+      "to": "n_b9065def76"
+    },
+    {
+      "from": "n_84e72744ff",
+      "to": "n_a0f45b6c27"
+    },
+    {
+      "from": "n_f3afb7d1a3",
+      "to": "n_8e1dac1f28"
+    },
+    {
+      "from": "n_8e1dac1f28",
+      "to": "n_7c7a4e8d80"
+    },
+    {
+      "from": "n_8e1dac1f28",
+      "to": "n_2545e1d291"
+    },
+    {
+      "from": "n_8e1dac1f28",
+      "to": "n_5dc7c49ae7"
+    },
+    {
+      "from": "n_8e1dac1f28",
+      "to": "n_6c4aee8ad6"
+    },
+    {
+      "from": "n_b45804aebd",
+      "to": "n_e4add468a8"
+    },
+    {
+      "from": "n_e4add468a8",
+      "to": "n_e252abd24c"
+    },
+    {
+      "from": "n_e4add468a8",
+      "to": "n_94afeda1e9"
+    },
+    {
+      "from": "n_e4add468a8",
+      "to": "n_c2930ac57a"
+    },
+    {
+      "from": "n_e4add468a8",
+      "to": "n_93c4fdbc6b"
+    }
+  ]
+}

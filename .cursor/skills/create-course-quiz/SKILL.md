@@ -1,7 +1,7 @@
 ---
 name: create-course-quiz
 description: >-
-  Creates and validates JSON quizzes for Hackerrank Study lessons under
+  Creates and validates JSON quizzes for EdHarness lessons under
   course/<course>/modules/<module>/lessons/<lesson>/quiz/. Collects lesson README
   as context, writes schema-compliant quiz files, and runs validation plus catalog:generate.
   Use when the user asks to create, add, or update a lesson quiz or assessment content.

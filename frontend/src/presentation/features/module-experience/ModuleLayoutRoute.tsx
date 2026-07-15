@@ -1,6 +1,7 @@
-import { useParams, useSearchParams } from "react-router-dom";
+import { Navigate, Outlet, useLocation, useParams, useSearchParams } from "react-router-dom";
 import type { Course } from "../../../domain/types/catalog";
 import { getModuleById } from "../../../application/selectors/catalogSelectors";
+import { getMockTestById } from "../../../application/selectors/mockTestSelectors";
 import { resolveActiveModulePageQuiz } from "../../../application/selectors/moduleSelectors";
 import { useCourseRouteData } from "../../../application/hooks/useCourseRouteData";
 import { useQuizSessionFromUrl } from "../../../application/hooks/useQuizSessionFromUrl";
@@ -13,14 +14,17 @@ import { ModuleShellLayout } from "./ModuleShellLayout";
 
 export function ModuleLayoutRoute() {
   const { courseId = "", moduleId = "" } = useParams();
+  const location = useLocation();
   const [searchParams] = useSearchParams();
   const { t } = useTranslation();
   const { course, status, error, reload } = useCourseRouteData(courseId);
   const activeQuizId = searchParams.get("quiz");
+  const isMockTestRoute = location.pathname.includes("/mock-test");
 
   useQuizSessionFromUrl({
     quizId: activeQuizId,
-    enabled: Boolean(activeQuizId && course),
+    moduleId,
+    enabled: Boolean(activeQuizId && course && !isMockTestRoute),
   });
 
   return (
@@ -39,6 +43,7 @@ export function ModuleLayoutRoute() {
           moduleId={moduleId}
           course={course}
           activeQuizId={activeQuizId}
+          isMockTestRoute={isMockTestRoute}
         />
       ) : null}
     </AsyncRouteBoundary>
@@ -50,8 +55,24 @@ function ModuleLayoutBody(props: {
   moduleId: string;
   course: Course;
   activeQuizId: string | null;
+  isMockTestRoute: boolean;
 }) {
   const { t } = useTranslation();
+  const mockTest = getMockTestById(props.course, props.moduleId);
+
+  if (mockTest && !props.isMockTestRoute) {
+    return (
+      <Navigate
+        to={`/course/${encodeURIComponent(props.courseId)}/module/${encodeURIComponent(props.moduleId)}/mock-test`}
+        replace
+      />
+    );
+  }
+
+  if (props.isMockTestRoute) {
+    return <Outlet />;
+  }
+
   const mod = getModuleById(props.course, props.moduleId);
 
   if (!mod) {

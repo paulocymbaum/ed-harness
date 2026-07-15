@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Validate a quiz JSON file against the Hackerrank Study quiz schema.
+ * Validate a quiz JSON file against the EdHarness quiz schema.
  *
  * Usage:
  *   node validate-quiz.mjs course/01-javascript-fundamentals/quiz/01-fundamentals-check.json

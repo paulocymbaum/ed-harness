@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "id": "example",
+      "name": "0.42 → bucket 1",
+      "stdin": "0.42 4\n",
+      "expectedStdout": "1\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "zero",
+      "name": "0 → bucket 0",
+      "stdin": "0 4\n",
+      "expectedStdout": "0\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "high",
+      "name": "0.99 → bucket 3",
+      "stdin": "0.99 4\n",
+      "expectedStdout": "3\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "one",
+      "name": "1.0 clamped",
+      "stdin": "1 4\n",
+      "expectedStdout": "3\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

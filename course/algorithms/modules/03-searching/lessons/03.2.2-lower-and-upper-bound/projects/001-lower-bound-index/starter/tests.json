@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "id": "dup",
+      "name": "Duplicates",
+      "stdin": "1 2 2 2 5\n2\n",
+      "expectedStdout": "1\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "missing-mid",
+      "name": "Insert middle",
+      "stdin": "1 2 2 2 5\n3\n",
+      "expectedStdout": "4\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "before",
+      "name": "Before all",
+      "stdin": "1 2 5\n0\n",
+      "expectedStdout": "0\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "after",
+      "name": "After all",
+      "stdin": "1 2 5\n9\n",
+      "expectedStdout": "3\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

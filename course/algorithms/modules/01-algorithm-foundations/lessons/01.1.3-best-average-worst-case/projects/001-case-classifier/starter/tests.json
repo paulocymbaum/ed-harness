@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "id": "best",
+      "name": "Target at first index",
+      "stdin": "target-first\n",
+      "expectedStdout": "BEST O(1)\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "worst",
+      "name": "Target missing",
+      "stdin": "target-missing\n",
+      "expectedStdout": "WORST O(n)\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "avg",
+      "name": "Uniform average",
+      "stdin": "target-uniform\n",
+      "expectedStdout": "AVERAGE O(n)\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "unknown",
+      "name": "Unknown scenario",
+      "stdin": "unknown\n",
+      "expectedStdout": "ERROR: unknown scenario\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

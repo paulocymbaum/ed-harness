@@ -7,8 +7,10 @@ export type QuizLookupScope = {
   moduleId?: string;
 };
 
-export function quizSessionKey(quizId: string, lessonId?: string): string {
-  return lessonId ? `${lessonId}:${quizId}` : quizId;
+export function quizSessionKey(quizId: string, lessonId?: string, moduleId?: string): string {
+  if (moduleId && lessonId) return `${moduleId}:${lessonId}:${quizId}`;
+  if (lessonId) return `${lessonId}:${quizId}`;
+  return quizId;
 }
 
 export function findQuizInList(quizzes: Quiz[], quizId: string): Quiz | null {

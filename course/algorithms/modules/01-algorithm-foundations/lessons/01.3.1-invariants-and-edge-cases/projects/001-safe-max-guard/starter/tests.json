@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "id": "basic",
+      "name": "Mixed positives",
+      "stdin": "3 1 4 1 5\n",
+      "expectedStdout": "5\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "neg",
+      "name": "All negative",
+      "stdin": "-2 -8 -1\n",
+      "expectedStdout": "-1\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "single",
+      "name": "Single element",
+      "stdin": "7\n",
+      "expectedStdout": "7\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "empty",
+      "name": "Empty input",
+      "stdin": "\n",
+      "expectedStdout": "ERROR: empty\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

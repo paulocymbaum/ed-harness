@@ -1,0 +1,9 @@
+{
+  "createdBy": "cursor-tool",
+  "tool": "scripts/graph/scaffold-from-graph.mjs",
+  "createdAt": "2026-07-13T17:45:29.279Z",
+  "kind": "lesson",
+  "lessonId": "07.2-behavioral-star-method",
+  "moduleId": "07-technical-interview-preparation",
+  "graphIndex": "07.2"
+}

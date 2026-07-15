@@ -16,6 +16,6 @@ export const useLocaleStore = create<LocaleState>()(
       locale: detectBrowserLocale(),
       setLocale: (locale) => set({ locale }),
     }),
-    { name: "hackerrank-study-locale" },
+    { name: "ed-harness-locale" },
   ),
 );

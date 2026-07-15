@@ -1,0 +1,779 @@
+{
+  "rootId": "n_87c0f70ade",
+  "nodes": [
+    {
+      "id": "n_87c0f70ade",
+      "label": "JavaScript"
+    },
+    {
+      "id": "n_0b51eea265",
+      "label": "01 JavaScript Fundamentals"
+    },
+    {
+      "id": "n_b7a38667e7",
+      "label": "01.1 Getting Started"
+    },
+    {
+      "id": "n_65933b074f",
+      "label": "01.1.1 Running JavaScript (Node.js)"
+    },
+    {
+      "id": "n_8ec2b7862a",
+      "label": "01.1.2 console.log and Output"
+    },
+    {
+      "id": "n_fb935b74e0",
+      "label": "01.1.3 Comments"
+    },
+    {
+      "id": "n_7602459929",
+      "label": "01.2 Variables"
+    },
+    {
+      "id": "n_9816864ef5",
+      "label": "01.2.1 let and const"
+    },
+    {
+      "id": "n_68873cb095",
+      "label": "01.2.2 Assignment and Reassignment"
+    },
+    {
+      "id": "n_ed4137f9a9",
+      "label": "01.3 Primitive Types"
+    },
+    {
+      "id": "n_860ad0360b",
+      "label": "01.3.1 Strings"
+    },
+    {
+      "id": "n_02a53c5427",
+      "label": "01.3.2 Numbers"
+    },
+    {
+      "id": "n_d8eb6a66f2",
+      "label": "01.3.3 Booleans"
+    },
+    {
+      "id": "n_29a18be0f5",
+      "label": "01.3.4 undefined and null"
+    },
+    {
+      "id": "n_52c2073a8e",
+      "label": "01.4 Operators"
+    },
+    {
+      "id": "n_c62abf5295",
+      "label": "01.4.1 Arithmetic Operators"
+    },
+    {
+      "id": "n_f53677d251",
+      "label": "01.4.2 Comparison Operators"
+    },
+    {
+      "id": "n_834c58cba6",
+      "label": "01.4.3 Logical Operators (&&, ||, !)"
+    },
+    {
+      "id": "n_3134dc58a2",
+      "label": "01.5 Control Flow"
+    },
+    {
+      "id": "n_8543459868",
+      "label": "01.5.1 if and else"
+    },
+    {
+      "id": "n_0cb7f57ab6",
+      "label": "01.5.2 switch"
+    },
+    {
+      "id": "n_c9a1e02f54",
+      "label": "01.6 Loops"
+    },
+    {
+      "id": "n_d9e6ad9d5c",
+      "label": "01.6.1 for Loop"
+    },
+    {
+      "id": "n_4f61ea0de3",
+      "label": "01.6.2 while Loop"
+    },
+    {
+      "id": "n_acabb80b6b",
+      "label": "01.7 Functions"
+    },
+    {
+      "id": "n_059098e9f8",
+      "label": "01.7.1 Function Declaration"
+    },
+    {
+      "id": "n_ca15a4738a",
+      "label": "01.7.2 Parameters and Return Values"
+    },
+    {
+      "id": "n_f6c271d4f8",
+      "label": "01.7.3 Arrow Functions and Callbacks"
+    },
+    {
+      "id": "n_b886afdd5a",
+      "label": "01.7.4 Throwing Errors and Sync try/catch"
+    },
+    {
+      "id": "n_5b1cae029b",
+      "label": "01.8 Truthiness and Coercion"
+    },
+    {
+      "id": "n_08c92665a5",
+      "label": "01.8.1 Truthy vs Falsy"
+    },
+    {
+      "id": "n_8d78a4769c",
+      "label": "01.8.2 Strict Equality (===)"
+    },
+    {
+      "id": "n_152d759257",
+      "label": "01.8.3 Type Coercion (==)"
+    },
+    {
+      "id": "n_b0dc9850d7",
+      "label": "01.8.4 typeof and Array.isArray"
+    },
+    {
+      "id": "n_554dd07466",
+      "label": "01.8.5 null, undefined, == null, ?., ??"
+    },
+    {
+      "id": "n_265ba70e06",
+      "label": "01.9 Arrays"
+    },
+    {
+      "id": "n_301aea8a06",
+      "label": "01.9.1 Array Literals Indexing and length"
+    },
+    {
+      "id": "n_923a30769a",
+      "label": "01.9.2 Mutating Array Methods"
+    },
+    {
+      "id": "n_6148117519",
+      "label": "01.9.3 Non-mutating Array Methods"
+    },
+    {
+      "id": "n_89e5c8c4b4",
+      "label": "01.9.4 Iterating Arrays for and for-of"
+    },
+    {
+      "id": "n_f1251f77cc",
+      "label": "02 Objects"
+    },
+    {
+      "id": "n_c2b342f569",
+      "label": "02.1 Creating and Reading Objects"
+    },
+    {
+      "id": "n_73bc846ba5",
+      "label": "02.1.1 Object Literals and Property Access"
+    },
+    {
+      "id": "n_a77693031f",
+      "label": "02.1.2 Computed Keys and Shorthand"
+    },
+    {
+      "id": "n_1c0b6b4518",
+      "label": "02.1.3 Object Destructuring"
+    },
+    {
+      "id": "n_faedd6a151",
+      "label": "02.1.4 Rest and Spread for Objects and Arrays"
+    },
+    {
+      "id": "n_6f9a3dded1",
+      "label": "02.2 Object Static Methods"
+    },
+    {
+      "id": "n_2e4e647d07",
+      "label": "02.2.1 Object.keys values and entries"
+    },
+    {
+      "id": "n_ed6e5d1123",
+      "label": "02.2.2 Object.fromEntries"
+    },
+    {
+      "id": "n_e2f4e71392",
+      "label": "02.2.3 Object.assign and Merging"
+    },
+    {
+      "id": "n_4c16df50b6",
+      "label": "02.3 References and Copying"
+    },
+    {
+      "id": "n_77b20f606f",
+      "label": "02.3.1 Reference vs Value"
+    },
+    {
+      "id": "n_29297b7812",
+      "label": "02.3.2 Shallow vs Deep Copy"
+    },
+    {
+      "id": "n_7134d5a2a3",
+      "label": "02.3.3 structuredClone"
+    },
+    {
+      "id": "n_04ccf25e9b",
+      "label": "02.4 JSON and Ownership"
+    },
+    {
+      "id": "n_36aebe260c",
+      "label": "02.4.1 JSON.stringify and parse"
+    },
+    {
+      "id": "n_f20e11c45c",
+      "label": "02.4.2 Common JSON Cases and Pitfalls"
+    },
+    {
+      "id": "n_40ec7277c2",
+      "label": "02.4.3 Object.hasOwn"
+    },
+    {
+      "id": "n_a377ed445c",
+      "label": "03 Asynchronous JavaScript"
+    },
+    {
+      "id": "n_e6dfcb0d68",
+      "label": "03.1 Runtime Model"
+    },
+    {
+      "id": "n_adf530c28e",
+      "label": "03.1.1 Single-Threaded Execution"
+    },
+    {
+      "id": "n_4d9b35e932",
+      "label": "03.1.2 Call Stack"
+    },
+    {
+      "id": "n_5ea411af07",
+      "label": "03.1.3 Event Loop"
+    },
+    {
+      "id": "n_60e382f139",
+      "label": "03.1.4 Callback and Microtask Queues"
+    },
+    {
+      "id": "n_f43751029b",
+      "label": "03.2 Async Patterns"
+    },
+    {
+      "id": "n_5402d86d9f",
+      "label": "03.2.1 Promises"
+    },
+    {
+      "id": "n_4f2c42793d",
+      "label": "03.2.2 Async/Await"
+    },
+    {
+      "id": "n_60feae7b95",
+      "label": "03.2.3 Async Errors and try/catch"
+    },
+    {
+      "id": "n_d1b97b3fb8",
+      "label": "04 Advanced JavaScript"
+    },
+    {
+      "id": "n_45533fbf16",
+      "label": "04.1 Hoisting and TDZ"
+    },
+    {
+      "id": "n_5db89c4cb7",
+      "label": "04.2 Closures"
+    },
+    {
+      "id": "n_185304f1d3",
+      "label": "04.3 Higher-Order Functions"
+    },
+    {
+      "id": "n_5b95ee0597",
+      "label": "04.4 Prototype Chain"
+    },
+    {
+      "id": "n_8f59e360e7",
+      "label": "04.5 ES6 Modules"
+    },
+    {
+      "id": "n_8f59c64969",
+      "label": "05 Data Structures and Algorithms"
+    },
+    {
+      "id": "n_156839bd12",
+      "label": "05.1 Big-O Complexity"
+    },
+    {
+      "id": "n_9011eabc43",
+      "label": "05.2 Two Pointers and Sliding Window"
+    },
+    {
+      "id": "n_bad8748d1a",
+      "label": "05.3 BFS and DFS"
+    },
+    {
+      "id": "n_840c63f382",
+      "label": "05.4 Cycle Detection"
+    },
+    {
+      "id": "n_e406820748",
+      "label": "05.5 Dynamic Programming"
+    },
+    {
+      "id": "n_681c741b94",
+      "label": "06 HackerRank Profile and Assessments"
+    },
+    {
+      "id": "n_515484f63f",
+      "label": "06.1 Verified Portfolio"
+    },
+    {
+      "id": "n_b3afe5713a",
+      "label": "06.1.1 Problem-Solving Score"
+    },
+    {
+      "id": "n_3dfc3adaae",
+      "label": "06.1.2 Certifications"
+    },
+    {
+      "id": "n_7270a1fbcb",
+      "label": "06.1.3 Badges"
+    },
+    {
+      "id": "n_1b1dfb5f24",
+      "label": "06.1.4 Global Ranking"
+    },
+    {
+      "id": "n_596a261f1f",
+      "label": "06.2 Practice Methodology"
+    },
+    {
+      "id": "n_98241f4d58",
+      "label": "06.2.1 Interview Preparation Kit"
+    },
+    {
+      "id": "n_cbbc5d5f27",
+      "label": "06.2.2 Online Assessments (OA)"
+    },
+    {
+      "id": "n_3fe5214384",
+      "label": "06.2.3 Implementation Focus"
+    },
+    {
+      "id": "n_a53e3b4c84",
+      "label": "06.2.4 Test Case Handling"
+    },
+    {
+      "id": "n_45c02b7199",
+      "label": "07 Technical Interview Preparation"
+    },
+    {
+      "id": "n_7d91a18a39",
+      "label": "07.1 System Design (Scalability, CAP Theorem)"
+    },
+    {
+      "id": "n_1f96df4ba7",
+      "label": "07.2 Behavioral (STAR Method)"
+    },
+    {
+      "id": "n_e6cfdfa3e5",
+      "label": "07.3 Communication and Clarifying Questions"
+    },
+    {
+      "id": "n_d9916f7481",
+      "label": "07.4 Code Quality and Maintainability"
+    },
+    {
+      "id": "n_e7cdd0f8f1",
+      "label": "07.5 Iterative Optimization"
+    }
+  ],
+  "edges": [
+    {
+      "from": "n_87c0f70ade",
+      "to": "n_0b51eea265"
+    },
+    {
+      "from": "n_0b51eea265",
+      "to": "n_b7a38667e7"
+    },
+    {
+      "from": "n_b7a38667e7",
+      "to": "n_65933b074f"
+    },
+    {
+      "from": "n_b7a38667e7",
+      "to": "n_8ec2b7862a"
+    },
+    {
+      "from": "n_b7a38667e7",
+      "to": "n_fb935b74e0"
+    },
+    {
+      "from": "n_0b51eea265",
+      "to": "n_7602459929"
+    },
+    {
+      "from": "n_7602459929",
+      "to": "n_9816864ef5"
+    },
+    {
+      "from": "n_7602459929",
+      "to": "n_68873cb095"
+    },
+    {
+      "from": "n_0b51eea265",
+      "to": "n_ed4137f9a9"
+    },
+    {
+      "from": "n_ed4137f9a9",
+      "to": "n_860ad0360b"
+    },
+    {
+      "from": "n_ed4137f9a9",
+      "to": "n_02a53c5427"
+    },
+    {
+      "from": "n_ed4137f9a9",
+      "to": "n_d8eb6a66f2"
+    },
+    {
+      "from": "n_ed4137f9a9",
+      "to": "n_29a18be0f5"
+    },
+    {
+      "from": "n_0b51eea265",
+      "to": "n_52c2073a8e"
+    },
+    {
+      "from": "n_52c2073a8e",
+      "to": "n_c62abf5295"
+    },
+    {
+      "from": "n_52c2073a8e",
+      "to": "n_f53677d251"
+    },
+    {
+      "from": "n_52c2073a8e",
+      "to": "n_834c58cba6"
+    },
+    {
+      "from": "n_0b51eea265",
+      "to": "n_3134dc58a2"
+    },
+    {
+      "from": "n_3134dc58a2",
+      "to": "n_8543459868"
+    },
+    {
+      "from": "n_3134dc58a2",
+      "to": "n_0cb7f57ab6"
+    },
+    {
+      "from": "n_0b51eea265",
+      "to": "n_c9a1e02f54"
+    },
+    {
+      "from": "n_c9a1e02f54",
+      "to": "n_d9e6ad9d5c"
+    },
+    {
+      "from": "n_c9a1e02f54",
+      "to": "n_4f61ea0de3"
+    },
+    {
+      "from": "n_0b51eea265",
+      "to": "n_acabb80b6b"
+    },
+    {
+      "from": "n_acabb80b6b",
+      "to": "n_059098e9f8"
+    },
+    {
+      "from": "n_acabb80b6b",
+      "to": "n_ca15a4738a"
+    },
+    {
+      "from": "n_acabb80b6b",
+      "to": "n_f6c271d4f8"
+    },
+    {
+      "from": "n_acabb80b6b",
+      "to": "n_b886afdd5a"
+    },
+    {
+      "from": "n_0b51eea265",
+      "to": "n_5b1cae029b"
+    },
+    {
+      "from": "n_5b1cae029b",
+      "to": "n_08c92665a5"
+    },
+    {
+      "from": "n_5b1cae029b",
+      "to": "n_8d78a4769c"
+    },
+    {
+      "from": "n_5b1cae029b",
+      "to": "n_152d759257"
+    },
+    {
+      "from": "n_5b1cae029b",
+      "to": "n_b0dc9850d7"
+    },
+    {
+      "from": "n_5b1cae029b",
+      "to": "n_554dd07466"
+    },
+    {
+      "from": "n_0b51eea265",
+      "to": "n_265ba70e06"
+    },
+    {
+      "from": "n_265ba70e06",
+      "to": "n_301aea8a06"
+    },
+    {
+      "from": "n_265ba70e06",
+      "to": "n_923a30769a"
+    },
+    {
+      "from": "n_265ba70e06",
+      "to": "n_6148117519"
+    },
+    {
+      "from": "n_265ba70e06",
+      "to": "n_89e5c8c4b4"
+    },
+    {
+      "from": "n_87c0f70ade",
+      "to": "n_f1251f77cc"
+    },
+    {
+      "from": "n_f1251f77cc",
+      "to": "n_c2b342f569"
+    },
+    {
+      "from": "n_c2b342f569",
+      "to": "n_73bc846ba5"
+    },
+    {
+      "from": "n_c2b342f569",
+      "to": "n_a77693031f"
+    },
+    {
+      "from": "n_c2b342f569",
+      "to": "n_1c0b6b4518"
+    },
+    {
+      "from": "n_c2b342f569",
+      "to": "n_faedd6a151"
+    },
+    {
+      "from": "n_f1251f77cc",
+      "to": "n_6f9a3dded1"
+    },
+    {
+      "from": "n_6f9a3dded1",
+      "to": "n_2e4e647d07"
+    },
+    {
+      "from": "n_6f9a3dded1",
+      "to": "n_ed6e5d1123"
+    },
+    {
+      "from": "n_6f9a3dded1",
+      "to": "n_e2f4e71392"
+    },
+    {
+      "from": "n_f1251f77cc",
+      "to": "n_4c16df50b6"
+    },
+    {
+      "from": "n_4c16df50b6",
+      "to": "n_77b20f606f"
+    },
+    {
+      "from": "n_4c16df50b6",
+      "to": "n_29297b7812"
+    },
+    {
+      "from": "n_4c16df50b6",
+      "to": "n_7134d5a2a3"
+    },
+    {
+      "from": "n_f1251f77cc",
+      "to": "n_04ccf25e9b"
+    },
+    {
+      "from": "n_04ccf25e9b",
+      "to": "n_36aebe260c"
+    },
+    {
+      "from": "n_04ccf25e9b",
+      "to": "n_f20e11c45c"
+    },
+    {
+      "from": "n_04ccf25e9b",
+      "to": "n_40ec7277c2"
+    },
+    {
+      "from": "n_87c0f70ade",
+      "to": "n_a377ed445c"
+    },
+    {
+      "from": "n_a377ed445c",
+      "to": "n_e6dfcb0d68"
+    },
+    {
+      "from": "n_e6dfcb0d68",
+      "to": "n_adf530c28e"
+    },
+    {
+      "from": "n_e6dfcb0d68",
+      "to": "n_4d9b35e932"
+    },
+    {
+      "from": "n_e6dfcb0d68",
+      "to": "n_5ea411af07"
+    },
+    {
+      "from": "n_e6dfcb0d68",
+      "to": "n_60e382f139"
+    },
+    {
+      "from": "n_a377ed445c",
+      "to": "n_f43751029b"
+    },
+    {
+      "from": "n_f43751029b",
+      "to": "n_5402d86d9f"
+    },
+    {
+      "from": "n_f43751029b",
+      "to": "n_4f2c42793d"
+    },
+    {
+      "from": "n_f43751029b",
+      "to": "n_60feae7b95"
+    },
+    {
+      "from": "n_87c0f70ade",
+      "to": "n_d1b97b3fb8"
+    },
+    {
+      "from": "n_d1b97b3fb8",
+      "to": "n_45533fbf16"
+    },
+    {
+      "from": "n_d1b97b3fb8",
+      "to": "n_5db89c4cb7"
+    },
+    {
+      "from": "n_d1b97b3fb8",
+      "to": "n_185304f1d3"
+    },
+    {
+      "from": "n_d1b97b3fb8",
+      "to": "n_5b95ee0597"
+    },
+    {
+      "from": "n_d1b97b3fb8",
+      "to": "n_8f59e360e7"
+    },
+    {
+      "from": "n_87c0f70ade",
+      "to": "n_8f59c64969"
+    },
+    {
+      "from": "n_8f59c64969",
+      "to": "n_156839bd12"
+    },
+    {
+      "from": "n_8f59c64969",
+      "to": "n_9011eabc43"
+    },
+    {
+      "from": "n_8f59c64969",
+      "to": "n_bad8748d1a"
+    },
+    {
+      "from": "n_8f59c64969",
+      "to": "n_840c63f382"
+    },
+    {
+      "from": "n_8f59c64969",
+      "to": "n_e406820748"
+    },
+    {
+      "from": "n_87c0f70ade",
+      "to": "n_681c741b94"
+    },
+    {
+      "from": "n_681c741b94",
+      "to": "n_515484f63f"
+    },
+    {
+      "from": "n_515484f63f",
+      "to": "n_b3afe5713a"
+    },
+    {
+      "from": "n_515484f63f",
+      "to": "n_3dfc3adaae"
+    },
+    {
+      "from": "n_515484f63f",
+      "to": "n_7270a1fbcb"
+    },
+    {
+      "from": "n_515484f63f",
+      "to": "n_1b1dfb5f24"
+    },
+    {
+      "from": "n_681c741b94",
+      "to": "n_596a261f1f"
+    },
+    {
+      "from": "n_596a261f1f",
+      "to": "n_98241f4d58"
+    },
+    {
+      "from": "n_596a261f1f",
+      "to": "n_cbbc5d5f27"
+    },
+    {
+      "from": "n_596a261f1f",
+      "to": "n_3fe5214384"
+    },
+    {
+      "from": "n_596a261f1f",
+      "to": "n_a53e3b4c84"
+    },
+    {
+      "from": "n_87c0f70ade",
+      "to": "n_45c02b7199"
+    },
+    {
+      "from": "n_45c02b7199",
+      "to": "n_7d91a18a39"
+    },
+    {
+      "from": "n_45c02b7199",
+      "to": "n_1f96df4ba7"
+    },
+    {
+      "from": "n_45c02b7199",
+      "to": "n_e6cfdfa3e5"
+    },
+    {
+      "from": "n_45c02b7199",
+      "to": "n_d9916f7481"
+    },
+    {
+      "from": "n_45c02b7199",
+      "to": "n_e7cdd0f8f1"
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "id": "quiz",
+  "title": "Hoisting and TDZ Check",
+  "description": "Predict what var, let, and const do when read before their declaration line.",
+  "lessonId": "04.1-hoisting-and-tdz",
+  "graphIndex": "04.1",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What does the following print?\n```js\nconsole.log(x);\nvar x = 5;\n```",
+      "options": [
+        { "id": "a", "text": "`5`" },
+        { "id": "b", "text": "`undefined`" },
+        { "id": "c", "text": "`ReferenceError`" },
+        { "id": "d", "text": "`null`" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`var x` is hoisted and auto-initialized to `undefined` before the assignment line runs."
+    },
+    {
+      "id": "q2",
+      "prompt": "What happens here?\n```js\nconsole.log(y);\nlet y = 5;\n```",
+      "options": [
+        { "id": "a", "text": "Prints `5`" },
+        { "id": "b", "text": "Prints `undefined`" },
+        { "id": "c", "text": "Throws `ReferenceError`" },
+        { "id": "d", "text": "Throws `TypeError`" }
+      ],
+      "correctOptionId": "c",
+      "explanation": "`let` is hoisted but stays in the Temporal Dead Zone until its declaration runs — reading it early throws a `ReferenceError`."
+    },
+    {
+      "id": "q3",
+      "prompt": "What happens here?\n```js\nconsole.log(z);\nconst z = 5;\n```",
+      "options": [
+        { "id": "a", "text": "Prints `5`" },
+        { "id": "b", "text": "Prints `undefined`" },
+        { "id": "c", "text": "Throws `ReferenceError`" },
+        { "id": "d", "text": "No error, no output" }
+      ],
+      "correctOptionId": "c",
+      "explanation": "`const` follows the same TDZ rule as `let` — hoisted but uninitialized until the declaration line."
+    },
+    {
+      "id": "q4",
+      "prompt": "After execution passes a `let` declaration's line, how does the binding behave?",
+      "options": [
+        { "id": "a", "text": "Still throws on every read" },
+        { "id": "b", "text": "Behaves like a normal, initialized variable" },
+        { "id": "c", "text": "Returns `undefined` forever" },
+        { "id": "d", "text": "Only works inside `try/catch`" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "The TDZ ends exactly at the declaration line — after that, `let`/`const` behave like any other variable."
+    },
+    {
+      "id": "q5",
+      "prompt": "Where does the Temporal Dead Zone end for a given `let`/`const` binding?",
+      "options": [
+        { "id": "a", "text": "At the end of the enclosing block" },
+        { "id": "b", "text": "At the declaration line itself" },
+        { "id": "c", "text": "At the end of the file" },
+        { "id": "d", "text": "It never ends" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "The TDZ starts at the top of the scope and ends exactly when the declaration line executes — not at the block's closing brace."
+    },
+    {
+      "id": "q6",
+      "prompt": "Which statement about hoisting is true?",
+      "options": [
+        { "id": "a", "text": "Only `var` is hoisted; `let`/`const` are not hoisted at all" },
+        { "id": "b", "text": "`var`, `let`, and `const` are all hoisted, but only `var` is auto-initialized to `undefined`" },
+        { "id": "c", "text": "`let` and `const` are auto-initialized to `null`" },
+        { "id": "d", "text": "Hoisting only applies inside functions, never at module scope" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "All three are hoisted (the engine reserves the binding), but `var` is immediately set to `undefined` while `let`/`const` stay uninitialized (TDZ) until their line runs."
+    }
+  ]
+}

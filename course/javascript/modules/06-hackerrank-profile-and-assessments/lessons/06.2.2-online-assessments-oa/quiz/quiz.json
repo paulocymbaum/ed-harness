@@ -1,0 +1,69 @@
+{
+  "id": "quiz",
+  "title": "Online Assessments (OA) Check",
+  "description": "Predict how remaining time in a fixed OA window should change your pacing strategy.",
+  "lessonId": "06.2.2-online-assessments-oa",
+  "graphIndex": "06.2.2",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What is a defining trait of a HackerRank-hosted Online Assessment (OA)?",
+      "options": [
+        { "id": "a", "text": "It can be paused and resumed at any time" },
+        { "id": "b", "text": "It runs inside one fixed time window that typically can't be paused" },
+        { "id": "c", "text": "It has no time limit at all" },
+        { "id": "d", "text": "It only contains multiple-choice questions" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "OAs run against a single countdown for the whole session, usually without the ability to pause."
+    },
+    {
+      "id": "q2",
+      "prompt": "With thresholds rush (<15 min), pace (<45 min), plan (>=45 min), what mode applies at exactly 45 minutes remaining?",
+      "options": [
+        { "id": "a", "text": "rush" },
+        { "id": "b", "text": "pace" },
+        { "id": "c", "text": "plan" },
+        { "id": "d", "text": "None — 45 is an invalid boundary" }
+      ],
+      "correctOptionId": "c",
+      "explanation": "45 minutes is the first value that reaches the plan threshold, since pace only covers values strictly below 45."
+    },
+    {
+      "id": "q3",
+      "prompt": "Why does pacing mode change as time runs out during an OA?",
+      "options": [
+        { "id": "a", "text": "Because effort should stay proportional to time remaining, favoring partial credit late on" },
+        { "id": "b", "text": "Because HackerRank penalizes fast submissions" },
+        { "id": "c", "text": "Because later questions are always easier" },
+        { "id": "d", "text": "Pacing mode has no real effect on outcome" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Treating minute 5 like minute 80 wastes the fixed clock; late-window strategy should favor banking partial credit."
+    },
+    {
+      "id": "q4",
+      "prompt": "In `rush` mode with a question you can't fully solve, what's the recommended move?",
+      "options": [
+        { "id": "a", "text": "Skip it and submit nothing" },
+        { "id": "b", "text": "Submit whatever passes the most visible test cases for partial credit" },
+        { "id": "c", "text": "Restart the whole OA" },
+        { "id": "d", "text": "Wait for the timer to expire" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Since grading is per test case, submitting a partial solution still banks credit even under time pressure."
+    },
+    {
+      "id": "q5",
+      "prompt": "Does the rush/pace/plan idea only apply to HackerRank OAs specifically?",
+      "options": [
+        { "id": "a", "text": "Yes, it's a HackerRank-exclusive feature" },
+        { "id": "b", "text": "No, it generalizes to any timed, multi-question test with a fixed window" },
+        { "id": "c", "text": "Yes, it only works for coding questions, never multiple choice" },
+        { "id": "d", "text": "No, it only applies to certifications" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "The pacing strategy is a general timed-test tactic, not something specific to HackerRank's implementation."
+    }
+  ]
+}

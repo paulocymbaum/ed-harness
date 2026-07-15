@@ -1,0 +1,18 @@
+{
+  "cases": [
+    {
+      "id": "passed",
+      "name": "passed outcome is verified",
+      "stdin": "passed\n",
+      "expectedStdout": "verified\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "failed",
+      "name": "failed outcome is not-verified",
+      "stdin": "failed\n",
+      "expectedStdout": "not-verified\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

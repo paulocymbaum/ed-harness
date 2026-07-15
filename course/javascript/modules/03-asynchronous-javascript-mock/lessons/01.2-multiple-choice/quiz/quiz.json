@@ -1,0 +1,93 @@
+{
+  "id": "quiz",
+  "title": "Asynchronous JavaScript Multiple Choice",
+  "description": "Event loop, microtasks vs macrotasks, promises, async/await, and error handling from module 03.",
+  "lessonId": "01.2-multiple-choice",
+  "graphIndex": "01.2",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What is printed?\n\n```js\nconsole.log(\"A\");\nsetTimeout(() => console.log(\"B\"), 0);\nconsole.log(\"C\");\n```",
+      "options": [
+        { "id": "a", "text": "`A`, `B`, `C`" },
+        { "id": "b", "text": "`A`, `C`, `B`" },
+        { "id": "c", "text": "`B`, `A`, `C`" },
+        { "id": "d", "text": "`C`, `A`, `B`" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Synchronous code on the call stack always runs first, even before a `setTimeout(0)` callback. The timer callback goes into the task queue and only runs after the current script finishes."
+    },
+    {
+      "id": "q2",
+      "prompt": "What is printed?\n\n```js\nconsole.log(\"start\");\nPromise.resolve().then(() => console.log(\"micro\"));\nsetTimeout(() => console.log(\"macro\"), 0);\nconsole.log(\"end\");\n```",
+      "options": [
+        { "id": "a", "text": "`start`, `end`, `micro`, `macro`" },
+        { "id": "b", "text": "`start`, `end`, `macro`, `micro`" },
+        { "id": "c", "text": "`start`, `micro`, `end`, `macro`" },
+        { "id": "d", "text": "`start`, `macro`, `end`, `micro`" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Sync code runs first (`start`, `end`). The event loop then drains the entire microtask queue (promise reactions) before running the next macrotask, so `micro` prints before `macro`."
+    },
+    {
+      "id": "q3",
+      "prompt": "What does calling an `async function` always return, even if it has no `await` inside?",
+      "options": [
+        { "id": "a", "text": "The raw value it computes" },
+        { "id": "b", "text": "A `Promise`" },
+        { "id": "c", "text": "`undefined`" },
+        { "id": "d", "text": "A `Generator`" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Every `async function` wraps its return value in a `Promise`. Even `async function f() { return 1; }` returns a promise that resolves to `1`, not `1` directly."
+    },
+    {
+      "id": "q4",
+      "prompt": "When an `async function` hits an `await`, what happens?",
+      "options": [
+        { "id": "a", "text": "The entire JavaScript engine blocks until the awaited promise settles" },
+        { "id": "b", "text": "The function pauses and yields control; the rest of the function resumes as a microtask once the promise settles" },
+        { "id": "c", "text": "The function immediately throws if the promise has not settled yet" },
+        { "id": "d", "text": "`await` has no effect unless used inside a `for` loop" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`await` pauses only the current async function; the rest of the program keeps running. When the promise settles, the continuation is scheduled as a microtask, not a blocking operation."
+    },
+    {
+      "id": "q5",
+      "prompt": "What is printed?\n\n```js\nasync function run() {\n  try {\n    await Promise.reject(new Error(\"boom\"));\n  } catch (e) {\n    console.log(\"caught:\", e.message);\n  }\n}\nrun();\n```",
+      "options": [
+        { "id": "a", "text": "`caught: boom`" },
+        { "id": "b", "text": "An unhandled rejection crashes the process" },
+        { "id": "c", "text": "Nothing is printed" },
+        { "id": "d", "text": "`boom`" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "`try`/`catch` around an `await` catches a rejected promise just like a thrown synchronous error, so the `catch` block runs and prints `caught: boom`."
+    },
+    {
+      "id": "q6",
+      "prompt": "What is the key difference between `Promise.all` and `Promise.allSettled`?",
+      "options": [
+        { "id": "a", "text": "`Promise.all` rejects as soon as any input promise rejects; `Promise.allSettled` always resolves with each promise's outcome" },
+        { "id": "b", "text": "`Promise.allSettled` runs promises sequentially; `Promise.all` runs them in parallel" },
+        { "id": "c", "text": "They behave identically but `allSettled` is deprecated" },
+        { "id": "d", "text": "`Promise.all` only accepts a single promise, not an array" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "`Promise.all` fails fast: the first rejection short-circuits the whole call. `Promise.allSettled` waits for every promise and reports each as `{ status: \"fulfilled\", value }` or `{ status: \"rejected\", reason }`, never rejecting itself."
+    },
+    {
+      "id": "q7",
+      "prompt": "What is printed?\n\n```js\nPromise.resolve(1)\n  .then((v) => v + 1)\n  .then((v) => console.log(v));\nconsole.log(\"sync\");\n```",
+      "options": [
+        { "id": "a", "text": "`sync`, `2`" },
+        { "id": "b", "text": "`2`, `sync`" },
+        { "id": "c", "text": "`1`, `sync`, `2`" },
+        { "id": "d", "text": "`sync`, `1`" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Both `.then` callbacks are scheduled as microtasks, which only run after the current synchronous code finishes. `console.log(\"sync\")` runs first, then the chained `.then` handlers produce `2`."
+    }
+  ]
+}

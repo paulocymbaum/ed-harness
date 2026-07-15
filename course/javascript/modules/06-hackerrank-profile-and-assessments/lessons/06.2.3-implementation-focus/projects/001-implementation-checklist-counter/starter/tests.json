@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "id": "mixed",
+      "name": "two done and two todo lines",
+      "stdin": "[x] parse input\n[ ] handle negative numbers\n[x] print result\n[ ] handle empty input\n",
+      "expectedStdout": "done=2 todo=2\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "empty-input",
+      "name": "no lines produces zero counts",
+      "stdin": "",
+      "expectedStdout": "done=0 todo=0\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "all-done",
+      "name": "every line marked done",
+      "stdin": "[x] step one\n[x] step two\n[x] step three\n",
+      "expectedStdout": "done=3 todo=0\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "blank-line-ignored",
+      "name": "a blank line in the middle is not counted",
+      "stdin": "[x] step one\n\n[ ] step two\n",
+      "expectedStdout": "done=1 todo=1\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

@@ -20,7 +20,16 @@ course/<course>/modules/<module>/lessons/<graphIndex>-<slug>/
 
 ## Tools
 
-All tools live in `.cursor/tools/teacher/` and `scripts/graph/`.
+All tools live in `.cursor/tools/`, `.cursor/tools/teacher/`, and `scripts/graph/`.
+
+### 0) Resolve learner language (before drafting prose)
+
+```bash
+node .cursor/tools/get-user-language.js --prompt
+node .cursor/tools/get-user-language.js --set pt   # updates language.json + CURSOR_RESPONSE_LANGUAGE
+```
+
+Use the resolved language for learner-facing explanation/project wording when the authoring goal is localized chat or localized draft prose. Keep code samples, identifiers, and graph labels in source form unless the task explicitly asks to translate them. `.cursor/language.json` is synced from the study app language picker (`/api/locale`).
 
 ### 1) Find topic in graph
 

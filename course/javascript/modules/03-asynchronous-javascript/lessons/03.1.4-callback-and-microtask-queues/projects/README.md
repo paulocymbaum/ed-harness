@@ -10,7 +10,7 @@ node starter/index.js
 
 - Microtasks drain before the next task
 - Promise `.then` vs `setTimeout(0)` ordering
-- Chained microtasks run to completion
+- Observing real runtime order (not pasting answer strings)
 
 ## Folder conventions
 
@@ -22,7 +22,7 @@ node starter/index.js
 
 ### 001-microtask-before-timer/
 
-Print the output order and one-line rule for a snippet mixing Promise microtasks and a timer.
+Schedule sync + Promise + `setTimeout(0)`, then print the observed order and confirm the microtask ran before the timer.
 
 ## PBL contract checklist
 

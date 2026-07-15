@@ -1,21 +1,21 @@
 const { dfs } = require("../../../scripts/graph/utils/dfs");
-const { loadGraph, labelsMatch } = require("./_loadGraph");
+const { loadCourseGraph, labelsMatch, parseCourseArg, positionalArgs } = require("./_loadGraph");
 
 function usage() {
   return [
-    "Usage: node .cursor/tools/graph/find-topic-dfs.js <label>",
-    'Example: node .cursor/tools/graph/find-topic-dfs.js "Promises"',
+    "Usage: node .cursor/tools/graph/find-topic-dfs.js --course <slug> <label>",
+    'Example: node .cursor/tools/graph/find-topic-dfs.js --course javascript "Promises"',
   ].join("\n");
 }
 
 function main() {
-  const targetRaw = process.argv[2];
-  if (!targetRaw) {
+  const [targetRaw] = positionalArgs();
+  if (!targetRaw || !parseCourseArg()) {
     process.stderr.write(`${usage()}\n`);
     process.exit(2);
   }
 
-  const graph = loadGraph();
+  const { graph, courseSlug } = loadCourseGraph();
 
   let found = null;
   dfs(graph, graph.rootId, {
@@ -25,13 +25,12 @@ function main() {
   });
 
   if (!found) {
-    process.stdout.write(`NOT_FOUND: ${targetRaw}\n`);
+    process.stdout.write(`NOT_FOUND: ${targetRaw} (course=${courseSlug})\n`);
     process.exitCode = 1;
     return;
   }
 
-  process.stdout.write(JSON.stringify(found, null, 2) + "\n");
+  process.stdout.write(JSON.stringify({ courseSlug, node: found }, null, 2) + "\n");
 }
 
 if (require.main === module) main();
-
