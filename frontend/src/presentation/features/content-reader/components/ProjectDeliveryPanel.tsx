@@ -4,6 +4,7 @@ import type { ReaderEntry } from "../../../../domain/types/reader";
 import { PROJECT_DELIVERY_PASS_SCORE, passesDeliveryReview } from "../../../../domain/types/projectDelivery";
 import { useProjectDelivery } from "../../../../application/hooks/useProjectDelivery";
 import { useTranslation } from "../../../../application/hooks/useTranslation";
+import { useToastStore } from "../../../../application/stores/toastStore";
 import { formatDeliveryMarkdownForDisplay } from "../../../../application/usecases/formatDeliveryMarkdown";
 import {
   appendStarterToDraft,
@@ -136,6 +137,7 @@ export function ProjectDeliveryPanel(props: {
 }) {
   const { courseId, courseTitle, projectTitle, projectId, rootPath, entries = [], enabled } = props;
   const { t } = useTranslation();
+  const showToast = useToastStore((s) => s.show);
   const { topicTitle } = parseProjectPath(rootPath);
   const { draft, setDraft, deliveries, loading, error, saving, save, canSave } =
     useProjectDelivery({ courseId, projectId, rootPath, enabled });
@@ -143,6 +145,15 @@ export function ProjectDeliveryPanel(props: {
   const [pasteConfirmOpen, setPasteConfirmOpen] = useState(false);
   const latestDelivery = deliveries.at(-1);
   const canPasteLatest = deliveries.length > 0;
+
+  const handleSave = async () => {
+    const ok = await save();
+    if (ok) {
+      showToast(t("toast.deliverySaved"), "success");
+    } else {
+      showToast(t("toast.deliverySaveFailed"), "error");
+    }
+  };
 
   const canImportStarter = hasProjectStarter(entries);
   const showRunAnswer = hasProjectStarter(entries);
@@ -215,7 +226,7 @@ export function ProjectDeliveryPanel(props: {
         </div>
 
         <div className="flex flex-wrap items-center gap-3">
-          <Button type="button" variant="primary" disabled={!canSave} onClick={() => void save()}>
+          <Button type="button" variant="primary" disabled={!canSave} onClick={() => void handleSave()}>
             {saving ? t("reader.saving") : t("reader.saveDelivery")}
           </Button>
           <Button

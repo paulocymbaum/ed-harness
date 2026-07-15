@@ -79,6 +79,16 @@ function computeLessonNodeScore(input: {
   };
 }
 
+/** Aggregated quiz + project score for a single lesson (same formula as content-map nodes). */
+export function computeLessonScore(input: {
+  course: Course;
+  moduleId: string;
+  lessonId: string;
+  progress: ProgressSnapshot;
+}): NodeScore {
+  return computeLessonNodeScore(input);
+}
+
 function addScores(base: NodeScore, next: NodeScore): NodeScore {
   return {
     points: {

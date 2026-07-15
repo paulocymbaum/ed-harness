@@ -133,6 +133,7 @@ export const en = {
 
   "lesson.loading": "Loading lesson…",
   "lesson.thisLesson": "This lesson",
+  "lesson.score": "Lesson score",
   "lesson.noActivities.title": "No activities yet.",
   "lesson.noActivities.description": "Projects and quizzes for this lesson will appear here.",
   "lesson.readingOnly": "Reading only",
@@ -141,6 +142,9 @@ export const en = {
   "lesson.backToModule": "Back to module",
   "lesson.projects": "Projects",
   "lesson.quizzes": "Quizzes",
+
+  "activity.notStarted": "Not started",
+  "activity.quizBest": "Best {pct}%",
 
   "project.pending": "Pending",
   "project.title": "Project",
@@ -239,7 +243,12 @@ export const en = {
 
   "drawer.closeOverlay": "Close drawer overlay",
   "drawer.close": "Close drawer",
+  "drawer.backToExplanation": "Back to explanation",
   "drawer.tabs": "Tabs",
+
+  "toast.deliverySaved": "Delivery saved",
+  "toast.deliverySaveFailed": "Could not save delivery",
+  "toast.quizPoints": "+{delta} quiz points added",
 
   "error.loadCourse": "Failed to load course.",
   "error.courseNotFound": "Course not found.",

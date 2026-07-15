@@ -140,9 +140,46 @@ export function AppLayout() {
     sectionId,
   ]);
 
+  const pageTitle = useMemo(() => {
+    if (!isCourseRoute || !course) return t("catalog.title");
+
+    if (isMockTestRoute && sectionId && mod && "lessons" in mod) {
+      const mockLesson = mod.lessons.find((l) => l.id === sectionId);
+      if (mockLesson) return mockLesson.title;
+    }
+
+    if (quiz) return quiz.title;
+    if (project) return project.title;
+    if (moduleId && activeQuizId && !lessonId) {
+      const moduleQuiz = getQuizById(course, activeQuizId, { moduleId });
+      if (moduleQuiz) return moduleQuiz.title;
+    }
+    if (lesson) return lesson.title;
+    if (mod) return mod.title;
+    if (!isHierarchyCourse(course) && tab && tab !== "readme") {
+      return tabLabels[tab as CourseTab];
+    }
+    return course.title;
+  }, [
+    isCourseRoute,
+    course,
+    isMockTestRoute,
+    sectionId,
+    mod,
+    quiz,
+    project,
+    moduleId,
+    activeQuizId,
+    lessonId,
+    lesson,
+    tab,
+    tabLabels,
+    t,
+  ]);
+
   return (
     <AppShell
-      title={t("app.title")}
+      title={pageTitle}
       breadcrumb={<Breadcrumb segments={breadcrumbSegments} />}
       right={
         isCourseRoute && course ? (
