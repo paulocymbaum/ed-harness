@@ -15,12 +15,23 @@ function contentType(filePath) {
   return "application/octet-stream";
 }
 
+function resolveLandingRoot(repoRoot) {
+  const candidates = [
+    path.resolve(repoRoot, "landing_page"),
+    path.resolve(repoRoot, "../landing_page"),
+  ];
+  for (const dir of candidates) {
+    if (fs.existsSync(path.join(dir, "index.html"))) return dir;
+  }
+  return candidates[0];
+}
+
 /**
- * Dev-only: serves `landing_page/` at `/landing/` so the promo page and the
- * React study UI share one Vite origin (experience CTA → `/?tour=1&lang=…`).
+ * Dev-only: serves nested or sibling `landing_page/` at `/landing/` so the promo
+ * page and the React study UI share one Vite origin (CTA → `/?tour=1&lang=…`).
  */
 export function landingPagePlugin(repoRoot) {
-  const landingRoot = path.resolve(repoRoot, "landing_page");
+  const landingRoot = resolveLandingRoot(repoRoot);
 
   return {
     name: "landing-page",
