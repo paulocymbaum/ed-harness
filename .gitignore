@@ -64,7 +64,7 @@ course/*/quiz/score.json
 docs/5W1H-REPORT.md
 
 ###############################################################################
-# Leftover nested landing_page/ (ignore if someone clones landing into the monorepo)
-# Preferred layout is sibling: ../landing_page
+# Local promo landing (not versioned)
 ###############################################################################
 landing_page/
+

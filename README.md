@@ -232,7 +232,7 @@ ed-harness/
 │   └── javascript/         # Main course (fundamentals → async)
 ├── graph/                  # Topic taxonomy (source of truth)
 ├── frontend/               # Interactive UI (Vite + React)
-├── (sibling) ../landing_page/  # Private promo repo — not in this tree; Vite resolves it
+├── landing_page/           # Open-source promo landing (open index.html)
 ├── scripts/ + tests/       # Harness: validation, graph sync, integration tests
 └── .cursor/
     ├── language.json       # UI↔agent language preference (synced via /api/locale)
@@ -242,8 +242,6 @@ ed-harness/
     └── rules/              # Agent guardrails (course hierarchy)
 ```
 
-The promo **landing** lives in a separate private repo as a **sibling** directory `../landing_page` (clone [paulocymbaum/ed-harness-landing](https://github.com/paulocymbaum/ed-harness-landing)). Open [`workspace.code-workspace`](workspace.code-workspace) for both roots (EdHarness + Landing at `../landing_page`). A leftover nested `landing_page/` folder is gitignored if present.
-
 ---
 
 ## Documentation
@@ -252,7 +250,9 @@ The promo **landing** lives in a separate private repo as a **sibling** director
 |-----|----------|
 | [**Getting Started**](docs/GETTING_STARTED.md) | Setup, workflow, routes, Cursor skills, commands |
 | [COURSE_STRUCTURE.md](COURSE_STRUCTURE.md) | Content hierarchy and metadata contract |
-| Private landing (`../landing_page`) | Sibling private repo; clone next to this monorepo and open the workspace — not published in this tree |
+| [landing_page/LANDINGPAGE_STYLE.md](landing_page/LANDINGPAGE_STYLE.md) | Open-source landing: brand, visual system, UX journey |
+| [landing_page/LANDINGPAGE_WIREFRAME.md](landing_page/LANDINGPAGE_WIREFRAME.md) | Landing ASCII wireframes and per-section design notes |
+| [landing_page/index.html](landing_page/index.html) | Open in a browser to preview the landing page |
 | [frontend/ARCHITECTURE-FRONT.md](frontend/ARCHITECTURE-FRONT.md) | Learner navigation journey |
 | [frontend/ARCHITECTURE.md](frontend/ARCHITECTURE.md) | Routes, layers, score persistence |
 | [frontend/DESIGN.md](frontend/DESIGN.md) | In-app design tokens, glass UI, quiz feedback |
