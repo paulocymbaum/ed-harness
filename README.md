@@ -1,8 +1,10 @@
 # Hackerrank Study
 
-**Educational harness & interactive UI for self-directed coding mastery through Project-Based Learning.**
+**Open-source educational harness & interactive UI for self-directed coding mastery through Project-Based Learning — with AI that helps humans learn.**
 
-A local, repo-native EdTech system — not a hosted course platform. It pairs a **validated content pipeline** with a **React learning UI** and a **Cursor Agent harness** for tutoring, project correction, and curriculum authoring. Built for junior developers on a self-learning journey and as a portfolio piece demonstrating frontend engineering, UX, instructional design, automation, and AI orchestration as first-class concerns.
+A local, repo-native EdTech system — not a hosted course platform. It pairs a **validated content pipeline** with a **React learning UI** and a **Cursor Agent harness** for tutoring, project correction, and curriculum authoring.
+
+**Why this exists:** models are trained on human knowledge at scale; staying relevant means **reskilling** continuously. This project flips the usual story — instead of only extracting value *from* learners, it uses AI as a **response that puts the human back at the center**: Socratic tutoring, rubric-based project correction, and multi-language study support so newcomers, hobbyists, and professionals migrating into tech can practice, prove understanding, and grow in an AI-driven landscape.
 
 ---
 
@@ -10,9 +12,10 @@ A local, repo-native EdTech system — not a hosted course platform. It pairs a 
 
 | Audience | What you find here |
 |----------|-------------------|
-| **Junior learners** | Graph-driven path, predict-first lessons, quizzes, CLI projects with AI correction, Socratic tutor, points & Pomodoro |
-| **Recruiters & tech leaders** | Clean architecture, measurable progress artifacts, extensible harness, EdTech product thinking |
-| **Content authors** | Graph-aligned scaffolding, validators, authoring skills — [Getting Started →](docs/GETTING_STARTED.md) |
+| **New developers & hobbyists** | Graph-driven path, predict-first lessons, quizzes, CLI projects with AI correction, Socratic tutor, points & Pomodoro |
+| **Professionals reskilling / migrating into tech** | Structured practice, measurable progress, mentor-style AI review without spoiling the struggle of learning |
+| **Content authors & contributors** | Graph-aligned scaffolding, validators, authoring skills — [Getting Started →](docs/GETTING_STARTED.md) |
+| **Recruiters & tech leaders** | Clean architecture, progress artifacts, extensible open harness, EdTech product thinking |
 
 Two complementary systems:
 
@@ -255,4 +258,6 @@ hackerrank-study/
 
 ## License & contribution
 
-Private repository (`"private": true`). Extend content via [`graph/courses/<slug>.graph.txt`](graph/courses/javascript.graph.txt) and authoring skills in [Getting Started](docs/GETTING_STARTED.md) — never invent topics outside their graph node.
+This is an **open-source** project: fork it, learn with it, improve the curriculum, and share workflows that help others reskill with AI as a learning partner.
+
+Contributions are welcome — lessons, quizzes, PBL projects, translations, UI fixes, and harness improvements. Extend content via [`graph/courses/<slug>.graph.txt`](graph/courses/javascript.graph.txt) and the authoring skills in [Getting Started](docs/GETTING_STARTED.md); never invent topics outside their graph node. Open an issue or pull request when you have something to add.
