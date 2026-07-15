@@ -17,6 +17,8 @@ credentials*.json
 *apikey*
 *api_key*
 *token*
+!*tokens*
+!*tokens/**
 *private_key*
 secrets/
 

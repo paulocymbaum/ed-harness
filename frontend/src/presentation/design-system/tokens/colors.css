@@ -1,0 +1,64 @@
+:root {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Display",
+    "SF Pro Text", "Segoe UI", Inter, Roboto, Arial, sans-serif;
+}
+
+[data-theme="light"] {
+  --bg-0: #f2f4f7;
+  --text-0: #0b1220;
+  --text-1: #3b4457;
+  --border-0: rgba(12, 18, 32, 0.12);
+  --glass-tint: rgba(99, 102, 241, 0.1);
+  --glass-fill: rgba(255, 255, 255, 0.78);
+  --glass-fill-strong: rgba(255, 255, 255, 0.9);
+  --accent-0: #6366f1;
+  --accent-1: #6366f1;
+  --accent-fill: #6366f1;
+  --accent-fill-hover: #4f46e5;
+  --text-on-accent: #ffffff;
+  --danger-0: #e11d48;
+  --success-0: #10b981;
+
+  /* Quiz / feedback — tinted glass, readable on light panels */
+  --success-border: rgba(5, 150, 105, 0.42);
+  --success-fill: rgba(16, 185, 129, 0.14);
+  --success-text: #047857;
+  --success-icon: #059669;
+
+  --danger-border: rgba(190, 18, 60, 0.4);
+  --danger-fill: rgba(225, 29, 72, 0.1);
+  --danger-text: #be123c;
+  --danger-icon: #e11d48;
+
+  --neutral-muted-fill: rgba(12, 18, 32, 0.04);
+}
+
+[data-theme="dark"] {
+  --bg-0: #0b1020;
+  --text-0: rgba(255, 255, 255, 0.92);
+  --text-1: rgba(255, 255, 255, 0.78);
+  --border-0: rgba(255, 255, 255, 0.18);
+  --glass-tint: rgba(99, 102, 241, 0.24);
+  --glass-fill: rgba(11, 16, 32, 0.82);
+  --glass-fill-strong: rgba(11, 16, 32, 0.92);
+  --accent-0: #a5b4fc;
+  --accent-1: #22d3ee;
+  --accent-fill: #6366f1;
+  --accent-fill-hover: #4f46e5;
+  --text-on-accent: #ffffff;
+  --danger-0: #fb7185;
+  --success-0: #34d399;
+
+  /* Quiz / feedback — higher fill opacity for dark glass legibility */
+  --success-border: rgba(52, 211, 153, 0.48);
+  --success-fill: rgba(16, 185, 129, 0.18);
+  --success-text: #6ee7b7;
+  --success-icon: #34d399;
+
+  --danger-border: rgba(251, 113, 133, 0.48);
+  --danger-fill: rgba(244, 63, 94, 0.16);
+  --danger-text: #fda4af;
+  --danger-icon: #fb7185;
+
+  --neutral-muted-fill: rgba(255, 255, 255, 0.04);
+}
