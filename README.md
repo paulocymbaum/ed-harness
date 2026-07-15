@@ -50,7 +50,7 @@ flowchart TB
 
 - **Content-on-disk** — curriculum as Markdown, JSON, and Node.js starters; no production backend or database
 - **Static catalog** — `catalog:generate` syncs `course/` into JSON consumed by the UI
-- **Dev-time persistence** — Vite plugins write quiz scores and project deliveries back to the filesystem
+- **Dev-time persistence** — Vite plugins write quiz scores, project deliveries, and the UI locale (→ `.cursor/language.json`) back to the filesystem
 - **Frontend layers** — `domain → application → presentation → infrastructure`; URL-driven navigation; injectable repositories ([`ARCHITECTURE.md`](frontend/ARCHITECTURE.md))
 
 ### Harness layers
@@ -76,11 +76,94 @@ flowchart TB
 |------|------------|
 | **Frontend** | Feature modules, clean architecture, substitutible data layer (static catalog today, API-ready) |
 | **UX** | Hierarchy navigation, progressive disclosure via drawers, deep-linkable URLs ([`ARCHITECTURE-FRONT.md`](frontend/ARCHITECTURE-FRONT.md)) |
-| **Design** | Token-driven glass UI, WCAG-conscious contrast, semantic quiz feedback, i18n-ready ([`DESIGN.md`](frontend/DESIGN.md)) |
+| **Design** | Token-driven glass UI, WCAG-conscious contrast, semantic quiz feedback, multi-language UI ([`DESIGN.md`](frontend/DESIGN.md)) |
 | **Instructional design** | Prerequisite graph, predict-first lessons, spaced retrieval quizzes, rubric-based PBL (not answer-key matching) |
 | **Automation** | Deterministic graph scaffolding, schema validation, integration tests for the authoring pipeline |
 
 **Current scope:** JavaScript course (fundamentals → objects → async). The graph and harness extend to additional course roots.
+
+---
+
+## Languages (UI + Cursor)
+
+The study app and the Cursor agent share one language preference so tutoring and authoring follow the locale you pick in the UI.
+
+| Locale | Language |
+|--------|----------|
+| `en` | English |
+| `pt` | Portuguese |
+| `es` | Spanish |
+| `zh` | Chinese |
+
+**In the app:** use the language control in the top bar. The choice is stored in browser state (`hackerrank-study-locale`) and applied to chrome, labels, and document `lang`.
+
+**Bridge to Cursor (dev server):** when Vite is running, changing (or loading) the locale POSTs to `/api/locale`, which writes [`.cursor/language.json`](.cursor/language.json). That file is the source of truth for agent prompts.
+
+```mermaid
+flowchart LR
+  picker["UI language picker"] --> store["Zustand locale"]
+  store --> api["Vite /api/locale"]
+  api --> file[".cursor/language.json"]
+  file --> tool["get-user-language.js"]
+  file --> hook["sessionStart / postToolUse hooks"]
+  tool --> agent["Tutor and author skills"]
+  hook --> agent
+```
+
+| Piece | Path | Role |
+|-------|------|------|
+| UI picker | [`LanguageSelector`](frontend/src/presentation/features/shell/LanguageSelector.tsx) | Learner selects `en` / `pt` / `es` / `zh` |
+| Sync plugin | [`vite-locale-sync-plugin.mjs`](frontend/scripts/vite-locale-sync-plugin.mjs) | Persists selection to `.cursor/language.json` |
+| Tool | [`.cursor/tools/get-user-language.js`](.cursor/tools/get-user-language.js) | Resolves preference (`language.json` → env → `en`); `--prompt` / `--set` |
+| Hooks | [`.cursor/hooks.json`](.cursor/hooks.json) | Injects `CURSOR_RESPONSE_LANGUAGE` and response-language context into agent sessions |
+
+**Resolution order for the agent:** `.cursor/language.json` (platform sync) → `CURSOR_RESPONSE_LANGUAGE` / `HACKERRANK_STUDY_LANGUAGE` → `en`.
+
+**Typical flow:** `npm run dev` → pick a language in the UI → start a **new** Cursor chat (or wait for the hook refresh after the file changes) so the tutor answers in that language. Manual override without the UI:
+
+```bash
+node .cursor/tools/get-user-language.js --set en
+node .cursor/tools/get-user-language.js --prompt
+```
+
+By default, the preference drives **UI chrome** and **agent chat**. To translate **course content on disk** into the current preferred language, copy the prompt below into a Cursor agent chat.
+
+### Copy-paste prompt: translate course to current language
+
+Set the language in the app (or via `--set`), then paste:
+
+```text
+Translate the full course into my current preferred language.
+
+1) Resolve the target language with the project script (do not guess):
+   node .cursor/tools/get-user-language.js --json
+   node .cursor/tools/get-user-language.js --prompt
+   Use the returned `language` / `label` as the only target locale for this job.
+
+2) Scope — translate all learner-facing prose under course/ for every course present (e.g. course/javascript/, course/algorithms/), including:
+   - module and lesson README.md
+   - projects/**/README.md and other learner-facing Markdown
+   - quiz/quiz.json fields shown to learners (question text, options, explanations)
+   - human-readable titles/descriptions in *.meta.json when present
+   Do this systematically module-by-module so nothing learner-facing is left in the source language.
+
+3) Do NOT translate or rename:
+   - code, identifiers, CLI commands, file paths, folder names, graphIndex values
+   - test fixtures (starter/tests.json expected I/O, sample.input) unless the prompt text itself is learner-facing UI copy
+   - graph/courses/*.graph.txt node labels (keep graph as authored)
+   - package.json, scripts, or harness/tooling files
+
+4) Quality rules:
+   - Keep predict-first lesson structure, headings hierarchy, Mermaid/ASCII diagrams (translate labels inside diagrams)
+   - Preserve Markdown/JSON validity; do not change quiz option ids or scoring shape
+   - Prefer natural phrasing in the target language; keep technical terms that are conventionally left in English in that locale
+   - After each module (or lesson batch), briefly list what changed; continue until the whole course tree is done
+   - If a file is already in the target language, skip it
+
+5) When finished, summarize: target language, courses touched, counts of README / quiz / meta files updated, and any files skipped with reason.
+```
+
+After a large translation pass, regenerate the catalog if the UI lists titles from generated JSON: `npm run catalog:generate`.
 
 ---
 
@@ -148,7 +231,10 @@ hackerrank-study/
 ├── frontend/               # Interactive UI (Vite + React)
 ├── scripts/ + tests/       # Harness: validation, graph sync, integration tests
 └── .cursor/
+    ├── language.json       # UI↔agent language preference (synced via /api/locale)
+    ├── hooks/              # sessionStart injects response language into Cursor
     ├── skills/             # AI tutor, reviewer, and author playbooks
+    ├── tools/              # Graph, teacher, and get-user-language helpers
     └── rules/              # Agent guardrails (course hierarchy)
 ```
 
