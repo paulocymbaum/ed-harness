@@ -3,6 +3,13 @@
 		{
 			"name": "EdHarness",
 			"path": "."
+		},
+		{
+			"name": "Landing",
+			"path": "landing_page"
+		},
+		{
+			"path": "../landing_page"
 		}
 	],
 	"settings": {}
