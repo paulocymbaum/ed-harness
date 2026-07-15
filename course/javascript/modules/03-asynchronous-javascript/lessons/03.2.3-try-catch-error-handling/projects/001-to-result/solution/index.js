@@ -2,15 +2,17 @@
  * To Result
  *
  * Entrypoint: node starter/index.js
- * Implement the behavior described in ../README.md
  */
 
 const readline = require("readline");
 
 async function toResult(promise) {
-  // TODO: await promise; return { ok: true, value } or { ok: false, error }
-  // Must never throw
-  throw new Error("Not implemented");
+  try {
+    const value = await promise;
+    return { ok: true, value };
+  } catch (error) {
+    return { ok: false, error };
+  }
 }
 
 async function main() {

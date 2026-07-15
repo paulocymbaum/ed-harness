@@ -1,24 +1,55 @@
 /**
- * Alias Tracker
+ * Safe Normalizer
  *
  * Entrypoint: node starter/index.js
+ * Implement the behavior described in ../README.md
  */
 
-function main() {
-  const original = { n: 1 };
-  let b = original;
-  process.stdout.write("step 1: original.n=1 unchanged (binding)\n");
+function readStdin() {
+  return new Promise((resolve) => {
+    let data = "";
+    process.stdin.setEncoding("utf8");
+    process.stdin.on("data", (chunk) => (data += chunk));
+    process.stdin.on("end", () => resolve(data));
+  });
+}
 
-  b.n = 2;
-  process.stdout.write("step 2: original.n=2 changed (mutation)\n");
+function fail(message) {
+  process.stdout.write(`ERROR: ${message}\n`);
+}
 
-  b = { n: 99 };
-  process.stdout.write("step 3: original.n=2 unchanged (reassignment)\n");
+/**
+ * Return a cleaned copy of `input`. Must not mutate `input` or nested values.
+ * @param {object} input
+ * @returns {object}
+ */
+function normalize(input) {
+  // TODO: validate fields, return a NEW object (new tags array, profile, meta)
+  throw new Error("Not implemented");
+}
 
-  original.n = 5;
-  process.stdout.write("step 4: original.n=5 changed (mutation)\n");
+async function main() {
+  const raw = (await readStdin()).trim();
+  if (raw.length === 0) return fail("missing input");
 
-  process.stdout.write("final: original.n=" + original.n + " b.n=" + b.n + "\n");
+  let input;
+  try {
+    input = JSON.parse(raw);
+  } catch {
+    return fail("invalid JSON");
+  }
+
+  const before = JSON.stringify(input);
+
+  let out;
+  try {
+    out = normalize(input);
+  } catch (e) {
+    return fail(e instanceof Error ? e.message : "invalid input");
+  }
+
+  if (JSON.stringify(input) !== before) return fail("input was mutated");
+  process.stdout.write(`${JSON.stringify(out)}\n`);
 }
 
 main();

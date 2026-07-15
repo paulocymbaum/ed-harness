@@ -3,14 +3,14 @@
 Practice exercises for this lesson. Run each project with:
 
 ```bash
-node starter/index.js
+node starter/index.js < starter/sample.input
 ```
 
 ## What you should practice
 
 - Synchronous code runs before scheduled callbacks
 - `setTimeout` schedules work; it does not run immediately
-- Tracing call-stack order vs deferred callbacks
+- Walking an op graph to separate sync vs deferred work
 
 ## Folder conventions
 
@@ -22,7 +22,7 @@ node starter/index.js
 
 ### 001-sync-trace/
 
-Read a snippet id from stdin and print the synchronous execution order before any timer callbacks run.
+Implement `syncOrder(ops)` over snippet graphs; print only labels that run before any timeout callback.
 
 ## PBL contract checklist
 

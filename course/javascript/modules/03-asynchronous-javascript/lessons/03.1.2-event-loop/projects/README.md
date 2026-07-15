@@ -8,12 +8,12 @@ node starter/index.js
 
 ## What you should practice
 
-- Classify logs as sync, microtask, or task
-- Predict output order: sync → microtasks → tasks
+- Classify logs as sync, microtask, or task via a real harness
+- Observe output order: sync → microtasks → tasks
 - Explain why microtasks run before timers
 
 ## Project catalog
 
 ### 001-output-order-predictor/
 
-Analyze predefined snippets and print output order with per-log classifications.
+Schedule four demos through a harness; print observed order and per-log classifications.

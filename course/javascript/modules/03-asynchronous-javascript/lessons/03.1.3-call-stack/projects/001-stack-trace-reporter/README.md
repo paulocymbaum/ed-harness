@@ -1,27 +1,33 @@
 # Stack Trace Reporter
 
 ## Problem context
-Debugging sync bugs means knowing what is on the **call stack** when a line runs. You need a tiny reporter that, for known snippets, prints frames top-to-bottom at a labeled moment — without guessing async order.
+Debugging sync bugs means knowing what is on the **call stack** when a line runs. You need a tiny simulator that walks function graphs (no `eval`) and reports frames top→bottom at a labeled log moment.
 
 ## Goal
-Read a snippet id from `stdin` and print the call stack (top → bottom) at a fixed log moment for that snippet.
+Implement `stackAtProbe(snippet)`: push/pop frames on `call`, and when a `log` label matches `snippet.probe`, capture the current stack (top → bottom). Read a snippet id from stdin and print `Stack: …` or an error.
 
 ## Lesson concepts practiced
-- [ ] Calls **push** frames; returns **pop** them (last in, first out).
-- [ ] Inner functions must complete before the line after the call in the outer function runs.
-- [ ] Long-running or infinitely recursive synchronous code keeps the stack busy.
+- [ ] Calls **push** frames; returns **pop** them (last in, first out)
+- [ ] Inner functions must complete before the line after the call in the outer function runs
+- [ ] Unbounded synchronous recursion keeps growing the stack until it would overflow
 
 ## Functional requirements
-- [ ] Hardcode at least 3 snippets: `basic`, `nested`, `overflow-note`.
-- [ ] `basic`: lesson `first`/`second` example — at the moment `"second"` prints, stack top→bottom is `second first`.
-- [ ] `nested`: lesson `a`/`b` example — at the moment `"b"` prints, stack top→bottom is `b a`.
-- [ ] `overflow-note`: print `ERROR: stack would overflow` (do not recurse forever).
-- [ ] Read one line (snippet id); print `Stack: <frames>` with space-separated names, or the overflow error, or `ERROR: unknown snippet`.
+- [ ] Snippets `basic`, `nested`, and `overflow-note` are provided as data graphs (scaffold)
+- [ ] Implement `stackAtProbe(snippet)`:
+  - [ ] Maintain a stack array of function names
+  - [ ] On `{ type: "call", target }`: if depth would exceed `MAX_DEPTH`, treat as overflow; else push `target`, run `snippet.functions[target]`, then pop
+  - [ ] On `{ type: "log", label }`: if `label === snippet.probe`, capture frames **top → bottom** (newest name first)
+  - [ ] Start by executing `snippet.entry`
+- [ ] CLI: read one snippet id; print:
+  - [ ] `Stack: <frames>` (space-separated) when a probe capture exists
+  - [ ] `ERROR: stack would overflow` for unbounded recursion (overflow-note)
+  - [ ] `ERROR: unknown snippet` for unknown ids
+- [ ] Do not hardcode answer strings like `"second first"` — derive them from the simulator
 
 ## Non-functional requirements
-- [ ] Do not execute recursive overflow snippets
-- [ ] Clear error for unknown ids
-- [ ] No `eval`
+- [ ] Do not use real infinite recursion or `eval`
+- [ ] Cap depth with `MAX_DEPTH` (scaffold constant)
+- [ ] Clear errors for unknown ids / overflow
 
 ## Constraints
 - [ ] Node.js only
@@ -32,6 +38,7 @@ Read a snippet id from `stdin` and print the call stack (top → bottom) at a fi
 - [ ] Input `nested` → `Stack: b a`
 - [ ] Input `overflow-note` → `ERROR: stack would overflow`
 - [ ] Input `unknown` → `ERROR: unknown snippet`
+- [ ] Stack lines come from push/pop simulation, not a lookup table of answers
 
 ## Example data
 
@@ -42,9 +49,10 @@ Output:
 - `Stack: second first`
 
 ## Suggested plan (no solution)
-1. Map snippet ids to fixed stack strings or error messages from the lesson.
-2. Read one stdin line and look up the map.
-3. Print the labeled stack or error.
+1. Walk `entry` ops with a recursive `exec(ops)` helper and a `stack` array.
+2. On `call`, push/pop around running the target body; abort if `stack.length >= MAX_DEPTH`.
+3. On matching `log`, save `[...stack].reverse()` (or push to front — top first).
+4. Wire stdin id → snippet → print `Stack:` / overflow / unknown.
 
 ## Deliverables
 - [ ] Code in `starter/` (`index.js` scaffold + `tests.json` validation cases + `sample.input` example stdin)

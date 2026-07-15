@@ -1,4 +1,7 @@
-// Reference solution (optional). Keep starter as the primary deliverable.
+/**
+ * Safe Normalizer — reference solution
+ * Entrypoint: node solution/index.js < ../starter/sample.input
+ */
 
 function readStdin() {
   return new Promise((resolve) => {

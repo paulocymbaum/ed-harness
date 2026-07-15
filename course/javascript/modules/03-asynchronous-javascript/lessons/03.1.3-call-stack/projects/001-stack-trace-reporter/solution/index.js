@@ -1,19 +1,11 @@
 /**
- * Stack Trace Reporter
- *
- * Entrypoint: node starter/index.js
- * Implement the behavior described in ../README.md
+ * Stack Trace Reporter — reference solution
  */
 
 const readline = require("node:readline");
 
 const MAX_DEPTH = 32;
 
-/**
- * Op graphs — simulate these; do not hardcode answer strings.
- * @typedef {{ type: "log", label: string } | { type: "call", target: string }} Op
- * @typedef {{ probe: string | null, functions: Record<string, Op[]>, entry: Op[] }} Snippet
- */
 const SNIPPETS = {
   basic: {
     probe: "second",
@@ -52,18 +44,37 @@ const SNIPPETS = {
   },
 };
 
-/**
- * Simulate calls/logs. Return frames top→bottom at probe, or throw Error("stack would overflow").
- * @param {Snippet} snippet
- * @returns {string[]}
- */
 function stackAtProbe(snippet) {
-  // TODO:
-  // - stack = []
-  // - on call: if stack.length >= MAX_DEPTH → throw; else push, run body, pop
-  // - on log matching snippet.probe → capture top→bottom frames
-  // - exec snippet.entry; return captured frames
-  throw new Error("Not implemented");
+  const stack = [];
+  let captured = null;
+
+  function exec(ops) {
+    for (const op of ops) {
+      if (op.type === "log") {
+        if (snippet.probe != null && op.label === snippet.probe) {
+          captured = stack.slice().reverse();
+        }
+        continue;
+      }
+      if (op.type === "call") {
+        if (stack.length >= MAX_DEPTH) {
+          throw new Error("stack would overflow");
+        }
+        const body = snippet.functions[op.target];
+        if (!body) throw new Error("unknown function: " + op.target);
+        stack.push(op.target);
+        exec(body);
+        stack.pop();
+      }
+    }
+  }
+
+  exec(snippet.entry);
+
+  if (captured == null) {
+    throw new Error("stack would overflow");
+  }
+  return captured;
 }
 
 function main() {

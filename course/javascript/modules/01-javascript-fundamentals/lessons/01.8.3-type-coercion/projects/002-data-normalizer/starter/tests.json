@@ -11,14 +11,14 @@
       "id": "strict-null",
       "name": "Strict null vs undefined",
       "stdin": "null\n===\nundefined\n",
-      "expectedStdout": "result: false\n",
+      "expectedStdout": "result: false\nrule: null and undefined are different types with ===\n",
       "expectedExitCode": 0
     },
     {
       "id": "loose-null",
       "name": "Loose null vs undefined",
       "stdin": "null\n==\nundefined\n",
-      "expectedStdout": "result: true\n",
+      "expectedStdout": "result: true\nrule: null and undefined are equal with ==\n",
       "expectedExitCode": 0
     }
   ]

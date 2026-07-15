@@ -1,11 +1,15 @@
 /**
- * Coercion Predictor
- *
- * Entrypoint: node starter/index.js
- * Implement the behavior described in ../README.md
+ * Coercion Predictor — reference solution
  */
 
 const readline = require("readline");
+
+const RULES = new Map([
+  ['""|==|0', "empty string coerces to 0 with =="],
+  ["[]|==|0", "array coerces to 0 with =="],
+  ["null|==|undefined", "null and undefined are equal with =="],
+  ["null|===|undefined", "null and undefined are different types with ==="],
+]);
 
 function parseValue(line) {
   const trimmed = line.trim();
@@ -14,13 +18,16 @@ function parseValue(line) {
 }
 
 function ruleFor(a, op, b) {
-  // TODO: return the documented rule string for known pairs / operators
-  throw new Error("Not implemented");
+  const key = JSON.stringify(a) + "|" + op + "|" + JSON.stringify(b);
+  if (RULES.has(key)) return RULES.get(key);
+  if (op === "===") return "no coercion with ===";
+  return "== may coerce types before comparing";
 }
 
 function compare(a, op, b) {
-  // TODO: evaluate == or ===; return boolean
-  throw new Error("Not implemented");
+  if (op === "==") return a == b;
+  if (op === "===") return a === b;
+  return null;
 }
 
 async function main() {

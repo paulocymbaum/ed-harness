@@ -2,43 +2,29 @@
  * Expression Evaluator
  *
  * Entrypoint: node starter/index.js
+ * Implement the behavior described in ../README.md
  */
 
 const readline = require("readline");
 
-function isNumericPair(a, b) {
-  return Number.isFinite(Number(a)) && Number.isFinite(Number(b));
+function parseOperand(raw) {
+  const trimmed = raw.trim();
+  try {
+    return JSON.parse(trimmed);
+  } catch {
+    return trimmed;
+  }
 }
 
 function applyOp(a, op, b) {
-  if (op === "+") {
-    if (isNumericPair(a, b)) return Number(a) + Number(b);
-    return String(a) + String(b);
-  }
-  const x = Number(a);
-  const y = Number(b);
-  if (!Number.isFinite(x) || !Number.isFinite(y)) return { error: "invalid number" };
-  if (op === "-") return x - y;
-  if (op === "*") return x * y;
-  if (op === "/") {
-    if (y === 0) return { error: "division by zero" };
-    return x / y;
-  }
-  if (op === "%") return x % y;
-  if (op === "**") return x ** y;
-  return { error: "invalid operator" };
+  // TODO: implement +, -, *, /, %, ** and string concat for + when not both numbers
+  // Return a result value or { error: "..." }
+  throw new Error("Not implemented");
 }
 
 function evalPrecedence(expr) {
-  const parts = expr.trim().split(/\s+/);
-  if (parts.length !== 5) return { error: "invalid expression" };
-  const [a, op1, b, op2, c] = parts;
-  if (op2 === "*") {
-    const mid = applyOp(b, op2, c);
-    if (mid && mid.error) return mid;
-    return applyOp(a, op1, String(mid));
-  }
-  return { error: "unsupported expression" };
+  // TODO: optional — handle forms like "2 + 3 * 4" if required by README
+  throw new Error("Not implemented");
 }
 
 async function main() {
@@ -49,30 +35,9 @@ async function main() {
   }
   rl.close();
 
-  if (lines.length === 1 && lines[0].includes("*")) {
-    const result = evalPrecedence(lines[0]);
-    if (result && result.error) {
-      process.stdout.write("ERROR: " + result.error + "\n");
-      return;
-    }
-    process.stdout.write("Result: " + result + "\n");
-    return;
-  }
-
-  if (lines.length < 3) {
-    process.stdout.write("ERROR: invalid input\n");
-    return;
-  }
-
-  const a = lines[0].trim();
-  const op = lines[1].trim();
-  const b = lines[2].trim();
-  const result = applyOp(a, op, b);
-  if (result && result.error) {
-    process.stdout.write("ERROR: " + result.error + "\n");
-    return;
-  }
-  process.stdout.write("Result: " + result + "\n");
+  // TODO: wire stdin protocol from README (3-line a/op/b or single precedence expression)
+  // Use parseOperand() so "\"10\"" becomes the string 10 for concat cases.
+  process.stdout.write("Not implemented yet\n");
 }
 
 main();

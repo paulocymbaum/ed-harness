@@ -2,7 +2,6 @@
  * Commented Validator
  *
  * Entrypoint: node starter/index.js
- * Implement the behavior described in ../README.md
  */
 
 const readline = require("readline");
@@ -10,15 +9,22 @@ const readline = require("readline");
 function validate(name, score) {
   const trimmed = name.trim();
 
-  // TODO: Rule 1 — name must not be empty after trim → "ERROR: name is required"
+  // Rule 1: name must not be empty after trim
+  if (trimmed.length === 0) {
+    return "ERROR: name is required";
+  }
 
-  // Rule 2 (intentionally disabled for this exercise): score must be 0–100
-  // Leave the score-range check commented out so score 200 can still be OK.
+  // Rule 2: score must be 0–100
+  // if (!Number.isInteger(score) || score < 0 || score > 100) {
+  //   return "ERROR: score out of range";
+  // }
 
-  // TODO: Rule 3 — name must be at least 2 chars after trim → "ERROR: name too short"
+  // Rule 3: name must be at least 2 chars after trim
+  if (trimmed.length < 2) {
+    return "ERROR: name too short";
+  }
 
-  // TODO: return "OK" when all active rules pass
-  throw new Error("Not implemented");
+  return "OK";
 }
 
 async function main() {

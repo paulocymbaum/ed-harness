@@ -11,8 +11,8 @@ Validate in the UI with **Delivery → Run answer** (`starter/tests.json`).
 ## What you should practice
 
 - Calls push frames; returns pop them (LIFO)
-- Inner functions finish before the caller continues
-- Infinite recursion overflows the stack — detect it, do not run it
+- Capturing the stack at a labeled log moment
+- Detecting unbounded recursion via a depth limit (no real overflow)
 
 ## Folder conventions
 
@@ -24,7 +24,7 @@ Validate in the UI with **Delivery → Run answer** (`starter/tests.json`).
 
 ### 001 — Stack Trace Reporter
 
-Report call-stack frames (top → bottom) for known sync snippets at a labeled log moment.
+Simulate call/log op graphs; print frames top→bottom at the probe log (or overflow error).
 
 ## PBL contract checklist
 

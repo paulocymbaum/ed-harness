@@ -2,7 +2,6 @@
  * Sequential Async Runner
  *
  * Entrypoint: node starter/index.js
- * Implement the behavior described in ../README.md
  */
 
 const readline = require("readline");
@@ -29,8 +28,14 @@ async function stepSave(shouldFail) {
 }
 
 async function runPipeline(shouldFail) {
-  // TODO: await fetch → transform → save in order; catch errors as "ERROR: <message>"
-  throw new Error("Not implemented");
+  try {
+    const a = await stepFetch();
+    const b = await stepTransform();
+    const c = await stepSave(shouldFail);
+    return [a, b, c].join(" | ");
+  } catch (err) {
+    return "ERROR: " + err.message;
+  }
 }
 
 async function main() {

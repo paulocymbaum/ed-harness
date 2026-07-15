@@ -2,19 +2,16 @@
  * Truthy Classifier
  *
  * Entrypoint: node starter/index.js
- * Implement the behavior described in ../README.md
  */
 
 const readline = require("readline");
 
 function classify(value) {
-  // TODO: return "truthy" or "falsy" using Boolean(value)
-  throw new Error("Not implemented");
+  return Boolean(value) ? "truthy" : "falsy";
 }
 
 function naiveGate(value) {
-  // TODO: return "blocked" if !value, else "allowed"
-  throw new Error("Not implemented");
+  return !value ? "blocked" : "allowed";
 }
 
 async function main() {

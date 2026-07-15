@@ -3,17 +3,17 @@
 Practice exercises for this lesson. Run each project with:
 
 ```bash
-node starter/index.js
+node starter/index.js < starter/sample.input
 ```
 
 ## What you should practice
 
 - Primitives copy by value; objects alias by reference
-- Mutation through an alias vs reassignment to a new object
-- Predicting when `original` changes after each step
+- Returning a **new** object vs mutating the input through shared references
+- Detecting accidental mutation of nested objects/arrays
 
 ## Project catalog
 
 ### 001-safe-normalizer/
 
-Trace alias steps on a shared object; label each step as mutation or reassignment (alias tracker).
+Normalize a user payload into a cleaned copy. Must not mutate the original input object (reference vs value in practice).

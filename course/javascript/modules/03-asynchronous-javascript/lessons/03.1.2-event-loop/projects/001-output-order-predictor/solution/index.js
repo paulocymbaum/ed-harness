@@ -1,14 +1,7 @@
 /**
- * Output Order Predictor
- *
- * Entrypoint: node starter/index.js
- * Implement the behavior described in ../README.md
+ * Output Order Predictor — reference solution
  */
 
-/**
- * Harness: log() records labels tagged by the current phase.
- * scheduleMicro / scheduleTask flip the phase when their callbacks run.
- */
 function createHarness() {
   let phase = "sync";
   const order = [];
@@ -65,30 +58,42 @@ function formatSnippet(name, observed, explanation) {
   ].join("\n");
 }
 
-/** @param {{ log: Function, scheduleMicro: Function, scheduleTask: Function, done: Function }} h */
-function runBasic(h) {
-  // TODO: A (sync), micro (microtask), timer (task + done()), B (sync)
-  throw new Error("Not implemented");
+function runBasic({ log, scheduleMicro, scheduleTask, done }) {
+  log("A");
+  scheduleMicro(() => log("micro"));
+  scheduleTask(() => {
+    log("timer");
+    done();
+  });
+  log("B");
 }
 
-/** @param {{ log: Function, scheduleMicro: Function, scheduleTask: Function, done: Function }} h */
-function runAsyncAwait(h) {
-  // TODO: A (sync), scheduleMicro for B, C (sync), and finish after B
-  // Hint: scheduleTask(done) is wrong here — finish from the microtask after logging B,
-  // or schedule a zero timer only to call done after micros drain.
-  throw new Error("Not implemented");
+function runAsyncAwait({ log, scheduleMicro, scheduleTask, done }) {
+  log("A");
+  scheduleMicro(() => log("B"));
+  log("C");
+  scheduleTask(() => done());
 }
 
-/** @param {{ log: Function, scheduleMicro: Function, scheduleTask: Function, done: Function }} h */
-function runChainedMicrotasks(h) {
-  // TODO: m1 schedules m2; t1 is a task that calls done()
-  throw new Error("Not implemented");
+function runChainedMicrotasks({ log, scheduleMicro, scheduleTask, done }) {
+  scheduleMicro(() => {
+    log("m1");
+    scheduleMicro(() => log("m2"));
+  });
+  scheduleTask(() => {
+    log("t1");
+    done();
+  });
 }
 
-/** @param {{ log: Function, scheduleMicro: Function, scheduleTask: Function, done: Function }} h */
-function runTrick(h) {
-  // TODO: start, micro, timer(+done), end
-  throw new Error("Not implemented");
+function runTrick({ log, scheduleMicro, scheduleTask, done }) {
+  log("start");
+  scheduleMicro(() => log("micro"));
+  scheduleTask(() => {
+    log("timer");
+    done();
+  });
+  log("end");
 }
 
 async function main() {

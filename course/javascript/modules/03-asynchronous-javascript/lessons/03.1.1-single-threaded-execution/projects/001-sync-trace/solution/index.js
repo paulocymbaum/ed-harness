@@ -1,13 +1,9 @@
 /**
- * Sync Trace
- *
- * Entrypoint: node starter/index.js
- * Implement the behavior described in ../README.md
+ * Sync Trace — reference solution
  */
 
 const readline = require("readline");
 
-/** Op graphs — walk these; do not hardcode answer strings. */
 const SNIPPETS = {
   basic: [
     { type: "log", label: "A" },
@@ -31,14 +27,12 @@ const SNIPPETS = {
   ],
 };
 
-/**
- * Return labels that run in the sync phase only.
- * @param {Array<{ type: string, label: string, body?: unknown[] }>} ops
- * @returns {string[]}
- */
 function syncOrder(ops) {
-  // TODO: collect type:"log" labels; skip type:"timeout" (and do not walk body)
-  throw new Error("Not implemented");
+  const labels = [];
+  for (const op of ops) {
+    if (op.type === "log") labels.push(op.label);
+  }
+  return labels;
 }
 
 async function main() {
@@ -49,8 +43,7 @@ async function main() {
     if (!ops) {
       process.stdout.write("ERROR: unknown snippet\n");
     } else {
-      const labels = syncOrder(ops);
-      process.stdout.write("Sync order: " + labels.join(" ") + "\n");
+      process.stdout.write("Sync order: " + syncOrder(ops).join(" ") + "\n");
     }
     break;
   }

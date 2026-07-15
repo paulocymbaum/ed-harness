@@ -1,8 +1,5 @@
 /**
- * Equality Judge
- *
- * Entrypoint: node starter/index.js
- * Implement the behavior described in ../README.md
+ * Equality Judge — reference solution
  */
 
 const readline = require("readline");
@@ -14,9 +11,10 @@ function parseValue(line) {
 }
 
 function judge(a, b) {
-  // TODO: return array of three lines:
-  // "loose: <bool>", "strict: <bool>", and prefer line for == vs ===
-  throw new Error("Not implemented");
+  const loose = a == b;
+  const strict = a === b;
+  const prefer = loose !== strict ? "prefer: ===" : "prefer: either (same result)";
+  return ["loose: " + loose, "strict: " + strict, prefer];
 }
 
 function runDemo() {
