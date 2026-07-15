@@ -3,7 +3,14 @@
 		{
 			"name": "EdHarness",
 			"path": "."
+		},
+		{
+			"name": "Landing",
+			"path": "../landing_page"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"git.autoRepositoryDetection": true,
+		"git.repositoryScanMaxDepth": 1
+	}
 }
