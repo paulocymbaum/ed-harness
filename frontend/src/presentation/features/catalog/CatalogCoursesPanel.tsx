@@ -45,7 +45,7 @@ export function CatalogCoursesPanel(props: {
 
       {props.courses.length === 0 ? <CatalogEmptyState /> : null}
 
-      <div className="grid grid-cols-1 gap-3 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-3 lg:grid-cols-2" data-tour="course-list">
         {props.courses.map((course) => (
           <CourseCard
             key={course.id}

@@ -248,6 +248,28 @@ export const en = {
   "error.quizNotFound": "Quiz not found.",
   "error.projectNotFound": "Project not found.",
   "error.loadCatalogDetailed": "Failed to load course catalog.",
+
+  "tour.progress": "Step {current} of {total}",
+  "tour.next": "Next",
+  "tour.back": "Back",
+  "tour.skip": "Skip tour",
+  "tour.done": "Start studying",
+  "tour.welcome.title": "This is the real study UI",
+  "tour.welcome.body":
+    "You are in EdHarness itself — catalog, progress, and lessons run locally in this app.",
+  "tour.locale.title": "Study language",
+  "tour.locale.body":
+    "Switch the UI language anytime. Arriving from the landing page already applies the language you chose there.",
+  "tour.pomodoro.title": "Focus timer",
+  "tour.pomodoro.body": "Start a Pomodoro session when you want structured focus while you learn.",
+  "tour.theme.title": "Light or dark",
+  "tour.theme.body": "Pick a theme that keeps long study sessions comfortable.",
+  "tour.tabs.title": "Courses and content map",
+  "tour.tabs.body": "Browse the course list or open the graph-based content map of the curriculum.",
+  "tour.dashboard.title": "Learner dashboard",
+  "tour.dashboard.body": "Streak and weekly activity stay visible so daily practice compounds.",
+  "tour.courses.title": "Open a course",
+  "tour.courses.body": "Pick a course card to enter modules, lessons, quizzes, and projects.",
 } as const;
 
 export type TranslationKey = keyof typeof en;

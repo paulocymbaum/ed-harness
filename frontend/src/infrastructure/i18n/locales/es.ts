@@ -252,6 +252,28 @@ export const es: TranslationDictionary = {
   "error.quizNotFound": "Quiz no encontrado.",
   "error.projectNotFound": "Proyecto no encontrado.",
   "error.loadCatalogDetailed": "No se pudo cargar el catálogo del curso.",
+
+  "tour.progress": "Paso {current} de {total}",
+  "tour.next": "Siguiente",
+  "tour.back": "Atrás",
+  "tour.skip": "Saltar tour",
+  "tour.done": "Empezar a estudiar",
+  "tour.welcome.title": "Esta es la UI real de estudio",
+  "tour.welcome.body":
+    "Estás en EdHarness — catálogo, progreso y lecciones corren en local en esta app.",
+  "tour.locale.title": "Idioma de estudio",
+  "tour.locale.body":
+    "Cambia el idioma de la interfaz cuando quieras. Al llegar desde la landing, ya se aplica el idioma elegido.",
+  "tour.pomodoro.title": "Temporizador de foco",
+  "tour.pomodoro.body": "Inicia un Pomodoro cuando quieras foco estructurado mientras aprendes.",
+  "tour.theme.title": "Claro u oscuro",
+  "tour.theme.body": "Elige un tema cómodo para sesiones largas de estudio.",
+  "tour.tabs.title": "Cursos y mapa de contenido",
+  "tour.tabs.body": "Explora la lista de cursos o abre el mapa en grafo del currículo.",
+  "tour.dashboard.title": "Panel del aprendiz",
+  "tour.dashboard.body": "Racha y actividad semanal se mantienen visibles para que la práctica diaria sume.",
+  "tour.courses.title": "Abre un curso",
+  "tour.courses.body": "Elige una tarjeta para entrar en módulos, lecciones, quizzes y proyectos.",
 };
 
 export const esWithFallback: TranslationDictionary = { ...en, ...es };

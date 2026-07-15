@@ -11,7 +11,7 @@ export function LearnerDashboard(props: {
   const { t } = useTranslation();
 
   return (
-    <section className="grid gap-3" aria-label={t("dashboard.ariaLabel")}>
+    <section className="grid gap-3" aria-label={t("dashboard.ariaLabel")} data-tour="dashboard">
       <div className="grid gap-3 sm:grid-cols-2">
         <StreakCard streak={props.streak} />
         <ActivityMeter

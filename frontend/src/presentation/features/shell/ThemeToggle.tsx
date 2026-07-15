@@ -21,6 +21,7 @@ export function ThemeToggle() {
       className="inline-flex rounded-panel border border-border0 bg-surfacePanel p-0.5"
       role="group"
       aria-label={t("theme.label")}
+      data-tour="theme"
     >
       {OPTIONS.map((option) => (
         <Button

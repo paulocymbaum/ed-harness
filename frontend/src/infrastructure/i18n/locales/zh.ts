@@ -249,6 +249,26 @@ export const zh: TranslationDictionary = {
   "error.quizNotFound": "未找到测验。",
   "error.projectNotFound": "未找到项目。",
   "error.loadCatalogDetailed": "加载课程目录失败。",
+
+  "tour.progress": "第 {current} / {total} 步",
+  "tour.next": "下一步",
+  "tour.back": "上一步",
+  "tour.skip": "跳过导览",
+  "tour.done": "开始学习",
+  "tour.welcome.title": "这就是真实的学习界面",
+  "tour.welcome.body": "你正处在 EdHarness 本应用中——目录、进度与课程都在本地运行。",
+  "tour.locale.title": "学习语言",
+  "tour.locale.body": "可随时切换界面语言。从落地页进入时，会沿用你在落地页选择的语言。",
+  "tour.pomodoro.title": "专注计时器",
+  "tour.pomodoro.body": "需要结构化专注时，可以启动番茄钟会话。",
+  "tour.theme.title": "浅色或深色",
+  "tour.theme.body": "选择适合长时间学习的主题。",
+  "tour.tabs.title": "课程与内容地图",
+  "tour.tabs.body": "浏览课程列表，或打开基于图谱的课程内容地图。",
+  "tour.dashboard.title": "学习者仪表盘",
+  "tour.dashboard.body": "连续天数与每周活动一目了然，帮助每日练习积累。",
+  "tour.courses.title": "打开一门课程",
+  "tour.courses.body": "点击课程卡片进入模块、课时、测验与项目。",
 };
 
 export const zhWithFallback: TranslationDictionary = { ...en, ...zh };

@@ -28,6 +28,7 @@ export function LanguageSelector() {
         <button
           id={triggerId}
           type="button"
+          data-tour="locale"
           aria-expanded={isOpen}
           aria-controls={panelId}
           aria-haspopup="listbox"

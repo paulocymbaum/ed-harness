@@ -8,7 +8,10 @@ export function AppTopBar() {
   const { t } = useTranslation();
 
   return (
-    <div className="relative z-50 shrink-0 overflow-visible border-b border-border0 bg-glassFillStrong backdrop-blur-[var(--blur-2)]">
+    <div
+      className="relative z-50 shrink-0 overflow-visible border-b border-border0 bg-glassFillStrong backdrop-blur-[var(--blur-2)]"
+      data-tour="topbar"
+    >
       <Container className="flex h-12 items-center justify-between gap-3 overflow-visible">
         <span className="truncate text-meta font-semibold text-text0">{t("app.title")}</span>
         <div className="flex shrink-0 items-center gap-2">

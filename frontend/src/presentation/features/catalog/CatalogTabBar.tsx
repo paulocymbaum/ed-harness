@@ -19,7 +19,10 @@ export function CatalogTabBar(props: {
   ];
 
   return (
-    <div className="flex shrink-0 flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+    <div
+      className="flex shrink-0 flex-col gap-3 lg:flex-row lg:items-center lg:justify-between"
+      data-tour="catalog-tabs"
+    >
       <Tabs
         items={tabItems}
         value={props.value}
