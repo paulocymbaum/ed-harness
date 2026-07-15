@@ -134,24 +134,72 @@
       "label": "01.8.5 null, undefined, == null, ?., ??"
     },
     {
-      "id": "n_6efb347985",
-      "label": "02 Objects, References and Copying"
+      "id": "n_f1251f77cc",
+      "label": "02 Objects"
     },
     {
-      "id": "n_c143ec0f70",
-      "label": "02.1 Reference vs Value"
+      "id": "n_c2b342f569",
+      "label": "02.1 Creating and Reading Objects"
     },
     {
-      "id": "n_fd5112ba23",
-      "label": "02.2 Shallow vs Deep Copy"
+      "id": "n_73bc846ba5",
+      "label": "02.1.1 Object Literals and Property Access"
     },
     {
-      "id": "n_facb83951b",
-      "label": "02.3 structuredClone"
+      "id": "n_a77693031f",
+      "label": "02.1.2 Computed Keys and Shorthand"
     },
     {
-      "id": "n_472f295537",
-      "label": "02.4 Object.hasOwn"
+      "id": "n_1c0b6b4518",
+      "label": "02.1.3 Object Destructuring"
+    },
+    {
+      "id": "n_6f9a3dded1",
+      "label": "02.2 Object Static Methods"
+    },
+    {
+      "id": "n_2e4e647d07",
+      "label": "02.2.1 Object.keys values and entries"
+    },
+    {
+      "id": "n_ed6e5d1123",
+      "label": "02.2.2 Object.fromEntries"
+    },
+    {
+      "id": "n_e2f4e71392",
+      "label": "02.2.3 Object.assign and Merging"
+    },
+    {
+      "id": "n_4c16df50b6",
+      "label": "02.3 References and Copying"
+    },
+    {
+      "id": "n_77b20f606f",
+      "label": "02.3.1 Reference vs Value"
+    },
+    {
+      "id": "n_29297b7812",
+      "label": "02.3.2 Shallow vs Deep Copy"
+    },
+    {
+      "id": "n_7134d5a2a3",
+      "label": "02.3.3 structuredClone"
+    },
+    {
+      "id": "n_04ccf25e9b",
+      "label": "02.4 JSON and Ownership"
+    },
+    {
+      "id": "n_36aebe260c",
+      "label": "02.4.1 JSON.stringify and parse"
+    },
+    {
+      "id": "n_f20e11c45c",
+      "label": "02.4.2 Common JSON Cases and Pitfalls"
+    },
+    {
+      "id": "n_40ec7277c2",
+      "label": "02.4.3 Object.hasOwn"
     },
     {
       "id": "n_a377ed445c",
@@ -441,23 +489,71 @@
     },
     {
       "from": "n_87c0f70ade",
-      "to": "n_6efb347985"
+      "to": "n_f1251f77cc"
     },
     {
-      "from": "n_6efb347985",
-      "to": "n_c143ec0f70"
+      "from": "n_f1251f77cc",
+      "to": "n_c2b342f569"
     },
     {
-      "from": "n_6efb347985",
-      "to": "n_fd5112ba23"
+      "from": "n_c2b342f569",
+      "to": "n_73bc846ba5"
     },
     {
-      "from": "n_6efb347985",
-      "to": "n_facb83951b"
+      "from": "n_c2b342f569",
+      "to": "n_a77693031f"
     },
     {
-      "from": "n_6efb347985",
-      "to": "n_472f295537"
+      "from": "n_c2b342f569",
+      "to": "n_1c0b6b4518"
+    },
+    {
+      "from": "n_f1251f77cc",
+      "to": "n_6f9a3dded1"
+    },
+    {
+      "from": "n_6f9a3dded1",
+      "to": "n_2e4e647d07"
+    },
+    {
+      "from": "n_6f9a3dded1",
+      "to": "n_ed6e5d1123"
+    },
+    {
+      "from": "n_6f9a3dded1",
+      "to": "n_e2f4e71392"
+    },
+    {
+      "from": "n_f1251f77cc",
+      "to": "n_4c16df50b6"
+    },
+    {
+      "from": "n_4c16df50b6",
+      "to": "n_77b20f606f"
+    },
+    {
+      "from": "n_4c16df50b6",
+      "to": "n_29297b7812"
+    },
+    {
+      "from": "n_4c16df50b6",
+      "to": "n_7134d5a2a3"
+    },
+    {
+      "from": "n_f1251f77cc",
+      "to": "n_04ccf25e9b"
+    },
+    {
+      "from": "n_04ccf25e9b",
+      "to": "n_36aebe260c"
+    },
+    {
+      "from": "n_04ccf25e9b",
+      "to": "n_f20e11c45c"
+    },
+    {
+      "from": "n_04ccf25e9b",
+      "to": "n_40ec7277c2"
     },
     {
       "from": "n_87c0f70ade",

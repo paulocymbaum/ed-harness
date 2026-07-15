@@ -32,11 +32,23 @@ mindmap
         01.8.3 Type Coercion (==)
         01.8.4 typeof and Array.isArray
         01.8.5 null, undefined, == null, ?., ??
-    02 Objects, References and Copying
-      02.1 Reference vs Value
-      02.2 Shallow vs Deep Copy
-      02.3 structuredClone
-      02.4 Object.hasOwn
+    02 Objects
+      02.1 Creating and Reading Objects
+        02.1.1 Object Literals and Property Access
+        02.1.2 Computed Keys and Shorthand
+        02.1.3 Object Destructuring
+      02.2 Object Static Methods
+        02.2.1 Object.keys values and entries
+        02.2.2 Object.fromEntries
+        02.2.3 Object.assign and Merging
+      02.3 References and Copying
+        02.3.1 Reference vs Value
+        02.3.2 Shallow vs Deep Copy
+        02.3.3 structuredClone
+      02.4 JSON and Ownership
+        02.4.1 JSON.stringify and parse
+        02.4.2 Common JSON Cases and Pitfalls
+        02.4.3 Object.hasOwn
     03 Asynchronous JavaScript
       03.1 Runtime Model
         03.1.1 Single-Threaded Execution

@@ -1,5 +1,5 @@
 <!-- cursor:teacher:add-explanation (deterministic) -->
-<!-- marker:javascript/02-objects-references-and-copying/02.4-object-hasown:README.md -->
+<!-- marker:javascript/02-objects-references-and-copying/02.4.3-object-hasown:README.md -->
 
 # Object.hasOwn — Own Properties vs Inherited
 

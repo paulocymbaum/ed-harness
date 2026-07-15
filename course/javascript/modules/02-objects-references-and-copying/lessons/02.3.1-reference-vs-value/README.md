@@ -1,9 +1,9 @@
 # Reference vs Value
 
-> Graph index: `02.1`
+> Graph index: `02.3.1`
 
 <!-- cursor:teacher:add-explanation (deterministic) -->
-<!-- marker:02-objects-references-and-copying/02.1-reference-vs-value:README.md -->
+<!-- marker:02-objects-references-and-copying/02.3.1-reference-vs-value:README.md -->
 
 ## Context
 

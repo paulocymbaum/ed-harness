@@ -1,7 +1,7 @@
 {
-  "id": "02.4-object-hasown",
-  "graphIndex": "02.4",
-  "graphNodeId": "n_472f295537",
+  "id": "02.4.3-object-hasown",
+  "graphIndex": "02.4.3",
+  "graphNodeId": "n_40ec7277c2",
   "title": "Object.hasOwn",
   "prerequisites": [],
   "status": "draft"

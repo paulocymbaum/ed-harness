@@ -1,9 +1,9 @@
 # structuredClone
 
-> Graph index: `02.3`
+> Graph index: `02.3.3`
 
 <!-- cursor:teacher:add-explanation (deterministic) -->
-<!-- marker:02-objects-references-and-copying/02.3-structuredclone:README.md -->
+<!-- marker:02-objects-references-and-copying/02.3.3-structuredclone:README.md -->
 
 ## Context
 

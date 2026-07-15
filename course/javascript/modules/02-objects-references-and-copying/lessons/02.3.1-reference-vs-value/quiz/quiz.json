@@ -2,8 +2,8 @@
   "id": "quiz",
   "title": "Reference vs Value Check",
   "description": "Predict when variables share objects vs copy primitives.",
-  "lessonId": "02.1-reference-vs-value",
-  "graphIndex": "02.1",
+  "lessonId": "02.3.1-reference-vs-value",
+  "graphIndex": "02.3.1",
   "questions": [
     {
       "id": "q1",

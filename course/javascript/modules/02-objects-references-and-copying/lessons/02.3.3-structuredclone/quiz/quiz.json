@@ -2,8 +2,8 @@
   "id": "quiz",
   "title": "Deep Copy Check",
   "description": "JSON clone limits vs structuredClone for snapshots.",
-  "lessonId": "02.3-structuredclone",
-  "graphIndex": "02.3",
+  "lessonId": "02.3.3-structuredclone",
+  "graphIndex": "02.3.3",
   "questions": [
     {
       "id": "q1",

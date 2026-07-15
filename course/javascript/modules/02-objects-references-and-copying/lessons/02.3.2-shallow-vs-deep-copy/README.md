@@ -1,9 +1,9 @@
 # Shallow vs Deep Copy
 
-> Graph index: `02.2`
+> Graph index: `02.3.2`
 
 <!-- cursor:teacher:add-explanation (deterministic) -->
-<!-- marker:02-objects-references-and-copying/02.2-shallow-vs-deep-copy:README.md -->
+<!-- marker:02-objects-references-and-copying/02.3.2-shallow-vs-deep-copy:README.md -->
 
 ## Context
 

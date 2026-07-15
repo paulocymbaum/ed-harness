@@ -2,8 +2,8 @@
   "id": "quiz",
   "title": "Object.hasOwn Check",
   "description": "Own properties vs inherited prototype chain.",
-  "lessonId": "02.4-object-hasown",
-  "graphIndex": "02.4",
+  "lessonId": "02.4.3-object-hasown",
+  "graphIndex": "02.4.3",
   "questions": [
     {
       "id": "q1",

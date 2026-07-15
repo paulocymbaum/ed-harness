@@ -2,8 +2,8 @@
   "id": "quiz",
   "title": "Shallow Copy Check",
   "description": "Predict nested sharing with spread and copy-on-write patterns.",
-  "lessonId": "02.2-shallow-vs-deep-copy",
-  "graphIndex": "02.2",
+  "lessonId": "02.3.2-shallow-vs-deep-copy",
+  "graphIndex": "02.3.2",
   "questions": [
     {
       "id": "q1",
