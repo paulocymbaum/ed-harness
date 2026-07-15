@@ -1,0 +1,21 @@
+:root {
+  --surface-page: var(--bg-0);
+  --surface-panel: var(--glass-fill);
+  --surface-control: var(--glass-fill-strong);
+  --surface-modal: var(--glass-fill-strong);
+
+  /* Quiz feedback surfaces */
+  --surface-success: var(--success-fill);
+  --surface-danger: var(--danger-fill);
+  --surface-muted: var(--neutral-muted-fill);
+
+  --border-success: var(--success-border);
+  --border-danger: var(--danger-border);
+
+  --text-on-success: var(--success-text);
+  --text-on-danger: var(--danger-text);
+  --icon-success: var(--success-icon);
+  --icon-danger: var(--danger-icon);
+
+  --surface-accent: var(--accent-fill);
+}
