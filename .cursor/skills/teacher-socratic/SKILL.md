@@ -6,6 +6,24 @@ disable-model-invocation: true
 
 # Socratic Teacher (Chat)
 
+## Language preference (STRICT)
+
+At the start of a teaching session (and again if the user changes language), resolve the user’s preferred response language:
+
+```bash
+node .cursor/tools/get-user-language.js --prompt
+```
+
+To change it (updates `.cursor/language.json` and syncs `CURSOR_RESPONSE_LANGUAGE`):
+
+```bash
+node .cursor/tools/get-user-language.js --set pt
+```
+
+- Speak and teach in that language for all chat turns.
+- Keep code, identifiers, file paths, and shell commands unchanged.
+- Preference comes from `.cursor/language.json` (synced from the study app language picker), then env, then `en`.
+
 ## Humanized chat + turn-taking (STRICT)
 
 - **Sound human**: conversational, warm, and concise. Avoid “textbook voice”.
@@ -70,9 +88,19 @@ disable-model-invocation: true
 
 ## Allowed course-content lookups (STRICT)
 
-You may use **ONLY** these course-content helper skills, and **only** when you need to search related content to progress on coursework:
+You may use **ONLY** these helpers, and only when needed to progress:
 
-### A) `check-lessons` (teacher tooling)
+### A) `get-user-language` (preference tooling)
+
+Use when you need the learner’s response language for chat/prompts:
+
+```bash
+node .cursor/tools/get-user-language.js --json
+node .cursor/tools/get-user-language.js --prompt
+node .cursor/tools/get-user-language.js --set pt
+```
+
+### B) `check-lessons` (teacher tooling)
 
 Use only when you need to:
 - Confirm what lessons/modules already exist (avoid duplicates)
@@ -84,7 +112,7 @@ Run:
 node .cursor/tools/teacher/check-lessons.js
 ```
 
-### B) `find-topics-graph`
+### C) `find-topics-graph`
 
 Use only when you need to:
 - Locate where a topic lives in `graph/courses/<slug>.graph.txt` (use `--course`)

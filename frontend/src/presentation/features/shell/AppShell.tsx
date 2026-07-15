@@ -5,6 +5,7 @@ import { usePomodoroTimer } from "../../../application/hooks/usePomodoroTimer";
 import { useLocaleStore } from "../../../application/stores/localeStore";
 import { useThemeStore, applyThemeToDocument } from "../../../application/stores/themeStore";
 import { applyLocaleToDocument } from "../../../infrastructure/i18n/applyLocaleToDocument";
+import { syncLocaleToCursorConfig } from "../../../infrastructure/i18n/syncLocaleToCursorConfig";
 import { AppTopBar } from "./AppTopBar";
 import { Container } from "./Container";
 
@@ -27,6 +28,7 @@ export function AppShell(props: {
 
   useEffect(() => {
     applyLocaleToDocument(locale);
+    void syncLocaleToCursorConfig(locale);
   }, [locale]);
 
   return (
