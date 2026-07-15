@@ -17,7 +17,7 @@ export const useThemeStore = create<ThemeState>()(
         set({ theme: get().theme === "dark" ? "light" : "dark" });
       },
     }),
-    { name: "hackerrank-study-theme" },
+    { name: "ed-harness-theme" },
   ),
 );
 
@@ -28,7 +28,7 @@ export function applyThemeToDocument(theme: AppTheme): void {
 
 export function readPersistedTheme(): AppTheme | null {
   try {
-    const raw = localStorage.getItem("hackerrank-study-theme");
+    const raw = localStorage.getItem("ed-harness-theme");
     if (!raw) return null;
     const parsed = JSON.parse(raw) as { state?: { theme?: unknown } };
     const theme = parsed?.state?.theme;

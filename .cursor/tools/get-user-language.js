@@ -53,7 +53,7 @@ function resolveLanguage() {
 
   const fromEnv =
     normalizeLanguage(process.env.CURSOR_RESPONSE_LANGUAGE) ||
-    normalizeLanguage(process.env.HACKERRANK_STUDY_LANGUAGE);
+    normalizeLanguage(process.env.ED_HARNESS_LANGUAGE);
   if (fromEnv) {
     return {
       language: fromEnv,

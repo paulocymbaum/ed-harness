@@ -1,6 +1,6 @@
 ---
 name: find-topics-graph
-description: Finds topics inside a per-course Hackerrank Study graph under `graph/courses/<slug>.graph.txt` by rendering it into JSON and traversing with BFS/DFS. Use when the user asks to locate a topic, list prerequisites/children, search the mindmap for a label (e.g. "Closures", "Promises"), or resolve a node by hierarchical index (e.g. "01.2.1", "03.2.1"). Always pass `--course <slug>`.
+description: Finds topics inside a per-course EdHarness graph under `graph/courses/<slug>.graph.txt` by rendering it into JSON and traversing with BFS/DFS. Use when the user asks to locate a topic, list prerequisites/children, search the mindmap for a label (e.g. "Closures", "Promises"), or resolve a node by hierarchical index (e.g. "01.2.1", "03.2.1"). Always pass `--course <slug>`.
 disable-model-invocation: true
 ---
 

@@ -62,6 +62,6 @@ export const useProjectProgressStore = create<ProjectProgressState>()(
         }));
       },
     }),
-    { name: "hackerrank-study-project-progress" },
+    { name: "ed-harness-project-progress" },
   ),
 );

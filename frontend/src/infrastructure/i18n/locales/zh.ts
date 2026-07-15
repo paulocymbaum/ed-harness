@@ -2,7 +2,7 @@ import type { TranslationDictionary } from "./en";
 import { en } from "./en";
 
 export const zh: TranslationDictionary = {
-  "app.title": "Hackerrank Study",
+  "app.title": "EdHarness",
 
   "nav.catalog": "目录",
   "nav.skipToContent": "跳转到内容",

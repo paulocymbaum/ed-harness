@@ -1,5 +1,5 @@
 /**
- * Single source of truth for PBL project structure in Hackerrank Study.
+ * Single source of truth for PBL project structure in EdHarness.
  * Used by collect-project-context.mjs and validate-project.mjs.
  */
 

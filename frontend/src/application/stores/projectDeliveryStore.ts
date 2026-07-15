@@ -159,7 +159,7 @@ export const useProjectDeliveryStore = create<ProjectDeliveryState>()(
       },
     }),
     {
-      name: "hackerrank-study-project-deliveries",
+      name: "ed-harness-project-deliveries",
       partialize: (state) => ({
         deliveriesByKey: state.deliveriesByKey,
         metaByKey: state.metaByKey,

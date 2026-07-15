@@ -49,6 +49,6 @@ export const useQuizProgressStore = create<QuizProgressState>()(
         }));
       },
     }),
-    { name: "hackerrank-study-quiz-progress" },
+    { name: "ed-harness-quiz-progress" },
   ),
 );

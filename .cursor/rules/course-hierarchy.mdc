@@ -1,5 +1,5 @@
 ---
-description: Course > Module > Lesson hierarchy contract for Hackerrank Study content authoring
+description: Course > Module > Lesson hierarchy contract for EdHarness content authoring
 globs:
   - course/**
   - graph/**

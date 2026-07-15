@@ -1,6 +1,6 @@
 # Arquitetura Frontend — Navegação Fluida para Estudo
 
-Este documento descreve a **arquitetura modular** do frontend do Hackerrank Study, com foco em **como o aluno navega** pelo conteúdo sem perder contexto.
+Este documento descreve a **arquitetura modular** do frontend do EdHarness, com foco em **como o aluno navega** pelo conteúdo sem perder contexto.
 
 Complementa [`ARCHITECTURE.md`](./ARCHITECTURE.md) (rotas e camadas técnicas), [`../COURSE_STRUCTURE.md`](../COURSE_STRUCTURE.md) (hierarquia de conteúdo no disco) e [`DESIGN.md`](./DESIGN.md) (linguagem visual).
 

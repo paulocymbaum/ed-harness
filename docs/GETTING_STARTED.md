@@ -1,6 +1,6 @@
 # Getting Started
 
-Operational guide for learners and content authors using the Hackerrank Study **educational harness** and **interactive UI**.
+Operational guide for learners and content authors using the EdHarness **educational harness** and **interactive UI**.
 
 ← Back to [README](../README.md) for project overview and architecture.
 

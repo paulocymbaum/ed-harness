@@ -2,7 +2,7 @@ import type { TranslationDictionary } from "./en";
 import { en } from "./en";
 
 export const pt: TranslationDictionary = {
-  "app.title": "Hackerrank Study",
+  "app.title": "EdHarness",
 
   "nav.catalog": "Catálogo",
   "nav.skipToContent": "Ir para o conteúdo",

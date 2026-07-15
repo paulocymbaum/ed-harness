@@ -1,5 +1,5 @@
 export const en = {
-  "app.title": "Hackerrank Study",
+  "app.title": "EdHarness",
 
   "nav.catalog": "Catalog",
   "nav.skipToContent": "Skip to content",

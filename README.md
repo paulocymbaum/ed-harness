@@ -1,4 +1,4 @@
-# Hackerrank Study
+# EdHarness
 
 **Open-source educational harness & interactive UI for self-directed coding mastery through Project-Based Learning — with AI that helps humans learn.**
 
@@ -98,7 +98,7 @@ The study app and the Cursor agent share one language preference so tutoring and
 | `es` | Spanish |
 | `zh` | Chinese |
 
-**In the app:** use the language control in the top bar. The choice is stored in browser state (`hackerrank-study-locale`) and applied to chrome, labels, and document `lang`.
+**In the app:** use the language control in the top bar. The choice is stored in browser state (`ed-harness-locale`) and applied to chrome, labels, and document `lang`.
 
 **Bridge to Cursor (dev server):** when Vite is running, changing (or loading) the locale POSTs to `/api/locale`, which writes [`.cursor/language.json`](.cursor/language.json). That file is the source of truth for agent prompts.
 
@@ -120,7 +120,7 @@ flowchart LR
 | Tool | [`.cursor/tools/get-user-language.js`](.cursor/tools/get-user-language.js) | Resolves preference (`language.json` → env → `en`); `--prompt` / `--set` |
 | Hooks | [`.cursor/hooks.json`](.cursor/hooks.json) | Injects `CURSOR_RESPONSE_LANGUAGE` and response-language context into agent sessions |
 
-**Resolution order for the agent:** `.cursor/language.json` (platform sync) → `CURSOR_RESPONSE_LANGUAGE` / `HACKERRANK_STUDY_LANGUAGE` → `en`.
+**Resolution order for the agent:** `.cursor/language.json` (platform sync) → `CURSOR_RESPONSE_LANGUAGE` / `ED_HARNESS_LANGUAGE` → `en`.
 
 **Typical flow:** `npm run dev` → pick a language in the UI → start a **new** Cursor chat (or wait for the hook refresh after the file changes) so the tutor answers in that language. Manual override without the UI:
 
@@ -227,11 +227,12 @@ From the repo root: `npm run dev` and `npm run catalog:generate` delegate to `fr
 ## Repository map
 
 ```text
-hackerrank-study/
+ed-harness/
 ├── course/                 # Lessons, PBL projects, quizzes
 │   └── javascript/         # Main course (fundamentals → async)
 ├── graph/                  # Topic taxonomy (source of truth)
 ├── frontend/               # Interactive UI (Vite + React)
+├── landing_page/           # Open-source promo landing (open index.html)
 ├── scripts/ + tests/       # Harness: validation, graph sync, integration tests
 └── .cursor/
     ├── language.json       # UI↔agent language preference (synced via /api/locale)
@@ -249,9 +250,12 @@ hackerrank-study/
 |-----|----------|
 | [**Getting Started**](docs/GETTING_STARTED.md) | Setup, workflow, routes, Cursor skills, commands |
 | [COURSE_STRUCTURE.md](COURSE_STRUCTURE.md) | Content hierarchy and metadata contract |
+| [landing_page/LANDINGPAGE_STYLE.md](landing_page/LANDINGPAGE_STYLE.md) | Open-source landing: brand, visual system, UX journey |
+| [landing_page/LANDINGPAGE_WIREFRAME.md](landing_page/LANDINGPAGE_WIREFRAME.md) | Landing ASCII wireframes and per-section design notes |
+| [landing_page/index.html](landing_page/index.html) | Open in a browser to preview the landing page |
 | [frontend/ARCHITECTURE-FRONT.md](frontend/ARCHITECTURE-FRONT.md) | Learner navigation journey |
 | [frontend/ARCHITECTURE.md](frontend/ARCHITECTURE.md) | Routes, layers, score persistence |
-| [frontend/DESIGN.md](frontend/DESIGN.md) | Design tokens, glass UI, quiz feedback |
+| [frontend/DESIGN.md](frontend/DESIGN.md) | In-app design tokens, glass UI, quiz feedback |
 | [docs/meta-schemas.md](docs/meta-schemas.md) | `*.meta.json` schemas |
 
 ---
