@@ -235,6 +235,18 @@ export const zh: TranslationDictionary = {
   "quiz.attemptsSuffix": " · {count} 次尝试",
   "quiz.upToPoints": "最多 {points} 分",
   "quiz.questionNumber": "第 {number} 题",
+  "quiz.previous": "上一题",
+  "quiz.next": "下一题",
+  "quiz.checkAnswer": "检查答案",
+  "quiz.finish": "完成测验",
+
+  "foco.voltarLicao": "返回课程",
+  "foco.abaEnunciado": "题目",
+  "foco.abaResposta": "作答",
+  "foco.abaLicao": "课文",
+  "foco.abasMobile": "活动视图",
+  "foco.abasContexto": "上下文视图",
+  "foco.divisor": "调整面板大小",
 
   "score.quizInline": "测验 {value}",
   "score.projectsInline": "项目 {value}",

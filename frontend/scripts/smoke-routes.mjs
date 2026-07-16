@@ -4,6 +4,8 @@ const rotasEsperadas = [
   "/course/javascript",
   "/course/javascript/module/01-javascript-fundamentals",
   "/course/javascript/module/01-javascript-fundamentals/lesson/01.1.1-running-javascript-node-js",
+  "/course/javascript/module/01-javascript-fundamentals/lesson/01.8.1-truthy-vs-falsy/quiz/quiz-truthy-falsy",
+  "/course/javascript/module/01-javascript-fundamentals/lesson/01.8.1-truthy-vs-falsy/project/001-cli-input-validator",
 ];
 
 console.log("Smoke routes — paths esperados no AppRouter:");

@@ -20,14 +20,10 @@ function getOptionState(args: {
 }
 
 const OPTION_STYLES: Record<OptionVisualState, string> = {
-  default:
-    "border-border0 bg-surfacePanel text-text0 hover:brightness-[1.03]",
-  selected:
-    "border-accent0/50 bg-surfaceControl text-text0 shadow-glass1",
-  correct:
-    "border-successBorder bg-successFill text-text0 ring-1 ring-successBorder/30",
-  incorrect:
-    "border-dangerBorder bg-dangerFill text-text0 ring-1 ring-dangerBorder/30",
+  default: "border-border0 bg-surfacePanel text-text0 hover:brightness-[1.03]",
+  selected: "border-accent0/50 bg-surfaceControl text-text0 shadow-glass1",
+  correct: "border-successBorder bg-successFill text-text0 ring-1 ring-successBorder/30",
+  incorrect: "border-dangerBorder bg-dangerFill text-text0 ring-1 ring-dangerBorder/30",
   muted: "border-border0 bg-surfaceMuted text-text1 opacity-75",
 };
 
@@ -42,6 +38,54 @@ export function QuizQuestionView(props: {
   const { question, selectedOptionId, isChecked } = props;
   const isCorrect = selectedOptionId === question.correctOptionId;
 
+  const opcoes = (
+    <ul className="m-0 grid gap-2 p-0" role="listbox" aria-label={t("quiz.answerOptions")}>
+      {question.options.map((option) => {
+        const isSelected = selectedOptionId === option.id;
+        const isCorrectOption = option.id === question.correctOptionId;
+        const state = getOptionState({ isChecked, isSelected, isCorrectOption });
+
+        return (
+          <li key={option.id} className="list-none" role="presentation">
+            <button
+              type="button"
+              disabled={isChecked}
+              onClick={() => props.onSelect(option.id)}
+              className={clsx(
+                "flex min-h-11 w-full items-start gap-3 rounded-panel border px-3 py-3 text-left transition",
+                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent0/60",
+                OPTION_STYLES[state],
+              )}
+              aria-pressed={isSelected}
+              role="option"
+              aria-selected={isSelected}
+            >
+              <span
+                className={clsx(
+                  "mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-pill border font-mono text-meta uppercase",
+                  state === "correct" && "border-successBorder bg-successFill text-successText",
+                  state === "incorrect" && "border-dangerBorder bg-dangerFill text-dangerText",
+                  state === "selected" && "border-accent0/40 bg-glassTint text-text0",
+                  (state === "default" || state === "muted") &&
+                    "border-border0 bg-surfaceControl text-text1",
+                )}
+              >
+                {state === "correct" ? (
+                  <Icon icon={CheckCircle2} size={14} className="text-successIcon" />
+                ) : state === "incorrect" ? (
+                  <Icon icon={XCircle} size={14} className="text-dangerIcon" />
+                ) : (
+                  option.id
+                )}
+              </span>
+              <span className="text-body">{option.text}</span>
+            </button>
+          </li>
+        );
+      })}
+    </ul>
+  );
+
   return (
     <Card variant="panel" className="grid gap-4 p-4">
       <div className="text-meta font-semibold text-text1">
@@ -49,53 +93,7 @@ export function QuizQuestionView(props: {
       </div>
       <MarkdownView markdown={question.prompt} />
 
-      <ul className="m-0 grid gap-2 p-0" role="listbox" aria-label={t("quiz.answerOptions")}>
-        {question.options.map((option) => {
-          const isSelected = selectedOptionId === option.id;
-          const isCorrectOption = option.id === question.correctOptionId;
-          const state = getOptionState({ isChecked, isSelected, isCorrectOption });
-
-          return (
-            <li key={option.id} className="list-none" role="presentation">
-              <button
-                type="button"
-                disabled={isChecked}
-                onClick={() => props.onSelect(option.id)}
-                className={clsx(
-                  "flex min-h-11 w-full items-start gap-3 rounded-panel border px-3 py-3 text-left transition",
-                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent0/60",
-                  OPTION_STYLES[state],
-                )}
-                aria-pressed={isSelected}
-                role="option"
-                aria-selected={isSelected}
-              >
-                <span
-                  className={clsx(
-                    "mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-pill border font-mono text-meta uppercase",
-                    state === "correct" &&
-                      "border-successBorder bg-successFill text-successText",
-                    state === "incorrect" &&
-                      "border-dangerBorder bg-dangerFill text-dangerText",
-                    state === "selected" && "border-accent0/40 bg-glassTint text-text0",
-                    (state === "default" || state === "muted") &&
-                      "border-border0 bg-surfaceControl text-text1",
-                  )}
-                >
-                  {state === "correct" ? (
-                    <Icon icon={CheckCircle2} size={14} className="text-successIcon" />
-                  ) : state === "incorrect" ? (
-                    <Icon icon={XCircle} size={14} className="text-dangerIcon" />
-                  ) : (
-                    option.id
-                  )}
-                </span>
-                <span className="text-body">{option.text}</span>
-              </button>
-            </li>
-          );
-        })}
-      </ul>
+      {opcoes}
 
       {isChecked && question.explanation ? (
         <div

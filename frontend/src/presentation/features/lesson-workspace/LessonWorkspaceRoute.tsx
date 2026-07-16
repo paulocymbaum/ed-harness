@@ -1,5 +1,4 @@
-import { useParams, useSearchParams } from "react-router-dom";
-import { useQuizSessionFromUrl } from "../../../application/hooks/useQuizSessionFromUrl";
+import { Navigate, useParams, useSearchParams } from "react-router-dom";
 import { useTranslation } from "../../../application/hooks/useTranslation";
 import {
   getLessonById,
@@ -8,10 +7,9 @@ import {
 } from "../../../application/selectors/catalogSelectors";
 import { findQuizInList } from "../../../application/selectors/quizSelectors";
 import { useAppNavigation } from "../../../application/hooks/useAppNavigation";
-import { Drawer, ErrorPanel } from "../../design-system";
+import { redirecionarDrawerLegado } from "../../../application/navigation/redirecionarDrawerLegado";
+import { ErrorPanel } from "../../design-system";
 import { LessonExplanationPanel } from "./components/LessonExplanationPanel";
-import { ProjectReader } from "../content-reader/ProjectReader";
-import { QuizHost } from "../quiz/components/QuizHost";
 import { useModuleLayoutContext } from "../module-experience/ModuleLayoutContext";
 
 export function LessonWorkspaceRoute() {
@@ -19,20 +17,11 @@ export function LessonWorkspaceRoute() {
   const { courseId, moduleId, course } = useModuleLayoutContext();
   const { lessonId = "" } = useParams();
   const [searchParams] = useSearchParams();
-  const { closeLessonDrawer, setLessonDrawerTab, parseDrawerMode, parseDrawerTab } =
-    useAppNavigation();
+  const { parseDrawerMode } = useAppNavigation();
 
   const drawerMode = parseDrawerMode(searchParams.get("drawer"));
-  const drawerTab = parseDrawerTab(searchParams.get("drawerTab"));
   const activeQuizId = searchParams.get("quiz");
   const activeProjectId = searchParams.get("project");
-
-  useQuizSessionFromUrl({
-    quizId: activeQuizId,
-    lessonId,
-    moduleId,
-    enabled: drawerMode === "quiz" && Boolean(activeQuizId),
-  });
 
   const lesson = getLessonById(course, moduleId, lessonId);
   if (!lesson) {
@@ -41,65 +30,33 @@ export function LessonWorkspaceRoute() {
 
   const lessonQuizzes = getQuizzesForLesson(course, moduleId, lessonId);
   const lessonProjects = getProjectsForLesson(course, moduleId, lessonId);
+  const quizExists = Boolean(
+    activeQuizId && findQuizInList(lessonQuizzes, activeQuizId),
+  );
+  const projectExists = Boolean(
+    activeProjectId && lessonProjects.some((p) => p.id === activeProjectId),
+  );
 
-  const activeQuiz = activeQuizId ? findQuizInList(lessonQuizzes, activeQuizId) : null;
-  const activeProject = activeProjectId
-    ? lessonProjects.find((p) => p.id === activeProjectId) ?? null
-    : null;
+  const destinoLegado = redirecionarDrawerLegado({
+    courseId,
+    moduleId,
+    lessonId,
+    drawerMode,
+    activeQuizId,
+    activeProjectId,
+    quizExists,
+    projectExists,
+  });
 
-  const drawerOpen = drawerMode === "quiz" || drawerMode === "project";
-  const drawerTitle =
-    drawerMode === "quiz"
-      ? (activeQuiz?.title ?? t("quiz.title"))
-      : drawerMode === "project"
-        ? (activeProject?.title ?? t("project.title"))
-        : undefined;
+  if (destinoLegado) {
+    return <Navigate to={destinoLegado} replace />;
+  }
 
   return (
-    <section
-      className={
-        drawerOpen
-          ? "flex min-h-0 flex-1 flex-col overflow-hidden lg:flex-row"
-          : "flex min-h-0 flex-1 flex-col overflow-hidden"
-      }
-    >
-      <main
-        className={
-          drawerOpen
-            ? "hidden min-h-0 min-w-0 flex-1 flex-col overflow-hidden lg:flex"
-            : "flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden"
-        }
-      >
+    <section className="flex min-h-0 flex-1 flex-col overflow-hidden">
+      <main className="flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden">
         <LessonExplanationPanel title={lesson.title} markdown={lesson.markdown} showTitle={false} />
       </main>
-
-      <Drawer
-        open={drawerOpen}
-        onClose={() => closeLessonDrawer(courseId, moduleId, lessonId)}
-        title={drawerTitle}
-        className={drawerOpen ? "lg:min-w-0 lg:flex-1" : undefined}
-      >
-        {drawerMode === "quiz" && activeQuiz ? (
-          <QuizHost
-            layout="drawer"
-            courseId={courseId}
-            course={course}
-            quiz={activeQuiz}
-            onClose={() => closeLessonDrawer(courseId, moduleId, lessonId)}
-          />
-        ) : null}
-        {drawerMode === "project" && activeProject ? (
-          <ProjectReader
-            layout="drawer"
-            courseId={courseId}
-            courseTitle={course.title}
-            project={activeProject}
-            drawerTab={drawerTab}
-            onDrawerTabChange={setLessonDrawerTab}
-            embedded
-          />
-        ) : null}
-      </Drawer>
     </section>
   );
 }

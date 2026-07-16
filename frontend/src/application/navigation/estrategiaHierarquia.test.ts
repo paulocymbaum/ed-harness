@@ -30,19 +30,46 @@ describe("criarEstrategiaHierarquia", () => {
     );
   });
 
-  it("openLessonDrawer includes quiz query params", () => {
+  it("abrirQuizLicao navigates to dedicated quiz path", () => {
     const deps = criarDepsMock();
     const strategy = criarEstrategiaHierarquia(deps);
 
-    strategy.openLessonDrawer(
+    strategy.abrirQuizLicao(
       "javascript",
       "01-fundamentals",
       "01.1.1-lesson",
-      "quiz",
       "quiz-id",
     );
 
-    expect(deps.urls[0]).toContain("drawer=quiz");
-    expect(deps.urls[0]).toContain("quiz=quiz-id");
+    expect(deps.urls[0]).toBe(
+      "/course/javascript/module/01-fundamentals/lesson/01.1.1-lesson/quiz/quiz-id",
+    );
+  });
+
+  it("abrirProjetoLicao navigates to dedicated project path", () => {
+    const deps = criarDepsMock();
+    const strategy = criarEstrategiaHierarquia(deps);
+
+    strategy.abrirProjetoLicao(
+      "javascript",
+      "01-fundamentals",
+      "01.1.1-lesson",
+      "001-project",
+    );
+
+    expect(deps.urls[0]).toBe(
+      "/course/javascript/module/01-fundamentals/lesson/01.1.1-lesson/project/001-project",
+    );
+  });
+
+  it("voltarParaLicao returns to lesson path", () => {
+    const deps = criarDepsMock();
+    const strategy = criarEstrategiaHierarquia(deps);
+
+    strategy.voltarParaLicao("javascript", "01-fundamentals", "01.1.1-lesson");
+
+    expect(deps.urls[0]).toBe(
+      "/course/javascript/module/01-fundamentals/lesson/01.1.1-lesson",
+    );
   });
 });

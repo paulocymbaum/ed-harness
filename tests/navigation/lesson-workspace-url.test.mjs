@@ -1,49 +1,101 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
 
-function buildLessonUrl(courseId, moduleId, lessonId, params = {}) {
-  const base = `/course/${encodeURIComponent(courseId)}/module/${encodeURIComponent(moduleId)}/lesson/${encodeURIComponent(lessonId)}`;
-  const search = new URLSearchParams();
-  if (params.drawer) search.set("drawer", params.drawer);
-  if (params.quiz) search.set("quiz", params.quiz);
-  if (params.project) search.set("project", params.project);
-  if (params.drawerTab) search.set("drawerTab", params.drawerTab);
-  const query = search.toString();
-  return query ? `${base}?${query}` : base;
+function caminhoLicao(courseId, moduleId, lessonId) {
+  return `/course/${encodeURIComponent(courseId)}/module/${encodeURIComponent(moduleId)}/lesson/${encodeURIComponent(lessonId)}`;
 }
 
-function parseLessonDrawer(search) {
-  const params = new URLSearchParams(search);
-  return {
-    drawer: params.get("drawer"),
-    quiz: params.get("quiz"),
-    project: params.get("project"),
-    drawerTab: params.get("drawerTab"),
-  };
+function caminhoQuizLicao(courseId, moduleId, lessonId, quizId) {
+  return `${caminhoLicao(courseId, moduleId, lessonId)}/quiz/${encodeURIComponent(quizId)}`;
 }
 
-describe("lesson workspace URL state", () => {
-  it("round-trips quiz drawer params", () => {
-    const url = buildLessonUrl("javascript", "01-javascript-fundamentals", "01.8.1-truthy-vs-falsy", {
-      drawer: "quiz",
-      quiz: "quiz-truthy-falsy",
-    });
-    const query = url.split("?")[1] ?? "";
-    const parsed = parseLessonDrawer(query);
-    assert.equal(parsed.drawer, "quiz");
-    assert.equal(parsed.quiz, "quiz-truthy-falsy");
+function caminhoProjetoLicao(courseId, moduleId, lessonId, projectId) {
+  return `${caminhoLicao(courseId, moduleId, lessonId)}/project/${encodeURIComponent(projectId)}`;
+}
+
+function redirecionarDrawerLegado({
+  courseId,
+  moduleId,
+  lessonId,
+  drawerMode,
+  activeQuizId,
+  activeProjectId,
+  quizExists,
+  projectExists,
+}) {
+  if (drawerMode === "quiz") {
+    if (activeQuizId && quizExists) {
+      return caminhoQuizLicao(courseId, moduleId, lessonId, activeQuizId);
+    }
+    return caminhoLicao(courseId, moduleId, lessonId);
+  }
+
+  if (drawerMode === "project") {
+    if (activeProjectId && projectExists) {
+      return caminhoProjetoLicao(courseId, moduleId, lessonId, activeProjectId);
+    }
+    return caminhoLicao(courseId, moduleId, lessonId);
+  }
+
+  return null;
+}
+
+describe("lesson focus route paths", () => {
+  it("builds canonical quiz path", () => {
+    assert.equal(
+      caminhoQuizLicao(
+        "javascript",
+        "01-javascript-fundamentals",
+        "01.8.1-truthy-vs-falsy",
+        "quiz-truthy-falsy",
+      ),
+      "/course/javascript/module/01-javascript-fundamentals/lesson/01.8.1-truthy-vs-falsy/quiz/quiz-truthy-falsy",
+    );
   });
 
-  it("round-trips project drawer with delivery tab", () => {
-    const url = buildLessonUrl("javascript", "01-javascript-fundamentals", "01.8.1-truthy-vs-falsy", {
-      drawer: "project",
-      project: "001-cli-input-validator",
-      drawerTab: "delivery",
+  it("builds canonical project path", () => {
+    assert.equal(
+      caminhoProjetoLicao(
+        "javascript",
+        "01-javascript-fundamentals",
+        "01.8.1-truthy-vs-falsy",
+        "001-cli-input-validator",
+      ),
+      "/course/javascript/module/01-javascript-fundamentals/lesson/01.8.1-truthy-vs-falsy/project/001-cli-input-validator",
+    );
+  });
+
+  it("redirects legacy quiz drawer to focus route", () => {
+    const destino = redirecionarDrawerLegado({
+      courseId: "javascript",
+      moduleId: "01-javascript-fundamentals",
+      lessonId: "01.8.1-truthy-vs-falsy",
+      drawerMode: "quiz",
+      activeQuizId: "quiz-truthy-falsy",
+      activeProjectId: null,
+      quizExists: true,
+      projectExists: false,
     });
-    const query = url.split("?")[1] ?? "";
-    const parsed = parseLessonDrawer(query);
-    assert.equal(parsed.drawer, "project");
-    assert.equal(parsed.project, "001-cli-input-validator");
-    assert.equal(parsed.drawerTab, "delivery");
+    assert.equal(
+      destino,
+      "/course/javascript/module/01-javascript-fundamentals/lesson/01.8.1-truthy-vs-falsy/quiz/quiz-truthy-falsy",
+    );
+  });
+
+  it("redirects invalid legacy project drawer back to lesson", () => {
+    const destino = redirecionarDrawerLegado({
+      courseId: "javascript",
+      moduleId: "01-javascript-fundamentals",
+      lessonId: "01.8.1-truthy-vs-falsy",
+      drawerMode: "project",
+      activeQuizId: null,
+      activeProjectId: "missing-project",
+      quizExists: false,
+      projectExists: false,
+    });
+    assert.equal(
+      destino,
+      "/course/javascript/module/01-javascript-fundamentals/lesson/01.8.1-truthy-vs-falsy",
+    );
   });
 });

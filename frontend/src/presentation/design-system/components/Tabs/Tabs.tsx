@@ -12,17 +12,23 @@ export function Tabs(props: {
   items: TabItem[];
   value: string;
   onValueChange: (value: string) => void;
+  ariaLabel?: string;
   className?: string;
   listClassName?: string;
+  children?: ReactNode;
 }) {
   return (
-    <RadixTabs.Root value={props.value} onValueChange={props.onValueChange} className={props.className}>
+    <RadixTabs.Root
+      value={props.value}
+      onValueChange={props.onValueChange}
+      className={props.className}
+    >
       <RadixTabs.List
         className={clsx(
           "flex flex-wrap items-center gap-2 overflow-x-auto",
           props.listClassName,
         )}
-        aria-label="Tabs"
+        aria-label={props.ariaLabel ?? "Tabs"}
       >
         {props.items.map((item) => (
           <RadixTabs.Trigger
@@ -40,6 +46,29 @@ export function Tabs(props: {
           </RadixTabs.Trigger>
         ))}
       </RadixTabs.List>
+      {props.children}
     </RadixTabs.Root>
+  );
+}
+
+export function TabPanel(props: {
+  value: string;
+  children: ReactNode;
+  className?: string;
+  /** Keep panel mounted when inactive (preserves form/session state). */
+  forceMount?: boolean;
+}) {
+  return (
+    <RadixTabs.Content
+      value={props.value}
+      forceMount={props.forceMount ? true : undefined}
+      className={clsx(
+        "min-h-0 min-w-0 outline-none focus-visible:ring-2 focus-visible:ring-accent0/60",
+        props.forceMount && "data-[state=inactive]:hidden",
+        props.className,
+      )}
+    >
+      {props.children}
+    </RadixTabs.Content>
   );
 }

@@ -238,6 +238,18 @@ export const pt: TranslationDictionary = {
   "quiz.attemptsSuffix": " · {count} tentativas",
   "quiz.upToPoints": "Até {points} pts",
   "quiz.questionNumber": "Pergunta {number}",
+  "quiz.previous": "Anterior",
+  "quiz.next": "Próxima",
+  "quiz.checkAnswer": "Verificar resposta",
+  "quiz.finish": "Finalizar quiz",
+
+  "foco.voltarLicao": "Voltar à lição",
+  "foco.abaEnunciado": "Enunciado",
+  "foco.abaResposta": "Resposta",
+  "foco.abaLicao": "Lição",
+  "foco.abasMobile": "Visões da atividade",
+  "foco.abasContexto": "Visões de contexto",
+  "foco.divisor": "Redimensionar painéis",
 
   "score.quizInline": "quiz {value}",
   "score.projectsInline": "projetos {value}",
