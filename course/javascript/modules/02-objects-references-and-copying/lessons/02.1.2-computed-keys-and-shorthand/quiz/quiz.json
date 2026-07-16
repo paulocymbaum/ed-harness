@@ -1,0 +1,69 @@
+{
+  "id": "quiz",
+  "title": "Computed Keys and Shorthand Check",
+  "description": "Property shorthand and computed keys in object literals.",
+  "lessonId": "02.1.2-computed-keys-and-shorthand",
+  "graphIndex": "02.1.2",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What prints?\n\n```js\nconst name = \"Ada\";\nconst field = \"role\";\nconst user = { name, [field]: \"admin\" };\nconsole.log(user);\n```",
+      "options": [
+        { "id": "a", "text": "`{ name: \"Ada\", role: \"admin\" }`" },
+        { "id": "b", "text": "`{ name: \"Ada\", field: \"admin\" }`" },
+        { "id": "c", "text": "`{ Ada: \"Ada\", role: \"admin\" }`" },
+        { "id": "d", "text": "SyntaxError" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Shorthand `{ name }` means `{ name: name }`. `[field]` evaluates to the string `\"role\"`."
+    },
+    {
+      "id": "q2",
+      "prompt": "What does `{ name, age }` mean when `name` and `age` are variables?",
+      "options": [
+        { "id": "a", "text": "Same as `{ name: name, age: age }`" },
+        { "id": "b", "text": "Creates keys from the string values of the variables" },
+        { "id": "c", "text": "Only works inside classes" },
+        { "id": "d", "text": "Copies nested objects deeply" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Property shorthand reuses the variable name as both key and value."
+    },
+    {
+      "id": "q3",
+      "prompt": "Given `const key = \"name\"`, which literal creates a property named `\"name\"`?",
+      "options": [
+        { "id": "a", "text": "`{ [key]: \"Ada\" }`" },
+        { "id": "b", "text": "`{ key: \"Ada\" }`" },
+        { "id": "c", "text": "`{ key }`" },
+        { "id": "d", "text": "`{ \"key\": \"Ada\" }` only when key equals name" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "`{ key: \"Ada\" }` always creates a property literally named `key`. Computed keys use `[key]`."
+    },
+    {
+      "id": "q4",
+      "prompt": "When are computed keys evaluated?",
+      "options": [
+        { "id": "a", "text": "At object-creation time" },
+        { "id": "b", "text": "Only when the property is first read" },
+        { "id": "c", "text": "At program exit" },
+        { "id": "d", "text": "Never — they stay as expressions" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "The expression inside `[...]` runs when the literal is evaluated, and the resulting string/symbol becomes the key."
+    },
+    {
+      "id": "q5",
+      "prompt": "What is `{ [`${prefix}Id`]: id }` with `prefix = \"user\"` and `id = 7`?",
+      "options": [
+        { "id": "a", "text": "`{ userId: 7 }`" },
+        { "id": "b", "text": "`{ \"${prefix}Id\": 7 }`" },
+        { "id": "c", "text": "`{ prefixId: 7 }`" },
+        { "id": "d", "text": "SyntaxError" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Template literals inside computed keys are evaluated, so the key becomes `userId`."
+    }
+  ]
+}

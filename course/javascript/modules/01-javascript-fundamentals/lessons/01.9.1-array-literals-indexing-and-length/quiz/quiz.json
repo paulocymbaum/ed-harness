@@ -1,0 +1,81 @@
+{
+  "id": "quiz",
+  "title": "Array Literals Indexing and length Check",
+  "description": "Predict indexes, missing slots, and how .length changes.",
+  "lessonId": "01.9.1-array-literals-indexing-and-length",
+  "graphIndex": "01.9.1",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Given `const fruits = [\"apple\", \"banana\", \"cherry\"];` what is `fruits[0]`?",
+      "options": [
+        { "id": "a", "text": "`\"banana\"`" },
+        { "id": "b", "text": "`\"apple\"`" },
+        { "id": "c", "text": "`\"cherry\"`" },
+        { "id": "d", "text": "`undefined`" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Array indexes start at `0`. The first element is `fruits[0]` → `\"apple\"`."
+    },
+    {
+      "id": "q2",
+      "prompt": "Given `const fruits = [\"apple\", \"banana\", \"cherry\"];` what is `fruits[3]`?",
+      "options": [
+        { "id": "a", "text": "`\"cherry\"`" },
+        { "id": "b", "text": "`null`" },
+        { "id": "c", "text": "`undefined`" },
+        { "id": "d", "text": "Throws a RangeError" }
+      ],
+      "correctOptionId": "c",
+      "explanation": "A missing index returns `undefined` — it does not throw."
+    },
+    {
+      "id": "q3",
+      "prompt": "Given `const fruits = [\"apple\", \"banana\", \"cherry\"];` what is `fruits.length`?",
+      "options": [
+        { "id": "a", "text": "`2`" },
+        { "id": "b", "text": "`3`" },
+        { "id": "c", "text": "`4`" },
+        { "id": "d", "text": "`\"3\"`" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`.length` is the number of elements the array reports. Three items → `3`."
+    },
+    {
+      "id": "q4",
+      "prompt": "How do you read the **last** element of a non-empty array `arr`?",
+      "options": [
+        { "id": "a", "text": "`arr[arr.length]`" },
+        { "id": "b", "text": "`arr[arr.length - 1]`" },
+        { "id": "c", "text": "`arr[-1]`" },
+        { "id": "d", "text": "`arr[length]`" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Valid indexes run `0` … `length - 1`. `arr[arr.length]` is out of range and yields `undefined`."
+    },
+    {
+      "id": "q5",
+      "prompt": "After `const xs = [1, 2, 3]; xs[3] = 4;` what is `xs.length`?",
+      "options": [
+        { "id": "a", "text": "`3`" },
+        { "id": "b", "text": "`4`" },
+        { "id": "c", "text": "`5`" },
+        { "id": "d", "text": "`undefined`" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Writing past the end extends the array. `xs[3] = 4` appends one item and grows `.length` to `4`."
+    },
+    {
+      "id": "q6",
+      "prompt": "After `const letters = [\"a\", \"b\", \"c\", \"d\"]; letters.length = 2;` what is `letters[2]`?",
+      "options": [
+        { "id": "a", "text": "`\"c\"`" },
+        { "id": "b", "text": "`\"d\"`" },
+        { "id": "c", "text": "`undefined`" },
+        { "id": "d", "text": "`null`" }
+      ],
+      "correctOptionId": "c",
+      "explanation": "Shortening `.length` truncates the array. Indexes `2` and beyond are gone → `undefined`."
+    }
+  ]
+}

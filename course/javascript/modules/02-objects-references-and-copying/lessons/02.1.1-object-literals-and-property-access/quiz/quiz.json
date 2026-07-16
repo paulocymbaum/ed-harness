@@ -1,0 +1,69 @@
+{
+  "id": "quiz",
+  "title": "Object Literals and Property Access Check",
+  "description": "Create objects and read/update properties with dot and bracket notation.",
+  "lessonId": "02.1.1-object-literals-and-property-access",
+  "graphIndex": "02.1.1",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What prints?\n\n```js\nconst user = { name: \"Ada\", age: 36 };\nuser.age = 37;\nconsole.log(user.name, user[\"age\"], user.city);\n```",
+      "options": [
+        { "id": "a", "text": "`Ada 37 undefined`" },
+        { "id": "b", "text": "`Ada 36 undefined`" },
+        { "id": "c", "text": "`Ada 37 null`" },
+        { "id": "d", "text": "throws TypeError" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "`age` was updated to 37. Missing keys like `city` return `undefined`, not an error."
+    },
+    {
+      "id": "q2",
+      "prompt": "Given `const key = \"name\"` and `const user = { name: \"Ada\" }`, what is the difference between `user.key` and `user[key]`?",
+      "options": [
+        { "id": "a", "text": "`user.key` is undefined; `user[key]` is `\"Ada\"`" },
+        { "id": "b", "text": "They are always the same" },
+        { "id": "c", "text": "`user.key` is `\"Ada\"`; `user[key]` is undefined" },
+        { "id": "d", "text": "Both throw TypeError" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Dot notation looks for a property literally named `key`. Bracket notation uses the value of the variable (`\"name\"`)."
+    },
+    {
+      "id": "q3",
+      "prompt": "When is bracket notation **required** (dot notation cannot work)?",
+      "options": [
+        { "id": "a", "text": "When the key comes from a variable or is not a valid identifier" },
+        { "id": "b", "text": "Only when reading numbers" },
+        { "id": "c", "text": "Only inside classes" },
+        { "id": "d", "text": "Never — dot always works" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Dot needs a fixed identifier. Dynamic keys and keys with spaces/punctuation need brackets."
+    },
+    {
+      "id": "q4",
+      "prompt": "Does `const user = { name: \"Ada\" }` prevent mutating `user.name`?",
+      "options": [
+        { "id": "a", "text": "No — `const` only blocks reassigning the variable `user`" },
+        { "id": "b", "text": "Yes — the object is frozen" },
+        { "id": "c", "text": "Yes — property writes throw in all modes" },
+        { "id": "d", "text": "Only if the property was created with `let`" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "`const` freezes the binding, not the object. You can still update properties unless you use `Object.freeze`."
+    },
+    {
+      "id": "q5",
+      "prompt": "What does reading a missing property return?",
+      "options": [
+        { "id": "a", "text": "`undefined`" },
+        { "id": "b", "text": "`null`" },
+        { "id": "c", "text": "`false`" },
+        { "id": "d", "text": "throws ReferenceError" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Missing own keys evaluate to `undefined`; they do not throw."
+    }
+  ]
+}

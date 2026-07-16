@@ -1,0 +1,39 @@
+{
+  "cases": [
+    {
+      "id": "happy-path",
+      "name": "Merge defaults with overrides",
+      "stdin": "{\"theme\":\"light\",\"lang\":\"en\"}\n{\"lang\":\"pt\"}\n",
+      "expectedStdout": "{\"theme\":\"light\",\"lang\":\"pt\"}\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "add-keys",
+      "name": "Overrides can add keys",
+      "stdin": "{\"a\":1}\n{\"b\":2}\n",
+      "expectedStdout": "{\"a\":1,\"b\":2}\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "missing-overrides",
+      "name": "Missing second line",
+      "stdin": "{\"a\":1}\n",
+      "expectedStdout": "ERROR: missing overrides\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "missing-input",
+      "name": "Empty stdin",
+      "stdin": "",
+      "expectedStdout": "ERROR: missing input\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "invalid-json",
+      "name": "Invalid JSON on a line",
+      "stdin": "{\"a\":1}\nnot-json\n",
+      "expectedStdout": "ERROR: invalid JSON\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

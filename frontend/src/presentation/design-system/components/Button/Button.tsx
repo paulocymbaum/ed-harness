@@ -1,19 +1,21 @@
-import type { ButtonHTMLAttributes } from "react";
+import { forwardRef, type ButtonHTMLAttributes } from "react";
 import clsx from "clsx";
 
 export type ButtonVariant = "primary" | "secondary" | "ghost";
 export type ButtonSize = "sm" | "md";
 
-export function Button(
-  props: ButtonHTMLAttributes<HTMLButtonElement> & {
+export const Button = forwardRef<
+  HTMLButtonElement,
+  ButtonHTMLAttributes<HTMLButtonElement> & {
     variant?: ButtonVariant;
     size?: ButtonSize;
-  },
-) {
+  }
+>(function Button(props, ref) {
   const { className, variant = "secondary", size = "md", ...rest } = props;
 
   return (
     <button
+      ref={ref}
       {...rest}
       className={clsx(
         "inline-flex select-none items-center justify-center gap-2 whitespace-nowrap rounded-panel border transition",
@@ -30,4 +32,4 @@ export function Button(
       )}
     />
   );
-}
+});

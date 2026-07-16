@@ -1,0 +1,25 @@
+{
+  "cases": [
+    {
+      "id": "sample-weekdays",
+      "name": "Example from README (Mon…Thu)",
+      "stdin": "Mon\nTue\nWed\nTueX\nThu\n",
+      "expectedStdout": "Mon\nWed\nMon TueX Wed\n4\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "fruits-predict-first",
+      "name": "Fruits variant (lesson predict-first names)",
+      "stdin": "apple\nbanana\ncherry\nblueberry\ndate\n",
+      "expectedStdout": "apple\ncherry\napple blueberry cherry\n4\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "single-letter-days",
+      "name": "Single-letter labels",
+      "stdin": "A\nB\nC\nX\nD\n",
+      "expectedStdout": "A\nC\nA X C\n4\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

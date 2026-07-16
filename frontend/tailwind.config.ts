@@ -8,6 +8,7 @@ export default {
         bg0: "var(--bg-0)",
         text0: "var(--text-0)",
         text1: "var(--text-1)",
+        text2: "var(--text-2)",
         border0: "var(--border-0)",
         accent0: "var(--accent-0)",
         accent1: "var(--accent-1)",

@@ -2,6 +2,7 @@ import clsx from "clsx";
 import type { LucideIcon } from "lucide-react";
 import { Icon } from "../../../../design-system";
 import { LastSubmissionScoreBar } from "../../../../shared/score";
+import { ActivityStatusBadge, type ActivityStatusTone } from "./ActivityStatusBadge";
 
 export function ModuleNavRow(props: {
   icon: LucideIcon;
@@ -9,6 +10,7 @@ export function ModuleNavRow(props: {
   sublabel: string;
   active?: boolean;
   done?: boolean;
+  statusBadge?: { label: string; tone: ActivityStatusTone };
   lastSubmissionPercent?: number;
   onClick: () => void;
 }) {
@@ -34,7 +36,15 @@ export function ModuleNavRow(props: {
           <Icon icon={props.icon} size={14} />
         </span>
         <span className="min-w-0 flex-1">
-          <span className="block text-meta font-medium text-text0">{props.label}</span>
+          <span className="flex items-center gap-2">
+            <span className="min-w-0 truncate text-meta font-medium text-text0">{props.label}</span>
+            {props.statusBadge ? (
+              <ActivityStatusBadge
+                label={props.statusBadge.label}
+                tone={props.statusBadge.tone}
+              />
+            ) : null}
+          </span>
           <span className="block truncate text-meta text-text2">{props.sublabel}</span>
         </span>
       </button>

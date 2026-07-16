@@ -1,0 +1,9 @@
+{
+  "createdBy": "cursor-tool",
+  "tool": "scripts/graph/scaffold-from-graph.mjs",
+  "createdAt": "2026-07-16T02:02:03.052Z",
+  "kind": "lesson",
+  "lessonId": "02.1.4-rest-and-spread-for-objects-and-arrays",
+  "moduleId": "02-objects",
+  "graphIndex": "02.1.4"
+}

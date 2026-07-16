@@ -1,0 +1,46 @@
+{
+  "cases": [
+    {
+      "id": "happy-path-default-env",
+      "name": "Unpack with default env",
+      "stdin": "{\"host\":\"localhost\",\"port\":3000,\"debug\":true}\n",
+      "expectedStdout": "{\"host\":\"localhost\",\"port\":3000,\"env\":\"development\"}\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "custom-env",
+      "name": "Keep provided env",
+      "stdin": "{\"host\":\"api.local\",\"port\":8080,\"env\":\"production\"}\n",
+      "expectedStdout": "{\"host\":\"api.local\",\"port\":8080,\"env\":\"production\"}\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "port-string",
+      "name": "Numeric string port",
+      "stdin": "{\"host\":\"h\",\"port\":\"42\"}\n",
+      "expectedStdout": "{\"host\":\"h\",\"port\":42,\"env\":\"development\"}\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "missing-host",
+      "name": "Host required",
+      "stdin": "{\"port\":1}\n",
+      "expectedStdout": "ERROR: host is required\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "missing-input",
+      "name": "Empty stdin",
+      "stdin": "",
+      "expectedStdout": "ERROR: missing input\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "invalid-json",
+      "name": "Invalid JSON",
+      "stdin": "not-json\n",
+      "expectedStdout": "ERROR: invalid JSON\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

@@ -136,6 +136,7 @@ export const zh: TranslationDictionary = {
 
   "lesson.loading": "正在加载课程…",
   "lesson.thisLesson": "本节课",
+  "lesson.score": "课时得分",
   "lesson.noActivities.title": "暂无活动。",
   "lesson.noActivities.description": "本节课的项目和测验将显示在此处。",
   "lesson.readingOnly": "仅阅读",
@@ -144,6 +145,9 @@ export const zh: TranslationDictionary = {
   "lesson.backToModule": "返回模块",
   "lesson.projects": "项目",
   "lesson.quizzes": "测验",
+
+  "activity.notStarted": "未开始",
+  "activity.quizBest": "最佳 {pct}%",
 
   "project.pending": "待开始",
   "project.title": "项目",
@@ -240,7 +244,12 @@ export const zh: TranslationDictionary = {
 
   "drawer.closeOverlay": "关闭抽屉遮罩",
   "drawer.close": "关闭抽屉",
+  "drawer.backToExplanation": "返回讲解",
   "drawer.tabs": "标签页",
+
+  "toast.deliverySaved": "提交已保存",
+  "toast.deliverySaveFailed": "无法保存提交",
+  "toast.quizPoints": "已增加 +{delta} 测验分",
 
   "error.loadCourse": "加载课程失败。",
   "error.courseNotFound": "未找到课程。",

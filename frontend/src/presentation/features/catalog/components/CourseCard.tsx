@@ -1,9 +1,8 @@
 import type { Course } from "../../../../domain/types/catalog";
 import { countCourseLessons, isHierarchyCourse } from "../../../../application/selectors/catalogSelectors";
 import { useTranslation } from "../../../../application/hooks/useTranslation";
-import { Button, Card, Icon } from "../../../design-system";
+import { Card, Icon } from "../../../design-system";
 import { ChevronRight } from "lucide-react";
-import type { MouseEvent } from "react";
 import { CourseScoreBadge } from "../../course-experience/components/CourseScoreSummary";
 
 const LEGACY_DUPLICATE_IDS = new Set(["03-asynchronous-javascript-runtime-model-event-loop"]);
@@ -18,13 +17,16 @@ export function CourseCard(props: { course: Course; courseId: string; onOpen: ()
 
   const lessonCount = countCourseLessons(course);
   const moduleCount = course.modules?.length ?? 0;
+  const openLabel = `${t("catalog.openCourse")}: ${course.title}`;
 
   return (
     <Card variant="panel" className="p-4">
       <button
         type="button"
-        className="flex w-full items-start justify-between gap-3 text-left"
+        className="flex w-full items-start justify-between gap-3 text-left outline-none focus-visible:ring-2 focus-visible:ring-accent0 focus-visible:ring-offset-2"
         onClick={props.onOpen}
+        aria-label={openLabel}
+        title={openLabel}
       >
         <div className="min-w-0">
           <div className="truncate text-body font-semibold text-text0">{course.title}</div>
@@ -43,18 +45,10 @@ export function CourseCard(props: { course: Course; courseId: string; onOpen: ()
             <CourseScoreBadge courseId={props.courseId} course={course} />
           </div>
         </div>
-        <Button
-          variant="secondary"
-          size="md"
-          onClick={(e: MouseEvent<HTMLButtonElement>) => {
-            e.stopPropagation();
-            props.onOpen();
-          }}
-          title={t("catalog.openCourse")}
-        >
+        <span className="flex shrink-0 items-center gap-1 text-meta font-medium text-text1" aria-hidden="true">
           {t("catalog.seeCourse")}
           <Icon icon={ChevronRight} />
-        </Button>
+        </span>
       </button>
     </Card>
   );

@@ -1,0 +1,9 @@
+{
+  "createdBy": "cursor-tool",
+  "tool": "scripts/graph/scaffold-from-graph.mjs",
+  "createdAt": "2026-07-16T02:02:01.176Z",
+  "kind": "lesson",
+  "lessonId": "02.1.2-computed-keys-and-shorthand",
+  "moduleId": "02-objects",
+  "graphIndex": "02.1.2"
+}
