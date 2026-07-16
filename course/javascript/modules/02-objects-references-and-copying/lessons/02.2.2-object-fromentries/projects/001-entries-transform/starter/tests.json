@@ -1,0 +1,39 @@
+{
+  "cases": [
+    {
+      "id": "happy-path",
+      "name": "Drop secrets and double numbers",
+      "stdin": "{\"name\":\"Ada\",\"score\":10,\"password\":\"x\",\"bonus\":3}\n",
+      "expectedStdout": "{\"name\":\"Ada\",\"score\":20,\"bonus\":6}\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "drop-secret",
+      "name": "Drop secret key",
+      "stdin": "{\"a\":1,\"secret\":\"no\"}\n",
+      "expectedStdout": "{\"a\":2}\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "non-numeric",
+      "name": "Leave non-numbers unchanged",
+      "stdin": "{\"ok\":true,\"n\":2}\n",
+      "expectedStdout": "{\"ok\":true,\"n\":4}\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "missing-input",
+      "name": "Empty stdin",
+      "stdin": "",
+      "expectedStdout": "ERROR: missing input\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "invalid-json",
+      "name": "Invalid JSON",
+      "stdin": "not-json\n",
+      "expectedStdout": "ERROR: invalid JSON\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

@@ -8,6 +8,7 @@ import { applyLocaleToDocument } from "../../../infrastructure/i18n/applyLocaleT
 import { syncLocaleToCursorConfig } from "../../../infrastructure/i18n/syncLocaleToCursorConfig";
 import { AppTopBar } from "./AppTopBar";
 import { Container } from "./Container";
+import { ToastHost } from "./ToastHost";
 
 export function AppShell(props: {
   title: ReactNode;
@@ -56,6 +57,7 @@ export function AppShell(props: {
           </main>
         </Container>
       </div>
+      <ToastHost />
     </div>
   );
 }

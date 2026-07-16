@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-15T03:27:54.428Z",
+  "generatedAt": "2026-07-16T02:17:39.955Z",
   "courses": {
     "algorithms": {
       "courseSlug": "algorithms",
@@ -705,8 +705,8 @@
     "javascript": {
       "courseSlug": "javascript",
       "total": 75,
-      "exists": 57,
-      "planned": 15,
+      "exists": 67,
+      "planned": 5,
       "orphan": 3,
       "entries": [
         {
@@ -883,20 +883,18 @@
         {
           "graphIndex": "01.7.3",
           "courseId": "javascript",
-          "moduleId": null,
-          "lessonId": null,
-          "diskPath": null,
-          "status": "planned",
-          "title": "01.7.3 Arrow Functions and Callbacks"
+          "moduleId": "01-javascript-fundamentals",
+          "lessonId": "01.7.3-arrow-functions-and-callbacks",
+          "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.7.3-arrow-functions-and-callbacks",
+          "status": "exists"
         },
         {
           "graphIndex": "01.7.4",
           "courseId": "javascript",
-          "moduleId": null,
-          "lessonId": null,
-          "diskPath": null,
-          "status": "planned",
-          "title": "01.7.4 Throwing Errors and Sync try/catch"
+          "moduleId": "01-javascript-fundamentals",
+          "lessonId": "01.7.4-throwing-errors-and-sync-try-catch",
+          "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.7.4-throwing-errors-and-sync-try-catch",
+          "status": "exists"
         },
         {
           "graphIndex": "01.8.1",
@@ -941,11 +939,10 @@
         {
           "graphIndex": "01.9.1",
           "courseId": "javascript",
-          "moduleId": null,
-          "lessonId": null,
-          "diskPath": null,
-          "status": "planned",
-          "title": "01.9.1 Array Literals Indexing and length"
+          "moduleId": "01-javascript-fundamentals",
+          "lessonId": "01.9.1-array-literals-indexing-and-length",
+          "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.9.1-array-literals-indexing-and-length",
+          "status": "exists"
         },
         {
           "graphIndex": "01.9.2",
@@ -977,65 +974,58 @@
         {
           "graphIndex": "02.1.1",
           "courseId": "javascript",
-          "moduleId": null,
-          "lessonId": null,
-          "diskPath": null,
-          "status": "planned",
-          "title": "02.1.1 Object Literals and Property Access"
+          "moduleId": "02-objects-references-and-copying",
+          "lessonId": "02.1.1-object-literals-and-property-access",
+          "diskPath": "course/javascript/modules/02-objects-references-and-copying/lessons/02.1.1-object-literals-and-property-access",
+          "status": "exists"
         },
         {
           "graphIndex": "02.1.2",
           "courseId": "javascript",
-          "moduleId": null,
-          "lessonId": null,
-          "diskPath": null,
-          "status": "planned",
-          "title": "02.1.2 Computed Keys and Shorthand"
+          "moduleId": "02-objects-references-and-copying",
+          "lessonId": "02.1.2-computed-keys-and-shorthand",
+          "diskPath": "course/javascript/modules/02-objects-references-and-copying/lessons/02.1.2-computed-keys-and-shorthand",
+          "status": "exists"
         },
         {
           "graphIndex": "02.1.3",
           "courseId": "javascript",
-          "moduleId": null,
-          "lessonId": null,
-          "diskPath": null,
-          "status": "planned",
-          "title": "02.1.3 Object Destructuring"
+          "moduleId": "02-objects-references-and-copying",
+          "lessonId": "02.1.3-object-destructuring",
+          "diskPath": "course/javascript/modules/02-objects-references-and-copying/lessons/02.1.3-object-destructuring",
+          "status": "exists"
         },
         {
           "graphIndex": "02.1.4",
           "courseId": "javascript",
-          "moduleId": null,
-          "lessonId": null,
-          "diskPath": null,
-          "status": "planned",
-          "title": "02.1.4 Rest and Spread for Objects and Arrays"
+          "moduleId": "02-objects-references-and-copying",
+          "lessonId": "02.1.4-rest-and-spread-for-objects-and-arrays",
+          "diskPath": "course/javascript/modules/02-objects-references-and-copying/lessons/02.1.4-rest-and-spread-for-objects-and-arrays",
+          "status": "exists"
         },
         {
           "graphIndex": "02.2.1",
           "courseId": "javascript",
-          "moduleId": null,
-          "lessonId": null,
-          "diskPath": null,
-          "status": "planned",
-          "title": "02.2.1 Object.keys values and entries"
+          "moduleId": "02-objects-references-and-copying",
+          "lessonId": "02.2.1-object-keys-values-and-entries",
+          "diskPath": "course/javascript/modules/02-objects-references-and-copying/lessons/02.2.1-object-keys-values-and-entries",
+          "status": "exists"
         },
         {
           "graphIndex": "02.2.2",
           "courseId": "javascript",
-          "moduleId": null,
-          "lessonId": null,
-          "diskPath": null,
-          "status": "planned",
-          "title": "02.2.2 Object.fromEntries"
+          "moduleId": "02-objects-references-and-copying",
+          "lessonId": "02.2.2-object-fromentries",
+          "diskPath": "course/javascript/modules/02-objects-references-and-copying/lessons/02.2.2-object-fromentries",
+          "status": "exists"
         },
         {
           "graphIndex": "02.2.3",
           "courseId": "javascript",
-          "moduleId": null,
-          "lessonId": null,
-          "diskPath": null,
-          "status": "planned",
-          "title": "02.2.3 Object.assign and Merging"
+          "moduleId": "02-objects-references-and-copying",
+          "lessonId": "02.2.3-object-assign-and-merging",
+          "diskPath": "course/javascript/modules/02-objects-references-and-copying/lessons/02.2.3-object-assign-and-merging",
+          "status": "exists"
         },
         {
           "graphIndex": "02.3.1",

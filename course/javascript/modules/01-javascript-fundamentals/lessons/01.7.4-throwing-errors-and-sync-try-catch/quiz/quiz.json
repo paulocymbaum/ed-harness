@@ -1,0 +1,117 @@
+{
+  "id": "quiz",
+  "title": "Throwing Errors and Sync try/catch Check",
+  "description": "throw, Error, try/catch/finally, and sync error bubbling.",
+  "lessonId": "01.7.4-throwing-errors-and-sync-try-catch",
+  "graphIndex": "01.7.4",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What is printed?\n\n```js\nfunction divide(a, b) {\n  if (b === 0) {\n    throw new Error(\"Cannot divide by zero\");\n  }\n  return a / b;\n}\n\ntry {\n  console.log(divide(10, 2));\n  console.log(divide(10, 0));\n  console.log(\"after divides\");\n} catch (err) {\n  console.log(\"caught:\", err.message);\n}\nconsole.log(\"done\");\n```",
+      "options": [
+        {
+          "id": "a",
+          "text": "`5`, then `caught: Cannot divide by zero`, then `done`"
+        },
+        {
+          "id": "b",
+          "text": "`5`, then `Infinity`, then `after divides`, then `done`"
+        },
+        {
+          "id": "c",
+          "text": "`5`, then `caught: Cannot divide by zero`, then `after divides`, then `done`"
+        },
+        {
+          "id": "d",
+          "text": "Only `caught: Cannot divide by zero` (script crashes before `done`)"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "First call prints `5`. The second throws, so `after divides` is skipped; `catch` prints the message, then `done` still runs outside the try."
+    },
+    {
+      "id": "q2",
+      "prompt": "What is printed?\n\n```js\ntry {\n  console.log(\"before\");\n  throw new Error(\"boom\");\n  console.log(\"after throw\");\n} catch (err) {\n  console.log(err.message);\n}\n```",
+      "options": [
+        { "id": "a", "text": "`before` then `boom`" },
+        { "id": "b", "text": "`before`, `after throw`, then `boom`" },
+        { "id": "c", "text": "Only `boom`" },
+        { "id": "d", "text": "`before` then `after throw`" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "After `throw`, the rest of the `try` block is skipped. Control jumps to `catch`, which prints `err.message`."
+    },
+    {
+      "id": "q3",
+      "prompt": "What does `finally` do in a sync `try` / `catch` / `finally`?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It always runs — after a successful `try` or after `catch`"
+        },
+        {
+          "id": "b",
+          "text": "It runs only when an error was thrown"
+        },
+        {
+          "id": "c",
+          "text": "It runs only when no error was thrown"
+        },
+        {
+          "id": "d",
+          "text": "It replaces `catch` and receives the error"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "`finally` is for cleanup that must happen either way — success or failure."
+    },
+    {
+      "id": "q4",
+      "prompt": "A function throws and has no local `try` / `catch`. What happens?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The error bubbles up to the caller (and further, until caught or the script crashes)"
+        },
+        {
+          "id": "b",
+          "text": "JavaScript converts it to `undefined` and continues"
+        },
+        {
+          "id": "c",
+          "text": "Only that function stops; the caller always keeps running normally"
+        },
+        {
+          "id": "d",
+          "text": "It is silently ignored unless you use `async`"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Sync errors propagate up the call stack. Catch at the level that can handle them; uncaught errors typically crash a Node script."
+    },
+    {
+      "id": "q5",
+      "prompt": "Why prefer `throw new Error(\"Expected a string\")` over `throw \"Expected a string\"`?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`Error` gives `.message` (and a stack); bare strings make `catch` harder to use consistently"
+        },
+        {
+          "id": "b",
+          "text": "Bare strings cannot be thrown in JavaScript"
+        },
+        {
+          "id": "c",
+          "text": "`new Error` is required for `try` / `catch` to work at all"
+        },
+        {
+          "id": "d",
+          "text": "Strings are only for `async` errors"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "You can throw other values, but `Error` is the convention so catch blocks can rely on `err.message` and debugging tools."
+    }
+  ]
+}

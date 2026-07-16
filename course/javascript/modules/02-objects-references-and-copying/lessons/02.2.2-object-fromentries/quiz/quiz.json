@@ -1,0 +1,69 @@
+{
+  "id": "quiz",
+  "title": "Object.fromEntries Check",
+  "description": "Rebuild objects from [key, value] pairs after map/filter.",
+  "lessonId": "02.2.2-object-fromentries",
+  "graphIndex": "02.2.2",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What prints?\n\n```js\nconst pairs = [\n  [\"name\", \"Ada\"],\n  [\"age\", 36],\n];\nconsole.log(Object.fromEntries(pairs));\n```",
+      "options": [
+        { "id": "a", "text": "`{ name: \"Ada\", age: 36 }`" },
+        { "id": "b", "text": "`[[\"name\",\"Ada\"],[\"age\",36]]`" },
+        { "id": "c", "text": "`[\"name\", \"age\"]`" },
+        { "id": "d", "text": "throws TypeError" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "`fromEntries` builds an object from an iterable of `[key, value]` pairs."
+    },
+    {
+      "id": "q2",
+      "prompt": "What is the inverse of `Object.entries`?",
+      "options": [
+        { "id": "a", "text": "`Object.fromEntries`" },
+        { "id": "b", "text": "`Object.keys`" },
+        { "id": "c", "text": "`Object.assign`" },
+        { "id": "d", "text": "`JSON.parse`" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "`entries` → pairs; `fromEntries` → object. Together they enable map/filter/rebuild."
+    },
+    {
+      "id": "q3",
+      "prompt": "If pairs contain duplicate keys, what happens?",
+      "options": [
+        { "id": "a", "text": "The last pair wins (silent overwrite)" },
+        { "id": "b", "text": "TypeError is thrown" },
+        { "id": "c", "text": "Values are merged into an array" },
+        { "id": "d", "text": "The first pair wins" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "`Object.fromEntries([[\"a\",1],[\"a\",2]])` yields `{ a: 2 }` with no error."
+    },
+    {
+      "id": "q4",
+      "prompt": "How do you remove `password` from a plain object using entries?",
+      "options": [
+        { "id": "a", "text": "`Object.fromEntries(Object.entries(raw).filter(([k]) => k !== \"password\"))`" },
+        { "id": "b", "text": "`Object.entries(raw).filter(...)` alone returns an object" },
+        { "id": "c", "text": "`Object.keys(raw).fromEntries()`" },
+        { "id": "d", "text": "`raw.filter(k => k !== \"password\")`" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Filter the pairs, then rebuild with `fromEntries`. `filter` on entries returns an array, not an object."
+    },
+    {
+      "id": "q5",
+      "prompt": "Can `Object.fromEntries` accept a `Map`?",
+      "options": [
+        { "id": "a", "text": "Yes — Maps are iterables of `[key, value]` pairs" },
+        { "id": "b", "text": "No — only plain arrays" },
+        { "id": "c", "text": "Only if the Map keys are numbers" },
+        { "id": "d", "text": "Only in browsers, not Node" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Any iterable of pairs works, including `Map`."
+    }
+  ]
+}

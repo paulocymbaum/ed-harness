@@ -1,8 +1,10 @@
 import clsx from "clsx";
+import { useEffect, useRef } from "react";
 import { Trophy, RotateCcw } from "lucide-react";
 import type { QuizAttempt } from "../../../../domain/types/quiz";
 import type { CoursePointsWithMax } from "../../../../domain/types/quizScore";
 import { useTranslation } from "../../../../application/hooks/useTranslation";
+import { useToastStore } from "../../../../application/stores/toastStore";
 import { Card, Button, Icon } from "../../../design-system";
 import { ScoreProgressRow } from "../../../shared/score";
 
@@ -21,11 +23,21 @@ export function QuizResultsPanel(props: {
   onBackToList: () => void;
 }) {
   const { t } = useTranslation();
+  const showToast = useToastStore((s) => s.show);
+  const announcedKeyRef = useRef<string | null>(null);
   const pct =
     props.attempt.total > 0
       ? Math.round((props.attempt.score / props.attempt.total) * 100)
       : 0;
   const tier = scoreTier(pct);
+
+  useEffect(() => {
+    if (props.quizPointsDelta <= 0) return;
+    const key = `${props.attempt.completedAt}:${props.quizPointsDelta}`;
+    if (announcedKeyRef.current === key) return;
+    announcedKeyRef.current = key;
+    showToast(t("toast.quizPoints", { delta: props.quizPointsDelta }), "success");
+  }, [props.attempt.completedAt, props.quizPointsDelta, showToast, t]);
 
   return (
     <Card variant="panel" className="grid gap-4 p-4">

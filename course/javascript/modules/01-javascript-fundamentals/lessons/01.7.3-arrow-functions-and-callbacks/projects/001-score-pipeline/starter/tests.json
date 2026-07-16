@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "id": "example",
+      "name": "Example from README",
+      "stdin": "60\n3\n40\n70\n90\n",
+      "expectedStdout": "Pass:70\nPass:90\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "boundary-pass",
+      "name": "Score equals threshold",
+      "stdin": "50\n2\n50\n49\n",
+      "expectedStdout": "Pass:50\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "none-pass",
+      "name": "No passing scores",
+      "stdin": "80\n2\n70\n75\n",
+      "expectedStdout": "",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "invalid-number",
+      "name": "Non-numeric score",
+      "stdin": "60\n2\n70\nx\n",
+      "expectedStdout": "ERROR: invalid number\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

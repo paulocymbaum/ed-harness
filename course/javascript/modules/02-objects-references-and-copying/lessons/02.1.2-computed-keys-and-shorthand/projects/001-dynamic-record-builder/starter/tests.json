@@ -1,0 +1,39 @@
+{
+  "cases": [
+    {
+      "id": "happy-path",
+      "name": "Build from key=value lines",
+      "stdin": "name=Ada\nrole=admin\n",
+      "expectedStdout": "{\"name\":\"Ada\",\"role\":\"admin\"}\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "duplicate-key",
+      "name": "Last duplicate wins",
+      "stdin": "a=1\na=2\n",
+      "expectedStdout": "{\"a\":\"2\"}\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "missing-input",
+      "name": "Empty stdin",
+      "stdin": "",
+      "expectedStdout": "ERROR: missing input\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "invalid-pair",
+      "name": "Line without equals",
+      "stdin": "noequals\n",
+      "expectedStdout": "ERROR: invalid pair\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "empty-key",
+      "name": "Empty key before equals",
+      "stdin": "=value\n",
+      "expectedStdout": "ERROR: empty key\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

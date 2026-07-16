@@ -1,0 +1,46 @@
+{
+  "cases": [
+    {
+      "id": "happy-path",
+      "name": "Read string property",
+      "stdin": "{\"name\":\"Ada\",\"age\":36}\nname\n",
+      "expectedStdout": "\"Ada\"\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "number-value",
+      "name": "Read number property",
+      "stdin": "{\"age\":36}\nage\n",
+      "expectedStdout": "36\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "null-value",
+      "name": "Stored null is not missing",
+      "stdin": "{\"x\":null}\nx\n",
+      "expectedStdout": "null\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "key-not-found",
+      "name": "Missing key",
+      "stdin": "{\"name\":\"Ada\"}\ncity\n",
+      "expectedStdout": "ERROR: key not found\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "missing-input",
+      "name": "Empty stdin",
+      "stdin": "",
+      "expectedStdout": "ERROR: missing input\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "invalid-json",
+      "name": "Invalid JSON",
+      "stdin": "not-json\nname\n",
+      "expectedStdout": "ERROR: invalid JSON\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

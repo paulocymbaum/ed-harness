@@ -10,7 +10,7 @@ Without these skills you’ll struggle with APIs, state updates, and “why did 
 
 Learn literals, property access (`.` vs `[]`), computed keys / shorthand, and object destructuring before worrying about shared references.
 
-**Planned leaves:** `02.1.1` Object Literals and Property Access · `02.1.2` Computed Keys and Shorthand · `02.1.3` Object Destructuring · `02.1.4` Rest and Spread for Objects and Arrays
+**Lessons:** [`02.1.1` Object Literals and Property Access](lessons/02.1.1-object-literals-and-property-access/) · [`02.1.2` Computed Keys and Shorthand](lessons/02.1.2-computed-keys-and-shorthand/) · [`02.1.3` Object Destructuring](lessons/02.1.3-object-destructuring/) · [`02.1.4` Rest and Spread for Objects and Arrays](lessons/02.1.4-rest-and-spread-for-objects-and-arrays/)
 
 ### Beginner checklist
 - [ ] I can create an object literal and read/update properties.
@@ -21,7 +21,7 @@ Learn literals, property access (`.` vs `[]`), computed keys / shorthand, and ob
 
 Turn objects into lists of keys/values/entries, rebuild with `fromEntries`, and merge with `Object.assign` (and compare to `{ ... }`).
 
-**Planned leaves:** `02.2.1` Object.keys values and entries · `02.2.2` Object.fromEntries · `02.2.3` Object.assign and Merging
+**Lessons:** [`02.2.1` Object.keys values and entries](lessons/02.2.1-object-keys-values-and-entries/) · [`02.2.2` Object.fromEntries](lessons/02.2.2-object-fromentries/) · [`02.2.3` Object.assign and Merging](lessons/02.2.3-object-assign-and-merging/)
 
 ### Intermediate checklist
 - [ ] I can iterate own enumerable keys with `Object.keys` / `entries`.

@@ -1,0 +1,69 @@
+{
+  "id": "quiz",
+  "title": "Rest and Spread Check",
+  "description": "Shallow copy, override, and rest leftovers for objects and arrays.",
+  "lessonId": "02.1.4-rest-and-spread-for-objects-and-arrays",
+  "graphIndex": "02.1.4",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What prints?\n\n```js\nconst base = { a: 1, b: 2, c: 3 };\nconst { a, ...rest } = base;\nconst copy = { ...base, b: 99 };\nconsole.log(a, rest, copy);\n```",
+      "options": [
+        { "id": "a", "text": "`1 { b: 2, c: 3 } { a: 1, b: 99, c: 3 }`" },
+        { "id": "b", "text": "`1 { a: 1 } { a: 1, b: 2, c: 3 }`" },
+        { "id": "c", "text": "`1 { b: 2, c: 3 } { a: 1, b: 2, c: 3, b: 99 }`" },
+        { "id": "d", "text": "SyntaxError" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Rest gathers leftover keys. Spread copies then `b: 99` overrides — later keys win."
+    },
+    {
+      "id": "q2",
+      "prompt": "What is true about object spread `{ ...state }` when `state` has nested objects?",
+      "options": [
+        { "id": "a", "text": "Top-level is new; nested objects are still shared references" },
+        { "id": "b", "text": "Everything is deep-cloned" },
+        { "id": "c", "text": "Nested objects become `undefined`" },
+        { "id": "d", "text": "It freezes nested objects" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Spread is shallow. Mutating `next.user.name` still changes `state.user.name`."
+    },
+    {
+      "id": "q3",
+      "prompt": "In `{ ...a, ...b }`, which source wins on conflicting keys?",
+      "options": [
+        { "id": "a", "text": "Later sources win (`b` overwrites `a`)" },
+        { "id": "b", "text": "Earlier sources win (`a` always kept)" },
+        { "id": "c", "text": "Neither — conflict throws" },
+        { "id": "d", "text": "Values are added together" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Properties are copied left to right; later keys overwrite earlier ones."
+    },
+    {
+      "id": "q4",
+      "prompt": "Where must object rest (`...rest`) appear in a destructuring pattern?",
+      "options": [
+        { "id": "a", "text": "Last among the properties" },
+        { "id": "b", "text": "First among the properties" },
+        { "id": "c", "text": "Anywhere" },
+        { "id": "d", "text": "Only inside arrays" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Rest must be last so it can collect whatever was not already bound."
+    },
+    {
+      "id": "q5",
+      "prompt": "How do you drop `id` from `{ id: 10, name: \"Ada\", active: true }` without listing every other key?",
+      "options": [
+        { "id": "a", "text": "`const { id, ...publicFields } = obj`" },
+        { "id": "b", "text": "`const publicFields = { ...obj.id }`" },
+        { "id": "c", "text": "`delete obj` then spread" },
+        { "id": "d", "text": "`Object.keys(obj).slice(1)`" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Pull `id` out (even if unused) and rest collects the remaining own enumerable keys into a new object."
+    }
+  ]
+}

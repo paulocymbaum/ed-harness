@@ -1,0 +1,69 @@
+{
+  "id": "quiz",
+  "title": "Object.keys values and entries Check",
+  "description": "Turn objects into key/value/entry lists for iteration.",
+  "lessonId": "02.2.1-object-keys-values-and-entries",
+  "graphIndex": "02.2.1",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What prints?\n\n```js\nconst user = { name: \"Ada\", age: 36 };\nconsole.log(Object.keys(user));\nconsole.log(Object.values(user));\nconsole.log(Object.entries(user));\n```",
+      "options": [
+        { "id": "a", "text": "`[\"name\",\"age\"]` then `[\"Ada\",36]` then `[[\"name\",\"Ada\"],[\"age\",36]]`" },
+        { "id": "b", "text": "`[\"Ada\",36]` then `[\"name\",\"age\"]` then same as keys" },
+        { "id": "c", "text": "Three identical arrays of keys" },
+        { "id": "d", "text": "throws TypeError" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "`keys` → names, `values` → values, `entries` → `[key, value]` pairs."
+    },
+    {
+      "id": "q2",
+      "prompt": "Which keys do `Object.keys` / `values` / `entries` include?",
+      "options": [
+        { "id": "a", "text": "Own enumerable string keys only" },
+        { "id": "b", "text": "Own and inherited keys" },
+        { "id": "c", "text": "Symbol keys only" },
+        { "id": "d", "text": "All keys including non-enumerable" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "These methods skip the prototype chain and non-enumerable / Symbol keys (for the usual string-key case)."
+    },
+    {
+      "id": "q3",
+      "prompt": "Given a prototype property `inherited` and own `own`, what does `Object.keys(obj)` return?",
+      "options": [
+        { "id": "a", "text": "`[\"own\"]` — inherited keys are skipped" },
+        { "id": "b", "text": "`[\"own\", \"inherited\"]`" },
+        { "id": "c", "text": "`[\"inherited\"]`" },
+        { "id": "d", "text": "`[]`" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "`in` would see inherited keys; `Object.keys` does not."
+    },
+    {
+      "id": "q4",
+      "prompt": "Does mutating the array returned by `Object.keys(obj)` change `obj`?",
+      "options": [
+        { "id": "a", "text": "No — you get a new array" },
+        { "id": "b", "text": "Yes — keys are live views" },
+        { "id": "c", "text": "Only if you use `push`" },
+        { "id": "d", "text": "Only in strict mode" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "The result is a fresh array. Changing it does not rename or remove object properties."
+    },
+    {
+      "id": "q5",
+      "prompt": "Which loop pattern pairs naturally with `Object.entries`?",
+      "options": [
+        { "id": "a", "text": "`for (const [key, value] of Object.entries(obj))`" },
+        { "id": "b", "text": "`for (const key of Object.entries(obj))` where key is a string" },
+        { "id": "c", "text": "`while (Object.entries(obj))`" },
+        { "id": "d", "text": "`obj.forEach(([k,v]) => …)` on plain objects" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Each entry is a two-element array, so destructuring `[key, value]` is the usual form."
+    }
+  ]
+}

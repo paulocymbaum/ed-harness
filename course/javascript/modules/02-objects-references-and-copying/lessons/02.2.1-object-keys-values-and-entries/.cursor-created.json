@@ -1,0 +1,9 @@
+{
+  "createdBy": "cursor-tool",
+  "tool": "scripts/graph/scaffold-from-graph.mjs",
+  "createdAt": "2026-07-16T02:02:03.908Z",
+  "kind": "lesson",
+  "lessonId": "02.2.1-object-keys-values-and-entries",
+  "moduleId": "02-objects",
+  "graphIndex": "02.2.1"
+}

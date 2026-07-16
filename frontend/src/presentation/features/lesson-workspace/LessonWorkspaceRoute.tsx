@@ -63,11 +63,15 @@ export function LessonWorkspaceRoute() {
           : "flex min-h-0 flex-1 flex-col overflow-hidden"
       }
     >
-      {!drawerOpen ? (
-        <main className="flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden">
-          <LessonExplanationPanel title={lesson.title} markdown={lesson.markdown} showTitle={false} />
-        </main>
-      ) : null}
+      <main
+        className={
+          drawerOpen
+            ? "hidden min-h-0 min-w-0 flex-1 flex-col overflow-hidden lg:flex"
+            : "flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden"
+        }
+      >
+        <LessonExplanationPanel title={lesson.title} markdown={lesson.markdown} showTitle={false} />
+      </main>
 
       <Drawer
         open={drawerOpen}

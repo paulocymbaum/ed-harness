@@ -1,0 +1,39 @@
+{
+  "cases": [
+    {
+      "id": "happy-path",
+      "name": "Inventory name/age object",
+      "stdin": "{\"name\":\"Ada\",\"age\":36}\n",
+      "expectedStdout": "{\"keys\":[\"name\",\"age\"],\"values\":[\"Ada\",36],\"entries\":[[\"name\",\"Ada\"],[\"age\",36]]}\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "empty-object",
+      "name": "Empty object",
+      "stdin": "{}\n",
+      "expectedStdout": "{\"keys\":[],\"values\":[],\"entries\":[]}\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "missing-input",
+      "name": "Empty stdin",
+      "stdin": "",
+      "expectedStdout": "ERROR: missing input\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "invalid-json",
+      "name": "Invalid JSON",
+      "stdin": "not-json\n",
+      "expectedStdout": "ERROR: invalid JSON\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "not-object",
+      "name": "Array rejected",
+      "stdin": "[1,2]\n",
+      "expectedStdout": "ERROR: input must be a JSON object\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "id": "quiz",
+  "title": "Arrow Functions and Callbacks Check",
+  "description": "Arrow syntax, implicit return, and callbacks with map/filter.",
+  "lessonId": "01.7.3-arrow-functions-and-callbacks",
+  "graphIndex": "01.7.3",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What is printed?\n\n```js\nconst double = (n) => n * 2;\nconst nums = [1, 2, 3];\nconst result = nums.map(double);\nconsole.log(result);\n```",
+      "options": [
+        { "id": "a", "text": "`[2, 4, 6]`" },
+        { "id": "b", "text": "`[1, 2, 3]`" },
+        { "id": "c", "text": "`6`" },
+        { "id": "d", "text": "`undefined`" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "`map` calls the arrow once per item. Expression-body `(n) => n * 2` returns each doubled value, so the array becomes `[2, 4, 6]`."
+    },
+    {
+      "id": "q2",
+      "prompt": "What does this print?\n\n```js\nconst add = (a, b) => {\n  a + b;\n};\nconsole.log(add(2, 3));\n```",
+      "options": [
+        { "id": "a", "text": "`undefined` — block body needs an explicit `return`" },
+        { "id": "b", "text": "`5`" },
+        { "id": "c", "text": "`NaN`" },
+        { "id": "d", "text": "Throws a SyntaxError" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "A block body `{ ... }` does not auto-return. Without `return`, the caller gets `undefined`. Use `(a, b) => a + b` or `return a + b` inside the block."
+    },
+    {
+      "id": "q3",
+      "prompt": "What is printed?\n\n```js\nfunction applyTwice(fn, value) {\n  return fn(fn(value));\n}\nconst inc = (n) => n + 1;\nconsole.log(applyTwice(inc, 5));\n```",
+      "options": [
+        { "id": "a", "text": "`7`" },
+        { "id": "b", "text": "`6`" },
+        { "id": "c", "text": "`5`" },
+        { "id": "d", "text": "`undefined`" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "`inc` is a callback (a function value). `applyTwice` calls it twice: `5 → 6 → 7`."
+    },
+    {
+      "id": "q4",
+      "prompt": "What is printed?\n\n```js\nconst scores = [40, 70, 90];\nconst passing = scores.filter((s) => s >= 60);\nconst labeled = passing.map((s) => \"Pass:\" + s);\nconsole.log(labeled);\n```",
+      "options": [
+        { "id": "a", "text": "`[\"Pass:70\", \"Pass:90\"]`" },
+        { "id": "b", "text": "`[\"Pass:40\", \"Pass:70\", \"Pass:90\"]`" },
+        { "id": "c", "text": "`[\"Pass:60\"]`" },
+        { "id": "d", "text": "`\"Pass:70Pass:90\"`" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "`filter` keeps only scores `>= 60`. `map` builds a new array of labels — both use arrow callbacks."
+    },
+    {
+      "id": "q5",
+      "prompt": "What is printed?\n\n```js\nconst clamp = (value, min, max) => {\n  if (value < min) return min;\n  if (value > max) return max;\n  return value;\n};\nconst raw = [-2, 5, 12];\nconsole.log(raw.map((n) => clamp(n, 0, 10)));\n```",
+      "options": [
+        { "id": "a", "text": "`[0, 5, 10]`" },
+        { "id": "b", "text": "`[-2, 5, 12]`" },
+        { "id": "c", "text": "`[0, 5, 12]`" },
+        { "id": "d", "text": "`[2, 5, 2]`" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Each element is clamped into `[0, 10]`: `-2 → 0`, `5` stays, `12 → 10`. The callback passed to `map` calls `clamp`."
+    },
+    {
+      "id": "q6",
+      "prompt": "Why can you call a `function` declaration before its line in the file, but not a `const` arrow?",
+      "options": [
+        { "id": "a", "text": "Function declarations are hoisted; `const` arrows are not available before their line" },
+        { "id": "b", "text": "Arrows cannot return values" },
+        { "id": "c", "text": "Arrows only work inside `map`/`filter`" },
+        { "id": "d", "text": "`const` arrows are always `undefined` after declaration" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Declarations are hoisted. An arrow assigned with `const` must be declared before you call it — declare helpers near the top."
+    }
+  ]
+}

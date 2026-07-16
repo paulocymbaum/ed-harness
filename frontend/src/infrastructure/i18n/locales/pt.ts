@@ -137,6 +137,7 @@ export const pt: TranslationDictionary = {
 
   "lesson.loading": "Carregando lição…",
   "lesson.thisLesson": "Esta lição",
+  "lesson.score": "Pontuação da lição",
   "lesson.noActivities.title": "Nenhuma atividade ainda.",
   "lesson.noActivities.description": "Projetos e quizzes desta lição aparecerão aqui.",
   "lesson.readingOnly": "Somente leitura",
@@ -145,6 +146,9 @@ export const pt: TranslationDictionary = {
   "lesson.backToModule": "Voltar ao módulo",
   "lesson.projects": "Projetos",
   "lesson.quizzes": "Quizzes",
+
+  "activity.notStarted": "Não iniciado",
+  "activity.quizBest": "Melhor {pct}%",
 
   "project.pending": "Pendente",
   "project.title": "Projeto",
@@ -243,7 +247,12 @@ export const pt: TranslationDictionary = {
 
   "drawer.closeOverlay": "Fechar sobreposição da gaveta",
   "drawer.close": "Fechar gaveta",
+  "drawer.backToExplanation": "Voltar à explicação",
   "drawer.tabs": "Abas",
+
+  "toast.deliverySaved": "Entrega salva",
+  "toast.deliverySaveFailed": "Não foi possível salvar a entrega",
+  "toast.quizPoints": "+{delta} pontos de quiz adicionados",
 
   "error.loadCourse": "Falha ao carregar o curso.",
   "error.courseNotFound": "Curso não encontrado.",

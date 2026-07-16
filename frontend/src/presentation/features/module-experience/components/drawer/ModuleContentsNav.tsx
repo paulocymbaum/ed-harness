@@ -10,6 +10,8 @@ import {
   groupLessonsBySection,
 } from "../../../../../application/selectors/lessonDisplay";
 import { useLessonActivityItems } from "../../../../../application/hooks/useLessonActivityItems";
+import { useLessonScore } from "../../../../../application/hooks/useLessonScore";
+import { useSectionScore } from "../../../../../application/hooks/useSectionScore";
 import { useTranslation } from "../../../../../application/hooks/useTranslation";
 import { useModuleLayoutContext } from "../../ModuleLayoutContext";
 import { useModuleContentsNavigation } from "../../hooks/useModuleContentsNavigation";
@@ -42,35 +44,78 @@ export function ModuleContentsNav() {
 
       <div className="min-h-0 flex-1 overflow-auto p-2">
         {lessonSections.map((section) => (
-          <ModuleSectionAccordion
+          <ModuleSectionNavItem
             key={section.sectionKey}
+            courseId={courseId}
+            moduleId={moduleId}
+            course={course}
             sectionKey={section.sectionKey}
             sectionLabel={section.sectionLabel}
+            lessons={section.lessons}
+            activeLessonId={activeLessonId}
+            activeQuizId={activeQuizId}
+            activeProjectId={activeProjectId}
             defaultOpen={
               section.lessons.some((lesson) => lesson.id === activeLessonId) ||
               section.sectionKey === lessonSections[0]?.sectionKey
             }
-          >
-            {section.lessons.map((lesson) => (
-              <ModuleLessonNavItem
-                key={lesson.id}
-                courseId={courseId}
-                moduleId={moduleId}
-                course={course}
-                lesson={lesson}
-                isActiveLesson={lesson.id === activeLessonId}
-                activeQuizId={lesson.id === activeLessonId ? activeQuizId : null}
-                activeProjectId={lesson.id === activeLessonId ? activeProjectId : null}
-                defaultOpen={lesson.id === activeLessonId}
-                onOpenLesson={() => navigation.openLesson(lesson.id)}
-                onOpenQuiz={(quizId) => navigation.openLessonQuiz(lesson.id, quizId)}
-                onOpenProject={(projectId) => navigation.openLessonProject(lesson.id, projectId)}
-              />
-            ))}
-          </ModuleSectionAccordion>
+            onOpenLesson={(lessonId) => navigation.openLesson(lessonId)}
+            onOpenQuiz={(lessonId, quizId) => navigation.openLessonQuiz(lessonId, quizId)}
+            onOpenProject={(lessonId, projectId) =>
+              navigation.openLessonProject(lessonId, projectId)
+            }
+          />
         ))}
       </div>
     </nav>
+  );
+}
+
+function ModuleSectionNavItem(props: {
+  courseId: string;
+  moduleId: string;
+  course: Course;
+  sectionKey: string;
+  sectionLabel: string;
+  lessons: Lesson[];
+  activeLessonId: string | null;
+  activeQuizId: string | null;
+  activeProjectId: string | null;
+  defaultOpen?: boolean;
+  onOpenLesson: (lessonId: string) => void;
+  onOpenQuiz: (lessonId: string, quizId: string) => void;
+  onOpenProject: (lessonId: string, projectId: string) => void;
+}) {
+  const sectionScore = useSectionScore({
+    course: props.course,
+    moduleId: props.moduleId,
+    lessons: props.lessons,
+  });
+
+  return (
+    <ModuleSectionAccordion
+      sectionKey={props.sectionKey}
+      sectionLabel={props.sectionLabel}
+      scorePoints={sectionScore?.points}
+      defaultOpen={props.defaultOpen}
+    >
+      {props.lessons.map((lesson) => (
+        <ModuleLessonNavItem
+          key={lesson.id}
+          courseId={props.courseId}
+          moduleId={props.moduleId}
+          course={props.course}
+          lesson={lesson}
+          isActiveLesson={lesson.id === props.activeLessonId}
+          activeQuizId={lesson.id === props.activeLessonId ? props.activeQuizId : null}
+          activeProjectId={lesson.id === props.activeLessonId ? props.activeProjectId : null}
+          defaultOpen={lesson.id === props.activeLessonId}
+          onOpenLesson={() => props.onOpenLesson(lesson.id)}
+          onOpenQuiz={(quizId) => props.onOpenQuiz(lesson.id, quizId)}
+          onOpenProject={(projectId) => props.onOpenProject(lesson.id, projectId)}
+        />
+      ))}
+    </ModuleSectionAccordion>
   );
 }
 
@@ -95,11 +140,17 @@ function ModuleLessonNavItem(props: {
     quizzes,
     projects,
   });
+  const lessonScore = useLessonScore({
+    course: props.course,
+    moduleId: props.moduleId,
+    lessonId: props.lesson.id,
+  });
 
   return (
     <ModuleLessonAccordion
       lesson={props.lesson}
       items={items}
+      scorePoints={lessonScore.points}
       isActiveLesson={props.isActiveLesson}
       activeQuizId={props.activeQuizId}
       activeProjectId={props.activeProjectId}

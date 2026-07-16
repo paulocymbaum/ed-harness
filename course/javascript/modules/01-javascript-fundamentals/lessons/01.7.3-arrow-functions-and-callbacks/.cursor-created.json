@@ -1,0 +1,9 @@
+{
+  "createdBy": "cursor-tool",
+  "tool": "scripts/graph/scaffold-from-graph.mjs",
+  "createdAt": "2026-07-16T02:11:04.261Z",
+  "kind": "lesson",
+  "lessonId": "01.7.3-arrow-functions-and-callbacks",
+  "moduleId": "01-javascript-fundamentals",
+  "graphIndex": "01.7.3"
+}

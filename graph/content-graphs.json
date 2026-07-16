@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-07-15T03:27:54.602Z",
+  "generatedAt": "2026-07-16T02:17:40.156Z",
   "courses": {
     "algorithms": {
-      "generatedAt": "2026-07-15T03:27:54.589Z",
+      "generatedAt": "2026-07-16T02:17:40.138Z",
       "courseSlug": "algorithms",
       "stats": {
         "totalLeaves": 82,
@@ -1114,12 +1114,12 @@
       }
     },
     "javascript": {
-      "generatedAt": "2026-07-15T03:27:54.602Z",
+      "generatedAt": "2026-07-16T02:17:40.156Z",
       "courseSlug": "javascript",
       "stats": {
         "totalLeaves": 72,
-        "exists": 57,
-        "planned": 15,
+        "exists": 67,
+        "planned": 5,
         "orphan": 0
       },
       "root": {
@@ -1428,7 +1428,12 @@
                     "label": "Arrow Functions and Callbacks",
                     "kind": "lesson",
                     "children": [],
-                    "status": "planned"
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "javascript",
+                      "moduleId": "01-javascript-fundamentals",
+                      "lessonId": "01.7.3-arrow-functions-and-callbacks"
+                    }
                   },
                   {
                     "id": "n_b886afdd5a",
@@ -1436,7 +1441,12 @@
                     "label": "Throwing Errors and Sync try/catch",
                     "kind": "lesson",
                     "children": [],
-                    "status": "planned"
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "javascript",
+                      "moduleId": "01-javascript-fundamentals",
+                      "lessonId": "01.7.4-throwing-errors-and-sync-try-catch"
+                    }
                   }
                 ]
               },
@@ -1525,7 +1535,12 @@
                     "label": "Array Literals Indexing and length",
                     "kind": "lesson",
                     "children": [],
-                    "status": "planned"
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "javascript",
+                      "moduleId": "01-javascript-fundamentals",
+                      "lessonId": "01.9.1-array-literals-indexing-and-length"
+                    }
                   },
                   {
                     "id": "n_923a30769a",
@@ -1573,7 +1588,12 @@
                     "label": "Object Literals and Property Access",
                     "kind": "lesson",
                     "children": [],
-                    "status": "planned"
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "javascript",
+                      "moduleId": "02-objects-references-and-copying",
+                      "lessonId": "02.1.1-object-literals-and-property-access"
+                    }
                   },
                   {
                     "id": "n_a77693031f",
@@ -1581,7 +1601,12 @@
                     "label": "Computed Keys and Shorthand",
                     "kind": "lesson",
                     "children": [],
-                    "status": "planned"
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "javascript",
+                      "moduleId": "02-objects-references-and-copying",
+                      "lessonId": "02.1.2-computed-keys-and-shorthand"
+                    }
                   },
                   {
                     "id": "n_1c0b6b4518",
@@ -1589,7 +1614,12 @@
                     "label": "Object Destructuring",
                     "kind": "lesson",
                     "children": [],
-                    "status": "planned"
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "javascript",
+                      "moduleId": "02-objects-references-and-copying",
+                      "lessonId": "02.1.3-object-destructuring"
+                    }
                   },
                   {
                     "id": "n_faedd6a151",
@@ -1597,7 +1627,12 @@
                     "label": "Rest and Spread for Objects and Arrays",
                     "kind": "lesson",
                     "children": [],
-                    "status": "planned"
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "javascript",
+                      "moduleId": "02-objects-references-and-copying",
+                      "lessonId": "02.1.4-rest-and-spread-for-objects-and-arrays"
+                    }
                   }
                 ]
               },
@@ -1613,7 +1648,12 @@
                     "label": "Object.keys values and entries",
                     "kind": "lesson",
                     "children": [],
-                    "status": "planned"
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "javascript",
+                      "moduleId": "02-objects-references-and-copying",
+                      "lessonId": "02.2.1-object-keys-values-and-entries"
+                    }
                   },
                   {
                     "id": "n_ed6e5d1123",
@@ -1621,7 +1661,12 @@
                     "label": "Object.fromEntries",
                     "kind": "lesson",
                     "children": [],
-                    "status": "planned"
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "javascript",
+                      "moduleId": "02-objects-references-and-copying",
+                      "lessonId": "02.2.2-object-fromentries"
+                    }
                   },
                   {
                     "id": "n_e2f4e71392",
@@ -1629,7 +1674,12 @@
                     "label": "Object.assign and Merging",
                     "kind": "lesson",
                     "children": [],
-                    "status": "planned"
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "javascript",
+                      "moduleId": "02-objects-references-and-copying",
+                      "lessonId": "02.2.3-object-assign-and-merging"
+                    }
                   }
                 ]
               },
