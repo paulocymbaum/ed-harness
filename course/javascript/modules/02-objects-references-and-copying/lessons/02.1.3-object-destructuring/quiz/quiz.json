@@ -1,0 +1,69 @@
+{
+  "id": "quiz",
+  "title": "Object Destructuring Check",
+  "description": "Unpack object fields with defaults, renaming, and nesting.",
+  "lessonId": "02.1.3-object-destructuring",
+  "graphIndex": "02.1.3",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What prints?\n\n```js\nconst user = { name: \"Ada\", age: 36, city: \"London\" };\nconst { name, city, role = \"guest\" } = user;\nconsole.log(name, city, role);\n```",
+      "options": [
+        { "id": "a", "text": "`Ada London guest`" },
+        { "id": "b", "text": "`Ada London undefined`" },
+        { "id": "c", "text": "`Ada undefined guest`" },
+        { "id": "d", "text": "throws TypeError" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "`name` and `city` unpack from the object. Missing `role` gets the default `\"guest\"`."
+    },
+    {
+      "id": "q2",
+      "prompt": "What does `const { name: fullName } = user` do?",
+      "options": [
+        { "id": "a", "text": "Reads `user.name` into a variable called `fullName`" },
+        { "id": "b", "text": "Renames the property on `user` to `fullName`" },
+        { "id": "c", "text": "Creates `user.fullName` equal to `user.name`" },
+        { "id": "d", "text": "Throws unless `fullName` already exists" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Destructuring rename uses `source: localName`. The object itself is unchanged."
+    },
+    {
+      "id": "q3",
+      "prompt": "When does a destructuring default apply?",
+      "options": [
+        { "id": "a", "text": "When the value is `undefined` (missing key or explicit undefined)" },
+        { "id": "b", "text": "When the value is `null`" },
+        { "id": "c", "text": "When the value is `\"\"` or `0`" },
+        { "id": "d", "text": "Always, overwriting existing values" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Defaults trigger only for `undefined`. `null`, `0`, and `\"\"` are kept as-is."
+    },
+    {
+      "id": "q4",
+      "prompt": "What happens with `const { name } = null`?",
+      "options": [
+        { "id": "a", "text": "TypeError — cannot destructure null/undefined" },
+        { "id": "b", "text": "`name` becomes `null`" },
+        { "id": "c", "text": "`name` becomes `undefined`" },
+        { "id": "d", "text": "`name` becomes `\"null\"`" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Destructuring requires an object-like target. Guard with `user ?? {}` when input may be nullish."
+    },
+    {
+      "id": "q5",
+      "prompt": "How do you unpack nested `pages` from `{ title: \"Report\", meta: { pages: 3 } }`?",
+      "options": [
+        { "id": "a", "text": "`const { title, meta: { pages } } = obj`" },
+        { "id": "b", "text": "`const { title, pages } = obj`" },
+        { "id": "c", "text": "`const { meta.pages } = obj`" },
+        { "id": "d", "text": "`const { title: meta.pages } = obj`" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Nest the pattern: `meta: { pages }` mirrors the object shape."
+    }
+  ]
+}

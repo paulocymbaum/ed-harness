@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "id": "example",
+      "name": "Example from README",
+      "stdin": "10\n2\n",
+      "expectedStdout": "Result: 5\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "exact-quotient",
+      "name": "Exact quotient",
+      "stdin": "9\n3\n",
+      "expectedStdout": "Result: 3\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "divide-by-zero",
+      "name": "Divide by zero",
+      "stdin": "10\n0\n",
+      "expectedStdout": "ERROR: Cannot divide by zero\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "invalid-number",
+      "name": "Invalid number",
+      "stdin": "x\n2\n",
+      "expectedStdout": "ERROR: Invalid number\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

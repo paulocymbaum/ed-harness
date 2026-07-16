@@ -1,0 +1,9 @@
+{
+  "createdBy": "cursor-tool",
+  "tool": "scripts/graph/scaffold-from-graph.mjs",
+  "createdAt": "2026-07-16T02:13:01.472Z",
+  "kind": "lesson",
+  "lessonId": "01.9.1-array-literals-indexing-and-length",
+  "moduleId": "01-javascript-fundamentals",
+  "graphIndex": "01.9.1"
+}
