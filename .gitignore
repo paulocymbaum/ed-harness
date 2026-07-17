@@ -62,6 +62,7 @@ Thumbs.db
 ###############################################################################
 course/*/quiz/score.json
 **/project-delivery.json
+course-scores-*.zip
 
 docs/5W1H-REPORT.md
 
