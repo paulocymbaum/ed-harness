@@ -10,5 +10,27 @@
     "logical operators"
   ],
   "prerequisites": [],
-  "status": "draft"
+  "status": "draft",
+  "keywords": [
+    "JavaScript",
+    "truthy",
+    "falsy",
+    "truthy falsy",
+    "truthy vs falsy",
+    "conditions",
+    "logical",
+    "operators"
+  ],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=Xp60QbXRAPI",
+      "title": "One Of the Most IMPORTANT Parts of JavaScript - Truthy and Falsy EXPLAINED",
+      "views": 16676
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=J4N6ETFpdkA",
+      "title": "Truthy & Falsy Values in JavaScript",
+      "views": 13236
+    }
+  ]
 }

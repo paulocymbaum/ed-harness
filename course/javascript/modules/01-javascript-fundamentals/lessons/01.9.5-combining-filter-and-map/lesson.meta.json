@@ -10,5 +10,27 @@
     "callbacks"
   ],
   "prerequisites": [],
-  "status": "draft"
+  "status": "draft",
+  "keywords": [
+    "JavaScript",
+    "filter map",
+    "chain filter map",
+    "combining filter and map",
+    "combining",
+    "filter",
+    "map",
+    "result"
+  ],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=zdp0zrpKzIE",
+      "title": "map, filter & reduce 🙏 Namaste JavaScript Ep. 19 🔥",
+      "views": 1124888
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=8MoElay6dWU",
+      "title": "Map, Filter & Reduce EXPLAINED in JavaScript - It's EASY!",
+      "views": 27890
+    }
+  ]
 }

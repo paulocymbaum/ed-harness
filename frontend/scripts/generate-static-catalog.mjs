@@ -49,6 +49,21 @@ function humanizeProjectTitle(folderName) {
   return humanizeTitle(folderName, /^(\d{3})-/);
 }
 
+/** Accepts study lesson `videos`: up to 3 `{ url, title, views }` entries. */
+function normalizeLessonVideos(raw) {
+  if (!Array.isArray(raw)) return [];
+  const out = [];
+  for (const entry of raw.slice(0, 3)) {
+    if (!entry || typeof entry !== "object") continue;
+    const url = typeof entry.url === "string" ? entry.url.trim() : "";
+    const title = typeof entry.title === "string" ? entry.title.trim() : "";
+    const views = typeof entry.views === "number" && Number.isFinite(entry.views) ? entry.views : null;
+    if (!url || !title || views === null) continue;
+    out.push({ url, title, views });
+  }
+  return out;
+}
+
 function humanizeQuizTitle(fileName) {
   return humanizeTitle(fileName.replace(/\.json$/i, ""), /^(\d{2})-/);
 }
@@ -219,6 +234,8 @@ async function loadLesson(lessonPath, courseSlug, moduleId, lessonDir) {
   const meta = await readJsonSafe(path.join(lessonPath, "lesson.meta.json"));
   const readmeMarkdown = await readTextSafe(path.join(lessonPath, "README.md"));
 
+  const videos = normalizeLessonVideos(meta?.videos);
+
   const lesson = {
     id: lessonDir,
     title: meta?.title || humanizeLessonTitle(lessonDir),
@@ -228,6 +245,7 @@ async function loadLesson(lessonPath, courseSlug, moduleId, lessonDir) {
     ...(meta?.graphIndex ? { graphIndex: meta.graphIndex } : {}),
     ...(typeof meta?.description === "string" ? { description: meta.description } : {}),
     ...(Array.isArray(meta?.lesson_dependencies) ? { lesson_dependencies: meta.lesson_dependencies } : {}),
+    ...(videos.length ? { videos } : {}),
     ...(meta?.mockTestSection ? { mockTestSection: meta.mockTestSection } : {}),
   };
 

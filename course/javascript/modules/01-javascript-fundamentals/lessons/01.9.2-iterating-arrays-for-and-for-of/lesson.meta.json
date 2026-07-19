@@ -11,5 +11,27 @@
     "for loop"
   ],
   "prerequisites": [],
-  "status": "draft"
+  "status": "draft",
+  "keywords": [
+    "JavaScript",
+    "for of",
+    "iterate array",
+    "for...of",
+    "iterating arrays for and for-of",
+    "...of",
+    "iterating",
+    "arrays"
+  ],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=c69Y2GpF6-U",
+      "title": "For of Loop with an Array in JavaScript",
+      "views": 73088
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=NlagmmCwOU4",
+      "title": "For in and for of loop in javascript",
+      "views": 63335
+    }
+  ]
 }

@@ -3,7 +3,7 @@
   "graphIndex": "01.8.4",
   "graphNodeId": "n_b0dc9850d7",
   "title": "typeof and Array.isArray",
-  "description": "typeof reports a value's type as a string. It is useful for primitives \u2014 and misleading for arrays and null.",
+  "description": "typeof reports a value's type as a string. It is useful for primitives — and misleading for arrays and null.",
   "lesson_dependencies": [
     "types",
     "arrays",
@@ -11,5 +11,27 @@
     "undefined"
   ],
   "prerequisites": [],
-  "status": "draft"
+  "status": "draft",
+  "keywords": [
+    "JavaScript",
+    "typeof",
+    "array.isarray",
+    "typeof operator",
+    "typeof and array.isarray",
+    "reports",
+    "value's",
+    "string"
+  ],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=ZKBDxY9BU3c",
+      "title": "Como diferencio valores en javascript? typeof + Array.isArray",
+      "views": 671
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=Bi2NdQq0teQ",
+      "title": "#38 TYPEOF, INSTANCEOF & Array.isArray() in JavaScript Programming (Hindi) - JavaScript Tutorial",
+      "views": 61
+    }
+  ]
 }

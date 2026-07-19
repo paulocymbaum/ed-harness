@@ -9,5 +9,22 @@
     "const"
   ],
   "prerequisites": [],
-  "status": "draft"
+  "status": "draft",
+  "keywords": [
+    "JavaScript",
+    "assignment operator",
+    "reassignment",
+    "const binding",
+    "assignment and reassignment",
+    "assignment",
+    "operator",
+    "assigns"
+  ],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=Fk1ERg6xpAg",
+      "title": "JavaScript for Beginners #4 - Logical and Assignment Operators",
+      "views": 29701
+    }
+  ]
 }

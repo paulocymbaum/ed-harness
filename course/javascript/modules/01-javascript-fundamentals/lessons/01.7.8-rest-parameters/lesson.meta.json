@@ -6,5 +6,27 @@
   "description": "Rest parameters gather leftover arguments into an array so helpers can accept a variable number of values.",
   "lesson_dependencies": [],
   "prerequisites": [],
-  "status": "draft"
+  "status": "draft",
+  "keywords": [
+    "JavaScript",
+    "rest parameters",
+    "rest parameter",
+    "rest",
+    "parameters",
+    "leftover",
+    "arguments",
+    "helpers"
+  ],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=XTZVhG90lM0",
+      "title": "Learn JavaScript In Arabic 2021 - #061 - Function Rest Parameters",
+      "views": 104930
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=ahwR1D_GAfc",
+      "title": "JavaScript REST PARAMETERS in 8 minutes! 🗄",
+      "views": 57199
+    }
+  ]
 }

@@ -6,5 +6,22 @@
   "description": "Parameters and locals stay inside the function. Same-name bindings shadow outer variables without changing them.",
   "lesson_dependencies": [],
   "prerequisites": [],
-  "status": "draft"
+  "status": "draft",
+  "keywords": [
+    "JavaScript",
+    "function scope",
+    "variable shadowing",
+    "shadowing",
+    "function scope and shadowing",
+    "function",
+    "scope",
+    "parameters"
+  ],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=IaTztAtoNEY",
+      "title": "JavaScript Block scope vs Function scope",
+      "views": 10521
+    }
+  ]
 }

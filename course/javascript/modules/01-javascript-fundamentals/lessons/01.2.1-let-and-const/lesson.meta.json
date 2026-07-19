@@ -8,5 +8,27 @@
     "variables"
   ],
   "prerequisites": [],
-  "status": "draft"
+  "status": "draft",
+  "keywords": [
+    "JavaScript",
+    "let",
+    "const",
+    "var vs let",
+    "block scope",
+    "let and const",
+    "declare",
+    "variables"
+  ],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=9WIJQDvt4Us",
+      "title": "Differences Between Var, Let, and Const",
+      "views": 220013
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=pobWEaHNChY",
+      "title": "JavaScript var, let, and const explained",
+      "views": 31701
+    }
+  ]
 }

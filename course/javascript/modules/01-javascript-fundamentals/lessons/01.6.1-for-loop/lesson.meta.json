@@ -10,5 +10,27 @@
     "comparison operators"
   ],
   "prerequisites": [],
-  "status": "draft"
+  "status": "draft",
+  "keywords": [
+    "JavaScript",
+    "for loop",
+    "for loop javascript",
+    "loop",
+    "repeats",
+    "summing",
+    "printing",
+    "numbered"
+  ],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=ZOQYIWLngSU",
+      "title": "Learn JavaScript FOR LOOPS in 5 minutes! 🔂",
+      "views": 117447
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=24Wpg6njlYI",
+      "title": "For Loops - Beau teaches JavaScript",
+      "views": 99847
+    }
+  ]
 }

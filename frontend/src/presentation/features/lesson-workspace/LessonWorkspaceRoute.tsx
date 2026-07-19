@@ -9,7 +9,8 @@ import { findQuizInList } from "../../../application/selectors/quizSelectors";
 import { useAppNavigation } from "../../../application/hooks/useAppNavigation";
 import { redirecionarDrawerLegado } from "../../../application/navigation/redirecionarDrawerLegado";
 import { ErrorPanel } from "../../design-system";
-import { LessonExplanationPanel } from "./components/LessonExplanationPanel";
+import { ReadmePanel } from "../../shared/ReadmePanel";
+import { LessonVideosAccordion } from "./components/LessonVideosAccordion";
 import { useModuleLayoutContext } from "../module-experience/ModuleLayoutContext";
 
 export function LessonWorkspaceRoute() {
@@ -52,10 +53,15 @@ export function LessonWorkspaceRoute() {
     return <Navigate to={destinoLegado} replace />;
   }
 
+  const videos = lesson.videos ?? [];
+
   return (
     <section className="flex min-h-0 flex-1 flex-col overflow-hidden">
       <main className="flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden">
-        <LessonExplanationPanel title={lesson.title} markdown={lesson.markdown} showTitle={false} />
+        <div className="min-h-0 flex-1 overflow-auto p-4">
+          {videos.length > 0 ? <LessonVideosAccordion videos={videos} /> : null}
+          <ReadmePanel title={lesson.title} markdown={lesson.markdown} showTitle={false} variant="inline" />
+        </div>
       </main>
     </section>
   );

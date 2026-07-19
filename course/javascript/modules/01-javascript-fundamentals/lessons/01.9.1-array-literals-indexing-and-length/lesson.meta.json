@@ -10,5 +10,27 @@
     "for loop"
   ],
   "prerequisites": [],
-  "status": "draft"
+  "status": "draft",
+  "keywords": [
+    "JavaScript",
+    "array literal",
+    "array index",
+    "array length",
+    "array literals indexing and length",
+    "array",
+    "literals",
+    "indexing"
+  ],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=UbRDX5p0kR8",
+      "title": "3 - Should Understand Array Literals - JavaScript Koans",
+      "views": 373
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=iQMwyVGok6c",
+      "title": "Mastering JavaScript Arrays: Array Literals & Constructor Methods Explained! Pt 1",
+      "views": 57
+    }
+  ]
 }

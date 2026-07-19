@@ -6,5 +6,27 @@
   "description": "Function expressions store a function as a value in a variable. They are not hoisted like declarations — call them after the assignment.",
   "lesson_dependencies": [],
   "prerequisites": [],
-  "status": "draft"
+  "status": "draft",
+  "keywords": [
+    "JavaScript",
+    "function expression",
+    "function expressions",
+    "function",
+    "expressions",
+    "variable",
+    "hoisted",
+    "declarations"
+  ],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=jDqmFt03Gy0",
+      "title": "JavaScript FUNCTION EXPRESSIONS in 7 minutes! 🐣",
+      "views": 47544
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=oK9xxTx07Sw",
+      "title": "JavaScript Function Expressions Explained in Detail",
+      "views": 7859
+    }
+  ]
 }

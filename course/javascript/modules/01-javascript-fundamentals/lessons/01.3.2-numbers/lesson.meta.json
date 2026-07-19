@@ -9,5 +9,26 @@
     "Number"
   ],
   "prerequisites": [],
-  "status": "draft"
+  "status": "draft",
+  "keywords": [
+    "JavaScript",
+    "javascript numbers",
+    "parseint",
+    "parsefloat",
+    "number",
+    "numbers",
+    "strings"
+  ],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=-xAJKmjKCUE",
+      "title": "Random numbers & parseInt - Beau teaches JavaScript",
+      "views": 30133
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=wLeSTjpTfsg",
+      "title": "Curso JavaScript #27 - Métodos numéricos (parseInt, parseFloat)",
+      "views": 14412
+    }
+  ]
 }

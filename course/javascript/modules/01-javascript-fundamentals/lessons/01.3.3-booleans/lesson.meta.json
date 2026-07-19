@@ -8,5 +8,27 @@
     "comparison operators"
   ],
   "prerequisites": [],
-  "status": "draft"
+  "status": "draft",
+  "keywords": [
+    "JavaScript",
+    "javascript boolean",
+    "true false",
+    "boolean",
+    "booleans",
+    "comparisons",
+    "validation",
+    "produce"
+  ],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=B4ZCFdrBmbE",
+      "title": "JavaScript Tutorial For Beginners #11 - Booleans in JavaScript",
+      "views": 139230
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=xvxAtpEoeYU",
+      "title": "JavaScript Booleans Tutorial for Beginners: True or False?",
+      "views": 8450
+    }
+  ]
 }

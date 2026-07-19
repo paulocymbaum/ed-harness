@@ -10,5 +10,27 @@
     "array iteration"
   ],
   "prerequisites": [],
-  "status": "draft"
+  "status": "draft",
+  "keywords": [
+    "JavaScript",
+    "array filter",
+    "filter method",
+    "array.prototype.filter",
+    "elements",
+    "callback",
+    "returns",
+    "original"
+  ],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=3LOEGS4qcRM",
+      "title": "JavaScript Array Filter Method Practice in 5 Minutes",
+      "views": 78908
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=VvSEKHKFvpQ",
+      "title": "JavaScript filter() method in 6 minutes! 🚰",
+      "views": 57518
+    }
+  ]
 }

@@ -10,5 +10,27 @@
     "throw"
   ],
   "prerequisites": [],
-  "status": "draft"
+  "status": "draft",
+  "keywords": [
+    "JavaScript",
+    "try catch",
+    "throw error",
+    "try/catch",
+    "throwing errors and sync try/catch",
+    "throwing",
+    "errors",
+    "sync"
+  ],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=_am9rKw4vWw",
+      "title": "JavaScript Try...Catch plus Throwing Errors and Exceptions",
+      "views": 18069
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=PknztTlBGUk",
+      "title": "Como usar TRY CATCH e THROW ERROR no JAVASCRIPT? AULA para INICIANTES",
+      "views": 7705
+    }
+  ]
 }
