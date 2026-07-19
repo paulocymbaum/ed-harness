@@ -1,0 +1,10 @@
+{
+  "id": "01.7.5-function-expressions",
+  "graphIndex": "01.7.5",
+  "graphNodeId": "n_26ebe575ec",
+  "title": "Function Expressions",
+  "description": "Function expressions store a function as a value in a variable. They are not hoisted like declarations — call them after the assignment.",
+  "lesson_dependencies": [],
+  "prerequisites": [],
+  "status": "draft"
+}

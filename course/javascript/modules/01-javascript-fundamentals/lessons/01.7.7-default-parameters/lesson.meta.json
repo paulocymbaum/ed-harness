@@ -1,0 +1,10 @@
+{
+  "id": "01.7.7-default-parameters",
+  "graphIndex": "01.7.7",
+  "graphNodeId": "n_dee93211c1",
+  "title": "Default Parameters",
+  "description": "Default parameters fill in when an argument is omitted or undefined. Explicit falsy values are kept.",
+  "lesson_dependencies": [],
+  "prerequisites": [],
+  "status": "draft"
+}

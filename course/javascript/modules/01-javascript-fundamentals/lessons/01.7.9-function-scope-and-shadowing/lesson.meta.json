@@ -1,0 +1,10 @@
+{
+  "id": "01.7.9-function-scope-and-shadowing",
+  "graphIndex": "01.7.9",
+  "graphNodeId": "n_18ca14ad6d",
+  "title": "Function Scope and Shadowing",
+  "description": "Parameters and locals stay inside the function. Same-name bindings shadow outer variables without changing them.",
+  "lesson_dependencies": [],
+  "prerequisites": [],
+  "status": "draft"
+}

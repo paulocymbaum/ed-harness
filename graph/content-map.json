@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-19T03:49:42.245Z",
+  "generatedAt": "2026-07-19T04:34:06.487Z",
   "courses": {
     "algorithms": {
       "courseSlug": "algorithms",
@@ -704,8 +704,8 @@
     },
     "javascript": {
       "courseSlug": "javascript",
-      "total": 79,
-      "exists": 74,
+      "total": 84,
+      "exists": 79,
       "planned": 2,
       "orphan": 3,
       "entries": [
@@ -894,6 +894,46 @@
           "moduleId": "01-javascript-fundamentals",
           "lessonId": "01.7.4-throwing-errors-and-sync-try-catch",
           "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.7.4-throwing-errors-and-sync-try-catch",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "01.7.5",
+          "courseId": "javascript",
+          "moduleId": "01-javascript-fundamentals",
+          "lessonId": "01.7.5-function-expressions",
+          "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.7.5-function-expressions",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "01.7.6",
+          "courseId": "javascript",
+          "moduleId": "01-javascript-fundamentals",
+          "lessonId": "01.7.6-extra-arguments-and-arity",
+          "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.7.6-extra-arguments-and-arity",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "01.7.7",
+          "courseId": "javascript",
+          "moduleId": "01-javascript-fundamentals",
+          "lessonId": "01.7.7-default-parameters",
+          "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.7.7-default-parameters",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "01.7.8",
+          "courseId": "javascript",
+          "moduleId": "01-javascript-fundamentals",
+          "lessonId": "01.7.8-rest-parameters",
+          "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.7.8-rest-parameters",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "01.7.9",
+          "courseId": "javascript",
+          "moduleId": "01-javascript-fundamentals",
+          "lessonId": "01.7.9-function-scope-and-shadowing",
+          "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.7.9-function-scope-and-shadowing",
           "status": "exists"
         },
         {

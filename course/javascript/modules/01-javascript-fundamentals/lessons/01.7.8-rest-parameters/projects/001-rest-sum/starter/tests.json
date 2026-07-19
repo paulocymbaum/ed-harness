@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "id": "example",
+      "name": "Example from README",
+      "stdin": "1\n2\n3\n",
+      "expectedStdout": "Sum: 6\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "single",
+      "name": "Single number",
+      "stdin": "10\n",
+      "expectedStdout": "Sum: 10\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "empty",
+      "name": "Empty input",
+      "stdin": "",
+      "expectedStdout": "Sum: 0\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "invalid",
+      "name": "Invalid number",
+      "stdin": "1\nx\n3\n",
+      "expectedStdout": "ERROR: invalid number\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

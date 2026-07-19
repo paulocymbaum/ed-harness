@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "id": "example",
+      "name": "Example from README",
+      "stdin": "arg\n",
+      "expectedStdout": "inner: arg\nouter: outer\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "inner-name",
+      "name": "Argument named inner",
+      "stdin": "inner\n",
+      "expectedStdout": "inner: inner\nouter: outer\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "empty",
+      "name": "Empty marker",
+      "stdin": "\n",
+      "expectedStdout": "ERROR: empty marker\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "whitespace",
+      "name": "Whitespace-only",
+      "stdin": "  \n",
+      "expectedStdout": "ERROR: empty marker\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

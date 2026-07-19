@@ -1,0 +1,10 @@
+{
+  "id": "01.7.6-extra-arguments-and-arity",
+  "graphIndex": "01.7.6",
+  "graphNodeId": "n_55253c7fc3",
+  "title": "Extra Arguments and Arity",
+  "description": "Extra arguments are ignored by named parameters. Arity is the declared parameter count; missing vs extra args behave differently.",
+  "lesson_dependencies": [],
+  "prerequisites": [],
+  "status": "draft"
+}
