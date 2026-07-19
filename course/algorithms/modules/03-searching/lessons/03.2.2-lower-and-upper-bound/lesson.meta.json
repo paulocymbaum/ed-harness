@@ -3,6 +3,11 @@
   "graphIndex": "03.2.2",
   "graphNodeId": "n_a55dc89ab5",
   "title": "Lower and Upper Bound",
+  "description": "Equality binary search is ambiguous with duplicates. Lower bound is the first index where arr[i] >= target.",
+  "lesson_dependencies": [
+    "binary search",
+    "duplicates"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

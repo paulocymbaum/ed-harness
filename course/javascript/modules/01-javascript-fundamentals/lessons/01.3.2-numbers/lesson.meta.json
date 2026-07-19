@@ -3,6 +3,11 @@
   "graphIndex": "01.3.2",
   "graphNodeId": "n_02a53c5427",
   "title": "Numbers",
+  "description": "stdin lines arrive as strings. Before doing math you must parse them into numbers.",
+  "lesson_dependencies": [
+    "strings",
+    "Number"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

@@ -3,6 +3,10 @@
   "graphIndex": "01.4.1",
   "graphNodeId": "n_c62abf5295",
   "title": "Arithmetic Operators",
+  "description": "Arithmetic operators compute totals, averages, remainders, and powers. Challenge scripts often split bills, sum scores, or check even/odd with %.",
+  "lesson_dependencies": [
+    "numbers"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

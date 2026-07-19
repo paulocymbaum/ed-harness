@@ -3,6 +3,11 @@
   "graphIndex": "01.1.3",
   "graphNodeId": "n_c57389b39c",
   "title": "Best Average Worst Case",
+  "description": "One Big-O label is not enough when performance depends on input shape. Algorithms can be fast on lucky inputs and slow on adversarial ones.",
+  "lesson_dependencies": [
+    "Big-O",
+    "time complexity"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

@@ -1,8 +1,14 @@
 {
   "id": "03.2.1-promises",
   "graphIndex": "03.2.1",
-  "graphNodeId": "n_d4bf523b10",
+  "graphNodeId": "n_5402d86d9f",
   "title": "Promises",
+  "description": "A Promise represents a value that may be available later. You create one with new Promise(executor), then chain .then for success and .catch for failure.",
+  "lesson_dependencies": [
+    "callbacks",
+    "event loop",
+    "microtasks"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

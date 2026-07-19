@@ -3,6 +3,11 @@
   "graphIndex": "01.1.2",
   "graphNodeId": "n_92d759dda7",
   "title": "Space Complexity",
+  "description": "Space complexity asks how much extra memory grows with input size. Time and space trade off: caching can save time but costs RAM; in-place algorithms save memory but may mutate input.",
+  "lesson_dependencies": [
+    "Big-O",
+    "time complexity"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

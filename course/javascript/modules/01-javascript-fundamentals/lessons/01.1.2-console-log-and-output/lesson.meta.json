@@ -3,6 +3,11 @@
   "graphIndex": "01.1.2",
   "graphNodeId": "n_8ec2b7862a",
   "title": "console.log and Output",
+  "description": "Readable output matters in CLI tools and coding challenges. Stakeholders should see labeled, consistent lines \u2014 not mystery values.",
+  "lesson_dependencies": [
+    "Node.js",
+    "console.log"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

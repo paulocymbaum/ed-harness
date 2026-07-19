@@ -3,6 +3,12 @@
   "graphIndex": "01.3.1",
   "graphNodeId": "n_860ad0360b",
   "title": "Strings",
+  "description": "Strings are one of the most common types in JavaScript \u2014 especially from stdin, forms, and APIs. Most bugs start with messy text: extra spaces, wrong case, missing trim.",
+  "lesson_dependencies": [
+    "let",
+    "const",
+    "assignment"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

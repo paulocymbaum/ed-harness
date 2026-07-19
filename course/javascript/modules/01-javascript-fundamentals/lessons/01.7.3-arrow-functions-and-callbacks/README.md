@@ -9,6 +9,27 @@
 
 Arrow functions are a short way to write a function and store it in a variable. Because a function is a value, you can pass it to another function as a **callback** — common with array helpers like `map` and `filter`, and in CLI scripts that transform lists of inputs.
 
+## Bridge — `filter` and `map` (full lessons: `01.9.3` → `01.9.5`)
+
+Projects in this lesson use `Array.prototype.filter` and `Array.prototype.map` before the arrays module covers them in depth. You only need this much to finish the exercises:
+
+**`filter(callback)`** — walks the array; keeps items where your callback returns `true`. Result is a **new** array (often shorter). Full lesson: `01.9.3`.
+
+**`map(callback)`** — walks the array; each callback **return value** becomes the new item. Result is a **new** array of the **same length**. Full lesson: `01.9.4`.
+
+```js
+const scores = [40, 72, 91];
+const threshold = 60;
+
+const isPassing = (s) => s >= threshold;   // boolean → for filter
+const labelPass = (s) => "Pass:" + s;      // new value → for map
+
+const labels = scores.filter(isPassing).map(labelPass);
+console.log(labels); // ["Pass:72", "Pass:91"]
+```
+
+You still build the `scores` array yourself (e.g. with a loop over input). Then pass your arrow functions into `filter` / `map`. Pipelines (`filter` then `map`) are taught properly in `01.9.5`.
+
 ## Predict first
 
 What prints?

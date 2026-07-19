@@ -3,6 +3,10 @@
   "graphIndex": "01.1.3",
   "graphNodeId": "n_fb935b74e0",
   "title": "Comments",
+  "description": "Comments are notes for humans \u2014 the JavaScript engine ignores them. In challenge code you will use comments to explain validation rules, mark TODO steps, and temporarily disable lines while debugging.",
+  "lesson_dependencies": [
+    "JavaScript syntax"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

@@ -1,0 +1,15 @@
+{
+  "id": "01.9.2-iterating-arrays-for-and-for-of",
+  "graphIndex": "01.9.2",
+  "graphNodeId": "n_c843a066a6",
+  "title": "Iterating Arrays for and for-of",
+  "description": "Visit every array element with a classic index for loop or for...of for values. Build result lists by hand before filter and map hide the loop.",
+  "lesson_dependencies": [
+    "array literals",
+    "indexing",
+    "length",
+    "for loop"
+  ],
+  "prerequisites": [],
+  "status": "draft"
+}

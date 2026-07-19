@@ -3,6 +3,10 @@
   "graphIndex": "01.7.2",
   "graphNodeId": "n_ca15a4738a",
   "title": "Parameters and Return Values",
+  "description": "Parameters are inputs to a function; return sends a result back. Separating computation (return a value) from output (console.log) makes functions testable and reusable across different CLI scripts.",
+  "lesson_dependencies": [
+    "function declaration"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

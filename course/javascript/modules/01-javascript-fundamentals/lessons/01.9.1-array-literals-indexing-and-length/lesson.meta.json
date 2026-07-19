@@ -3,6 +3,12 @@
   "graphIndex": "01.9.1",
   "graphNodeId": "n_301aea8a06",
   "title": "Array Literals Indexing and length",
+  "description": "An array is an ordered list of values. You create one with an array literal ([]), read or write items by index (starting at 0), and use .length for how many slots the array currently reports.",
+  "lesson_dependencies": [
+    "variables",
+    "indexing",
+    "for loop"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

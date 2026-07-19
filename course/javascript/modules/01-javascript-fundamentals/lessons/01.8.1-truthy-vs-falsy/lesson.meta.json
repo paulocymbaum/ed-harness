@@ -1,8 +1,14 @@
 {
   "id": "01.8.1-truthy-vs-falsy",
   "graphIndex": "01.8.1",
-  "graphNodeId": "n_d5eeeb6c03",
+  "graphNodeId": "n_08c92665a5",
   "title": "Truthy vs Falsy",
+  "description": "Truthy and falsy values decide how conditions, loops, and logical operators treat non-boolean data in JavaScript.",
+  "lesson_dependencies": [
+    "booleans",
+    "if and else",
+    "logical operators"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

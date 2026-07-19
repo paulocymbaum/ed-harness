@@ -3,6 +3,11 @@
   "graphIndex": "01.5.2",
   "graphNodeId": "n_0cb7f57ab6",
   "title": "switch",
+  "description": "switch selects one branch based on a single value. It is cleaner than a long if / else if chain when comparing one variable against many constants \u2014 menu choices, command codes, or letter grades.",
+  "lesson_dependencies": [
+    "if and else",
+    "strict equality"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

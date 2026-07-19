@@ -3,6 +3,10 @@
   "graphIndex": "01.2.1",
   "graphNodeId": "n_9816864ef5",
   "title": "let and const",
+  "description": "let and const declare variables with block scope. Prefer them over legacy var in modern JavaScript.",
+  "lesson_dependencies": [
+    "variables"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

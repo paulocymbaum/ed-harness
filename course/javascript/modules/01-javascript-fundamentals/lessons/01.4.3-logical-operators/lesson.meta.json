@@ -3,6 +3,11 @@
   "graphIndex": "01.4.3",
   "graphNodeId": "n_834c58cba6",
   "title": "Logical Operators (&&, ||, !)",
+  "description": "Logical operators combine boolean conditions. CLI validators often need all checks to pass (&&) or accept any alternative (||).",
+  "lesson_dependencies": [
+    "booleans",
+    "comparison operators"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

@@ -150,16 +150,32 @@
       "label": "01.9.1 Array Literals Indexing and length"
     },
     {
-      "id": "n_923a30769a",
-      "label": "01.9.2 Mutating Array Methods"
+      "id": "n_c843a066a6",
+      "label": "01.9.2 Iterating Arrays for and for-of"
     },
     {
-      "id": "n_6148117519",
-      "label": "01.9.3 Non-mutating Array Methods"
+      "id": "n_918d242ce5",
+      "label": "01.9.3 Array.prototype.filter"
     },
     {
-      "id": "n_89e5c8c4b4",
-      "label": "01.9.4 Iterating Arrays for and for-of"
+      "id": "n_0046e270ce",
+      "label": "01.9.4 Array.prototype.map"
+    },
+    {
+      "id": "n_18778105bf",
+      "label": "01.9.5 Combining filter and map"
+    },
+    {
+      "id": "n_883f2aca80",
+      "label": "01.9.6 Set for Uniqueness"
+    },
+    {
+      "id": "n_0e97fe666e",
+      "label": "01.9.7 Mutating Array Methods"
+    },
+    {
+      "id": "n_2d3ca82170",
+      "label": "01.9.8 Other Non-mutating Array Methods"
     },
     {
       "id": "n_f1251f77cc",
@@ -537,15 +553,31 @@
     },
     {
       "from": "n_265ba70e06",
-      "to": "n_923a30769a"
+      "to": "n_c843a066a6"
     },
     {
       "from": "n_265ba70e06",
-      "to": "n_6148117519"
+      "to": "n_918d242ce5"
     },
     {
       "from": "n_265ba70e06",
-      "to": "n_89e5c8c4b4"
+      "to": "n_0046e270ce"
+    },
+    {
+      "from": "n_265ba70e06",
+      "to": "n_18778105bf"
+    },
+    {
+      "from": "n_265ba70e06",
+      "to": "n_883f2aca80"
+    },
+    {
+      "from": "n_265ba70e06",
+      "to": "n_0e97fe666e"
+    },
+    {
+      "from": "n_265ba70e06",
+      "to": "n_2d3ca82170"
     },
     {
       "from": "n_87c0f70ade",

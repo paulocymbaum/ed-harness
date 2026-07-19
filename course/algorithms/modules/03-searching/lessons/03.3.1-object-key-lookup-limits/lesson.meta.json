@@ -3,6 +3,11 @@
   "graphIndex": "03.3.1",
   "graphNodeId": "n_e8adfbfdba",
   "title": "Object Key Lookup Limits",
+  "description": "Plain objects are tempting as \"maps\", but keys are coerced to strings (except symbols). That breaks numeric distinctions, object-identity keys, and some undefined patterns.",
+  "lesson_dependencies": [
+    "objects",
+    "string key coercion"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

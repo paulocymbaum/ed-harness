@@ -226,6 +226,8 @@ async function loadLesson(lessonPath, courseSlug, moduleId, lessonDir) {
     markdown: readmeMarkdown,
     moduleId,
     ...(meta?.graphIndex ? { graphIndex: meta.graphIndex } : {}),
+    ...(typeof meta?.description === "string" ? { description: meta.description } : {}),
+    ...(Array.isArray(meta?.lesson_dependencies) ? { lesson_dependencies: meta.lesson_dependencies } : {}),
     ...(meta?.mockTestSection ? { mockTestSection: meta.mockTestSection } : {}),
   };
 

@@ -3,6 +3,12 @@
   "graphIndex": "01.7.4",
   "graphNodeId": "n_b886afdd5a",
   "title": "Throwing Errors and Sync try/catch",
+  "description": "When a function hits an invalid situation (bad input, impossible state), it can throw an error instead of returning a quiet wrong value. With synchronous try / catch / finally, the caller can recover, log a clear message, and keep the rest of the script running.",
+  "lesson_dependencies": [
+    "function declaration",
+    "parameters and return values",
+    "throw"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

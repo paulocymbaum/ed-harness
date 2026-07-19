@@ -1,0 +1,9 @@
+{
+  "createdBy": "cursor-tool",
+  "tool": "scripts/graph/scaffold-from-graph.mjs",
+  "createdAt": "2026-07-19T03:38:59.002Z",
+  "kind": "lesson",
+  "lessonId": "01.9.3-array-prototype-filter",
+  "moduleId": "01-javascript-fundamentals",
+  "graphIndex": "01.9.3"
+}

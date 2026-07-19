@@ -3,6 +3,11 @@
   "graphIndex": "07.1",
   "graphNodeId": "n_7d91a18a39",
   "title": "System Design (Scalability, CAP Theorem)",
+  "description": "Junior/mid interviews rarely ask for a full distributed-systems design, but they often probe whether you can reason about trade-offs at a high level: \"what happens when this gets 10x traffic?\", \"what if the database node goes down?\". The CAP theorem is the compact vocabulary interviewers expect: a distributed system can only guarantee two of Consistency,\u2026",
+  "lesson_dependencies": [
+    "scalability (conceptual)",
+    "distributed systems basics"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

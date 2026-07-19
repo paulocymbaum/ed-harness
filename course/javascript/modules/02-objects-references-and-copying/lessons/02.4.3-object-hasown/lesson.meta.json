@@ -3,6 +3,12 @@
   "graphIndex": "02.4.3",
   "graphNodeId": "n_40ec7277c2",
   "title": "Object.hasOwn",
+  "description": "Object.hasOwn checks whether a property is an own property of an object, avoiding prototype-chain surprises from the in operator or inherited keys.",
+  "lesson_dependencies": [
+    "object literals",
+    "property access",
+    "Object.keys"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

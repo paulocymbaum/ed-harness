@@ -3,6 +3,11 @@
   "graphIndex": "02.2.3",
   "graphNodeId": "n_e2f4e71392",
   "title": "Object.assign and Merging",
+  "description": "Merging objects shows up in defaults, config, and state updates. Object.assign copies enumerable own properties onto a target.",
+  "lesson_dependencies": [
+    "object literals",
+    "spread"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

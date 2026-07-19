@@ -1,0 +1,14 @@
+{
+  "id": "01.9.3-array-prototype-filter",
+  "graphIndex": "01.9.3",
+  "graphNodeId": "n_918d242ce5",
+  "title": "Array.prototype.filter",
+  "description": "filter keeps elements whose callback returns a truthy value and returns a new array. The original list is unchanged — transforms come next with map.",
+  "lesson_dependencies": [
+    "callbacks",
+    "arrow functions",
+    "array iteration"
+  ],
+  "prerequisites": [],
+  "status": "draft"
+}

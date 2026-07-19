@@ -1,8 +1,13 @@
 {
   "id": "01.8.2-strict-equality",
   "graphIndex": "01.8.2",
-  "graphNodeId": "n_4ce97c5edf",
+  "graphNodeId": "n_8d78a4769c",
   "title": "Strict Equality (===)",
+  "description": "Strict equality (===) compares value and type without coercion, making it the default safe comparison in modern JavaScript.",
+  "lesson_dependencies": [
+    "comparison operators",
+    "types"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

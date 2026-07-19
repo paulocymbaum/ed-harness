@@ -3,6 +3,11 @@
   "graphIndex": "06.1.2",
   "graphNodeId": "n_3dfc3adaae",
   "title": "Certifications",
+  "description": "HackerRank Skill Certifications are timed, proctored tests for a specific skill (e.g. \"Problem Solving (Basic)\", \"JavaScript (Intermediate)\", \"SQL (Advanced)\").",
+  "lesson_dependencies": [
+    "HackerRank profile",
+    "Problem-Solving Score"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

@@ -3,6 +3,11 @@
   "graphIndex": "01.3.2",
   "graphNodeId": "n_e18c7dd50a",
   "title": "Comparator Contracts",
+  "description": "Array.prototype.sort and many algorithms need a comparator: a function that orders two values. If the contract is broken, sorts misbehave in subtle ways \u2014 especially with numbers and multi-key sorts.",
+  "lesson_dependencies": [
+    "Array.prototype.sort",
+    "comparison functions"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

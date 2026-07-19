@@ -1,0 +1,105 @@
+{
+  "id": "quiz",
+  "title": "Set Uniqueness Check",
+  "description": "Set membership and unique lists.",
+  "lessonId": "01.9.6-set-for-uniqueness",
+  "graphIndex": "01.9.6",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What is `new Set([1, 2, 2, 3]).size`?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`4`"
+        },
+        {
+          "id": "b",
+          "text": "`3`"
+        },
+        {
+          "id": "c",
+          "text": "`2`"
+        },
+        {
+          "id": "d",
+          "text": "`1`"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Duplicates collapse; unique values are 1, 2, and 3."
+    },
+    {
+      "id": "q2",
+      "prompt": "`set.has(2)` answers:",
+      "options": [
+        {
+          "id": "a",
+          "text": "the index of 2"
+        },
+        {
+          "id": "b",
+          "text": "whether 2 is in the Set"
+        },
+        {
+          "id": "c",
+          "text": "how many times 2 appears"
+        },
+        {
+          "id": "d",
+          "text": "always `true`"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`.has` is membership — yes/no — not an index."
+    },
+    {
+      "id": "q3",
+      "prompt": "Walking `for (const t of new Set([\"b\", \"a\", \"b\"]))` yields values in which order?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`a` then `b`"
+        },
+        {
+          "id": "b",
+          "text": "`b` then `a`"
+        },
+        {
+          "id": "c",
+          "text": "`b`, `a`, `b`"
+        },
+        {
+          "id": "d",
+          "text": "undefined order always"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Insertion / first-seen order: `b` first, then `a`."
+    },
+    {
+      "id": "q4",
+      "prompt": "Do Sets have `.filter` like arrays?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Yes, identical API"
+        },
+        {
+          "id": "b",
+          "text": "No — collect into an array first if you need filter/map"
+        },
+        {
+          "id": "c",
+          "text": "Only with `.filterSet`"
+        },
+        {
+          "id": "d",
+          "text": "Only for strings"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Set is not an array. Build an array (e.g. with `for...of`) before array methods."
+    }
+  ]
+}

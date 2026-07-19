@@ -3,6 +3,12 @@
   "graphIndex": "01.1.4",
   "graphNodeId": "n_4c38b0ab37",
   "title": "Amortized Analysis",
+  "description": "Some operations are occasionally expensive but cheap most of the time. Amortized cost spreads rare expensive work across many cheap calls.",
+  "lesson_dependencies": [
+    "Big-O",
+    "time complexity",
+    "amortized cost"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

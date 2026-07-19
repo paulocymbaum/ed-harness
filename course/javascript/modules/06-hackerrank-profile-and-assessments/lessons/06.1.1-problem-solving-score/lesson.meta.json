@@ -3,6 +3,10 @@
   "graphIndex": "06.1.1",
   "graphNodeId": "n_b3afe5713a",
   "title": "Problem-Solving Score",
+  "description": "Every HackerRank domain (Problem Solving, SQL, JavaScript, ...) tracks a score per profile. It grows every time you submit a challenge that passes its test cases: harder challenges (Medium, Hard) are worth more points than Easy ones, and the score accumulates per domain, not as one global number.",
+  "lesson_dependencies": [
+    "HackerRank platform"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

@@ -1,0 +1,14 @@
+{
+  "id": "01.9.6-set-for-uniqueness",
+  "graphIndex": "01.9.6",
+  "graphNodeId": "n_883f2aca80",
+  "title": "Set for Uniqueness",
+  "description": "Set stores each value at most once and answers membership with has. Use [...new Set(arr)] to unique an array while keeping first-seen order for primitives.",
+  "lesson_dependencies": [
+    "arrays",
+    "for...of",
+    "Array.prototype.filter"
+  ],
+  "prerequisites": [],
+  "status": "draft"
+}

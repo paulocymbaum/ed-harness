@@ -9,7 +9,7 @@
 
 An **array** is an ordered list of values. You create one with an **array literal** (`[]`), read or write items by **index** (starting at `0`), and use **`.length`** for how many slots the array currently reports.
 
-This lesson stays on literals, indexing, and `length`. Mutating helpers (`push`, `splice`, …), non-mutating helpers (`map`, `slice`, …), and `for` / `for...of` come in later lessons.
+This lesson stays on literals, indexing, and `length`. Next you iterate with `for` / `for...of` (`01.9.2`), then learn `filter`, `map`, pipelines, `Set`, mutating helpers, and other non-mutating helpers in that order.
 
 ## Predict first
 

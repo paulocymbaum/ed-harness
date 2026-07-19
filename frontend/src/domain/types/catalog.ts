@@ -44,6 +44,10 @@ export type Lesson = {
   markdown: string;
   moduleId?: string;
   graphIndex?: string;
+  /** Brief one-paragraph summary of the lesson subject */
+  description?: string;
+  /** Concept terms this lesson assumes (not graph indexes) */
+  lesson_dependencies?: string[];
   /** Present on mock-test section lessons */
   mockTestSection?: MockTestSectionKind;
 };

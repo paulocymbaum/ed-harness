@@ -3,6 +3,12 @@
   "graphIndex": "05.2",
   "graphNodeId": "n_9011eabc43",
   "title": "Two Pointers and Sliding Window",
+  "description": "Many array/string problems that look like they need nested loops (O(n\u00b2)) can be solved in a single pass (O(n)) with two pointers \u2014 one moving from each end, or one \"window\" of pointers sliding together. The trick applies whenever the input has useful order (sorted, or a contiguous window matters) so you can discard possibilities without re-checking them.",
+  "lesson_dependencies": [
+    "arrays",
+    "for loop",
+    "Big-O"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

@@ -1,0 +1,14 @@
+{
+  "id": "01.9.5-combining-filter-and-map",
+  "graphIndex": "01.9.5",
+  "graphNodeId": "n_18778105bf",
+  "title": "Combining filter and map",
+  "description": "Chain filter then map to keep useful rows and shape each result. Order matters — decide which items survive before how each looks.",
+  "lesson_dependencies": [
+    "Array.prototype.filter",
+    "Array.prototype.map",
+    "callbacks"
+  ],
+  "prerequisites": [],
+  "status": "draft"
+}

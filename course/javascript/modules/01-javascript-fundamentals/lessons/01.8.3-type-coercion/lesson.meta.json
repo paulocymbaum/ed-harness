@@ -1,8 +1,13 @@
 {
   "id": "01.8.3-type-coercion",
   "graphIndex": "01.8.3",
-  "graphNodeId": "n_0794e8f057",
+  "graphNodeId": "n_152d759257",
   "title": "Type Coercion (==)",
+  "description": "Loose equality (==) may coerce types before comparing. That makes some expressions true when you did not expect it.",
+  "lesson_dependencies": [
+    "strict equality",
+    "type coercion"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

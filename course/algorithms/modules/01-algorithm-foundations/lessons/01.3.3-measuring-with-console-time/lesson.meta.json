@@ -3,6 +3,11 @@
   "graphIndex": "01.3.3",
   "graphNodeId": "n_20af94c3ef",
   "title": "Measuring with console.time",
+  "description": "Big-O predicts growth; console.time measures this machine, this input, this run. Use timing to check intuitions \u2014 and treat microbenchmarks with skepticism.",
+  "lesson_dependencies": [
+    "Big-O",
+    "console.time"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

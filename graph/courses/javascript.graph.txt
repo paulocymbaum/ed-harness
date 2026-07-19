@@ -36,9 +36,13 @@ mindmap
         01.8.5 null, undefined, == null, ?., ??
       01.9 Arrays
         01.9.1 Array Literals Indexing and length
-        01.9.2 Mutating Array Methods
-        01.9.3 Non-mutating Array Methods
-        01.9.4 Iterating Arrays for and for-of
+        01.9.2 Iterating Arrays for and for-of
+        01.9.3 Array.prototype.filter
+        01.9.4 Array.prototype.map
+        01.9.5 Combining filter and map
+        01.9.6 Set for Uniqueness
+        01.9.7 Mutating Array Methods
+        01.9.8 Other Non-mutating Array Methods
     02 Objects
       02.1 Creating and Reading Objects
         02.1.1 Object Literals and Property Access

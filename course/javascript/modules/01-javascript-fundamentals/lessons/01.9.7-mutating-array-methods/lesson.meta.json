@@ -1,0 +1,14 @@
+{
+  "id": "01.9.7-mutating-array-methods",
+  "graphIndex": "01.9.7",
+  "graphNodeId": "n_0e97fe666e",
+  "title": "Mutating Array Methods",
+  "description": "push, pop, shift, unshift, splice, sort, and reverse change the same array in place. Track shared references before you mutate.",
+  "lesson_dependencies": [
+    "arrays",
+    "indexing",
+    "length"
+  ],
+  "prerequisites": [],
+  "status": "draft"
+}

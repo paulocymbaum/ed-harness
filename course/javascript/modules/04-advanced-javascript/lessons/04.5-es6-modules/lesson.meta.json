@@ -3,6 +3,12 @@
   "graphIndex": "04.5",
   "graphNodeId": "n_8f59e360e7",
   "title": "ES6 Modules",
+  "description": "ES modules split code into files that explicitly declare what they export and what they import. Each module can have at most one default export, plus any number of named exports \u2014 and the import syntax must match which kind was used.",
+  "lesson_dependencies": [
+    "functions",
+    "objects",
+    "Node.js modules"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

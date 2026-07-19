@@ -3,6 +3,12 @@
   "graphIndex": "03.1.4",
   "graphNodeId": "n_df669ac19a",
   "title": "Prefix Sums",
+  "description": "Prefix sums precompute running totals so any contiguous range sum answers in O(1) after O(n) setup. This is search-adjacent tooling: you locate answers by querying ranges instead of rescanning.",
+  "lesson_dependencies": [
+    "arrays",
+    "range queries",
+    "prefix arrays"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

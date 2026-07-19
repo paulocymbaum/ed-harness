@@ -3,6 +3,8 @@
   "graphIndex": "01.1.1",
   "graphNodeId": "n_65933b074f",
   "title": "Running JavaScript (Node.js)",
+  "description": "HackerRank and most backend exercises run JavaScript with Node.js. You execute a file with node starter/index.js and communicate through stdin (input) and stdout (output).",
+  "lesson_dependencies": [],
   "prerequisites": [],
   "status": "draft"
 }

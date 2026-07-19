@@ -3,6 +3,11 @@
   "graphIndex": "02.3.3",
   "graphNodeId": "n_7134d5a2a3",
   "title": "structuredClone",
+  "description": "Sometimes you need a full snapshot (deep copy). JSON cloning is simple but lossy; structuredClone preserves more types when available.",
+  "lesson_dependencies": [
+    "shallow vs deep copy",
+    "JSON"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

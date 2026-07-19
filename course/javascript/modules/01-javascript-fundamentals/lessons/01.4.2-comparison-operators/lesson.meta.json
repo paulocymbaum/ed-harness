@@ -3,6 +3,12 @@
   "graphIndex": "01.4.2",
   "graphNodeId": "n_f53677d251",
   "title": "Comparison Operators",
+  "description": "Comparison operators return true or false. They power validation (score >= 0), sorting decisions, and grade boundaries.",
+  "lesson_dependencies": [
+    "numbers",
+    "strings",
+    "booleans"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

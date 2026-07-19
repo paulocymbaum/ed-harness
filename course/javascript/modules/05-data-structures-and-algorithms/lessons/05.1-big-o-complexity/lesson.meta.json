@@ -3,6 +3,12 @@
   "graphIndex": "05.1",
   "graphNodeId": "n_156839bd12",
   "title": "Big-O Complexity",
+  "description": "Big-O describes how an algorithm's running time (or memory) scales as the input size n grows \u2014 it ignores constant factors and lower-order terms. Interviewers use it as shorthand: \"your solution is O(n\u00b2), can you get it to O(n log n)?\" Recognizing the shape of a piece of code (one loop?",
+  "lesson_dependencies": [
+    "loops",
+    "arrays",
+    "nested loops"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

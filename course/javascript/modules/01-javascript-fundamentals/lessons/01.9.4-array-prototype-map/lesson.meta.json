@@ -1,0 +1,14 @@
+{
+  "id": "01.9.4-array-prototype-map",
+  "graphIndex": "01.9.4",
+  "graphNodeId": "n_0046e270ce",
+  "title": "Array.prototype.map",
+  "description": "map transforms every element through a callback and returns a new array of the same length. The original array is left unchanged.",
+  "lesson_dependencies": [
+    "callbacks",
+    "arrow functions",
+    "Array.prototype.filter"
+  ],
+  "prerequisites": [],
+  "status": "draft"
+}

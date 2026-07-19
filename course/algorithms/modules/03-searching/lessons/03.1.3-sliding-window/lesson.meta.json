@@ -3,6 +3,12 @@
   "graphIndex": "03.1.3",
   "graphNodeId": "n_d8fed77d65",
   "title": "Sliding Window",
+  "description": "A sliding window keeps a contiguous segment [left, right] and slides it instead of rebuilding from scratch. Fixed-size windows answer \"best segment of length k\"; variable windows grow/shrink until a constraint holds.",
+  "lesson_dependencies": [
+    "arrays",
+    "contiguous segments",
+    "two pointers"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

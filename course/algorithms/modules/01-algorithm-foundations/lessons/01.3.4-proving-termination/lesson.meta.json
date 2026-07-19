@@ -3,6 +3,11 @@
   "graphIndex": "01.3.4",
   "graphNodeId": "n_41a3991b85",
   "title": "Proving Termination",
+  "description": "A loop that never finishes is wrong even if the invariant looks elegant. Termination means every path eventually hits the exit condition.",
+  "lesson_dependencies": [
+    "loops",
+    "invariants"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

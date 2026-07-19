@@ -1,0 +1,18 @@
+{
+  "cases": [
+    {
+      "id": "sample",
+      "name": "has error",
+      "stdin": "error\nwarn\ninfo\ndebug\n",
+      "expectedStdout": "true\nwarn | info\nerror,warn,info,debug\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "no-error",
+      "name": "no error",
+      "stdin": "ok\nwarn\ninfo\ntrace\n",
+      "expectedStdout": "false\nwarn | info\nok,warn,info,trace\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

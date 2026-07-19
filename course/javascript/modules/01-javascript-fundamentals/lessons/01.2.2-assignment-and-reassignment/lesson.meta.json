@@ -3,6 +3,11 @@
   "graphIndex": "01.2.2",
   "graphNodeId": "n_68873cb095",
   "title": "Assignment and Reassignment",
+  "description": "The = operator assigns a value to a variable. With let you can assign again later; with const the binding is fixed but object contents can still change.",
+  "lesson_dependencies": [
+    "let",
+    "const"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

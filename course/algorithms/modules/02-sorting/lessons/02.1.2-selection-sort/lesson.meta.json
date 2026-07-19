@@ -3,6 +3,12 @@
   "graphIndex": "02.1.2",
   "graphNodeId": "n_288ead4cbd",
   "title": "Selection Sort",
+  "description": "Selection sort builds a sorted prefix by repeatedly finding the minimum in the unsorted suffix and swapping it into the next position. Many comparisons, few swaps \u2014 at most one swap per pass.",
+  "lesson_dependencies": [
+    "arrays",
+    "swapping",
+    "Big-O"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

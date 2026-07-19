@@ -3,6 +3,11 @@
   "graphIndex": "01.3.4",
   "graphNodeId": "n_29a18be0f5",
   "title": "undefined and null",
+  "description": "Sometimes a value is missing. JavaScript uses undefined (nothing assigned yet) and null (intentionally empty).",
+  "lesson_dependencies": [
+    "variables",
+    "assignment"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

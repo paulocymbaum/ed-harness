@@ -1,8 +1,14 @@
 {
   "id": "01.8.5-null-undefined-null",
   "graphIndex": "01.8.5",
-  "graphNodeId": "n_26bdf2e108",
+  "graphNodeId": "n_554dd07466",
   "title": "null, undefined, == null, ?., ??",
+  "description": "null and undefined mark missing data; == null, optional chaining (?.) , and nullish coalescing (??) help handle those cases safely.",
+  "lesson_dependencies": [
+    "null",
+    "undefined",
+    "logical operators"
+  ],
   "prerequisites": [],
   "status": "draft"
 }
