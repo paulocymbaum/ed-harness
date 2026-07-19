@@ -11,6 +11,7 @@
     "lessons:incomplete": "node scripts/list-incomplete-lessons.mjs",
     "validate:lessons-in-graph": "node scripts/graph/validate-lessons-in-graph.mjs",
     "sync:ed-harness": "node scripts/sync-to-ed-harness.mjs",
+    "sync:notebook": "node scripts/sync-to-notebook.mjs",
     "score:extract": "node scripts/extract-course-score.mjs",
     "score:restore": "node scripts/restore-course-score.mjs",
     "test": "node --test tests/**/*.test.mjs",
