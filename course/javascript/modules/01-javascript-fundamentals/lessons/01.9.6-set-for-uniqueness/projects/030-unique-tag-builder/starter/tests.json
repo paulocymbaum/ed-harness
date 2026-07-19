@@ -1,0 +1,25 @@
+{
+  "cases": [
+    {
+      "id": "sample",
+      "name": "dup js",
+      "stdin": "4\njs\nnode\njs\ncli\n",
+      "expectedStdout": "js\nnode\ncli\n3\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "empty",
+      "name": "n=0",
+      "stdin": "0\n",
+      "expectedStdout": "0\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "order",
+      "name": "first-seen",
+      "stdin": "3\nb\na\nb\n",
+      "expectedStdout": "b\na\n2\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

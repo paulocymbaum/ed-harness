@@ -1,0 +1,138 @@
+{
+  "version": 2,
+  "courseId": "javascript",
+  "projectId": "005-receipt-printer",
+  "updatedAt": "2026-06-24T23:00:00.096Z",
+  "deliveries": [
+    {
+      "id": "2026-06-24T03:06:55.932Z",
+      "content": "### `starter/index.js`\n\n```javascript\n/**\n * Receipt Printer\n *\n * Entrypoint: node starter/index.js\n * Implement the behavior described in ../README.md\n */\n\nconst readline = require(\"node:readline\");\n\nfunction formatMoney(value) {\n  return `$${value.toFixed(2)}`;\n}\n\nfunction main() {\n  const lines = [];\n  const rl = readline.createInterface({ input: process.stdin });\n\n  rl.on(\"line\", (line) => {\n    lines.push(line.trim());\n    if (lines.length < 3) return;\n\n    // TODO: validate fields and print receipt or ERROR\nif (typeof lines[0].length==0){\nconsole.log(\"ERROR: item is required\");\n}\nelse{\nconsole.log(\"Item: ${lines[0]}\");\n}\nif (typeof lines[1].length==0){\nconsole.log(\"ERROR: quantity is required\");\n}\nelse{\nconsole.log(\"Qty: ${lines[1]}\");\n}\nif (typeof lines[2].length==0){\nconsole.log(\"ERROR: unitPrice is required\");\n}\nelse{\nconsole.log(\"Unit: $${formatMoney(lines[2])}\");\n}\nconsole.log(\"Total: $${formatMoney(lines[2])*lines[1]}\")\n\n    process.stdout.write(\"Not implemented yet\\n\");\n    rl.close();\n  });\n}\n\nmain();\n```",
+      "submittedAt": "2026-06-24T03:06:55.932Z",
+      "review": {
+        "score": 20,
+        "comment": "Readline and formatMoney are in place, but validation uses typeof on .length so empty fields never fail, labels use double quotes so values print literally, and quantity or unitPrice are never parsed with Number(). Next: trim item, use template literals, validate with Number.isInteger and Number.isFinite, stop after the first ERROR or print exactly four labeled lines.",
+        "reviewedAt": "2026-06-24T03:08:07.453Z"
+      }
+    },
+    {
+      "id": "2026-06-24T03:18:09.452Z",
+      "content": "/**\n * Receipt Printer\n *\n * Entrypoint: node starter/index.js\n * Implement the behavior described in ../README.md\n */\n\nconst readline = require(\"node:readline\");\n\nfunction formatMoney(value) {\n  return `$${value.toFixed(2)}`;\n}\n\nfunction main() {\n  const lines = [];\n  const rl = readline.createInterface({ input: process.stdin });\n\n  rl.on(\"line\", (line) => {\n    lines.push(line.trim());\n    if (lines.length < 3) return;\n\n\nif (lines[0].length==0){\nconsole.log(\"ERROR: item is required\");\n}\nelse if ( typeof lines[1]!===\"number\" || lines[1].isInteger===false){\nconsole.log(\"ERROR: quantity is required\");\n}\nelse if (typeof lines[2].length===\"number\" || lines[2].isFinite===false){\nconsole.log(\"ERROR: unitPrice is required\");\n}\nelse{\nconsole.log('Item: ${lines[0]}')\nconsole.log('Qty: ${lines[1]}');\nconsole.log('Unit: $${formatMoney(lines[2])}');\nconsole.log('Total: $${formatMoney(lines[2])*lines[1]}')\n}\n\n\n    process.stdout.write(\"Not implemented yet\\n\");\n    rl.close();\n  });\n}\n\nmain();",
+      "submittedAt": "2026-06-24T03:18:09.452Z",
+      "review": {
+        "score": 25,
+        "comment": "Readline and trim work, and empty item prints the correct ERROR message. Valid input always fails because quantity uses typeof on a string; labels use single quotes so literals print, and Not implemented yet still runs. Next: Number() with Number.isInteger and Number.isFinite, backtick labels, README error text, drop the stub line.",
+        "reviewedAt": "2026-06-24T03:19:19.596Z"
+      }
+    },
+    {
+      "id": "2026-06-24T03:30:05.198Z",
+      "content": "/**\n * Receipt Printer\n *\n * Entrypoint: node starter/index.js\n * Implement the behavior described in ../README.md\n */\n\nconst readline = require(\"node:readline\");\n\nfunction formatMoney(value) {\n  return `$${value.toFixed(2)}`;\n}\n\nfunction main() {\n  const lines = [];\n  const rl = readline.createInterface({ input: process.stdin });\n\n  rl.on(\"line\", (line) => {\n    lines.push(line.trim());\n    if (lines.length < 3) return;\n\nconst item=lines[0];\nif (Number.isInteger(lines[1]){  \nconst qty=lines[1];\n}\nif (Number.isFinite(lines[2]){  \nconst unitProce=lines[2];\n}\n\nif (item==0){\nconsole.log(\"ERROR: item is required\");\n}\nelse if ( qty==0){\nconsole.log(\"ERROR: quantity is required\");\n}\nelse if (unitPrice==0){\nconsole.log(\"ERROR: unitPrice is required\");\n}\nelse{\nconsole.log('Item: ${item}')\nconsole.log('Qty: ${quantity}');\nconsole.log('Unit: $${formatMoney(unitPrice)}');\nconsole.log('Total: $${formatMoney(unitPrice)*quantity}')\n}\n    rl.close();\n  });\n}\n\nmain();",
+      "submittedAt": "2026-06-24T03:30:05.198Z",
+      "review": {
+        "score": 18,
+        "comment": "Readline trimming and formatMoney show good structure, but delivery 3 has syntax errors on the Number checks so the script will not run. Validation still needs Number() before Number.isInteger/isFinite, backtick labels, and README error messages. Next: fix the missing parentheses, parse with Number(), then print four labeled lines or one ERROR line.",
+        "reviewedAt": "2026-06-24T03:30:58.160Z"
+      }
+    },
+    {
+      "id": "2026-06-24T03:46:26.618Z",
+      "content": "/**\n * Receipt Printer\n *\n * Entrypoint: node starter/index.js\n * Implement the behavior described in ../README.md\n */\n\nconst readline = require(\"node:readline\");\n\nfunction formatMoney(value) {\n  return `$${value.toFixed(2)}`;\n}\n\nfunction main() {\n  const lines = [];\n  const rl = readline.createInterface({ input: process.stdin });\n\n  rl.on(\"line\", (line) => {\n    lines.push(line.trim());\n    if (lines.length < 3) return;\n\nconst item=lines[0];\nif (Number(lines[1]).isInteger){  \nconst qty=lines[1];\n}\nif (Number(lines[2]).isFinite){  \nconst unitPrice=lines[2];\n}\n\nif (item==0){\nconsole.log(\"ERROR: item is required\");\n}\nelse if ( qty=0){\nconsole.log(\"ERROR: quantity is required\");\n}\nelse if ( qty<0){\nconsole.log(\"ERROR: quantity must be positive\");\n}\nelse if (unitPrice=0){\nconsole.log(\"ERROR: unitPrice is required\");\n}\nelse if (unitPrice<0){\nconsole.log(\"ERROR: unitPrice must be positive\");\n}\nelse{\nconsole.log(´Item: ${item}´)\nconsole.log(´Qty: ${quantity}´);\nconsole.log(´Unit: ${formatMoney(unitPrice)}´);\nconsole.log(´Total: ${formatMoney(unitPrice)*quantity}´)\n}\n    rl.close();\n  });\n}\n\nmain();",
+      "submittedAt": "2026-06-24T03:46:26.618Z",
+      "review": {
+        "score": 22,
+        "comment": "Readline and formatMoney are in good shape, and you moved toward Number() validation with a positive-quantity check. Acute-accent quotes cause a syntax error; use backticks and Number.isInteger/Number.isFinite on parsed values, not on Number(). Next: fix labels, parse qty and unitPrice, match README error strings, print four receipt lines.",
+        "reviewedAt": "2026-06-24T03:47:22.992Z"
+      }
+    },
+    {
+      "id": "2026-06-24T21:55:50.922Z",
+      "content": "const readline = require(\"node:readline\");\n\nfunction formatMoney(value) {\n  return `$${value.toFixed(2)}`;\n}\n\nfunction main() {\n  const lines = [];\n  const rl = readline.createInterface({ input: process.stdin });\n\n  rl.on(\"line\", (line) => {\n    lines.push(line.trim());\n    if (lines.length < 3) return;\n\nconst item=lines[0];\nif (Number.isInteger(lines[1])){  \nconst qty=lines[1];\n}\nif (Number.isFinite(lines[2])){  \nconst unitPrice=lines[2];\n}\n\nif (item==0){\nconsole.log(\"ERROR: item is required\");\n}\nelse if ( qty=0){\nconsole.log(\"ERROR: quantity is required\");\n}\nelse if ( qty<0){\nconsole.log(\"ERROR: quantity must be positive\");\n}\nelse if (unitPrice=0){\nconsole.log(\"ERROR: unitPrice is required\");\n}\nelse if (unitPrice<0){\nconsole.log(\"ERROR: unitPrice must be positive\");\n}\nelse{\nconsole.log(`Item: ${item}`)\nconsole.log(`Qty: ${quantity}`);\nconsole.log(`Unit: ${formatMoney(unitPrice)}`);\nconsole.log(`Total: ${formatMoney(unitPrice)*quantity}`)\n}\n    rl.close();\n  });\n}\n\nmain();",
+      "submittedAt": "2026-06-24T21:55:50.922Z",
+      "review": {
+        "score": 30,
+        "comment": "You fixed syntax and template literals—clear progress from earlier tries. Valid input still crashes because you print quantity but declared qty, and qty/unitPrice are block-scoped. Number.isInteger on raw strings and = instead of === break validation. Next: parse with Number(), validate trim/positive qty/finite unitPrice, print four labeled lines or one README error.",
+        "reviewedAt": "2026-06-24T21:57:08.705Z"
+      }
+    },
+    {
+      "id": "2026-06-24T22:02:39.098Z",
+      "content": "const readline = require(\"node:readline\");\n\nfunction formatMoney(value) {\n  return `$${value.toFixed(2)}`;\n}\n\nfunction main() {\n  const lines = [];\n  const rl = readline.createInterface({ input: process.stdin });\n\n  rl.on(\"line\", (line) => {\n    lines.push(line.trim());\n    if (lines.length < 3) return;\n\nconst item=lines[0];\nconst qty=lines[1]; \nconst unitPrice=lines[2];\n\n\nif (item===null || item.length===0){\nconsole.log(\"ERROR: item is required\");\n}\nelse if (Number.isInteger(qty)===false){\nconsole.log(\"ERROR: quantity needs to be a number\");\n}\nelse if (qty=0){\nconsole.log(\"ERROR: quantity is required\");\n}\nelse if (qty<0){\nconsole.log(\"ERROR: quantity must be positive\");\n}\nelse if (Number.isFinite(unitPrice)===false){\nconsole.log(\"ERROR: unitPrice is not a number\");\n}\nelse if (unitPrice=0){\nconsole.log(\"ERROR: unitPrice is required\");\n}\nelse if (unitPrice<0){\nconsole.log(\"ERROR: unitPrice must be positive\");\n}\nelse{\nconsole.log(`Item: ${item}`)\nconsole.log(`Qty: ${qty}`);\nconsole.log(`Unit: ${formatMoney(unitPrice)}`);\nconsole.log(`Total: ${formatMoney(unitPrice)*quantity}`)\n}\n    rl.close();\n  });\n}\n\nmain();",
+      "submittedAt": "2026-06-24T22:02:39.098Z",
+      "review": {
+        "score": 42,
+        "comment": "Good progress: explicit empty-item check, qty/unitPrice in scope, and labeled template output. You still skip Number() so isInteger/isFinite fail on string stdin, error text does not match the README, and Total uses undefined quantity. Next: const qty = Number(lines[1]), validate positive integer and finite unitPrice, then formatMoney(qty * unitPrice).",
+        "reviewedAt": "2026-06-24T22:03:37.917Z"
+      }
+    },
+    {
+      "id": "2026-06-24T22:07:08.792Z",
+      "content": "const readline = require(\"node:readline\");\n\nfunction formatMoney(value) {\n  return `$${value.toFixed(2)}`;\n}\n\nfunction main() {\n  const lines = [];\n  const rl = readline.createInterface({ input: process.stdin });\n\n  rl.on(\"line\", (line) => {\n    lines.push(line.trim());\n    if (lines.length < 3) return;\n\nconst item=lines[0];\nconst qty=Number(lines[1]); \nconst unitPrice=Number(lines[2]);\n\nif (item===null || item.length===0){\nconsole.log(\"ERROR: item is required\");\n}\nelse if (Number.isInteger(qty)===false){\nconsole.log(\"ERROR: quantity needs to be a number\");\n}\nelse if (qty=0){\nconsole.log(\"ERROR: quantity is required\");\n}\nelse if (qty<0){\nconsole.log(\"ERROR: quantity must be positive\");\n}\nelse if (Number.isFinite(unitPrice)===false){\nconsole.log(\"ERROR: unitPrice is not a number\");\n}\nelse if (unitPrice=0){\nconsole.log(\"ERROR: unitPrice is required\");\n}\nelse if (unitPrice<0){\nconsole.log(\"ERROR: unitPrice must be positive\");\n}\nelse{\nconsole.log(`Item: ${item}`)\nconsole.log(`Qty: ${qty}`);\nconsole.log(`Unit: ${formatMoney(unitPrice)}`);\nconsole.log(`Total: ${formatMoney(unitPrice)*quantity}`)\n}\n    rl.close();\n  });\n}\n\nmain();",
+      "submittedAt": "2026-06-24T22:07:08.792Z",
+      "review": {
+        "score": 50,
+        "comment": "Good progress adding Number() for qty and unitPrice; empty item correctly returns ERROR: item is required. Valid input still crashes because qty=0 assigns to a const, and Total uses undefined quantity instead of qty * unitPrice. Error strings also differ from the README. Next: use === for comparisons, formatMoney(qty * unitPrice) for Total, and match README error messages.",
+        "reviewedAt": "2026-06-24T22:09:07.249Z"
+      }
+    },
+    {
+      "id": "2026-06-24T22:10:57.694Z",
+      "content": "const readline = require(\"node:readline\");\n\nfunction formatMoney(value) {\n  return `$${value.toFixed(2)}`;\n}\n\nfunction main() {\n  const lines = [];\n  const rl = readline.createInterface({ input: process.stdin });\n\n  rl.on(\"line\", (line) => {\n    lines.push(line.trim());\n    if (lines.length < 3) return;\n\nconst item=lines[0];\nconst qty=Number(lines[1]); \nconst unitPrice=Number(lines[2]);\n\nif (item===null || item.length===0){\nconsole.log(\"ERROR: item is required\");\n}\nelse if (Number.isInteger(qty)===false){\nconsole.log(\"ERROR: quantity needs to be a number\");\n}\nelse if (qty==0){\nconsole.log(\"ERROR: quantity is required\");\n}\nelse if (qty<0){\nconsole.log(\"ERROR: quantity must be positive\");\n}\nelse if (Number.isFinite(unitPrice)===false){\nconsole.log(\"ERROR: unitPrice is not a number\");\n}\nelse if (unitPrice=0){\nconsole.log(\"ERROR: unitPrice is required\");\n}\nelse if (unitPrice<0){\nconsole.log(\"ERROR: unitPrice must be positive\");\n}\nelse{\nconsole.log(`Item: ${item}`)\nconsole.log(`Qty: ${qty}`);\nconsole.log(`Unit: ${formatMoney(unitPrice)}`);\nconsole.log(`Total: ${formatMoney(unitPrice)*qty}`)\n}\n    rl.close();\n  });\n}\n\nmain();",
+      "submittedAt": "2026-06-24T22:10:57.694Z",
+      "review": {
+        "score": 54,
+        "comment": "Good progress: Number() parsing, trimmed stdin, and empty-item validation fit the lesson. Valid input still crashes because unitPrice=0 assigns to a const, and Total multiplies the formatMoney string by qty. Several ERROR messages do not match the README. Next: use === comparisons, formatMoney(qty * unitPrice) for Total, and align error text with the acceptance criteria.",
+        "reviewedAt": "2026-06-24T22:11:58.044Z"
+      }
+    },
+    {
+      "id": "2026-06-24T22:13:20.343Z",
+      "content": "const readline = require(\"node:readline\");\n\nfunction formatMoney(value) {\n  return `$${value.toFixed(2)}`;\n}\n\nfunction main() {\n  const lines = [];\n  const rl = readline.createInterface({ input: process.stdin });\n\n  rl.on(\"line\", (line) => {\n    lines.push(line.trim());\n    if (lines.length < 3) return;\n\nconst item=lines[0];\nconst qty=Number(lines[1]); \nconst unitPrice=Number(lines[2]);\n\nif (item===null || item.length===0){\nconsole.log(\"ERROR: item is required\");\n}\nelse if (Number.isInteger(qty)===false){\nconsole.log(\"ERROR: quantity needs to be a number\");\n}\nelse if (qty==0){\nconsole.log(\"ERROR: quantity is required\");\n}\nelse if (qty<0){\nconsole.log(\"ERROR: quantity must be positive\");\n}\nelse if (Number.isFinite(unitPrice)===false){\nconsole.log(\"ERROR: unitPrice is not a number\");\n}\nelse if (unitPrice==0){\nconsole.log(\"ERROR: unitPrice is required\");\n}\nelse if (unitPrice<0){\nconsole.log(\"ERROR: unitPrice must be positive\");\n}\nelse{\nconsole.log(`Item: ${item}`)\nconsole.log(`Qty: ${qty}`);\nconsole.log(`Unit: ${formatMoney(unitPrice)}`);\nconsole.log(`Total: ${formatMoney(unitPrice)*qty}`)\n}\n    rl.close();\n  });\n}\n\nmain();",
+      "submittedAt": "2026-06-24T22:13:20.343Z",
+      "review": {
+        "score": 58,
+        "comment": "Good progress on readline, Number() parsing, and labeled console.log output; empty item validation matches the README. Valid receipts still print Total: NaN because you multiply the formatted Unit string by qty instead of formatMoney(qty * unitPrice). Several ERROR messages differ from the acceptance criteria (qty 0, abc quantity, unitPrice abc). Next: fix Total with formatMoney(qty * unitPrice) and match README error strings exactly.",
+        "reviewedAt": "2026-06-24T22:14:24.918Z"
+      }
+    },
+    {
+      "id": "2026-06-24T22:38:04.867Z",
+      "content": "const readline = require(\"node:readline\");\n\nfunction formatMoney(value) {\n  return `$${value.toFixed(2)}`;\n}\n\nfunction main() {\n  const lines = [];\n  const rl = readline.createInterface({ input: process.stdin });\n\n  rl.on(\"line\", (line) => {\n    lines.push(line.trim());\n    if (lines.length < 3) return;\n\nconst item=lines[0];\nconst qty=Number(lines[1]); \nconst unitPrice=Number(lines[2]);\n\nif (item===null || item.length===0){\nconsole.log(\"ERROR: item is required\");\n}\nelse if (Number.isInteger(qty)===false){\nconsole.log(\"ERROR: quantity needs to be a number\");\n}\nelse if (qty<=0){\nconsole.log(\"ERROR: quantity must be positive\");\n}\nelse if (Number.isFinite(unitPrice)===false){\nconsole.log(\"ERROR: unitPrice is not a number\");\n}\nelse if (unitPrice<=0){\nconsole.log(\"ERROR: unitPrice must be positive\");\n}\nelse{\nconsole.log(`Item: ${item}`)\nconsole.log(`Qty: ${qty}`);\nconsole.log(`Unit: ${formatMoney(unitPrice)}`);\nconsole.log(`Total: ${formatMoney(unitPrice)*qty}`)\n}\n    rl.close();\n  });\n}\n\nmain();",
+      "submittedAt": "2026-06-24T22:38:04.867Z",
+      "review": {
+        "score": 62,
+        "comment": "Good progress on readline, Number() parsing, and labeled console.log; empty item and non-positive quantity errors match the README. Valid receipts still print Total: NaN because formatMoney(unitPrice)*qty multiplies a string by qty. Error text for abc quantity and unitPrice still differs from acceptance criteria. Next: use formatMoney(qty * unitPrice) for Total and match README error strings exactly.",
+        "reviewedAt": "2026-06-24T22:39:19.000Z"
+      }
+    },
+    {
+      "id": "2026-06-24T22:40:00.508Z",
+      "content": "const readline = require(\"node:readline\");\n\nfunction formatMoney(value) {\n  return `$${value.toFixed(2)}`;\n}\n\nfunction main() {\n  const lines = [];\n  const rl = readline.createInterface({ input: process.stdin });\n\n  rl.on(\"line\", (line) => {\n    lines.push(line.trim());\n    if (lines.length < 3) return;\n\nconst item=lines[0];\nconst qty=Number(lines[1]); \nconst unitPrice=Number(lines[2]);\n\nif (item===null || item.length===0){\nconsole.log(\"ERROR: item is required\");\n}\nelse if (Number.isInteger(qty)===false){\nconsole.log(\"ERROR: quantity needs to be a number\");\n}\nelse if (qty<=0){\nconsole.log(\"ERROR: quantity must be positive\");\n}\nelse if (Number.isFinite(unitPrice)===false){\nconsole.log(\"ERROR: unitPrice is not a number\");\n}\nelse if (unitPrice<=0){\nconsole.log(\"ERROR: unitPrice must be positive\");\n}\nelse{\nconsole.log(`Item: ${item}`)\nconsole.log(`Qty: ${qty}`);\nconsole.log(`Unit: ${formatMoney(unitPrice)}`);\nconsole.log(`Total: ${formatMoney(unitPrice*qty)}`)\n}\n    rl.close();\n  });\n}\n\nmain();",
+      "submittedAt": "2026-06-24T22:40:00.508Z",
+      "review": {
+        "score": 78,
+        "comment": "Valid receipts now format correctly with labeled console.log and formatMoney(unitPrice * qty) for Total; empty item and non-positive quantity match the README. Two ERROR strings still differ from acceptance criteria: abc quantity prints needs to be a number instead of must be a positive integer, and abc unitPrice uses is not instead of must be. Next: match those two error messages exactly.",
+        "reviewedAt": "2026-06-24T22:40:34.825Z"
+      }
+    },
+    {
+      "id": "2026-06-24T22:41:53.970Z",
+      "content": "const readline = require(\"node:readline\");\n\nfunction formatMoney(value) {\n  return `$${value.toFixed(2)}`;\n}\n\nfunction main() {\n  const lines = [];\n  const rl = readline.createInterface({ input: process.stdin });\n\n  rl.on(\"line\", (line) => {\n    lines.push(line.trim());\n    if (lines.length < 3) return;\n\nconst item=lines[0];\nconst qty=Number(lines[1]); \nconst unitPrice=Number(lines[2]);\n\nif (item===null || item.length===0){\nconsole.log(\"ERROR: item is required\");\n}\nelse if (Number.isInteger(qty)===false){\nconsole.log(\"ERROR: quantity needs to be a number\");\n}\nelse if (qty<=0){\nconsole.log(\"ERROR: quantity must be a positive integer\");\n}\nelse if (Number.isFinite(unitPrice)===false){\nconsole.log(\"ERROR: unitPrice must be a number\");\n}\nelse if (unitPrice<=0){\nconsole.log(\"ERROR: unitPrice must be positive\");\n}\nelse{\nconsole.log(`Item: ${item}`)\nconsole.log(`Qty: ${qty}`);\nconsole.log(`Unit: ${formatMoney(unitPrice)}`);\nconsole.log(`Total: ${formatMoney(unitPrice*qty)}`)\n}\n    rl.close();\n  });\n}\n\nmain();",
+      "submittedAt": "2026-06-24T22:41:53.970Z",
+      "review": {
+        "score": 79,
+        "comment": "Valid receipts and unitPrice abc error match the README; readline, Number(), and labeled console.log are solid. qty 0 or -1 now prints must be a positive integer instead of must be positive, and abc quantity still prints needs to be a number. Next: put must be a positive integer on the isInteger check and must be positive on qty <= 0.",
+        "reviewedAt": "2026-06-24T22:42:29.458Z"
+      }
+    },
+    {
+      "id": "2026-06-24T22:56:46.010Z",
+      "content": "const readline = require(\"node:readline\");\n\nfunction formatMoney(value) {\n  return `$${value.toFixed(2)}`;\n}\n\nfunction main() {\n  const lines = [];\n  const rl = readline.createInterface({ input: process.stdin });\n\n  rl.on(\"line\", (line) => {\n    lines.push(line.trim());\n    if (lines.length < 3) return;\n\nconst item=lines[0];\nconst qty=Number(lines[1]); \nconst unitPrice=Number(lines[2]);\n\nif (item===null || item.length===0){\nconsole.log(\"ERROR: item is required\");\n}\nelse if (Number.isInteger(qty)===false){\nconsole.log(\"ERROR: quantity must be a positive integer\");\n}\nelse if (qty<=0){\nconsole.log(\"ERROR: quantity must be positive\");\n}\nelse if (Number.isFinite(unitPrice)===false){\nconsole.log(\"ERROR: unitPrice must be a number\");\n}\nelse if (unitPrice<=0){\nconsole.log(\"ERROR: unitPrice must be positive\");\n}\nelse{\nconsole.log(`Item: ${item}`)\nconsole.log(`Qty: ${qty}`);\nconsole.log(`Unit: ${formatMoney(unitPrice)}`);\nconsole.log(`Total: ${formatMoney(unitPrice*qty)}`)\n}\n    rl.close();\n  });\n}\n\nmain();",
+      "submittedAt": "2026-06-24T22:56:46.010Z",
+      "review": {
+        "score": 100,
+        "comment": "All acceptance criteria pass: labeled console.log output, formatMoney with two decimals, and exact README error strings for item, quantity, and unitPrice. Validation correctly uses Number(), Number.isInteger, and Number.isFinite. Solid match to the lesson concepts and functional requirements.",
+        "reviewedAt": "2026-06-24T23:00:00.096Z"
+      }
+    }
+  ]
+}

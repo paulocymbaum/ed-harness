@@ -2,6 +2,7 @@ import { useLayoutEffect } from "react";
 import { ArrowLeft, CheckCircle2 } from "lucide-react";
 import type { Quiz } from "../../../../domain/types/quiz";
 import { useCoursePoints } from "../../../../application/hooks/useCoursePoints";
+import { useTranslation } from "../../../../application/hooks/useTranslation";
 import { useQuizSessionStore } from "../../../../application/stores/quizSessionStore";
 import { Button, Icon } from "../../../design-system";
 import { QuizProgressBar } from "./QuizProgressBar";
@@ -16,6 +17,7 @@ export function QuizSessionPanel(props: {
   onBackToList: () => void;
   compact?: boolean;
 }) {
+  const { t } = useTranslation();
   const currentIndex = useQuizSessionStore((s) => s.currentIndex);
   const answers = useQuizSessionStore((s) => s.answers);
   const checkedQuestions = useQuizSessionStore((s) => s.checkedQuestions);
@@ -73,7 +75,7 @@ export function QuizSessionPanel(props: {
         <div className="flex flex-wrap items-center justify-between gap-3">
           <Button variant="ghost" size="md" onClick={props.onBackToList}>
             <Icon icon={ArrowLeft} />
-            All quizzes
+            {t("quiz.backToQuizzes")}
           </Button>
           <div className="text-meta text-text1">{props.quiz.title}</div>
         </div>
@@ -93,7 +95,7 @@ export function QuizSessionPanel(props: {
 
       <div className="flex flex-wrap items-center justify-between gap-3">
         <Button variant="secondary" size="md" onClick={() => goPrev()} disabled={currentIndex === 0}>
-          Previous
+          {t("quiz.previous")}
         </Button>
 
         <div className="flex flex-wrap gap-2">
@@ -104,7 +106,7 @@ export function QuizSessionPanel(props: {
               disabled={!hasAnswer}
               onClick={() => checkCurrent(question.id)}
             >
-              Check answer
+              {t("quiz.checkAnswer")}
             </Button>
           ) : isLast ? (
             <Button
@@ -113,11 +115,11 @@ export function QuizSessionPanel(props: {
               onClick={() => finish(props.quiz, props.courseId)}
             >
               <Icon icon={CheckCircle2} />
-              Finish quiz
+              {t("quiz.finish")}
             </Button>
           ) : (
             <Button variant="primary" size="md" onClick={() => goNext(total)}>
-              Next
+              {t("quiz.next")}
             </Button>
           )}
         </div>

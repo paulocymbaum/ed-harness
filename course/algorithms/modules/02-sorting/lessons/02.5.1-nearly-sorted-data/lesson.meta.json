@@ -3,6 +3,11 @@
   "graphIndex": "02.5.1",
   "graphNodeId": "n_62ce9e30b6",
   "title": "Nearly Sorted Data",
+  "description": "When the array is already almost sorted (few inversions, each element near its final index), insertion sort often beats general O(n log n) sorts because each insert is cheap. Hybrid library sorts switch to insertion on small / nearly ordered runs.",
+  "lesson_dependencies": [
+    "insertion sort",
+    "inversions"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

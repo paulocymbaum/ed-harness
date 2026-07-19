@@ -3,6 +3,11 @@
   "graphIndex": "02.1.2",
   "graphNodeId": "n_a77693031f",
   "title": "Computed Keys and Shorthand",
+  "description": "When building objects, two shortcuts show up constantly: property shorthand (reuse a variable name as the key) and computed keys (decide the key name from an expression).",
+  "lesson_dependencies": [
+    "object literals",
+    "property access"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

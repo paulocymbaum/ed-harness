@@ -3,6 +3,32 @@
   "graphIndex": "01.3.3",
   "graphNodeId": "n_d8eb6a66f2",
   "title": "Booleans",
+  "description": "Booleans are true or false. Comparisons and validation checks produce booleans that drive if statements later.",
+  "lesson_dependencies": [
+    "comparison operators"
+  ],
   "prerequisites": [],
-  "status": "draft"
+  "status": "draft",
+  "keywords": [
+    "JavaScript",
+    "javascript boolean",
+    "true false",
+    "boolean",
+    "booleans",
+    "comparisons",
+    "validation",
+    "produce"
+  ],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=B4ZCFdrBmbE",
+      "title": "JavaScript Tutorial For Beginners #11 - Booleans in JavaScript",
+      "views": 139230
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=xvxAtpEoeYU",
+      "title": "JavaScript Booleans Tutorial for Beginners: True or False?",
+      "views": 8450
+    }
+  ]
 }

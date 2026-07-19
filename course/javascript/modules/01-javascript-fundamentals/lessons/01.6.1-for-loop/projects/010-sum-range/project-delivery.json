@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "courseId": "javascript",
+  "projectId": "010-sum-range",
+  "updatedAt": "2026-07-14T00:48:35.711Z",
+  "deliveries": [
+    {
+      "id": "2026-07-14T00:46:51.674Z",
+      "content": "/**\n * Sum Range\n * node starter/index.js\n */\n\nconst readline = require(\"node:readline\");\n\nfunction main() {\n  const lines = [];\n  const rl = readline.createInterface({ input: process.stdin });\n\n  rl.on(\"line\", (line) => {\n    lines.push(line);\n    if (lines.length < 2) return;\n\n    // TODO: sum inclusive range with for loop\n\nlet start = Number(lines[0].trim());\nlet end = Number(lines[1].trim());\nlet sum = 0;\n\nif (!Number.isInteger(start) || !Number.isInteger(end)){\nconsole.log(\"ERROR: invalid range\");\nrl.close();\n}\n\nif (end < start) {\nlet bufferA = start;\nlet bufferB = end;\nstart = bufferB;\nend =  bufferA;\n}\n\nfor (let n = start; n <= end; n++){\n    sum += n;\n}\nconsole.log(\"Sum: \" + sum);\n  });\n\n}\n\nmain();",
+      "submittedAt": "2026-07-14T00:46:51.674Z",
+      "review": {
+        "score": 75,
+        "comment": "Inclusive sum with for (n <= end) and start/end swap covers 1/5, 5/1, and 3/3 correctly. Invalid input prints ERROR: invalid range but does not stop, so Sum still prints after. Next: return right after the error log (and rl.close) so only the ERROR line is output.",
+        "reviewedAt": "2026-07-14T00:47:20.757Z"
+      }
+    },
+    {
+      "id": "2026-07-14T00:48:21.266Z",
+      "content": "/**\n * Sum Range\n * node starter/index.js\n */\n\nconst readline = require(\"node:readline\");\n\nfunction main() {\n  const lines = [];\n  const rl = readline.createInterface({ input: process.stdin });\n\n  rl.on(\"line\", (line) => {\n    lines.push(line);\n    if (lines.length < 2) return;\n\n    // TODO: sum inclusive range with for loop\n\nlet start = Number(lines[0].trim());\nlet end = Number(lines[1].trim());\nlet sum = 0;\n\nif (!Number.isInteger(start) || !Number.isInteger(end)){\nconsole.log(\"ERROR: invalid range\");\nrl.close();\nreturn;\n}\n\nif (end < start) {\nlet bufferA = start;\nlet bufferB = end;\nstart = bufferB;\nend =  bufferA;\n}\n\nfor (let n = start; n <= end; n++){\n    sum += n;\n}\nconsole.log(\"Sum: \" + sum);\n  });\n\n}\n\nmain();",
+      "submittedAt": "2026-07-14T00:48:21.266Z",
+      "review": {
+        "score": 100,
+        "comment": "All acceptance criteria pass: inclusive for-loop with n <= end, swap when start > end, and Sum format matches. Invalid non-integers print ERROR: invalid range and return so no Sum line follows. Solid use of for-loop bounds and accumulator init.",
+        "reviewedAt": "2026-07-14T00:48:35.711Z"
+      }
+    }
+  ]
+}

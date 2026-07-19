@@ -28,6 +28,11 @@ mindmap
         01.7.2 Parameters and Return Values
         01.7.3 Arrow Functions and Callbacks
         01.7.4 Throwing Errors and Sync try/catch
+        01.7.5 Function Expressions
+        01.7.6 Extra Arguments and Arity
+        01.7.7 Default Parameters
+        01.7.8 Rest Parameters
+        01.7.9 Function Scope and Shadowing
       01.8 Truthiness and Coercion
         01.8.1 Truthy vs Falsy
         01.8.2 Strict Equality (===)
@@ -36,9 +41,13 @@ mindmap
         01.8.5 null, undefined, == null, ?., ??
       01.9 Arrays
         01.9.1 Array Literals Indexing and length
-        01.9.2 Mutating Array Methods
-        01.9.3 Non-mutating Array Methods
-        01.9.4 Iterating Arrays for and for-of
+        01.9.2 Iterating Arrays for and for-of
+        01.9.3 Array.prototype.filter
+        01.9.4 Array.prototype.map
+        01.9.5 Combining filter and map
+        01.9.6 Set for Uniqueness
+        01.9.7 Mutating Array Methods
+        01.9.8 Other Non-mutating Array Methods
     02 Objects
       02.1 Creating and Reading Objects
         02.1.1 Object Literals and Property Access

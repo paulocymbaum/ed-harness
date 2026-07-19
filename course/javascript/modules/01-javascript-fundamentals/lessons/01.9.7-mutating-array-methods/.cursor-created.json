@@ -1,0 +1,9 @@
+{
+  "createdBy": "cursor-tool",
+  "tool": "scripts/graph/scaffold-from-graph.mjs",
+  "createdAt": "2026-07-19T03:39:04.643Z",
+  "kind": "lesson",
+  "lessonId": "01.9.7-mutating-array-methods",
+  "moduleId": "01-javascript-fundamentals",
+  "graphIndex": "01.9.7"
+}

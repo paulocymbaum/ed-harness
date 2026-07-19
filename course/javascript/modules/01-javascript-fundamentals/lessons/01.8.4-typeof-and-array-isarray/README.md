@@ -9,6 +9,17 @@
 
 `typeof` reports a value's type as a **string**. It is useful for primitives — and misleading for arrays and `null`. Prefer `Array.isArray` when you need to know if something is an array.
 
+## Bridge — arrays (full lesson: `01.9.1`)
+
+This lesson talks about arrays before the arrays module. Minimum you need:
+
+- An **array** is an ordered list: `const xs = [1, 2, 3];`
+- Indexes start at `0`: `xs[0]` is `1`.
+- `.length` is how many items: `xs.length` is `3`.
+- Arrays are objects under the hood — that is why `typeof []` is `"object"`, which is why `Array.isArray` exists.
+
+You will cover literals, indexing, and length in depth in `01.9.1`.
+
 ## What `typeof` returns
 
 ```js

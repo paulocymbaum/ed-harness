@@ -3,6 +3,12 @@
   "graphIndex": "07.4",
   "graphNodeId": "n_d9916f7481",
   "title": "Code Quality and Maintainability",
+  "description": "A correct solution that ships with leftover console.log debugging, TODO comments, or sloppy variable declarations reads as unfinished \u2014 even if the logic is right. Interviewers scan for these small code smells as a proxy for how you'd behave on a real team: do you clean up after yourself, name things clearly, and avoid patterns that cause bugs later\u2026",
+  "lesson_dependencies": [
+    "readable code",
+    "naming",
+    "functions"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

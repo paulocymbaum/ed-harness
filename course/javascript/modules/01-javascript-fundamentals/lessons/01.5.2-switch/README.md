@@ -9,6 +9,16 @@
 
 `switch` selects one branch based on a **single value**. It is cleaner than a long `if / else if` chain when comparing one variable against many constants — menu choices, command codes, or letter grades.
 
+## Bridge — strict equality `===` (full lesson: `01.8.2`)
+
+`switch` matches each `case` with **`===`** (strict equality), which you have not studied in full yet. Minimum you need:
+
+- Same value **and** same type → match (`1 === 1` is `true`).
+- Same digits but different types → **no** match (`1 === "1"` is `false`).
+- No type coercion happens (unlike loose `==`).
+
+That is why `case 1:` does not catch the string `"1"`. Full details and pitfalls are in `01.8.2`.
+
 ## Basic switch
 
 ```js

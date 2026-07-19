@@ -14,17 +14,15 @@ export function CatalogCoursesPanel(props: {
 }) {
   const { t } = useTranslation();
   const dashboard = useLearnerDashboard(props.courses);
-  const { goCourse, openLessonDrawer } = useAppNavigation();
+  const { goCourse, abrirProjetoLicao } = useAppNavigation();
 
   const openProject = (project: PendingProjectRow) => {
     if (project.moduleId && project.lessonId) {
-      openLessonDrawer(
+      abrirProjetoLicao(
         project.courseId,
         project.moduleId,
         project.lessonId,
-        "project",
         project.projectId,
-        "delivery",
       );
       return;
     }

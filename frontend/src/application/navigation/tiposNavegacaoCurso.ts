@@ -1,5 +1,5 @@
 import type { NavigateFunction } from "react-router-dom";
-import type { CourseTab, DrawerMode, DrawerTab } from "../../domain/types/navigation";
+import type { CourseTab } from "../../domain/types/navigation";
 import type { ReaderItem, ReaderTab } from "../../domain/types/reader";
 
 export type NavegacaoCursoDeps = {
@@ -15,16 +15,19 @@ export type NavegacaoCursoDeps = {
 export type EstrategiaNavegacaoCurso = {
   goModule: (courseId: string, moduleId: string) => void;
   goLesson: (courseId: string, moduleId: string, lessonId: string) => void;
-  openLessonDrawer: (
+  abrirQuizLicao: (
     courseId: string,
     moduleId: string,
     lessonId: string,
-    mode: DrawerMode,
-    id: string,
-    drawerTab?: DrawerTab,
+    quizId: string,
   ) => void;
-  closeLessonDrawer: (courseId: string, moduleId: string, lessonId: string) => void;
-  setLessonDrawerTab: (drawerTab: DrawerTab) => void;
+  abrirProjetoLicao: (
+    courseId: string,
+    moduleId: string,
+    lessonId: string,
+    projectId: string,
+  ) => void;
+  voltarParaLicao: (courseId: string, moduleId: string, lessonId: string) => void;
   openModuleQuiz: (courseId: string, moduleId: string, quizId: string) => void;
   closeQuiz: () => void;
   setTab: (courseId: string, tab: CourseTab) => void;

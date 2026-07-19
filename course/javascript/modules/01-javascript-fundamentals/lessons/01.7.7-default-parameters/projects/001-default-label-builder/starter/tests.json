@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "id": "example",
+      "name": "Example from README — default prefix",
+      "stdin": "payment\n",
+      "expectedStdout": "TAG:payment\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "custom-prefix",
+      "name": "Custom prefix",
+      "stdin": "ok\nID\n",
+      "expectedStdout": "ID:ok\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "empty-prefix",
+      "name": "Empty string prefix kept",
+      "stdin": "ok\n\n",
+      "expectedStdout": ":ok\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "empty-text",
+      "name": "Empty text",
+      "stdin": "\n",
+      "expectedStdout": "ERROR: empty text\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

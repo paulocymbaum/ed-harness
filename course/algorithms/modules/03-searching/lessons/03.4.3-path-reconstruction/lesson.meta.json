@@ -3,6 +3,12 @@
   "graphIndex": "03.4.3",
   "graphNodeId": "n_cebc841ebc",
   "title": "Path Reconstruction",
+  "description": "Search finds that a goal is reachable; reconstruction answers how. While running BFS/DFS, record parent[child] = node on first discovery.",
+  "lesson_dependencies": [
+    "BFS",
+    "DFS",
+    "parent pointers"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

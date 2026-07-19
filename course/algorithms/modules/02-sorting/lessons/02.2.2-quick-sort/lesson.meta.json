@@ -3,6 +3,13 @@
   "graphIndex": "02.2.2",
   "graphNodeId": "n_99f6292534",
   "title": "Quick Sort",
+  "description": "Quick sort partitions around a pivot: smaller values move left, larger right, then recurse. Average O(n log n); worst O(n\u00b2) with bad pivots on sorted data.",
+  "lesson_dependencies": [
+    "partition",
+    "recursion",
+    "arrays",
+    "pivot"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

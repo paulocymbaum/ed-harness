@@ -3,6 +3,12 @@
   "graphIndex": "02.4.1",
   "graphNodeId": "n_df84860486",
   "title": "Array.prototype.sort",
+  "description": "In JavaScript, Array.prototype.sort sorts in place and returns the same array. With no compare function, elements are converted to strings and ordered lexicographically by UTF-16 code units \u2014 so numeric arrays often look \"wrong\" until you pass a comparator.",
+  "lesson_dependencies": [
+    "arrays",
+    "comparators",
+    "in-place mutation"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

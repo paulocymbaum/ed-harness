@@ -10,7 +10,6 @@ import { AsyncRouteBoundary } from "../../shared/AsyncRouteBoundary";
 import { ErrorPanel } from "../../design-system";
 import { ModuleLayoutProvider } from "./ModuleLayoutContext";
 import { ModuleQuizPage } from "./ModuleQuizPage";
-import { ModuleShellLayout } from "./ModuleShellLayout";
 
 export function ModuleLayoutRoute() {
   const { courseId = "", moduleId = "" } = useParams();
@@ -100,7 +99,7 @@ function ModuleLayoutBody(props: {
         module: mod,
       }}
     >
-      <ModuleShellLayout />
+      <Outlet />
     </ModuleLayoutProvider>
   );
 }

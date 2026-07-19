@@ -3,6 +3,34 @@
   "graphIndex": "01.9.1",
   "graphNodeId": "n_301aea8a06",
   "title": "Array Literals Indexing and length",
+  "description": "An array is an ordered list of values. You create one with an array literal ([]), read or write items by index (starting at 0), and use .length for how many slots the array currently reports.",
+  "lesson_dependencies": [
+    "variables",
+    "indexing",
+    "for loop"
+  ],
   "prerequisites": [],
-  "status": "draft"
+  "status": "draft",
+  "keywords": [
+    "JavaScript",
+    "array literal",
+    "array index",
+    "array length",
+    "array literals indexing and length",
+    "array",
+    "literals",
+    "indexing"
+  ],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=UbRDX5p0kR8",
+      "title": "3 - Should Understand Array Literals - JavaScript Koans",
+      "views": 373
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=iQMwyVGok6c",
+      "title": "Mastering JavaScript Arrays: Array Literals & Constructor Methods Explained! Pt 1",
+      "views": 57
+    }
+  ]
 }

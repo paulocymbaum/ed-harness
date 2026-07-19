@@ -2,7 +2,7 @@ export { Button, type ButtonVariant, type ButtonSize } from "./components/Button
 export { Textarea } from "./components/Textarea";
 export { Card, type CardVariant } from "./components/Card";
 export { Accordion } from "./components/Accordion";
-export { Tabs, type TabItem } from "./components/Tabs";
+export { Tabs, TabPanel, type TabItem } from "./components/Tabs";
 export { Dialog } from "./components/Dialog";
 export { Drawer } from "./components/Drawer";
 export { ProgressBar, type ProgressBarPopoverContent, type ProgressBarSize } from "./components/ProgressBar";

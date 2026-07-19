@@ -3,6 +3,34 @@
   "graphIndex": "01.7.1",
   "graphNodeId": "n_059098e9f8",
   "title": "Function Declaration",
+  "description": "Functions bundle reusable logic with a name. Instead of copying the same conversion or validation in every script, you declare once and call many times.",
+  "lesson_dependencies": [
+    "blocks",
+    "return",
+    "control flow"
+  ],
   "prerequisites": [],
-  "status": "draft"
+  "status": "draft",
+  "keywords": [
+    "JavaScript",
+    "function declaration",
+    "declare function",
+    "function",
+    "declaration",
+    "functions",
+    "reusable",
+    "conversion"
+  ],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=h33Srr5J9nY",
+      "title": "JavaScript ES6 Arrow Functions Tutorial",
+      "views": 892325
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=qz7Nq1tV7Io",
+      "title": "Javascript Function Expression Vs Declaration For Beginners",
+      "views": 16855
+    }
+  ]
 }

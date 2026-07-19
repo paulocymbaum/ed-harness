@@ -1,0 +1,105 @@
+{
+  "id": "quiz",
+  "title": "Non-mutating Helpers Check",
+  "description": "slice, includes, find, and join without mutation.",
+  "lessonId": "01.9.8-other-non-mutating-array-methods",
+  "graphIndex": "01.9.8",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What is `[\"a\", \"b\", \"c\", \"d\"].slice(1, 3)`?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`[\"b\", \"c\"]`"
+        },
+        {
+          "id": "b",
+          "text": "`[\"b\", \"c\", \"d\"]`"
+        },
+        {
+          "id": "c",
+          "text": "`[\"a\", \"b\"]`"
+        },
+        {
+          "id": "d",
+          "text": "`[\"c\"]`"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Start inclusive, end exclusive → indexes 1 and 2."
+    },
+    {
+      "id": "q2",
+      "prompt": "After `const xs = [1, 2, 3]; xs.slice(0, 2);` what is `xs`?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`[1, 2]`"
+        },
+        {
+          "id": "b",
+          "text": "`[1, 2, 3]`"
+        },
+        {
+          "id": "c",
+          "text": "`[3]`"
+        },
+        {
+          "id": "d",
+          "text": "`[]`"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`slice` returns a new array; it does not mutate."
+    },
+    {
+      "id": "q3",
+      "prompt": "`[5, 12, 8].find((n) => n > 10)` returns:",
+      "options": [
+        {
+          "id": "a",
+          "text": "`[12, 8]`"
+        },
+        {
+          "id": "b",
+          "text": "`12`"
+        },
+        {
+          "id": "c",
+          "text": "`true`"
+        },
+        {
+          "id": "d",
+          "text": "`1`"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`find` returns the first matching element, not an array."
+    },
+    {
+      "id": "q4",
+      "prompt": "What is `[\"a\", \"b\", \"c\"].join(\"-\" )`?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`[\"a-b-c\"]`"
+        },
+        {
+          "id": "b",
+          "text": "`\"a-b-c\"`"
+        },
+        {
+          "id": "c",
+          "text": "`\"abc\"`"
+        },
+        {
+          "id": "d",
+          "text": "`a,b,c`"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`join` builds a string with the separator between elements."
+    }
+  ]
+}

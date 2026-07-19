@@ -3,6 +3,11 @@
   "graphIndex": "03.3.2",
   "graphNodeId": "n_02f25598bd",
   "title": "Map for O1 Access",
+  "description": "Map stores key/value pairs with true key identity (including numbers, objects, NaN as a key). For search problems \u2014 first index, complements, memo tables \u2014 map.get / map.has are the go-to amortized O(1) lookups.",
+  "lesson_dependencies": [
+    "Map",
+    "hash lookup"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

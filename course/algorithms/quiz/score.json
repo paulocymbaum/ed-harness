@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "courseId": "algorithms",
+  "updatedAt": "2026-07-14T01:53:53.714Z",
+  "quizzes": {},
+  "projects": {
+    "01.1.1-time-complexity-big-o/001-big-o-classifier": {
+      "projectId": "01.1.1-time-complexity-big-o/001-big-o-classifier",
+      "status": "doing",
+      "points": 0,
+      "updatedAt": "2026-07-13T23:12:44.918Z"
+    },
+    "01.3.2-comparator-contracts/001-numeric-sort-fixer": {
+      "projectId": "01.3.2-comparator-contracts/001-numeric-sort-fixer",
+      "status": "doing",
+      "points": 0,
+      "updatedAt": "2026-07-14T01:53:53.714Z"
+    }
+  }
+}

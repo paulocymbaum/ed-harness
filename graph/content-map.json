@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-16T02:17:39.955Z",
+  "generatedAt": "2026-07-19T04:34:06.487Z",
   "courses": {
     "algorithms": {
       "courseSlug": "algorithms",
@@ -704,9 +704,9 @@
     },
     "javascript": {
       "courseSlug": "javascript",
-      "total": 75,
-      "exists": 67,
-      "planned": 5,
+      "total": 84,
+      "exists": 79,
+      "planned": 2,
       "orphan": 3,
       "entries": [
         {
@@ -897,6 +897,46 @@
           "status": "exists"
         },
         {
+          "graphIndex": "01.7.5",
+          "courseId": "javascript",
+          "moduleId": "01-javascript-fundamentals",
+          "lessonId": "01.7.5-function-expressions",
+          "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.7.5-function-expressions",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "01.7.6",
+          "courseId": "javascript",
+          "moduleId": "01-javascript-fundamentals",
+          "lessonId": "01.7.6-extra-arguments-and-arity",
+          "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.7.6-extra-arguments-and-arity",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "01.7.7",
+          "courseId": "javascript",
+          "moduleId": "01-javascript-fundamentals",
+          "lessonId": "01.7.7-default-parameters",
+          "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.7.7-default-parameters",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "01.7.8",
+          "courseId": "javascript",
+          "moduleId": "01-javascript-fundamentals",
+          "lessonId": "01.7.8-rest-parameters",
+          "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.7.8-rest-parameters",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "01.7.9",
+          "courseId": "javascript",
+          "moduleId": "01-javascript-fundamentals",
+          "lessonId": "01.7.9-function-scope-and-shadowing",
+          "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.7.9-function-scope-and-shadowing",
+          "status": "exists"
+        },
+        {
           "graphIndex": "01.8.1",
           "courseId": "javascript",
           "moduleId": "01-javascript-fundamentals",
@@ -947,29 +987,58 @@
         {
           "graphIndex": "01.9.2",
           "courseId": "javascript",
-          "moduleId": null,
-          "lessonId": null,
-          "diskPath": null,
-          "status": "planned",
-          "title": "01.9.2 Mutating Array Methods"
+          "moduleId": "01-javascript-fundamentals",
+          "lessonId": "01.9.2-iterating-arrays-for-and-for-of",
+          "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.9.2-iterating-arrays-for-and-for-of",
+          "status": "exists"
         },
         {
           "graphIndex": "01.9.3",
           "courseId": "javascript",
-          "moduleId": null,
-          "lessonId": null,
-          "diskPath": null,
-          "status": "planned",
-          "title": "01.9.3 Non-mutating Array Methods"
+          "moduleId": "01-javascript-fundamentals",
+          "lessonId": "01.9.3-array-prototype-filter",
+          "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.9.3-array-prototype-filter",
+          "status": "exists"
         },
         {
           "graphIndex": "01.9.4",
           "courseId": "javascript",
-          "moduleId": null,
-          "lessonId": null,
-          "diskPath": null,
-          "status": "planned",
-          "title": "01.9.4 Iterating Arrays for and for-of"
+          "moduleId": "01-javascript-fundamentals",
+          "lessonId": "01.9.4-array-prototype-map",
+          "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.9.4-array-prototype-map",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "01.9.5",
+          "courseId": "javascript",
+          "moduleId": "01-javascript-fundamentals",
+          "lessonId": "01.9.5-combining-filter-and-map",
+          "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.9.5-combining-filter-and-map",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "01.9.6",
+          "courseId": "javascript",
+          "moduleId": "01-javascript-fundamentals",
+          "lessonId": "01.9.6-set-for-uniqueness",
+          "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.9.6-set-for-uniqueness",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "01.9.7",
+          "courseId": "javascript",
+          "moduleId": "01-javascript-fundamentals",
+          "lessonId": "01.9.7-mutating-array-methods",
+          "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.9.7-mutating-array-methods",
+          "status": "exists"
+        },
+        {
+          "graphIndex": "01.9.8",
+          "courseId": "javascript",
+          "moduleId": "01-javascript-fundamentals",
+          "lessonId": "01.9.8-other-non-mutating-array-methods",
+          "diskPath": "course/javascript/modules/01-javascript-fundamentals/lessons/01.9.8-other-non-mutating-array-methods",
+          "status": "exists"
         },
         {
           "graphIndex": "02.1.1",

@@ -3,6 +3,12 @@
   "graphIndex": "03.1.1",
   "graphNodeId": "n_a2e797bec6",
   "title": "Linear Search",
+  "description": "Linear search walks an array from the left until it finds the target (or runs out of elements). It needs no sorted order, which makes it the default when you cannot binary-search.",
+  "lesson_dependencies": [
+    "arrays",
+    "iteration",
+    "Big-O"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

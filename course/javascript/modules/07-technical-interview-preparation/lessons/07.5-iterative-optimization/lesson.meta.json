@@ -3,6 +3,11 @@
   "graphIndex": "07.5",
   "graphNodeId": "n_e7cdd0f8f1",
   "title": "Iterative Optimization",
+  "description": "Most coding interviews expect you to narrate improvement, not jump straight to the optimal solution. The typical arc is: get a brute force solution working first (even if slow), then talk through a better approach, then reach for the optimal one \u2014 explaining the complexity gain at each step.",
+  "lesson_dependencies": [
+    "Big-O",
+    "brute force to optimized solutions"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

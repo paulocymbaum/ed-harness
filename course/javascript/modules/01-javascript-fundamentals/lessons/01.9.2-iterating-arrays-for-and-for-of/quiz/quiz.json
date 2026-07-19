@@ -1,0 +1,105 @@
+{
+  "id": "quiz",
+  "title": "Iterating Arrays Check",
+  "description": "Index for vs for...of on arrays.",
+  "lessonId": "01.9.2-iterating-arrays-for-and-for-of",
+  "graphIndex": "01.9.2",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What does `for (const x of [\"a\", \"b\"])` assign to `x` on the first iteration?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`0`"
+        },
+        {
+          "id": "b",
+          "text": "`\"a\"`"
+        },
+        {
+          "id": "c",
+          "text": "`[\"a\", \"b\"]`"
+        },
+        {
+          "id": "d",
+          "text": "`undefined`"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`for...of` yields values. Indexes come from a classic `for` with `i`."
+    },
+    {
+      "id": "q2",
+      "prompt": "Which loop header visits every dense index of `arr`?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`for (let i = 0; i <= arr.length; i++)`"
+        },
+        {
+          "id": "b",
+          "text": "`for (let i = 0; i < arr.length; i++)`"
+        },
+        {
+          "id": "c",
+          "text": "`for (let i = 1; i < arr.length; i++)`"
+        },
+        {
+          "id": "d",
+          "text": "`for (let i = 0; i < arr.length - 1; i++)`"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Start at 0 and stop when `i < arr.length`. Using `<=` reads one past the end."
+    },
+    {
+      "id": "q3",
+      "prompt": "You need both index and value. What is the straightforward tool?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only `for...of`"
+        },
+        {
+          "id": "b",
+          "text": "A classic index `for` using `arr[i]`"
+        },
+        {
+          "id": "c",
+          "text": "`filter`"
+        },
+        {
+          "id": "d",
+          "text": "`map`"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Index loops pair `i` with `arr[i]`. `for...of` does not provide indexes by default."
+    },
+    {
+      "id": "q4",
+      "prompt": "After `const out = []`, which append matches the lesson (no `push` yet)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`out.push(1)`"
+        },
+        {
+          "id": "b",
+          "text": "`out[out.length] = 1`"
+        },
+        {
+          "id": "c",
+          "text": "`out += 1`"
+        },
+        {
+          "id": "d",
+          "text": "`out.set(1)`"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Writing at `out.length` appends and grows length by 1."
+    }
+  ]
+}

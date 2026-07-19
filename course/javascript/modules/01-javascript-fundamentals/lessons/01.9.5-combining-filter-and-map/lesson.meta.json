@@ -1,0 +1,36 @@
+{
+  "id": "01.9.5-combining-filter-and-map",
+  "graphIndex": "01.9.5",
+  "graphNodeId": "n_18778105bf",
+  "title": "Combining filter and map",
+  "description": "Chain filter then map to keep useful rows and shape each result. Order matters — decide which items survive before how each looks.",
+  "lesson_dependencies": [
+    "Array.prototype.filter",
+    "Array.prototype.map",
+    "callbacks"
+  ],
+  "prerequisites": [],
+  "status": "draft",
+  "keywords": [
+    "JavaScript",
+    "filter map",
+    "chain filter map",
+    "combining filter and map",
+    "combining",
+    "filter",
+    "map",
+    "result"
+  ],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=zdp0zrpKzIE",
+      "title": "map, filter & reduce 🙏 Namaste JavaScript Ep. 19 🔥",
+      "views": 1124888
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=8MoElay6dWU",
+      "title": "Map, Filter & Reduce EXPLAINED in JavaScript - It's EASY!",
+      "views": 27890
+    }
+  ]
+}

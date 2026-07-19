@@ -3,6 +3,12 @@
   "graphIndex": "01.3.1",
   "graphNodeId": "n_2d1aed0ddf",
   "title": "Invariants and Edge Cases",
+  "description": "Correct algorithms maintain invariants \u2014 facts that stay true as the loop runs \u2014 and handle edge cases that break naive assumptions: empty input, one element, duplicates, already sorted, all equal.",
+  "lesson_dependencies": [
+    "loops",
+    "edge cases",
+    "correctness"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

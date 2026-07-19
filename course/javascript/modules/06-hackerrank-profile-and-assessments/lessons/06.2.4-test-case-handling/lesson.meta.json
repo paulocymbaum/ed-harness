@@ -3,6 +3,12 @@
   "graphIndex": "06.2.4",
   "graphNodeId": "n_a53e3b4c84",
   "title": "Test Case Handling",
+  "description": "HackerRank grades submissions per test case, not pass/fail as a whole \u2014 a solution can score, say, 7 out of 10 test cases and still receive partial credit. The test cases you never see (hidden ones) are usually written specifically to probe edge cases: empty input, a zero value, a negative value, or a single-element input where \"the general case\" logic\u2026",
+  "lesson_dependencies": [
+    "stdin/stdout",
+    "edge cases",
+    "validation"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

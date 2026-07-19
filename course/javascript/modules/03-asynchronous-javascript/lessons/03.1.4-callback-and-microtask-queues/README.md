@@ -9,6 +9,21 @@
 
 The event loop drains **microtasks** (Promise reactions) before running the next **task** (e.g. `setTimeout`). Understanding this ordering prevents "mystery" output when mixing Promises and timers.
 
+## Bridge — Promises (full lesson: `03.2.1`)
+
+This lesson uses Promises before their dedicated lesson. You only need this much for the queue examples:
+
+- A **Promise** represents a value that may finish later (success or failure).
+- `Promise.resolve(x)` creates an already-successful Promise with value `x`.
+- `.then(fn)` schedules `fn` as a **microtask** to run with that value (not as a `setTimeout` task).
+
+```js
+Promise.resolve("hi").then((msg) => console.log(msg));
+// "hi" prints after current synchronous code, as a microtask
+```
+
+You will learn creating Promises, rejection, and chaining in `03.2.1`. Here the focus is **when** `.then` runs relative to timers.
+
 ## Predict first
 
 What prints first: `micro` or `timer`?

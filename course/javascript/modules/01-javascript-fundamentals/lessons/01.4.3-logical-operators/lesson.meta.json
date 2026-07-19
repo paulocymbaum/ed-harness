@@ -3,6 +3,33 @@
   "graphIndex": "01.4.3",
   "graphNodeId": "n_834c58cba6",
   "title": "Logical Operators (&&, ||, !)",
+  "description": "Logical operators combine boolean conditions. CLI validators often need all checks to pass (&&) or accept any alternative (||).",
+  "lesson_dependencies": [
+    "booleans",
+    "comparison operators"
+  ],
   "prerequisites": [],
-  "status": "draft"
+  "status": "draft",
+  "keywords": [
+    "JavaScript",
+    "logical operators",
+    "&&",
+    "||",
+    "not operator",
+    "logical operators && ||",
+    "logical",
+    "operators"
+  ],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=mbT7sSmVUS8",
+      "title": "JavaScript Tutorial For Beginners #15 - Logical Operators",
+      "views": 121211
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=uuRJ1aCj8Ro",
+      "title": "#11 Logical Operators in JavaScript",
+      "views": 85519
+    }
+  ]
 }

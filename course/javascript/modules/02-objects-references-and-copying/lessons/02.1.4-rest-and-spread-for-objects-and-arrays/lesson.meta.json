@@ -3,6 +3,12 @@
   "graphIndex": "02.1.4",
   "graphNodeId": "n_faedd6a151",
   "title": "Rest and Spread for Objects and Arrays",
+  "description": "Spread (...) copies enumerable own properties into a new object/array. Rest gathers the \u201cleftover\u201d keys or elements into a new object/array.",
+  "lesson_dependencies": [
+    "object literals",
+    "arrays",
+    "destructuring"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

@@ -3,6 +3,12 @@
   "graphIndex": "02.5.2",
   "graphNodeId": "n_8f52b6ba69",
   "title": "Memory Constraints",
+  "description": "Sorts trade extra memory for speed or simplicity. Merge sort wants \u0398(n) buffers.",
+  "lesson_dependencies": [
+    "merge sort",
+    "heap sort",
+    "space complexity"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

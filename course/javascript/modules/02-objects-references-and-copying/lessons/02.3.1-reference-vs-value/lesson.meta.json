@@ -3,6 +3,12 @@
   "graphIndex": "02.3.1",
   "graphNodeId": "n_77b20f606f",
   "title": "Reference vs Value",
+  "description": "In JavaScript, most \"weird bugs\" around objects come from one fact: variables can share the same object. Primitives copy by value; objects alias by reference.",
+  "lesson_dependencies": [
+    "primitives",
+    "object literals",
+    "assignment"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

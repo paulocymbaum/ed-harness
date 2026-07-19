@@ -9,6 +9,18 @@
 
 Booleans are `true` or `false`. Comparisons and validation checks produce booleans that drive `if` statements later. Storing flags (logged in, valid input, game over) keeps CLI logic readable.
 
+## Bridge — comparison operators (full lesson: `01.4.2`)
+
+This lesson uses **comparison operators** before their dedicated lesson. You only need this much for now:
+
+| Operator | Meaning | Example |
+|----------|---------|---------|
+| `===` | equal value **and** type | `85 === 85` → `true` |
+| `!==` | not equal (value or type) | `85 !== "85"` → `true` |
+| `<` `<=` `>` `>=` | ordering for numbers (and some strings) | `85 >= 60` → `true` |
+
+Every comparison expression evaluates to a boolean (`true` or `false`). You will go deeper on each operator in `01.4.2`.
+
 ## Literal booleans
 
 ```js

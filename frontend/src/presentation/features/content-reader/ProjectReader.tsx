@@ -1,9 +1,10 @@
 import { useMemo, useState } from "react";
 import type { Project } from "../../../domain/types/catalog";
 import type { DrawerTab } from "../../../domain/types/navigation";
-import type { ReaderEntry, ReaderTab } from "../../../domain/types/reader";
+import type { ReaderTab } from "../../../domain/types/reader";
 import { useProjectDeliveryLiveSync } from "../../../application/hooks/useProjectDeliveryLiveSync";
 import { useTranslation } from "../../../application/hooks/useTranslation";
+import { markdownContextoProjeto } from "../../../application/usecases/markdownContextoProjeto";
 import { useProjectProgressStore } from "../../../application/stores/projectProgressStore";
 import { ReadmePanel } from "../../shared/ReadmePanel";
 import { Tabs } from "../../design-system";
@@ -12,12 +13,6 @@ import { ProjectDeliveryPanel } from "./components/ProjectDeliveryPanel";
 import { ProjectStatusBadge } from "../course-experience/components/ProjectStatusBadge";
 
 export type ProjectReaderLayout = "overlay" | "drawer";
-
-function getExplanationMarkdown(project: Project, entries: ReaderEntry[], cwd: string): string {
-  const currentDir = entries.find((e) => e.kind === "dir" && e.path === cwd);
-  if (currentDir?.readmeMarkdown?.trim()) return currentDir.readmeMarkdown;
-  return project.readmeMarkdown;
-}
 
 function resolveDrawerTab(tab: DrawerTab, embedded: boolean, hasContext: boolean): DrawerTab {
   if (embedded && tab === "explanation") return "delivery";
@@ -72,7 +67,7 @@ export function ProjectReader(props: {
     lessonId: project.lessonId,
   });
 
-  const explanationMarkdown = getExplanationMarkdown(project, entries, cwd);
+  const explanationMarkdown = markdownContextoProjeto(project, entries, cwd);
   const hasContext = Boolean(explanationMarkdown.trim());
   const activeDrawerTab = resolveDrawerTab(drawerTab, embedded, hasContext);
 
@@ -133,6 +128,7 @@ export function ProjectReader(props: {
           value={activeDrawerTab}
           onValueChange={(v) => onDrawerTabChange?.(v as DrawerTab)}
           items={tabItems}
+          ariaLabel={t("drawer.tabs")}
         />
         <ProjectStatusBadge
           value={getProjectStatus(courseId, project.id, project.lessonId)}

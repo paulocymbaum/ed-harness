@@ -165,7 +165,10 @@ export function ProjectRunAnswerPanel(props: {
       ) : null}
 
       {props.matrix ? (
-        <div className="overflow-hidden rounded-panel border border-border0 bg-surfaceControl">
+        <div
+          className="overflow-hidden rounded-panel border border-border0 bg-surfaceControl"
+          aria-live="polite"
+        >
           <div className="border-b border-border0 px-3 py-2">
             <TestMatrixSummary matrix={props.matrix} t={t} />
           </div>

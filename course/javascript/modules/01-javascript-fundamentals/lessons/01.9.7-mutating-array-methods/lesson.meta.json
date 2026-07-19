@@ -1,0 +1,36 @@
+{
+  "id": "01.9.7-mutating-array-methods",
+  "graphIndex": "01.9.7",
+  "graphNodeId": "n_0e97fe666e",
+  "title": "Mutating Array Methods",
+  "description": "push, pop, shift, unshift, splice, sort, and reverse change the same array in place. Track shared references before you mutate.",
+  "lesson_dependencies": [
+    "arrays",
+    "indexing",
+    "length"
+  ],
+  "prerequisites": [],
+  "status": "draft",
+  "keywords": [
+    "JavaScript",
+    "push pop",
+    "splice",
+    "mutating array",
+    "sort reverse",
+    "mutating array methods",
+    "mutating",
+    "array"
+  ],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=o9sgjuh-CBM",
+      "title": "How to Rotate Shapes in p5.js (translate, rotate, push, pop)",
+      "views": 216893
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=pCqfbzj2iLY",
+      "title": "JavaScript Tip: Using slice and splice",
+      "views": 16086
+    }
+  ]
+}

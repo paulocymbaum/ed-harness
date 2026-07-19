@@ -3,6 +3,12 @@
   "graphIndex": "02.5.3",
   "graphNodeId": "n_d1aa9999bf",
   "title": "Sort by Multiple Keys",
+  "description": "Multi-key order means: compare primary key first; only if equal, compare secondary, and so on. Implement with one comparator (preferred) or successive stable sorts from the last key to the first.",
+  "lesson_dependencies": [
+    "comparators",
+    "stable sort",
+    "multi-key order"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

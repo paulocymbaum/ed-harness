@@ -1,8 +1,14 @@
 {
   "id": "03.1.4-callback-and-microtask-queues",
   "graphIndex": "03.1.4",
-  "graphNodeId": "n_d307260836",
+  "graphNodeId": "n_60e382f139",
   "title": "Callback and Microtask Queues",
+  "description": "The event loop drains microtasks (Promise reactions) before running the next task (e.g. setTimeout).",
+  "lesson_dependencies": [
+    "event loop",
+    "Promises",
+    "setTimeout"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

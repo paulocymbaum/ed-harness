@@ -3,6 +3,34 @@
   "graphIndex": "01.6.1",
   "graphNodeId": "n_d9e6ad9d5c",
   "title": "for Loop",
+  "description": "A for loop repeats code a known number of times. Summing a range, printing numbered lines, and processing fixed-size input batches are classic HackerRank patterns.",
+  "lesson_dependencies": [
+    "if and else",
+    "assignment",
+    "comparison operators"
+  ],
   "prerequisites": [],
-  "status": "draft"
+  "status": "draft",
+  "keywords": [
+    "JavaScript",
+    "for loop",
+    "for loop javascript",
+    "loop",
+    "repeats",
+    "summing",
+    "printing",
+    "numbered"
+  ],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=ZOQYIWLngSU",
+      "title": "Learn JavaScript FOR LOOPS in 5 minutes! 🔂",
+      "views": 117447
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=24Wpg6njlYI",
+      "title": "For Loops - Beau teaches JavaScript",
+      "views": 99847
+    }
+  ]
 }

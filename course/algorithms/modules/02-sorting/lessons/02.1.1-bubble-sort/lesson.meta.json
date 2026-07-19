@@ -3,6 +3,13 @@
   "graphIndex": "02.1.1",
   "graphNodeId": "n_cd2309e4fd",
   "title": "Bubble Sort",
+  "description": "Bubble sort repeatedly walks adjacent pairs and swaps when they are out of order. After each full pass, the next extreme value has \"bubbled\" toward the end.",
+  "lesson_dependencies": [
+    "arrays",
+    "swapping",
+    "nested loops",
+    "Big-O"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

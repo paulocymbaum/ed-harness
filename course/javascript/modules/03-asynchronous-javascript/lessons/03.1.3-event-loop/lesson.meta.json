@@ -3,6 +3,11 @@
   "graphIndex": "03.1.3",
   "graphNodeId": "n_5ea411af07",
   "title": "Event Loop",
+  "description": "The event loop coordinates synchronous code, microtasks (Promise reactions), and tasks (timers, I/O callbacks). One useful mental model: 1.",
+  "lesson_dependencies": [
+    "call stack",
+    "callbacks"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

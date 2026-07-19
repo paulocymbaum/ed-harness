@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-07-16T02:17:40.156Z",
+  "generatedAt": "2026-07-19T04:34:06.704Z",
   "courses": {
     "algorithms": {
-      "generatedAt": "2026-07-16T02:17:40.138Z",
+      "generatedAt": "2026-07-19T04:34:06.687Z",
       "courseSlug": "algorithms",
       "stats": {
         "totalLeaves": 82,
@@ -1114,12 +1114,12 @@
       }
     },
     "javascript": {
-      "generatedAt": "2026-07-16T02:17:40.156Z",
+      "generatedAt": "2026-07-19T04:34:06.704Z",
       "courseSlug": "javascript",
       "stats": {
-        "totalLeaves": 72,
-        "exists": 67,
-        "planned": 5,
+        "totalLeaves": 81,
+        "exists": 79,
+        "planned": 2,
         "orphan": 0
       },
       "root": {
@@ -1447,6 +1447,71 @@
                       "moduleId": "01-javascript-fundamentals",
                       "lessonId": "01.7.4-throwing-errors-and-sync-try-catch"
                     }
+                  },
+                  {
+                    "id": "n_26ebe575ec",
+                    "graphIndex": "01.7.5",
+                    "label": "Function Expressions",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "javascript",
+                      "moduleId": "01-javascript-fundamentals",
+                      "lessonId": "01.7.5-function-expressions"
+                    }
+                  },
+                  {
+                    "id": "n_55253c7fc3",
+                    "graphIndex": "01.7.6",
+                    "label": "Extra Arguments and Arity",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "javascript",
+                      "moduleId": "01-javascript-fundamentals",
+                      "lessonId": "01.7.6-extra-arguments-and-arity"
+                    }
+                  },
+                  {
+                    "id": "n_dee93211c1",
+                    "graphIndex": "01.7.7",
+                    "label": "Default Parameters",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "javascript",
+                      "moduleId": "01-javascript-fundamentals",
+                      "lessonId": "01.7.7-default-parameters"
+                    }
+                  },
+                  {
+                    "id": "n_58152192e2",
+                    "graphIndex": "01.7.8",
+                    "label": "Rest Parameters",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "javascript",
+                      "moduleId": "01-javascript-fundamentals",
+                      "lessonId": "01.7.8-rest-parameters"
+                    }
+                  },
+                  {
+                    "id": "n_18ca14ad6d",
+                    "graphIndex": "01.7.9",
+                    "label": "Function Scope and Shadowing",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "javascript",
+                      "moduleId": "01-javascript-fundamentals",
+                      "lessonId": "01.7.9-function-scope-and-shadowing"
+                    }
                   }
                 ]
               },
@@ -1543,28 +1608,95 @@
                     }
                   },
                   {
-                    "id": "n_923a30769a",
+                    "id": "n_c843a066a6",
                     "graphIndex": "01.9.2",
-                    "label": "Mutating Array Methods",
-                    "kind": "lesson",
-                    "children": [],
-                    "status": "planned"
-                  },
-                  {
-                    "id": "n_6148117519",
-                    "graphIndex": "01.9.3",
-                    "label": "Non-mutating Array Methods",
-                    "kind": "lesson",
-                    "children": [],
-                    "status": "planned"
-                  },
-                  {
-                    "id": "n_89e5c8c4b4",
-                    "graphIndex": "01.9.4",
                     "label": "Iterating Arrays for and for-of",
                     "kind": "lesson",
                     "children": [],
-                    "status": "planned"
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "javascript",
+                      "moduleId": "01-javascript-fundamentals",
+                      "lessonId": "01.9.2-iterating-arrays-for-and-for-of"
+                    }
+                  },
+                  {
+                    "id": "n_918d242ce5",
+                    "graphIndex": "01.9.3",
+                    "label": "Array.prototype.filter",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "javascript",
+                      "moduleId": "01-javascript-fundamentals",
+                      "lessonId": "01.9.3-array-prototype-filter"
+                    }
+                  },
+                  {
+                    "id": "n_0046e270ce",
+                    "graphIndex": "01.9.4",
+                    "label": "Array.prototype.map",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "javascript",
+                      "moduleId": "01-javascript-fundamentals",
+                      "lessonId": "01.9.4-array-prototype-map"
+                    }
+                  },
+                  {
+                    "id": "n_18778105bf",
+                    "graphIndex": "01.9.5",
+                    "label": "Combining filter and map",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "javascript",
+                      "moduleId": "01-javascript-fundamentals",
+                      "lessonId": "01.9.5-combining-filter-and-map"
+                    }
+                  },
+                  {
+                    "id": "n_883f2aca80",
+                    "graphIndex": "01.9.6",
+                    "label": "Set for Uniqueness",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "javascript",
+                      "moduleId": "01-javascript-fundamentals",
+                      "lessonId": "01.9.6-set-for-uniqueness"
+                    }
+                  },
+                  {
+                    "id": "n_0e97fe666e",
+                    "graphIndex": "01.9.7",
+                    "label": "Mutating Array Methods",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "javascript",
+                      "moduleId": "01-javascript-fundamentals",
+                      "lessonId": "01.9.7-mutating-array-methods"
+                    }
+                  },
+                  {
+                    "id": "n_2d3ca82170",
+                    "graphIndex": "01.9.8",
+                    "label": "Other Non-mutating Array Methods",
+                    "kind": "lesson",
+                    "children": [],
+                    "status": "exists",
+                    "catalogRef": {
+                      "courseId": "javascript",
+                      "moduleId": "01-javascript-fundamentals",
+                      "lessonId": "01.9.8-other-non-mutating-array-methods"
+                    }
                   }
                 ]
               }

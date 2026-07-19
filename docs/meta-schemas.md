@@ -103,8 +103,18 @@ Location: `course/<course>/modules/<module>/lessons/<lesson-id>/lesson.meta.json
   "graphIndex": "01.8.1",
   "graphNodeId": "n_def456abc1",
   "title": "Truthy vs Falsy",
+  "description": "Truthy and falsy values control if/while and logical operators in JavaScript.",
+  "lesson_dependencies": [],
   "prerequisites": [],
-  "status": "draft"
+  "status": "draft",
+  "keywords": ["JavaScript", "truthy", "falsy", "truthy falsy"],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=VIDEO_ID",
+      "title": "Truthy and Falsy Values in JavaScript",
+      "views": 1500000
+    }
+  ]
 }
 ```
 
@@ -114,8 +124,12 @@ Location: `course/<course>/modules/<module>/lessons/<lesson-id>/lesson.meta.json
 | `graphIndex` | yes | Leaf node index from graph |
 | `graphNodeId` | yes | Stable node id from graph JSON |
 | `title` | yes | Human-readable lesson title |
+| `description` | no | Brief one-paragraph summary of the lesson subject |
+| `lesson_dependencies` | no | Array of concept term strings this lesson assumes (not graph indexes; distinct from `prerequisites`) |
 | `prerequisites` | no | Array of graphIndex strings |
 | `status` | no | `draft` \| `published` \| `composite` |
+| `keywords` | no | Search terms for YouTube videos; **first entry must be the stack/course name** (e.g. `JavaScript` from `course.meta.json` title) |
+| `videos` | no | Up to 2 YouTube resources: `{ url, title, views }[]`, ranked by keyword relevance (study lessons only) |
 
 ### Mock test section lesson
 

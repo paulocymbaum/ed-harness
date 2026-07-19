@@ -3,6 +3,12 @@
   "graphIndex": "01.2.4",
   "graphNodeId": "n_2e9a88d247",
   "title": "Divide and Conquer",
+  "description": "Divide and conquer is a problem-solving pattern: split the input, solve pieces (often recursively), combine results. Merge Sort and binary search are the flagship examples you\u2019ll meet in later modules.",
+  "lesson_dependencies": [
+    "recursion",
+    "merge sort",
+    "Big-O"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

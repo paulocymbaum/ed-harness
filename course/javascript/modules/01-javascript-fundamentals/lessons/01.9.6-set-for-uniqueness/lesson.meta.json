@@ -1,0 +1,36 @@
+{
+  "id": "01.9.6-set-for-uniqueness",
+  "graphIndex": "01.9.6",
+  "graphNodeId": "n_883f2aca80",
+  "title": "Set for Uniqueness",
+  "description": "Set stores each value at most once and answers membership with has. Use [...new Set(arr)] to unique an array while keeping first-seen order for primitives.",
+  "lesson_dependencies": [
+    "arrays",
+    "for...of",
+    "Array.prototype.filter"
+  ],
+  "prerequisites": [],
+  "status": "draft",
+  "keywords": [
+    "JavaScript",
+    "javascript set",
+    "unique array",
+    "new set",
+    "set for uniqueness",
+    "...new",
+    "set",
+    "uniqueness"
+  ],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=nGOnfYNo8F4",
+      "title": "Sets in Javascript (Set Object)",
+      "views": 31551
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=PyG31o7aV0M",
+      "title": "Javascript Set - Is It Better Than Array?",
+      "views": 5003
+    }
+  ]
+}

@@ -3,6 +3,11 @@
   "graphIndex": "02.2.1",
   "graphNodeId": "n_2e4e647d07",
   "title": "Object.keys values and entries",
+  "description": "Objects are not arrays, but you often need a list of keys, values, or [key, value] pairs. Object.keys, Object.values, and Object.entries turn an object into something you can map, filter, or loop over.",
+  "lesson_dependencies": [
+    "object literals",
+    "arrays"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

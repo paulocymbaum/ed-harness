@@ -37,6 +37,13 @@ export type Module = {
 
 export type MockTestSectionKind = "instructions" | "quiz" | "coding";
 
+/** YouTube resource from study `lesson.meta.json` (`videos`) */
+export type LessonVideo = {
+  url: string;
+  title: string;
+  views: number;
+};
+
 export type Lesson = {
   id: string;
   title: string;
@@ -44,6 +51,12 @@ export type Lesson = {
   markdown: string;
   moduleId?: string;
   graphIndex?: string;
+  /** Brief one-paragraph summary of the lesson subject */
+  description?: string;
+  /** Concept terms this lesson assumes (not graph indexes) */
+  lesson_dependencies?: string[];
+  /** Up to 3 YouTube resources (study lessons only) */
+  videos?: LessonVideo[];
   /** Present on mock-test section lessons */
   mockTestSection?: MockTestSectionKind;
 };

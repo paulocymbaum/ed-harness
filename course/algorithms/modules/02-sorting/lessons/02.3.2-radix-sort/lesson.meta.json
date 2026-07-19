@@ -3,6 +3,12 @@
   "graphIndex": "02.3.2",
   "graphNodeId": "n_a60b75399a",
   "title": "Radix Sort",
+  "description": "Radix sort sorts integers (or fixed-length keys) digit by digit, often LSD (least significant digit first) using a stable counting sort per digit. With d digits and base b, time is about O(d\u00b7(n + b)).",
+  "lesson_dependencies": [
+    "counting sort",
+    "stable sort",
+    "digits"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

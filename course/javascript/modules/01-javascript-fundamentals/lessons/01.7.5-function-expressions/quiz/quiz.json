@@ -1,0 +1,69 @@
+{
+  "id": "quiz",
+  "title": "Function Expressions Check",
+  "description": "Expressions as values, calling after assignment, and hoisting differences.",
+  "lessonId": "01.7.5-function-expressions",
+  "graphIndex": "01.7.5",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What is printed?\n\n```js\nconst double = function (n) {\n  return n * 2;\n};\nconsole.log(double(5));\nconsole.log(typeof double);\n```",
+      "options": [
+        { "id": "a", "text": "`10` then `\"function\"`" },
+        { "id": "b", "text": "`5` then `\"object\"`" },
+        { "id": "c", "text": "`undefined` then `\"function\"`" },
+        { "id": "d", "text": "Throws before printing" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "`double(5)` returns 10. A function expression stored in a variable has `typeof` `\"function\"`."
+    },
+    {
+      "id": "q2",
+      "prompt": "What happens if you call an expression before its `const` line?\n\n```js\nconsole.log(expressed(1));\nconst expressed = function (n) {\n  return n;\n};\n```",
+      "options": [
+        { "id": "a", "text": "`ReferenceError` — cannot use before initialization" },
+        { "id": "b", "text": "Prints `1` (expressions are hoisted like declarations)" },
+        { "id": "c", "text": "Prints `undefined`" },
+        { "id": "d", "text": "Prints `null`" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "`const` bindings are not usable before their line. Function declarations hoist; expressions assigned with `const` do not."
+    },
+    {
+      "id": "q3",
+      "prompt": "What is printed?\n\n```js\nfunction apply(fn, value) {\n  return fn(value);\n}\nconst triple = function (n) {\n  return n * 3;\n};\nconsole.log(apply(triple, 4));\n```",
+      "options": [
+        { "id": "a", "text": "`12`" },
+        { "id": "b", "text": "`4`" },
+        { "id": "c", "text": "`undefined`" },
+        { "id": "d", "text": "Throws — cannot pass a function expression" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Expressions are values. Passing `triple` into `apply` calls it with `4` → `12`."
+    },
+    {
+      "id": "q4",
+      "prompt": "What is printed?\n\n```js\nconst clamp = function (value, min, max) {\n  if (value < min) return min;\n  if (value > max) return max;\n  return value;\n};\nconsole.log(clamp(5, 0, 10));\nconsole.log(clamp(-1, 0, 10));\n```",
+      "options": [
+        { "id": "a", "text": "`5` then `0`" },
+        { "id": "b", "text": "`5` then `-1`" },
+        { "id": "c", "text": "`0` then `0`" },
+        { "id": "d", "text": "`10` then `0`" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "5 stays in range; -1 clamps to min 0. Same early-return logic as a declaration, stored as an expression."
+    },
+    {
+      "id": "q5",
+      "prompt": "Which statement is true?",
+      "options": [
+        { "id": "a", "text": "`const f = function () {}` stores a function value; call only after that line runs" },
+        { "id": "b", "text": "Function expressions hoist and can be called anywhere in the file" },
+        { "id": "c", "text": "You cannot pass a function expression to another function" },
+        { "id": "d", "text": "`typeof` of a function expression is always `\"object\"`" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Expressions are values bound by `const`/`let`. They are not declaration-style hoisted; `typeof` is `\"function\"`."
+    }
+  ]
+}

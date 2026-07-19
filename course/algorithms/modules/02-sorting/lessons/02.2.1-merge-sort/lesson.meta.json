@@ -3,6 +3,12 @@
   "graphIndex": "02.2.1",
   "graphNodeId": "n_1e5762fad6",
   "title": "Merge Sort",
+  "description": "Merge sort splits the array, sorts each half, then merges two sorted runs. Guarantees O(n log n) and is stably implementable \u2014 the classic efficient comparison sort.",
+  "lesson_dependencies": [
+    "divide and conquer",
+    "recursion",
+    "arrays"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

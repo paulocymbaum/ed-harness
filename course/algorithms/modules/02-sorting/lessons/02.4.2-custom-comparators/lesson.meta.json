@@ -3,6 +3,11 @@
   "graphIndex": "02.4.2",
   "graphNodeId": "n_6551b6dd92",
   "title": "Custom Comparators",
+  "description": "A comparator (a, b) => number tells sort the order: negative if a before b, positive if a after b, 0 if equal. Broken comparators (non-transitive, unstable signs, returning booleans) produce wrong or engine-dependent results.",
+  "lesson_dependencies": [
+    "Array.prototype.sort",
+    "comparator contract"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

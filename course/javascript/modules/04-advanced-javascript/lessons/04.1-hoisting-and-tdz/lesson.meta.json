@@ -3,6 +3,13 @@
   "graphIndex": "04.1",
   "graphNodeId": "n_45533fbf16",
   "title": "Hoisting and TDZ",
+  "description": "var, let, and const are all hoisted \u2014 the engine knows about the binding before execution reaches its line. But they differ in what happens when you read them before the declaration runs.",
+  "lesson_dependencies": [
+    "let",
+    "const",
+    "var",
+    "function declaration"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

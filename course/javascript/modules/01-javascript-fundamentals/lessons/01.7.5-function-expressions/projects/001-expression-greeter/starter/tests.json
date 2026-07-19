@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "id": "example",
+      "name": "Example from README",
+      "stdin": "Ana\n",
+      "expectedStdout": "Hello, Ana!\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "bob",
+      "name": "Another name",
+      "stdin": "Bob\n",
+      "expectedStdout": "Hello, Bob!\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "empty",
+      "name": "Empty name",
+      "stdin": "\n",
+      "expectedStdout": "ERROR: empty name\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "whitespace",
+      "name": "Whitespace-only name",
+      "stdin": "   \n",
+      "expectedStdout": "ERROR: empty name\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

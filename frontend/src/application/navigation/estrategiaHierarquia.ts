@@ -1,19 +1,19 @@
-import type { DrawerTab } from "../../domain/types/navigation";
 import { useQuizSessionStore } from "../stores/quizSessionStore";
 import { closeReaderBeforeNavigate } from "../usecases/navigateWithCleanup";
+import {
+  caminhoLicao,
+  caminhoProjetoLicao,
+  caminhoQuizLicao,
+} from "./caminhosHierarquia";
 import type { EstrategiaNavegacaoCurso, NavegacaoCursoDeps } from "./tiposNavegacaoCurso";
-
-function lessonPath(courseId: string, moduleId: string, lessonId: string): string {
-  return `/course/${encodeURIComponent(courseId)}/module/${encodeURIComponent(moduleId)}/lesson/${encodeURIComponent(lessonId)}`;
-}
 
 export function criarEstrategiaHierarquia(deps: NavegacaoCursoDeps): Pick<
   EstrategiaNavegacaoCurso,
   | "goModule"
   | "goLesson"
-  | "openLessonDrawer"
-  | "closeLessonDrawer"
-  | "setLessonDrawerTab"
+  | "abrirQuizLicao"
+  | "abrirProjetoLicao"
+  | "voltarParaLicao"
   | "openModuleQuiz"
   | "closeQuiz"
 > {
@@ -28,29 +28,21 @@ export function criarEstrategiaHierarquia(deps: NavegacaoCursoDeps): Pick<
     },
 
     goLesson: (courseId, moduleId, lessonId) => {
-      navigate(lessonPath(courseId, moduleId, lessonId));
+      navigate(caminhoLicao(courseId, moduleId, lessonId));
     },
 
-    openLessonDrawer: (courseId, moduleId, lessonId, mode, id, drawerTab) => {
-      const params = new URLSearchParams();
-      params.set("drawer", mode);
-      if (mode === "quiz") params.set("quiz", id);
-      if (mode === "project") params.set("project", id);
-      if (drawerTab && drawerTab !== "explanation") params.set("drawerTab", drawerTab);
-      if (mode === "quiz") useQuizSessionStore.getState().start(id, lessonId);
-      navigate(`${lessonPath(courseId, moduleId, lessonId)}?${params.toString()}`);
+    abrirQuizLicao: (courseId, moduleId, lessonId, quizId) => {
+      useQuizSessionStore.getState().start(quizId, lessonId);
+      navigate(caminhoQuizLicao(courseId, moduleId, lessonId, quizId));
     },
 
-    closeLessonDrawer: (courseId, moduleId, lessonId) => {
+    abrirProjetoLicao: (courseId, moduleId, lessonId, projectId) => {
+      navigate(caminhoProjetoLicao(courseId, moduleId, lessonId, projectId));
+    },
+
+    voltarParaLicao: (courseId, moduleId, lessonId) => {
       useQuizSessionStore.getState().reset();
-      navigate(lessonPath(courseId, moduleId, lessonId));
-    },
-
-    setLessonDrawerTab: (drawerTab) => {
-      const params = new URLSearchParams(searchParams);
-      if (drawerTab === "explanation") params.delete("drawerTab");
-      else params.set("drawerTab", drawerTab);
-      setSearchParams(params, { replace: true });
+      navigate(caminhoLicao(courseId, moduleId, lessonId));
     },
 
     openModuleQuiz: (courseId, moduleId, quizId) => {

@@ -3,6 +3,11 @@
   "graphIndex": "03.2.4",
   "graphNodeId": "n_bbaf0be71e",
   "title": "Binary Search on Answer",
+  "description": "Sometimes the \"array\" you binary-search is the numeric answer range (capacity, distance, threshold), not indices into input. If feasibility is monotonic \u2014 once capacity C works, every C' > C also works \u2014 you can binary-search the minimum feasible answer.",
+  "lesson_dependencies": [
+    "binary search",
+    "monotonic predicates"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

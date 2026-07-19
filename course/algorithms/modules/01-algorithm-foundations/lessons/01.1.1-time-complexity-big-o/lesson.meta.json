@@ -3,6 +3,8 @@
   "graphIndex": "01.1.1",
   "graphNodeId": "n_2631bea6bc",
   "title": "Time Complexity Big-O",
+  "description": "Big-O describes how runtime grows as input size n grows. In interviews and reviews you use it to compare approaches before micro-optimizing JavaScript.",
+  "lesson_dependencies": [],
   "prerequisites": [],
   "status": "draft"
 }

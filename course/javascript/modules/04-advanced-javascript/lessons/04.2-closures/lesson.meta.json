@@ -3,6 +3,12 @@
   "graphIndex": "04.2",
   "graphNodeId": "n_5db89c4cb7",
   "title": "Closures",
+  "description": "A closure is a function bundled with references to the variables from the scope it was created in. Even after the outer function returns, the inner function keeps access to those variables \u2014 this is how you build private state without classes.",
+  "lesson_dependencies": [
+    "functions",
+    "scope",
+    "lexical environment"
+  ],
   "prerequisites": [],
   "status": "draft"
 }
