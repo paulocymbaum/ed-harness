@@ -9,5 +9,27 @@
     "type coercion"
   ],
   "prerequisites": [],
-  "status": "draft"
+  "status": "draft",
+  "keywords": [
+    "JavaScript",
+    "type coercion",
+    "loose equality",
+    "==",
+    "type coercion ==",
+    "type",
+    "coercion",
+    "equality"
+  ],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=GKJh3vdat8A",
+      "title": "Watch This If You Don’t Understand Type Coercion",
+      "views": 133019
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=SKiseHs7eUA",
+      "title": "JavaScript for Developers 18 - Type Coercion Summary",
+      "views": 72339
+    }
+  ]
 }

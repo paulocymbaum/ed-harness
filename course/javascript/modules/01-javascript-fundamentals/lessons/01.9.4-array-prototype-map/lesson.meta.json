@@ -10,5 +10,27 @@
     "Array.prototype.filter"
   ],
   "prerequisites": [],
-  "status": "draft"
+  "status": "draft",
+  "keywords": [
+    "JavaScript",
+    "array map",
+    "map method",
+    "array.prototype.map",
+    "transforms",
+    "element",
+    "callback",
+    "returns"
+  ],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=xNQH1NbZQ0E",
+      "title": "JavaScript map() method in 7 minutes! 🗺️",
+      "views": 120707
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=djiHm61y8P4",
+      "title": "In Depth: the Array map() method in JavaScript",
+      "views": 27970
+    }
+  ]
 }

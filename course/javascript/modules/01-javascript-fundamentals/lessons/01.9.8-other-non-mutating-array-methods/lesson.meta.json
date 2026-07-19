@@ -10,5 +10,27 @@
     "mutating array methods"
   ],
   "prerequisites": [],
-  "status": "draft"
+  "status": "draft",
+  "keywords": [
+    "JavaScript",
+    "slice",
+    "concat",
+    "includes",
+    "find",
+    "indexof",
+    "other non-mutating array methods",
+    "non-mutating"
+  ],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=t1qDSAUclzI",
+      "title": "Slice and Splice in Javascript",
+      "views": 85480
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=pCqfbzj2iLY",
+      "title": "JavaScript Tip: Using slice and splice",
+      "views": 16086
+    }
+  ]
 }

@@ -146,6 +146,10 @@ export const pt: TranslationDictionary = {
   "lesson.backToModule": "Voltar ao módulo",
   "lesson.projects": "Projetos",
   "lesson.quizzes": "Quizzes",
+  "lesson.videos": "Vídeos",
+  "lesson.videoViews": "{views} visualizações",
+  "lesson.videoUnavailable": "Não foi possível incorporar este link de vídeo.",
+  "lesson.videoOpenExternal": "Abrir no YouTube",
 
   "activity.notStarted": "Não iniciado",
   "activity.quizBest": "Melhor {pct}%",

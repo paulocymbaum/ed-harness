@@ -8,5 +8,27 @@
     "numbers"
   ],
   "prerequisites": [],
-  "status": "draft"
+  "status": "draft",
+  "keywords": [
+    "JavaScript",
+    "arithmetic operators",
+    "modulo",
+    "remainder",
+    "arithmetic",
+    "operators",
+    "compute",
+    "averages"
+  ],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=FyGIKD2fxIo",
+      "title": "JavaScript ARITHMETIC OPERATORS in 8 minutes! ➕",
+      "views": 122532
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=otYwi_wW9Hk",
+      "title": "#9 Arithmetic Operators in JavaScript",
+      "views": 111766
+    }
+  ]
 }

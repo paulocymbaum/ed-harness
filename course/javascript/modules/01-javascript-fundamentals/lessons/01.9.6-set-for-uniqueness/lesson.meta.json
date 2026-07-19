@@ -10,5 +10,27 @@
     "Array.prototype.filter"
   ],
   "prerequisites": [],
-  "status": "draft"
+  "status": "draft",
+  "keywords": [
+    "JavaScript",
+    "javascript set",
+    "unique array",
+    "new set",
+    "set for uniqueness",
+    "...new",
+    "set",
+    "uniqueness"
+  ],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=nGOnfYNo8F4",
+      "title": "Sets in Javascript (Set Object)",
+      "views": 31551
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=PyG31o7aV0M",
+      "title": "Javascript Set - Is It Better Than Array?",
+      "views": 5003
+    }
+  ]
 }

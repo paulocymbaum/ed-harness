@@ -142,6 +142,10 @@ export const en = {
   "lesson.backToModule": "Back to module",
   "lesson.projects": "Projects",
   "lesson.quizzes": "Quizzes",
+  "lesson.videos": "Videos",
+  "lesson.videoViews": "{views} views",
+  "lesson.videoUnavailable": "This video link could not be embedded.",
+  "lesson.videoOpenExternal": "Open on YouTube",
 
   "activity.notStarted": "Not started",
   "activity.quizBest": "Best {pct}%",

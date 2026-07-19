@@ -10,5 +10,27 @@
     "length"
   ],
   "prerequisites": [],
-  "status": "draft"
+  "status": "draft",
+  "keywords": [
+    "JavaScript",
+    "push pop",
+    "splice",
+    "mutating array",
+    "sort reverse",
+    "mutating array methods",
+    "mutating",
+    "array"
+  ],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=o9sgjuh-CBM",
+      "title": "How to Rotate Shapes in p5.js (translate, rotate, push, pop)",
+      "views": 216893
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=pCqfbzj2iLY",
+      "title": "JavaScript Tip: Using slice and splice",
+      "views": 16086
+    }
+  ]
 }

@@ -8,5 +8,27 @@
     "function declaration"
   ],
   "prerequisites": [],
-  "status": "draft"
+  "status": "draft",
+  "keywords": [
+    "JavaScript",
+    "function parameters",
+    "return value",
+    "return statement",
+    "parameters and return values",
+    "console.log",
+    "parameters",
+    "return"
+  ],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=q-O1n445uys",
+      "title": "Return Values from JavaScript Functions",
+      "views": 44838
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=qed2cjdF-30",
+      "title": "JavaScript Function Return Statements",
+      "views": 27635
+    }
+  ]
 }

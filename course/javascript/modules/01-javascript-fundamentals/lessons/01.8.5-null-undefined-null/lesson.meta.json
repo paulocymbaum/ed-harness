@@ -10,5 +10,27 @@
     "logical operators"
   ],
   "prerequisites": [],
-  "status": "draft"
+  "status": "draft",
+  "keywords": [
+    "JavaScript",
+    "optional chaining",
+    "nullish coalescing",
+    "== null",
+    "null undefined == null ",
+    "==",
+    "null",
+    "undefined"
+  ],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=K7rHYyf6E0g",
+      "title": "JavaScript Optional Chaining in 5 Minutes (No more \"cannot read property of undefined\"!)",
+      "views": 34571
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=GbHVrOObGcs",
+      "title": "Nullish Coalescing Operator - JavaScript Tutorial",
+      "views": 16738
+    }
+  ]
 }
