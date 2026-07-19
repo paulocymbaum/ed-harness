@@ -1,0 +1,385 @@
+{
+  "version": 2,
+  "courseId": "javascript",
+  "updatedAt": "2026-07-16T01:47:35.413Z",
+  "quizzes": {
+    "01.1.2-console-log-and-output/quiz": {
+      "quizId": "01.1.2-console-log-and-output/quiz",
+      "bestScore": 5,
+      "bestTotal": 5,
+      "attempts": [
+        {
+          "score": 4,
+          "total": 5,
+          "completedAt": "2026-06-24T02:52:42.046Z"
+        },
+        {
+          "score": 5,
+          "total": 5,
+          "completedAt": "2026-06-24T02:53:12.284Z"
+        }
+      ]
+    },
+    "01.2.1-let-and-const/quiz": {
+      "quizId": "01.2.1-let-and-const/quiz",
+      "bestScore": 5,
+      "bestTotal": 5,
+      "attempts": [
+        {
+          "score": 5,
+          "total": 5,
+          "completedAt": "2026-06-24T23:30:55.938Z"
+        }
+      ]
+    },
+    "01.1.3-comments/quiz": {
+      "quizId": "01.1.3-comments/quiz",
+      "bestScore": 5,
+      "bestTotal": 5,
+      "attempts": [
+        {
+          "score": 5,
+          "total": 5,
+          "completedAt": "2026-07-01T00:49:33.653Z"
+        }
+      ]
+    },
+    "01.2.2-assignment-and-reassignment/quiz": {
+      "quizId": "01.2.2-assignment-and-reassignment/quiz",
+      "bestScore": 5,
+      "bestTotal": 5,
+      "attempts": [
+        {
+          "score": 5,
+          "total": 5,
+          "completedAt": "2026-07-01T02:02:56.503Z"
+        }
+      ]
+    },
+    "01.1.1-running-javascript-node-js/quiz": {
+      "quizId": "01.1.1-running-javascript-node-js/quiz",
+      "bestScore": 5,
+      "bestTotal": 5,
+      "attempts": [
+        {
+          "score": 5,
+          "total": 5,
+          "completedAt": "2026-07-02T00:17:28.502Z"
+        }
+      ]
+    },
+    "01.3.1-strings/quiz": {
+      "quizId": "01.3.1-strings/quiz",
+      "bestScore": 5,
+      "bestTotal": 5,
+      "attempts": [
+        {
+          "score": 5,
+          "total": 5,
+          "completedAt": "2026-07-06T00:41:44.029Z"
+        }
+      ]
+    },
+    "01.3.2-numbers/quiz": {
+      "quizId": "01.3.2-numbers/quiz",
+      "bestScore": 5,
+      "bestTotal": 5,
+      "attempts": [
+        {
+          "score": 3,
+          "total": 5,
+          "completedAt": "2026-07-06T01:34:56.645Z"
+        },
+        {
+          "score": 5,
+          "total": 5,
+          "completedAt": "2026-07-06T01:35:31.111Z"
+        }
+      ]
+    },
+    "01.3.3-booleans/quiz": {
+      "quizId": "01.3.3-booleans/quiz",
+      "bestScore": 5,
+      "bestTotal": 5,
+      "attempts": [
+        {
+          "score": 5,
+          "total": 5,
+          "completedAt": "2026-07-06T02:12:31.387Z"
+        }
+      ]
+    },
+    "01.3.4-undefined-and-null/quiz": {
+      "quizId": "01.3.4-undefined-and-null/quiz",
+      "bestScore": 5,
+      "bestTotal": 5,
+      "attempts": [
+        {
+          "score": 5,
+          "total": 5,
+          "completedAt": "2026-07-07T02:36:13.190Z"
+        }
+      ]
+    },
+    "01.4.1-arithmetic-operators/quiz": {
+      "quizId": "01.4.1-arithmetic-operators/quiz",
+      "bestScore": 5,
+      "bestTotal": 5,
+      "attempts": [
+        {
+          "score": 5,
+          "total": 5,
+          "completedAt": "2026-07-07T02:41:40.909Z"
+        }
+      ]
+    },
+    "01.2-multiple-choice/quiz": {
+      "quizId": "01.2-multiple-choice/quiz",
+      "bestScore": 7,
+      "bestTotal": 8,
+      "attempts": [
+        {
+          "score": 7,
+          "total": 8,
+          "completedAt": "2026-07-10T03:40:15.588Z"
+        }
+      ]
+    },
+    "01.4.2-comparison-operators/quiz": {
+      "quizId": "01.4.2-comparison-operators/quiz",
+      "bestScore": 5,
+      "bestTotal": 5,
+      "attempts": [
+        {
+          "score": 5,
+          "total": 5,
+          "completedAt": "2026-07-13T23:40:18.829Z"
+        }
+      ]
+    },
+    "01.5.2-switch/quiz": {
+      "quizId": "01.5.2-switch/quiz",
+      "bestScore": 5,
+      "bestTotal": 5,
+      "attempts": [
+        {
+          "score": 5,
+          "total": 5,
+          "completedAt": "2026-07-13T23:47:12.033Z"
+        }
+      ]
+    },
+    "01.6.1-for-loop/quiz": {
+      "quizId": "01.6.1-for-loop/quiz",
+      "bestScore": 5,
+      "bestTotal": 5,
+      "attempts": [
+        {
+          "score": 5,
+          "total": 5,
+          "completedAt": "2026-07-14T00:52:33.062Z"
+        }
+      ]
+    },
+    "01.6.2-while-loop/quiz": {
+      "quizId": "01.6.2-while-loop/quiz",
+      "bestScore": 5,
+      "bestTotal": 5,
+      "attempts": [
+        {
+          "score": 5,
+          "total": 5,
+          "completedAt": "2026-07-14T00:55:29.216Z"
+        }
+      ]
+    },
+    "01.7.1-function-declaration/quiz": {
+      "quizId": "01.7.1-function-declaration/quiz",
+      "bestScore": 5,
+      "bestTotal": 5,
+      "attempts": [
+        {
+          "score": 5,
+          "total": 5,
+          "completedAt": "2026-07-14T03:54:53.558Z"
+        }
+      ]
+    },
+    "01.7.2-parameters-and-return-values/quiz": {
+      "quizId": "01.7.2-parameters-and-return-values/quiz",
+      "bestScore": 5,
+      "bestTotal": 5,
+      "attempts": [
+        {
+          "score": 5,
+          "total": 5,
+          "completedAt": "2026-07-14T23:19:26.083Z"
+        }
+      ]
+    },
+    "02.1-reference-vs-value/quiz": {
+      "quizId": "02.1-reference-vs-value/quiz",
+      "bestScore": 5,
+      "bestTotal": 5,
+      "attempts": [
+        {
+          "score": 5,
+          "total": 5,
+          "completedAt": "2026-07-15T02:59:35.691Z"
+        }
+      ]
+    }
+  },
+  "projects": {
+    "01.2.1-let-and-const/006-leaderboard-scores": {
+      "projectId": "01.2.1-let-and-const/006-leaderboard-scores",
+      "status": "done",
+      "points": 4,
+      "updatedAt": "2026-07-01T01:18:36.549Z"
+    },
+    "01.1.3-comments/013-validation-doc-block": {
+      "projectId": "01.1.3-comments/013-validation-doc-block",
+      "status": "done",
+      "points": 4,
+      "updatedAt": "2026-07-01T00:53:40.677Z"
+    },
+    "01.1.1-running-javascript-node-js/004-hello-stdin": {
+      "projectId": "01.1.1-running-javascript-node-js/004-hello-stdin",
+      "status": "done",
+      "points": 4,
+      "updatedAt": "2026-06-24T02:38:33.431Z"
+    },
+    "01.1.2-console-log-and-output/005-receipt-printer": {
+      "projectId": "01.1.2-console-log-and-output/005-receipt-printer",
+      "status": "done",
+      "points": 4,
+      "updatedAt": "2026-06-24T23:00:00.099Z"
+    },
+    "02.3-structuredclone/001-snapshot-cloner": {
+      "projectId": "02.3-structuredclone/001-snapshot-cloner",
+      "status": "doing",
+      "points": 0,
+      "updatedAt": "2026-06-24T23:36:28.389Z"
+    },
+    "02.2-shallow-vs-deep-copy/001-nested-state-updater": {
+      "projectId": "02.2-shallow-vs-deep-copy/001-nested-state-updater",
+      "status": "doing",
+      "points": 0,
+      "updatedAt": "2026-06-24T23:36:45.251Z"
+    },
+    "01.2.2-assignment-and-reassignment/014-score-accumulator": {
+      "projectId": "01.2.2-assignment-and-reassignment/014-score-accumulator",
+      "status": "done",
+      "points": 4,
+      "updatedAt": "2026-07-01T21:50:09.729Z"
+    },
+    "01.3.1-strings/007-user-badge-formatter": {
+      "projectId": "01.3.1-strings/007-user-badge-formatter",
+      "status": "done",
+      "points": 4,
+      "updatedAt": "2026-07-16T01:47:35.413Z"
+    },
+    "01.3.2-numbers/015-price-split-formatter": {
+      "projectId": "01.3.2-numbers/015-price-split-formatter",
+      "status": "done",
+      "points": 4,
+      "updatedAt": "2026-07-06T02:09:12.132Z"
+    },
+    "01.3.3-booleans/016-validation-flags-reporter": {
+      "projectId": "01.3.3-booleans/016-validation-flags-reporter",
+      "status": "done",
+      "points": 4,
+      "updatedAt": "2026-07-06T02:36:22.916Z"
+    },
+    "01.3.4-undefined-and-null/017-missing-value-labeler": {
+      "projectId": "01.3.4-undefined-and-null/017-missing-value-labeler",
+      "status": "done",
+      "points": 4,
+      "updatedAt": "2026-07-07T02:38:05.801Z"
+    },
+    "01.4.1-arithmetic-operators/008-bill-split-calculator": {
+      "projectId": "01.4.1-arithmetic-operators/008-bill-split-calculator",
+      "status": "doing",
+      "points": 0,
+      "updatedAt": "2026-07-07T02:41:44.595Z"
+    },
+    "01.4.2-comparison-operators/018-boundary-checker": {
+      "projectId": "01.4.2-comparison-operators/018-boundary-checker",
+      "status": "done",
+      "points": 4,
+      "updatedAt": "2026-07-07T03:16:30.505Z"
+    },
+    "01.4.3-logical-operators/019-access-gate-validator": {
+      "projectId": "01.4.3-logical-operators/019-access-gate-validator",
+      "status": "done",
+      "points": 4,
+      "updatedAt": "2026-07-10T02:15:18.596Z"
+    },
+    "01.3-coding-challenge/001-sum-two-numbers": {
+      "projectId": "01.3-coding-challenge/001-sum-two-numbers",
+      "status": "doing",
+      "points": 0,
+      "updatedAt": "2026-07-10T02:40:40.067Z"
+    },
+    "01.3-coding-challenge/001-clamp-utility": {
+      "projectId": "01.3-coding-challenge/001-clamp-utility",
+      "status": "done",
+      "points": 4,
+      "updatedAt": "2026-07-10T03:37:53.607Z"
+    },
+    "01.3-coding-challenge/001-sliding-window-max-sum": {
+      "projectId": "01.3-coding-challenge/001-sliding-window-max-sum",
+      "status": "doing",
+      "points": 0,
+      "updatedAt": "2026-07-13T23:11:45.576Z"
+    },
+    "01.5.2-switch/020-menu-command-router": {
+      "projectId": "01.5.2-switch/020-menu-command-router",
+      "status": "done",
+      "points": 4,
+      "updatedAt": "2026-07-14T00:20:36.535Z"
+    },
+    "01.6.1-for-loop/010-sum-range": {
+      "projectId": "01.6.1-for-loop/010-sum-range",
+      "status": "done",
+      "points": 4,
+      "updatedAt": "2026-07-14T00:49:04.397Z"
+    },
+    "01.6.2-while-loop/021-sentinel-sum": {
+      "projectId": "01.6.2-while-loop/021-sentinel-sum",
+      "status": "done",
+      "points": 4,
+      "updatedAt": "2026-07-14T01:39:39.073Z"
+    },
+    "01.7.1-function-declaration/011-celsius-converter": {
+      "projectId": "01.7.1-function-declaration/011-celsius-converter",
+      "status": "done",
+      "points": 4,
+      "updatedAt": "2026-07-14T03:52:50.654Z"
+    },
+    "01.7.2-parameters-and-return-values/022-clamp-utility": {
+      "projectId": "01.7.2-parameters-and-return-values/022-clamp-utility",
+      "status": "done",
+      "points": 4,
+      "updatedAt": "2026-07-14T23:48:27.416Z"
+    },
+    "01.8.4-typeof-and-array-isarray/024-type-tag-classifier": {
+      "projectId": "01.8.4-typeof-and-array-isarray/024-type-tag-classifier",
+      "status": "done",
+      "points": 4,
+      "updatedAt": "2026-07-14T23:58:34.522Z"
+    },
+    "01.8.5-null-undefined-null/023-default-config-builder": {
+      "projectId": "01.8.5-null-undefined-null/023-default-config-builder",
+      "status": "doing",
+      "points": 0,
+      "updatedAt": "2026-07-15T00:01:24.214Z"
+    },
+    "02.1-reference-vs-value/001-safe-normalizer": {
+      "projectId": "02.1-reference-vs-value/001-safe-normalizer",
+      "status": "doing",
+      "points": 0,
+      "updatedAt": "2026-07-15T03:10:00.000Z"
+    }
+  }
+}

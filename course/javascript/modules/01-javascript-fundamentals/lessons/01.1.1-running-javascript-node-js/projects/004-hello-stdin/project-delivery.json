@@ -1,0 +1,38 @@
+{
+  "version": 2,
+  "courseId": "javascript",
+  "projectId": "004-hello-stdin",
+  "updatedAt": "2026-06-24T02:38:33.429Z",
+  "deliveries": [
+    {
+      "id": "2026-06-24T02:25:09.677Z",
+      "content": "### `starter/index.js`\n\n```javascript\n/**\n * Hello Stdin\n *\n * Entrypoint: node starter/index.js\n * Implement the behavior described in ../README.md\n */\n\nconst readline = require(\"node:readline\");\n\nfunction main() {\n  const rl = readline.createInterface({ input: process.stdin });\n\n  rl.on(\"line\", (line) => {\n    if (line.trim().length===0){\n    process.stdout.write(\"Error: Name is required\");\n    }\n   else {\n   process.stdout.write(\"Hello, <line>\");\n   }\n    rl.close();\n  });\n}\n\nmain();\n```",
+      "submittedAt": "2026-06-24T02:25:09.677Z",
+      "review": {
+        "score": 45,
+        "comment": "You set up readline correctly and trim before checking for an empty name, which handles whitespace-only input. Both outputs miss the README format: the greeting prints the literal text Hello, <line> instead of the trimmed name with Hello, <name>!, and the error should be ERROR: name is required. Next: store line.trim() in a variable, use a template literal for the greeting, and match the exact error string.",
+        "reviewedAt": "2026-06-24T02:26:49.947Z"
+      }
+    },
+    {
+      "id": "2026-06-24T02:31:20.142Z",
+      "content": "/**\n * Hello Stdin\n *\n * Entrypoint: node starter/index.js\n * Implement the behavior described in ../README.md\n */\n\nconst readline = require(\"node:readline\");\n\nfunction main() {\n  const rl = readline.createInterface({ input: process.stdin });\n\n  rl.on(\"line\", (line) => {\n    if (line.trim().length===0){\n    process.stdout.write(\"ERROR: name is required\");\n    }\n   else {\n   process.stdout.write(\"Hello, \" + line + \"!\");\n   }\n    rl.close();\n  });\n}\n\nmain();",
+      "submittedAt": "2026-06-24T02:31:20.142Z",
+      "review": {
+        "score": 84,
+        "comment": "You fixed the exact error string and greeting format; readline, trim-for-empty, and rl.close() fit the lesson well. Input with surrounding spaces still prints the untrimmed line in Hello, line! instead of Hello, Bob!. Next: store line.trim() in a name variable and use it for both the empty check and the greeting.",
+        "reviewedAt": "2026-06-24T02:32:30.924Z"
+      }
+    },
+    {
+      "id": "2026-06-24T02:36:07.312Z",
+      "content": "/**\n\nHello Stdin\nEntrypoint: node starter/index.js\nImplement the behavior described in ../README.md */\nconst readline = require(\"node:readline\");\n\nfunction main() { \n\nconst rl = readline.createInterface({ input: process.stdin });\n\n\n\nrl.on(\"line\", (line) => { \nconst name = line.trim();\nif (name.length===0)\n{ \nprocess.stdout.write(\"ERROR: name is required\");\n } \nelse \n{ \nprocess.stdout.write(\"Hello, \" + name + \"!\"); \n} \nrl.close(); \n}); \n}\n\nmain();",
+      "submittedAt": "2026-06-24T02:36:07.312Z",
+      "review": {
+        "score": 90,
+        "comment": "You fixed the trim bug by storing line.trim() in name and using it for both the empty check and the greeting, so spaced input greets the trimmed name. readline, trim-before-empty, and rl.close() fit the lesson. All four acceptance cases pass. Solid match to acceptance criteria.",
+        "reviewedAt": "2026-06-24T02:38:33.429Z"
+      }
+    }
+  ]
+}

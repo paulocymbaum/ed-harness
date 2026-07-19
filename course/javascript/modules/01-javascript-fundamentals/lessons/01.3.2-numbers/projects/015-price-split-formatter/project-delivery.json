@@ -1,0 +1,48 @@
+{
+  "version": 2,
+  "courseId": "javascript",
+  "projectId": "015-price-split-formatter",
+  "updatedAt": "2026-07-06T02:09:12.125Z",
+  "deliveries": [
+    {
+      "id": "2026-07-06T01:58:48.284Z",
+      "content": "/**\n * Price Split Formatter\n * node starter/index.js\n */\n\nconst readline = require(\"node:readline\");\n\nfunction main() {\n  const lines = [];\n  const rl = readline.createInterface({ input: process.stdin });\n\n  rl.on(\"line\", (line) => {\n    lines.push(line);\n    if (lines.length < 2) return;\n    \n//Main extraction\n\nlet total=Number(lines[0].trim());\nlet people=Number(lines[1].trim());\nlet rate = total / people;\nlet formattedOutput = \"\"\n\nif (!Number.isFinite(rate) || !people > 0 || !total > 0 ) {\nformattedOutput = \"ERROR: invalid number\";\n}\nelse{\nformattedOutput = `Share: $${rate.toFixed(2)}`\n}\n    process.stdout.write(formattedOutput);\n    rl.close();\n  });\n}\n\nmain();",
+      "submittedAt": "2026-07-06T01:58:48.284Z",
+      "review": {
+        "score": 77,
+        "comment": "You use Number(), trim, and toFixed(2) well; the four README examples behave correctly. The check !people > 0 is parsed as (!people) > 0, so negative totals or counts still print a share. people is never validated as a positive integer. Next: use Number.isFinite on total and people before dividing, then require total > 0 and Number.isInteger(people) && people >= 1.",
+        "reviewedAt": "2026-07-06T01:59:51.721Z"
+      }
+    },
+    {
+      "id": "2026-07-06T02:03:24.520Z",
+      "content": "/**\n * Price Split Formatter\n * node starter/index.js\n */\n\nconst readline = require(\"node:readline\");\n\nfunction main() {\n  const lines = [];\n  const rl = readline.createInterface({ input: process.stdin });\n\n  rl.on(\"line\", (line) => {\n    lines.push(line);\n    if (lines.length < 2) return;\n    \n//Main extraction\n\nlet total=Number(lines[0].trim());\nlet people=Number(lines[1].trim());\nlet rate = total / people;\nlet formattedOutput = \"\"\n\nif (!Number.isFinite(rate) || !Number.isFinite(people) || people < 1 || !Number.isFinite(total)  || total < 0 ) {\nformattedOutput = \"ERROR: invalid number\";\n}\nelse{\nformattedOutput = `Share: $${rate.toFixed(2)}`\n}\n    process.stdout.write(formattedOutput);\n    rl.close();\n  });\n}\n\nmain();",
+      "submittedAt": "2026-07-06T02:03:24.520Z",
+      "review": {
+        "score": 88,
+        "comment": "You fixed Number.isFinite on total and people, and people=0 now errors; all four README examples pass. total=0 still prints a share because you check total < 0 instead of total > 0, and non-integer people (e.g. 3.5) are accepted. Next: require total > 0 and Number.isInteger(people) && people >= 1 before dividing.",
+        "reviewedAt": "2026-07-06T02:04:37.786Z"
+      }
+    },
+    {
+      "id": "2026-07-06T02:06:16.866Z",
+      "content": "/**\n * Price Split Formatter\n * node starter/index.js\n */\n\nconst readline = require(\"node:readline\");\n\nfunction main() {\n  const lines = [];\n  const rl = readline.createInterface({ input: process.stdin });\n\n  rl.on(\"line\", (line) => {\n    lines.push(line);\n    if (lines.length < 2) return;\n    \n//Main extraction\n\nlet total=Number(lines[0].trim());\nlet people=Number(lines[1].trim());\nlet rate = total / people;\nlet formattedOutput = \"\"\n\n// Catch errors\nif (!Number.isFinite(rate) || !Number.isInteger(people) || people < 1 || !Number.isFinite(total)  || total < 0 ) {\nformattedOutput = \"ERROR: invalid number\";\n}\nelse{\nformattedOutput = `Share: $${rate.toFixed(2)}`\n}\n    process.stdout.write(formattedOutput);\n    rl.close();\n  });\n}\n\nmain();",
+      "submittedAt": "2026-07-06T02:06:16.866Z",
+      "review": {
+        "score": 94,
+        "comment": "You fixed integer validation for people; Number(), trim, and toFixed(2) handle all four README examples correctly. total=0 still prints a share because the check uses total < 0 instead of total > 0. Next: require total > 0 before dividing.",
+        "reviewedAt": "2026-07-06T02:07:14.469Z"
+      }
+    },
+    {
+      "id": "2026-07-06T02:08:23.535Z",
+      "content": "/**\n * Price Split Formatter\n * node starter/index.js\n */\n\nconst readline = require(\"node:readline\");\n\nfunction main() {\n  const lines = [];\n  const rl = readline.createInterface({ input: process.stdin });\n\n  rl.on(\"line\", (line) => {\n    lines.push(line);\n    if (lines.length < 2) return;\n    \n//Main extraction\n\nlet total=Number(lines[0].trim());\nlet people=Number(lines[1].trim());\nlet rate = total / people;\nlet formattedOutput = \"\"\n\n// Catch errors\nif (!Number.isFinite(rate) || !Number.isInteger(people) || people < 1 || !Number.isFinite(total)  || total <= 0 ) {\nformattedOutput = \"ERROR: invalid number\";\n}\nelse{\nformattedOutput = `Share: $${rate.toFixed(2)}`\n}\n    process.stdout.write(formattedOutput);\n    rl.close();\n  });\n}\n\nmain();",
+      "submittedAt": "2026-07-06T02:08:23.535Z",
+      "review": {
+        "score": 100,
+        "comment": "You fixed total validation with total <= 0 and kept Number.isInteger(people) >= 1 from your prior submission. Parsing uses Number() with trim, Number.isFinite guards, and toFixed(2) for display. All README acceptance cases pass.",
+        "reviewedAt": "2026-07-06T02:09:12.125Z"
+      }
+    }
+  ]
+}

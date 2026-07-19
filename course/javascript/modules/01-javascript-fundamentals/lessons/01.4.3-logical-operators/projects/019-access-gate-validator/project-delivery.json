@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "courseId": "javascript",
+  "projectId": "019-access-gate-validator",
+  "updatedAt": "2026-07-10T02:14:54.095Z",
+  "deliveries": [
+    {
+      "id": "2026-07-10T02:08:24.894Z",
+      "content": "/**\n * Access Gate Validator\n * node starter/index.js\n */\n\nconst readline = require(\"node:readline\");\n\nfunction main() {\n  const lines = [];\n  const rl = readline.createInterface({ input: process.stdin });\n\n  rl.on(\"line\", (line) => {\n    lines.push(line);\n    if (lines.length < 2) return;\n    \nconst age = Number(lines[0]);\n\nif ((lines[1] !== \"true\" && lines[1] !== \"false\") || (age < 0 && !Number.isInteger(age))) {\n    process.stdout.write(\"ERROR: invalid input\\n\");\n    rl.close();\n}\n\nconst hasId = lines[1];\n\nif (hasId === \"true\" && age >18){\n    process.stdout.write(\"ALLOWED\\n\");\n    rl.close();\n}\nelse {\n    process.stdout.write(\"DENIED\\n\");\n    rl.close();\n\n}\n\n\n\n    \n\n    // TODO: parse age and hasId, print ALLOWED or DENIED\n\n  });\n}\n\nmain();",
+      "submittedAt": "2026-07-10T02:08:24.894Z",
+      "review": {
+        "score": 62,
+        "comment": "Core gate logic handles the three main allow/deny cases, and you reject non-boolean hasId strings. After ERROR you keep running, so 25/yes prints ERROR then DENIED. Age uses > 18 not >= 18, and invalid ages like abc or negatives slip through as DENIED. Next: return after ERROR, validate age with Number.isInteger and age >= 0, then use age >= 18 && hasId === \"true\".",
+        "reviewedAt": "2026-07-10T02:09:53.723Z"
+      }
+    },
+    {
+      "id": "2026-07-10T02:13:39.581Z",
+      "content": "/**\n * Access Gate Validator\n * node starter/index.js\n */\n\nconst readline = require(\"node:readline\");\n\nfunction main() {\n  const lines = [];\n  const rl = readline.createInterface({ input: process.stdin });\n\n  rl.on(\"line\", (line) => {\n    lines.push(line);\n    if (lines.length < 2) return;\n    \nconst age = Number(lines[0]);\n\nif ((lines[1] !== \"true\" && lines[1] !== \"false\") || (age < 0 || !Number.isInteger(age))) {\n    process.stdout.write(\"ERROR: invalid input\\n\");\n    rl.close();\nreturn;\n}\n\nconst hasId = lines[1];\n\nif (hasId === \"true\" && age >=18){\n    process.stdout.write(\"ALLOWED\\n\");\n    rl.close();\n}\nelse {\n    process.stdout.write(\"DENIED\\n\");\n    rl.close();\n\n}\n\n\n\n    \n\n    // TODO: parse age and hasId, print ALLOWED or DENIED\n\n  });\n}\n\nmain();",
+      "submittedAt": "2026-07-10T02:13:39.581Z",
+      "review": {
+        "score": 100,
+        "comment": "All acceptance criteria pass: gate uses && with age >= 18 and hasId literal checks, and invalid input prints ERROR then returns. Age validation with Number.isInteger and age >= 0 covers non-numeric, negative, and decimal ages. Clear improvement from your first submission. Solid match to the logical operators lesson and README.",
+        "reviewedAt": "2026-07-10T02:14:54.095Z"
+      }
+    }
+  ]
+}

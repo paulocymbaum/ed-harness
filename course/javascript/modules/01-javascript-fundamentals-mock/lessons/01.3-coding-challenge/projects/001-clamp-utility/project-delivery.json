@@ -1,0 +1,38 @@
+{
+  "version": 2,
+  "courseId": "javascript",
+  "projectId": "001-clamp-utility",
+  "updatedAt": "2026-07-10T03:31:09.038Z",
+  "deliveries": [
+    {
+      "id": "2026-07-10T03:11:46.297Z",
+      "content": "/**\n * Clamp Utility\n * node starter/index.js < starter/sample.input\n */\n\nconst readline = require(\"node:readline\");\n\nfunction clamp(value, min, max) {\n  // TODO: return min, max, or value with early returns\n  return value;\n}\n\nfunction main() {\n  const lines = [];\n  const rl = readline.createInterface({ input: process.stdin });\n\n  rl.on(\"line\", (line) => {\n    lines.push(line);\n    if (lines.length < 3) return;\n\n// validate numbers    \nif ( !Number.isFinite(Number(lines[0])) || !Number.isFinite(Number(lines[1])) || !Number.isFinite(Number(lines[2])) ) {\n\n    process.stdout.write(\"ERROR: invalid number\\n\");\n    rl.close();\n}\n\n// validate min<max\n\nelse if (Number(lines[1])>=Number(lines[2])){\n\n    process.stdout.write(\"ERROR: invalid range\\n\");\n    rl.close();\n}\n\nelse{\nconst comparedValue = Number(lines[0]);\nconst minThreshold = Number(lines[1]);\nconst maxThreshold = Number (lines [2]);\n\n\n// clamp lower boundary\nif (comparedValue < minThreshold){\n    process.stdout.write(`Result: ${minThreshold}`);\n    rl.close();\n}        \n\n// clamp higher boundary\nelse if (comparedValue > maxThreshold){\n    process.stdout.write(`Result: ${maxThreshold}`);\n    rl.close();\n}        \nelse {\n\n    process.stdout.write(`Result: ${comparedValue}`);\n    rl.close();\n}\n\n}\n  });\n}\n\nmain();",
+      "submittedAt": "2026-07-10T03:11:46.297Z",
+      "review": {
+        "score": 70,
+        "comment": "Stdin parsing, Number.isFinite checks, and inline clamp branches match all README example outputs and error strings. clamp() is still a TODO stub and main never calls it, so computation and I/O are not separated as required. Next: implement clamp with early returns and print Result from main using its return value.",
+        "reviewedAt": "2026-07-10T03:12:58.425Z"
+      }
+    },
+    {
+      "id": "2026-07-10T03:21:39.577Z",
+      "content": "/**\n * Clamp Utility\n * node starter/index.js < starter/sample.input\n */\n\nconst readline = require(\"node:readline\");\n\n\nfunction clamp(value,min,max){\n\n\n// validate numbers    \nif ( !Number.isFinite(Number(value)) || !Number.isFinite(Number(min)) || !Number.isFinite(Number(max)) ) {\n\n    return(\"ERROR: invalid number\\n\");\n}\n\n// validate min<max\n\nelse if (Number(min)>=Number(max)){\n\n    return(\"ERROR: invalid range\\n\");\n}\n\nelse{\nconst comparedValue = Number(value);\nconst minThreshold = Number(min);\nconst maxThreshold = Number (max);\n\n\n// clamp lower boundary\nif (comparedValue < minThreshold){\n    return(`Result: ${minThreshold}`);\n}        \n\n// clamp higher boundary\nelse if (comparedValue > maxThreshold){\n   return(`Result: ${maxThreshold}`);\n}        \nelse {\n\n    return(`Result: ${comparedValue}`);\n}\n\n}\n}\n\nfunction main() {\n  const lines = [];\n  const rl = readline.createInterface({ input: process.stdin });\n\n  rl.on(\"line\", (line) => {\n    lines.push(line);\n    if (lines.length < 3) return;\n\n  process.stdout.write(clamp (lines[0],lines[1],lines[2]));\n\n\n  });\n}\n\nmain();",
+      "submittedAt": "2026-07-10T03:21:39.577Z",
+      "review": {
+        "score": 68,
+        "comment": "Clamp logic and error strings are correct, and main now calls clamp. However clamp returns formatted strings and handles validation instead of returning a number, so computation and I/O stay mixed. Success outputs omit the trailing newline, failing three acceptance cases. Next: validate in main, return a number from clamp, and print Result: with a newline.",
+        "reviewedAt": "2026-07-10T03:23:57.959Z"
+      }
+    },
+    {
+      "id": "2026-07-10T03:29:50.894Z",
+      "content": "/**\n * Clamp Utility\n * node starter/index.js < starter/sample.input\n */\n\nconst readline = require(\"node:readline\");\n\n\nfunction clamp(value,min,max){\n\n\nconst comparedValue = Number(value);\nconst minThreshold = Number(min);\nconst maxThreshold = Number (max);\n\n\n// clamp lower boundary\nif (comparedValue < minThreshold){\n    return(minThreshold);\n}        \n\n// clamp higher boundary\nelse if (comparedValue > maxThreshold){\n   return(maxThreshold);\n}        \nelse {\n\n    return(comparedValue);\n}\n\n}\n\n\nfunction main() {\n  const lines = [];\n  const rl = readline.createInterface({ input: process.stdin });\n\n  rl.on(\"line\", (line) => {\n    lines.push(line);\n    if (lines.length < 3) return;\n\n\n  // validate numbers    \n   if ( !Number.isFinite(Number(lines[0])) || !Number.isFinite(Number(lines[1])) || !Number.isFinite(Number(lines[2])) ) {\n\n    process.stdout.write(\"ERROR: invalid number\\n\");\n    rl.close();\n    return;\n    }\n    \n    // validate min<max\n\n    else if (Number(lines[1])>=Number(lines[2])){\n\n    process.stdout.write(\"ERROR: invalid range\\n\");\n    rl.close();\n    return;\n}\n\n  process.stdout.write(`Result: ${clamp (lines[0],lines[1],lines[2])}\\n`);\n  rl.close();\n\n  });\n}\n\nmain();",
+      "submittedAt": "2026-07-10T03:29:50.894Z",
+      "review": {
+        "score": 100,
+        "comment": "clamp returns a number with early returns while main handles validation and labeled I/O, matching the README separation of concerns. All five acceptance cases pass, including invalid number and invalid range with correct newlines. Clear improvement across your three submissions. Solid match to lesson concepts and functional requirements.",
+        "reviewedAt": "2026-07-10T03:31:09.038Z"
+      }
+    }
+  ]
+}
