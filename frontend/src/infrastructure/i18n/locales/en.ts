@@ -1,5 +1,5 @@
 export const en = {
-  "app.title": "EdHarness",
+  "app.title": "Praxis",
 
   "nav.catalog": "Catalog",
   "nav.skipToContent": "Skip to content",
@@ -281,7 +281,7 @@ export const en = {
   "tour.done": "Start studying",
   "tour.welcome.title": "This is the real study UI",
   "tour.welcome.body":
-    "You are in EdHarness itself — catalog, progress, and lessons run locally in this app.",
+    "You are in Praxis itself — catalog, progress, and lessons run locally in this app.",
   "tour.locale.title": "Study language",
   "tour.locale.body":
     "Switch the UI language anytime. Arriving from the landing page already applies the language you chose there.",

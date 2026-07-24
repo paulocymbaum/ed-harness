@@ -2,7 +2,7 @@ import type { TranslationDictionary } from "./en";
 import { en } from "./en";
 
 export const pt: TranslationDictionary = {
-  "app.title": "EdHarness",
+  "app.title": "Praxis",
 
   "nav.catalog": "Catálogo",
   "nav.skipToContent": "Ir para o conteúdo",
@@ -285,7 +285,7 @@ export const pt: TranslationDictionary = {
   "tour.done": "Começar a estudar",
   "tour.welcome.title": "Esta é a UI real de estudo",
   "tour.welcome.body":
-    "Você está no próprio EdHarness — catálogo, progresso e lições rodam localmente neste app.",
+    "Você está no próprio Praxis — catálogo, progresso e lições rodam localmente neste app.",
   "tour.locale.title": "Idioma de estudo",
   "tour.locale.body":
     "Troque o idioma da interface a qualquer momento. Chegando da landing, o idioma escolhido já é aplicado.",

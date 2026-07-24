@@ -2,7 +2,7 @@ import type { TranslationDictionary } from "./en";
 import { en } from "./en";
 
 export const zh: TranslationDictionary = {
-  "app.title": "EdHarness",
+  "app.title": "Praxis",
 
   "nav.catalog": "目录",
   "nav.skipToContent": "跳转到内容",
@@ -281,7 +281,7 @@ export const zh: TranslationDictionary = {
   "tour.skip": "跳过导览",
   "tour.done": "开始学习",
   "tour.welcome.title": "这就是真实的学习界面",
-  "tour.welcome.body": "你正处在 EdHarness 本应用中——目录、进度与课程都在本地运行。",
+  "tour.welcome.body": "你正处在 Praxis 本应用中——目录、进度与课程都在本地运行。",
   "tour.locale.title": "学习语言",
   "tour.locale.body": "可随时切换界面语言。从落地页进入时，会沿用你在落地页选择的语言。",
   "tour.pomodoro.title": "专注计时器",

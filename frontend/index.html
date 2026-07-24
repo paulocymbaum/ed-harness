@@ -3,19 +3,89 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#0b1020" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f3f4ef" media="(prefers-color-scheme: light)" />
+    <meta property="og:title" content="Praxis" />
+    <meta property="og:image" content="/logo/og-praxis.png" />
+    <!-- Browser/OS appearance: series 1 = dark chrome, series 2 = light chrome -->
+    <link
+      id="praxis-favicon-ico-dark"
+      rel="icon"
+      href="/logo/1-favicon.ico"
+      sizes="any"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link
+      id="praxis-favicon-ico-light"
+      rel="icon"
+      href="/logo/2-favicon.ico"
+      sizes="any"
+      media="(prefers-color-scheme: light)"
+    />
+    <link
+      id="praxis-favicon-png-dark"
+      rel="icon"
+      type="image/png"
+      href="/logo/1-favicon-32.png"
+      sizes="32x32"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link
+      id="praxis-favicon-png-light"
+      rel="icon"
+      type="image/png"
+      href="/logo/2-favicon-32.png"
+      sizes="32x32"
+      media="(prefers-color-scheme: light)"
+    />
+    <link
+      id="praxis-apple-touch-icon-dark"
+      rel="apple-touch-icon"
+      href="/logo/1-favicon-180.png"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link
+      id="praxis-apple-touch-icon-light"
+      rel="apple-touch-icon"
+      href="/logo/2-favicon-180.png"
+      media="(prefers-color-scheme: light)"
+    />
     <link rel="manifest" href="/site.webmanifest" />
-    <title>EdHarness</title>
+    <title>Praxis</title>
     <script>
       try {
         var raw = localStorage.getItem("ed-harness-theme");
+        var theme = null;
         if (raw) {
-          var theme = JSON.parse(raw).state.theme;
-          if (theme === "light" || theme === "dark") {
-            document.documentElement.dataset.theme = theme;
-            document.documentElement.style.colorScheme = theme;
-          }
+          var parsed = JSON.parse(raw).state.theme;
+          if (parsed === "light" || parsed === "dark") theme = parsed;
         }
+        if (!theme) {
+          theme = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+        }
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+        var darkMedia = theme === "dark" ? "all" : "not all";
+        var lightMedia = theme === "light" ? "all" : "not all";
+        [
+          "praxis-favicon-ico-dark",
+          "praxis-favicon-png-dark",
+          "praxis-apple-touch-icon-dark",
+        ].forEach(function (id) {
+          var el = document.getElementById(id);
+          if (el) el.media = darkMedia;
+        });
+        [
+          "praxis-favicon-ico-light",
+          "praxis-favicon-png-light",
+          "praxis-apple-touch-icon-light",
+        ].forEach(function (id) {
+          var el = document.getElementById(id);
+          if (el) el.media = lightMedia;
+        });
+        document.querySelectorAll('meta[name="theme-color"]').forEach(function (el) {
+          el.media = el.getAttribute("content") === "#0b1020" ? darkMedia : lightMedia;
+        });
       } catch (e) {}
     </script>
   </head>
@@ -24,4 +94,3 @@
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
-

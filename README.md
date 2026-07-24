@@ -1,4 +1,4 @@
-# EdHarness
+# Praxis
 
 **Open-source educational harness & interactive UI for self-directed coding mastery through Project-Based Learning — with AI that helps humans learn.**
 
