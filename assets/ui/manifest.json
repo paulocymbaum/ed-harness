@@ -1,0 +1,84 @@
+{
+  "generatedAt": "2026-07-24T20:48:26.633Z",
+  "baseUrl": "http://localhost:5173",
+  "shots": [
+    {
+      "file": "01-catalog.png",
+      "path": "/",
+      "caption": "Catalog home — dashboard, course cards, pending projects",
+      "url": "assets/ui/01-catalog.png"
+    },
+    {
+      "file": "02-content-map.png",
+      "path": "/?tab=content-map&course=javascript",
+      "caption": "Content map — curriculum graph with progress",
+      "url": "assets/ui/02-content-map.png"
+    },
+    {
+      "file": "03-course-overview.png",
+      "path": "/course/javascript",
+      "caption": "Course overview — modules and mock tests",
+      "url": "assets/ui/03-course-overview.png"
+    },
+    {
+      "file": "04-module.png",
+      "path": "/course/javascript/module/01-javascript-fundamentals",
+      "caption": "Study module — README + contents drawer",
+      "url": "assets/ui/04-module.png"
+    },
+    {
+      "file": "05-lesson.png",
+      "path": "/course/javascript/module/01-javascript-fundamentals/lesson/01.1.1-running-javascript-node-js",
+      "caption": "Lesson — predict-first explanation",
+      "url": "assets/ui/05-lesson.png"
+    },
+    {
+      "file": "06-quiz.png",
+      "path": "/course/javascript/module/01-javascript-fundamentals/lesson/01.8.1-truthy-vs-falsy/quiz/quiz",
+      "caption": "Quiz focus session",
+      "url": "assets/ui/06-quiz.png"
+    },
+    {
+      "file": "07-project.png",
+      "path": "/course/javascript/module/01-javascript-fundamentals/lesson/01.8.1-truthy-vs-falsy/project/001-cli-input-validator",
+      "caption": "Project focus — delivery and Run answer",
+      "url": "assets/ui/07-project.png"
+    },
+    {
+      "file": "08-mock-test-overview.png",
+      "path": "/course/javascript/module/01-javascript-fundamentals-mock/mock-test",
+      "caption": "Mock test overview — start screen",
+      "url": "assets/ui/08-mock-test-overview.png"
+    },
+    {
+      "file": "09-mock-test-quiz.png",
+      "path": "/course/javascript/module/01-javascript-fundamentals-mock/mock-test/section/01.2-multiple-choice",
+      "caption": "Mock test — multiple choice section",
+      "url": "assets/ui/09-mock-test-quiz.png"
+    },
+    {
+      "file": "10-mock-test-coding.png",
+      "path": "/course/javascript/module/01-javascript-fundamentals-mock/mock-test/section/01.3-coding-challenge",
+      "caption": "Mock test — coding challenge section",
+      "url": "assets/ui/10-mock-test-coding.png"
+    },
+    {
+      "file": "11-language-selector.png",
+      "path": "/",
+      "caption": "Language picker — en / pt / es / zh",
+      "url": "assets/ui/11-language-selector.png"
+    },
+    {
+      "file": "12-language-portuguese.png",
+      "path": "/?lang=pt",
+      "caption": "Catalog chrome in Portuguese",
+      "url": "assets/ui/12-language-portuguese.png"
+    },
+    {
+      "file": "13-pomodoro.png",
+      "path": "/",
+      "caption": "Pomodoro running with panel open",
+      "url": "assets/ui/13-pomodoro.png"
+    }
+  ]
+}

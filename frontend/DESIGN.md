@@ -152,8 +152,9 @@ Quiz-specific UI lives in `features/quiz/` and **must** use feedback tokens abov
 
 ## Public assets
 
-- `public/favicon.svg`
+- `public/logo/` — Praxis mark + favicons (series `1` = dark UI / light piece; series `2` = light UI / navy piece)
 - `public/site.webmanifest`
+- Source masters: [`../assets/logo/`](../assets/logo/)
 
 ---
 

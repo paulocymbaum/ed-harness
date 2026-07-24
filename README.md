@@ -1,4 +1,4 @@
-# EdHarness
+# Praxis
 
 **Open-source educational harness & interactive UI for self-directed coding mastery through Project-Based Learning — with AI that helps humans learn.**
 
@@ -100,6 +100,10 @@ The study app and the Cursor agent share one language preference so tutoring and
 
 **In the app:** use the language control in the top bar. The choice is stored in browser state (`ed-harness-locale`) and applied to chrome, labels, and document `lang`.
 
+<img src="assets/ui/11-language-selector.png" alt="Language selector with English, Portuguese, Spanish, and Chinese" width="720" />
+
+<img src="assets/ui/12-language-portuguese.png" alt="Catalog UI chrome in Portuguese" width="720" />
+
 **Bridge to Cursor (dev server):** when Vite is running, changing (or loading) the locale POSTs to `/api/locale`, which writes [`.cursor/language.json`](.cursor/language.json). That file is the source of truth for agent prompts.
 
 ```mermaid
@@ -172,6 +176,56 @@ After a large translation pass, regenerate the catalog if the UI lists titles fr
 
 ## How learning works
 
+### UI tour
+
+Learner flow in the interactive UI (full set in [`assets/ui/`](assets/ui/)):
+
+**1. Catalog** — dashboard, course cards, pending projects
+
+<img src="assets/ui/01-catalog.png" alt="Catalog home" width="720" />
+
+**2. Content map** — curriculum graph with progress
+
+<img src="assets/ui/02-content-map.png" alt="Content map" width="720" />
+
+**3. Course overview** — modules and mock tests
+
+<img src="assets/ui/03-course-overview.png" alt="Course overview" width="720" />
+
+**4. Module** — README + contents drawer
+
+<img src="assets/ui/04-module.png" alt="Study module" width="720" />
+
+**5. Lesson → quiz → project**
+
+<img src="assets/ui/05-lesson.png" alt="Lesson explanation" width="720" />
+
+<img src="assets/ui/06-quiz.png" alt="Quiz focus session" width="720" />
+
+<img src="assets/ui/07-project.png" alt="Project delivery" width="720" />
+
+**6. Mock test** — instructions → MCQ → coding
+
+<img src="assets/ui/08-mock-test-overview.png" alt="Mock test overview" width="720" />
+
+<img src="assets/ui/09-mock-test-quiz.png" alt="Mock test multiple choice" width="720" />
+
+<img src="assets/ui/10-mock-test-coding.png" alt="Mock test coding challenge" width="720" />
+
+**7. Top bar** — language picker and Pomodoro focus timer
+
+<img src="assets/ui/11-language-selector.png" alt="Language selector" width="720" />
+
+<img src="assets/ui/13-pomodoro.png" alt="Pomodoro timer panel" width="720" />
+
+Regenerate after UI changes (Vite on `http://localhost:5173`, Playwright required):
+
+```bash
+npm install --no-save playwright@1.49.1
+npx playwright install chromium
+npm run ui:snapshots
+```
+
 ### Session flow
 
 1. **Read** a predict-first lesson in [`course/`](course/)
@@ -179,7 +233,10 @@ After a large translation pass, regenerate the catalog if the UI lists titles fr
 3. **Build** in the delivery draft (import `starter/index.js` as a starting point), validate with Delivery **Run answer** (`starter/tests.json`), save a delivery write-up in the **Delivery** tab
 4. **Correct** — request AI review (`@review-course-project` or the Delivery tab **Project correction** button); iterate until score **> 80**
 
-Use the **25-minute Pomodoro** in the app header to bound sessions (runs in the background while you navigate).
+Use the **25-minute Pomodoro** in the app header to bound sessions (runs in the background while you navigate):
+
+<img src="assets/ui/13-pomodoro.png" alt="Pomodoro running with panel open" width="720" />
+
 
 ### Scoring & progress
 
@@ -228,6 +285,7 @@ From the repo root: `npm run dev` and `npm run catalog:generate` delegate to `fr
 
 ```text
 ed-harness/
+├── assets/ui/              # Learner-flow UI screenshots (README gallery)
 ├── course/                 # Lessons, PBL projects, quizzes
 │   └── javascript/         # Main course (fundamentals → async)
 ├── graph/                  # Topic taxonomy (source of truth)
@@ -250,6 +308,7 @@ ed-harness/
 |-----|----------|
 | [**Getting Started**](docs/GETTING_STARTED.md) | Setup, workflow, routes, Cursor skills, commands |
 | [COURSE_STRUCTURE.md](COURSE_STRUCTURE.md) | Content hierarchy and metadata contract |
+| [assets/ui/](assets/ui/) | UI screenshots of the learner flow |
 | [landing_page/LANDINGPAGE_STYLE.md](landing_page/LANDINGPAGE_STYLE.md) | Open-source landing: brand, visual system, UX journey |
 | [landing_page/LANDINGPAGE_WIREFRAME.md](landing_page/LANDINGPAGE_WIREFRAME.md) | Landing ASCII wireframes and per-section design notes |
 | [landing_page/index.html](landing_page/index.html) | Open in a browser to preview the landing page |
