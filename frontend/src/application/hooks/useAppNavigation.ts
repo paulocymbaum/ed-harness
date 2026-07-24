@@ -24,6 +24,7 @@ function parseReaderTab(value: string | null): ReaderTab {
   return "explanation";
 }
 
+/** Kept for legacy URL redirects from `?drawer=` deep links. */
 function parseDrawerMode(value: string | null): DrawerMode | null {
   if (value && VALID_DRAWER_MODES.includes(value as DrawerMode)) return value as DrawerMode;
   return null;
@@ -71,9 +72,9 @@ export function useAppNavigation() {
     goCourse,
     goModule: hierarquia.goModule,
     goLesson: hierarquia.goLesson,
-    openLessonDrawer: hierarquia.openLessonDrawer,
-    closeLessonDrawer: hierarquia.closeLessonDrawer,
-    setLessonDrawerTab: hierarquia.setLessonDrawerTab,
+    abrirQuizLicao: hierarquia.abrirQuizLicao,
+    abrirProjetoLicao: hierarquia.abrirProjetoLicao,
+    voltarParaLicao: hierarquia.voltarParaLicao,
     setTab: legacy.setTab,
     openReader: legacy.openReader,
     closeReader: legacy.closeReader,

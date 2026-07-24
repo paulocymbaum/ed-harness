@@ -16,10 +16,13 @@ export function AppShell(props: {
   breadcrumb?: ReactNode;
   right?: ReactNode;
   children: ReactNode;
+  /** Compact full-bleed shell for lesson quiz/project focus pages. */
+  variant?: "default" | "foco";
 }) {
   const theme = useThemeStore((s) => s.theme);
   const locale = useLocaleStore((s) => s.locale);
   const { t } = useTranslation();
+  const isFoco = props.variant === "foco";
 
   usePomodoroTimer();
 
@@ -41,18 +44,48 @@ export function AppShell(props: {
       >
         {t("nav.skipToContent")}
       </a>
-      <div className="flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-y-contain py-6 sm:py-10">
-        <Container className="flex min-h-full flex-col">
-          <header className="mb-5 flex shrink-0 flex-col gap-3 sm:mb-6 sm:flex-row sm:items-end sm:justify-between">
+      <div
+        className={
+          isFoco
+            ? "flex min-h-0 flex-1 flex-col overflow-hidden py-3 sm:py-4"
+            : "flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-y-contain py-6 sm:py-10"
+        }
+      >
+        <Container
+          variant={isFoco ? "foco" : "default"}
+          className={isFoco ? "flex min-h-0 flex-1 flex-col" : "flex min-h-full flex-col"}
+        >
+          <header
+            className={
+              isFoco
+                ? "mb-3 flex shrink-0 flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"
+                : "mb-5 flex shrink-0 flex-col gap-3 sm:mb-6 sm:flex-row sm:items-end sm:justify-between"
+            }
+          >
             <div className="min-w-0">
-              <h1 className="text-title font-semibold tracking-[-0.01em]">{props.title}</h1>
-              {props.breadcrumb ? <div className="mt-2">{props.breadcrumb}</div> : null}
+              <h1
+                className={
+                  isFoco
+                    ? "text-body font-semibold tracking-[-0.01em] sm:text-title"
+                    : "text-title font-semibold tracking-[-0.01em]"
+                }
+              >
+                {props.title}
+              </h1>
+              {props.breadcrumb ? <div className="mt-1 sm:mt-2">{props.breadcrumb}</div> : null}
               {props.subtitle ? <p className="mt-1 text-meta text-text1">{props.subtitle}</p> : null}
             </div>
             {props.right ? <div className="shrink-0">{props.right}</div> : null}
           </header>
 
-          <main id="main-content" className="flex min-h-0 flex-1 flex-col">
+          <main
+            id="main-content"
+            className={
+              isFoco
+                ? "flex min-h-0 flex-1 flex-col overflow-hidden"
+                : "flex min-h-0 flex-1 flex-col"
+            }
+          >
             {props.children}
           </main>
         </Container>

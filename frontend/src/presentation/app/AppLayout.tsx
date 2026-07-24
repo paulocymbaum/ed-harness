@@ -25,15 +25,18 @@ export function AppLayout() {
   const params = useParams();
   const [searchParams] = useSearchParams();
   const location = useLocation();
-  const { goCatalog, goCourse, goModule, goLesson, goMockTest, parseCourseTab, parseDrawerMode } =
+  const { goCatalog, goCourse, goModule, goLesson, goMockTest, parseCourseTab } =
     useAppNavigation();
 
   const courseId = params.courseId;
   const moduleId = params.moduleId;
   const lessonId = params.lessonId;
   const sectionId = params.sectionId;
+  const quizIdParam = params.quizId;
+  const projectIdParam = params.projectId;
   const isCourseRoute = location.pathname.startsWith("/course/");
   const isMockTestRoute = location.pathname.includes("/mock-test");
+  const isFocoAtividade = Boolean(quizIdParam || projectIdParam);
 
   const course = useMemo(
     () => (courseId ? getCourseById(courses, courseId) : null),
@@ -50,25 +53,27 @@ export function AppLayout() {
     [course, moduleId, lessonId],
   );
 
-  const drawerMode = parseDrawerMode(searchParams.get("drawer"));
-  const activeQuizId = searchParams.get("quiz");
-  const activeProjectId = searchParams.get("project");
+  const activeQuizId = quizIdParam ?? searchParams.get("quiz");
+  const activeProjectId = projectIdParam ?? searchParams.get("project");
 
   const quiz = useMemo(() => {
     if (!course || !activeQuizId) return null;
-    if (drawerMode === "quiz" && lessonId && moduleId) {
+    if (quizIdParam && lessonId && moduleId) {
       return getQuizById(course, activeQuizId, { moduleId, lessonId });
     }
     if (moduleId && !lessonId) {
       return getQuizById(course, activeQuizId, { moduleId });
     }
+    if (lessonId && moduleId) {
+      return getQuizById(course, activeQuizId, { moduleId, lessonId });
+    }
     return getQuizById(course, activeQuizId);
-  }, [course, activeQuizId, drawerMode, lessonId, moduleId]);
+  }, [course, activeQuizId, quizIdParam, lessonId, moduleId]);
 
   const project = useMemo(() => {
-    if (!course || !moduleId || !activeProjectId || drawerMode !== "project") return null;
+    if (!course || !moduleId || !activeProjectId) return null;
     return getProjectById(course, moduleId, activeProjectId);
-  }, [course, moduleId, activeProjectId, drawerMode]);
+  }, [course, moduleId, activeProjectId]);
 
   const tab = courseId ? parseCourseTab(searchParams.get("tab")) : null;
 
@@ -179,6 +184,7 @@ export function AppLayout() {
 
   return (
     <AppShell
+      variant={isFocoAtividade ? "foco" : "default"}
       title={pageTitle}
       breadcrumb={<Breadcrumb segments={breadcrumbSegments} />}
       right={

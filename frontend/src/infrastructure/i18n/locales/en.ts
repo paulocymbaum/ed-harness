@@ -234,6 +234,18 @@ export const en = {
   "quiz.attemptsSuffix": " · {count} attempts",
   "quiz.upToPoints": "Up to {points} pts",
   "quiz.questionNumber": "Question {number}",
+  "quiz.previous": "Previous",
+  "quiz.next": "Next",
+  "quiz.checkAnswer": "Check answer",
+  "quiz.finish": "Finish quiz",
+
+  "foco.voltarLicao": "Back to lesson",
+  "foco.abaEnunciado": "Prompt",
+  "foco.abaResposta": "Answer",
+  "foco.abaLicao": "Lesson",
+  "foco.abasMobile": "Activity views",
+  "foco.abasContexto": "Context views",
+  "foco.divisor": "Resize panels",
 
   "score.quizInline": "quiz {value}",
   "score.projectsInline": "projects {value}",
