@@ -52,6 +52,23 @@ flowchart TD
 
 ## Jornada hierarchy (fluxo primário)
 
+Capturas da UI: [`../assets/ui/`](../assets/ui/) (ver também [README → UI tour](../README.md#ui-tour)).
+
+| Etapa | Arquivo |
+|-------|---------|
+| Catálogo | [`01-catalog.png`](../assets/ui/01-catalog.png) |
+| Content map | [`02-content-map.png`](../assets/ui/02-content-map.png) |
+| Overview do curso | [`03-course-overview.png`](../assets/ui/03-course-overview.png) |
+| Módulo | [`04-module.png`](../assets/ui/04-module.png) |
+| Lição | [`05-lesson.png`](../assets/ui/05-lesson.png) |
+| Quiz (foco) | [`06-quiz.png`](../assets/ui/06-quiz.png) |
+| Project (foco) | [`07-project.png`](../assets/ui/07-project.png) |
+| Simulado | [`08-mock-test-overview.png`](../assets/ui/08-mock-test-overview.png) |
+
+<img src="../assets/ui/03-course-overview.png" alt="Overview do curso" width="640" />
+
+<img src="../assets/ui/04-module.png" alt="Módulo de estudo" width="640" />
+
 ### Overview do curso
 
 ```text
@@ -73,10 +90,11 @@ Mock tests vivem em `course/<course>/modules/<id>-mock/` no disco, mas o gerador
 ```text
 /course/:courseId/module/:moduleId   → README do módulo + drawer de conteúdos
 /course/:courseId/module/:moduleId/lesson/:lessonId → Explanation da lição
-  ?drawer=quiz&quiz=<id>             → Quiz no drawer
-  ?drawer=project&project=<id>       → Project no drawer
-  ?drawerTab=files|delivery          → Aba do project no drawer
+/course/.../lesson/:lessonId/quiz/:quizId           → Quiz em sessão de foco
+/course/.../lesson/:lessonId/project/:projectId     → Project em sessão de foco
 ```
+
+URLs legadas `?drawer=quiz` / `?drawer=project` redirecionam para as rotas de foco acima.
 
 ### Simulado (mock test)
 
@@ -128,8 +146,8 @@ Três seções fixas por simulado: **instructions** → **quiz** → **coding**.
 ### Nível 4 — Lição de estudo
 
 - [`LessonWorkspaceRoute`](src/presentation/features/lesson-workspace/LessonWorkspaceRoute.tsx)
-- Painel central: explanation (`ReadmePanel`) quando drawer fechado
-- Drawer aberto: quiz/project ocupam a coluna principal; explanation oculta
+- Painel central: explanation (`ReadmePanel`) + drawer de conteúdos
+- Quiz e project abrem em **sessões de foco** (`.../quiz/:quizId`, `.../project/:projectId`)
 - Progress bar da lição: rodapé do side drawer (`LessonProgressFooter`)
 
 ---

@@ -1,19 +1,17 @@
-import { useTranslation } from "../../../application/hooks/useTranslation";
+import { BrandMark } from "./BrandMark";
 import { Container } from "./Container";
 import { LanguageSelector } from "./LanguageSelector";
 import { PomodoroHeaderControl } from "./PomodoroHeaderControl";
 import { ThemeToggle } from "./ThemeToggle";
 
 export function AppTopBar() {
-  const { t } = useTranslation();
-
   return (
     <div
       className="relative z-50 shrink-0 overflow-visible border-b border-border0 bg-glassFillStrong backdrop-blur-[var(--blur-2)]"
       data-tour="topbar"
     >
       <Container className="flex h-12 items-center justify-between gap-3 overflow-visible">
-        <span className="truncate text-meta font-semibold text-text0">{t("app.title")}</span>
+        <BrandMark />
         <div className="flex shrink-0 items-center gap-2">
           <LanguageSelector />
           <PomodoroHeaderControl />
