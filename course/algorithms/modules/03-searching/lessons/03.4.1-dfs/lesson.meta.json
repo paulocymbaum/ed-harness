@@ -3,6 +3,12 @@
   "graphIndex": "03.4.1",
   "graphNodeId": "n_36ea9021e9",
   "title": "DFS",
+  "description": "Depth-first search explores as far as possible along each branch before backtracking. It is the backbone of cycle detection, topological ideas, connected components, and path existence on graphs and trees.",
+  "lesson_dependencies": [
+    "graphs/trees",
+    "recursion",
+    "stacks"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

@@ -3,6 +3,32 @@
   "graphIndex": "01.2.1",
   "graphNodeId": "n_9816864ef5",
   "title": "let and const",
+  "description": "let and const declare variables with block scope. Prefer them over legacy var in modern JavaScript.",
+  "lesson_dependencies": [
+    "variables"
+  ],
   "prerequisites": [],
-  "status": "draft"
+  "status": "draft",
+  "keywords": [
+    "JavaScript",
+    "let",
+    "const",
+    "var vs let",
+    "block scope",
+    "let and const",
+    "declare",
+    "variables"
+  ],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=9WIJQDvt4Us",
+      "title": "Differences Between Var, Let, and Const",
+      "views": 220013
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=pobWEaHNChY",
+      "title": "JavaScript var, let, and const explained",
+      "views": 31701
+    }
+  ]
 }

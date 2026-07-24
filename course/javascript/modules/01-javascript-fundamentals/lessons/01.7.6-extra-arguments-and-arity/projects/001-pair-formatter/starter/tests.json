@@ -1,0 +1,39 @@
+{
+  "cases": [
+    {
+      "id": "example",
+      "name": "Example from README",
+      "stdin": "alpha beta gamma\n",
+      "expectedStdout": "alpha|beta\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "exact-two",
+      "name": "Exactly two tokens",
+      "stdin": "x y\n",
+      "expectedStdout": "x|y\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "extras",
+      "name": "Extra tokens ignored",
+      "stdin": "x y z w\n",
+      "expectedStdout": "x|y\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "one-token",
+      "name": "Only one token",
+      "stdin": "only\n",
+      "expectedStdout": "ERROR: need two tokens\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "empty",
+      "name": "Empty line",
+      "stdin": "\n",
+      "expectedStdout": "ERROR: need two tokens\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

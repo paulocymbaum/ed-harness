@@ -3,6 +3,11 @@
   "graphIndex": "03.2.3",
   "graphNodeId": "n_2b07e6e93d",
   "title": "Search in Rotated Arrays",
+  "description": "A rotated sorted array looks like [4,5,6,7,0,1,2] \u2014 one ascending sequence spun left. You can still binary-search in O(log n) by noting that at least one side of mid is sorted.",
+  "lesson_dependencies": [
+    "binary search",
+    "rotated arrays"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

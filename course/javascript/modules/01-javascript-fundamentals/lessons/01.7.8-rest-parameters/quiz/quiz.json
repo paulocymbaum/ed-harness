@@ -1,0 +1,69 @@
+{
+  "id": "quiz",
+  "title": "Rest Parameters Check",
+  "description": "Gathering leftover args into an array; rest must be last.",
+  "lessonId": "01.7.8-rest-parameters",
+  "graphIndex": "01.7.8",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What is printed?\n\n```js\nfunction sum(...nums) {\n  let total = 0;\n  for (const n of nums) {\n    total += n;\n  }\n  return total;\n}\nconsole.log(sum(1, 2, 3));\nconsole.log(sum());\n```",
+      "options": [
+        { "id": "a", "text": "`6` then `0`" },
+        { "id": "b", "text": "`6` then `undefined`" },
+        { "id": "c", "text": "`6` then throws" },
+        { "id": "d", "text": "`[1,2,3]` then `[]`" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Rest collects args into an array. Empty rest is `[]`, so the loop sum is `0`."
+    },
+    {
+      "id": "q2",
+      "prompt": "What is printed?\n\n```js\nfunction joinLabels(prefix, ...parts) {\n  return prefix + \":\" + parts.join(\"-\");\n}\nconsole.log(joinLabels(\"id\", \"a\", \"b\", \"c\"));\n```",
+      "options": [
+        { "id": "a", "text": "`id:a-b-c`" },
+        { "id": "b", "text": "`id:a,b,c`" },
+        { "id": "c", "text": "`a-b-c`" },
+        { "id": "d", "text": "`id:[a,b,c]`" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "`prefix` takes the first arg; `parts` is `[\"a\",\"b\",\"c\"]`, joined with `-`."
+    },
+    {
+      "id": "q3",
+      "prompt": "Which rest parameter declaration is valid?",
+      "options": [
+        { "id": "a", "text": "`function ok(a, b, ...rest) { }`" },
+        { "id": "b", "text": "`function bad(...rest, last) { }`" },
+        { "id": "c", "text": "`function bad(a, ...rest, b) { }`" },
+        { "id": "d", "text": "`function bad(...a, ...b) { }`" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Rest must be the last parameter. Placing it before other params is a syntax error."
+    },
+    {
+      "id": "q4",
+      "prompt": "What is printed?\n\n```js\nfunction firstAndRest(a, ...rest) {\n  return { a, rest };\n}\nconsole.log(firstAndRest(1, 2, 3));\n```",
+      "options": [
+        { "id": "a", "text": "`{ a: 1, rest: [2, 3] }`" },
+        { "id": "b", "text": "`{ a: 1, rest: 2 }`" },
+        { "id": "c", "text": "`{ a: [1, 2, 3], rest: [] }`" },
+        { "id": "d", "text": "`1` — extras ignored" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Without rest, extras are ignored (`01.7.6`). With rest, leftovers stay in an array."
+    },
+    {
+      "id": "q5",
+      "prompt": "What is printed?\n\n```js\nfunction maxOf(...nums) {\n  if (nums.length === 0) return null;\n  let m = nums[0];\n  for (const n of nums) {\n    if (n > m) m = n;\n  }\n  return m;\n}\nconsole.log(maxOf(3, 9, 1));\nconsole.log(maxOf());\n```",
+      "options": [
+        { "id": "a", "text": "`9` then `null`" },
+        { "id": "b", "text": "`9` then `0`" },
+        { "id": "c", "text": "`3` then `null`" },
+        { "id": "d", "text": "`9` then `undefined`" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Max of the list is 9. Empty rest → `nums.length === 0` → `null`."
+    }
+  ]
+}

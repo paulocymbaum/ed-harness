@@ -60,6 +60,8 @@ test("scaffold creates lesson.meta.json with correct graphIndex", () => {
     assert.equal(parsed.kind, "lesson");
     const meta = JSON.parse(readFileSync(metaPath, "utf8"));
     assert.equal(meta.graphIndex, "01.8.1");
+    assert.equal(meta.description, "");
+    assert.deepEqual(meta.lesson_dependencies, []);
   } finally {
     if (backup) writeFileSync(metaPath, backup);
     else if (existsSync(metaPath)) rmSync(metaPath);

@@ -1,0 +1,37 @@
+{
+  "id": "01.8.4-typeof-and-array-isarray",
+  "graphIndex": "01.8.4",
+  "graphNodeId": "n_b0dc9850d7",
+  "title": "typeof and Array.isArray",
+  "description": "typeof reports a value's type as a string. It is useful for primitives — and misleading for arrays and null.",
+  "lesson_dependencies": [
+    "types",
+    "arrays",
+    "null",
+    "undefined"
+  ],
+  "prerequisites": [],
+  "status": "draft",
+  "keywords": [
+    "JavaScript",
+    "typeof operator",
+    "array.isarray",
+    "typeof array",
+    "typeof and array.isarray",
+    "typeof",
+    "reports",
+    "value's"
+  ],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=LrI02dTkeRo",
+      "title": "typeof Operator - JavaScript Tutorial",
+      "views": 12040
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=eQKo-_ftNbE",
+      "title": "isArray Array Method | JavaScript Tutorial",
+      "views": 11968
+    }
+  ]
+}

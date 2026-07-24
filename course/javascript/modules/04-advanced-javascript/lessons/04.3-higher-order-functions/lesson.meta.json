@@ -3,6 +3,13 @@
   "graphIndex": "04.3",
   "graphNodeId": "n_185304f1d3",
   "title": "Higher-Order Functions",
+  "description": "A higher-order function either takes a function as an argument, returns a function, or both. Array.prototype.map, filter, and reduce are the most common examples \u2014 they let you describe what transformation to apply without writing the loop yourself.",
+  "lesson_dependencies": [
+    "callbacks",
+    "arrow functions",
+    "Array.prototype.map",
+    "Array.prototype.filter"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

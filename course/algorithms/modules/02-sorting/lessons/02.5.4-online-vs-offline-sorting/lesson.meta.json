@@ -3,6 +3,11 @@
   "graphIndex": "02.5.4",
   "graphNodeId": "n_96d4ece1f9",
   "title": "Online vs Offline Sorting",
+  "description": "Offline sorting sees the whole collection before producing order (classic sort on an array). Online sorting must keep order as items arrive \u2014 think inserting into a sorted list/tree, priority queues, or streaming merges \u2014 without waiting for EOF if the consumer needs progressive order.",
+  "lesson_dependencies": [
+    "priority queues (conceptual)",
+    "streaming data"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

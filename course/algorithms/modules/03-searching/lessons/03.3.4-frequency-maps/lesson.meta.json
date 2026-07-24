@@ -3,6 +3,12 @@
   "graphIndex": "03.3.4",
   "graphNodeId": "n_8adff3f037",
   "title": "Frequency Maps",
+  "description": "A frequency map records how many times each key appears. Anagrams, majority elements, and \"top-k frequent\" all start from count[x]++ in one scan.",
+  "lesson_dependencies": [
+    "Map",
+    "counting",
+    "hash lookup"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

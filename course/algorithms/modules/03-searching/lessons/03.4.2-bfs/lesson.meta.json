@@ -3,6 +3,11 @@
   "graphIndex": "03.4.2",
   "graphNodeId": "n_deaa378efb",
   "title": "BFS",
+  "description": "Breadth-first search expands neighbors layer by layer using a queue. On unweighted graphs, the first time you reach a node is via a shortest hop path \u2014 making BFS the search for distances and level order.",
+  "lesson_dependencies": [
+    "graphs/trees",
+    "queues"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

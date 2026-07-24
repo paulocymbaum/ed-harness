@@ -40,10 +40,10 @@ export function ModuleContentsDrawer() {
 
       <aside
         className={clsx(
-          "flex min-h-0 w-full shrink-0 flex-col overflow-hidden border-border0 bg-surfacePanel",
-          "lg:relative lg:z-auto lg:w-80 lg:self-stretch lg:rounded-l-panel lg:border lg:border-r-0",
+          "flex w-full shrink-0 flex-col border-border0 bg-surfacePanel",
+          "lg:sticky lg:top-0 lg:z-auto lg:max-h-[calc(100dvh-5rem)] lg:w-80 lg:self-start lg:overflow-hidden lg:rounded-l-panel lg:border lg:border-r-0",
           mobileOpen
-            ? "fixed bottom-0 left-0 top-12 z-[70] max-w-[min(100vw-1rem,20rem)] rounded-panel border shadow-glass2 lg:static lg:inset-auto lg:shadow-none"
+            ? "fixed bottom-0 left-0 top-12 z-[70] max-w-[min(100vw-1rem,20rem)] overflow-hidden rounded-panel border shadow-glass2 lg:static lg:inset-auto lg:shadow-none"
             : "hidden lg:flex",
         )}
       >

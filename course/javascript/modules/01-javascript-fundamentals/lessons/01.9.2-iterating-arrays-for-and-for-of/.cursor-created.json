@@ -1,0 +1,9 @@
+{
+  "createdBy": "cursor-tool",
+  "tool": "scripts/graph/scaffold-from-graph.mjs",
+  "createdAt": "2026-07-19T03:38:57.486Z",
+  "kind": "lesson",
+  "lessonId": "01.9.2-iterating-arrays-for-and-for-of",
+  "moduleId": "01-javascript-fundamentals",
+  "graphIndex": "01.9.2"
+}

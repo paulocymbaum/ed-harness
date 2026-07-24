@@ -3,6 +3,11 @@
   "graphIndex": "03.2.1",
   "graphNodeId": "n_989df90876",
   "title": "Binary Search",
+  "description": "Binary search finds a target in a sorted array by comparing the middle element and discarding half the remaining range each step. That O(log n) behavior beats linear scanning when order is guaranteed.",
+  "lesson_dependencies": [
+    "sorted arrays",
+    "divide and conquer"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

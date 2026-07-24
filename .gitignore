@@ -60,8 +60,9 @@ Thumbs.db
 ###############################################################################
 # Learner progress (local, not committed)
 ###############################################################################
-course/*/quiz/score.json
-**/project-delivery.json
+
+# Runtime state for the Linux desktop launcher (pid/port/log)
+.ed-harness-runtime/
 
 docs/5W1H-REPORT.md
 

@@ -1,0 +1,105 @@
+{
+  "id": "quiz",
+  "title": "filter + map Check",
+  "description": "Chaining keep-then-transform pipelines.",
+  "lessonId": "01.9.5-combining-filter-and-map",
+  "graphIndex": "01.9.5",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What is `[1, 2, 3, 4].filter((n) => n % 2 === 0).map((n) => n * 2)`?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`[2, 4, 6, 8]`"
+        },
+        {
+          "id": "b",
+          "text": "`[4, 8]`"
+        },
+        {
+          "id": "c",
+          "text": "`[2, 4]`"
+        },
+        {
+          "id": "d",
+          "text": "`[1, 2, 3, 4]`"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Keep evens `[2, 4]`, then double → `[4, 8]`."
+    },
+    {
+      "id": "q2",
+      "prompt": "Usually you should:",
+      "options": [
+        {
+          "id": "a",
+          "text": "`map` first, then `filter`"
+        },
+        {
+          "id": "b",
+          "text": "`filter` first, then `map`"
+        },
+        {
+          "id": "c",
+          "text": "only `map`"
+        },
+        {
+          "id": "d",
+          "text": "mutate with `splice`"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Keep relevant rows before transforming them (unless the keep-rule needs the transformed value)."
+    },
+    {
+      "id": "q3",
+      "prompt": "After `const xs = [1, 2]; xs.filter((n) => n > 1).map((n) => n * 10);` what is `xs`?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`[20]`"
+        },
+        {
+          "id": "b",
+          "text": "`[1, 2]`"
+        },
+        {
+          "id": "c",
+          "text": "`[10, 20]`"
+        },
+        {
+          "id": "d",
+          "text": "`undefined`"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Neither method mutates the original. Assign the chain to a variable."
+    },
+    {
+      "id": "q4",
+      "prompt": "`products.filter(isInStock).map(toName)` returns:",
+      "options": [
+        {
+          "id": "a",
+          "text": "product objects"
+        },
+        {
+          "id": "b",
+          "text": "names of in-stock products"
+        },
+        {
+          "id": "c",
+          "text": "a single string"
+        },
+        {
+          "id": "d",
+          "text": "a Set"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Filter keeps objects; map projects each remaining object to a name."
+    }
+  ]
+}

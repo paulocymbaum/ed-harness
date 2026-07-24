@@ -57,6 +57,16 @@ function validateLessonMeta(meta, graph) {
   if (!meta.id || !meta.graphIndex || !meta.graphNodeId || !meta.title) {
     findings.push({ level: "error", message: "lesson.meta.json missing required fields (id, graphIndex, graphNodeId, title)" });
   }
+  if (meta.description !== undefined && typeof meta.description !== "string") {
+    findings.push({ level: "error", message: "lesson.meta.json description must be a string when present" });
+  }
+  if (meta.lesson_dependencies !== undefined) {
+    if (!Array.isArray(meta.lesson_dependencies)) {
+      findings.push({ level: "error", message: "lesson.meta.json lesson_dependencies must be an array when present" });
+    } else if (!meta.lesson_dependencies.every((t) => typeof t === "string")) {
+      findings.push({ level: "error", message: "lesson.meta.json lesson_dependencies must be an array of strings" });
+    }
+  }
   const node = findNodeByIndex(graph, meta.graphIndex);
   if (!node) {
     findings.push({ level: "error", message: `graphIndex "${meta.graphIndex}" not found in graph` });

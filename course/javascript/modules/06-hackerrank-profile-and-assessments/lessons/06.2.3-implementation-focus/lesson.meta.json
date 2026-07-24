@@ -3,6 +3,11 @@
   "graphIndex": "06.2.3",
   "graphNodeId": "n_3fe5214384",
   "title": "Implementation Focus",
+  "description": "Many HackerRank and OA problems are tagged Implementation: they don't need a clever algorithm \u2014 they need you to translate a written spec into code exactly, handling every rule the statement lists. Most points lost on implementation problems come from missing a rule, not from picking the wrong algorithm.",
+  "lesson_dependencies": [
+    "problem statements",
+    "edge cases"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

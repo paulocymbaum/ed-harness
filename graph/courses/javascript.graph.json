@@ -118,6 +118,26 @@
       "label": "01.7.4 Throwing Errors and Sync try/catch"
     },
     {
+      "id": "n_26ebe575ec",
+      "label": "01.7.5 Function Expressions"
+    },
+    {
+      "id": "n_55253c7fc3",
+      "label": "01.7.6 Extra Arguments and Arity"
+    },
+    {
+      "id": "n_dee93211c1",
+      "label": "01.7.7 Default Parameters"
+    },
+    {
+      "id": "n_58152192e2",
+      "label": "01.7.8 Rest Parameters"
+    },
+    {
+      "id": "n_18ca14ad6d",
+      "label": "01.7.9 Function Scope and Shadowing"
+    },
+    {
       "id": "n_5b1cae029b",
       "label": "01.8 Truthiness and Coercion"
     },
@@ -150,16 +170,32 @@
       "label": "01.9.1 Array Literals Indexing and length"
     },
     {
-      "id": "n_923a30769a",
-      "label": "01.9.2 Mutating Array Methods"
+      "id": "n_c843a066a6",
+      "label": "01.9.2 Iterating Arrays for and for-of"
     },
     {
-      "id": "n_6148117519",
-      "label": "01.9.3 Non-mutating Array Methods"
+      "id": "n_918d242ce5",
+      "label": "01.9.3 Array.prototype.filter"
     },
     {
-      "id": "n_89e5c8c4b4",
-      "label": "01.9.4 Iterating Arrays for and for-of"
+      "id": "n_0046e270ce",
+      "label": "01.9.4 Array.prototype.map"
+    },
+    {
+      "id": "n_18778105bf",
+      "label": "01.9.5 Combining filter and map"
+    },
+    {
+      "id": "n_883f2aca80",
+      "label": "01.9.6 Set for Uniqueness"
+    },
+    {
+      "id": "n_0e97fe666e",
+      "label": "01.9.7 Mutating Array Methods"
+    },
+    {
+      "id": "n_2d3ca82170",
+      "label": "01.9.8 Other Non-mutating Array Methods"
     },
     {
       "id": "n_f1251f77cc",
@@ -504,6 +540,26 @@
       "to": "n_b886afdd5a"
     },
     {
+      "from": "n_acabb80b6b",
+      "to": "n_26ebe575ec"
+    },
+    {
+      "from": "n_acabb80b6b",
+      "to": "n_55253c7fc3"
+    },
+    {
+      "from": "n_acabb80b6b",
+      "to": "n_dee93211c1"
+    },
+    {
+      "from": "n_acabb80b6b",
+      "to": "n_58152192e2"
+    },
+    {
+      "from": "n_acabb80b6b",
+      "to": "n_18ca14ad6d"
+    },
+    {
       "from": "n_0b51eea265",
       "to": "n_5b1cae029b"
     },
@@ -537,15 +593,31 @@
     },
     {
       "from": "n_265ba70e06",
-      "to": "n_923a30769a"
+      "to": "n_c843a066a6"
     },
     {
       "from": "n_265ba70e06",
-      "to": "n_6148117519"
+      "to": "n_918d242ce5"
     },
     {
       "from": "n_265ba70e06",
-      "to": "n_89e5c8c4b4"
+      "to": "n_0046e270ce"
+    },
+    {
+      "from": "n_265ba70e06",
+      "to": "n_18778105bf"
+    },
+    {
+      "from": "n_265ba70e06",
+      "to": "n_883f2aca80"
+    },
+    {
+      "from": "n_265ba70e06",
+      "to": "n_0e97fe666e"
+    },
+    {
+      "from": "n_265ba70e06",
+      "to": "n_2d3ca82170"
     },
     {
       "from": "n_87c0f70ade",

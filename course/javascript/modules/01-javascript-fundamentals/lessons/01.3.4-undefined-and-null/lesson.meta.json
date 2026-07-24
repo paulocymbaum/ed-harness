@@ -3,6 +3,33 @@
   "graphIndex": "01.3.4",
   "graphNodeId": "n_29a18be0f5",
   "title": "undefined and null",
+  "description": "Sometimes a value is missing. JavaScript uses undefined (nothing assigned yet) and null (intentionally empty).",
+  "lesson_dependencies": [
+    "variables",
+    "assignment"
+  ],
   "prerequisites": [],
-  "status": "draft"
+  "status": "draft",
+  "keywords": [
+    "JavaScript",
+    "undefined",
+    "null",
+    "undefined vs null",
+    "undefined and null",
+    "sometimes",
+    "missing",
+    "nothing"
+  ],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=ITt7IK1bJdU",
+      "title": "JavaScript for Developers 26 - Revisiting undefined vs null for objects",
+      "views": 62305
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=91x5gGy17Lw",
+      "title": "TypeScript: Undefined vs null - Stop using null (even in JavaScript)",
+      "views": 5609
+    }
+  ]
 }

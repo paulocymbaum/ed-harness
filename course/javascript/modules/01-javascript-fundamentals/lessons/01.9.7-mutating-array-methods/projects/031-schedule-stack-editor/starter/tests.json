@@ -1,0 +1,18 @@
+{
+  "cases": [
+    {
+      "id": "sample",
+      "name": "Mon/Thu/WedX",
+      "stdin": "Mon\nThu\nWedX\n",
+      "expectedStdout": "Mon Tue WedX Thu\n4\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "alt",
+      "name": "Sun/Fri",
+      "stdin": "Sun\nFri\nWedX\n",
+      "expectedStdout": "Sun Tue WedX Fri\n4\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

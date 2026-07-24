@@ -262,6 +262,8 @@ async function scaffoldLesson(graph, lessonNode, courseSlug, moduleId, dryRun) {
     graphIndex,
     graphNodeId: lessonNode.id,
     title: lessonTitle,
+    description: "",
+    lesson_dependencies: [],
     prerequisites: [],
     status: "draft",
   };

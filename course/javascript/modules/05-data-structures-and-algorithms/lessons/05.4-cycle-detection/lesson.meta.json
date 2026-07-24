@@ -3,6 +3,12 @@
   "graphIndex": "05.4",
   "graphNodeId": "n_840c63f382",
   "title": "Cycle Detection",
+  "description": "A linked list (or any \"next pointer\" chain) either ends cleanly or loops back on itself forever. Naively walking the chain to check for a cycle can run forever if there is one.",
+  "lesson_dependencies": [
+    "linked lists (conceptual)",
+    "two pointers",
+    "sets"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

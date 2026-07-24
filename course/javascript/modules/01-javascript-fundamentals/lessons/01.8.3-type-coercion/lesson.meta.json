@@ -1,8 +1,35 @@
 {
   "id": "01.8.3-type-coercion",
   "graphIndex": "01.8.3",
-  "graphNodeId": "n_0794e8f057",
+  "graphNodeId": "n_152d759257",
   "title": "Type Coercion (==)",
+  "description": "Loose equality (==) may coerce types before comparing. That makes some expressions true when you did not expect it.",
+  "lesson_dependencies": [
+    "strict equality",
+    "type coercion"
+  ],
   "prerequisites": [],
-  "status": "draft"
+  "status": "draft",
+  "keywords": [
+    "JavaScript",
+    "type coercion",
+    "loose equality",
+    "==",
+    "type coercion ==",
+    "type",
+    "coercion",
+    "equality"
+  ],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=GKJh3vdat8A",
+      "title": "Watch This If You Don’t Understand Type Coercion",
+      "views": 133019
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=SKiseHs7eUA",
+      "title": "JavaScript for Developers 18 - Type Coercion Summary",
+      "views": 72339
+    }
+  ]
 }

@@ -5,7 +5,6 @@ import { usePomodoroTimer } from "../../../application/hooks/usePomodoroTimer";
 import { useLocaleStore } from "../../../application/stores/localeStore";
 import { useThemeStore, applyThemeToDocument } from "../../../application/stores/themeStore";
 import { applyLocaleToDocument } from "../../../infrastructure/i18n/applyLocaleToDocument";
-import { syncLocaleToCursorConfig } from "../../../infrastructure/i18n/syncLocaleToCursorConfig";
 import { AppTopBar } from "./AppTopBar";
 import { Container } from "./Container";
 import { ToastHost } from "./ToastHost";
@@ -32,7 +31,6 @@ export function AppShell(props: {
 
   useEffect(() => {
     applyLocaleToDocument(locale);
-    void syncLocaleToCursorConfig(locale);
   }, [locale]);
 
   return (
@@ -47,13 +45,13 @@ export function AppShell(props: {
       <div
         className={
           isFoco
-            ? "flex min-h-0 flex-1 flex-col overflow-hidden py-3 sm:py-4"
+            ? "flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-y-contain py-3 sm:py-4"
             : "flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-y-contain py-6 sm:py-10"
         }
       >
         <Container
           variant={isFoco ? "foco" : "default"}
-          className={isFoco ? "flex min-h-0 flex-1 flex-col" : "flex min-h-full flex-col"}
+          className={isFoco ? "flex flex-col" : "flex min-h-full flex-col"}
         >
           <header
             className={
@@ -80,11 +78,7 @@ export function AppShell(props: {
 
           <main
             id="main-content"
-            className={
-              isFoco
-                ? "flex min-h-0 flex-1 flex-col overflow-hidden"
-                : "flex min-h-0 flex-1 flex-col"
-            }
+            className="flex flex-1 flex-col"
           >
             {props.children}
           </main>

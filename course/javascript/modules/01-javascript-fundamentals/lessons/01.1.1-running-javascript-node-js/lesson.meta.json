@@ -3,6 +3,30 @@
   "graphIndex": "01.1.1",
   "graphNodeId": "n_65933b074f",
   "title": "Running JavaScript (Node.js)",
+  "description": "HackerRank and most backend exercises run JavaScript with Node.js. You execute a file with node starter/index.js and communicate through stdin (input) and stdout (output).",
+  "lesson_dependencies": [],
   "prerequisites": [],
-  "status": "draft"
+  "status": "draft",
+  "keywords": [
+    "JavaScript",
+    "node.js tutorial",
+    "nodejs beginners",
+    "run node",
+    "node.js",
+    "running javascript node.js",
+    "index.js",
+    "running"
+  ],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=TlB_eWDSMt4",
+      "title": "Node.js Tutorial for Beginners: Learn Node in 1 Hour",
+      "views": 6584776
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=P-fDVxjSXEw",
+      "title": "What is Node.js? JavaScript Back-End Tutorial",
+      "views": 59760
+    }
+  ]
 }

@@ -3,6 +3,12 @@
   "graphIndex": "02.2.3",
   "graphNodeId": "n_e43239f06c",
   "title": "Heap Sort",
+  "description": "Heap sort turns the array into a binary heap, then repeatedly extracts the max (or min) into the sorted suffix. Guarantees O(n log n) time with O(1) auxiliary array space \u2014 useful under memory pressure when merge sort\u2019s buffer is costly.",
+  "lesson_dependencies": [
+    "binary heap",
+    "arrays",
+    "Big-O"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

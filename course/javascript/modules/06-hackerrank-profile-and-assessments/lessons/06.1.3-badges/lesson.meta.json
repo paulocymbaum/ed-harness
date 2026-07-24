@@ -3,6 +3,10 @@
   "graphIndex": "06.1.3",
   "graphNodeId": "n_7270a1fbcb",
   "title": "Badges",
+  "description": "Skill badges (different from certification badges) are earned by solving a certain number of challenges inside a practice track, such as \"Problem Solving\", \"Python\", or \"Algorithms\". Each badge has tiers (e.g.",
+  "lesson_dependencies": [
+    "HackerRank practice tracks"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

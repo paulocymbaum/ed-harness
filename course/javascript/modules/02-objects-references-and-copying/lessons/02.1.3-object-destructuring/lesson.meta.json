@@ -3,6 +3,11 @@
   "graphIndex": "02.1.3",
   "graphNodeId": "n_1c0b6b4518",
   "title": "Object Destructuring",
+  "description": "Destructuring unpacks properties into variables in one step. It keeps call sites readable when you only need a few fields from a larger object.",
+  "lesson_dependencies": [
+    "object literals",
+    "property access"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

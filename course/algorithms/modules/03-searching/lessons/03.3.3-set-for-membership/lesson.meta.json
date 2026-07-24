@@ -3,6 +3,11 @@
   "graphIndex": "03.3.3",
   "graphNodeId": "n_9e59d13bb6",
   "title": "Set for Membership",
+  "description": "A Set stores unique values and answers \"is this present?\" without paying for unused map values. Searching for membership, visited nodes, or seen characters is the classic use.",
+  "lesson_dependencies": [
+    "Set",
+    "membership tests"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

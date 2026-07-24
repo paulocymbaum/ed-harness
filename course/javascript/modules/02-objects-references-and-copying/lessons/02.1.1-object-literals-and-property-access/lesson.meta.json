@@ -3,6 +3,11 @@
   "graphIndex": "02.1.1",
   "graphNodeId": "n_73bc846ba5",
   "title": "Object Literals and Property Access",
+  "description": "An object literal is the basic way to group related data as named properties. You create the object with { ...",
+  "lesson_dependencies": [
+    "variables",
+    "strings as keys"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

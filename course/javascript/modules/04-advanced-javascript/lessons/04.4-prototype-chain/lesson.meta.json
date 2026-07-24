@@ -3,6 +3,11 @@
   "graphIndex": "04.4",
   "graphNodeId": "n_5b95ee0597",
   "title": "Prototype Chain",
+  "description": "Every JavaScript object has an internal link to another object \u2014 its prototype. When you read a property that doesn't exist directly on an object, the engine walks up this prototype chain until it finds the property or reaches null.",
+  "lesson_dependencies": [
+    "objects",
+    "property access"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

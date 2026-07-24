@@ -66,17 +66,15 @@ export function ProjetoSessaoFoco(props: {
   );
 
   const painelDireito = (
-    <div className="flex min-h-0 flex-1 flex-col overflow-hidden">
-      <ProjectDeliveryPanel
-        courseId={props.courseId}
-        courseTitle={props.courseTitle}
-        projectTitle={props.project.title}
-        projectId={props.project.id}
-        rootPath={props.project.rootPath}
-        entries={props.project.entries}
-        enabled
-      />
-    </div>
+    <ProjectDeliveryPanel
+      courseId={props.courseId}
+      courseTitle={props.courseTitle}
+      projectTitle={props.project.title}
+      projectId={props.project.id}
+      rootPath={props.project.rootPath}
+      entries={props.project.entries}
+      enabled
+    />
   );
 
   return (
@@ -85,6 +83,7 @@ export function ProjetoSessaoFoco(props: {
       onVoltar={props.onVoltar}
       chaveDivisor="edharness.foco.split.project"
       proporcaoInicial={0.4}
+      rotuloEsquerdo={t("tabs.explanation")}
       rotuloDireito={t("tabs.delivery")}
       status={
         <ProjectStatusBadge

@@ -193,7 +193,7 @@ export function ProjectDeliveryPanel(props: {
   };
 
   return (
-    <div className="flex min-h-0 flex-1 flex-col overflow-auto p-4">
+    <div className="flex flex-col gap-4">
       <div className="flex flex-col gap-4">
         <div>
           <label htmlFor="project-delivery-draft" className="mb-2 block text-body font-medium text-text0">

@@ -4,6 +4,7 @@ import {
   detectBrowserLocale,
   type AppLocale,
 } from "../../domain/types/locale";
+import { syncLocaleToCursorConfig } from "../../infrastructure/i18n/syncLocaleToCursorConfig";
 
 type LocaleState = {
   locale: AppLocale;
@@ -12,9 +13,14 @@ type LocaleState = {
 
 export const useLocaleStore = create<LocaleState>()(
   persist(
-    (set) => ({
+    (set, get) => ({
       locale: detectBrowserLocale(),
-      setLocale: (locale) => set({ locale }),
+      setLocale: (locale) => {
+        if (get().locale !== locale) set({ locale });
+        // Sync only on explicit selection (picker / ?lang=), never on mount
+        // or persist rehydration. The Vite API skips the write when unchanged.
+        void syncLocaleToCursorConfig(locale);
+      },
     }),
     { name: "ed-harness-locale" },
   ),

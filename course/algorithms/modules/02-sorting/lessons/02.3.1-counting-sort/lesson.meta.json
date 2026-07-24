@@ -3,6 +3,12 @@
   "graphIndex": "02.3.1",
   "graphNodeId": "n_23e035d371",
   "title": "Counting Sort",
+  "description": "Counting sort is a non-comparison sort for integers in a known small range. Count occurrences, then emit values in order.",
+  "lesson_dependencies": [
+    "non-comparison sorts",
+    "integer keys",
+    "counting"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

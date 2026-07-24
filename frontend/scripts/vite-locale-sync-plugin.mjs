@@ -49,6 +49,14 @@ export function localeSyncPlugin(repoRoot) {
               return;
             }
 
+            const existing = await readExistingLanguage(languagePath);
+            if (existing && normalizeLocale(existing.language ?? existing.locale) === code) {
+              // Same language — leave the file untouched (no updatedAt churn).
+              res.setHeader("Content-Type", "application/json");
+              res.end(JSON.stringify(existing));
+              return;
+            }
+
             const payload = {
               language: code,
               label: SUPPORTED[code],
@@ -79,6 +87,16 @@ function normalizeLocale(raw) {
   if (typeof raw !== "string") return null;
   const code = raw.trim().toLowerCase().split(/[-_]/)[0];
   return code in SUPPORTED ? code : null;
+}
+
+async function readExistingLanguage(languagePath) {
+  try {
+    const raw = await fs.readFile(languagePath, "utf8");
+    const data = JSON.parse(raw);
+    return data && typeof data === "object" ? data : null;
+  } catch {
+    return null;
+  }
 }
 
 function readJsonBody(req) {
