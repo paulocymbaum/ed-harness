@@ -36,7 +36,7 @@ export function RotaQuizLicao() {
   }
 
   return (
-    <div className="flex min-h-[min(70vh,calc(100dvh-10rem))] flex-1 flex-col overflow-hidden lg:min-h-[calc(100dvh-10rem)]">
+    <div className="flex flex-1 flex-col">
       <QuizSessaoFoco
         courseId={courseId}
         course={course}

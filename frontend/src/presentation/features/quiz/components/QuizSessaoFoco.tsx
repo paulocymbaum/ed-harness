@@ -47,7 +47,7 @@ export function QuizSessaoFoco(props: {
 
   if (isComplete && lastAttempt) {
     return (
-      <section className="flex min-h-0 flex-1 flex-col overflow-auto rounded-panel border border-border0 bg-surfacePanel p-4">
+      <section className="rounded-panel border border-border0 bg-surfacePanel p-4">
         <QuizResultsPanel
           attempt={lastAttempt}
           quizTitle={props.quiz.title}
@@ -85,53 +85,51 @@ export function QuizSessaoFoco(props: {
   );
 
   const painelDireito = (
-    <div className="flex min-h-0 flex-1 flex-col overflow-auto p-4">
-      <div className="mx-auto grid w-full max-w-[720px] gap-4">
-        <QuizProgressBar current={currentIndex} total={total} />
+    <div className="mx-auto grid w-full max-w-[720px] gap-4">
+      <QuizProgressBar current={currentIndex} total={total} />
 
-        <QuizQuestionView
-          question={question}
-          questionNumber={currentIndex + 1}
-          selectedOptionId={answers[question.id]}
-          isChecked={isChecked}
-          onSelect={(optionId) => selectAnswer(question.id, optionId)}
-        />
+      <QuizQuestionView
+        question={question}
+        questionNumber={currentIndex + 1}
+        selectedOptionId={answers[question.id]}
+        isChecked={isChecked}
+        onSelect={(optionId) => selectAnswer(question.id, optionId)}
+      />
 
-        <div className="flex flex-wrap items-center justify-between gap-3">
-          <Button
-            variant="secondary"
-            size="md"
-            onClick={() => goPrev()}
-            disabled={currentIndex === 0}
-          >
-            {t("quiz.previous")}
-          </Button>
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <Button
+          variant="secondary"
+          size="md"
+          onClick={() => goPrev()}
+          disabled={currentIndex === 0}
+        >
+          {t("quiz.previous")}
+        </Button>
 
-          <div className="flex flex-wrap gap-2">
-            {!isChecked ? (
-              <Button
-                variant="primary"
-                size="md"
-                disabled={!hasAnswer}
-                onClick={() => checkCurrent(question.id)}
-              >
-                {t("quiz.checkAnswer")}
-              </Button>
-            ) : isLast ? (
-              <Button
-                variant="primary"
-                size="md"
-                onClick={() => finish(props.quiz, props.courseId)}
-              >
-                <Icon icon={CheckCircle2} />
-                {t("quiz.finish")}
-              </Button>
-            ) : (
-              <Button variant="primary" size="md" onClick={() => goNext(total)}>
-                {t("quiz.next")}
-              </Button>
-            )}
-          </div>
+        <div className="flex flex-wrap gap-2">
+          {!isChecked ? (
+            <Button
+              variant="primary"
+              size="md"
+              disabled={!hasAnswer}
+              onClick={() => checkCurrent(question.id)}
+            >
+              {t("quiz.checkAnswer")}
+            </Button>
+          ) : isLast ? (
+            <Button
+              variant="primary"
+              size="md"
+              onClick={() => finish(props.quiz, props.courseId)}
+            >
+              <Icon icon={CheckCircle2} />
+              {t("quiz.finish")}
+            </Button>
+          ) : (
+            <Button variant="primary" size="md" onClick={() => goNext(total)}>
+              {t("quiz.next")}
+            </Button>
+          )}
         </div>
       </div>
     </div>
@@ -143,7 +141,7 @@ export function QuizSessaoFoco(props: {
       onVoltar={props.onVoltar}
       chaveDivisor="edharness.foco.split.quiz"
       proporcaoInicial={0.4}
-      rotuloEsquerdo={t("foco.abaLicao")}
+      rotuloEsquerdo={t("tabs.explanation")}
       rotuloDireito={t("quiz.title")}
       painelEsquerdo={painelEsquerdo}
       painelDireito={painelDireito}

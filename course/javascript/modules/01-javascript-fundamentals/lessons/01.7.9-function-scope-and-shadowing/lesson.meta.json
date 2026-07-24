@@ -9,15 +9,20 @@
   "status": "draft",
   "keywords": [
     "JavaScript",
-    "function scope",
     "variable shadowing",
-    "shadowing",
+    "block scope shadowing",
+    "function scope",
     "function scope and shadowing",
     "function",
     "scope",
-    "parameters"
+    "shadowing"
   ],
   "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=lW_erSjyMeM",
+      "title": "BLOCK SCOPE & Shadowing in JS | Namaste JavaScript Ep. 9",
+      "views": 737344
+    },
     {
       "url": "https://www.youtube.com/watch?v=IaTztAtoNEY",
       "title": "JavaScript Block scope vs Function scope",

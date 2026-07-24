@@ -3,8 +3,9 @@
  * Sync this repo into paulocymbaum/ed-harness (or EDHARNESS_REPO_URL) on develop.
  *
  * - Clones fresh into a temp directory
- * - Copies tracked (+ untracked non-ignored) files
+ * - Copies repo files from git + ALWAYS walks course/, graph/, and static catalog/graphs on disk
  * - NEVER copies learner progress: score.json, project-delivery.json, course-scores zips
+ * - Purges any score/delivery files already present on the destination (git tracked or not)
  * - NEVER copies secrets (.env / .env.*) — only .env.example if present
  * - Commits and pushes to origin/develop (creates develop from default branch if missing)
  * - Auth: GitHub CLI (`gh`) already logged in on this machine
@@ -31,6 +32,13 @@ const repoRoot = path.resolve(scriptDir, "..");
 
 const SCORE_BASENAME = "score.json";
 const DELIVERY_BASENAME = "project-delivery.json";
+
+/** Directories that must be taken from disk even if git ignore/oddities skip them. */
+const FORCE_DISK_ROOTS = [
+  "course",
+  "graph",
+  "frontend/src/infrastructure/static",
+];
 
 function parseArgs(argv) {
   const args = {
@@ -96,7 +104,6 @@ export function isLearnerProgressPath(relPosix) {
   const base = path.posix.basename(relPosix);
   if (base === SCORE_BASENAME) return true;
   if (base === DELIVERY_BASENAME) return true;
-  // Score/delivery extract archives (and the local `backup.zip` progress dump).
   if (/^course-scores-.*\.zip$/i.test(base)) return true;
   if (base === "backup.zip") return true;
   if (relPosix === ".ed-harness-runtime" || relPosix.startsWith(".ed-harness-runtime/")) {
@@ -105,7 +112,6 @@ export function isLearnerProgressPath(relPosix) {
   return false;
 }
 
-/** Machine-local launch/workspace paths that should not land on ed-harness. */
 export function isLocalOnlyPath(relPosix) {
   const base = path.posix.basename(relPosix);
   if (base === "EdHarness") return true;
@@ -121,7 +127,6 @@ export function isSecretEnvPath(relPosix) {
   return false;
 }
 
-/** Build/runtime noise that must not ship even if present on disk. */
 export function isBuildArtifactPath(relPosix) {
   const parts = relPosix.split("/");
   const blockedDirs = new Set([
@@ -177,19 +182,64 @@ function runOk(cmd, args, options = {}) {
   return { ok: result.status === 0, ...result };
 }
 
-export function listSyncFiles(root) {
+async function walkFiles(absDir, visitor) {
+  let entries;
+  try {
+    entries = await fs.readdir(absDir, { withFileTypes: true });
+  } catch (err) {
+    if (err && typeof err === "object" && err.code === "ENOENT") return;
+    throw err;
+  }
+  for (const entry of entries) {
+    const full = path.join(absDir, entry.name);
+    if (entry.isDirectory()) {
+      if (entry.name === "node_modules" || entry.name === ".git") continue;
+      await walkFiles(full, visitor);
+    } else if (entry.isFile() || entry.isSymbolicLink()) {
+      await visitor(full);
+    }
+  }
+}
+
+/** Collect every file under the force-disk roots (course, graph, static catalogs). */
+export async function listForcedDiskFiles(root) {
+  const out = [];
+  for (const relRoot of FORCE_DISK_ROOTS) {
+    const absRoot = path.join(root, relRoot);
+    await walkFiles(absRoot, async (absFile) => {
+      const rel = path.relative(root, absFile).replace(/\\/g, "/");
+      if (shouldSyncPath(rel)) out.push(rel);
+    });
+  }
+  return out;
+}
+
+export async function listSyncFiles(root) {
   const tracked = run("git", ["-C", root, "ls-files", "-z"], { cwd: root });
   const others = run(
     "git",
     ["-C", root, "ls-files", "-z", "--others", "--exclude-standard"],
     { cwd: root },
   );
-  const all = `${tracked.stdout || ""}${others.stdout || ""}`
+  const fromGit = `${tracked.stdout || ""}${others.stdout || ""}`
     .split("\0")
-    .map((p) => p.trim())
+    .map((p) => p.replace(/\\/g, "/").trim())
     .filter(Boolean);
-  const unique = [...new Set(all.map((p) => p.replace(/\\/g, "/")))];
+
+  const fromDisk = await listForcedDiskFiles(root);
+  const unique = [...new Set([...fromGit, ...fromDisk])];
   return unique.filter(shouldSyncPath).sort();
+}
+
+/** Find learner-progress files anywhere under root (for exclude logs + dest purge). */
+export async function findProgressFilesOnDisk(root) {
+  const found = [];
+  await walkFiles(root, async (absFile) => {
+    const rel = path.relative(root, absFile).replace(/\\/g, "/");
+    if (rel.startsWith(".git/")) return;
+    if (isLearnerProgressPath(rel)) found.push(rel);
+  });
+  return found.sort();
 }
 
 async function ensureDevelopBranch(workDir, branch) {
@@ -221,20 +271,25 @@ async function ensureDevelopBranch(workDir, branch) {
 
 async function mirrorFiles(sourceRoot, destRoot, files) {
   const keep = new Set(files);
+  const toDelete = new Set();
+
+  // 1) Drop tracked dest files that we are not shipping (or that are progress/secrets).
   const destTracked = runOk("git", ["-C", destRoot, "ls-files", "-z"]);
-  const toDelete = [];
   if (destTracked.ok && destTracked.stdout) {
     for (const rel of destTracked.stdout.split("\0").filter(Boolean)) {
       const posix = rel.replace(/\\/g, "/");
       if (keep.has(posix)) continue;
       if (shouldSyncPath(posix) || isLearnerProgressPath(posix) || isSecretEnvPath(posix)) {
-        toDelete.push(posix);
+        toDelete.add(posix);
       }
     }
   }
-  const uniqueDelete = [...new Set(toDelete)];
 
-  for (const rel of uniqueDelete) {
+  // 2) Purge ANY score/delivery on the dest filesystem (tracked or leftover untracked).
+  const destProgress = await findProgressFilesOnDisk(destRoot);
+  for (const rel of destProgress) toDelete.add(rel);
+
+  for (const rel of toDelete) {
     try {
       await fs.rm(path.join(destRoot, rel), { force: true });
     } catch {
@@ -242,17 +297,35 @@ async function mirrorFiles(sourceRoot, destRoot, files) {
     }
   }
 
+  let copied = 0;
+  let missing = 0;
   for (const rel of files) {
     const from = path.join(sourceRoot, rel);
     const to = path.join(destRoot, rel);
-    await fs.mkdir(path.dirname(to), { recursive: true });
-    await fs.copyFile(from, to);
+    try {
+      await fs.mkdir(path.dirname(to), { recursive: true });
+      await fs.copyFile(from, to);
+      copied += 1;
+    } catch (err) {
+      if (err && typeof err === "object" && err.code === "ENOENT") {
+        missing += 1;
+        continue;
+      }
+      throw err;
+    }
   }
 
-  return { copied: files.length, deleted: uniqueDelete.length, deletedPaths: uniqueDelete };
+  return {
+    copied,
+    missing,
+    deleted: toDelete.size,
+    deletedPaths: [...toDelete].sort(),
+    purgedProgress: destProgress,
+  };
 }
 
 async function commitAndPush(workDir, branch, message, { dryRun, skipPush, createdBranch }) {
+  // Make sure deleted progress files are staged for removal.
   run("git", ["-C", workDir, "add", "-A"]);
   const status = run("git", ["-C", workDir, "status", "--porcelain"], { cwd: workDir });
   const lines = status.stdout.trim() ? status.stdout.trim().split("\n") : [];
@@ -265,7 +338,7 @@ async function commitAndPush(workDir, branch, message, { dryRun, skipPush, creat
       committed: false,
       pushed: false,
       reason: "dry-run",
-      status: lines.slice(0, 60),
+      status: lines.slice(0, 80),
       changeCount: lines.length,
     };
   }
@@ -283,11 +356,27 @@ async function commitAndPush(workDir, branch, message, { dryRun, skipPush, creat
 }
 
 async function cloneFresh(repoUrl, workDir) {
-  // gh/git clone need the destination to not exist yet.
   await fs.rm(workDir, { recursive: true, force: true });
   const gh = runOk("gh", ["repo", "clone", repoUrl, workDir]);
   if (gh.ok) return;
   run("git", ["clone", repoUrl, workDir]);
+}
+
+async function assertSourceHasLessonsAndGraph(root, files) {
+  const hasGraphTxt = files.some((f) => f === "graph/courses/javascript.graph.txt");
+  const hasGraphJson = files.some((f) => f === "graph/courses/javascript.graph.json");
+  const lessonReadmes = files.filter(
+    (f) => f.startsWith("course/") && /\/lessons\/[^/]+\//.test(f) && f.endsWith("/README.md"),
+  );
+  if (!hasGraphTxt || !hasGraphJson) {
+    throw new Error("Refusing to sync: javascript graph files missing from source file list");
+  }
+  if (lessonReadmes.length < 1) {
+    throw new Error("Refusing to sync: no course lesson README.md files found in source list");
+  }
+  process.stdout.write(
+    `Integrity: ${lessonReadmes.length} lesson README(s), graph txt+json present\n`,
+  );
 }
 
 async function main() {
@@ -316,16 +405,24 @@ async function main() {
     process.exit(2);
   }
 
-  const files = listSyncFiles(repoRoot);
+  const files = await listSyncFiles(repoRoot);
+  const progressExcluded = files.filter((f) => isLearnerProgressPath(f));
+  if (progressExcluded.length) {
+    throw new Error(
+      `Internal error: progress paths leaked into sync list: ${progressExcluded.slice(0, 5).join(", ")}`,
+    );
+  }
+
   process.stdout.write(`Source files to sync: ${files.length}\n`);
   process.stdout.write(`Target: ${repoUrl} @ ${branch}\n`);
+  await assertSourceHasLessonsAndGraph(repoRoot, files);
 
-  const progressWouldHaveSynced = listWouldBeProgressFiles(repoRoot);
-  if (progressWouldHaveSynced.length) {
+  const progressOnDisk = await findProgressFilesOnDisk(repoRoot);
+  if (progressOnDisk.length) {
     process.stdout.write(
-      `Excluded learner progress (${progressWouldHaveSynced.length}): ` +
-        `${progressWouldHaveSynced.slice(0, 5).join(", ")}` +
-        `${progressWouldHaveSynced.length > 5 ? ", …" : ""}\n`,
+      `Excluded learner progress on source (${progressOnDisk.length}): ` +
+        `${progressOnDisk.slice(0, 5).join(", ")}` +
+        `${progressOnDisk.length > 5 ? ", …" : ""}\n`,
     );
   }
 
@@ -339,13 +436,42 @@ async function main() {
       process.stdout.write(`Created local ${branch} from origin/${branchInfo.from}\n`);
     }
 
-    // Mirror into the temp clone so dry-run can report a real git status.
     const mirror = await mirrorFiles(repoRoot, workDir, files);
-    process.stdout.write(`Copied: ${mirror.copied}, deleted stale: ${mirror.deleted}\n`);
+    process.stdout.write(
+      `Copied: ${mirror.copied}, missing sources: ${mirror.missing}, deleted stale/progress: ${mirror.deleted}\n`,
+    );
+    if (mirror.purgedProgress.length) {
+      process.stdout.write(
+        `Purged from destination (${mirror.purgedProgress.length}): ` +
+          `${mirror.purgedProgress.slice(0, 5).join(", ")}` +
+          `${mirror.purgedProgress.length > 5 ? ", …" : ""}\n`,
+      );
+    }
+
+    // Post-condition: destination must not contain progress files.
+    const stillThere = await findProgressFilesOnDisk(workDir);
+    if (stillThere.length) {
+      throw new Error(
+        `Refusing to commit: destination still has progress files: ${stillThere.slice(0, 10).join(", ")}`,
+      );
+    }
+
+    // Post-condition: key lesson/graph files must exist on destination.
+    for (const required of [
+      "graph/courses/javascript.graph.txt",
+      "graph/courses/javascript.graph.json",
+      "course/javascript/modules/01-javascript-fundamentals/lessons/01.9.3-array-prototype-filter/README.md",
+    ]) {
+      try {
+        await fs.access(path.join(workDir, required));
+      } catch {
+        throw new Error(`Refusing to commit: missing required file on destination: ${required}`);
+      }
+    }
 
     const message =
       args.message ||
-      "chore: sync from PAULOs-NOTEBOOK (exclude score + project-delivery)";
+      "chore: sync from PAULOs-NOTEBOOK (lessons+graph; purge score + project-delivery)";
 
     const result = await commitAndPush(workDir, branch, message, {
       dryRun: args.dryRun,
@@ -374,25 +500,9 @@ async function main() {
 
     process.stdout.write("Done.\n");
   } finally {
-    // Always remove the temp clone — success, dry-run, or failure.
     await fs.rm(workDir, { recursive: true, force: true });
     process.stdout.write(`Removed temp clone: ${workDir}\n`);
   }
-}
-
-/** List progress files that exist on disk (for logging exclusions). */
-function listWouldBeProgressFiles(root) {
-  const tracked = run("git", ["-C", root, "ls-files", "-z"], { cwd: root });
-  const others = run(
-    "git",
-    ["-C", root, "ls-files", "-z", "--others", "--exclude-standard"],
-    { cwd: root },
-  );
-  return `${tracked.stdout || ""}${others.stdout || ""}`
-    .split("\0")
-    .map((p) => p.replace(/\\/g, "/").trim())
-    .filter((p) => p && isLearnerProgressPath(p))
-    .sort();
 }
 
 const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);

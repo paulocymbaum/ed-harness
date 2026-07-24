@@ -12,9 +12,9 @@
   "status": "draft",
   "keywords": [
     "JavaScript",
+    "assignment operators",
     "assignment operator",
     "reassignment",
-    "const binding",
     "assignment and reassignment",
     "assignment",
     "operator",
@@ -25,6 +25,11 @@
       "url": "https://www.youtube.com/watch?v=Fk1ERg6xpAg",
       "title": "JavaScript for Beginners #4 - Logical and Assignment Operators",
       "views": 29701
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=h9t8r25oPqs",
+      "title": "#9 JavaScript Assignment Operators | JavaScript Full Tutorial",
+      "views": 8934
     }
   ]
 }

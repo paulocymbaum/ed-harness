@@ -33,6 +33,7 @@ test("shouldSyncPath drops progress, secrets, and build artifacts", () => {
   assert.equal(shouldSyncPath("frontend/node_modules/left-pad/index.js"), false);
   assert.equal(shouldSyncPath("frontend/src/App.tsx"), true);
   assert.equal(shouldSyncPath(".env.example"), true);
+  assert.equal(shouldSyncPath("graph/courses/javascript.graph.txt"), true);
   assert.equal(
     shouldSyncPath(
       "course/javascript/modules/01-javascript-fundamentals/lessons/01.9.3-array-prototype-filter/README.md",

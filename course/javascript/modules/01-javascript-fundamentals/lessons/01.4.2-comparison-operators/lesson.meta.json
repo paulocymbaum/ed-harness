@@ -14,8 +14,8 @@
   "keywords": [
     "JavaScript",
     "comparison operators",
+    "comparison operators javascript",
     "greater than",
-    "less than",
     "comparison",
     "operators",
     "validation",
@@ -25,7 +25,12 @@
     {
       "url": "https://www.youtube.com/watch?v=LjGaaWX_NbE",
       "title": "JavaScript Tutorial For Beginners #14 - Comparison Operators",
-      "views": 100611
+      "views": 100613
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=7WkfzokHGqo",
+      "title": "Comparison Operators & If Else - Beau teaches JavaScript",
+      "views": 24610
     }
   ]
 }

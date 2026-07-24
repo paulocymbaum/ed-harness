@@ -56,9 +56,9 @@ export function LessonWorkspaceRoute() {
   const videos = lesson.videos ?? [];
 
   return (
-    <section className="flex min-h-0 flex-1 flex-col overflow-hidden">
-      <main className="flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden">
-        <div className="min-h-0 flex-1 overflow-auto p-4">
+    <section className="flex flex-col">
+      <main className="min-w-0 flex-1">
+        <div className="p-4">
           {videos.length > 0 ? <LessonVideosAccordion videos={videos} /> : null}
           <ReadmePanel title={lesson.title} markdown={lesson.markdown} showTitle={false} variant="inline" />
         </div>

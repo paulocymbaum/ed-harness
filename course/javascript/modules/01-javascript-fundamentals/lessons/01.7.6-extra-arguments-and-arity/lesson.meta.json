@@ -9,24 +9,24 @@
   "status": "draft",
   "keywords": [
     "JavaScript",
-    "function arguments",
-    "arity",
     "arguments object",
+    "function length",
+    "function parameters",
     "extra arguments and arity",
     "extra",
     "arguments",
-    "ignored"
+    "arity"
   ],
   "videos": [
     {
-      "url": "https://www.youtube.com/watch?v=A6MdIG32Aho",
-      "title": "Understanding Function Arguments & Parameters in JavaScript",
-      "views": 6
+      "url": "https://www.youtube.com/watch?v=eS0SStuHj-Q",
+      "title": "The Arguments Object in Functions - JavaScript Tutorial",
+      "views": 37095
     },
     {
-      "url": "https://www.youtube.com/watch?v=Ix5_TsZTjPE",
-      "title": "How To Correctly Handle JavaScript Function Arguments? - JavaScript Toolkit",
-      "views": 6
+      "url": "https://www.youtube.com/watch?v=rDlkbhsymfo",
+      "title": "JavaScript Arguments Object Function Tutorial",
+      "views": 24130
     }
   ]
 }

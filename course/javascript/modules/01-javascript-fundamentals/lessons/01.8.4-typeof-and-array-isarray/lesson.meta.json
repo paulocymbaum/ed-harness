@@ -14,24 +14,24 @@
   "status": "draft",
   "keywords": [
     "JavaScript",
-    "typeof",
-    "array.isarray",
     "typeof operator",
+    "array.isarray",
+    "typeof array",
     "typeof and array.isarray",
+    "typeof",
     "reports",
-    "value's",
-    "string"
+    "value's"
   ],
   "videos": [
     {
-      "url": "https://www.youtube.com/watch?v=ZKBDxY9BU3c",
-      "title": "Como diferencio valores en javascript? typeof + Array.isArray",
-      "views": 671
+      "url": "https://www.youtube.com/watch?v=LrI02dTkeRo",
+      "title": "typeof Operator - JavaScript Tutorial",
+      "views": 12040
     },
     {
-      "url": "https://www.youtube.com/watch?v=Bi2NdQq0teQ",
-      "title": "#38 TYPEOF, INSTANCEOF & Array.isArray() in JavaScript Programming (Hindi) - JavaScript Tutorial",
-      "views": 61
+      "url": "https://www.youtube.com/watch?v=eQKo-_ftNbE",
+      "title": "isArray Array Method | JavaScript Tutorial",
+      "views": 11968
     }
   ]
 }

@@ -13,8 +13,8 @@
   "status": "draft",
   "keywords": [
     "JavaScript",
-    "array literal",
-    "array index",
+    "javascript arrays",
+    "array indexing",
     "array length",
     "array literals indexing and length",
     "array",
@@ -23,14 +23,14 @@
   ],
   "videos": [
     {
-      "url": "https://www.youtube.com/watch?v=UbRDX5p0kR8",
-      "title": "3 - Should Understand Array Literals - JavaScript Koans",
-      "views": 373
+      "url": "https://www.youtube.com/watch?v=yQ1fz8LY354",
+      "title": "Learn JavaScript ARRAYS in 8 minutes!",
+      "views": 144333
     },
     {
-      "url": "https://www.youtube.com/watch?v=iQMwyVGok6c",
-      "title": "Mastering JavaScript Arrays: Array Literals & Constructor Methods Explained! Pt 1",
-      "views": 57
+      "url": "https://www.youtube.com/watch?v=umGOmq3X5N8",
+      "title": "Access Array Data with Indexes - Free Code Camp",
+      "views": 3542
     }
   ]
 }

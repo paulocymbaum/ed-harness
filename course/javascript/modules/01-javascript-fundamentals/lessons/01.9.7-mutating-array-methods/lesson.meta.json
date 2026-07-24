@@ -13,24 +13,24 @@
   "status": "draft",
   "keywords": [
     "JavaScript",
-    "push pop",
-    "splice",
-    "mutating array",
-    "sort reverse",
+    "array push pop",
+    "array splice",
+    "shift unshift",
     "mutating array methods",
     "mutating",
-    "array"
+    "array",
+    "methods"
   ],
   "videos": [
     {
-      "url": "https://www.youtube.com/watch?v=o9sgjuh-CBM",
-      "title": "How to Rotate Shapes in p5.js (translate, rotate, push, pop)",
-      "views": 216893
+      "url": "https://www.youtube.com/watch?v=MeZVVxLn26E",
+      "title": "Common Array Methods - Beau teaches JavaScript",
+      "views": 67814
     },
     {
-      "url": "https://www.youtube.com/watch?v=pCqfbzj2iLY",
-      "title": "JavaScript Tip: Using slice and splice",
-      "views": 16086
+      "url": "https://www.youtube.com/watch?v=g1hlKlovok8",
+      "title": "push Array Method | JavaScript Tutorial",
+      "views": 44118
     }
   ]
 }
