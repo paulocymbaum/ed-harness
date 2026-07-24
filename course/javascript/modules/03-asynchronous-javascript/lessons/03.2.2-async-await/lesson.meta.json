@@ -1,8 +1,13 @@
 {
   "id": "03.2.2-async-await",
   "graphIndex": "03.2.2",
-  "graphNodeId": "n_7cc979d0bd",
+  "graphNodeId": "n_4f2c42793d",
   "title": "Async/Await",
+  "description": "async/await is syntax for working with Promises. An async function always returns a Promise; await pauses the function until a Promise settles, then resumes via a microtask.",
+  "lesson_dependencies": [
+    "Promises",
+    "then/catch"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

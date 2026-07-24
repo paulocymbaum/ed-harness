@@ -103,6 +103,8 @@ Location: `course/<course>/modules/<module>/lessons/<lesson-id>/lesson.meta.json
   "graphIndex": "01.8.1",
   "graphNodeId": "n_def456abc1",
   "title": "Truthy vs Falsy",
+  "description": "Truthy and falsy values control if/while and logical operators in JavaScript.",
+  "lesson_dependencies": [],
   "prerequisites": [],
   "status": "draft"
 }
@@ -114,6 +116,8 @@ Location: `course/<course>/modules/<module>/lessons/<lesson-id>/lesson.meta.json
 | `graphIndex` | yes | Leaf node index from graph |
 | `graphNodeId` | yes | Stable node id from graph JSON |
 | `title` | yes | Human-readable lesson title |
+| `description` | no | Brief one-paragraph summary of the lesson subject |
+| `lesson_dependencies` | no | Array of concept term strings this lesson assumes (not graph indexes; distinct from `prerequisites`) |
 | `prerequisites` | no | Array of graphIndex strings |
 | `status` | no | `draft` \| `published` \| `composite` |
 

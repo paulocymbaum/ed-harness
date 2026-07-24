@@ -3,6 +3,12 @@
   "graphIndex": "01.2.3",
   "graphNodeId": "n_80b1d3c263",
   "title": "Recursion vs Iteration",
+  "description": "The same process can be written as a loop or as recursive calls. Recursion often matches the problem\u2019s structure (trees, divide-and-conquer).",
+  "lesson_dependencies": [
+    "functions",
+    "call stack",
+    "loops"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

@@ -3,6 +3,12 @@
   "graphIndex": "01.2.1",
   "graphNodeId": "n_64b92b39cb",
   "title": "Arrays and Typed Arrays",
+  "description": "Most algorithm work in JavaScript starts with Array: contiguous logical indexes, O(1) random access by index, and rich methods. TypedArray (Uint8Array, Float64Array, \u2026) is for dense numeric buffers when you care about fixed element size and binary data.",
+  "lesson_dependencies": [
+    "arrays",
+    "indexing",
+    "Big-O"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

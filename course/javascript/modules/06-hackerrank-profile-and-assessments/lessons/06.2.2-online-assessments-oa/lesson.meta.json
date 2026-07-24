@@ -3,6 +3,11 @@
   "graphIndex": "06.2.2",
   "graphNodeId": "n_cbbc5d5f27",
   "title": "Online Assessments (OA)",
+  "description": "An Online Assessment (OA) is a timed, remote screening test a company sends candidates early in the hiring pipeline \u2014 often hosted on HackerRank. It usually bundles a handful of coding questions of varying weight, plus sometimes multiple-choice questions, inside a single fixed time window (e.g.",
+  "lesson_dependencies": [
+    "timed coding assessments",
+    "HackerRank"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

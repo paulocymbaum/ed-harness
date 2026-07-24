@@ -3,6 +3,12 @@
   "graphIndex": "03.2.3",
   "graphNodeId": "n_60feae7b95",
   "title": "Async Errors and try/catch",
+  "description": "Async errors propagate as Promise rejections. Sync throw / try/catch (taught in fundamentals) still matter; here the focus is catching rejections with await and normalizing Promise outcomes.",
+  "lesson_dependencies": [
+    "async/await",
+    "Promises",
+    "try/catch"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

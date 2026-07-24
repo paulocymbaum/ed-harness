@@ -1,0 +1,32 @@
+{
+  "id": "01.7.6-extra-arguments-and-arity",
+  "graphIndex": "01.7.6",
+  "graphNodeId": "n_55253c7fc3",
+  "title": "Extra Arguments and Arity",
+  "description": "Extra arguments are ignored by named parameters. Arity is the declared parameter count; missing vs extra args behave differently.",
+  "lesson_dependencies": [],
+  "prerequisites": [],
+  "status": "draft",
+  "keywords": [
+    "JavaScript",
+    "arguments object",
+    "function length",
+    "function parameters",
+    "extra arguments and arity",
+    "extra",
+    "arguments",
+    "arity"
+  ],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=eS0SStuHj-Q",
+      "title": "The Arguments Object in Functions - JavaScript Tutorial",
+      "views": 37095
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=rDlkbhsymfo",
+      "title": "JavaScript Arguments Object Function Tutorial",
+      "views": 24130
+    }
+  ]
+}

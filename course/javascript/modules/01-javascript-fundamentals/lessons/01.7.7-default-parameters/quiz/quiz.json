@@ -1,0 +1,69 @@
+{
+  "id": "quiz",
+  "title": "Default Parameters Check",
+  "description": "Defaults for omitted/undefined args; falsy values are not replaced.",
+  "lessonId": "01.7.7-default-parameters",
+  "graphIndex": "01.7.7",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What is printed?\n\n```js\nfunction greet(name, greeting = \"Hello\") {\n  return greeting + \", \" + name + \"!\";\n}\nconsole.log(greet(\"Ana\"));\nconsole.log(greet(\"Bob\", \"Hi\"));\n```",
+      "options": [
+        { "id": "a", "text": "`Hello, Ana!` then `Hi, Bob!`" },
+        { "id": "b", "text": "`undefined, Ana!` then `Hi, Bob!`" },
+        { "id": "c", "text": "`Hello, Ana!` then `Hello, Bob!`" },
+        { "id": "d", "text": "Throws on the first call" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Omitted `greeting` uses `\"Hello\"`. Passing `\"Hi\"` overrides the default."
+    },
+    {
+      "id": "q2",
+      "prompt": "What is printed?\n\n```js\nfunction volume(width, height = 1, depth = 1) {\n  return width * height * depth;\n}\nconsole.log(volume(3, undefined, 4));\n```",
+      "options": [
+        { "id": "a", "text": "`12`" },
+        { "id": "b", "text": "`NaN`" },
+        { "id": "c", "text": "`3`" },
+        { "id": "d", "text": "`0`" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Explicit `undefined` triggers the default for `height` (1). Result: `3 * 1 * 4 = 12`."
+    },
+    {
+      "id": "q3",
+      "prompt": "What is printed?\n\n```js\nfunction label(text, prefix = \"TAG\") {\n  return prefix + \":\" + text;\n}\nconsole.log(label(\"ok\", \"\"));\n```",
+      "options": [
+        { "id": "a", "text": "`:ok`" },
+        { "id": "b", "text": "`TAG:ok`" },
+        { "id": "c", "text": "`undefined:ok`" },
+        { "id": "d", "text": "Throws" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "An empty string was passed on purpose. Defaults only apply for omitted/`undefined`, not for `\"\"`."
+    },
+    {
+      "id": "q4",
+      "prompt": "What is printed?\n\n```js\nfunction clamp(value, min = 0, max = 100) {\n  if (value < min) return min;\n  if (value > max) return max;\n  return value;\n}\nconsole.log(clamp(-5));\nconsole.log(clamp(5, undefined, 10));\n```",
+      "options": [
+        { "id": "a", "text": "`0` then `5`" },
+        { "id": "b", "text": "`-5` then `5`" },
+        { "id": "c", "text": "`0` then `10`" },
+        { "id": "d", "text": "`100` then `5`" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "`clamp(-5)` uses min 0 / max 100 → 0. Second call defaults min to 0 and caps max at 10 → 5 stays."
+    },
+    {
+      "id": "q5",
+      "prompt": "When does a default parameter apply?",
+      "options": [
+        { "id": "a", "text": "When the argument is omitted or explicitly `undefined`" },
+        { "id": "b", "text": "Whenever the argument is falsy (`0`, `\"\"`, `false`)" },
+        { "id": "c", "text": "On every call, overriding any passed value" },
+        { "id": "d", "text": "Only when the argument is `null`" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Defaults trigger for missing or `undefined` args. Falsy values that were passed deliberately are kept."
+    }
+  ]
+}

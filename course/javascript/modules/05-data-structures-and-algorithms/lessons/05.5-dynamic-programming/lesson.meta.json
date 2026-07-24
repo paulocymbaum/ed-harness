@@ -3,6 +3,12 @@
   "graphIndex": "05.5",
   "graphNodeId": "n_e406820748",
   "title": "Dynamic Programming",
+  "description": "Dynamic Programming (DP) solves problems that have overlapping subproblems (the same smaller problem is solved over and over) and optimal substructure (the best answer is built from the best answers to smaller pieces). Instead of recomputing the same subproblem repeatedly \u2014 which blows up to exponential time \u2014 DP stores each subproblem's answer once and\u2026",
+  "lesson_dependencies": [
+    "recursion",
+    "Big-O",
+    "overlapping subproblems"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

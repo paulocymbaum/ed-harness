@@ -3,6 +3,34 @@
   "graphIndex": "01.7.4",
   "graphNodeId": "n_b886afdd5a",
   "title": "Throwing Errors and Sync try/catch",
+  "description": "When a function hits an invalid situation (bad input, impossible state), it can throw an error instead of returning a quiet wrong value. With synchronous try / catch / finally, the caller can recover, log a clear message, and keep the rest of the script running.",
+  "lesson_dependencies": [
+    "function declaration",
+    "parameters and return values",
+    "throw"
+  ],
   "prerequisites": [],
-  "status": "draft"
+  "status": "draft",
+  "keywords": [
+    "JavaScript",
+    "try catch",
+    "throw error",
+    "try/catch",
+    "throwing errors and sync try/catch",
+    "throwing",
+    "errors",
+    "sync"
+  ],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=_am9rKw4vWw",
+      "title": "JavaScript Try...Catch plus Throwing Errors and Exceptions",
+      "views": 18069
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=PknztTlBGUk",
+      "title": "Como usar TRY CATCH e THROW ERROR no JAVASCRIPT? AULA para INICIANTES",
+      "views": 7705
+    }
+  ]
 }

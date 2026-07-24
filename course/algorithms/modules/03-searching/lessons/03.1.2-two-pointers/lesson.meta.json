@@ -3,6 +3,11 @@
   "graphIndex": "03.1.2",
   "graphNodeId": "n_f21a5ec6e1",
   "title": "Two Pointers",
+  "description": "Two pointers place indices at useful ends (or same-direction walks) and move them by a rule. On a sorted array, opposite-end pointers often turn an O(n\u00b2) nested scan into one O(n) pass.",
+  "lesson_dependencies": [
+    "sorted arrays",
+    "two indices"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

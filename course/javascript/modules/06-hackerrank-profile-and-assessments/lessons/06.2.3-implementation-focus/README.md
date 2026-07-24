@@ -9,6 +9,18 @@
 
 Many HackerRank and OA problems are tagged **Implementation**: they don't need a clever algorithm — they need you to translate a written spec into code **exactly**, handling every rule the statement lists. Most points lost on implementation problems come from missing a rule, not from picking the wrong algorithm.
 
+## Bridge — edge cases (full lesson: `06.2.4`)
+
+Implementation specs almost always hide **edge cases** — inputs or situations at the boundary of the rules. You will practice them systematically in `06.2.4`. For this lesson, treat these as checklist items whenever the statement mentions them:
+
+- Empty input (`n = 0`, empty string, empty list)
+- Single-element collections
+- Zeros, negatives, and maximum allowed values
+- Ties, duplicates, or “already sorted” data
+- Off-by-one around inclusive/exclusive ranges
+
+If a rule is easy to forget under the “happy path,” put it on your checklist before you submit.
+
 ## Why a checklist mindset works here
 
 Because the difficulty is in *completeness*, not cleverness, treating the spec like a checklist you tick off one requirement at a time catches gaps before you submit:

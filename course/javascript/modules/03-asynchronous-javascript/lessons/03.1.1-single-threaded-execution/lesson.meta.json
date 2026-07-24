@@ -1,8 +1,13 @@
 {
   "id": "03.1.1-single-threaded-execution",
   "graphIndex": "03.1.1",
-  "graphNodeId": "n_0ebab3d993",
+  "graphNodeId": "n_adf530c28e",
   "title": "Single-Threaded Execution",
+  "description": "JavaScript runs on a single thread. Synchronous code runs to completion on the call stack before anything scheduled for later can start.",
+  "lesson_dependencies": [
+    "functions",
+    "synchronous execution"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

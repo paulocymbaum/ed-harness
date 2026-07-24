@@ -1,0 +1,69 @@
+{
+  "id": "quiz",
+  "title": "Function Scope and Shadowing Check",
+  "description": "Local bindings, shadowing outer names, and leaving outer values unchanged.",
+  "lessonId": "01.7.9-function-scope-and-shadowing",
+  "graphIndex": "01.7.9",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What is printed?\n\n```js\nlet label = \"outer\";\nfunction show(label) {\n  console.log(label);\n}\nshow(\"inner\");\nconsole.log(label);\n```",
+      "options": [
+        { "id": "a", "text": "`inner` then `outer`" },
+        { "id": "b", "text": "`inner` then `inner`" },
+        { "id": "c", "text": "`outer` then `outer`" },
+        { "id": "d", "text": "`outer` then `inner`" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "The parameter shadows outer `label` inside `show`. Outside, the outer binding is still `\"outer\"`."
+    },
+    {
+      "id": "q2",
+      "prompt": "What is printed?\n\n```js\nlet value = 10;\nfunction bump(value) {\n  value = value + 1;\n  return value;\n}\nconsole.log(bump(value));\nconsole.log(value);\n```",
+      "options": [
+        { "id": "a", "text": "`11` then `10`" },
+        { "id": "b", "text": "`11` then `11`" },
+        { "id": "c", "text": "`10` then `10`" },
+        { "id": "d", "text": "`11` then `undefined`" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Assigning to the parameter updates only the local binding. Outer `value` stays `10`."
+    },
+    {
+      "id": "q3",
+      "prompt": "What happens after this function runs?\n\n```js\nfunction addTax(price) {\n  const rate = 0.1;\n  return price * (1 + rate);\n}\naddTax(100);\nconsole.log(rate);\n```",
+      "options": [
+        { "id": "a", "text": "`ReferenceError` — `rate` is not visible outside" },
+        { "id": "b", "text": "Prints `0.1`" },
+        { "id": "c", "text": "Prints `undefined`" },
+        { "id": "d", "text": "Prints `100`" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Locals stay inside the function. Reading `rate` outside throws."
+    },
+    {
+      "id": "q4",
+      "prompt": "What is printed?\n\n```js\nlet unit = \"kg\";\nfunction format(amount) {\n  return amount + \" \" + unit;\n}\nconsole.log(format(5));\n```",
+      "options": [
+        { "id": "a", "text": "`5 kg`" },
+        { "id": "b", "text": "`5 undefined`" },
+        { "id": "c", "text": "Throws — cannot read outer `unit`" },
+        { "id": "d", "text": "`5 unit`" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "When you do not shadow, the body can read the outer `unit`."
+    },
+    {
+      "id": "q5",
+      "prompt": "What is printed?\n\n```js\nlet x = \"module\";\nfunction probe(x) {\n  const inner = x + \"!\";\n  return inner;\n}\nconsole.log(probe(\"arg\"));\nconsole.log(x);\n```",
+      "options": [
+        { "id": "a", "text": "`arg!` then `module`" },
+        { "id": "b", "text": "`arg!` then `arg`" },
+        { "id": "c", "text": "`module!` then `module`" },
+        { "id": "d", "text": "`arg!` then `arg!`" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Inside `probe`, `x` is the parameter `\"arg\"`. Outside, module-level `x` remains `\"module\"`."
+    }
+  ]
+}

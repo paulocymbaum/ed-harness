@@ -1,0 +1,36 @@
+{
+  "id": "01.9.7-mutating-array-methods",
+  "graphIndex": "01.9.7",
+  "graphNodeId": "n_0e97fe666e",
+  "title": "Mutating Array Methods",
+  "description": "push, pop, shift, unshift, splice, sort, and reverse change the same array in place. Track shared references before you mutate.",
+  "lesson_dependencies": [
+    "arrays",
+    "indexing",
+    "length"
+  ],
+  "prerequisites": [],
+  "status": "draft",
+  "keywords": [
+    "JavaScript",
+    "array push pop",
+    "array splice",
+    "shift unshift",
+    "mutating array methods",
+    "mutating",
+    "array",
+    "methods"
+  ],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=MeZVVxLn26E",
+      "title": "Common Array Methods - Beau teaches JavaScript",
+      "views": 67814
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=g1hlKlovok8",
+      "title": "push Array Method | JavaScript Tutorial",
+      "views": 44118
+    }
+  ]
+}

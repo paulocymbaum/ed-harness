@@ -3,6 +3,12 @@
   "graphIndex": "03.4.4",
   "graphNodeId": "n_1e459ae5bb",
   "title": "Backtracking Search",
+  "description": "Backtracking searches a decision tree: choose, explore, undo. It powers combinations, permutations, N-queens, and constraint mazes \u2014 classic \"search\" beyond scanning a list.",
+  "lesson_dependencies": [
+    "DFS",
+    "recursion",
+    "undo/redo state"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

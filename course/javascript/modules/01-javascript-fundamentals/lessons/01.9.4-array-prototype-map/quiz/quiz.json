@@ -1,0 +1,105 @@
+{
+  "id": "quiz",
+  "title": "map Check",
+  "description": "Transforming elements with Array.prototype.map.",
+  "lessonId": "01.9.4-array-prototype-map",
+  "graphIndex": "01.9.4",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What is `[1, 2, 3].map((n) => n * 2)`?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`[1, 2, 3]`"
+        },
+        {
+          "id": "b",
+          "text": "`[2, 4, 6]`"
+        },
+        {
+          "id": "c",
+          "text": "`6`"
+        },
+        {
+          "id": "d",
+          "text": "`[2, 3]`"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Each return value becomes the element at that index in a new array."
+    },
+    {
+      "id": "q2",
+      "prompt": "Compared to the input, a `map` result is always:",
+      "options": [
+        {
+          "id": "a",
+          "text": "shorter"
+        },
+        {
+          "id": "b",
+          "text": "the same length"
+        },
+        {
+          "id": "c",
+          "text": "longer"
+        },
+        {
+          "id": "d",
+          "text": "the same array object"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "One output per input element. Use `filter` to drop items."
+    },
+    {
+      "id": "q3",
+      "prompt": "What is `[1, 2].map((n) => { n * 2; })`?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`[2, 4]`"
+        },
+        {
+          "id": "b",
+          "text": "`[1, 2]`"
+        },
+        {
+          "id": "c",
+          "text": "`[undefined, undefined]`"
+        },
+        {
+          "id": "d",
+          "text": "throws"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "A block body needs `return`. Expression bodies return automatically."
+    },
+    {
+      "id": "q4",
+      "prompt": "What does `[1, 2, 3].map(String)` produce?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`[\"1\", \"2\", \"3\"]`"
+        },
+        {
+          "id": "b",
+          "text": "`\"123\"`"
+        },
+        {
+          "id": "c",
+          "text": "`[1, 2, 3]`"
+        },
+        {
+          "id": "d",
+          "text": "TypeError"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "`String` is a one-argument function, so `map` can call it per element."
+    }
+  ]
+}

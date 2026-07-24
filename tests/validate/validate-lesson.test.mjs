@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { cpSync, mkdirSync, rmSync } from "node:fs";
+import { cpSync, mkdirSync, rmSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { execFileSync } from "node:child_process";
@@ -49,6 +49,62 @@ test("CLI exits 1 when no lessons found", () => {
     assert.throws(() => {
       execFileSync("node", [validateScript, "--course", "nonexistent-course-xyz"], { stdio: "pipe" });
     });
+  } finally {
+    cleanupTmpDir(tmpDir);
+  }
+});
+
+test("invalid description type fails", async () => {
+  const tmpDir = makeTmpDir();
+  try {
+    const lessonPath = path.join(tmpDir, "lesson");
+    mkdirSync(lessonPath, { recursive: true });
+    writeFileSync(
+      path.join(lessonPath, "lesson.meta.json"),
+      JSON.stringify({
+        id: "01.1.1-running-code",
+        graphIndex: "01.1.1",
+        graphNodeId: "n_test0111",
+        title: "Running Code",
+        description: 42,
+      }),
+    );
+    writeFileSync(path.join(lessonPath, "README.md"), "# Running Code\n");
+    const graph = parseMindmapText(`mindmap
+  root((TestLang))
+    01 Test Fundamentals
+      01.1 Getting Started
+        01.1.1 Running Code`);
+    const findings = await validateLessonAtPath(lessonPath, graph, { skipNested: true });
+    assert.ok(findings.some((f) => f.message.includes("description must be a string")));
+  } finally {
+    cleanupTmpDir(tmpDir);
+  }
+});
+
+test("invalid lesson_dependencies shape fails", async () => {
+  const tmpDir = makeTmpDir();
+  try {
+    const lessonPath = path.join(tmpDir, "lesson");
+    mkdirSync(lessonPath, { recursive: true });
+    writeFileSync(
+      path.join(lessonPath, "lesson.meta.json"),
+      JSON.stringify({
+        id: "01.1.1-running-code",
+        graphIndex: "01.1.1",
+        graphNodeId: "n_test0111",
+        title: "Running Code",
+        lesson_dependencies: ["ok", 3],
+      }),
+    );
+    writeFileSync(path.join(lessonPath, "README.md"), "# Running Code\n");
+    const graph = parseMindmapText(`mindmap
+  root((TestLang))
+    01 Test Fundamentals
+      01.1 Getting Started
+        01.1.1 Running Code`);
+    const findings = await validateLessonAtPath(lessonPath, graph, { skipNested: true });
+    assert.ok(findings.some((f) => f.message.includes("lesson_dependencies must be an array of strings")));
   } finally {
     cleanupTmpDir(tmpDir);
   }

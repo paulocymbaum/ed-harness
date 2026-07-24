@@ -3,6 +3,33 @@
   "graphIndex": "01.1.2",
   "graphNodeId": "n_8ec2b7862a",
   "title": "console.log and Output",
+  "description": "Readable output matters in CLI tools and coding challenges. Stakeholders should see labeled, consistent lines — not mystery values.",
+  "lesson_dependencies": [
+    "Node.js",
+    "console.log"
+  ],
   "prerequisites": [],
-  "status": "draft"
+  "status": "draft",
+  "keywords": [
+    "JavaScript",
+    "console.log",
+    "console log",
+    "logging output",
+    "console.log and output",
+    "output",
+    "matters",
+    "labeled"
+  ],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=X_TVF96Kqcw",
+      "title": "How To View Javascript Output (Console.log) In Visual Studio Code",
+      "views": 341054
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=RLCpvCTiDRo",
+      "title": "JavaScript for Beginners — Console Logging",
+      "views": 30813
+    }
+  ]
 }

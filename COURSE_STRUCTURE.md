@@ -183,7 +183,7 @@ Skill de scaffolding: [`.cursor/skills/create-mock-test/SKILL.md`](.cursor/skill
 ### Lesson de estudo (`lessons/<graphIndex>-<slug>/`)
 
 - `README.md` — explicação detalhada (predict-first, pitfalls, mini-desafio)
-- `lesson.meta.json` — `{ id, graphIndex, graphNodeId, title, prerequisites, status }`
+- `lesson.meta.json` — `{ id, graphIndex, graphNodeId, title, description?, lesson_dependencies?, prerequisites, status }`
 - `projects/` (opcional) — projetos PBL escopados à lesson
 - `quiz/` (opcional) — avaliação da lesson (`quiz/quiz.json`)
 

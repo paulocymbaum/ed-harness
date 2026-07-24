@@ -145,6 +145,10 @@ export const zh: TranslationDictionary = {
   "lesson.backToModule": "返回模块",
   "lesson.projects": "项目",
   "lesson.quizzes": "测验",
+  "lesson.videos": "视频",
+  "lesson.videoViews": "{views} 次观看",
+  "lesson.videoUnavailable": "无法嵌入此视频链接。",
+  "lesson.videoOpenExternal": "在 YouTube 打开",
 
   "activity.notStarted": "未开始",
   "activity.quizBest": "最佳 {pct}%",

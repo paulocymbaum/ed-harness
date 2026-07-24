@@ -3,6 +3,32 @@
   "graphIndex": "01.4.1",
   "graphNodeId": "n_c62abf5295",
   "title": "Arithmetic Operators",
+  "description": "Arithmetic operators compute totals, averages, remainders, and powers. Challenge scripts often split bills, sum scores, or check even/odd with %.",
+  "lesson_dependencies": [
+    "numbers"
+  ],
   "prerequisites": [],
-  "status": "draft"
+  "status": "draft",
+  "keywords": [
+    "JavaScript",
+    "arithmetic operators",
+    "modulo",
+    "remainder",
+    "arithmetic",
+    "operators",
+    "compute",
+    "averages"
+  ],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=FyGIKD2fxIo",
+      "title": "JavaScript ARITHMETIC OPERATORS in 8 minutes! ➕",
+      "views": 122532
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=otYwi_wW9Hk",
+      "title": "#9 Arithmetic Operators in JavaScript",
+      "views": 111766
+    }
+  ]
 }

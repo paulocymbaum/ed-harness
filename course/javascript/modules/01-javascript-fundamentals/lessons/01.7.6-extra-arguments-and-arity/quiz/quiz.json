@@ -1,0 +1,69 @@
+{
+  "id": "quiz",
+  "title": "Extra Arguments and Arity Check",
+  "description": "Missing vs extra arguments, left-to-right binding, and declared arity.",
+  "lessonId": "01.7.6-extra-arguments-and-arity",
+  "graphIndex": "01.7.6",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What is printed?\n\n```js\nfunction pair(a, b) {\n  return a + \",\" + b;\n}\nconsole.log(pair(\"x\", \"y\"));\nconsole.log(pair(\"x\", \"y\", \"z\", \"w\"));\n```",
+      "options": [
+        { "id": "a", "text": "`x,y` then `x,y`" },
+        { "id": "b", "text": "`x,y` then `x,y,z,w`" },
+        { "id": "c", "text": "`x,y` then throws" },
+        { "id": "d", "text": "`x,y` then `z,w`" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Extra arguments beyond `a` and `b` are ignored. Both calls return `x,y`."
+    },
+    {
+      "id": "q2",
+      "prompt": "What is printed?\n\n```js\nfunction add(a, b) {\n  return a + b;\n}\nconsole.log(add(2));\nconsole.log(add(2, 3, 99));\n```",
+      "options": [
+        { "id": "a", "text": "`NaN` then `5`" },
+        { "id": "b", "text": "`2` then `104`" },
+        { "id": "c", "text": "`undefined` then `5`" },
+        { "id": "d", "text": "Throws on the first call" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Missing `b` is `undefined` → `NaN`. Extra `99` is ignored → `5`."
+    },
+    {
+      "id": "q3",
+      "prompt": "What does `clamp.length` report?\n\n```js\nfunction clamp(value, min, max) {\n  return value;\n}\n```",
+      "options": [
+        { "id": "a", "text": "`3` — the declared parameter count (arity)" },
+        { "id": "b", "text": "How many arguments were passed on the last call" },
+        { "id": "c", "text": "`undefined`" },
+        { "id": "d", "text": "`0` until the function is called" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "`fn.length` is the number of declared parameters, not how many were passed this call."
+    },
+    {
+      "id": "q4",
+      "prompt": "What is printed?\n\n```js\nfunction firstTwo(a, b) {\n  return [a, b];\n}\nconsole.log(firstTwo(1, 2, 3, 4));\nconsole.log(firstTwo(1));\n```",
+      "options": [
+        { "id": "a", "text": "`[1, 2]` then `[1, undefined]`" },
+        { "id": "b", "text": "`[1, 2, 3, 4]` then `[1]`" },
+        { "id": "c", "text": "`[1, 2]` then throws" },
+        { "id": "d", "text": "`[3, 4]` then `[1, undefined]`" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Only the first two args bind. Extras are dropped; a missing second arg is `undefined`."
+    },
+    {
+      "id": "q5",
+      "prompt": "Which statement is true?",
+      "options": [
+        { "id": "a", "text": "Extra arguments do not cause an error — named parameters ignore them" },
+        { "id": "b", "text": "Passing more arguments than parameters always throws" },
+        { "id": "c", "text": "Extra arguments overwrite earlier parameters" },
+        { "id": "d", "text": "`fn.length` equals the number of arguments at call time" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "JS binds left to right and silently ignores extras. Use rest later (`01.7.8`) if you need to keep them."
+    }
+  ]
+}

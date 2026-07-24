@@ -3,6 +3,12 @@
   "graphIndex": "02.3.2",
   "graphNodeId": "n_29297b7812",
   "title": "Shallow vs Deep Copy",
+  "description": "Shallow copy creates a new top-level container, but nested objects are still shared. This is the main reason \"I copied it but the original changed\" bugs happen.",
+  "lesson_dependencies": [
+    "reference vs value",
+    "object literals",
+    "arrays"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

@@ -146,6 +146,10 @@ export const es: TranslationDictionary = {
   "lesson.backToModule": "Volver al módulo",
   "lesson.projects": "Proyectos",
   "lesson.quizzes": "Quizzes",
+  "lesson.videos": "Vídeos",
+  "lesson.videoViews": "{views} visualizaciones",
+  "lesson.videoUnavailable": "No se pudo incrustar este enlace de vídeo.",
+  "lesson.videoOpenExternal": "Abrir en YouTube",
 
   "activity.notStarted": "Sin empezar",
   "activity.quizBest": "Mejor {pct}%",

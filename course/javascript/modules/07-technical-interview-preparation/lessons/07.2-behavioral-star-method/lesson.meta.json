@@ -3,6 +3,10 @@
   "graphIndex": "07.2",
   "graphNodeId": "n_1f96df4ba7",
   "title": "Behavioral (STAR Method)",
+  "description": "Behavioral questions (\"Tell me about a time you disagreed with a teammate\") are graded on structure, not just content. The STAR method gives you that structure: - Situation \u2014 the context: where, when, what was at stake.",
+  "lesson_dependencies": [
+    "behavioral interviews"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

@@ -3,6 +3,12 @@
   "graphIndex": "02.3.3",
   "graphNodeId": "n_f363c50044",
   "title": "Bucket Sort",
+  "description": "Bucket sort scatters elements into buckets by a hash/range of the key, sorts each bucket (often insertion), then concatenates. Expect near-linear time when keys distribute evenly across buckets.",
+  "lesson_dependencies": [
+    "bucketing",
+    "insertion sort",
+    "distribution"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

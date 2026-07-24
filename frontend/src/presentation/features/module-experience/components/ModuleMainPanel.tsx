@@ -12,7 +12,7 @@ export function ModuleMainPanel(props: {
   children: ReactNode;
 }) {
   return (
-    <main className="flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden">
+    <main className="flex min-w-0 flex-1 flex-col">
       <ModulePanelHeader
         meta={props.meta}
         indexLabel={props.indexLabel}
@@ -21,7 +21,7 @@ export function ModuleMainPanel(props: {
         icon={props.icon}
         active
       />
-      <div className="min-h-0 flex-1 overflow-auto p-3">{props.children}</div>
+      <div className="p-3">{props.children}</div>
     </main>
   );
 }

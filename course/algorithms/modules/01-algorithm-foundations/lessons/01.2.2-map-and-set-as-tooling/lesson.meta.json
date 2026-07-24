@@ -3,6 +3,13 @@
   "graphIndex": "01.2.2",
   "graphNodeId": "n_3b39e0b6cd",
   "title": "Map and Set as Tooling",
+  "description": "Many \u201cclever\u201d algorithm tricks are just: pay O(1) for membership or lookup. In JavaScript, Map and Set are the safe default tools.",
+  "lesson_dependencies": [
+    "Map",
+    "Set",
+    "hash lookup",
+    "Big-O"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

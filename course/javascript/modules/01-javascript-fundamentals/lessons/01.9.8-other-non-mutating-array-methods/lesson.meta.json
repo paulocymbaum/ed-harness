@@ -1,0 +1,36 @@
+{
+  "id": "01.9.8-other-non-mutating-array-methods",
+  "graphIndex": "01.9.8",
+  "graphNodeId": "n_2d3ca82170",
+  "title": "Other Non-mutating Array Methods",
+  "description": "slice, concat, includes, indexOf, find, findIndex, and join return information or a new array without mutating the original — complements to filter and map.",
+  "lesson_dependencies": [
+    "arrays",
+    "callbacks",
+    "mutating array methods"
+  ],
+  "prerequisites": [],
+  "status": "draft",
+  "keywords": [
+    "JavaScript",
+    "slice",
+    "concat",
+    "includes",
+    "find",
+    "indexof",
+    "other non-mutating array methods",
+    "non-mutating"
+  ],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=t1qDSAUclzI",
+      "title": "Slice and Splice in Javascript",
+      "views": 85480
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=pCqfbzj2iLY",
+      "title": "JavaScript Tip: Using slice and splice",
+      "views": 16086
+    }
+  ]
+}

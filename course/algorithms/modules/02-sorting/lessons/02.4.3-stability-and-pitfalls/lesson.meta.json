@@ -3,6 +3,12 @@
   "graphIndex": "02.4.3",
   "graphNodeId": "n_09a13219b2",
   "title": "Stability and Pitfalls",
+  "description": "A sort is stable if equal keys keep their original relative order. Stability matters when you sort by secondary keys first, then primary, or when equal items carry different payloads.",
+  "lesson_dependencies": [
+    "stable sort",
+    "Array.prototype.sort",
+    "comparators"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

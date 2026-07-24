@@ -3,6 +3,10 @@
   "graphIndex": "06.1.4",
   "graphNodeId": "n_1b1dfb5f24",
   "title": "Global Ranking",
+  "description": "HackerRank computes a global rank (and a country rank) mostly from contest performance \u2014 rated contests where solving speed and difficulty affect a rating, similar to competitive programming ladders. A profile that only does untimed practice may have no meaningful rank, while an active contest participant can have a numeric rank like #842 worldwide.",
+  "lesson_dependencies": [
+    "HackerRank contests"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

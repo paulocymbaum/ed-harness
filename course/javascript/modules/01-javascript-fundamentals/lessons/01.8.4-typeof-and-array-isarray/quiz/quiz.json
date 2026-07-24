@@ -1,0 +1,81 @@
+{
+  "id": "quiz",
+  "title": "typeof and Array.isArray Check",
+  "description": "Predict typeof tags and when Array.isArray is required.",
+  "lessonId": "01.8.4-typeof-and-array-isarray",
+  "graphIndex": "01.8.4",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What is the result of `typeof null`?",
+      "options": [
+        { "id": "a", "text": "`\"null\"`" },
+        { "id": "b", "text": "`\"object\"`" },
+        { "id": "c", "text": "`\"undefined\"`" },
+        { "id": "d", "text": "`null`" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Legacy quirk: `typeof null` is `\"object\"`. Never use `typeof` to detect null — compare with `=== null`."
+    },
+    {
+      "id": "q2",
+      "prompt": "What is the result of `typeof []`?",
+      "options": [
+        { "id": "a", "text": "`\"array\"`" },
+        { "id": "b", "text": "`\"object\"`" },
+        { "id": "c", "text": "`\"list\"`" },
+        { "id": "d", "text": "`\"undefined\"`" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Arrays are objects under `typeof`. Use `Array.isArray` to detect arrays."
+    },
+    {
+      "id": "q3",
+      "prompt": "What is the result of `Array.isArray({ length: 2 })`?",
+      "options": [
+        { "id": "a", "text": "`true`" },
+        { "id": "b", "text": "`false`" },
+        { "id": "c", "text": "`\"object\"`" },
+        { "id": "d", "text": "TypeError" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Array-like objects are not arrays. `Array.isArray` returns `true` only for real arrays."
+    },
+    {
+      "id": "q4",
+      "prompt": "Which check correctly reports an array (not a plain object)?",
+      "options": [
+        { "id": "a", "text": "`typeof value === \"array\"`" },
+        { "id": "b", "text": "`typeof value === \"object\"`" },
+        { "id": "c", "text": "`Array.isArray(value)`" },
+        { "id": "d", "text": "`value instanceof Object`" }
+      ],
+      "correctOptionId": "c",
+      "explanation": "`typeof` never returns `\"array\"`, and `\"object\"` also matches plain objects and `null`. Prefer `Array.isArray`."
+    },
+    {
+      "id": "q5",
+      "prompt": "In a safe `describe(value)` helper, what order should you check?",
+      "options": [
+        { "id": "a", "text": "`typeof` first, then `null`, then `Array.isArray`" },
+        { "id": "b", "text": "`null` first, then `Array.isArray`, then `typeof`" },
+        { "id": "c", "text": "`Array.isArray` first, then `typeof` (ignore `null`)" },
+        { "id": "d", "text": "Only `typeof` — it covers every case" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Check `null` first (because `typeof null === \"object\"`), then arrays, then fall back to `typeof`."
+    },
+    {
+      "id": "q6",
+      "prompt": "What is the result of `typeof Number`?",
+      "options": [
+        { "id": "a", "text": "`\"number\"`" },
+        { "id": "b", "text": "`\"object\"`" },
+        { "id": "c", "text": "`\"function\"`" },
+        { "id": "d", "text": "`\"undefined\"`" }
+      ],
+      "correctOptionId": "c",
+      "explanation": "`Number` is a built-in function (constructor). Functions get the special tag `\"function\"`."
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "cases": [
+    {
+      "id": "sample",
+      "name": "mixed stock",
+      "stdin": "5\nNotebook true\nPen true\nMonitor false\nUSB true\nSticker false\n",
+      "expectedStdout": "Notebook\nPen\nUSB\n",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "none",
+      "name": "none in stock",
+      "stdin": "1\nGhost false\n",
+      "expectedStdout": "",
+      "expectedExitCode": 0
+    },
+    {
+      "id": "all",
+      "name": "all in stock",
+      "stdin": "2\nA true\nB true\n",
+      "expectedStdout": "A\nB\n",
+      "expectedExitCode": 0
+    }
+  ]
+}

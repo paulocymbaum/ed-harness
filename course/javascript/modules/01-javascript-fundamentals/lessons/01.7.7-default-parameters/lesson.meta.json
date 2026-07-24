@@ -1,0 +1,32 @@
+{
+  "id": "01.7.7-default-parameters",
+  "graphIndex": "01.7.7",
+  "graphNodeId": "n_dee93211c1",
+  "title": "Default Parameters",
+  "description": "Default parameters fill in when an argument is omitted or undefined. Explicit falsy values are kept.",
+  "lesson_dependencies": [],
+  "prerequisites": [],
+  "status": "draft",
+  "keywords": [
+    "JavaScript",
+    "default parameters",
+    "default function parameters",
+    "default",
+    "parameters",
+    "argument",
+    "omitted",
+    "undefined"
+  ],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=6eOOh1b03-o",
+      "title": "ES6 and Typescript Tutorial - 12-  Default Function Parameters",
+      "views": 63717
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=VQiM9ctxj2E",
+      "title": "JavaScript ES6 Tutorial #4 - Default Parameters",
+      "views": 38028
+    }
+  ]
+}

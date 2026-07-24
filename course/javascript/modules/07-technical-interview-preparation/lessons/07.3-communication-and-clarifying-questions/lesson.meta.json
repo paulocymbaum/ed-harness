@@ -3,6 +3,10 @@
   "graphIndex": "07.3",
   "graphNodeId": "n_e6cfdfa3e5",
   "title": "Communication and Clarifying Questions",
+  "description": "Interviewers deliberately leave coding prompts underspecified \u2014 \"write a function that merges two lists\" hides questions about duplicates, order, size limits, and input types. Jumping straight to code without asking is one of the most common ways strong coders lose points.",
+  "lesson_dependencies": [
+    "coding interview communication"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

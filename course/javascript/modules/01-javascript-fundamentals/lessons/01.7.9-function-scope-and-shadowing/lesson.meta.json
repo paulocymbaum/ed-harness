@@ -1,0 +1,32 @@
+{
+  "id": "01.7.9-function-scope-and-shadowing",
+  "graphIndex": "01.7.9",
+  "graphNodeId": "n_18ca14ad6d",
+  "title": "Function Scope and Shadowing",
+  "description": "Parameters and locals stay inside the function. Same-name bindings shadow outer variables without changing them.",
+  "lesson_dependencies": [],
+  "prerequisites": [],
+  "status": "draft",
+  "keywords": [
+    "JavaScript",
+    "variable shadowing",
+    "block scope shadowing",
+    "function scope",
+    "function scope and shadowing",
+    "function",
+    "scope",
+    "shadowing"
+  ],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=lW_erSjyMeM",
+      "title": "BLOCK SCOPE & Shadowing in JS | Namaste JavaScript Ep. 9",
+      "views": 737344
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=IaTztAtoNEY",
+      "title": "JavaScript Block scope vs Function scope",
+      "views": 10521
+    }
+  ]
+}

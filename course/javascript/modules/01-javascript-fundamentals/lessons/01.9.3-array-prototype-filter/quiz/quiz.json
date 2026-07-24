@@ -1,0 +1,105 @@
+{
+  "id": "quiz",
+  "title": "filter Check",
+  "description": "Keeping elements with Array.prototype.filter.",
+  "lessonId": "01.9.3-array-prototype-filter",
+  "graphIndex": "01.9.3",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What is `[1, 2, 3].filter((n) => n > 1)`?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`[1, 2, 3]`"
+        },
+        {
+          "id": "b",
+          "text": "`[2, 3]`"
+        },
+        {
+          "id": "c",
+          "text": "`[2]`"
+        },
+        {
+          "id": "d",
+          "text": "`true`"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Only elements where the callback is truthy are kept."
+    },
+    {
+      "id": "q2",
+      "prompt": "After `const xs = [1, 2]; xs.filter((n) => n > 1);` what is `xs`?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`[2]`"
+        },
+        {
+          "id": "b",
+          "text": "`[1, 2]`"
+        },
+        {
+          "id": "c",
+          "text": "`[]`"
+        },
+        {
+          "id": "d",
+          "text": "`undefined`"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`filter` returns a new array; it does not mutate `xs`. Capture the return value."
+    },
+    {
+      "id": "q3",
+      "prompt": "What is `[0, 1, 2].filter((n) => n)`?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`[0, 1, 2]`"
+        },
+        {
+          "id": "b",
+          "text": "`[1, 2]`"
+        },
+        {
+          "id": "c",
+          "text": "`[0]`"
+        },
+        {
+          "id": "d",
+          "text": "`[]`"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`0` is falsy, so returning the element itself drops zeros. Prefer an explicit boolean."
+    },
+    {
+      "id": "q4",
+      "prompt": "If nothing passes the predicate, `filter` returns:",
+      "options": [
+        {
+          "id": "a",
+          "text": "`null`"
+        },
+        {
+          "id": "b",
+          "text": "`undefined`"
+        },
+        {
+          "id": "c",
+          "text": "`[]`"
+        },
+        {
+          "id": "d",
+          "text": "throws"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "An empty array is a normal filter result."
+    }
+  ]
+}

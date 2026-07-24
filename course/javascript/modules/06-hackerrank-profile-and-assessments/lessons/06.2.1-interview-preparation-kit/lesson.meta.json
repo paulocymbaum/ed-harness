@@ -3,6 +3,11 @@
   "graphIndex": "06.2.1",
   "graphNodeId": "n_98241f4d58",
   "title": "Interview Preparation Kit",
+  "description": "The Interview Preparation Kit (IPK) is a curated HackerRank track organized by topic \u2014 Warmup, Arrays, Strings, Sorting, Search, Dynamic Programming, and more \u2014 instead of by difficulty or by random challenge feed. The goal is to practice with focus: work through one topic's set of problems in a row so the underlying pattern sticks, rather than jumping\u2026",
+  "lesson_dependencies": [
+    "HackerRank",
+    "data structures and algorithms topics"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

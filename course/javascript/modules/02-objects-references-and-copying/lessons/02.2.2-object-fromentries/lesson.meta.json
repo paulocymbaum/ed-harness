@@ -3,6 +3,11 @@
   "graphIndex": "02.2.2",
   "graphNodeId": "n_ed6e5d1123",
   "title": "Object.fromEntries",
+  "description": "Object.fromEntries is the inverse of Object.entries: it builds an object from an iterable of [key, value] pairs. That makes \u201cmap / filter / then rebuild\u201d a clean pattern.",
+  "lesson_dependencies": [
+    "Object.entries",
+    "arrays of pairs"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

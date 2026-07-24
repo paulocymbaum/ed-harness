@@ -62,7 +62,7 @@ export function LanguageSelector() {
             role="option"
             aria-selected={locale === value}
             onClick={() => {
-              setLocale(value);
+              if (value !== locale) setLocale(value);
               setOpen(false);
             }}
           >

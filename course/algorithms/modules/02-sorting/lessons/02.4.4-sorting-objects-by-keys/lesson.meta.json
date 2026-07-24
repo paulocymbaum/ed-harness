@@ -3,6 +3,12 @@
   "graphIndex": "02.4.4",
   "graphNodeId": "n_a4e60757cf",
   "title": "Sorting Objects by Keys",
+  "description": "Real data is objects. You sort with a comparator on one or more properties (age, name, \u2026).",
+  "lesson_dependencies": [
+    "objects",
+    "comparators",
+    "Array.prototype.sort"
+  ],
   "prerequisites": [],
   "status": "draft"
 }

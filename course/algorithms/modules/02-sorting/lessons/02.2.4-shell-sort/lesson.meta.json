@@ -3,6 +3,11 @@
   "graphIndex": "02.2.4",
   "graphNodeId": "n_f2d84f0c80",
   "title": "Shell Sort",
+  "description": "Shell sort is insertion sort on elements gap apart, with the gap shrinking (e.g. n/2, n/4, \u2026, 1).",
+  "lesson_dependencies": [
+    "insertion sort",
+    "gaps"
+  ],
   "prerequisites": [],
   "status": "draft"
 }
