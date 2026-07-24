@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "courseId": "javascript",
+  "projectId": "017-missing-value-labeler",
+  "updatedAt": "2026-07-07T02:38:05.800Z",
+  "deliveries": [
+    {
+      "id": "2026-07-07T02:37:12.327Z",
+      "content": "/**\n * Optional Field Describer\n *\n * Entrypoint: node starter/index.js\n */\n\nconst readline = require(\"readline\");\n\nfunction describeField(value) {\n  if (value === undefined) return \"not provided\";\n  if (value === null) return \"explicitly empty\";\n  return \"has value: \" + String(value);\n}\n\nfunction parseLine(line) {\n  const trimmed = line.trim();\n  if (trimmed === \"undefined\") return undefined;\n  return JSON.parse(trimmed);\n}\n\nasync function main() {\n  const rl = readline.createInterface({ input: process.stdin });\n  for await (const line of rl) {\n    if (line.trim() === \"done\") break;\n    try {\n      const value = parseLine(line);\n      process.stdout.write(describeField(value) + \"\\n\");\n    } catch {\n      process.stdout.write(\"ERROR: invalid input\\n\");\n    }\n  }\n  rl.close();\n}\n\nmain();",
+      "submittedAt": "2026-07-07T02:37:12.327Z",
+      "review": {
+        "score": 100,
+        "comment": "describeField correctly labels undefined, null, and other values with strict === checks. parseLine handles the undefined sentinel and JSON values; main prints one description per line until done. All acceptance cases pass, including empty string and zero as real values.",
+        "reviewedAt": "2026-07-07T02:38:05.800Z"
+      }
+    }
+  ]
+}

@@ -106,7 +106,15 @@ Location: `course/<course>/modules/<module>/lessons/<lesson-id>/lesson.meta.json
   "description": "Truthy and falsy values control if/while and logical operators in JavaScript.",
   "lesson_dependencies": [],
   "prerequisites": [],
-  "status": "draft"
+  "status": "draft",
+  "keywords": ["JavaScript", "truthy", "falsy", "truthy falsy"],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=VIDEO_ID",
+      "title": "Truthy and Falsy Values in JavaScript",
+      "views": 1500000
+    }
+  ]
 }
 ```
 
@@ -120,6 +128,8 @@ Location: `course/<course>/modules/<module>/lessons/<lesson-id>/lesson.meta.json
 | `lesson_dependencies` | no | Array of concept term strings this lesson assumes (not graph indexes; distinct from `prerequisites`) |
 | `prerequisites` | no | Array of graphIndex strings |
 | `status` | no | `draft` \| `published` \| `composite` |
+| `keywords` | no | Search terms for YouTube videos; **first entry must be the stack/course name** (e.g. `JavaScript` from `course.meta.json` title) |
+| `videos` | no | Up to 2 YouTube resources: `{ url, title, views }[]`, ranked by keyword relevance (study lessons only) |
 
 ### Mock test section lesson
 

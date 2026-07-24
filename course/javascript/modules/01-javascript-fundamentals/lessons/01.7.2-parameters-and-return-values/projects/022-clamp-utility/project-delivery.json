@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "courseId": "javascript",
+  "projectId": "022-clamp-utility",
+  "updatedAt": "2026-07-14T23:47:47.016Z",
+  "deliveries": [
+    {
+      "id": "2026-07-14T23:37:15.488Z",
+      "content": "/**\n * Clamp Utility\n * node starter/index.js\n */\n\nconst readline = require(\"node:readline\");\n\nfunction clamp(value, min, max) {\n  // TODO: return min, max, or value with early returns\n\nif (value<min){\nreturn min;\n}\nelse if (value>max){\nreturn max;\n}\n\n  return value;\n}\n\nfunction main() {\n  const lines = [];\n  const rl = readline.createInterface({ input: process.stdin });\n\n  rl.on(\"line\", (line) => {\n    lines.push(line);\n    if (lines.length < 3) return;\n\nconst numericValue = Number(lines[0].trim())\nconst numericMin = Number(lines[1].trim())\nconst numericMax = Number(lines[2].trim())\n\nif (Number.isFinite(numericValue) && Number.isFinite(numericMin) && Number.isFinite(numericMax) && numericMax>numericMin){\n\n    // TODO: parse value/min/max, call clamp, print Result: X\n    console.log(\"Result: \" + clamp(numericValue,numericMin,numericMax));\n    rl.close();\n}\nelse{\nconsole.log(\"ERROR: invalid range\");\n}\n  });\n}\n\nmain();",
+      "submittedAt": "2026-07-14T23:37:15.488Z",
+      "review": {
+        "score": 75,
+        "comment": "clamp returns min/max/value with early returns and prints Result: correctly for the in-range and out-of-range cases, including ERROR: invalid range when min > max. Non-finite input also prints invalid range instead of ERROR: invalid number, and equal min/max is rejected. Next: if any value fails Number.isFinite, print ERROR: invalid number; only if min > max print ERROR: invalid range.",
+        "reviewedAt": "2026-07-14T23:37:47.234Z"
+      }
+    },
+    {
+      "id": "2026-07-14T23:47:28.169Z",
+      "content": "/**\n * Clamp Utility\n * node starter/index.js\n */\n\nconst readline = require(\"node:readline\");\n\nfunction clamp(value, min, max) {\n  // TODO: return min, max, or value with early returns\n\nif (value<min){\nreturn min;\n}\nelse if (value>max){\nreturn max;\n}\n\n  return value;\n}\n\nfunction main() {\n  const lines = [];\n  const rl = readline.createInterface({ input: process.stdin });\n\n  rl.on(\"line\", (line) => {\n    lines.push(line);\n    if (lines.length < 3) return;\n\nconst numericValue = Number(lines[0].trim());\nconst numericMin = Number(lines[1].trim());\nconst numericMax = Number(lines[2].trim());\n\nif (!Number.isFinite(numericValue) || !Number.isFinite(numericMin) || !Number.isFinite(numericMax)){\nconsole.log(\"ERROR: invalid number\");\n    rl.close();\n}\nelse if (numericMin>=numericMax){\nconsole.log(\"ERROR: invalid range\");\n    rl.close();\n}\nelse {\n\n    // TODO: parse value/min/max, call clamp, print Result: X\n    console.log(\"Result: \" + clamp(numericValue,numericMin,numericMax));\n    rl.close();}\n  });\n}\n\nmain();",
+      "submittedAt": "2026-07-14T23:47:28.169Z",
+      "review": {
+        "score": 100,
+        "comment": "Pass (100): clamp returns min/max/value with early returns and no I/O; main parses three lines, uses Number.isFinite for ERROR: invalid number, rejects inverted ranges, and prints Result: for the clamped value. All acceptance criteria met.",
+        "reviewedAt": "2026-07-14T23:47:47.016Z"
+      }
+    }
+  ]
+}

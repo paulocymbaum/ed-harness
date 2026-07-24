@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "courseId": "javascript",
+  "projectId": "021-sentinel-sum",
+  "updatedAt": "2026-07-14T01:39:39.070Z",
+  "deliveries": [
+    {
+      "id": "2026-07-14T01:32:43.497Z",
+      "content": "/**\n * Sentinel Sum\n * node starter/index.js\n */\n\nconst readline = require(\"node:readline\");\n\nfunction main() {\n  const rl = readline.createInterface({ input: process.stdin });\n  let sum = 0;\n  let current = null;\n  let reading = true;\n\n\n  rl.on(\"line\", (line) => {\ncurrent = Number(line.trim());\n\n\nwhile(reading){\nsum += Number(line.trim());\nreading = (current!=0);\nbreak;\n}\nif (!reading){\nconsole.log(\"Sum:\", sum);\n}\n    // TODO: while-loop style accumulation until sentinel 0\n    rl.close();\n  });\n}\n\nmain();",
+      "submittedAt": "2026-07-14T01:32:43.497Z",
+      "review": {
+        "score": 75,
+        "comment": "Correction: with piped stdin your sums do match the three tests.json cases (Sum: 30, 0, and 4). Close does not block those buffered lines. Still missing README criterion 5/abc -> ERROR: invalid number (and Number.isInteger). Next: if the line is not an integer, print that exact error and close before adding.",
+        "reviewedAt": "2026-07-14T01:35:17.256Z"
+      }
+    },
+    {
+      "id": "2026-07-14T01:38:38.412Z",
+      "content": "/**\n * Sentinel Sum\n * node starter/index.js\n */\n\nconst readline = require(\"node:readline\");\n\nfunction main() {\n  const rl = readline.createInterface({ input: process.stdin });\n  let sum = 0;\n  let current = null;\n  let reading = true;\n\n\n  rl.on(\"line\", (line) => {\ncurrent = Number(line.trim());\n\nif (!Number.isInteger(current)){\nconsole.log(\"ERROR: invalid number\") ;\nrl.close;\nreturn;\n}\n\n\nwhile(reading){\nsum += Number(line.trim());\nreading = (current!=0);\nbreak;\n}\nif (!reading){\nconsole.log(\"Sum:\", sum);\n}\n    // TODO: while-loop style accumulation until sentinel 0\n    rl.close();\n  });\n}\n\nmain();",
+      "submittedAt": "2026-07-14T01:38:38.412Z",
+      "review": {
+        "score": 100,
+        "comment": "Pass (100): Sums to sentinel match (30, 0, 4), invalid input prints ERROR: invalid number via Number.isInteger, and a while loop drives the reading flag. Solid match to acceptance criteria and lesson concepts.",
+        "reviewedAt": "2026-07-14T01:39:39.070Z"
+      }
+    }
+  ]
+}

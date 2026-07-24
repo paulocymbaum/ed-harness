@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "courseId": "javascript",
+  "projectId": "020-menu-command-router",
+  "updatedAt": "2026-07-14T00:20:03.300Z",
+  "deliveries": [
+    {
+      "id": "2026-07-14T00:19:27.188Z",
+      "content": "/**\n * Menu Command Router\n * node starter/index.js\n */\n\nconst readline = require(\"node:readline\");\n\nfunction main() {\n  const rl = readline.createInterface({ input: process.stdin });\n\n  rl.on(\"line\", (line) => {\n    // TODO: switch on cmd, print action message\n\n    cmd = line.trim();\n\n  switch(cmd){\ncase \"start\":\n    process.stdout.write(\"Starting\\n\");\n\nbreak;\ncase \"quit\":\n    process.stdout.write(\"Goodbye\\n\");\n\nbreak;\ncase \"help\":\n    process.stdout.write(\"Help available\\n\");\n\nbreak;\ndefault:\n    process.stdout.write(\"Unknown command\\n\");\n\nbreak;\n}\n    rl.close();\n  });\n}\n\nmain();",
+      "submittedAt": "2026-07-14T00:19:27.188Z",
+      "review": {
+        "score": 100,
+        "comment": "Pass (100): switch routes start, quit, and help to the exact messages; default handles unknowns and case-sensitive mismatches like Start. Each case uses break. Solid match to lesson concepts and acceptance criteria.",
+        "reviewedAt": "2026-07-14T00:20:03.300Z"
+      }
+    }
+  ]
+}

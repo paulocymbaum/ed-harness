@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "courseId": "javascript",
+  "projectId": "011-celsius-converter",
+  "updatedAt": "2026-07-14T03:52:50.653Z",
+  "deliveries": [
+    {
+      "id": "2026-07-14T03:51:09.126Z",
+      "content": "/**\n * Celsius Converter\n * node starter/index.js\n */\n\nconst readline = require(\"node:readline\");\n\nfunction toFahrenheit(celsius) {\nlet temperature = Number.parseFloat(celsius);\n  // TODO: return converted value\n  return (temperature * 9/5 + 32);\n}\n\nfunction main() {\n  const rl = readline.createInterface({ input: process.stdin });\n\n  rl.on(\"line\", (line) => {\n    // TODO: parse, call toFahrenheit, print F: X.X\n\n    if (Number.isFinite(Number.parseFloat(line))){\n      console.log(\"F:\", toFahrenheit(line).toFixed(1));\n    rl.close();\n}\nelse{\n process.stdout.write(\"ERROR: invalid temperature\");\n    rl.close();\n}\n\n  });\n}\n\nif (require.main === module) {\n  main();\n}\n\nmodule.exports = { toFahrenheit };",
+      "submittedAt": "2026-07-14T03:51:09.126Z",
+      "review": {
+        "score": 90,
+        "comment": "toFahrenheit is a correct function declaration with the README formula, export, Number.isFinite checks, and F: output at one decimal. Invalid input prints the right ERROR text but omits the trailing newline (write without \\n), so that case does not fully match acceptance. Next: print the error with console.log or add \\n to write.",
+        "reviewedAt": "2026-07-14T03:51:43.448Z"
+      }
+    },
+    {
+      "id": "2026-07-14T03:52:32.295Z",
+      "content": "/**\n * Celsius Converter\n * node starter/index.js\n */\n\nconst readline = require(\"node:readline\");\n\nfunction toFahrenheit(celsius) {\nlet temperature = Number.parseFloat(celsius);\n  // TODO: return converted value\n  return (temperature * 9/5 + 32);\n}\n\nfunction main() {\n  const rl = readline.createInterface({ input: process.stdin });\n\n  rl.on(\"line\", (line) => {\n    // TODO: parse, call toFahrenheit, print F: X.X\n\n    if (Number.isFinite(Number.parseFloat(line))){\n      console.log(\"F:\", toFahrenheit(line).toFixed(1));\n    rl.close();\n}\nelse{\n console.log(\"ERROR: invalid temperature\");\n    rl.close();\n}\n\n  });\n}\n\nif (require.main === module) {\n  main();\n}\n\nmodule.exports = { toFahrenheit };",
+      "submittedAt": "2026-07-14T03:52:32.295Z",
+      "review": {
+        "score": 100,
+        "comment": "Pass (100): toFahrenheit is a function declaration with the correct formula and export; the CLI validates with Number.isFinite, prints F: at one decimal, and logs ERROR: invalid temperature with a newline. All acceptance criteria met, including the prior error-output gap.",
+        "reviewedAt": "2026-07-14T03:52:50.653Z"
+      }
+    }
+  ]
+}

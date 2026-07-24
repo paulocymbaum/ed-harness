@@ -1,0 +1,48 @@
+{
+  "version": 2,
+  "courseId": "javascript",
+  "projectId": "016-validation-flags-reporter",
+  "updatedAt": "2026-07-06T02:35:59.329Z",
+  "deliveries": [
+    {
+      "id": "2026-07-06T02:21:53.917Z",
+      "content": "/**\n * Validation Flags Reporter\n * node starter/index.js\n */\n\nconst readline = require(\"node:readline\");\n\nfunction main() {\n  const rl = readline.createInterface({ input: process.stdin });\n\n  rl.on(\"line\", (line) => {\n    // TODO: parse score, compute passed/perfect/invalid flags, print lines\n\n// Parse score\nconst score = line.trim();\n\n//Compute\nconst passed = (Number(score)>=80)\nconst perfect = (Number(score)===100)\nconst invalid = !Number.isFinite(score) || !Number(score)<0 || !Number(score)>100\n\n    process.stdout.write(\"passed: \" + `${passed}`);\n    process.stdout.write(\"\\nperfect: \" + `${perfect}`);\n    process.stdout.write(\"\\ninvalid: \" + `${invalid}`);\n    rl.close();\n  });\n}\n\nmain();",
+      "submittedAt": "2026-07-06T02:21:53.917Z",
+      "review": {
+        "score": 42,
+        "comment": "You set up the three named flags and comparison expressions, which matches the project shape. invalid is wrong because Number.isFinite(score) runs on the string line, so it is always false and invalid stays true for valid scores like 90 and 100. passed uses >= 80 instead of >= 60, and abc should print ERROR: invalid score. Next: parse with Number(), reject non-integers with ERROR, then set invalid with score < 0 || score > 100.",
+        "reviewedAt": "2026-07-06T02:22:47.418Z"
+      }
+    },
+    {
+      "id": "2026-07-06T02:31:54.746Z",
+      "content": "/**\n * Validation Flags Reporter\n * node starter/index.js\n */\n\nconst readline = require(\"node:readline\");\n\nfunction main() {\n  const rl = readline.createInterface({ input: process.stdin });\n\n  rl.on(\"line\", (line) => {\n    // TODO: parse score, compute passed/perfect/invalid flags, print lines\n\n// Parse score\nconst score = line.trim();\n\n// validate Score format\n\nif (!Number.isInteger(Number(score)))\n{\n    process.stdout.write(\"ERROR: Invalid number\");\n    rl.close();\n    return;\n}\n\n//Compute\nconst passed = (Number(score)>=60)\nconst perfect = (Number(score)===100)\nconst invalid = Number(score)<0 || Number(score)>100\n\n\n\n    process.stdout.write(\"passed: \" + `${passed}`);\n    process.stdout.write(\"\\nperfect: \" + `${perfect}`);\n    process.stdout.write(\"\\ninvalid: \" + `${invalid}`);\n    rl.close();\n\n  });\n}\n\nmain();",
+      "submittedAt": "2026-07-06T02:31:54.746Z",
+      "review": {
+        "score": 92,
+        "comment": "You fixed parsing with Number.isInteger(Number(score)) and all three flags are correct for 90, 100, and 105. Non-integer input is rejected as required. The error text must be exactly ERROR: invalid score, not ERROR: Invalid number. Next: update that one string to match the README.",
+        "reviewedAt": "2026-07-06T02:32:35.043Z"
+      }
+    },
+    {
+      "id": "2026-07-06T02:33:19.577Z",
+      "content": "/**\n * Validation Flags Reporter\n * node starter/index.js\n */\n\nconst readline = require(\"node:readline\");\n\nfunction main() {\n  const rl = readline.createInterface({ input: process.stdin });\n\n  rl.on(\"line\", (line) => {\n    // TODO: parse score, compute passed/perfect/invalid flags, print lines\n\n// Parse score\nconst score = line.trim();\n\n// validate Score format\n\nif (!Number.isInteger(Number(score)))\n{\n    process.stdout.write(\"ERROR: Invalid score\\n\");\n    rl.close();\n    return;\n}\n\n//Compute\nconst passed = (Number(score)>=60)\nconst perfect = (Number(score)===100)\nconst invalid = Number(score)<0 || Number(score)>100\n\n\n\n    process.stdout.write(\"passed: \" + `${passed}`);\n    process.stdout.write(\"\\nperfect: \" + `${perfect}`);\n    process.stdout.write(\"\\ninvalid: \" + `${invalid}`);\n    rl.close();\n\n  });\n}\n\nmain();",
+      "submittedAt": "2026-07-06T02:33:19.577Z",
+      "review": {
+        "score": 95,
+        "comment": "All three boolean flags are correct for 90, 100, and 105, and non-integer input is rejected. Named variables and comparison expressions match the lesson and README. The error text must be exactly ERROR: invalid score with lowercase invalid, not Invalid score. Next: fix that one string's casing.",
+        "reviewedAt": "2026-07-06T02:34:11.197Z"
+      }
+    },
+    {
+      "id": "2026-07-06T02:34:53.598Z",
+      "content": "/**\n * Validation Flags Reporter\n * node starter/index.js\n */\n\nconst readline = require(\"node:readline\");\n\nfunction main() {\n  const rl = readline.createInterface({ input: process.stdin });\n\n  rl.on(\"line\", (line) => {\n    // TODO: parse score, compute passed/perfect/invalid flags, print lines\n\n// Parse score\nconst score = line.trim();\n\n// validate Score format\n\nif (!Number.isInteger(Number(score)))\n{\n    process.stdout.write(\"ERROR: invalid score\\n\");\n    rl.close();\n    return;\n}\n\n//Compute\nconst passed = (Number(score)>=60)\nconst perfect = (Number(score)===100)\nconst invalid = Number(score)<0 || Number(score)>100\n\n\n\n    process.stdout.write(\"passed: \" + `${passed}`);\n    process.stdout.write(\"\\nperfect: \" + `${perfect}`);\n    process.stdout.write(\"\\ninvalid: \" + `${invalid}`);\n    rl.close();\n\n  });\n}\n\nmain();",
+      "submittedAt": "2026-07-06T02:34:53.598Z",
+      "review": {
+        "score": 100,
+        "comment": "All acceptance criteria pass: correct flags for 90, 100, and 105, and abc prints ERROR: invalid score. Named boolean variables use comparison expressions as required. Solid match to the booleans lesson and README functional requirements.",
+        "reviewedAt": "2026-07-06T02:35:59.329Z"
+      }
+    }
+  ]
+}
