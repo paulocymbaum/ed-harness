@@ -57,6 +57,26 @@ Recommended flow for each lesson:
 
 Progress for quizzes and projects is saved in the browser. Aggregated scores are written to `course/<course>/quiz/score.json` during local development.
 
+### Screenshots
+
+<img src="../assets/ui/01-catalog.png" alt="Catalog" width="560" />
+
+<img src="../assets/ui/05-lesson.png" alt="Lesson" width="560" />
+
+<img src="../assets/ui/06-quiz.png" alt="Quiz" width="560" />
+
+<img src="../assets/ui/07-project.png" alt="Project" width="560" />
+
+<img src="../assets/ui/08-mock-test-overview.png" alt="Mock test" width="560" />
+
+**Language picker** and **Pomodoro** (top bar):
+
+<img src="../assets/ui/11-language-selector.png" alt="Language selector" width="560" />
+
+<img src="../assets/ui/13-pomodoro.png" alt="Pomodoro timer" width="560" />
+
+Full gallery and regeneration notes: [README → UI tour](../README.md#ui-tour).
+
 ### Suggested study rhythm
 
 - One lesson per short session, or half a module per long session
@@ -72,17 +92,19 @@ Primary navigation uses the `hierarchy` structure:
 
 ```text
 /                                                          → Catalog
+/?tab=content-map&course=javascript                        → Content map
 /course/javascript                                         → Course overview (Modules + Mock tests)
 /course/javascript/module/01-javascript-fundamentals       → Study module
 /course/javascript/module/.../lesson/01.8.1-truthy-vs-falsy → Lesson
-  ?drawer=quiz&quiz=<id>                                   → Quiz in side drawer
-  ?drawer=project&project=<id>                             → Project in side drawer
-  ?drawerTab=files|delivery                                → Project drawer tab
+/course/javascript/module/.../lesson/.../quiz/<quizId>     → Quiz focus session
+/course/javascript/module/.../lesson/.../project/<projectId> → Project focus session
 /course/javascript/module/01-javascript-fundamentals-mock/mock-test
                                                            → Mock test overview
 /course/javascript/module/...-mock/mock-test/section/01.2-multiple-choice
                                                            → Mock test section (quiz)
 ```
+
+Legacy `?drawer=quiz` / `?drawer=project` query URLs still redirect to the focus routes above.
 
 Mock tests live under the same course as study modules (`course/javascript/modules/*-mock/`). The catalog exposes them in a separate list on the course overview.
 

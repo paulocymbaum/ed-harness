@@ -8,6 +8,7 @@
     "catalog:generate": "npm run catalog:generate --prefix frontend",
     "backfill:project-tests": "node frontend/scripts/backfill-project-tests-json.mjs",
     "verify:project-tests": "node frontend/scripts/verify-project-tests.mjs --check-schema",
+    "ui:snapshots": "node scripts/capture-ui-snapshots.mjs",
     "lessons:incomplete": "node scripts/list-incomplete-lessons.mjs",
     "validate:lessons-in-graph": "node scripts/graph/validate-lessons-in-graph.mjs",
     "sync:ed-harness": "node scripts/sync-to-ed-harness.mjs",
