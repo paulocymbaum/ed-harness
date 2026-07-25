@@ -22,7 +22,7 @@ export function CatalogTabBar(props: {
 
   return (
     <div
-      className="flex shrink-0 flex-col gap-3 lg:flex-row lg:items-center lg:justify-between"
+      className="flex min-w-0 shrink-0 flex-wrap items-center gap-3"
       data-tour="catalog-tabs"
     >
       <Tabs
@@ -32,9 +32,7 @@ export function CatalogTabBar(props: {
         listClassName="max-w-full"
       />
       {props.trailing ? (
-        <div className="flex min-w-0 flex-wrap items-center gap-3 lg:justify-end">
-          {props.trailing}
-        </div>
+        <div className="flex min-w-0 flex-wrap items-center gap-3">{props.trailing}</div>
       ) : null}
     </div>
   );

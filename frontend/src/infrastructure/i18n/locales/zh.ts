@@ -6,6 +6,7 @@ export const zh: TranslationDictionary = {
 
   "nav.catalog": "目录",
   "nav.skipToContent": "跳转到内容",
+  "nav.moreOptions": "更多选项",
   "nav.breadcrumb": "面包屑导航",
 
   "locale.label": "语言",
@@ -72,7 +73,7 @@ export const zh: TranslationDictionary = {
   "catalog.overallProgress": "目录总体进度",
   "catalog.tabCourses": "课程",
   "catalog.tabContentMap": "内容地图",
-  "catalog.continueHint": "从上次停下的地方继续 — 打开一门课程或恢复待完成的项目。",
+  "catalog.continueHint": "继续课程或待完成的项目。",
   "catalog.coursesHeading": "你的课程",
   "catalog.yourPace": "你的节奏",
   "catalog.legacyLabel": "经典格式",
@@ -235,7 +236,8 @@ export const zh: TranslationDictionary = {
   "delivery.runSampleInsufficientInput":
     "无输出 — 本项目可能需要在 starter/sample.input 中提供多行输入（每次 stdin 读取一行）。",
   "delivery.runSampleExitCode": "退出码：{code}",
-  "delivery.runSampleDevServerRequired": "运行示例需要开发服务器（npm run dev）。",
+  "delivery.runSampleDevServerRequired":
+    "无法运行答案。静态部署会在有 starter 与测试用例时使用浏览器运行器；否则请用 npm run dev 启动。",
   "delivery.testMatrixCase": "用例",
   "delivery.testMatrixStatus": "状态",
   "delivery.testMatrixExit": "退出码",

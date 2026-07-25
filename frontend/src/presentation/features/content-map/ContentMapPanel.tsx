@@ -132,7 +132,7 @@ export function ContentMapPanel() {
   }
 
   return (
-    <section className="flex h-full min-h-[20rem] flex-col gap-3">
+    <section className="flex h-full min-h-0 flex-col gap-3 overflow-hidden">
       <ContentMapToolbar
         selectedCourseId={selectedCourseId}
         selectableCourses={selectableCourses.map((c) => ({
@@ -149,7 +149,7 @@ export function ContentMapPanel() {
         onCollapseAll={collapseAll}
       />
 
-      <div className="min-h-0 flex-1">
+      <div className="min-h-0 flex-1 overflow-hidden">
         <MindMapCanvas
           root={enrichedRoot}
           courseSlug={graph.courseSlug}

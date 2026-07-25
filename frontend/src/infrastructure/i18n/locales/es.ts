@@ -6,6 +6,7 @@ export const es: TranslationDictionary = {
 
   "nav.catalog": "Catálogo",
   "nav.skipToContent": "Ir al contenido",
+  "nav.moreOptions": "Más opciones",
   "nav.breadcrumb": "Ruta de navegación",
 
   "locale.label": "Idioma",
@@ -73,7 +74,7 @@ export const es: TranslationDictionary = {
   "catalog.overallProgress": "Progreso general del catálogo",
   "catalog.tabCourses": "Cursos",
   "catalog.tabContentMap": "Mapa de contenido",
-  "catalog.continueHint": "Continúa donde lo dejaste — abre un curso o retoma un proyecto pendiente.",
+  "catalog.continueHint": "Retoma un curso o proyecto pendiente.",
   "catalog.coursesHeading": "Tus cursos",
   "catalog.yourPace": "Tu ritmo",
   "catalog.legacyLabel": "Formato clásico",
@@ -236,7 +237,8 @@ export const es: TranslationDictionary = {
   "delivery.runSampleInsufficientInput":
     "Sin salida — este proyecto puede necesitar varias líneas en starter/sample.input (una por lectura de stdin).",
   "delivery.runSampleExitCode": "Código de salida: {code}",
-  "delivery.runSampleDevServerRequired": "Ejecutar muestra requiere el servidor de desarrollo (npm run dev).",
+  "delivery.runSampleDevServerRequired":
+    "No se pudo ejecutar la respuesta. En un deploy estático se usa el runner del navegador cuando hay starter y tests; si no, inicia con npm run dev.",
   "delivery.testMatrixCase": "Caso",
   "delivery.testMatrixStatus": "Estado",
   "delivery.testMatrixExit": "Salida",

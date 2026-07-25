@@ -1,13 +1,13 @@
 import { Outlet } from "react-router-dom";
 import { ModuleContentsDrawer } from "./components/ModuleContentsDrawer";
 
-/** Module shell: side drawer + main column. Page (AppShell) scrolls; content grows with height. */
+/** Module shell: full-width main column; contents drawer overlays from the left. */
 export function ModuleShellLayout() {
   return (
-    <section className="flex flex-col gap-3 lg:flex-row lg:items-start lg:gap-0">
+    <section className="relative">
       <ModuleContentsDrawer />
 
-      <div className="min-w-0 flex-1 border-border0 bg-surfacePanel lg:border lg:border-l-0 lg:rounded-r-panel">
+      <div className="min-w-0 overflow-hidden rounded-panel border border-border0 bg-surfacePanel bg-clip-padding backdrop-blur-[var(--blur-2)]">
         <Outlet />
       </div>
     </section>

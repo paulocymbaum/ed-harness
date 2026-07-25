@@ -14,6 +14,7 @@ export function AppShell(props: {
   subtitle?: ReactNode;
   breadcrumb?: ReactNode;
   right?: ReactNode;
+  topBarCenter?: ReactNode;
   children: ReactNode;
   /** Compact full-bleed shell for lesson quiz/project focus pages. */
   variant?: "default" | "foco";
@@ -36,7 +37,7 @@ export function AppShell(props: {
 
   return (
     <div className="flex h-dvh flex-col overflow-hidden text-text0" data-theme={theme}>
-      <AppTopBar showPomodoro={props.showPomodoro} />
+      <AppTopBar showPomodoro={props.showPomodoro} center={props.topBarCenter} />
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-14 focus:z-50 focus:rounded-panel focus:bg-surfaceControl focus:px-3 focus:py-2"
@@ -58,7 +59,7 @@ export function AppShell(props: {
             className={
               isFoco
                 ? "mb-3 flex shrink-0 flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"
-                : "mb-5 flex shrink-0 flex-col gap-3 sm:mb-6 sm:flex-row sm:items-end sm:justify-between"
+                : "mb-4 flex shrink-0 flex-col gap-3 sm:mb-5 sm:flex-row sm:items-center sm:justify-between"
             }
           >
             <div className="min-w-0">

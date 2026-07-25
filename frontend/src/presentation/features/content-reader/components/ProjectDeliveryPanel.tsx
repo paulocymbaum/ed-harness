@@ -10,7 +10,8 @@ import {
 import { canRunProjectDraft } from "../../../../application/usecases/extractStarterIndexFromDraft";
 import { useProjectRun } from "../../../../application/hooks/useProjectRun";
 import { getProjectTestCases, hasProjectTestCases } from "../../../../application/usecases/projectTestCases";
-import { Button, Dialog, EmptyState, ErrorPanel, LoadingState, Textarea } from "../../../design-system";
+import { Button, Dialog, EmptyState, ErrorPanel, LoadingState } from "../../../design-system";
+import { DeliveryDraftEditor } from "./DeliveryDraftEditor";
 import { DeliveryPromptToolbar } from "./DeliveryPromptToolbar";
 import { DeliveryHistoryList } from "./DeliveryHistoryList";
 import { ProjectRunAnswerPanel } from "./ProjectRunAnswerPanel";
@@ -69,6 +70,10 @@ export function ProjectDeliveryPanel(props: {
   const canImportStarter = hasProjectStarter(entries);
   const showRunAnswer = hasProjectStarter(entries);
   const projectTestCases = getProjectTestCases(entries);
+  const starterEntry = entries.find(
+    (entry) => entry.kind === "file" && entry.path === "starter/index.js",
+  );
+  const starterCode = starterEntry?.content ?? null;
   const canRunAnswer =
     hasProjectTestCases(entries) && canRunProjectDraft(draft, hasProjectStarter(entries));
   const { running, matrix, error: runError, run } = useProjectRun({
@@ -76,6 +81,8 @@ export function ProjectDeliveryPanel(props: {
     rootPath,
     draft,
     enabled: enabled && canRunAnswer,
+    testCases: projectTestCases,
+    starterCode,
   });
 
   const promptContext = {
@@ -112,12 +119,11 @@ export function ProjectDeliveryPanel(props: {
           <div className="mb-3">
             <DeliveryPromptToolbar {...promptContext} />
           </div>
-          <Textarea
+          <DeliveryDraftEditor
             id="project-delivery-draft"
             rows={12}
-            className="min-h-[14rem]"
             value={draft}
-            onChange={(event) => setDraft(event.target.value)}
+            onChange={setDraft}
             placeholder={t("delivery.placeholder")}
           />
           {showRunAnswer ? (

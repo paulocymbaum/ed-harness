@@ -16,7 +16,7 @@ export function ModulePanelHeader(props: {
   trailing?: ReactNode;
 }) {
   const row = (
-    <div className="mt-1 flex min-w-0 items-center gap-2">
+    <div className="flex min-w-0 items-center gap-2">
       <span className={INDEX_COL}>{props.indexLabel}</span>
       {props.icon ? (
         <span
@@ -57,7 +57,7 @@ export function ModulePanelHeader(props: {
           type="button"
           onClick={props.onClick}
           className={clsx(
-            "mt-1 w-full rounded-panel text-left transition",
+            "mt-1 w-full rounded-panel px-2.5 py-2 text-left transition",
             "hover:bg-surfaceControl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent0/60",
             props.active && "bg-surfaceAccent",
           )}

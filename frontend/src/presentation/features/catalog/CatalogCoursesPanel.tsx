@@ -5,7 +5,6 @@ import { useTranslation } from "../../../application/hooks/useTranslation";
 import type { PendingProjectRow } from "../../../application/selectors/learnerDashboard";
 import { CourseCard } from "./components/CourseCard";
 import { CatalogEmptyState } from "./components/CatalogEmptyState";
-import { LearnerDashboard } from "./dashboard/LearnerDashboard";
 import { PendingProjectsList } from "./dashboard/PendingProjectsList";
 
 export function CatalogCoursesPanel(props: {
@@ -31,7 +30,7 @@ export function CatalogCoursesPanel(props: {
 
   return (
     <>
-      <p className="m-0 mb-3 text-body text-text1">{t("catalog.continueHint")}</p>
+      <p className="m-0 mb-2 text-body text-text1">{t("catalog.continueHint")}</p>
 
       <div className="mb-3">
         <PendingProjectsList
@@ -55,15 +54,6 @@ export function CatalogCoursesPanel(props: {
             onOpen={() => props.onOpenCourse(course.id)}
           />
         ))}
-      </div>
-
-      <div className="mt-6">
-        <h2 className="mb-3 m-0 text-body font-semibold text-text0">{t("catalog.yourPace")}</h2>
-        <LearnerDashboard
-          streak={dashboard.streak}
-          weeks={dashboard.weeks}
-          averagePointsPerWeek={dashboard.averagePointsPerWeek}
-        />
       </div>
     </>
   );

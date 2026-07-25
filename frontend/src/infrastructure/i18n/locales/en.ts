@@ -4,6 +4,7 @@ export const en = {
   "nav.catalog": "Catalog",
   "nav.skipToContent": "Skip to content",
   "nav.breadcrumb": "Breadcrumb",
+  "nav.moreOptions": "More options",
 
   "locale.label": "Language",
   "locale.en": "English",
@@ -69,7 +70,7 @@ export const en = {
   "catalog.overallProgress": "Overall catalog progress",
   "catalog.tabCourses": "Courses",
   "catalog.tabContentMap": "Content Map",
-  "catalog.continueHint": "Pick up where you left off — open a course or resume a pending project.",
+  "catalog.continueHint": "Resume a course or pending project.",
   "catalog.coursesHeading": "Your courses",
   "catalog.yourPace": "Your pace",
   "catalog.legacyLabel": "Classic format",
@@ -232,7 +233,8 @@ export const en = {
   "delivery.runSampleInsufficientInput":
     "No output — this project may need multiple lines in starter/sample.input (one per stdin read).",
   "delivery.runSampleExitCode": "Exit code: {code}",
-  "delivery.runSampleDevServerRequired": "Run sample requires the dev server (npm run dev).",
+  "delivery.runSampleDevServerRequired":
+    "Could not run the answer. On a static deploy the browser runner will be used when starter code and tests are available; otherwise start the app with npm run dev.",
   "delivery.testMatrixCase": "Case",
   "delivery.testMatrixStatus": "Status",
   "delivery.testMatrixExit": "Exit",
