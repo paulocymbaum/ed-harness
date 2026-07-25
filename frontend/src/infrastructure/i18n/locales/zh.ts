@@ -46,6 +46,17 @@ export const zh: TranslationDictionary = {
   "common.somethingWrong": "出了点问题。",
   "common.cancel": "取消",
 
+  "markdown.empty": "暂无内容。",
+  "markdown.copy": "复制",
+  "markdown.copied": "已复制",
+  "markdown.copyFailed": "无法复制 — 请手动选择文本。",
+  "markdown.callout.tip": "提示",
+  "markdown.callout.note": "说明",
+  "markdown.callout.important": "重要",
+  "markdown.callout.warning": "警告",
+  "markdown.callout.caution": "注意",
+  "markdown.graphIndex": "图谱索引",
+
   "catalog.title": "课程",
   "catalog.loading": "正在加载目录…",
   "catalog.error": "加载目录失败。",

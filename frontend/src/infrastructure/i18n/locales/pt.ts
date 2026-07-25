@@ -46,6 +46,17 @@ export const pt: TranslationDictionary = {
   "common.somethingWrong": "Algo deu errado.",
   "common.cancel": "Cancelar",
 
+  "markdown.empty": "Sem conteúdo.",
+  "markdown.copy": "Copiar",
+  "markdown.copied": "Copiado",
+  "markdown.copyFailed": "Não foi possível copiar — selecione o texto manualmente.",
+  "markdown.callout.tip": "Dica",
+  "markdown.callout.note": "Nota",
+  "markdown.callout.important": "Importante",
+  "markdown.callout.warning": "Atenção",
+  "markdown.callout.caution": "Cuidado",
+  "markdown.graphIndex": "Índice no grafo",
+
   "catalog.title": "Cursos",
   "catalog.loading": "Carregando catálogo…",
   "catalog.error": "Falha ao carregar o catálogo.",

@@ -25,6 +25,8 @@ export default {
         dangerFill: "var(--surface-danger)",
         dangerText: "var(--text-on-danger)",
         dangerIcon: "var(--icon-danger)",
+        iconDefault: "var(--icon-default)",
+        iconMuted: "var(--icon-muted)",
         surfaceMuted: "var(--surface-muted)",
         glassTint: "var(--glass-tint)",
         glassFill: "var(--glass-fill)",

@@ -128,8 +128,29 @@ design-system/
 
 Rules:
 - Design system components are **stateless** (props only).
-- Use **Lucide** icons via `Icon` wrapper.
+- Use **Lucide** icons via `Icon` wrapper (`currentColor`).
+- Prefer `text-iconDefault` / `text-iconMuted` for chrome icons (maps to `--icon-default` / `--icon-muted`).
+- Keep `--text-2` strong enough for meta labels and muted icons on glass (light `#4b5563`, dark ~70% white).
 - **Radix UI** for Dialog and Tabs (accessibility).
+
+---
+
+## Markdown surfaces
+
+Pipeline: `ReadmePanel` → `MarkdownView` → `prepararMarkdownParaExibicao` → `criarComponentesMarkdown`.
+
+| Surface | Behavior |
+|---------|----------|
+| **Codeblock** | Header with language + Copy; `surface-control` panel + `shadow-glass1` |
+| **Inline code** | Chip with `text-accent1` |
+| **Callouts** | GitHub alerts `> [!TIP\|NOTE\|IMPORTANT\|WARNING\|CAUTION]` → `MarkdownCallout` |
+| **Quote** | Quiet left border (`MarkdownCitacao`) — not a tip |
+| **Graph index** | `> Graph index: \`07.1\`` extracted as meta strip above the body |
+| **Headings / lists / tables** | Stronger hierarchy; GFM task lists read-only |
+
+Authoring: use `> [!TIP]` for tips; keep Graph index lines as meta (do not turn them into callouts).
+
+Code: `presentation/shared/markdown/`.
 
 ---
 

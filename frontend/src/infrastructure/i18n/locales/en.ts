@@ -43,6 +43,17 @@ export const en = {
   "common.somethingWrong": "Something went wrong.",
   "common.cancel": "Cancel",
 
+  "markdown.empty": "No content.",
+  "markdown.copy": "Copy",
+  "markdown.copied": "Copied",
+  "markdown.copyFailed": "Could not copy — select text manually.",
+  "markdown.callout.tip": "Tip",
+  "markdown.callout.note": "Note",
+  "markdown.callout.important": "Important",
+  "markdown.callout.warning": "Warning",
+  "markdown.callout.caution": "Caution",
+  "markdown.graphIndex": "Graph index",
+
   "catalog.title": "Courses",
   "catalog.loading": "Loading catalog…",
   "catalog.error": "Failed to load catalog.",

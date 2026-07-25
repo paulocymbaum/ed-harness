@@ -24,7 +24,7 @@ const OPTION_STYLES: Record<OptionVisualState, string> = {
   selected: "border-accent0/50 bg-surfaceControl text-text0 shadow-glass1",
   correct: "border-successBorder bg-successFill text-text0 ring-1 ring-successBorder/30",
   incorrect: "border-dangerBorder bg-dangerFill text-text0 ring-1 ring-dangerBorder/30",
-  muted: "border-border0 bg-surfaceMuted text-text1 opacity-75",
+  muted: "border-border0 bg-surfaceMuted text-text1",
 };
 
 export function QuizQuestionView(props: {
