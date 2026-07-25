@@ -16,7 +16,7 @@ export function ModulePanelHeader(props: {
   trailing?: ReactNode;
 }) {
   const row = (
-    <div className="mt-1 flex min-w-0 items-center gap-2">
+    <div className="flex min-w-0 items-center gap-2">
       <span className={INDEX_COL}>{props.indexLabel}</span>
       {props.icon ? (
         <span
@@ -31,9 +31,13 @@ export function ModulePanelHeader(props: {
         </span>
       ) : null}
       <span className="min-w-0 flex-1">
-        <span className="block truncate text-body font-semibold text-text0">{props.title}</span>
+        <span className="block text-body font-semibold leading-snug text-text0 [overflow-wrap:anywhere]">
+          {props.title}
+        </span>
         {props.subtitle ? (
-          <span className="block truncate text-meta text-text1">{props.subtitle}</span>
+          <span className="mt-0.5 block text-meta leading-snug text-text1 [overflow-wrap:anywhere]">
+            {props.subtitle}
+          </span>
         ) : null}
       </span>
       {props.trailing}
@@ -53,7 +57,7 @@ export function ModulePanelHeader(props: {
           type="button"
           onClick={props.onClick}
           className={clsx(
-            "mt-1 w-full rounded-panel text-left transition",
+            "mt-1 w-full rounded-panel px-2.5 py-2 text-left transition",
             "hover:bg-surfaceControl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent0/60",
             props.active && "bg-surfaceAccent",
           )}

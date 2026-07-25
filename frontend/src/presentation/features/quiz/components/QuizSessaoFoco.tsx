@@ -1,16 +1,15 @@
 import { useLayoutEffect } from "react";
-import { CheckCircle2 } from "lucide-react";
 import type { Course } from "../../../../domain/types/catalog";
 import type { Quiz } from "../../../../domain/types/quiz";
 import { useCoursePoints } from "../../../../application/hooks/useCoursePoints";
 import { useTranslation } from "../../../../application/hooks/useTranslation";
 import { useQuizSessionStore } from "../../../../application/stores/quizSessionStore";
-import { Button, Icon } from "../../../design-system";
 import { ReadmePanel } from "../../../shared/ReadmePanel";
 import { LayoutFocoAtividade } from "../../lesson-workspace/components/LayoutFocoAtividade";
 import { QuizProgressBar } from "./QuizProgressBar";
 import { QuizQuestionView } from "./QuizQuestionView";
 import { QuizResultsPanel } from "./QuizResultsPanel";
+import { QuizSessionControls } from "./QuizSessionControls";
 
 export function QuizSessaoFoco(props: {
   courseId: string;
@@ -61,6 +60,7 @@ export function QuizSessaoFoco(props: {
             )
           }
           onBackToList={props.onVoltar}
+          backLabelKey="foco.voltarLicao"
         />
       </section>
     );
@@ -96,42 +96,16 @@ export function QuizSessaoFoco(props: {
         onSelect={(optionId) => selectAnswer(question.id, optionId)}
       />
 
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <Button
-          variant="secondary"
-          size="md"
-          onClick={() => goPrev()}
-          disabled={currentIndex === 0}
-        >
-          {t("quiz.previous")}
-        </Button>
-
-        <div className="flex flex-wrap gap-2">
-          {!isChecked ? (
-            <Button
-              variant="primary"
-              size="md"
-              disabled={!hasAnswer}
-              onClick={() => checkCurrent(question.id)}
-            >
-              {t("quiz.checkAnswer")}
-            </Button>
-          ) : isLast ? (
-            <Button
-              variant="primary"
-              size="md"
-              onClick={() => finish(props.quiz, props.courseId)}
-            >
-              <Icon icon={CheckCircle2} />
-              {t("quiz.finish")}
-            </Button>
-          ) : (
-            <Button variant="primary" size="md" onClick={() => goNext(total)}>
-              {t("quiz.next")}
-            </Button>
-          )}
-        </div>
-      </div>
+      <QuizSessionControls
+        currentIndex={currentIndex}
+        isChecked={isChecked}
+        hasAnswer={hasAnswer}
+        isLast={isLast}
+        onPrev={() => goPrev()}
+        onCheck={() => checkCurrent(question.id)}
+        onNext={() => goNext(total)}
+        onFinish={() => finish(props.quiz, props.courseId)}
+      />
     </div>
   );
 

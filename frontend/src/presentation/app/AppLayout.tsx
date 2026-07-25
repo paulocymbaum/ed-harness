@@ -1,195 +1,117 @@
-import { Outlet, useParams, useSearchParams, useLocation } from "react-router-dom";
-import { useMemo } from "react";
-import { ContentReaderDialog } from "../features/course-legacy/ContentReaderDialog";
-import { CourseScoreBadge } from "../features/course-experience/components/CourseScoreSummary";
-import { AppShell } from "../features/shell/AppShell";
-import { Breadcrumb } from "../shared/Breadcrumb";
+import { BookOpenText } from "lucide-react";
+import { useEffect } from "react";
+import { Outlet, useLocation, useSearchParams } from "react-router-dom";
 import { useCatalog } from "../../application/hooks/useCatalog";
-import { useCourseTabLabels } from "../../application/hooks/useLocalizedLabels";
-import { useTranslation } from "../../application/hooks/useTranslation";
+import { useCatalogPoints } from "../../application/hooks/useCatalogPoints";
+import { useLearnerDashboard } from "../../application/hooks/useLearnerDashboard";
+import { loadAllCourseScores } from "../../application/usecases/loadAllCourseScores";
+import { ContentReaderDialog } from "../features/course-legacy/ContentReaderDialog";
 import {
-  getCourseById,
-  getLessonById,
-  getModuleOrMockTestById,
-  getProjectById,
-  isHierarchyCourse,
-} from "../../application/selectors/catalogSelectors";
-import { getQuizById } from "../../application/selectors/quizSelectors";
-import { useAppNavigation } from "../../application/hooks/useAppNavigation";
-import type { CourseTab } from "../../domain/types/navigation";
+  CatalogScoreSummary,
+  CourseScoreBadge,
+} from "../features/course-experience/components/CourseScoreSummary";
+import { CatalogTabBar, parseCatalogTab } from "../features/catalog/CatalogTabBar";
+import { LearnerDashboard } from "../features/catalog/dashboard/LearnerDashboard";
+import { AppShell } from "../features/shell/AppShell";
+import { Icon } from "../design-system";
+import { Breadcrumb } from "../shared/Breadcrumb";
+import { usePageChrome } from "./usePageChrome";
 
 export function AppLayout() {
-  const { courses } = useCatalog();
-  const { t } = useTranslation();
-  const tabLabels = useCourseTabLabels();
-  const params = useParams();
-  const [searchParams] = useSearchParams();
+  const {
+    course,
+    isCourseRoute,
+    isMockTestRoute,
+    isFocoAtividade,
+    pageTitle,
+    breadcrumbSegments,
+  } = usePageChrome();
   const location = useLocation();
-  const { goCatalog, goCourse, goModule, goLesson, goMockTest, parseCourseTab } =
-    useAppNavigation();
+  const isCatalogHome = location.pathname === "/";
+  const { courses, status, load } = useCatalog();
+  const catalogPoints = useCatalogPoints(courses);
+  const learnerDashboard = useLearnerDashboard(courses);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const catalogTab = parseCatalogTab(searchParams.get("tab"));
 
-  const courseId = params.courseId;
-  const moduleId = params.moduleId;
-  const lessonId = params.lessonId;
-  const sectionId = params.sectionId;
-  const quizIdParam = params.quizId;
-  const projectIdParam = params.projectId;
-  const isCourseRoute = location.pathname.startsWith("/course/");
-  const isMockTestRoute = location.pathname.includes("/mock-test");
-  const isFocoAtividade = Boolean(quizIdParam || projectIdParam);
+  useEffect(() => {
+    void load();
+  }, [load]);
 
-  const course = useMemo(
-    () => (courseId ? getCourseById(courses, courseId) : null),
-    [courses, courseId],
+  useEffect(() => {
+    if (status !== "ready" || courses.length === 0) return;
+    void loadAllCourseScores(courses);
+  }, [status, courses]);
+
+  const setCatalogTab = (nextTab: "courses" | "content-map") => {
+    if (nextTab === "courses") {
+      setSearchParams({});
+      return;
+    }
+    setSearchParams({ tab: nextTab });
+  };
+
+  const catalogReady = status === "ready";
+
+  const paceDetail = (
+    <LearnerDashboard
+      streak={learnerDashboard.streak}
+      weeks={learnerDashboard.weeks}
+      averagePointsPerWeek={learnerDashboard.averagePointsPerWeek}
+      variant="compact"
+    />
   );
 
-  const mod = useMemo(
-    () => (course && moduleId ? getModuleOrMockTestById(course, moduleId) : null),
-    [course, moduleId],
-  );
-
-  const lesson = useMemo(
-    () => (course && moduleId && lessonId ? getLessonById(course, moduleId, lessonId) : null),
-    [course, moduleId, lessonId],
-  );
-
-  const activeQuizId = quizIdParam ?? searchParams.get("quiz");
-  const activeProjectId = projectIdParam ?? searchParams.get("project");
-
-  const quiz = useMemo(() => {
-    if (!course || !activeQuizId) return null;
-    if (quizIdParam && lessonId && moduleId) {
-      return getQuizById(course, activeQuizId, { moduleId, lessonId });
+  const topBarScore = (() => {
+    if (isCourseRoute && course) {
+      return (
+        <CourseScoreBadge
+          courseId={course.id}
+          course={course}
+          variant="header"
+          detail={paceDetail}
+        />
+      );
     }
-    if (moduleId && !lessonId) {
-      return getQuizById(course, activeQuizId, { moduleId });
+    if (isCatalogHome && catalogReady) {
+      return (
+        <CatalogScoreSummary
+          totalPoints={catalogPoints.totalPoints}
+          totalMax={catalogPoints.totalMax}
+          quizPoints={catalogPoints.quizPoints}
+          quizMax={catalogPoints.quizMax}
+          projectPoints={catalogPoints.projectPoints}
+          projectMax={catalogPoints.projectMax}
+          detail={paceDetail}
+        />
+      );
     }
-    if (lessonId && moduleId) {
-      return getQuizById(course, activeQuizId, { moduleId, lessonId });
-    }
-    return getQuizById(course, activeQuizId);
-  }, [course, activeQuizId, quizIdParam, lessonId, moduleId]);
-
-  const project = useMemo(() => {
-    if (!course || !moduleId || !activeProjectId) return null;
-    return getProjectById(course, moduleId, activeProjectId);
-  }, [course, moduleId, activeProjectId]);
-
-  const tab = courseId ? parseCourseTab(searchParams.get("tab")) : null;
-
-  const breadcrumbSegments = useMemo(() => {
-    if (!isCourseRoute || !course) return [{ label: t("nav.catalog") }];
-
-    const segments: { label: string; onClick?: () => void }[] = [
-      { label: t("nav.catalog"), onClick: goCatalog },
-      { label: course.title, onClick: () => goCourse(course.id) },
-    ];
-
-    if (mod) {
-      const onMockTest = isMockTestRoute;
-      segments.push({
-        label: mod.title,
-        onClick: onMockTest
-          ? () => goMockTest(course.id, mod.id)
-          : () => goModule(course.id, mod.id),
-      });
-    }
-
-    if (isMockTestRoute && sectionId && mod) {
-      const mockLesson = "lessons" in mod ? mod.lessons.find((l) => l.id === sectionId) : null;
-      if (mockLesson) {
-        segments.push({ label: mockLesson.title });
-      }
-    }
-
-    if (lesson && moduleId) {
-      segments.push({
-        label: lesson.title,
-        onClick: () => goLesson(course.id, moduleId, lesson.id),
-      });
-    }
-
-    if (quiz) {
-      segments.push({ label: quiz.title });
-    } else if (project) {
-      segments.push({ label: project.title });
-    } else if (moduleId && activeQuizId && !lessonId) {
-      const moduleQuiz = getQuizById(course, activeQuizId, { moduleId });
-      if (moduleQuiz) segments.push({ label: moduleQuiz.title });
-    }
-
-    if (!isHierarchyCourse(course) && tab && tab !== "readme") {
-      segments.push({ label: tabLabels[tab as CourseTab] });
-    }
-
-    return segments;
-  }, [
-    isCourseRoute,
-    course,
-    mod,
-    lesson,
-    quiz,
-    project,
-    moduleId,
-    lessonId,
-    activeQuizId,
-    tab,
-    tabLabels,
-    t,
-    goCatalog,
-    goCourse,
-    goModule,
-    goLesson,
-    goMockTest,
-    isMockTestRoute,
-    sectionId,
-  ]);
-
-  const pageTitle = useMemo(() => {
-    if (!isCourseRoute || !course) return t("catalog.title");
-
-    if (isMockTestRoute && sectionId && mod && "lessons" in mod) {
-      const mockLesson = mod.lessons.find((l) => l.id === sectionId);
-      if (mockLesson) return mockLesson.title;
-    }
-
-    if (quiz) return quiz.title;
-    if (project) return project.title;
-    if (moduleId && activeQuizId && !lessonId) {
-      const moduleQuiz = getQuizById(course, activeQuizId, { moduleId });
-      if (moduleQuiz) return moduleQuiz.title;
-    }
-    if (lesson) return lesson.title;
-    if (mod) return mod.title;
-    if (!isHierarchyCourse(course) && tab && tab !== "readme") {
-      return tabLabels[tab as CourseTab];
-    }
-    return course.title;
-  }, [
-    isCourseRoute,
-    course,
-    isMockTestRoute,
-    sectionId,
-    mod,
-    quiz,
-    project,
-    moduleId,
-    activeQuizId,
-    lessonId,
-    lesson,
-    tab,
-    tabLabels,
-    t,
-  ]);
+    return null;
+  })();
 
   return (
     <AppShell
       variant={isFocoAtividade ? "foco" : "default"}
       title={pageTitle}
-      breadcrumb={<Breadcrumb segments={breadcrumbSegments} />}
+      breadcrumb={
+        isCatalogHome ? null : <Breadcrumb segments={breadcrumbSegments} />
+      }
+      showPomodoro={!isMockTestRoute}
+      topBarCenter={topBarScore}
       right={
-        isCourseRoute && course ? (
-          <CourseScoreBadge courseId={course.id} course={course} />
+        isCatalogHome ? (
+          <CatalogTabBar
+            value={catalogTab}
+            onValueChange={setCatalogTab}
+            trailing={
+              catalogReady ? (
+                <div className="flex items-center gap-2 text-meta text-text1">
+                  <Icon icon={BookOpenText} />
+                  <span>{courses.length}</span>
+                </div>
+              ) : null
+            }
+          />
         ) : null
       }
     >

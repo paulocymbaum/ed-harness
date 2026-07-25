@@ -29,6 +29,28 @@ export function MockTestOverviewRoute() {
         <div className="grid gap-4 p-4">
           <MockTestHeader courseId={courseId} mockTest={mockTest} />
 
+          {(() => {
+            const first = getFirstMockTestSection(mockTest);
+            if (!first) return null;
+            const { durationMinutes, passingScorePercent } = mockTest.mockTest;
+            return (
+              <div className="sticky top-0 z-10 flex flex-wrap items-center gap-3 rounded-panel border border-border0 bg-glassFillStrong p-3 backdrop-blur-[var(--blur-2)]">
+                <Button
+                  variant="primary"
+                  onClick={() => goMockTestSection(courseId, moduleId, first.lessonId)}
+                >
+                  {t("mockTest.start")}
+                </Button>
+                <p className="m-0 text-meta text-text1">
+                  {t("mockTest.startMeta", {
+                    minutes: durationMinutes,
+                    percent: passingScorePercent,
+                  })}
+                </p>
+              </div>
+            );
+          })()}
+
           {hasDisplayableReadme(mockTest.readmeMarkdown, mockTest.title) ? (
             <ReadmePanel
               markdown={mockTest.readmeMarkdown}
@@ -36,21 +58,6 @@ export function MockTestOverviewRoute() {
               variant="card"
             />
           ) : null}
-
-          {(() => {
-            const first = getFirstMockTestSection(mockTest);
-            if (!first) return null;
-            return (
-              <div>
-                <Button
-                  variant="primary"
-                  onClick={() => goMockTestSection(courseId, moduleId, first.lessonId)}
-                >
-                  {t("mockTest.start")}
-                </Button>
-              </div>
-            );
-          })()}
         </div>
       ) : (
         <ErrorPanel title={t("mockTest.notFound")} />

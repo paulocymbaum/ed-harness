@@ -16,6 +16,8 @@
   --text-on-danger: var(--danger-text);
   --icon-success: var(--success-icon);
   --icon-danger: var(--danger-icon);
+  --icon-default: var(--text-1);
+  --icon-muted: var(--text-2);
 
   --surface-accent: var(--accent-fill);
 }

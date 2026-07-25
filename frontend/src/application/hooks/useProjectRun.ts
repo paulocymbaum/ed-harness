@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import type { ProjectRunErrorCode, ProjectTestMatrixResult } from "../../domain/types/projectRun";
+import type { ProjectTestCase } from "../usecases/projectTestCases";
 import { runProjectStarter } from "../usecases/runProjectStarter";
 
 function projectRunKey(courseId: string, rootPath: string): string {
@@ -11,8 +12,10 @@ export function useProjectRun(input: {
   rootPath: string;
   draft: string;
   enabled: boolean;
+  testCases?: ProjectTestCase[] | null;
+  starterCode?: string | null;
 }) {
-  const { courseId, rootPath, draft, enabled } = input;
+  const { courseId, rootPath, draft, enabled, testCases, starterCode } = input;
   const activeProjectKey = projectRunKey(courseId, rootPath);
   const [running, setRunning] = useState(false);
   const [matrix, setMatrix] = useState<ProjectTestMatrixResult | null>(null);
@@ -31,7 +34,13 @@ export function useProjectRun(input: {
     setRunning(true);
     setError(null);
     try {
-      const outcome = await runProjectStarter({ courseId, rootPath, draft });
+      const outcome = await runProjectStarter({
+        courseId,
+        rootPath,
+        draft,
+        testCases,
+        starterCode,
+      });
       if (!outcome) {
         setError("dev_server");
         setMatrix(null);
@@ -50,7 +59,7 @@ export function useProjectRun(input: {
     } finally {
       setRunning(false);
     }
-  }, [courseId, rootPath, draft, enabled, activeProjectKey]);
+  }, [courseId, rootPath, draft, enabled, activeProjectKey, testCases, starterCode]);
 
   const matrixForProject =
     matrix && matrixProjectKey === activeProjectKey ? matrix : null;

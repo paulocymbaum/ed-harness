@@ -31,11 +31,16 @@ Map each pair to the guarantee it gives up when a partition happens:
 
 The payments example above is **CP**: it explicitly accepts failed/timed-out requests (giving up **availability**) to guarantee every visible balance is correct.
 
+> [!TIP]
+> Say the **sacrificed** guarantee out loud first ("I'm giving up availability"). Interviewers hear trade-off fluency faster than a memorized CP/AP label.
+
 The interview move that matters is not memorizing the table — it's **naming the trade-off out loud**: "I'm choosing CP here because a stale balance is a business risk we can't accept; a slow response is more tolerable."
 
 ## What to observe
 
-- CAP is about behavior **during a network partition**, not normal operation — most of the time C and A both hold.
+> [!NOTE]
+> CAP is about behavior **during a network partition**, not normal operation — most of the time C and A both hold.
+
 - "CA" is a red flag in an interview answer unless you explicitly justify why partitions are impossible (e.g., single machine, no replicas).
 - Naming the **sacrificed** guarantee is more useful to an interviewer than naming the two you keep — it shows you understand the cost.
 - Scalability questions ("what if traffic 10x's?") often hide a CAP question underneath ("what if the cache/replica falls behind?").

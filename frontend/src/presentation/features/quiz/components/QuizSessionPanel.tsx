@@ -1,6 +1,8 @@
 import { useLayoutEffect } from "react";
-import { ArrowLeft, CheckCircle2 } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import type { Quiz } from "../../../../domain/types/quiz";
+import type { Course } from "../../../../domain/types/catalog";
+import type { TranslationKey } from "../../../../infrastructure/i18n/locales/en";
 import { useCoursePoints } from "../../../../application/hooks/useCoursePoints";
 import { useTranslation } from "../../../../application/hooks/useTranslation";
 import { useQuizSessionStore } from "../../../../application/stores/quizSessionStore";
@@ -8,7 +10,7 @@ import { Button, Icon } from "../../../design-system";
 import { QuizProgressBar } from "./QuizProgressBar";
 import { QuizQuestionView } from "./QuizQuestionView";
 import { QuizResultsPanel } from "./QuizResultsPanel";
-import type { Course } from "../../../../domain/types/catalog";
+import { QuizSessionControls } from "./QuizSessionControls";
 
 export function QuizSessionPanel(props: {
   courseId: string;
@@ -16,8 +18,10 @@ export function QuizSessionPanel(props: {
   quiz: Quiz;
   onBackToList: () => void;
   compact?: boolean;
+  backLabelKey?: TranslationKey;
 }) {
   const { t } = useTranslation();
+  const backLabelKey = props.backLabelKey ?? "quiz.backToQuizzes";
   const currentIndex = useQuizSessionStore((s) => s.currentIndex);
   const answers = useQuizSessionStore((s) => s.answers);
   const checkedQuestions = useQuizSessionStore((s) => s.checkedQuestions);
@@ -63,6 +67,7 @@ export function QuizSessionPanel(props: {
           )
         }
         onBackToList={props.onBackToList}
+        backLabelKey={backLabelKey}
       />
     );
   }
@@ -75,7 +80,7 @@ export function QuizSessionPanel(props: {
         <div className="flex flex-wrap items-center justify-between gap-3">
           <Button variant="ghost" size="md" onClick={props.onBackToList}>
             <Icon icon={ArrowLeft} />
-            {t("quiz.backToQuizzes")}
+            {t(backLabelKey)}
           </Button>
           <div className="text-meta text-text1">{props.quiz.title}</div>
         </div>
@@ -93,37 +98,16 @@ export function QuizSessionPanel(props: {
         onSelect={(optionId) => selectAnswer(question.id, optionId)}
       />
 
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <Button variant="secondary" size="md" onClick={() => goPrev()} disabled={currentIndex === 0}>
-          {t("quiz.previous")}
-        </Button>
-
-        <div className="flex flex-wrap gap-2">
-          {!isChecked ? (
-            <Button
-              variant="primary"
-              size="md"
-              disabled={!hasAnswer}
-              onClick={() => checkCurrent(question.id)}
-            >
-              {t("quiz.checkAnswer")}
-            </Button>
-          ) : isLast ? (
-            <Button
-              variant="primary"
-              size="md"
-              onClick={() => finish(props.quiz, props.courseId)}
-            >
-              <Icon icon={CheckCircle2} />
-              {t("quiz.finish")}
-            </Button>
-          ) : (
-            <Button variant="primary" size="md" onClick={() => goNext(total)}>
-              {t("quiz.next")}
-            </Button>
-          )}
-        </div>
-      </div>
+      <QuizSessionControls
+        currentIndex={currentIndex}
+        isChecked={isChecked}
+        hasAnswer={hasAnswer}
+        isLast={isLast}
+        onPrev={() => goPrev()}
+        onCheck={() => checkCurrent(question.id)}
+        onNext={() => goNext(total)}
+        onFinish={() => finish(props.quiz, props.courseId)}
+      />
     </section>
   );
 }

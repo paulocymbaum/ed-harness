@@ -57,7 +57,7 @@ export function ProjectFileExplorer(props: { entries: ReaderEntry[] }) {
         >
           {breadcrumb.map((segment, index) => (
             <span key={segment.path || "root"} className="flex min-w-0 items-center gap-1">
-              {index > 0 ? <Icon icon={ChevronRight} size={14} className="shrink-0 text-text2" /> : null}
+              {index > 0 ? <Icon icon={ChevronRight} size={14} className="shrink-0 text-iconMuted" /> : null}
               <button
                 type="button"
                 className={clsx(
@@ -107,7 +107,7 @@ export function ProjectFileExplorer(props: { entries: ReaderEntry[] }) {
                         <Icon
                           icon={isDir ? Folder : File}
                           size={15}
-                          className={isDir ? "text-accent0" : "text-text2"}
+                          className={isDir ? "text-accent0" : "text-iconDefault"}
                         />
                         <span className="min-w-0 truncate">{name}</span>
                       </button>
