@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "courseId": "javascript",
+  "projectId": "024-type-tag-classifier",
+  "updatedAt": "2026-07-14T23:58:34.500Z",
+  "deliveries": [
+    {
+      "id": "2026-07-14T23:58:10.345Z",
+      "content": "/**\n * Type Tag Classifier\n *\n * Entrypoint: node starter/index.js < starter/sample.input\n * Implement the behavior described in ../README.md\n */\n\nconst readline = require(\"readline\");\n\nfunction describe(value) {\n  // TODO: null → \"null\"; Array.isArray → \"array\"; else typeof\nif (Array.isArray(value)) {\nreturn \"array\";\n}  \nelse if (value !== null) {\ntype = typeof(value);\nreturn type\n}\nelse {\nreturn \"null\"\n}\n}\n\nasync function main() {\n  const rl = readline.createInterface({ input: process.stdin });\n  for await (const line of rl) {\n    const value = JSON.parse(line);\n    process.stdout.write(describe(value) + \"\\n\");\n    rl.close();\n    return;\n  }\n  rl.close();\n}\n\nmain();",
+      "submittedAt": "2026-07-14T23:58:10.345Z",
+      "review": {
+        "score": 100,
+        "comment": "Pass (100): describe distinguishes null, arrays via Array.isArray, and typeof for other values, so null/[]/{}/primitives and array-like objects all match the acceptance tags. Reads one JSON line and prints a single tag with a newline. All acceptance criteria met.",
+        "reviewedAt": "2026-07-14T23:58:34.500Z"
+      }
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "version": 2,
+  "courseId": "javascript",
+  "projectId": "007-user-badge-formatter",
+  "updatedAt": "2026-07-16T01:47:35.411Z",
+  "deliveries": [
+    {
+      "id": "2026-07-06T00:57:03.373Z",
+      "content": "/**\n * User Badge Formatter\n *\n * Entrypoint: node starter/index.js\n * Implement the behavior described in ../README.md\n */\n\nfunction formatUserBadge(user) {\n  // TODO: normalize strings and return badge template literal\n\nlet rawHandle = user.handle;\nlet rawName = user.displayName;\nlet levelBadge = `[L$user.level]`;\n\n// Normalize Name spaces\nlet normalizedName = rawName.trim();\nnormalizedName = normalizedName.split(/\\s+/).join(\" \");\n\n//Normalize Handle Format\nlet normalizedHandle = rawHandle.trim();\n\nif (String.split(normalizedHandle)[0]!==\"@')\n\n{\nnormalizedHandle = normalizedName.split(/^ABC/).join(\"@\");\n}\n\nformattedOutput = `$levelBadge` + `$normalizedName` + `$normalizedHandle`\n\n  return formattedOutput;\n}\n\nfunction main() {\n  try {\n    const badge = formatUserBadge({\n      displayName: \"  Ana   Silva \",\n      handle: \"@AnaS\",\n      level: 3,\n    });\n    console.log(badge);\n  } catch (err) {\n    console.error(err.message);\n    process.exitCode = 1;\n  }\n}\n\nif (require.main === module) {\n  main();\n}\n\nmodule.exports = { formatUserBadge };",
+      "submittedAt": "2026-07-06T00:57:03.373Z",
+      "review": {
+        "score": 30,
+        "comment": "You show the right idea for displayName: trim then collapse spaces with split/join. The badge string uses $var instead of ${var} so values never interpolate, handle logic throws on String.split, and level or empty-name checks are absent. Next: return [L${level}] name (@handle) via template literals, normalize handle to lowercase without @, and throw the README errors.",
+        "reviewedAt": "2026-07-06T00:57:59.571Z"
+      }
+    },
+    {
+      "id": "2026-07-06T01:17:22.414Z",
+      "content": "/**\n * User Badge Formatter\n *\n * Entrypoint: node starter/index.js\n * Implement the behavior described in ../README.md\n */\n\nfunction formatUserBadge(user) {\n  // TODO: normalize strings and return badge template literal\n\nlet rawHandle = user.handle;\nlet rawName = user.displayName;\nlet rawLevel = Number(user.level);\nlet levelBadge = `[L${user.level}]`;\n\n// Normalize Name spaces\nlet normalizedName = rawName.trim();\nnormalizedName = normalizedName.split(/\\s+/).join(\" \");\n\n//Normalize Handle Format\nlet normalizedHandle = rawHandle.trim().toLowerCase();\n\nnormalizedHandle = normalizedHandle.split(/^@/).join(\"\");\n// error handling\n\nif (Number(rawLevel.isFinite && rawLevel > 0) {\nformattedOutput = \"ERROR: invalid level\";\n}\nelse if (normalizedName.length!=0) {\nformattedOutput = \"ERROR: displayName is required\";\n}\nelse {\nformattedOutput = `${levelBadge} ` + `${normalizedName} ` + `(@${normalizedHandle})`;\n}\n\n  return formattedOutput;\n}\n\nfunction main() {\n  try {\n    const badge = formatUserBadge({\n      displayName: \"  Ana   Silva \",\n      handle: \"@AnaS\",\n      level: 3,\n    });\n    console.log(badge);\n  } catch (err) {\n    console.error(err.message);\n    process.exitCode = 1;\n  }\n}\n\nif (require.main === module) {\n  main();\n}\n\nmodule.exports = { formatUserBadge };",
+      "submittedAt": "2026-07-06T01:17:22.414Z",
+      "review": {
+        "score": 45,
+        "comment": "Name and handle normalization are on the right track and you fixed template literal interpolation. The level check cannot parse: close the parenthesis and use Number.isFinite(rawLevel) with Number.isInteger for level >= 1. Your if/else conditions are reversed and return ERROR strings instead of throw new Error per the README. Next: throw invalid level and displayName is required with corrected guards.",
+        "reviewedAt": "2026-07-06T01:18:15.941Z"
+      }
+    },
+    {
+      "id": "2026-07-06T01:21:22.264Z",
+      "content": "/**\n * User Badge Formatter\n *\n * Entrypoint: node starter/index.js\n * Implement the behavior described in ../README.md\n */\n\nfunction formatUserBadge(user) {\n  // TODO: normalize strings and return badge template literal\n\nlet rawHandle = user.handle;\nlet rawName = user.displayName;\nlet rawLevel = Number(user.level);\nlet levelBadge = `[L${user.level}]`;\n\n// Normalize Name spaces\nlet normalizedName = rawName.trim();\nnormalizedName = normalizedName.split(/\\s+/).join(\" \");\n\n//Normalize Handle Format\nlet normalizedHandle = rawHandle.trim().toLowerCase();\n\nnormalizedHandle = normalizedHandle.split(/^@/).join(\"\");\n// error handling\n\nif (Number(rawLevel.isFinite) && rawLevel > 0) {\nformattedOutput = \"ERROR: invalid level\";\n}\nelse if (normalizedName.length===0) {\nformattedOutput = \"ERROR: displayName is required\";\n}\nelse {\nformattedOutput = `${levelBadge} ` + `${normalizedName} ` + `(@${normalizedHandle})`;\n}\n\n  return formattedOutput;\n}\n\nfunction main() {\n  try {\n    const badge = formatUserBadge({\n      displayName: \"  Ana   Silva \",\n      handle: \"@AnaS\",\n      level: 3,\n    });\n    console.log(badge);\n  } catch (err) {\n    console.error(err.message);\n    process.exitCode = 1;\n  }\n}\n\nif (require.main === module) {\n  main();\n}\n\nmodule.exports = { formatUserBadge };",
+      "submittedAt": "2026-07-06T01:21:22.264Z",
+      "review": {
+        "score": 58,
+        "comment": "Display name and handle normalization are solid, and the happy-path badge matches the README examples with template literals. Level validation still uses rawLevel.isFinite instead of Number.isFinite and Number.isInteger, so level 0 is not rejected. Errors return strings instead of throw new Error with the exact README messages. Next: fix the level guard and throw invalid level and displayName is required.",
+        "reviewedAt": "2026-07-06T01:21:54.574Z"
+      }
+    },
+    {
+      "id": "2026-07-06T01:25:29.603Z",
+      "content": "/**\n * User Badge Formatter\n *\n * Entrypoint: node starter/index.js\n * Implement the behavior described in ../README.md\n */\n\nfunction formatUserBadge(user) {\n  // TODO: normalize strings and return badge template literal\n\nlet rawHandle = user.handle;\nlet rawName = user.displayName;\nlet rawLevel = Number(user.level);\nlet levelBadge = `[L${user.level}]`;\n\n// Normalize Name spaces\nlet normalizedName = rawName.trim();\nnormalizedName = normalizedName.split(/\\s+/).join(\" \");\n\n//Normalize Handle Format\nlet normalizedHandle = rawHandle.trim().toLowerCase();\n\nnormalizedHandle = normalizedHandle.split(/^@/).join(\"\");\n// error handling\n\nif (!Number.isFinite(rawLevel) || !Number.isInteger(rawLevel)) {\nformattedOutput = \"ERROR: invalid level\";\n}\nelse if (normalizedName.length===0) {\nformattedOutput = \"ERROR: displayName is required\";\n}\nelse {\nformattedOutput = `${levelBadge} ` + `${normalizedName} ` + `(@${normalizedHandle})`;\n}\n\n  return formattedOutput;\n}\n\nfunction main() {\n  try {\n    const badge = formatUserBadge({\n      displayName: \"  Ana   Silva \",\n      handle: \"@AnaS\",\n      level: 3,\n    });\n    console.log(badge);\n  } catch (err) {\n    console.error(err.message);\n    process.exitCode = 1;\n  }\n}\n\nif (require.main === module) {\n  main();\n}\n\nmodule.exports = { formatUserBadge };",
+      "submittedAt": "2026-07-06T01:25:29.603Z",
+      "review": {
+        "score": 70,
+        "comment": "Display name and handle normalization are correct and happy-path badges match the README examples with template literals. Errors still return strings instead of throw new Error with the exact README messages, and level 0 passes validation because the check omits level >= 1. Next: add rawLevel < 1 to the guard and throw Error with messages invalid level and displayName is required.",
+        "reviewedAt": "2026-07-06T01:26:01.786Z"
+      }
+    },
+    {
+      "id": "2026-07-06T01:27:51.189Z",
+      "content": "/**\n * User Badge Formatter\n *\n * Entrypoint: node starter/index.js\n * Implement the behavior described in ../README.md\n */\n\nfunction formatUserBadge(user) {\n  // TODO: normalize strings and return badge template literal\n\nlet rawHandle = user.handle;\nlet rawName = user.displayName;\nlet rawLevel = Number(user.level);\nlet levelBadge = `[L${user.level}]`;\n\n// Normalize Name spaces\nlet normalizedName = rawName.trim();\nnormalizedName = normalizedName.split(/\\s+/).join(\" \");\n\n//Normalize Handle Format\nlet normalizedHandle = rawHandle.trim().toLowerCase();\n\nnormalizedHandle = normalizedHandle.split(/^@/).join(\"\");\n// error handling\n\nif (!Number.isFinite(rawLevel) || !Number.isInteger(rawLevel)) {\nthrow new Error(`ERROR: invalid level`);\n}\nelse if (normalizedName.length===0) {\nthrow new Error(`ERROR: displayName is required`);\n}\n\nformattedOutput = `${levelBadge} ` + `${normalizedName} ` + `(@${normalizedHandle})`;\n\n\n  return formattedOutput;\n}\n\nfunction main() {\n  try {\n    const badge = formatUserBadge({\n      displayName: \"  Ana   Silva \",\n      handle: \"@AnaS\",\n      level: 3,\n    });\n    console.log(badge);\n  } catch (err) {\n    console.error(err.message);\n    process.exitCode = 1;\n  }\n}\n\nif (require.main === module) {\n  main();\n}\n\nmodule.exports = { formatUserBadge };",
+      "submittedAt": "2026-07-06T01:27:51.189Z",
+      "review": {
+        "score": 76,
+        "comment": "Display name and handle normalization are correct and happy-path badges match the README examples with template literals. Throwing on errors is the right direction, but messages use an ERROR prefix instead of the exact strings invalid level and displayName is required, and level 0 still passes because the guard omits level >= 1. Next: add rawLevel < 1 to the level check and throw new Error with the exact README messages.",
+        "reviewedAt": "2026-07-06T01:28:34.489Z"
+      }
+    },
+    {
+      "id": "2026-07-06T01:29:13.987Z",
+      "content": "/**\n * User Badge Formatter\n *\n * Entrypoint: node starter/index.js\n * Implement the behavior described in ../README.md\n */\n\nfunction formatUserBadge(user) {\n  // TODO: normalize strings and return badge template literal\n\nlet rawHandle = user.handle;\nlet rawName = user.displayName;\nlet rawLevel = Number(user.level);\nlet levelBadge = `[L${user.level}]`;\n\n// Normalize Name spaces\nlet normalizedName = rawName.trim();\nnormalizedName = normalizedName.split(/\\s+/).join(\" \");\n\n//Normalize Handle Format\nlet normalizedHandle = rawHandle.trim().toLowerCase();\n\nnormalizedHandle = normalizedHandle.split(/^@/).join(\"\");\n// error handling\n\nif (!Number.isFinite(rawLevel) || !Number.isInteger(rawLevel) || rawLevel===0) {\nthrow new Error(`ERROR: invalid level`);\n}\nelse if (normalizedName.length===0) {\nthrow new Error(`ERROR: displayName is required`);\n}\n\nformattedOutput = `${levelBadge} ` + `${normalizedName} ` + `(@${normalizedHandle})`;\n\n\n  return formattedOutput;\n}\n\nfunction main() {\n  try {\n    const badge = formatUserBadge({\n      displayName: \"  Ana   Silva \",\n      handle: \"@AnaS\",\n      level: 3,\n    });\n    console.log(badge);\n  } catch (err) {\n    console.error(err.message);\n    process.exitCode = 1;\n  }\n}\n\nif (require.main === module) {\n  main();\n}\n\nmodule.exports = { formatUserBadge };",
+      "submittedAt": "2026-07-06T01:29:13.987Z"
+    },
+    {
+      "id": "2026-07-06T01:30:06.759Z",
+      "content": "/**\n * User Badge Formatter\n *\n * Entrypoint: node starter/index.js\n * Implement the behavior described in ../README.md\n */\n\nfunction formatUserBadge(user) {\n  // TODO: normalize strings and return badge template literal\n\nlet rawHandle = user.handle;\nlet rawName = user.displayName;\nlet rawLevel = Number(user.level);\nlet levelBadge = `[L${user.level}]`;\n\n// Normalize Name spaces\nlet normalizedName = rawName.trim();\nnormalizedName = normalizedName.split(/\\s+/).join(\" \");\n\n//Normalize Handle Format\nlet normalizedHandle = rawHandle.trim().toLowerCase();\n\nnormalizedHandle = normalizedHandle.split(/^@/).join(\"\");\n// error handling\n\nif (!Number.isFinite(rawLevel) || !Number.isInteger(rawLevel) || rawLevel===0) {\nthrow new Error(`invalid level`);\n}\nelse if (normalizedName.length===0) {\nthrow new Error(`displayName is required`);\n}\n\nformattedOutput = `${levelBadge} ` + `${normalizedName} ` + `(@${normalizedHandle})`;\n\n\n  return formattedOutput;\n}\n\nfunction main() {\n  try {\n    const badge = formatUserBadge({\n      displayName: \"  Ana   Silva \",\n      handle: \"@AnaS\",\n      level: 3,\n    });\n    console.log(badge);\n  } catch (err) {\n    console.error(err.message);\n    process.exitCode = 1;\n  }\n}\n\nif (require.main === module) {\n  main();\n}\n\nmodule.exports = { formatUserBadge };",
+      "submittedAt": "2026-07-06T01:30:06.759Z",
+      "review": {
+        "score": 100,
+        "comment": "Pass (100): Display name and handle normalization match the README examples, including trim, space collapse, lowercase, and @ stripping. Error paths throw the exact messages invalid level and displayName is required. Template literals build the badge correctly. Solid match to all acceptance criteria.",
+        "reviewedAt": "2026-07-16T01:47:35.411Z"
+      }
+    }
+  ]
+}

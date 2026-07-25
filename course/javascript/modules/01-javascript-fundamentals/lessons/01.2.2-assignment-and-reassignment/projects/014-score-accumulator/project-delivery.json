@@ -1,0 +1,68 @@
+{
+  "version": 2,
+  "courseId": "javascript",
+  "projectId": "014-score-accumulator",
+  "updatedAt": "2026-07-01T21:49:59.817Z",
+  "deliveries": [
+    {
+      "id": "2026-07-01T03:45:37.092Z",
+      "content": "### `starter/index.js`\n\n```javascript\n/**\n * Score Accumulator\n * node starter/index.js\n */\n\nconst readline = require(\"node:readline\");\n\nfunction main() {\n  const operatorsArray = [\"+\", \"-\", \"*\"];\n  let mensagem = null;\n  let score = null;\n\n\n  const rl = readline.createInterface({ input: process.stdin });\n  lineNumber=0;\n  rl.on(\"line\", (line) => {\n\n    // TODO: parse initial score, apply += -= *= operations until done\n\n// Initial value to score on first iteration\nif (score===null)\n   {\n   if (!Number.isFinite(line))\n       {\n          score=Number(line);\n          console.log(`${line}`);\n   return;\n}\nelse\n{\nmensagem=\"ERROR: invalid score\";\nrl.close();\n}\n\n// else, show Total if its done\n}\nelse if (line===\"done\"){\n   console.log(`Total: ${score}`);\n    rl.close();\n}\n\n// resume opperations if not done and not initial\nelse {\n\nlet operator = line[0];\nlet numerator = Number(line.slice(1));\n\nif (Number.isFinite(numerator)==0){\nmensagem=\"ERROR: invalid score\";\nrl.close();\n}\nif (!operatorsArray.includes(operator)) {\nmensagem=\"ERROR: invalid operation\";\nrl.close();\nlineNumber++;\n}\n\nif (operator === \"+\") { score += numerator; }\nelse if (operator === \"-\") { score -= numerator; }\nelse if (operator === \"*\") { score *= numerator; }\n\n\n   console.log(`${line}`);\n\n}\n\n\n})}\n\nmain();\n```",
+      "submittedAt": "2026-07-01T03:45:37.092Z",
+      "review": {
+        "score": 40,
+        "comment": "Good use of compound assignment and a done branch; totals compute correctly when input is valid. Invalid score and operation paths never print ERROR to stdout, Number.isFinite is applied to the string line, and extra per-line logs break acceptance output. Next: parse line 1 with Number(), validate the number, console.log errors, and print only Total on done.",
+        "reviewedAt": "2026-07-01T03:46:43.082Z"
+      }
+    },
+    {
+      "id": "2026-07-01T20:56:37.432Z",
+      "content": "### `starter/index.js`\n\n```javascript\n/**\n * Score Accumulator\n * node starter/index.js\n */\n\nconst readline = require(\"node:readline\");\n\nfunction main() {\n  const operatorsArray = [\"+\", \"-\", \"*\"];\n  let mensagem = null;\n  let score = null;\n\n\n  const rl = readline.createInterface({ input: process.stdin });\n  lineNumber=0;\n  rl.on(\"line\", (line) => {\n\n    // TODO: parse initial score, apply += -= *= operations until done\n\n// Initial value to score on first iteration\nif (score===null)\n   {\n   if (!Number.isFinite(line))\n       {\n          score=Number(line);\n  //        console.log(`${line}`);\n   return;\n}\nelse\n{\nmensagem=\"ERROR: invalid score\";\n console.log(`${mensagem}`);\nrl.close();\n}\n\n// else, show Total if its done\n}\nelse if (line===\"done\"){\n   console.log(`Total: ${score}`);\n    rl.close();\n}\n\n// resume opperations if not done and not initial\nelse {\n\nlet operator = line[0];\nlet numerator = Number(line.slice(1));\n\nif (Number.isFinite(numerator)==0){\nmensagem=\"ERROR: invalid score\";\nconsole.log(`${mensagem}`);\nrl.close();\n}\nif (!operatorsArray.includes(operator)) {\nmensagem=\"ERROR: invalid operation\";\nconsole.log(`${mensagem}`);\nrl.close();\nlineNumber++;\n}\n\nif (operator === \"+\") { score += numerator; }\nelse if (operator === \"-\") { score -= numerator; }\nelse if (operator === \"*\") { score *= numerator; }\n\n\n}\n\n\n})}\n\nmain();\n```",
+      "submittedAt": "2026-07-01T20:56:37.432Z"
+    },
+    {
+      "id": "2026-07-01T21:03:54.045Z",
+      "content": "### `starter/index.js`\n\n```javascript\n/**\n * Score Accumulator\n * node starter/index.js\n */\n\nconst readline = require(\"node:readline\");\n\nfunction main() {\n  const operatorsArray = [\"+\", \"-\", \"*\"];\n  let mensagem = null;\n  let score = null;\n\n\n  const rl = readline.createInterface({ input: process.stdin });\n  lineNumber=0;\n  rl.on(\"line\", (line) => {\n\n    // TODO: parse initial score, apply += -= *= operations until done\n\n// Initial value to score on first iteration\nif (score===null)\n   {\n   if (!Number.isFinite(line))\n       {\n          score=Number(line);\n  //        console.log(`${line}`);\n   return;\n}\nelse\n{\nmensagem=\"ERROR: invalid score\";\n console.log(`${mensagem}`);\nrl.close();\n}\n\n// else, show Total if its done\n}\nelse if (line===\"done\"){\n   console.log(`Total: ${score}`);\n    rl.close();\n}\n\n// resume opperations if not done and not initial\nelse {\n\nlet operator = line[0];\nlet numerator = Number(line.slice(1));\n\nif (Number.isFinite(numerator)==0){\nmensagem=\"ERROR: invalid score\";\nconsole.log(`${mensagem}`);\nrl.close();\n}\nif (!operatorsArray.includes(operator)) {\nmensagem=\"ERROR: invalid operation\";\nconsole.log(`${mensagem}`);\nrl.close();\nlineNumber++;\n}\n\nif (operator === \"+\") { score += numerator; }\nelse if (operator === \"-\") { score -= numerator; }\nelse if (operator === \"*\") { score *= numerator; }\n\n\n}\n\n\n})}\n\nmain();\n```",
+      "submittedAt": "2026-07-01T21:03:54.045Z",
+      "review": {
+        "score": 62,
+        "comment": "Compound assignments and the done total work for valid input sequences. Initial score never rejects non-numeric lines because Number.isFinite is checked on the string, and malformed ops print ERROR: invalid score instead of invalid operation, then still print Total. Next: parse line 1 with Number(), validate Number.isFinite(score), use ERROR: invalid operation for bad ops, and return after each error.",
+        "reviewedAt": "2026-07-01T21:05:02.541Z"
+      }
+    },
+    {
+      "id": "2026-07-01T21:18:05.614Z",
+      "content": "### `starter/index.js`\n\n```javascript\n/**\n * Score Accumulator\n * node starter/index.js\n */\n\nconst readline = require(\"node:readline\");\n\nfunction main() {\n  const operatorsArray = [\"+\", \"-\", \"*\"];\n  let mensagem = null;\n  let score = null;\n\n\n  const rl = readline.createInterface({ input: process.stdin });\n  lineNumber=0;\n  rl.on(\"line\", (line) => {\n\n    // TODO: parse initial score, apply += -= *= operations until done\n\n// Initial value to score on first iteration\nif (score===null)\n   {\n   if (!Number.isFinite(line))\n       {\n          score=Number(line);\n          return;\n}\nelse if (!Number.isFinite(score))\n{\nmensagem=\"ERROR: invalid score\";\n console.log(`${mensagem}`);\nrl.close();\n}\n\n// else, show Total if its done\n}\nelse if (line===\"done\" && Number.isFinite(score)){\n   console.log(`Total: ${score}`);\n    rl.close();\n}\n\n// resume opperations if not done and not initial\nelse {\n\nlet operator = line[0];\nlet numerator = Number(line.slice(1));\n\nif (Number.isFinite(numerator)==0){\nmensagem=\"ERROR: invalid score\";\nconsole.log(`${mensagem}`);\nrl.close();\n}\nif (!operatorsArray.includes(operator)) {\nmensagem=\"ERROR: invalid operation\";\nconsole.log(`${mensagem}`);\nrl.close();\nlineNumber++;\n}\n\nif (operator === \"+\") { score += numerator; }\nelse if (operator === \"-\") { score -= numerator; }\nelse if (operator === \"*\") { score *= numerator; }\n\n\n}\n\n\n})}\n\nmain();\n```",
+      "submittedAt": "2026-07-01T21:18:05.614Z",
+      "review": {
+        "score": 60,
+        "comment": "Compound assignments work for valid sequences and both Total examples pass. abc produces no error because Number.isFinite is checked on the string line before score is parsed, and +x prints ERROR: invalid score instead of ERROR: invalid operation. Next: on line 1 use score = Number(line) then if (!Number.isFinite(score)) print ERROR: invalid score and return.",
+        "reviewedAt": "2026-07-01T21:19:59.528Z"
+      }
+    },
+    {
+      "id": "2026-07-01T21:38:57.070Z",
+      "content": "### `starter/index.js`\n\n```javascript\n/**\n * Score Accumulator\n * node starter/index.js\n */\n\nconst readline = require(\"node:readline\");\n\nfunction main() {\n  const operatorsArray = [\"+\", \"-\", \"*\"];\n  let mensagem = null;\n  let score =null;\n\n \n\n  const rl = readline.createInterface({ input: process.stdin });\n  lineNumber=0;\n  rl.on(\"line\", (line) => {\n  let operator = line[0];\n  let numerator = Number(line.slice(1));\n    // TODO: parse initial score, apply += -= *= operations until done\n\n// Initial value to score on first iteration\nif (score===null)\n   {\n\n   let firstLineNumeral = Number(line);\n   if (firstLineNumeral!==0)\n       {\n          score=Number(line);\n          return;\n      }\n      else if (!Number.isFinite(score) && operator==0)\n      {\n      mensagem=\"ERROR: invalid score\";\n      console.log(`${mensagem}`);\n      rl.close();\n      }\n   }\nelse if (line===\"done\" && Number.isFinite(score)){\n   console.log(`Total: ${score}`);\n    rl.close();\n}\n\n// resume opperations if not done and not initial\nelse {\n\nif (!operatorsArray.includes(operator) || !Number.isFinite(numerator)) {\nmensagem=\"ERROR: invalid operation\";\nconsole.log(`${mensagem}`);\nrl.close();\nlineNumber++;\n}\n\nif (operator === \"+\") { score += numerator; }\nelse if (operator === \"-\") { score -= numerator; }\nelse if (operator === \"*\") { score *= numerator; }\n\n\n}\n\n\n})}\n\nmain();\n```",
+      "submittedAt": "2026-07-01T21:38:57.070Z"
+    },
+    {
+      "id": "2026-07-01T21:42:34.280Z",
+      "content": "### `starter/index.js`\n\n```javascript\n/**\n * Score Accumulator\n * node starter/index.js\n */\n\nconst readline = require(\"node:readline\");\n\nfunction main() {\n  const operatorsArray = [\"+\", \"-\", \"*\"];\n  let mensagem = null;\n  let score =null;\n\n \n\n  const rl = readline.createInterface({ input: process.stdin });\n  lineNumber=0;\n  rl.on(\"line\", (line) => {\n  let operator = line[0];\n  let numerator = Number(line.slice(1));\n    // TODO: parse initial score, apply += -= *= operations until done\n\n// Initial value to score on first iteration\nif (score===null)\n   {\n\n   let firstLineNumeral = Number(line);\n   if (Number.isFinite(firstLineNumeral))\n       {\n          score=Number(line);\n          return;\n      }\n      else if (!Number.isFinite(score) && operator==0)\n      {\n      mensagem=\"ERROR: invalid score\";\n      console.log(`${mensagem}`);\n      rl.close();\n      }\n   }\nelse if (line===\"done\" && Number.isFinite(score)){\n   console.log(`Total: ${score}`);\n    rl.close();\n}\n\n// resume opperations if not done and not initial\nelse {\n\nif (!operatorsArray.includes(operator) || !Number.isFinite(numerator)) {\nmensagem=\"ERROR: invalid operation\";\nconsole.log(`${mensagem}`);\nrl.close();\nlineNumber++;\n}\n\nif (operator === \"+\") { score += numerator; }\nelse if (operator === \"-\") { score -= numerator; }\nelse if (operator === \"*\") { score *= numerator; }\n\n\n}\n\n\n})}\n\nmain();\n```",
+      "submittedAt": "2026-07-01T21:42:34.280Z",
+      "review": {
+        "score": 78,
+        "comment": "Compound assignments handle valid sequences well; Total outputs and +x invalid-operation errors match the README. Invalid first lines like abc produce no output because the score guard uses operator==0 instead of an else after Number.isFinite fails. Next: after parsing line 1, if !Number.isFinite(Number(line)), log ERROR: invalid score and return.",
+        "reviewedAt": "2026-07-01T21:43:21.123Z"
+      }
+    },
+    {
+      "id": "2026-07-01T21:48:59.522Z",
+      "content": "### `starter/index.js`\n\n```javascript\n/**\n * Score Accumulator\n * node starter/index.js\n */\n\nconst readline = require(\"node:readline\");\n\nfunction main() {\n  const operatorsArray = [\"+\", \"-\", \"*\"];\n  let mensagem = null;\n  let score =null;\n\n \n\n  const rl = readline.createInterface({ input: process.stdin });\n  lineNumber=0;\n  rl.on(\"line\", (line) => {\n  let operator = line[0];\n  let numerator = Number(line.slice(1));\n    // TODO: parse initial score, apply += -= *= operations until done\n\n// Initial value to score on first iteration\nif (score===null)\n   {\n\n   let firstLineNumeral = Number(line);\n   if (Number.isFinite(firstLineNumeral) && !operatorsArray.includes(operator))\n       {\n          score=Number(line);\n          return;\n      }\n      else\n      {\n      mensagem=\"ERROR: invalid score\";\n      console.log(`${mensagem}`);\n      rl.close();\n      }\n   }\nelse if (line===\"done\" && Number.isFinite(score)){\n   console.log(`Total: ${score}`);\n    rl.close();\n}\n\n// resume opperations if not done and not initial\nelse {\n\nif (!operatorsArray.includes(operator) || !Number.isFinite(numerator)) {\nmensagem=\"ERROR: invalid operation\";\nconsole.log(`${mensagem}`);\nrl.close();\nlineNumber++;\n}\n\nif (operator === \"+\") { score += numerator; }\nelse if (operator === \"-\") { score -= numerator; }\nelse if (operator === \"*\") { score *= numerator; }\n\n\n}\n\n\n})}\n\nmain();\n```",
+      "submittedAt": "2026-07-01T21:48:59.522Z",
+      "review": {
+        "score": 100,
+        "comment": "Compound operators apply sequences correctly; Total and both ERROR messages match the README. Number.isFinite validates the initial score and operation operands. Solid match to acceptance criteria.",
+        "reviewedAt": "2026-07-01T21:49:59.817Z"
+      }
+    }
+  ]
+}

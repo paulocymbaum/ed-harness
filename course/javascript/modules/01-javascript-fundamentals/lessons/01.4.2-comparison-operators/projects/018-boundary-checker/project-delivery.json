@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "courseId": "javascript",
+  "projectId": "018-boundary-checker",
+  "updatedAt": "2026-07-07T03:16:16.922Z",
+  "deliveries": [
+    {
+      "id": "2026-07-07T03:14:52.876Z",
+      "content": "/**\n * Boundary Checker\n * node starter/index.js\n */\n\nconst readline = require(\"node:readline\");\n\nfunction main() {\n  const lines = [];\n  const rl = readline.createInterface({ input: process.stdin });\n\nfunction validateNumbers (a,b,c){\nreturn Number.isFinite(Number(a)) && Number.isFinite(Number(b)) && Number.isFinite(Number(c));\n}\n\nfunction insideBoundaries (a,b){\nreturn Number(a)<=Number(b);\n}\n\n  rl.on(\"line\", (line) => {\n    lines.push(line);\n    if (lines.length < 3) return;\n    valueToEvaluate = Number(lines[0]);\n    lowerBoundary = Number(lines[1]);\n    topBoundary = Number(lines[2]);\n\n\n// catch number formatting error\nif (!validateNumbers (valueToEvaluate, lowerBoundary, topBoundary)){\n    process.stdout.write(\"ERROR: invalid number\");\n    rl.close();\n}\n\n// catch number range error\nif (!insideBoundaries (lowerBoundary, topBoundary)){\n    process.stdout.write(\"ERROR: invalid range\");\n    rl.close();\n}\n\n// Only parse validated values\n    \nif (validateNumbers (valueToEvaluate, lowerBoundary, topBoundary) && insideBoundaries (lowerBoundary, topBoundary)){\n\n// out of range\nif (valueToEvaluate > topBoundary || valueToEvaluate < lowerBoundary) {\n    process.stdout.write(\"OUT OF RANGE\");\n    rl.close();\n}\n\n// in range\nif (valueToEvaluate <= topBoundary && valueToEvaluate >= lowerBoundary) {\n    process.stdout.write(\"IN RANGE\");\n    rl.close();\n}\n\n}\n  });\n}\n\nmain();",
+      "submittedAt": "2026-07-07T03:14:52.876Z",
+      "review": {
+        "score": 100,
+        "comment": "All acceptance criteria pass: inclusive boundaries, invalid range errors, and IN/OUT labels match the README. Parsing uses Number() and Number.isFinite correctly. Solid use of >= and <= for boundary checks.",
+        "reviewedAt": "2026-07-07T03:16:16.922Z"
+      }
+    }
+  ]
+}
