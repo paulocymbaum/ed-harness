@@ -3,6 +3,7 @@ import { useEffect, useRef } from "react";
 import { Trophy, RotateCcw } from "lucide-react";
 import type { QuizAttempt } from "../../../../domain/types/quiz";
 import type { CoursePointsWithMax } from "../../../../domain/types/quizScore";
+import type { TranslationKey } from "../../../../infrastructure/i18n/locales/en";
 import { useTranslation } from "../../../../application/hooks/useTranslation";
 import { useToastStore } from "../../../../application/stores/toastStore";
 import { Card, Button, Icon } from "../../../design-system";
@@ -21,8 +22,10 @@ export function QuizResultsPanel(props: {
   quizPointsDelta: number;
   onRetry: () => void;
   onBackToList: () => void;
+  backLabelKey?: TranslationKey;
 }) {
   const { t } = useTranslation();
+  const backLabelKey = props.backLabelKey ?? "quiz.backToQuizzes";
   const showToast = useToastStore((s) => s.show);
   const announcedKeyRef = useRef<string | null>(null);
   const pct =
@@ -102,7 +105,7 @@ export function QuizResultsPanel(props: {
             {t("quiz.tryAgain")}
           </Button>
           <Button variant="secondary" size="md" onClick={props.onBackToList}>
-            {t("quiz.backToQuizzes")}
+            {t(backLabelKey)}
           </Button>
         </div>
       </div>

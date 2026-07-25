@@ -11,9 +11,11 @@ function runErrorMessage(
   t: ReturnType<typeof useTranslation>["t"],
   error: ProjectRunErrorCode | "dev_server",
 ): string {
-  if (error === "dev_server") return t("delivery.runSampleDevServerRequired");
   if (error === "missing_tests") return t("delivery.missingTestFile");
   if (error === "missing_starter") return t("delivery.runSampleUnavailable");
+  if (error === "unavailable" || error === "dev_server") {
+    return t("delivery.runSampleDevServerRequired");
+  }
   return t("delivery.runSampleDevServerRequired");
 }
 

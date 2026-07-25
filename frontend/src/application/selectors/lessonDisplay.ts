@@ -65,7 +65,7 @@ export type LessonSectionGroup<T extends { graphIndex?: string; id: string }> = 
   lessons: T[];
 };
 
-export function groupLessonsBySection<T extends { graphIndex?: string; id: string }>(
+export function groupLessonsBySection<T extends { graphIndex?: string; id: string; title?: string }>(
   lessons: T[],
 ): LessonSectionGroup<T>[] {
   const sorted = sortByGraphIndex(lessons);
@@ -85,5 +85,27 @@ export function groupLessonsBySection<T extends { graphIndex?: string; id: strin
     }
   }
 
+  // Single-lesson sections without a human label: use the lesson title so the
+  // drawer does not render "07.2" twice (key + label).
+  for (const group of groups) {
+    if (
+      group.lessons.length === 1 &&
+      group.sectionLabel === group.sectionKey &&
+      group.lessons[0]?.title
+    ) {
+      group.sectionLabel = group.lessons[0].title;
+    }
+  }
+
   return groups;
+}
+
+/** True when the section is just a thin wrapper around one lesson (same index). */
+export function isFlatLessonSection<T extends { graphIndex?: string; id: string }>(
+  section: LessonSectionGroup<T>,
+): boolean {
+  if (section.lessons.length !== 1) return false;
+  const lesson = section.lessons[0];
+  if (!lesson) return false;
+  return getLessonDisplayIndex(lesson) === section.sectionKey;
 }

@@ -30,14 +30,15 @@ export function ThemeToggle() {
           size="sm"
           variant={theme === option.value ? "primary" : "ghost"}
           className={clsx(
-            "min-w-[4.75rem]",
+            "h-9 w-9 shrink-0 px-0",
             theme !== option.value && "text-text1",
           )}
+          aria-label={t(option.labelKey)}
+          title={t(option.labelKey)}
           aria-pressed={theme === option.value}
           onClick={() => setTheme(option.value)}
         >
           <Icon icon={option.icon} size={16} />
-          {t(option.labelKey)}
         </Button>
       ))}
     </div>

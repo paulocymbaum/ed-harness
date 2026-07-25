@@ -1,9 +1,11 @@
 import clsx from "clsx";
+import type { ReactNode } from "react";
+import { useState } from "react";
 import type { ScoreMetric } from "../../../domain/scoreProgress";
 import { formatScoreLabel } from "../../../domain/scoreProgress";
 import { PROJECT_POINTS_WEIGHT } from "../../../domain/types/quizScore";
 import { useTranslation } from "../../../application/hooks/useTranslation";
-import { Card, Icon, ProgressBar } from "../../design-system";
+import { Card, Icon, Popover, ProgressBar } from "../../design-system";
 import type { LucideIcon } from "lucide-react";
 import { ScoreProgressRow } from "./ScoreProgressRow";
 
@@ -19,11 +21,14 @@ export function AggregatedScoreDisplay(props: {
   title?: string;
   icon?: LucideIcon;
   className?: string;
+  /** Extra content shown under the score breakdown in the catalog header popover. */
+  detail?: ReactNode;
 }) {
   const { t } = useTranslation();
   const { metrics, variant } = props;
   const title = props.title ?? t("course.score");
   const hasProgress = metrics.total.max > 0;
+  const [catalogOpen, setCatalogOpen] = useState(false);
 
   if (variant === "badge") {
     return (
@@ -37,29 +42,61 @@ export function AggregatedScoreDisplay(props: {
 
   if (variant === "catalog") {
     if (!hasProgress) return null;
+    const progressLabel = props.title ?? t("catalog.overallProgress");
+    const totalLabel = formatScoreLabel(metrics.total.value, metrics.total.max);
+    const quizLabel = t("score.quizInline", { value: metrics.quiz.value });
+    const projectsLabel = t("score.projectsInline", { value: metrics.projects.value });
+    const tooltipText = `${totalLabel} · ${quizLabel} · ${projectsLabel}`;
+
     return (
-      <div
-        className={clsx(
-          "grid min-w-[12rem] gap-2 rounded-panel border border-border0 bg-surfacePanel px-3 py-2",
-          props.className,
+      <Popover
+        align="end"
+        open={catalogOpen}
+        onOpenChange={setCatalogOpen}
+        className={clsx("inline-flex min-w-0 w-full max-w-full sm:max-w-[22rem]", props.className)}
+        panelClassName="w-full max-w-[min(100vw-1rem,28rem)] p-2.5 sm:p-3"
+        trigger={({ open: isOpen, toggle, triggerId, panelId }) => (
+          <button
+            id={triggerId}
+            type="button"
+            data-tour="catalog-score"
+            aria-expanded={isOpen}
+            aria-controls={panelId}
+            aria-haspopup="dialog"
+            aria-label={`${progressLabel}: ${tooltipText}`}
+            onClick={toggle}
+            className={clsx(
+              "inline-flex h-11 w-full min-w-0 max-w-full items-center gap-2 rounded-panel border border-border0 bg-surfacePanel px-2.5 sm:h-9",
+              "transition hover:bg-surfaceControl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent0/60",
+              isOpen && "border-accent0/40 bg-surfaceControl",
+            )}
+          >
+            {props.icon ? (
+              <Icon icon={props.icon} size={16} className="shrink-0 text-accent0" />
+            ) : null}
+            <ProgressBar
+              value={metrics.total.value}
+              max={metrics.total.max}
+              size="lg"
+              className="min-w-0 flex-1 pointer-events-none"
+              aria-label={progressLabel}
+            />
+          </button>
         )}
       >
-        <div className="flex flex-wrap items-center gap-2 text-meta text-text1">
-          {props.icon ? <Icon icon={props.icon} size={16} className="text-accent0" /> : null}
-          <span className="font-semibold text-text0">{formatScoreLabel(metrics.total.value, metrics.total.max)}</span>
-          <span className="hidden sm:inline">·</span>
-          <span className="hidden sm:inline">
-            {t("score.quizInline", { value: metrics.quiz.value })} ·{" "}
-            {t("score.projectsInline", { value: metrics.projects.value })}
-          </span>
+        <div className="@container grid gap-3">
+          <div className="text-meta text-text0">
+            <span className="font-semibold">{totalLabel}</span>
+            <span className="text-text1">
+              {" "}
+              · {quizLabel} · {projectsLabel}
+            </span>
+          </div>
+          {props.detail ? (
+            <div className="min-w-0 border-t border-border0 pt-3">{props.detail}</div>
+          ) : null}
         </div>
-        <ProgressBar
-          value={metrics.total.value}
-          max={metrics.total.max}
-          size="xs"
-          aria-label={t("catalog.overallProgress")}
-        />
-      </div>
+      </Popover>
     );
   }
 

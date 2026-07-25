@@ -30,17 +30,28 @@ export function Popover(props: {
     if (!anchor) return;
 
     const rect = anchor.getBoundingClientRect();
+    const margin = 8;
+    const top = rect.bottom + 8;
+
     if (align === "end") {
+      const right = Math.max(margin, window.innerWidth - rect.right);
+      const maxWidth = Math.max(12 * 16, window.innerWidth - right - margin);
       setPanelStyle({
-        top: rect.bottom + 8,
-        right: Math.max(8, window.innerWidth - rect.right),
+        top,
+        right,
+        left: "auto",
+        maxWidth,
       });
       return;
     }
 
+    const left = Math.max(margin, rect.left);
+    const maxWidth = Math.max(12 * 16, window.innerWidth - left - margin);
     setPanelStyle({
-      top: rect.bottom + 8,
-      left: Math.max(8, rect.left),
+      top,
+      left,
+      right: "auto",
+      maxWidth,
     });
   };
 
@@ -100,7 +111,7 @@ export function Popover(props: {
             role="dialog"
             aria-labelledby={triggerId}
             className={clsx(
-              "fixed z-[200] w-[min(100vw-2rem,22rem)] rounded-panel border border-border0 bg-surfaceModal p-2 shadow-glass2",
+              "fixed z-[200] max-w-[calc(100vw-1rem)] rounded-panel border border-border0 bg-surfaceModal p-2 shadow-glass2",
               props.panelClassName,
             )}
             style={panelStyle}

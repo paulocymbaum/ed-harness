@@ -5,7 +5,6 @@ import { useTranslation } from "../../../application/hooks/useTranslation";
 import type { PendingProjectRow } from "../../../application/selectors/learnerDashboard";
 import { CourseCard } from "./components/CourseCard";
 import { CatalogEmptyState } from "./components/CatalogEmptyState";
-import { LearnerDashboard } from "./dashboard/LearnerDashboard";
 import { PendingProjectsList } from "./dashboard/PendingProjectsList";
 
 export function CatalogCoursesPanel(props: {
@@ -31,14 +30,17 @@ export function CatalogCoursesPanel(props: {
 
   return (
     <>
-      <LearnerDashboard
-        streak={dashboard.streak}
-        weeks={dashboard.weeks}
-        averagePointsPerWeek={dashboard.averagePointsPerWeek}
-      />
+      <p className="m-0 mb-2 text-body text-text1">{t("catalog.continueHint")}</p>
+
+      <div className="mb-3">
+        <PendingProjectsList
+          projects={dashboard.pendingProjects}
+          onOpenProject={openProject}
+        />
+      </div>
 
       <div className="mb-3 mt-2">
-        <h2 className="m-0 text-body font-semibold text-text0">{t("catalog.title")}</h2>
+        <h2 className="m-0 text-body font-semibold text-text0">{t("catalog.coursesHeading")}</h2>
       </div>
 
       {props.courses.length === 0 ? <CatalogEmptyState /> : null}
@@ -52,13 +54,6 @@ export function CatalogCoursesPanel(props: {
             onOpen={() => props.onOpenCourse(course.id)}
           />
         ))}
-      </div>
-
-      <div className="mt-3">
-        <PendingProjectsList
-          projects={dashboard.pendingProjects}
-          onOpenProject={openProject}
-        />
       </div>
     </>
   );

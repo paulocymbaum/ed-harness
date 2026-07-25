@@ -15,29 +15,33 @@ export function ModuleNavRow(props: {
   onClick: () => void;
 }) {
   return (
-    <div className="grid gap-1.5">
+    <div className="grid min-w-0 gap-1.5">
       <button
         type="button"
         onClick={props.onClick}
         className={clsx(
-          "flex w-full items-center gap-2 rounded-panel px-2 py-1.5 text-left transition",
+          "flex w-full min-w-0 items-start gap-2 rounded-panel px-2 py-1.5 text-left transition",
           "hover:bg-surfaceControl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent0/60",
-          props.active ? "border border-accent0/40 bg-surfaceAccent" : "border border-transparent",
+          props.active
+            ? "border border-accent0/35 bg-surfaceAccent/50"
+            : "border border-transparent",
         )}
       >
         <span
           className={clsx(
-            "flex h-7 w-7 shrink-0 items-center justify-center rounded-panel border",
+            "mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-panel border",
             props.done
               ? "border-successBorder bg-successFill text-successIcon"
-              : "border-border0 bg-surfaceControl text-text1",
+              : props.active
+                ? "border-accent0/40 bg-surfaceAccent text-accent0"
+                : "border-border0 bg-surfaceControl text-text1",
           )}
         >
           <Icon icon={props.icon} size={14} />
         </span>
         <span className="min-w-0 flex-1">
-          <span className="flex items-center gap-2">
-            <span className="min-w-0 truncate text-meta font-medium text-text0">{props.label}</span>
+          <span className="flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1">
+            <span className="min-w-0 text-meta font-medium text-text0">{props.label}</span>
             {props.statusBadge ? (
               <ActivityStatusBadge
                 label={props.statusBadge.label}
@@ -45,13 +49,15 @@ export function ModuleNavRow(props: {
               />
             ) : null}
           </span>
-          <span className="block truncate text-meta text-text2">{props.sublabel}</span>
+          <span className="mt-0.5 block text-meta leading-snug text-text2 [overflow-wrap:anywhere]">
+            {props.sublabel}
+          </span>
         </span>
       </button>
       {props.lastSubmissionPercent !== undefined ? (
         <LastSubmissionScoreBar
           percent={props.lastSubmissionPercent}
-          className="px-2 pb-1.5 pl-11"
+          className="min-w-0 px-2 pb-1.5 pl-11"
         />
       ) : null}
     </div>

@@ -2,60 +2,69 @@ import { isValidCourseId, isValidProjectRootPath } from "./api-validation.mjs";
 import { runProjectTestMatrix } from "./project-run-lib.mjs";
 
 /**
- * Dev-only Vite plugin: runs delivery code against starter/tests.json (or sample.input fallback).
+ * Vite plugin: runs delivery code against starter/tests.json (or sample.input fallback).
+ * Available in `vite` and `vite preview` so local production builds keep Run answer working.
+ * Static hosts without this middleware fall back to the in-browser runner.
  */
 export function projectRunPlugin(repoRoot) {
   return {
     name: "project-run",
     configureServer(server) {
-      server.middlewares.use(async (req, res, next) => {
-        const url = req.url ?? "";
-        if (!url.startsWith("/api/project-run")) return next();
-        if (req.method !== "POST") {
-          res.statusCode = 405;
-          res.end("Method not allowed");
-          return;
-        }
-
-        try {
-          const body = await readJsonBody(req);
-          const courseId = body?.courseId;
-          const rootPath = body?.rootPath;
-          const code = body?.code;
-
-          if (!isValidRunRequest(courseId, rootPath)) {
-            res.statusCode = 400;
-            res.end("Invalid request");
-            return;
-          }
-
-          if (code !== undefined && typeof code !== "string") {
-            res.statusCode = 400;
-            res.end("Invalid code payload");
-            return;
-          }
-
-          const result = await runProjectTestMatrix({
-            repoRoot,
-            rootPath,
-            code: typeof code === "string" && code.trim() ? code : undefined,
-          });
-
-          if (!result.ok) {
-            res.statusCode = 404;
-            res.setHeader("Content-Type", "application/json");
-            res.end(JSON.stringify({ error: result.error }));
-            return;
-          }
-
-          res.setHeader("Content-Type", "application/json");
-          res.end(JSON.stringify(result.matrix));
-        } catch {
-          res.statusCode = 500;
-          res.end("Failed to run project starter");
-        }
-      });
+      server.middlewares.use(createProjectRunMiddleware(repoRoot));
     },
+    configurePreviewServer(server) {
+      server.middlewares.use(createProjectRunMiddleware(repoRoot));
+    },
+  };
+}
+
+function createProjectRunMiddleware(repoRoot) {
+  return async (req, res, next) => {
+    const url = req.url ?? "";
+    if (!url.startsWith("/api/project-run")) return next();
+    if (req.method !== "POST") {
+      res.statusCode = 405;
+      res.end("Method not allowed");
+      return;
+    }
+
+    try {
+      const body = await readJsonBody(req);
+      const courseId = body?.courseId;
+      const rootPath = body?.rootPath;
+      const code = body?.code;
+
+      if (!isValidRunRequest(courseId, rootPath)) {
+        res.statusCode = 400;
+        res.end("Invalid request");
+        return;
+      }
+
+      if (code !== undefined && typeof code !== "string") {
+        res.statusCode = 400;
+        res.end("Invalid code payload");
+        return;
+      }
+
+      const result = await runProjectTestMatrix({
+        repoRoot,
+        rootPath,
+        code: typeof code === "string" && code.trim() ? code : undefined,
+      });
+
+      if (!result.ok) {
+        res.statusCode = 404;
+        res.setHeader("Content-Type", "application/json");
+        res.end(JSON.stringify({ error: result.error }));
+        return;
+      }
+
+      res.setHeader("Content-Type", "application/json");
+      res.end(JSON.stringify(result.matrix));
+    } catch {
+      res.statusCode = 500;
+      res.end("Failed to run project starter");
+    }
   };
 }
 

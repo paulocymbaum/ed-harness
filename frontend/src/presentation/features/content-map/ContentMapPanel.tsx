@@ -4,6 +4,7 @@ import { useCatalog } from "../../../application/hooks/useCatalog";
 import { useContentGraph } from "../../../application/hooks/useContentGraph";
 import { useContentGraphScores } from "../../../application/hooks/useContentGraphScores";
 import { useAppNavigation } from "../../../application/hooks/useAppNavigation";
+import { useTranslation } from "../../../application/hooks/useTranslation";
 import {
   buildCatalogLessonIndex,
   countEnrichedLessonStats,
@@ -12,6 +13,7 @@ import {
 import { isHierarchyCourse } from "../../../application/selectors/catalogSelectors";
 import type { ContentGraphNode } from "../../../domain/types/contentGraph";
 import { ErrorPanel, LoadingState } from "../../design-system";
+import { ContentMapToolbar } from "./ContentMapToolbar";
 import { MindMapCanvas } from "./MindMapCanvas";
 
 function coveragePercent(exists: number, totalLeaves: number): number {
@@ -20,6 +22,7 @@ function coveragePercent(exists: number, totalLeaves: number): number {
 }
 
 export function ContentMapPanel() {
+  const { t } = useTranslation();
   const { courses } = useCatalog();
   const { goLesson } = useAppNavigation();
   const [searchParams, setSearchParams] = useSearchParams();
@@ -108,68 +111,45 @@ export function ContentMapPanel() {
   if (!selectedCourseId) {
     return (
       <ErrorPanel
-        title="Content map unavailable"
-        message="No study courses with a content graph were found."
+        title={t("contentMap.unavailable")}
+        message={t("contentMap.noCourses")}
       />
     );
   }
 
   if (status === "loading" || status === "idle") {
-    return <LoadingState message="Loading content map…" />;
+    return <LoadingState message={t("contentMap.loading")} />;
   }
 
   if (status === "error" || !graph || !enrichedRoot) {
     return (
       <ErrorPanel
-        title="Content map unavailable"
-        message={error ?? "Content graph failed to load."}
+        title={t("contentMap.unavailable")}
+        message={error ?? t("contentMap.loadFailed")}
         onRetry={() => void reload()}
       />
     );
   }
 
   return (
-    <section className="flex h-full min-h-[20rem] flex-col gap-3">
-      <div className="flex shrink-0 flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <div className="min-w-0">
-          <h2 className="m-0 text-body font-semibold text-text0">Content Map</h2>
-          <p className="m-0 mt-1 text-meta text-text1">
-            {lessonStats.exists} exists · {lessonStats.planned} planned · {coverage}% coverage
-          </p>
-        </div>
-        <div className="flex flex-wrap items-center gap-2">
-          <label className="flex min-w-0 items-center gap-2 text-meta text-text1">
-            <span className="shrink-0">Course</span>
-            <select
-              className="max-w-full rounded-panel border border-border0 bg-surfaceControl px-3 py-2 text-meta font-medium text-text0"
-              value={selectedCourseId}
-              onChange={(e) => setSelectedCourse(e.target.value)}
-            >
-              {selectableCourses.map((course) => (
-                <option key={course.id} value={course.id}>
-                  {course.title || course.id}
-                </option>
-              ))}
-            </select>
-          </label>
-          <button
-            type="button"
-            className="rounded-panel border border-border0 bg-surfaceControl px-3 py-2 text-meta font-medium text-text0 transition hover:bg-surfacePanel"
-            onClick={expandAll}
-          >
-            Expand all
-          </button>
-          <button
-            type="button"
-            className="rounded-panel border border-border0 bg-surfaceControl px-3 py-2 text-meta font-medium text-text0 transition hover:bg-surfacePanel"
-            onClick={collapseAll}
-          >
-            Collapse all
-          </button>
-        </div>
-      </div>
+    <section className="flex h-full min-h-0 flex-col gap-3 overflow-hidden">
+      <ContentMapToolbar
+        selectedCourseId={selectedCourseId}
+        selectableCourses={selectableCourses.map((c) => ({
+          id: c.id,
+          title: c.title || c.id,
+        }))}
+        metaLabel={t("contentMap.meta", {
+          exists: lessonStats.exists,
+          planned: lessonStats.planned,
+          coverage,
+        })}
+        onSelectCourse={setSelectedCourse}
+        onExpandAll={expandAll}
+        onCollapseAll={collapseAll}
+      />
 
-      <div className="min-h-0 flex-1">
+      <div className="min-h-0 flex-1 overflow-hidden">
         <MindMapCanvas
           root={enrichedRoot}
           courseSlug={graph.courseSlug}

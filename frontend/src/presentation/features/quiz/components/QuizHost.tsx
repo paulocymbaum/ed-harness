@@ -1,5 +1,6 @@
 import type { Course } from "../../../../domain/types/catalog";
 import type { Quiz } from "../../../../domain/types/quiz";
+import type { TranslationKey } from "../../../../infrastructure/i18n/locales/en";
 import { QuizSessionPanel } from "./QuizSessionPanel";
 
 export type QuizHostLayout = "page" | "drawer";
@@ -10,6 +11,7 @@ export function QuizHost(props: {
   course: Course;
   quiz: Quiz;
   onClose: () => void;
+  backLabelKey?: TranslationKey;
 }) {
   return (
     <QuizSessionPanel
@@ -18,6 +20,7 @@ export function QuizHost(props: {
       quiz={props.quiz}
       onBackToList={props.onClose}
       compact={props.layout === "drawer"}
+      backLabelKey={props.backLabelKey}
     />
   );
 }

@@ -1,5 +1,4 @@
 import clsx from "clsx";
-import { stripDuplicateReadmeTitle } from "./readmeUtils";
 import { MarkdownView } from "./MarkdownView";
 import { Card } from "../design-system";
 
@@ -13,16 +12,13 @@ export function ReadmePanel(props: {
   className?: string;
 }) {
   const variant = props.variant ?? "inline";
-  const markdown = props.title
-    ? stripDuplicateReadmeTitle(props.markdown, props.title)
-    : props.markdown;
 
   const body = (
     <>
       {props.showTitle && props.title ? (
         <h1 className="mb-4 mt-0 text-title font-semibold text-text0">{props.title}</h1>
       ) : null}
-      <MarkdownView markdown={markdown} />
+      <MarkdownView markdown={props.markdown} title={props.title} />
     </>
   );
 

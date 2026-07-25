@@ -11,6 +11,7 @@ import { redirecionarDrawerLegado } from "../../../application/navigation/redire
 import { ErrorPanel } from "../../design-system";
 import { ReadmePanel } from "../../shared/ReadmePanel";
 import { LessonVideosAccordion } from "./components/LessonVideosAccordion";
+import { LessonNextSteps } from "./components/LessonNextSteps";
 import { useModuleLayoutContext } from "../module-experience/ModuleLayoutContext";
 
 export function LessonWorkspaceRoute() {
@@ -54,6 +55,8 @@ export function LessonWorkspaceRoute() {
   }
 
   const videos = lesson.videos ?? [];
+  const firstQuizId = lessonQuizzes[0]?.id;
+  const firstProjectId = lessonProjects[0]?.id;
 
   return (
     <section className="flex flex-col">
@@ -61,6 +64,13 @@ export function LessonWorkspaceRoute() {
         <div className="p-4">
           {videos.length > 0 ? <LessonVideosAccordion videos={videos} /> : null}
           <ReadmePanel title={lesson.title} markdown={lesson.markdown} showTitle={false} variant="inline" />
+          <LessonNextSteps
+            courseId={courseId}
+            moduleId={moduleId}
+            lessonId={lessonId}
+            firstQuizId={firstQuizId}
+            firstProjectId={firstProjectId}
+          />
         </div>
       </main>
     </section>

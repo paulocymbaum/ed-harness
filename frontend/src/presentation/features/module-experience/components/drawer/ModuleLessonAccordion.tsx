@@ -12,8 +12,8 @@ import { getLessonDisplayIndex } from "../../../../../application/selectors/less
 import { useTranslation } from "../../../../../application/hooks/useTranslation";
 import type { TranslationParams } from "../../../../../domain/i18n/translate";
 import type { TranslationKey } from "../../../../../infrastructure/i18n/locales/en";
-import { Icon } from "../../../../design-system";
-import { ScoreProgressRow } from "../../../../shared/score";
+import { formatScoreLabel } from "../../../../../domain/scoreProgress";
+import { Icon, ProgressBar } from "../../../../design-system";
 import { ModuleNavRow } from "./ModuleNavRow";
 import type { ActivityStatusTone } from "./ActivityStatusBadge";
 
@@ -48,6 +48,8 @@ export function ModuleLessonAccordion(props: {
   activeQuizId: string | null;
   activeProjectId: string | null;
   defaultOpen?: boolean;
+  /** When true, omit the leading index (parent section already shows it). */
+  hideIndex?: boolean;
   onOpenLesson: () => void;
   onOpenQuiz: (quizId: string) => void;
   onOpenProject: (projectId: string) => void;
@@ -55,42 +57,57 @@ export function ModuleLessonAccordion(props: {
   const { t } = useTranslation();
   const displayIndex = getLessonDisplayIndex(props.lesson);
   const hasScore = (props.scorePoints?.max ?? 0) > 0;
+  const progressPercent =
+    hasScore && props.scorePoints
+      ? Math.round((props.scorePoints.value / props.scorePoints.max) * 100)
+      : 0;
 
   return (
-    <details className="group" open={props.defaultOpen}>
+    <details className="group mb-1 min-w-0" open={props.defaultOpen}>
       <summary
         className={clsx(
-          "flex cursor-pointer list-none flex-col gap-1.5 rounded-panel px-2 py-1.5",
+          "flex min-w-0 cursor-pointer list-none flex-col gap-1 rounded-panel px-2 py-1.5",
+          "[&::-webkit-details-marker]:hidden",
           "hover:bg-surfaceControl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent0/60",
-          props.isActiveLesson && "bg-surfaceAccent",
+          props.isActiveLesson && "border-l-2 border-accent0 bg-surfaceAccent/35 pl-[calc(0.5rem-2px)]",
         )}
       >
-        <div className="flex min-h-7 items-center gap-2">
-          <span className="w-12 shrink-0 font-mono text-meta text-text2">{displayIndex}</span>
-          <span className="min-w-0 flex-1 truncate text-meta font-medium text-text0">
+        <div className="flex min-h-7 min-w-0 items-start gap-2">
+          {!props.hideIndex ? (
+            <span className="w-12 shrink-0 pt-0.5 font-mono text-meta text-accent0">
+              {displayIndex}
+            </span>
+          ) : null}
+          <span className="min-w-0 flex-1 text-meta font-medium leading-snug text-text0 [overflow-wrap:anywhere]">
             {props.lesson.title}
           </span>
+          {hasScore && props.scorePoints ? (
+            <span className="shrink-0 pt-0.5 text-meta font-medium text-text1">
+              {formatScoreLabel(props.scorePoints.value, props.scorePoints.max)}
+            </span>
+          ) : null}
           <Icon
             icon={ChevronDown}
             size={14}
-            className="shrink-0 text-text1 transition group-open:rotate-180"
+            className="mt-0.5 shrink-0 text-text1 transition group-open:rotate-180"
           />
         </div>
-        {hasScore && props.scorePoints ? (
+        {hasScore && props.scorePoints && progressPercent > 0 ? (
           <div
-            className="pl-14 pr-6"
+            className={clsx("min-w-0 pr-6", props.hideIndex ? "pl-0" : "pl-14")}
             onClick={(event) => event.stopPropagation()}
           >
-            <ScoreProgressRow
-              label={t("lesson.score")}
-              metric={props.scorePoints}
+            <ProgressBar
+              value={props.scorePoints.value}
+              max={props.scorePoints.max}
               size="xs"
+              aria-label={`${t("lesson.score")}: ${formatScoreLabel(props.scorePoints.value, props.scorePoints.max)}`}
             />
           </div>
         ) : null}
       </summary>
 
-      <div className="grid gap-0.5 py-1 pl-3">
+      <div className="grid min-w-0 gap-0.5 py-1 pl-2">
         <ModuleNavRow
           icon={BookOpenText}
           label={t("module.explanation")}
