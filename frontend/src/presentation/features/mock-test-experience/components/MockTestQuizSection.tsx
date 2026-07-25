@@ -18,6 +18,7 @@ export function MockTestQuizSection(props: {
       course={props.course}
       quiz={props.quiz}
       onClose={() => goBackToMockTestOverview(props.courseId, props.moduleId)}
+      backLabelKey="mockTest.backToSections"
     />
   );
 }

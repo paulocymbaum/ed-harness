@@ -6,7 +6,7 @@ import { computeProgressPercent } from "../../../../domain/scoreProgress";
 import { Icon } from "../../icons/Icon";
 import { Popover } from "../Popover";
 
-export type ProgressBarSize = "xs" | "sm" | "md";
+export type ProgressBarSize = "xs" | "sm" | "md" | "lg";
 
 export type ProgressBarPopoverContent =
   | ReactNode
@@ -34,6 +34,7 @@ export function ProgressBar(props: {
         size === "xs" && "h-1",
         size === "sm" && "h-1.5",
         size === "md" && "h-2",
+        size === "lg" && "h-2.5",
         hasPopover && "pointer-events-none",
         props.className,
       )}

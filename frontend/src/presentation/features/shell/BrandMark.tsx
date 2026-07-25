@@ -11,11 +11,11 @@ export function BrandMark() {
   return (
     <Link
       to="/"
-      className="flex min-w-0 items-center gap-2 rounded-control outline-none focus-visible:ring-2 focus-visible:ring-accent0"
+      className="flex min-w-0 items-center gap-2.5 rounded-control outline-none focus-visible:ring-2 focus-visible:ring-accent0"
       aria-label={t("app.title")}
     >
       <BrandMarkImage theme={theme} />
-      <span className="truncate text-meta font-semibold tracking-[-0.01em] text-text0">
+      <span className="truncate text-body font-semibold tracking-[-0.02em] text-text0">
         {t("app.title")}
       </span>
     </Link>
@@ -27,9 +27,9 @@ function BrandMarkImage(props: { theme: AppTheme }) {
     <img
       src={brandMarkSrc(props.theme, 64)}
       alt=""
-      width={28}
-      height={28}
-      className="size-7 shrink-0 object-contain"
+      width={32}
+      height={32}
+      className="size-8 shrink-0 object-contain"
       decoding="async"
     />
   );

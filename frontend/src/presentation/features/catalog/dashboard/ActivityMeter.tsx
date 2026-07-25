@@ -2,14 +2,19 @@ import { Activity } from "lucide-react";
 import { useTranslation } from "../../../../application/hooks/useTranslation";
 import { EmptyState, Icon } from "../../../design-system";
 
-const BAR_TRACK_PX = 96;
+const BAR_TRACK_DEFAULT_PX = 96;
+const BAR_TRACK_COMPACT_PX = 56;
 const BAR_MIN_PX = 6;
 
 export function ActivityMeter(props: {
   weeks: Array<{ weekStart: string; points: number }>;
   averagePointsPerWeek: number;
+  variant?: "default" | "compact";
 }) {
   const { t } = useTranslation();
+  const variant = props.variant ?? "default";
+  const isCompact = variant === "compact";
+  const barTrackPx = isCompact ? BAR_TRACK_COMPACT_PX : BAR_TRACK_DEFAULT_PX;
   const hasWeeks = props.weeks.length > 0;
   const totalPoints = props.weeks.reduce((sum, week) => sum + week.points, 0);
   const isEmpty = !hasWeeks || totalPoints <= 0;
@@ -17,14 +22,20 @@ export function ActivityMeter(props: {
   const avgLabel = formatAverage(props.averagePointsPerWeek);
 
   return (
-    <div className="grid gap-2 rounded-panel border border-border0 bg-surfacePanel px-4 py-3">
-      <div className="flex flex-wrap items-center justify-between gap-2">
-        <div className="flex items-center gap-2 text-meta font-semibold text-text1">
-          <Icon icon={Activity} size={16} className="text-accent0" />
-          <span>{t("dashboard.activity")}</span>
+    <div
+      className={
+        isCompact
+          ? "grid min-w-0 gap-1.5 rounded-panel border border-border0 bg-surfacePanel px-2.5 py-2"
+          : "grid gap-2 rounded-panel border border-border0 bg-surfacePanel px-4 py-3"
+      }
+    >
+      <div className="flex flex-wrap items-center justify-between gap-x-2 gap-y-1">
+        <div className="flex min-w-0 items-center gap-2 text-meta font-semibold text-text1">
+          <Icon icon={Activity} size={isCompact ? 14 : 16} className="shrink-0 text-accent0" />
+          <span className="truncate">{t("dashboard.activity")}</span>
         </div>
         {!isEmpty ? (
-          <span className="text-meta font-medium text-text0">
+          <span className="shrink-0 text-meta font-medium text-text0">
             {t("dashboard.averagePerWeek", { avg: avgLabel })}
           </span>
         ) : null}
@@ -34,31 +45,35 @@ export function ActivityMeter(props: {
         <EmptyState
           className="border-0 bg-transparent p-0"
           title={t("dashboard.activityEmpty.title")}
-          description={t("dashboard.activityEmpty.description")}
+          description={isCompact ? undefined : t("dashboard.activityEmpty.description")}
         />
       ) : (
         <div
-          className="flex items-end gap-2 pt-1"
+          className="flex items-end gap-1.5 pt-0.5"
           role="img"
           aria-label={t("dashboard.averagePerWeek", { avg: avgLabel })}
         >
           {props.weeks.map((week) => {
             const heightPx =
               week.points > 0
-                ? Math.max(BAR_MIN_PX, Math.round((week.points / maxPoints) * BAR_TRACK_PX))
+                ? Math.max(BAR_MIN_PX, Math.round((week.points / maxPoints) * barTrackPx))
                 : 0;
 
             return (
-              <div key={week.weekStart} className="flex min-w-0 flex-1 flex-col items-center gap-1.5">
+              <div key={week.weekStart} className="flex min-w-0 flex-1 flex-col items-center gap-1">
                 <span className="text-[0.65rem] font-medium tabular-nums text-text0">
                   {week.points}
                 </span>
                 <div
                   className="flex w-full items-end justify-center rounded-sm bg-surfaceControl"
-                  style={{ height: BAR_TRACK_PX }}
+                  style={{ height: barTrackPx }}
                 >
                   <div
-                    className="w-full max-w-[2.25rem] rounded-sm bg-accent0"
+                    className={
+                      isCompact
+                        ? "w-full max-w-[1.75rem] rounded-sm bg-accent0 @[22rem]:max-w-[2.25rem]"
+                        : "w-full max-w-[2.25rem] rounded-sm bg-accent0"
+                    }
                     style={{ height: heightPx }}
                     title={t("dashboard.weekPoints", { points: week.points })}
                   />
