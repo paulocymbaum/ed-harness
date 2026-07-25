@@ -1,11 +1,8 @@
 import { useState } from "react";
-import type { ProjectDeliveryEntry, ProjectDeliveryReview } from "../../../../domain/types/projectDelivery";
 import type { ReaderEntry } from "../../../../domain/types/reader";
-import { PROJECT_DELIVERY_PASS_SCORE, passesDeliveryReview } from "../../../../domain/types/projectDelivery";
 import { useProjectDelivery } from "../../../../application/hooks/useProjectDelivery";
 import { useTranslation } from "../../../../application/hooks/useTranslation";
 import { useToastStore } from "../../../../application/stores/toastStore";
-import { formatDeliveryMarkdownForDisplay } from "../../../../application/usecases/formatDeliveryMarkdown";
 import {
   appendStarterToDraft,
   hasProjectStarter,
@@ -13,9 +10,9 @@ import {
 import { canRunProjectDraft } from "../../../../application/usecases/extractStarterIndexFromDraft";
 import { useProjectRun } from "../../../../application/hooks/useProjectRun";
 import { getProjectTestCases, hasProjectTestCases } from "../../../../application/usecases/projectTestCases";
-import { Accordion, Button, Dialog, EmptyState, ErrorPanel, LoadingState, Textarea } from "../../../design-system";
-import { MarkdownView } from "../../../shared/MarkdownView";
+import { Button, Dialog, EmptyState, ErrorPanel, LoadingState, Textarea } from "../../../design-system";
 import { DeliveryPromptToolbar } from "./DeliveryPromptToolbar";
+import { DeliveryHistoryList } from "./DeliveryHistoryList";
 import { ProjectRunAnswerPanel } from "./ProjectRunAnswerPanel";
 
 function humanizeSlug(slug: string): string {
@@ -38,92 +35,6 @@ function parseProjectPath(rootPath: string) {
     topicTitle: humanizeSlug(lessonSlug),
     projectSlug,
   };
-}
-
-function formatDeliveryDate(iso: string): string {
-  try {
-    return new Intl.DateTimeFormat(undefined, {
-      dateStyle: "medium",
-      timeStyle: "short",
-    }).format(new Date(iso));
-  } catch {
-    return iso;
-  }
-}
-
-function deliveryPreview(content: string): string {
-  const line = content.split("\n").find((part) => part.trim()) ?? content;
-  return line.length > 80 ? `${line.slice(0, 80)}…` : line;
-}
-
-function DeliveryReviewBlock(props: { review: ProjectDeliveryReview }) {
-  const { review } = props;
-  const passed = passesDeliveryReview(review.score);
-
-  return (
-    <div
-      className={
-        passed
-          ? "rounded-panel border border-successBorder bg-successFill p-3"
-          : "rounded-panel border border-border0 bg-surfacePanel p-3"
-      }
-    >
-      <div className="mb-2 flex flex-wrap items-center gap-2">
-        <span className="text-body font-semibold text-text0">Score: {review.score}/100</span>
-        {passed ? (
-          <span className="text-meta font-medium text-successText">
-            Passed (above {PROJECT_DELIVERY_PASS_SCORE})
-          </span>
-        ) : (
-          <span className="text-meta text-text1">
-            Needs improvement (pass above {PROJECT_DELIVERY_PASS_SCORE})
-          </span>
-        )}
-      </div>
-      <p className="m-0 mb-2 text-meta text-text1">
-        Reviewed {formatDeliveryDate(review.reviewedAt)}
-      </p>
-      <div className="text-body text-text0">
-        <MarkdownView markdown={review.comment} />
-      </div>
-    </div>
-  );
-}
-
-function DeliveryHistoryItem(props: {
-  entry: ProjectDeliveryEntry;
-  index: number;
-  total: number;
-  defaultOpen?: boolean;
-}) {
-  const { entry, index, total, defaultOpen } = props;
-  const order = total - index;
-  const displayMarkdown = formatDeliveryMarkdownForDisplay(entry.content);
-
-  return (
-    <Accordion
-      defaultOpen={defaultOpen}
-      title={
-        <div className="min-w-0">
-          <p className="truncate text-body font-medium text-text0">
-            {formatDeliveryDate(entry.submittedAt)}
-            {entry.review ? ` · ${entry.review.score}/100` : ""}
-          </p>
-          <p className="truncate text-meta text-text1">
-            Delivery {order} of {total}
-            {order === 1 ? " (latest)" : ""}
-            {" · "}
-            {deliveryPreview(entry.content)}
-          </p>
-        </div>
-      }
-    >
-      <div className="grid gap-3">
-        {entry.review ? <DeliveryReviewBlock review={entry.review} /> : null}
-        <MarkdownView markdown={displayMarkdown} />
-      </div>
-    </Accordion>
-  );
 }
 
 export function ProjectDeliveryPanel(props: {
@@ -179,12 +90,10 @@ export function ProjectDeliveryPanel(props: {
   if (loading) {
     return (
       <div className="p-4">
-        <LoadingState message="Loading deliveries…" />
+        <LoadingState message={t("delivery.loading")} />
       </div>
     );
   }
-
-  const reversed = [...deliveries].reverse();
 
   const handlePasteLatest = () => {
     if (!latestDelivery) return;
@@ -197,11 +106,9 @@ export function ProjectDeliveryPanel(props: {
       <div className="flex flex-col gap-4">
         <div>
           <label htmlFor="project-delivery-draft" className="mb-2 block text-body font-medium text-text0">
-            Write your project delivery
+            {t("delivery.writeHeading")}
           </label>
-          <p className="mb-3 text-meta text-text1">
-            Free text or markdown. Each save adds a new version to your delivery history.
-          </p>
+          <p className="mb-3 text-meta text-text1">{t("delivery.writeHint")}</p>
           <div className="mb-3">
             <DeliveryPromptToolbar {...promptContext} />
           </div>
@@ -211,7 +118,7 @@ export function ProjectDeliveryPanel(props: {
             className="min-h-[14rem]"
             value={draft}
             onChange={(event) => setDraft(event.target.value)}
-            placeholder="Describe what you built, decisions you made, trade-offs, and how to run your solution…"
+            placeholder={t("delivery.placeholder")}
           />
           {showRunAnswer ? (
             <ProjectRunAnswerPanel
@@ -282,32 +189,17 @@ export function ProjectDeliveryPanel(props: {
         </Dialog>
 
         {error && error !== "Saved locally; dev server unavailable for disk sync" ? (
-          <ErrorPanel title="Could not load deliveries" message={error} />
+          <ErrorPanel title={t("reader.loadDeliveriesError")} message={error} />
         ) : null}
 
-        <div>
-          <h3 className="mb-3 text-body font-medium text-text0">
-            Previous deliveries ({deliveries.length})
-          </h3>
-          {deliveries.length === 0 ? (
-            <EmptyState
-              title="No deliveries yet"
-              description="Your saved versions will appear here after you click Save delivery."
-            />
-          ) : (
-            <div className="flex flex-col gap-2">
-              {reversed.map((entry, index) => (
-                <DeliveryHistoryItem
-                  key={entry.id}
-                  entry={entry}
-                  index={index}
-                  total={deliveries.length}
-                  defaultOpen={index === 0}
-                />
-              ))}
-            </div>
-          )}
-        </div>
+        {deliveries.length === 0 ? (
+          <EmptyState
+            title={t("delivery.emptyTitle")}
+            description={t("delivery.emptyDescription")}
+          />
+        ) : (
+          <DeliveryHistoryList deliveries={deliveries} />
+        )}
       </div>
     </div>
   );

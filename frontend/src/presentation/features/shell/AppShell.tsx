@@ -17,6 +17,7 @@ export function AppShell(props: {
   children: ReactNode;
   /** Compact full-bleed shell for lesson quiz/project focus pages. */
   variant?: "default" | "foco";
+  showPomodoro?: boolean;
 }) {
   const theme = useThemeStore((s) => s.theme);
   const locale = useLocaleStore((s) => s.locale);
@@ -35,7 +36,7 @@ export function AppShell(props: {
 
   return (
     <div className="flex h-dvh flex-col overflow-hidden text-text0" data-theme={theme}>
-      <AppTopBar />
+      <AppTopBar showPomodoro={props.showPomodoro} />
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-14 focus:z-50 focus:rounded-panel focus:bg-surfaceControl focus:px-3 focus:py-2"

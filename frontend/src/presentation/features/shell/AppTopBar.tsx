@@ -4,7 +4,9 @@ import { LanguageSelector } from "./LanguageSelector";
 import { PomodoroHeaderControl } from "./PomodoroHeaderControl";
 import { ThemeToggle } from "./ThemeToggle";
 
-export function AppTopBar() {
+export function AppTopBar(props: { showPomodoro?: boolean }) {
+  const showPomodoro = props.showPomodoro !== false;
+
   return (
     <div
       className="relative z-50 shrink-0 overflow-visible border-b border-border0 bg-glassFillStrong backdrop-blur-[var(--blur-2)]"
@@ -14,7 +16,7 @@ export function AppTopBar() {
         <BrandMark />
         <div className="flex shrink-0 items-center gap-2">
           <LanguageSelector />
-          <PomodoroHeaderControl />
+          {showPomodoro ? <PomodoroHeaderControl /> : null}
           <ThemeToggle />
         </div>
       </Container>

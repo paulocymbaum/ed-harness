@@ -8,6 +8,7 @@ import {
 import {
   getModuleDisplayIndex,
   groupLessonsBySection,
+  isFlatLessonSection,
 } from "../../../../../application/selectors/lessonDisplay";
 import { useLessonActivityItems } from "../../../../../application/hooks/useLessonActivityItems";
 import { useLessonScore } from "../../../../../application/hooks/useLessonScore";
@@ -31,7 +32,7 @@ export function ModuleContentsNav() {
   const moduleIndex = getModuleDisplayIndex(mod);
 
   return (
-    <nav className="flex min-h-0 flex-1 flex-col" aria-label={t("module.contentsAria")}>
+    <nav className="flex min-h-0 min-w-0 flex-1 flex-col" aria-label={t("module.contentsAria")}>
       <ModulePanelHeader
         meta={t("module.contentsMeta")}
         indexLabel={moduleIndex}
@@ -42,30 +43,59 @@ export function ModuleContentsNav() {
         onClick={navigation.openModuleContext}
       />
 
-      <div className="min-h-0 flex-1 overflow-auto p-2">
-        {lessonSections.map((section) => (
-          <ModuleSectionNavItem
-            key={section.sectionKey}
-            courseId={courseId}
-            moduleId={moduleId}
-            course={course}
-            sectionKey={section.sectionKey}
-            sectionLabel={section.sectionLabel}
-            lessons={section.lessons}
-            activeLessonId={activeLessonId}
-            activeQuizId={activeQuizId}
-            activeProjectId={activeProjectId}
-            defaultOpen={
-              section.lessons.some((lesson) => lesson.id === activeLessonId) ||
-              section.sectionKey === lessonSections[0]?.sectionKey
-            }
-            onOpenLesson={(lessonId) => navigation.openLesson(lessonId)}
-            onOpenQuiz={(lessonId, quizId) => navigation.openLessonQuiz(lessonId, quizId)}
-            onOpenProject={(lessonId, projectId) =>
-              navigation.openLessonProject(lessonId, projectId)
-            }
-          />
-        ))}
+      <div className="min-h-0 min-w-0 flex-1 overflow-x-hidden overflow-y-auto p-2">
+        {lessonSections.map((section) => {
+          const flat = isFlatLessonSection(section);
+          const lesson = section.lessons[0];
+
+          if (flat && lesson) {
+            return (
+              <ModuleLessonNavItem
+                key={lesson.id}
+                courseId={courseId}
+                moduleId={moduleId}
+                course={course}
+                lesson={lesson}
+                isActiveLesson={lesson.id === activeLessonId}
+                activeQuizId={lesson.id === activeLessonId ? activeQuizId : null}
+                activeProjectId={lesson.id === activeLessonId ? activeProjectId : null}
+                defaultOpen={
+                  lesson.id === activeLessonId ||
+                  section.sectionKey === lessonSections[0]?.sectionKey
+                }
+                onOpenLesson={() => navigation.openLesson(lesson.id)}
+                onOpenQuiz={(quizId) => navigation.openLessonQuiz(lesson.id, quizId)}
+                onOpenProject={(projectId) =>
+                  navigation.openLessonProject(lesson.id, projectId)
+                }
+              />
+            );
+          }
+
+          return (
+            <ModuleSectionNavItem
+              key={section.sectionKey}
+              courseId={courseId}
+              moduleId={moduleId}
+              course={course}
+              sectionKey={section.sectionKey}
+              sectionLabel={section.sectionLabel}
+              lessons={section.lessons}
+              activeLessonId={activeLessonId}
+              activeQuizId={activeQuizId}
+              activeProjectId={activeProjectId}
+              defaultOpen={
+                section.lessons.some((item) => item.id === activeLessonId) ||
+                section.sectionKey === lessonSections[0]?.sectionKey
+              }
+              onOpenLesson={(lessonId) => navigation.openLesson(lessonId)}
+              onOpenQuiz={(lessonId, quizId) => navigation.openLessonQuiz(lessonId, quizId)}
+              onOpenProject={(lessonId, projectId) =>
+                navigation.openLessonProject(lessonId, projectId)
+              }
+            />
+          );
+        })}
       </div>
     </nav>
   );
@@ -110,6 +140,7 @@ function ModuleSectionNavItem(props: {
           activeQuizId={lesson.id === props.activeLessonId ? props.activeQuizId : null}
           activeProjectId={lesson.id === props.activeLessonId ? props.activeProjectId : null}
           defaultOpen={lesson.id === props.activeLessonId}
+          hideIndex={false}
           onOpenLesson={() => props.onOpenLesson(lesson.id)}
           onOpenQuiz={(quizId) => props.onOpenQuiz(lesson.id, quizId)}
           onOpenProject={(projectId) => props.onOpenProject(lesson.id, projectId)}
@@ -128,6 +159,7 @@ function ModuleLessonNavItem(props: {
   activeQuizId: string | null;
   activeProjectId: string | null;
   defaultOpen?: boolean;
+  hideIndex?: boolean;
   onOpenLesson: () => void;
   onOpenQuiz: (quizId: string) => void;
   onOpenProject: (projectId: string) => void;
@@ -155,6 +187,7 @@ function ModuleLessonNavItem(props: {
       activeQuizId={props.activeQuizId}
       activeProjectId={props.activeProjectId}
       defaultOpen={props.defaultOpen}
+      hideIndex={props.hideIndex}
       onOpenLesson={props.onOpenLesson}
       onOpenQuiz={props.onOpenQuiz}
       onOpenProject={props.onOpenProject}

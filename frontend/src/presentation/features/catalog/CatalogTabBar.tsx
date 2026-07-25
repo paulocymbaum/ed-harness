@@ -1,5 +1,6 @@
 import { BookOpenText, Map } from "lucide-react";
 import type { ReactNode } from "react";
+import { useTranslation } from "../../../application/hooks/useTranslation";
 import { Icon, Tabs } from "../../design-system";
 
 export type CatalogTab = "courses" | "content-map";
@@ -13,9 +14,10 @@ export function CatalogTabBar(props: {
   onValueChange: (tab: CatalogTab) => void;
   trailing?: ReactNode;
 }) {
+  const { t } = useTranslation();
   const tabItems = [
-    { value: "courses" as const, label: "Courses", icon: <Icon icon={BookOpenText} /> },
-    { value: "content-map" as const, label: "Content Map", icon: <Icon icon={Map} /> },
+    { value: "courses" as const, label: t("catalog.tabCourses"), icon: <Icon icon={BookOpenText} /> },
+    { value: "content-map" as const, label: t("catalog.tabContentMap"), icon: <Icon icon={Map} /> },
   ];
 
   return (

@@ -41,7 +41,9 @@ export function CourseCard(props: { course: Course; courseId: string; onOpen: ()
             )}
             <span>{t("catalog.projects", { count: course.projects.length })}</span>
             <span>{t("catalog.quizzes", { count: course.quizzes.length })}</span>
-            {course.structure === "legacy" ? <span className="text-text2">legacy</span> : null}
+            {course.structure === "legacy" ? (
+              <span className="text-text2">{t("catalog.legacyLabel")}</span>
+            ) : null}
             <CourseScoreBadge courseId={props.courseId} course={course} />
           </div>
         </div>

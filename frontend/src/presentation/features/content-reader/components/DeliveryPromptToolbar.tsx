@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ClipboardCheck, Lightbulb } from "lucide-react";
+import { useTranslation } from "../../../../application/hooks/useTranslation";
 import { Button, Icon } from "../../../design-system";
 import { copyToClipboard } from "../../../shared/utils/copyToClipboard";
 import {
@@ -9,29 +10,30 @@ import {
 } from "./deliveryPrompts";
 import { PROJECT_DELIVERY_PASS_SCORE } from "../../../../domain/types/projectDelivery";
 
-const PROMPTS = {
-  review: {
-    icon: ClipboardCheck,
-    label: "Project correction",
-    tooltip: `Copy a Cursor prompt to grade your delivery against acceptance criteria (review-course-project). Passing score is above ${PROJECT_DELIVERY_PASS_SCORE}.`,
-    build: buildReviewCursorPrompt,
-  },
-  socratic: {
-    icon: Lightbulb,
-    label: "Contextual explanation",
-    tooltip:
-      "Copy a Cursor prompt for Socratic hints on module concepts — guides you with questions, not full solutions (teacher-socratic).",
-    build: buildSocraticCursorPrompt,
-  },
-} as const;
+type PromptKind = "review" | "socratic";
 
 function DeliveryPromptButton(props: {
-  kind: keyof typeof PROMPTS;
+  kind: PromptKind;
   context: DeliveryPromptContext;
 }) {
-  const config = PROMPTS[props.kind];
+  const { t } = useTranslation();
   const [copied, setCopied] = useState(false);
   const [copyError, setCopyError] = useState(false);
+
+  const config =
+    props.kind === "review"
+      ? {
+          icon: ClipboardCheck,
+          label: t("reader.projectCorrection"),
+          tooltip: t("delivery.correctionTooltip", { threshold: PROJECT_DELIVERY_PASS_SCORE }),
+          build: buildReviewCursorPrompt,
+        }
+      : {
+          icon: Lightbulb,
+          label: t("reader.contextualExplanation"),
+          tooltip: t("delivery.explanationTooltip"),
+          build: buildSocraticCursorPrompt,
+        };
 
   const handleCopy = async () => {
     setCopyError(false);
@@ -60,12 +62,12 @@ function DeliveryPromptButton(props: {
       </Button>
       {copied ? (
         <span className="absolute left-0 top-full z-10 mt-1 whitespace-nowrap rounded-panel border border-successBorder bg-successFill px-2 py-1 text-meta text-successText">
-          Copied to clipboard
+          {t("delivery.promptCopied")}
         </span>
       ) : null}
       {copyError ? (
         <span className="absolute left-0 top-full z-10 mt-1 max-w-[14rem] rounded-panel border border-dangerBorder bg-dangerFill px-2 py-1 text-meta text-dangerText">
-          Could not copy — select text manually.
+          {t("delivery.promptCopyFailed")}
         </span>
       ) : null}
     </div>
@@ -73,9 +75,11 @@ function DeliveryPromptButton(props: {
 }
 
 export function DeliveryPromptToolbar(props: DeliveryPromptContext) {
+  const { t } = useTranslation();
+
   return (
     <div className="flex flex-wrap items-center gap-2">
-      <span className="text-meta text-text1">Cursor prompts:</span>
+      <span className="text-meta text-text1">{t("delivery.promptsHeading")}</span>
       <DeliveryPromptButton kind="socratic" context={props} />
       <DeliveryPromptButton kind="review" context={props} />
     </div>

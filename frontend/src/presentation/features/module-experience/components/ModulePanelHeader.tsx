@@ -31,9 +31,13 @@ export function ModulePanelHeader(props: {
         </span>
       ) : null}
       <span className="min-w-0 flex-1">
-        <span className="block truncate text-body font-semibold text-text0">{props.title}</span>
+        <span className="block text-body font-semibold leading-snug text-text0 [overflow-wrap:anywhere]">
+          {props.title}
+        </span>
         {props.subtitle ? (
-          <span className="block truncate text-meta text-text1">{props.subtitle}</span>
+          <span className="mt-0.5 block text-meta leading-snug text-text1 [overflow-wrap:anywhere]">
+            {props.subtitle}
+          </span>
         ) : null}
       </span>
       {props.trailing}
